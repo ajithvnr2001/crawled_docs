@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-bq-connector/
 title: Create a BigQuery Sink connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:37.915308+00:00
+fetched_at: 2026-10-30T05:54:44.301171+00:00
 ---
 
 # Create a BigQuery Sink connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -56,9 +56,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 ### Grant permissions to write to the BigQuery table
 
-The Managed Kafka service account must have permission to write messages to the BigQuery table. Grant the **BigQuery Data Editor** (`roles/bigquery.dataEditor`) role to the service account on the project containing the table.
-
-The Managed Kafka service account has the following format: `service-PROJECT_NUMBER@gcp-sa-managedkafka.iam.gserviceaccount.com`, where PROJECT_NUMBER is the project number of the Connect cluster.
+The [Managed Kafka Service Agent](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/access-control#service-agent) must have permission to write messages to the BigQuery table. Grant the service agent the BigQuery Data Editor (`roles/bigquery.dataEditor`) role on the project that contains the table.
 
 If your Connect cluster is in a different project from your Managed Service for Apache Kafka cluster, see [ Create a Connect cluster in a different project](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-connect-cluster#create-a-connect-cluster-in-a-different-project).
 
@@ -585,6 +583,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

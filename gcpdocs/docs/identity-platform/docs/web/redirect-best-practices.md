@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/redirect-best-practices/
 title: Best practices for using signInWithRedirect on browsers that block third-party storage access \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:46.467086+00:00
+fetched_at: 2026-10-30T05:50:30.744851+00:00
 ---
 
 # Best practices for using signInWithRedirect on browsers that block third-party storage access  |  Identity Platform  |  Google Cloud Documentation
@@ -146,12 +146,12 @@ Hosting the helper code has the following steps:
 
   2. Host the above files under your app domain. Ensure that your web server can respond to `https://<app domain>/__/auth/<filename>` and `https://<app domain>/__/firebase/init.json`.
 
-Here is a [sample server implementation](https://go.dev/play/p/yvHmY9Bd50N) that downloads and hosts the files. We recommend downloading and syncing the files periodically to ensure that the latest bug fixes and features are picked up.
+Here is a [sample server implementation](https://go.dev/play/p/yvHmY9Bd50N) that downloads and hosts the files.
 
   3. Follow the steps in Option 1 to update authorized `redirect_uri` and your `authDomain`. Once you re-deploy your app, the cross-origin storage access should no longer happen.
 
 
-
+**Important:** If you use this option, it's important to periodically download and sync the files to ensure that the latest bug fixes and features are picked up. In particular, several important fixes were pushed in Q3 2026. If you haven't synchronized your hosted files since then, you should do so.
 
 ## Option 5: Handle provider sign-in independently
 
@@ -185,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

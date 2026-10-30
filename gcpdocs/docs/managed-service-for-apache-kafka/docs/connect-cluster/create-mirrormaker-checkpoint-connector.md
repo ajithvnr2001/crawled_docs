@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-mirrormaker-checkpoint-connector/
 title: Create a MirrorMaker 2.0 Checkpoint connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:21:52.871319+00:00
+fetched_at: 2026-10-30T05:50:39.929123+00:00
 ---
 
 # Create a MirrorMaker 2.0 Checkpoint connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -114,7 +114,7 @@ Here is an example of a configuration file for a MirrorMaker 2.0 Checkpoint conn
     
     connector.class: "org.apache.kafka.connect.mirror.MirrorCheckpointConnector"
     emit.checkpoints.interval.seconds: "CHECKPOINT_INTERVAL"
-    groups: ".*"
+    groups: "CONSUMER_GROUP_LIST"
     groups.exclude: "console-consumer-.*,connect-.*,__.*"
     source.cluster.alias: "source"
     source.cluster.bootstrap.servers: "SOURCE_CLUSTER_BOOTSTRAP_ADDRESS"
@@ -128,6 +128,8 @@ Here is an example of a configuration file for a MirrorMaker 2.0 Checkpoint conn
 Replace the following:
 
   * `CHECKPOINT_INTERVAL`: How often to write checkpoints, in seconds.
+
+  * `CONSUMER_GROUP_LIST`. A comma-separated list of consumer groups whose offsets are replicated. The list can include regular expressions.
 
   * `SOURCE_CLUSTER_BOOTSTRAP_ADDRESS`: The bootstrap address of the source Kafka cluster.
 
@@ -177,6 +179,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

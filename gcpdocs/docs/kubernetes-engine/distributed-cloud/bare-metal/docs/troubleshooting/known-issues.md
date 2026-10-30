@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues/
 title: Google Distributed Cloud for bare metal known issues \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:59:43.840985+00:00
+fetched_at: 2026-10-30T05:50:17.492664+00:00
 ---
 
 # Google Distributed Cloud for bare metal known issues  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,11 @@ Send feedback
 
 #  Google Distributed Cloud for bare metal known issues Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page lists all known issues for Distributed Cloud software only for bare metal (formerly known as Google Distributed Cloud Virtual, previously known as Anthos clusters on bare metal).
+Known issues for Distributed Cloud software only for bare metal highlight unexpected behaviors and available workarounds.
 
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure, and respond to alerts and pages when service level objectives (SLOs) aren't met or applications fail. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+If you're part of the Google Developer Program, you can save this document to receive notifications when related release notes are published. To learn more, see [Saved Pages](https://developers.google.com/profile/help/saved-pages).
 
-If you're part of the Google Developer Program, save this page to receive notifications when a release note related to this page is published. To learn more, see [Saved Pages](https://developers.google.com/profile/help/saved-pages).
+**Note:** Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
 
 To filter the known issues by a product version or category, select your filters from the following drop-down menus.
 
@@ -409,7 +409,7 @@ If this issue impacts your cluster, the output shows that the `cilium-agent` (al
 
 
 **Note:** For future upgrades, you must add the new target version to the `anthosBareMetalVersions` list in the custom resource to maintain this fix.  
-Logging and monitoring | 1.33 and later | 
+Logging and monitoring | 1.33, 1.34.0-1.34.600, and 1.35.0-1.35.200 | 
 
 ### Metrics API becomes unavailable after CA rotation
 
@@ -425,7 +425,7 @@ Following a Certificate Authority (CA) rotation in your cluster, the Metrics API
 
 
   
-**Cause:** This issue is caused by a synchronization delay during an automated CA rotation. When the CA is renewed, the Kubernetes API server immediately updates its trust bundle. However, the `metrics-server` pod might continue serving its older leaf certificate for a period of time. Because the API server no longer trusts the old CA, it rejects the connection from the metrics server.   
+**Cause:** This issue is caused by a synchronization delay during an automated CA rotation. When the CA is renewed, the Kubernetes API server immediately updates its trust bundle. However, the `metrics-server` pod might continue serving its older leaf certificate for a period of time. Because the API server no longer trusts the old CA, it rejects the connection from the metrics server. This issue is fixed in versions 1.34.700-gke.93 and later, 1.35.300-gke.87 and later, and all 1.36 and later versions.   
 **Workaround:** You can mitigate this issue by manually forcing a certificate refresh for the metrics server.
 
   1. Delete the `metrics-server-cert` secret to force regeneration:
@@ -3726,6 +3726,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage/
 title: Restrict endpoint usage \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:51.095209+00:00
+fetched_at: 2026-10-30T05:51:45.208328+00:00
 ---
 
 # Restrict endpoint usage  |  Security  |  Google Cloud Documentation
@@ -888,6 +888,38 @@ Continuous Validation API  |  Global API endpoints:
 
   
 |  None   
+Dialogflow CX  |  Global API endpoints: 
+
+  * `dialogflow.googleapis.com`
+
+  
+  
+Locational API endpoints: 
+
+  * `asia-northeast1-dialogflow.googleapis.com`
+  * `asia-northeast3-dialogflow.googleapis.com`
+  * `asia-south1-dialogflow.googleapis.com`
+  * `asia-southeast1-dialogflow.googleapis.com`
+  * `asia-southeast2-dialogflow.googleapis.com`
+  * `australia-southeast1-dialogflow.googleapis.com`
+  * `eu-dialogflow.googleapis.com`
+  * `europe-west1-dialogflow.googleapis.com`
+  * `europe-west2-dialogflow.googleapis.com`
+  * `europe-west3-dialogflow.googleapis.com`
+  * `europe-west4-dialogflow.googleapis.com`
+  * `europe-west6-dialogflow.googleapis.com`
+  * `europe-west8-dialogflow.googleapis.com`
+  * `me-central2-dialogflow.googleapis.com`
+  * `me-west1-dialogflow.googleapis.com`
+  * `northamerica-northeast1-dialogflow.googleapis.com`
+  * `northamerica-northeast2-dialogflow.googleapis.com`
+  * `us-central1-dialogflow.googleapis.com`
+  * `us-dialogflow.googleapis.com`
+  * `us-east1-dialogflow.googleapis.com`
+  * `us-west1-dialogflow.googleapis.com`
+
+  
+|  None   
 Data Labeling API  |  Global API endpoints: 
 
   * `datalabeling.googleapis.com`
@@ -1574,6 +1606,13 @@ Model Armor  |  Global API endpoints:
 Network Connectivity Center  |  Global API endpoints: 
 
   * `networkconnectivity.googleapis.com`
+
+  
+|  None   
+NCC Gateway  |  Global API endpoints: 
+
+  * `networkconnectivity.googleapis.com`
+  * `networksecurity.googleapis.com`
 
   
 |  None   

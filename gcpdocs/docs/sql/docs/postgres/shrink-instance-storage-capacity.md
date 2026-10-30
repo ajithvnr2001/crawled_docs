@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/shrink-instance-storage-capacity/
 title: Shrink instance storage capacity \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:46.050458+00:00
+fetched_at: 2026-10-30T05:41:57.514008+00:00
 ---
 
 # Shrink instance storage capacity  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ The following steps are the same for primary instances and read replicas.
 
   1. Check the target minimum storage capacity of the instance and the estimated operation time. This information can help you plan your storage shrink operation.
 
-**Note:** This capability is unavailable for read replicas. Read replica storage capacity typically matches its associated primary instance.
+**Note:** You can't check the target minimum storage capacity for read replicas. Read replica storage capacity typically matches its associated primary instance.
 
 ### gcloud
 
@@ -250,7 +250,7 @@ The response also returns a message with an estimated operation time, similar to
 
   2. Shrink storage capacity of the instance.
 
-**Note:** The `--storage-size` flag is only supported for primary or standalone instances. You can't set a target storage size for a replica instance.
+**Note:** The `--storage-size` parameter is only supported for primary or standalone instances. To shrink storage on a replica instance, omit the `--storage-size` parameter in the command.
 
 ### gcloud
 
@@ -678,6 +678,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

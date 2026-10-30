@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:59:54.334187+00:00
+fetched_at: 2026-10-30T05:41:25.910232+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,194 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## October 29, 2026
+
+**AlloyDB for PostgreSQL**
+
+Feature
+
+AlloyDB AI adds pre-registered support for the following Gemini models in version 1.6.5 and later of the `google_ml_integration` extension:
+
+  * `gemini-3.1-flash-lite`
+  * `gemini-3.5-flash`
+  * `gemini-3.5-flash-lite`
+  * `gemini-3.6-flash`
+  * `gemini-3.7-flash`
+  * `gemini-3.8-flash`
+  * `gemini-4-argon`
+
+
+
+Version 1.6.5 of the `google_ml_integration` extension sets `gemini-3.5-flash-lite` as the default Gemini model and removes the `gemini-2.0-flash`, `gemini-2.0-flash-lite`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`, and `gemini-2.5-pro` models from the list of pre-registered models.
+
+Additionally, AlloyDB AI adds pre-registered support for the `semantic-ranker-512` reranking model.
+
+For more information, see [Pre-registered Agent Platform models](https://docs.cloud.google.com/alloydb/docs/reference/supported-ai-models#pre-registered-models).
+
+**Anti Money Laundering AI**
+
+Announcement
+
+New minor engine version released for the retail line of business within the `v004.011` version line (`aml-retail.default.v004.011.202610-000`). This version extends support for the major engine version and includes no significant changes compared to the previous minor version.
+
+**Dataflow**
+
+Feature
+
+Dataflow has added the following features to tune horizontal autoscaling for Streaming Engine jobs:
+
+  * Latency tiers: You can configure the backlog threshold by choosing a latency tier (`low_latency`, `medium_latency`, or `high_latency`), allowing you to configure the autoscaler's sensitivity to backlog duration and balance latency requirements with resource costs. For more information, see [Set the latency tier](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#latency-tier).
+  * Autoscaling schedules: You can configure recurring autoscaling schedules to automatically apply parameter overrides—such as minimum and maximum workers, worker utilization hints, or latency tiers—during specific time windows. For more information, see [Schedule autoscaling changes](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#scheduled-autoscaling).
+
+
+
+You can configure these features when you create a job or update them while the job is running.
+
+**Dialogflow**
+
+Security
+
+**Dialogflow ES** : The Dialogflow ES [LINE integration](https://docs.cloud.google.com/dialogflow/es/docs/integrations/line#signature-verification) validates the `X-Line-Signature` HTTP header on incoming webhook requests using your LINE channel secret and rejects requests with missing, duplicate, or invalid signatures with an HTTP `400 Bad Request` error. Make sure your configured channel secret matches your LINE Messaging API channel and that any intermediate proxy forwards the `X-Line-Signature` header and raw request body unmodified.
+
+**Google Kubernetes Engine**
+
+Feature
+
+Managed OpenTelemetry for GKE is generally available (GA) on clusters running GKE version 1.37.1-gke.1697000 or later. You can collect OpenTelemetry Protocol (OTLP) traces, metrics, and logs from your workloads with a Google-managed collector instead of a self-managed OpenTelemetry Collector deployment:
+
+  * Configure `otlp_grpc` in the Instrumentation custom resource (GKE version 1.37.1-gke.1697000 or later), or send telemetry directly to the in-cluster collector's gRPC endpoint on port 4317 in addition to HTTP on port 4318.
+  * The managed collector routes logs alongside traces and metrics through the Cloud Telemetry API (`telemetry.googleapis.com`), with improved per-signal queueing and autoscaling for high-throughput clusters. (Logs ingested through `telemetry.googleapis.com` default to the `otlp` log name instead of `gke-managed-otel-collector`.)
+  * [Multimodal prompts and responses collection](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#multimodal-prompts-responses) for LangGraph ReAct and Agent Development Kit (ADK) agents, the `--managed-otel-scope` flag in the `gcloud` CLI (version 576.0.0 or later), and `managed_opentelemetry_config` in `terraform-provider-google` (v8.8.0 or later) are generally available.
+
+
+
+To use the GA collector and features, upgrade clusters from earlier Preview versions to 1.37.1-gke.1697000 or later. For architecture details and setup instructions, see [Managed OpenTelemetry for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke) and [Deploy Managed OpenTelemetry for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke).
+
+**Identity and Access Management**
+
+Feature
+
+The Admin (`roles/admin`), Writer (`roles/writer`), and Reader (`roles/reader`) basic roles are generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Basic roles](https://docs.cloud.google.com/iam/docs/roles-overview#basic).
+
+The legacy basic roles—Owner (`roles/owner`), Editor (`roles/editor`), and Viewer (`roles/viewer`)—are still available for use and are being actively maintained. However, if you need to grant a basic role, we recommend granting the Admin, Writer, or Reader role instead of a legacy basic role. This is because the newer roles support additional features, such as the use of [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview).
+
+**Looker**
+
+Announcement
+
+Beginning October 26, 2026, the following features will be automatically enabled for Looker (original) and Looker (Google Cloud core) instances running Looker 26.20.
+
+Feature
+
+The ability to [generate a summary of an Explore by using Gemini assistance](https://docs.cloud.google.com/looker/docs/explore-summary-gemini) is now generally available.
+
+Feature
+
+The [bullet chart](https://docs.cloud.google.com/looker/docs/bullet-options) visualization type is now generally available. Bullet charts let you evaluate a single primary metric's performance as one or more bars and mark your goal with a target line. You can plot both against shaded background ranges that represent performance thresholds, such as "poor," "satisfactory," and "good." For more information, see [Bullet chart options](https://docs.cloud.google.com/looker/docs/bullet-options).
+
+Feature
+
+Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
+
+Feature
+
+The **Table Row Grouping** feature and the [**Grouping** menu options](https://docs.cloud.google.com/looker/docs/table-options#grouping-menu-options) are now generally available. The **Grouping** menu options let you display and customize the appearance of table chart data hierarchically in groups.
+
+Feature
+
+The [**Visualization Assistant**](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) is now generally available.
+
+Feature
+
+Two new legacy features, [**Use Legacy Explore and Merge Query Experience**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience) and [**Use Legacy Explore and Merge Query Experience for Embed**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience_for_embed), are now available for Looker (original) and Looker (Google Cloud core) instances. These features let administrators configure Explores and merged queries to open in the classic experience by default across an instance or in embedded contexts. For more information, see [Legacy feature schedule](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule).
+
+Feature
+
+Looker now includes a new [histogram chart](https://docs.cloud.google.com/looker/docs/histogram-options) visualization option. A histogram chart is a graphical representation of the data distribution of an attribute. A histogram creates intervals (bins) and counts how many values fall into each bin.
+
+Feature
+
+The [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) chart type is now generally available. The KPI (Single Value) chart type replaces the Single Value chart type.
+
+Feature
+
+The new Looker Explore and merge query experience is now generally available and is the default interface for [Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and for [joining data from multiple queries](https://docs.cloud.google.com/looker/docs/merged-results).
+
+Feature
+
+When you enter values in a string filter on dashboards, Looks, or Explores, clicking **Done** or clicking outside the input field no longer creates a filter chip from uncommitted text. To create a filter chip, press Enter, enter a comma (`,`), or paste values into the input field.
+
+Feature
+
+The new [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups) lets you [organize related tiles into collapsible containers](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#organizing_tiles_into_groups) for improved visual organization. You can move, duplicate, or delete multiple tiles as a single unit on dashboards that use the newspaper layout. This update also adds LookML support for programmatically managing tile groups.
+
+Feature
+
+Now available in [preview](https://cloud.google.com/products#product-launch-stages), the [**Release Changelog**](https://docs.cloud.google.com/looker/docs/release-changelog) gives Looker users and administrators real-time visibility into the features, behavioral changes, and bug fixes that are available for their instance.
+
+Feature
+
+The [**Legacy features** page](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule) is now available in the **Admin** panel for Looker (Google Cloud core) instances. Legacy features that appear on the Looker (Google Cloud core) **Legacy features** page might differ from those that are available on Looker (original) instances. For more information, see [Looker (Google Cloud core) admin settings](https://docs.cloud.google.com/looker/docs/looker-core-admin-looker).
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.22**
+  * Latest version in the No Channel channel: **Looker 26.22**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
+
+Breaking
+
+Some elements of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics) have been renamed. The dashboard layout and capabilities remain the same.
+
+On the **Token usage** tab, the **Conversational Analytics API** value in the **Feature** column and the **Feature Name** filter has been renamed to **Looker API**. This value refers to the Conversational Analytics methods for the Looker API.
+
+This rename might cause a breaking change if you built custom dashboards that reference the former **Feature** column or **Feature Name** filter value.
+
+Change
+
+The **Use Legacy Connections Page** [legacy feature](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) and the legacy database connection workflow have been removed. All database connections now use the connection workflow that is described in [Connecting Looker to your database](https://docs.cloud.google.com/looker/docs/connecting-to-your-db).
+
+**Model Armor**
+
+Feature
+
+Model Armor is available in Brazil (`southamerica-east1`). This region provides data residency compliance for at-rest, in-use, and in-transit data with [limited feature support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#limited-support).
+
+The `southamerica-east1` region supports the following filters:
+
+  * Prompt injection and jailbreak detection
+  * Responsible AI
+  * Sensitive Data Protection
+
+
+
+For more information, see [Locations](https://docs.cloud.google.com/model-armor/locations), [Data residency and endpoints](https://docs.cloud.google.com/model-armor/data-residency), and [Supported features by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region#supported-by-region).
+
+**SAP on Google Cloud**
+
+Announcement
+
+**ABAP SDK for Google Cloud version 1.15 (On-premises or any cloud edition)**
+
+Version 1.15 of the on-premises or any cloud edition of the ABAP SDK for Google Cloud is generally available (GA). This version enhances binary data handling to let you download archived `.msg` files and other binary formats without applying character decoding when you use Cloud Storage as a content repository for SAP.
+
+For more information, see [What's new with the on-premises or any cloud edition of the ABAP SDK for Google Cloud](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/whats-new#version-1-15).
+
+**VPC Service Controls**
+
+Feature
+
+[Preview stage](https://cloud.google.com/products#product-launch-stages) support for the following integration:
+
+  * [App Optimize API](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_app_optimize)
+
+
 
 ## October 28, 2026
 
@@ -118,6 +306,14 @@ Managed replica indexes are supported on instances that are running Cloud SQL fo
 
 For more information, see [Read replica indexes overview](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes) and [Create and manage read replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/create-manage-read-replica-indexes).
 
+**Confidential Space**
+
+Announcement
+
+A new Confidential Space image (261001) is available. This image removes compromised CA certificates from the OS trust store. See the [security bulletin](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/security-bulletins#gcp-2026-071) for more details.
+
+This image also adds support for running workload containers as a non-root user. Workload authors can require non-root execution with the `tee.launch_policy.nonroot_container` launch policy, and workload operators can enable it with the `tee-nonroot-container` metadata variable. For more information, see [Non-root container execution](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-customize-workloads#non-root-container-execution).
+
 **Gemini Enterprise**
 
 Feature
@@ -177,6 +373,103 @@ Following the [March 26, 2025 deprecation announcement](https://docs.cloud.googl
   * **Who is impacted:** This shutdown applies only to non-Enterprise+ customers still provisioned on legacy `chronicle-tla` Google-managed BigQuery datasets (including tenants whose temporary transition exceptions expired in September 2025). Enterprise+ customers and customers using Bring Your Own BigQuery (BYOBQ) exports to customer-managed Google Cloud projects are not impacted.
   * **When:** Decommissioning begins on October 28, 2026.
   * **Action required:** To retain BigQuery access to Google SecOps data, configure [export to a customer-managed BigQuery project (BYOBQ)](https://docs.cloud.google.com/chronicle/docs/reports/export-to-customer-managed-project) or contact your account team to upgrade to Enterprise+.
+
+
+
+**Google SecOps Marketplace**
+
+Feature
+
+**SAP ERP** : Version 1.0
+
+  * New **SAP ERP** integration.
+
+
+
+Feature
+
+**Google Threat Intelligence** : Version 23.0
+
+  * The following new action has been added:
+
+    * **Ask Threat Intelligence Agent**
+
+
+
+Change
+
+**Microsoft Graph Mail Delegated** : Version 27.0
+
+  * Fixed an issue where overflowed alerts were skipped without saving their IDs or marking the emails as read, preventing infinite reprocessing loops and state loss in the following connector:
+
+    * **Microsoft Graph Mail Delegated Connector**
+
+
+
+Change
+
+**Tools** : Version 85.0
+
+  * Fixed an issue where environment names containing ampersands (`&`) weren't properly filtered in the following action:
+
+    * **Get Integration Instances**
+
+
+
+Change
+
+**Wiz** : Version 11.0
+
+  * Fixed inbound and outbound closure reason mappings between Wiz and Google SecOps in the following job:
+
+    * **Wiz and Google SecOps Bi-directional Sync Job**
+  * Updated predefined widgets in the following actions:
+
+    * **Add Comment To Issue**
+    * **Get Blue Agent Analysis**
+    * **Get Issue Details**
+    * **Ignore Issue**
+    * **List Resource Vulnerability Findings**
+    * **Reopen Issue**
+    * **Resolve Issue**
+
+
+
+Change
+
+**Microsoft Graph Mail** : Version 50.0
+
+  * Fixed an issue where overflowed alerts were skipped without saving their IDs or marking the emails as read, preventing infinite reprocessing loops and state loss in the following connector:
+
+    * **Microsoft Graph Mail Connector**
+
+
+
+Change
+
+**Google Chronicle** : Version 99.0
+
+  * Fixed an issue where the connector could stop ingesting alerts when composite detections failed to load or pagination did not progress in the following connector:
+
+    * **Google Chronicle - Chronicle Alerts Connector**
+
+
+
+Change
+
+**Okta** : Version 19.0
+
+  * **Integration** : Updated OAuth authentication scopes to support user management actions.
+
+
+
+Change
+
+**Microsoft 365 Defender** : Version 34.0
+
+  * Added the **Time Frame** , **Start Time** , and **End Time** parameters to support time-based query filtering in the following action:
+
+    * **Execute Custom Query**
 
 
 
@@ -509,6 +802,159 @@ Breaking
 
 Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
 
+**Config Connector**
+
+Announcement
+
+Config Connector version 1.160.0 is now available.
+
+Feature
+
+New Alpha Resources (Direct Reconciler):
+
+  * `CCInsightsAnalysisRule`
+
+    * Manage [Customer Experience Insights analysis rules](https://docs.cloud.google.com/gemini-enterprise-cx/insights/reference/rest/v1/projects.locations.analysisRules) to define rules for analyzing conversational data.
+  * `ConfigDeploymentGroup`
+
+    * Manage [Infrastructure Manager deployment groups](https://docs.cloud.google.com/infrastructure-manager/docs/reference/rest/v1/projects.locations.deploymentGroups) to orchestrate and manage deployments collectively.
+  * `DataLineageProcess`
+
+    * Manage [Knowledge Catalog data lineage processes](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations.processes) to track data origin and movement.
+  * `DataplexDataProduct`
+
+    * Manage [Knowledge Catalog data products](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.dataProducts) to package and share data assets across an enterprise.
+  * `DialogflowKnowledgeBase`
+
+    * Manage [Dialogflow ES knowledge bases](https://docs.cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.locations.knowledgeBases) to provide FAQs and articles for agent answers.
+  * `DiscoveryEngineSchema`
+
+    * Manage [Agent Search schemas](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.schemas) to define document structures and schemas for data stores.
+  * `DiscoveryEngineSession`
+
+    * Manage [Agent Search sessions](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.sessions) to maintain conversation context and history for search and recommendations.
+  * `DiscoveryEngineSitemap`
+
+    * Manage [Agent Search sitemaps](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.siteSearchEngine.sitemaps) to crawl web pages for search data stores.
+  * `ManagedKafkaConnectCluster`
+
+    * Manage [Managed Service for Apache Kafka Connect clusters](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/reference/rest/v1/projects.locations.connectClusters) to run connectors that integrate Apache Kafka with Google Cloud and external systems.
+  * `MigrationCenterPreferenceSet`
+
+    * Manage [Migration Center preference sets](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.preferenceSets) to specify migration preferences and target cloud architecture assumptions.
+  * `MigrationCenterSource`
+
+    * Manage [Migration Center sources](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.sources) to configure data sources for importing asset data.
+  * `NetAppActiveDirectory`
+
+    * Manage [NetApp Volumes Active Directory configurations](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.activeDirectories) to enable SMB and NFS domain-joined authentication.
+  * `NetAppHostGroup`
+
+    * Manage [NetApp Volumes host groups](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.hostGroups) to group client hosts for volume access.
+  * `NetworkConnectivityTransport`
+
+    * Manage [Network Connectivity transports](https://docs.cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest/v1/projects.locations.transports) for connecting network endpoints.
+  * `NetworkSecurityMirroringEndpointGroupAssociation`
+
+    * Manage [Network Security Integration mirroring endpoint group associations](https://docs.cloud.google.com/network-security-integration/docs/reference/rest/v1/projects.locations.mirroringEndpointGroupAssociations) to associate packet mirroring endpoint groups with Virtual Private Cloud (VPC) networks.
+  * `NetworkServicesLBEdgeExtension`
+
+    * Manage [Service Extensions load balancing edge extensions](https://docs.cloud.google.com/service-extensions/docs/reference/rest/v1/projects.locations.lbEdgeExtensions) to customize Cloud CDN and edge proxy traffic processing.
+  * `NetworkServicesLBTrafficExtension`
+
+    * Manage [Service Extensions load balancing traffic extensions](https://docs.cloud.google.com/service-extensions/docs/reference/rest/v1/projects.locations.lbTrafficExtensions) to customize request and response processing in Application Load Balancers.
+  * `NetworkServicesServiceLBPolicy`
+
+    * Manage [Cloud Service Mesh service load balancing policies](https://docs.cloud.google.com/service-mesh/docs/reference/network-services/rest/v1/projects.locations.serviceLbPolicies) to configure fine-grained traffic distribution across backend services.
+  * `SaaSServiceMgmtUnit`
+
+    * Manage [App Lifecycle Manager units](https://docs.cloud.google.com/app-lifecycle-manager/reference/rest/v1/projects.locations.units) to manage SaaS deployment units.
+  * `StorageInsightsReportConfig`
+
+    * Manage [Storage Insights report configurations](https://docs.cloud.google.com/storage/docs/insights/reference/rest/v1/projects.locations.reportConfigs) to generate inventory and audit reports for Cloud Storage buckets.
+  * `WorkloadManagerEvaluation`
+
+    * Manage [Workload Manager evaluations](https://docs.cloud.google.com/workload-manager/docs/reference/rest/v1/projects.locations.evaluations) to scan and evaluate workloads against best-practice rules.
+
+
+
+Feature
+
+New Fields:
+
+  * [`BigtableTable`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/bigtable/bigtabletable)
+
+    * Added support for `spec.columnFamily[].type`.
+  * [`MemorystoreInstance`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/memorystore/memorystoreinstance)
+
+    * Added support for `spec.gcsSource`.
+  * [`MonitoringDashboard`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/monitoring/monitoringdashboard)
+
+    * Added support for `timeSeriesQuery.opsAnalyticsQuery` in dashboard widgets.
+
+
+
+Feature
+
+New Features:
+
+  * Added support for a configurable maximum exponential backoff delay ceiling and retry halting for direct controllers by using the `cnrm.cloud.google.com/backoff-max-delay-in-seconds` annotation.
+  * Updated resource actuation to halt delete operations when the `cnrm.cloud.google.com/actuation-mode` annotation is set to `Paused` on an individual resource.
+
+
+
+Change
+
+Reconciliation Improvements:
+
+Added support for direct reconciliation to more resources, with opt-in behavior. The API is unchanged. To use the direct reconciler, add the `alpha.cnrm.cloud.google.com/reconciler: direct` annotation to the corresponding Config Connector object. The following resources now have direct reconciliation support:
+
+  * [`ComputeNetworkFirewallPolicy`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computenetworkfirewallpolicy)
+
+    * Added support for direct reconciliation (opt-in).
+  * [`ComputeProjectMetadata`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computeprojectmetadata)
+
+    * Added support for direct reconciliation (opt-in).
+  * `FirebaseHostingSite`
+
+    * Added support for direct reconciliation (opt-in).
+  * `NetworkServicesEdgeCacheService`
+
+    * Added support for direct reconciliation (opt-in).
+  * `OSLoginSSHPublicKey`
+
+    * Added support for direct reconciliation (opt-in).
+  * [`SQLSSLCert`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/sql/sqlsslcert)
+
+    * Added support for direct reconciliation (opt-in).
+
+
+
+Fixed
+
+Bug Fixes:
+
+  * [`AlloyDBCluster`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/alloydb/alloydbcluster) ([#13963](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13963))
+
+    * Fixed false-positive diffs on `labels`, `initialUser`, and `network` during takeover and re-reconciliation in the direct controller.
+  * [`ArtifactRegistryRepository`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/artifactregistry/artifactregistryrepository) ([#13873](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13873))
+
+    * Fixed migration diffs on `cleanupPolicies` and `cleanupPolicyDryRun` when switching from the Terraform-based controller to the direct controller.
+  * [`ComputeRouterNAT`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computerouternat) ([#13787](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13787))
+
+    * Fixed creation default and deletion behavior mismatches between the direct controller and the legacy controller.
+  * [`ComputeSecurityPolicy`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computesecuritypolicy) ([#12775](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12775))
+
+    * Fixed an issue where setting `rateLimitOptions.enforceOnKeyConfigs` failed with an API error unless `enforceOnKey: ""` was explicitly specified.
+  * [`EssentialContactsContact`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/essentialcontacts/essentialcontactscontact) ([#13845](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13845))
+
+    * Fixed `409 ALREADY_EXISTS` reconciliation errors by automatically acquiring an existing contact by email.
+  * [`MemorystoreInstance`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/memorystore/memorystoreinstance) ([#13962](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13962))
+
+    * Fixed unwanted drift when `maintenanceVersion` is omitted from the resource configuration by leaving the field unmanaged.
+
+
+
 **Container Optimized OS**
 
 Change
@@ -797,6 +1243,12 @@ Feature
 
 [Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7) is now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for production use on the global endpoint and the US multi-region endpoint.
 
+**Google Cloud Armor**
+
+Feature
+
+Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference). This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+
 **Google Cloud VMware Engine**
 
 Feature
@@ -828,6 +1280,32 @@ Key features include the following:
 
 
 For more information, see [VMware solution on Google Cloud overview](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/overview) and [Compare VMware Engine models](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/compare-models). All future VMware solution release notes can be found on the [VMware solution on Google Cloud release notes](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/release-notes) page.
+
+**Google Distributed Cloud (software only) for bare metal**
+
+Announcement
+
+The release notes for the following versions incorrectly stated that a fix for an issue where Metrics API operation, like `kubectl top`, Horizontal Pod Autoscaling, and Vertical Pod Autoscaling, could fail with TLS verification errors during certificate authority (CA) rotation:
+
+  * [1.33.700-gke.71](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#April_22_2026)
+  * [1.34.300-gke.59](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#April_15_2026)
+  * [1.35.0-gke.525](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#May_6_2026)
+
+
+
+This issue is fixed in the following versions:
+
+  * 1.34.700-gke.93 and later 1.34 patch versions
+  * 1.35.300-gke.87 and later 1.35 patch versions
+  * All 1.36 and later versions
+
+
+
+This issue is not fixed in any 1.33 release as of this writing.
+
+To get the fix, upgrade your clusters to one of these versions.
+
+If you can't upgrade or you use a 1.33 version, see the workaround in [Metrics API becomes unavailable after CA rotation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues#metrics-api-cert-mismatch).
 
 **Google Kubernetes Engine**
 
@@ -2157,6 +2635,23 @@ This release addresses the following issues:
   * Fixed an issue where JSON chat transcripts in external storage contained unredacted message text even when the setting to store unredacted transcripts was disabled.
 
   * Fixed an issue where the **Keep Waiting** label in the overcapacity deflection screen displayed an inconsistent font style compared to other menu options.
+
+
+
+
+**Google SecOps Marketplace**
+
+Change
+
+**GitSync** : Version 54.0
+
+  * (REGRESSIVE) **Integration** : Reverted the Chronicle API refactoring introduced in version 53.0. The integration code is restored to version 52.0.
+
+**Caution:** All deployments must run on version 54.0 or version 52.0. 
+
+If you're currently on version 53.0, roll back to version 52.0 or update to version 54.0, and point the **Branch** parameter back to the previous repository branch.
+
+For instructions, see [Version 53.0 rollback](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
 
 
 
@@ -3613,13 +4108,15 @@ Announcement
 
 The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
 
-  * Latest version in the Regular channel: **Looker 26.20**
+  * Latest version in the Regular channel: **Looker 26.18**
 
 
 
 The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
 
 **Note:** This item was added on October 23, 2026.
+
+**Note:** This item was updated on October 29, 2026, to correct the latest version in the Regular channel to Looker 26.18.
 
 **Managed Service for Apache Airflow**
 
@@ -8020,13 +8517,13 @@ Change
 
 Change
 
-**Gitsync** : Version 53.0
+**GitSync** : Version 53.0
 
   * (REGRESSIVE) **Integration** : Updated to support the latest Chronicle API.
 
-**Important:** Existing users **must** migrate their repository branch and re-export their content after updating. 
+**Important:** **Rolled back in version 54.0.** Due to known synchronization issues in version 53.0, do not use version 53.0. Roll back to **version 52.0** or update to **version 54.0** , which restores the stable version 52.0 baseline. 
 
-For instructions, see [Chronicle API-enabled environment migration](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#chronicle-api-enabled-environment-migration).
+For instructions, see [Version 53.0 rollback and version 52.0 / 54.0 compatibility](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
 
 
 
@@ -20339,18 +20836,10 @@ Change
 
 Agent Platform Workbench instances internal agents now honor custom CA certificates installed on the host OS (e.g. via a custom VM image), fixing TLS certificate verification failures when Google API traffic is routed through a customer-managed proxy.
 
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.99 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-This release contains internal and customer bug fixes.
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

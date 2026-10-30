@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/ranked-search/
 title: Rank search results \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:14.860011+00:00
+fetched_at: 2026-10-30T05:50:41.241318+00:00
 ---
 
 # Rank search results  |  Spanner  |  Google Cloud Documentation
@@ -199,6 +199,8 @@ The scorer algorithm is updated periodically. Each release bundles a set of scor
 
 You can set the default scorer version for your database, or you can specify a version for a specific query.
 
+If you don't specify a scorer version for your database or query, the default scorer version updates automatically when a later version is released.
+
 ### Set the database's default scorer version
 
 You can set the default version of the scorer algorithm for your database. This option determines which version of the scoring algorithm Spanner uses when the `SCORE` function is called without an explicit `version` score option.
@@ -316,6 +318,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

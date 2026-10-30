@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes/
 title: Google Distributed Cloud (software only) for bare metal combined release notes (all minor versions) \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:55:28.033475+00:00
+fetched_at: 2026-10-30T05:42:36.588047+00:00
 ---
 
 # Google Distributed Cloud (software only) for bare metal combined release notes (all minor versions)  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -27,6 +27,34 @@ This document lists production updates to Google Distributed Cloud (software onl
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/anthos-bare-metal-release-notes.xml) directly. 
+
+## October 27, 2026
+
+1.33 & 1.34 & 1.35
+
+Announcement
+
+The release notes for the following versions incorrectly stated that a fix for an issue where Metrics API operation, like `kubectl top`, Horizontal Pod Autoscaling, and Vertical Pod Autoscaling, could fail with TLS verification errors during certificate authority (CA) rotation:
+
+  * [1.33.700-gke.71](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#April_22_2026)
+  * [1.34.300-gke.59](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#April_15_2026)
+  * [1.35.0-gke.525](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#May_6_2026)
+
+
+
+This issue is fixed in the following versions:
+
+  * 1.34.700-gke.93 and later 1.34 patch versions
+  * 1.35.300-gke.87 and later 1.35 patch versions
+  * All 1.36 and later versions
+
+
+
+This issue is not fixed in any 1.33 release as of this writing.
+
+To get the fix, upgrade your clusters to one of these versions.
+
+If you can't upgrade or you use a 1.33 version, see the workaround in [Metrics API becomes unavailable after CA rotation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues#metrics-api-cert-mismatch).
 
 ## October 26, 2026
 
@@ -760,11 +788,19 @@ The following issues were fixed in 1.35.0-gke.525:
   * Fixed an issue where node upgrades could hang indefinitely and bypass the 20-minute maintenance timeout. This issue occurred when a node contained completed pods within a namespace that was in a `Terminating` state. Because the Kubernetes Eviction API rejects operations in terminating namespaces, the cluster controller entered an infinite retry loop. The fix updates the drain process to skip eviction for pods in terminal phases, allowing the upgrade to proceed normally. 
   * Fixed an issue where concurrent tasks on the same node failed when containerd restarts. After the fix, tasks are locked and run sequentially to ensure each task completes successfully before the next begins. Each lock is held for up to 20 minutes or until the task reaches success or failure. To bypass this safety mechanismrun and run tasks concurrently, add the following annotation to your cluster: `baremetal.cluster.gke.io/concurrent-machine-update: "true"`. 
   * Fixed an issue where Metrics API operations—including `kubectl top`, Horizontal Pod Autoscaling, and Vertical Pod Autoscaling could fail with TLS verification errors during certificate authority rotation. This occurred because the leaf certificate was not immediately renewed when the certificate authority was rotated, causing a temporary mismatch between the trusted certificate authority bundle and the certificate presented by the metrics server.
+
+**This item is incorrect.** This fix isn't included in 1.35.0-gke.525. See the entry for [October 27, 2026](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#October_27_2026).
+
   * Fixed an issue where Cluster CA rotation could hang indefinitely on self-managed clusters, with the bmctl command hanging at the "Trust CA Bundle completed in 0/X machines" stage. This occurred due to a state deadlock during the resource pivot operation (moving resources between management and bootstrap clusters). This fix resolves the deadlock, eliminating the need to manually update cluster fields or remove lock ConfigMaps to recover. 
+
   * Fixed an issue where temporary API server connectivity failures (such as network timeouts) caused the system to unnecessarily re-register and redeploy the GKE Connect agent. This fix prevents these temporary errors from resetting manual or system-applied customizations to the agent deployment, improving cluster stability. 
+
   * Fixed an issue where bmctl could fail to capture the full log for long-running operations, resulting in empty or incomplete job logs in the workspace. This occurred because a strict internal timeout stopped log streaming prematurely. The fix ensures that log streaming continues for the full duration of the operation's pod lifecycle. 
+
   * Fixed an issue in the monitoring component of the cluster operator where delete operations could cause the operator to crash if the resource had no annotations. The fix ensures the system properly handles resources with empty annotation maps, preventing the crash. 
+
   * Fixed an issue where the anet-operator could be scheduled to an unreachable node and become stuck in a Pending state, eventually causing networking to fail. This occurred due to overly permissive scheduling rules. The fix restricts scheduling to prevent the operator from running on unreachable nodes and explicitly places it on control plane nodes to ensure reliability.
+
 
 
 
@@ -842,19 +878,12 @@ The following issues were fixed in 1.33.700-gke.71:
   * Fixed an issue where node upgrades could hang indefinitely and bypass the 20-minute maintenance timeout. This issue occurred when a node contained completed pods within a namespace that was in a `Terminating` state. Because the Kubernetes Eviction API rejects operations in terminating namespaces, the cluster controller entered an infinite retry loop. The fix updates the drain process to skip eviction for pods in terminal phases, allowing the upgrade to proceed normally.
   * Fixed an issue where Metrics API operations—including `kubectl top`, Horizontal Pod Autoscaling, and Vertical Pod Autoscaling could fail with TLS verification errors during certificate authority rotation. This occurred because the leaf certificate was not immediately renewed when the certificate authority was rotated, causing a temporary mismatch between the trusted certificate authority bundle and the certificate presented by the metrics server.
 
+**This item is incorrect.** This fix isn't included in 1.33.700-gke.71. See the entry for [October 27, 2026](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#October_27_2026).
+
+
 
 
 ## April 15, 2026
-
-1.34
-
-Announcement
-
-Google Distributed Cloud (software only) for bare metal 1.34.300-gke.59 is now available for download. To upgrade, see [Upgrade clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade). Google Distributed Cloud for bare metal 1.34.300-gke.59 runs on Kubernetes v1.34.3-gke.400.
-
-After a release, it takes approximately 7 to 14 days for the version to become available for installations or upgrades with the GKE On-Prem API clients: the Google Cloud console, the gcloud CLI, and Terraform.
-
-If you use a third-party storage vendor, check the Google Distributed Cloud-ready storage partners document to make sure the storage vendor has already passed the qualification for this release of Google Distributed Cloud for bare metal.
 
 1.34
 
@@ -866,7 +895,20 @@ The following issues were fixed in 1.34.300-gke.59:
   * Cluster and node pool failures are now surfaced in the `RecentFailures` field in the cluster status. This change provides a centralized location for viewing errors from both worker node pools and control plane nodes, improving the troubleshooting and debugging experience. 
   * Fixed an issue where Metrics API operations—including `kubectl top`, Horizontal Pod Autoscaling (HPA), and Vertical Pod Autoscaling (VPA)—could fail with TLS verification errors during CA rotation. 
 
+**This item is incorrect.** This fix isn't included in 1.34.300-gke.59. See the entry for [October 27, 2026](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#October_27_2026).
 
+
+
+
+1.34
+
+Announcement
+
+Google Distributed Cloud (software only) for bare metal 1.34.300-gke.59 is now available for download. To upgrade, see [Upgrade clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade). Google Distributed Cloud for bare metal 1.34.300-gke.59 runs on Kubernetes v1.34.3-gke.400.
+
+After a release, it takes approximately 7 to 14 days for the version to become available for installations or upgrades with the GKE On-Prem API clients: the Google Cloud console, the gcloud CLI, and Terraform.
+
+If you use a third-party storage vendor, check the Google Distributed Cloud-ready storage partners document to make sure the storage vendor has already passed the qualification for this release of Google Distributed Cloud for bare metal.
 
 ## March 27, 2026
 

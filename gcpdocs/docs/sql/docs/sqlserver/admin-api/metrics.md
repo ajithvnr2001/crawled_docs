@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/metrics/
 title: Cloud SQL metrics \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:50:17.784658+00:00
+fetched_at: 2026-10-30T05:42:03.164810+00:00
 ---
 
 # Cloud SQL metrics  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -41,34 +41,34 @@ Connectors Closed Connections
 `CUMULATIVE`, `INT64`, `1`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _The total number of closed connections to Cloud SQL instances._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `status`: Close connections status [success, error].   
 `client/connector/connect_latencies` BETA ** _(project)_**   
 Connectors Connect Latencies   
 `CUMULATIVE`, `DISTRIBUTION`, `ms`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Distribution of the Cloud SQL connector connect latencies._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `client/connector/connection_durations` BETA ** _(project)_**   
 Connectors Connection Duration   
 `CUMULATIVE`, `DISTRIBUTION`, `s`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Distribution of connection duration in seconds between connection open and close._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `client/connector/open_connection_count` BETA ** _(project)_**   
 Connectors Connection Attempt Count   
 `CUMULATIVE`, `INT64`, `1`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Total count of connection attempts made by the connector._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
-`connection_part`: If status is not success, which part of the connection errors out, one of [client_to_proxy, proxy_to_server].   
-`status`: Status of the dial attempt, one of [success, user_error, cache_error, tcp_error, tls_error, auth_error, refresh_failed_error, refresh_expired_error, dns_lookup_error, unkown_error].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
+`connection_part`: If status is not success, which part of the connection errors out, one of [client_to_proxy, proxy_to_server, unknown]. Empty when status is success.   
+`status`: Status of the dial attempt, one of [success, user_error, cache_error, tcp_error, tls_error, auth_error, refresh_failed_error, refresh_expired_error, dns_lookup_error, unknown_error].   
 `client/connector/open_connections` BETA ** _(project)_**   
 Connectors Open Connections   
 `GAUGE`, `INT64`, `1`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Number of currently open connections per language connector client instance._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `database/active_directory/domain_reachable` GA ** _(project)_**   
 Active Directory domain reachable   
 `GAUGE`, `BOOL`, ``   
@@ -155,7 +155,7 @@ Instance state
 `database/memory/components` BETA ** _(project)_**   
 Memory components   
 `GAUGE`, `DOUBLE`, `1`   
-**[cloudsql_database](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql_database)** |  _Memory stats components in percentage as usage, cache and free memory for the database. Sampled every 60 seconds. After sampling, data is not visible for up to 165 seconds._   
+**[cloudsql_database](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql_database)** |  _Memory stats components in percentage as usage, cache, and free memory for the database. The usage component represents memory allocated by database processes, including in-database caches such as PostgreSQL shared_buffers or the MySQL InnoDB buffer pool. The cache component represents memory used by the operating system page cache, which is generally reclaimable and does not necessarily indicate memory pressure when high. The free component represents unused memory. Sampled every 60 seconds. After sampling, data is not visible for up to 165 seconds._   
 `component`: Name of the component, one of [usage, cache and free].   
 `database/memory/quota` GA ** _(project)_**   
 Memory quota   
@@ -1367,7 +1367,7 @@ Pages Swapped Out Count (Semi-managed)
 `CUMULATIVE`, `INT64`, `By`   
 **[cloudsql_database](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql_database)** |  _Total count of pages swapped out of disk since the system was booted._  
   
-Table generated at 2026-10-22 02:44:18 UTC.
+Table generated at 2026-10-29 23:33:54 UTC.
 
 ## What's next
 
@@ -1381,6 +1381,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

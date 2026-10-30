@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order/
 title: Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:26.897843+00:00
+fetched_at: 2026-10-30T06:00:14.942293+00:00
 ---
 
 # Food Ordering AI Agent  |  Google Cloud Documentation
@@ -76,6 +76,9 @@ JSON representation
       "externalOrderId": string,
       "orderPayment": {
         object ([OrderPayment](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#OrderPayment))
+      },
+      "customIntegrationAttributes": {
+        object
       }
     }  
   
@@ -87,6 +90,7 @@ Fields
 `priceInfo` |  `object (`[OrderPriceInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#OrderPriceInfo)`)` Optional. Price information for the order.  
 `externalOrderId` |  `string` Output only. The external identifier for this order. Populated only if a point-of-sale integration is enabled.  
 `orderPayment` |  `object (`[OrderPayment](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#OrderPayment)`)` Optional. The payment state associated with this order.  
+`customIntegrationAttributes` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Output only. Arbitrary metadata associated with the order, used for downstream custom integrations. For example, it can be converted into the payload expected by a point-of-sale (POS) system or a web/mobile client to sync the cart or submit the order. Populated by brand-specific hooks.  
   
 ## OrderItem
 
@@ -120,7 +124,8 @@ JSON representation
       },
       "categoryIds": [
         string
-      ]
+      ],
+      "isPending": boolean
     }  
   
 Fields  
@@ -135,6 +140,7 @@ Fields
 `quantity` |  `integer` Optional. The quantity of this item in the order.  
 `totalPrice` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Output only. The total price for this line item, inclusive of selected modifiers and reflecting the item quantity, before tax. Used for per-item bag display.  
 `categoryIds[]` |  `string` Output only. Category IDs the underlying menu item belongs to. Mirrors the menu's Item.category_ids so clients can group ordered items by menu category.  
+`isPending` |  `boolean` Output only. Indicates if the item is in a pending state.  
   
 ## OrderModifierGroup
 
@@ -330,6 +336,9 @@ JSON representation
       },
       "fees": {
         object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
+      },
+      "tip": {
+        object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
       }
     }  
   
@@ -341,6 +350,7 @@ Fields
 `discount` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Total discount applied to the order  
 `saving` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Deal savings applied to the order  
 `fees` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Total fees applied to the order  
+`tip` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. The resolved tip amount applied to the order.  
   
 ## OrderPayment
 
@@ -378,19 +388,21 @@ JSON representation
     
     {
     
-      // Union field tip_type can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "amount": {
         object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
       },
       "percentageBps": integer
-      // End of list of possible types for union field tip_type.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
 ---  
-Union field `tip_type`. The tip amount or percentage. `tip_type` can be only one of the following:  
+The tip amount or percentage. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `amount` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. A specific money amount for the tip.  
 `percentageBps` |  `integer` Optional. Percentage in basis points, e.g., 450 = 4.5%.  
+End of mutually exclusive fields.  
   
 ## LoyaltyAmount
 
@@ -412,6 +424,11 @@ Fields
 
 Payment information of the user.
 
+Direction of flow and PCI scope:
+
+  * `creditCardLastFourDigits` and `paymentMethod` may flow in both directions (e.g., returned in `FinalizeOrderResponse.payment_info` or passed in `Config.user_info.payment_info` to indicate a saved card on file).
+  * `creditCardCvv`, `creditCardNumber`, `creditCardExpirationMonth`, `creditCardExpirationYear`, and `creditCardPostalCode` are outbound-only from the Food Ordering Service to the client POS integration in `SubmitOrderRequest.payment_info` (populated deterministically from DTMF keypad callbacks without routing through the LLM). Clients must never populate these fields in `FinalizeOrderResponse.payment_info`, `Config.user_info.payment_info`, or `OrderPayment.payment_info`.
+
 JSON representation  
 ---  
       
@@ -419,14 +436,22 @@ JSON representation
     {
       "creditCardLastFourDigits": string,
       "creditCardCvv": string,
-      "paymentMethod": enum ([PaymentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#PaymentMethod))
+      "paymentMethod": enum ([PaymentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#PaymentMethod)),
+      "creditCardNumber": string,
+      "creditCardExpirationMonth": integer,
+      "creditCardExpirationYear": integer,
+      "creditCardPostalCode": string
     }  
   
 Fields  
 ---  
 `creditCardLastFourDigits` |  `string` Optional. The last four digits of the credit card. This is used to verify the credit card number at the payment stage.  
-`creditCardCvv` |  `string` Optional. CVV of the credit card.  
+`creditCardCvv` |  `string` Optional. CVV of the credit card. Outbound-only in `SubmitOrderRequest.payment_info`; must never be populated in `FinalizeOrderResponse`, `UserInfo`, or `OrderPayment`.  
 `paymentMethod` |  `enum (`[PaymentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#PaymentMethod)`)` Optional. The type of payment method used.  
+`creditCardNumber` |  `string` Optional. The credit card number (digits only, no spaces or separators; 12 to 19 digits per ISO/IEC 7812) when paying with a new credit card. Outbound-only in `SubmitOrderRequest.payment_info`; must never be populated in `FinalizeOrderResponse`, `UserInfo`, or `OrderPayment`.  
+`creditCardExpirationMonth` |  `integer` Optional. The expiration month of the credit card (1 through 12) when paying with a new credit card. Outbound-only in `SubmitOrderRequest.payment_info`; must never be populated in `FinalizeOrderResponse`, `UserInfo`, or `OrderPayment`.  
+`creditCardExpirationYear` |  `integer` Optional. The four-digit expiration year of the credit card (e.g. 2028) when paying with a new credit card. Outbound-only in `SubmitOrderRequest.payment_info`; must never be populated in `FinalizeOrderResponse`, `UserInfo`, or `OrderPayment`.  
+`creditCardPostalCode` |  `string` Optional. The billing postal/ZIP code of the credit card (e.g. "40299" or "M5V 3L9") when paying with a new credit card. Outbound-only in `SubmitOrderRequest.payment_info`; must never be populated in `FinalizeOrderResponse`, `UserInfo`, or `OrderPayment`.  
   
 ## PaymentMethod
 
@@ -442,6 +467,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

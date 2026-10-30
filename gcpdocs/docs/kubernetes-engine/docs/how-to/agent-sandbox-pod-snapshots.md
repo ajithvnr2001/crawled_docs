@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots/
 title: Save and restore Agent Sandbox on GKE environments with Pod snapshots \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:30.949573+00:00
+fetched_at: 2026-10-30T05:50:43.113573+00:00
 ---
 
 # Save and restore Agent Sandbox on GKE environments with Pod snapshots  |  GKE AI/ML  |  Google Cloud Documentation
@@ -79,6 +79,8 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 GKE Pod snapshots requires GKE version 1.35.3-gke.1234000 or later. Both Autopilot and Standard modes are supported.
 
+Pod snapshots require gVisor and don't work with [microVM sandboxes](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#sandbox-technologies).
+
 Because Pod snapshots require [GKE Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods), your environment is subject to certain limitations. For example, Pod snapshots don't support E2 machine types. Consequently, this tutorial creates a node pool consisting of N2 machines.
 
 For a full list of restrictions, including information on using GPU-based machine types, see [Limitations and requirements](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/pod-snapshots#limitations).
@@ -95,24 +97,24 @@ To define the following useful environment variables in Cloud Shell, run the fol
     export PROJECT_ID=$(gcloud config get project)
     export CLUSTER_NAME="agent-sandbox-cluster"
     export GKE_LOCATION="us-central1"
-    export CLUSTER_VERSION="1.35.3-gke.1234000"
-    export AGENT_SANDBOX_VERSION="v0.4.6"
+    export ZONE="us-central1-a"
+    export AGENT_SANDBOX_VERSION="v1.0.6"
     export NODE_POOL_NAME="agent-sandbox-node-pool"
     export MACHINE_TYPE="n2-standard-2"
     export SNAPSHOTS_BUCKET_NAME="agent-sandbox-snapshots-${PROJECT_ID}"
     export SNAPSHOT_NAMESPACE="pod-snapshots-ns"
     export SNAPSHOT_KSA_NAME="pod-snapshot-sa"
     export SNAPSHOT_FOLDER="my-snapshots"
-    export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
+    export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} --format="value(projectNumber)")
     
 
 Here's an explanation of these environment variables:
 
-  * `PROJECT_ID`: the ID of your current Google Cloud project. Defining this variable helps ensure that all resources, like your GKE cluster, are created in the correct project.
+  * `PROJECT_ID`: the ID of your current Google Cloud project. Commands in this document use this ID to name resources and to grant IAM permissions.
   * `CLUSTER_NAME`: the name of your GKE cluster (for example, `agent-sandbox-cluster`).
-  * `GKE_LOCATION`: the Google Cloud region where your GKE cluster will be created (for example, `us-central1`).
-  * `CLUSTER_VERSION`: the version of your GKE cluster which must be version 1.35.3-gke.1234000 or later.
-  * `AGENT_SANDBOX_VERSION`: the version of the Agent Sandbox controller to be deployed to your cluster.
+  * `GKE_LOCATION`: the Google Cloud region for your Cloud Storage bucket (for example, `us-central1`). If you create an Autopilot cluster, the cluster also uses this region.
+  * `ZONE`: the zone for your GKE cluster. If you create a Standard cluster, set this to a zone in the `GKE_LOCATION` region (for example, `us-central1-a`). To reduce costs, this document creates a zonal Standard cluster.
+  * `AGENT_SANDBOX_VERSION`: the version of the open source Agent Sandbox controller to install. This document uses version 1.0.6.
   * `NODE_POOL_NAME`: the name of the node pool that will run sandboxed workloads (for example, `agent-sandbox-node-pool`).
   * `MACHINE_TYPE`: the machine type of the nodes in your node pool (for example, `n2-standard-2`). Pod snapshots don't support E2 machine types. If you want to use GPU-based machine types for the nodes in your node pool, see [Limitations and requirements](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/pod-snapshots#limitations). For details about different machine series and choosing between different options, see the [Machine families resource and comparison guide](https://docs.cloud.google.com/compute/docs/machine-resource).
   * `SNAPSHOTS_BUCKET_NAME`: the name of the Cloud Storage bucket you will create to store snapshots.
@@ -158,9 +160,9 @@ Topic | Task
 3\. Create the Kubernetes namespace and the Kubernetes service account (KSA).  
 4\. Bind the IAM role to the Kubernetes service account.  
 5\. Grant permissions to the snapshot controller.  
-**Configure snapshot resources** | 1\. Create `PodSnapshotStorageConfig`  
-2\. Create `PodSnapshotPolicy`  
-3\. Create `SandboxTemplate`  
+**Configure snapshot resources** | 1\. Create a `PodSnapshotStorageConfig` resource  
+2\. Create a `PodSnapshotPolicy` resource  
+3\. Create `SandboxTemplate`, `SandboxWarmPool`, and `SandboxClaim` resources  
   
 ## Cluster setup
 
@@ -168,7 +170,7 @@ A sandboxed app runs inside a Pod on a GKE cluster node, so you need to set up a
 
 ### Create a new GKE cluster that meets the requirements
 
-Create a new GKE cluster with Pod snapshots enabled. For full feature compatibility, specify a cluster version 1.35.3-gke.1234000 or later:
+Create a new GKE cluster with Pod snapshots enabled. Pod snapshots require GKE version 1.35.3-gke.1234000 or later. The following commands enroll the cluster in the Rapid release channel, whose default version meets this requirement:
 
 ###  Autopilot 
 
@@ -176,24 +178,24 @@ Create an Autopilot cluster with the required features:
     
     
     gcloud container clusters create-auto ${CLUSTER_NAME} \
-       --cluster-version=${CLUSTER_VERSION} \
+       --release-channel=rapid \
        --enable-pod-snapshots \
        --location=${GKE_LOCATION}
     
 
 ###  Standard 
 
-Create a Standard cluster with the required features:
+Create a Standard cluster with the required features. To reduce costs, the following command creates a zonal cluster, which runs its control plane and nodes in one zone:
     
     
     gcloud container clusters create ${CLUSTER_NAME} \
-       --cluster-version=${CLUSTER_VERSION} \
+       --release-channel=rapid \
        --enable-pod-snapshots \
        --machine-type=${MACHINE_TYPE} \
        --workload-pool=${PROJECT_ID}.svc.id.goog \
        --workload-metadata=GKE_METADATA \
        --num-nodes=1 \
-       --location=${GKE_LOCATION}
+       --location=${ZONE}
     
 
 Create a node pool with [GKE Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods) enabled. GKE Sandbox is a container security feature based on the open-source gVisor project that provides an additional layer of isolation between running applications and the host operating system:
@@ -202,7 +204,7 @@ Create a node pool with [GKE Sandbox](https://docs.cloud.google.com/kubernetes-e
     gcloud container node-pools create ${NODE_POOL_NAME} \
        --cluster ${CLUSTER_NAME} \
        --num-nodes=1 \
-       --location=${GKE_LOCATION} \
+       --location=${ZONE} \
        --project=${PROJECT_ID} \
        --machine-type=${MACHINE_TYPE} \
        --sandbox type=gvisor
@@ -211,30 +213,37 @@ Create a node pool with [GKE Sandbox](https://docs.cloud.google.com/kubernetes-e
 ### Retrieve credentials
 
 Retrieve the cluster's credentials so that the `kubectl` CLI can connect to the cluster:
+
+###  Autopilot 
     
     
     gcloud container clusters get-credentials ${CLUSTER_NAME} \
         --location=${GKE_LOCATION}
     
 
+###  Standard 
+    
+    
+    gcloud container clusters get-credentials ${CLUSTER_NAME} \
+        --location=${ZONE}
+    
+
 ### Deploy the Agent Sandbox Controller to your cluster
 
-**Note:** To support the snapshot suspend and resume workflow, this tutorial uses a manual installation method to deploy the Agent Sandbox components directly from the open-source GitHub repository. This manual installation is a temporary workaround until the snapshot features are fully available in the Agent Sandbox on GKE add-on.
-
-You can deploy the Agent Sandbox controller and its required components by applying the official release manifests to your cluster. These manifests are configuration files that instruct Kubernetes to download all the necessary components that are required to deploy and run the Agent Sandbox controller on your cluster.
+You can deploy the Agent Sandbox controller and its required components by applying the official release manifest to your cluster. This manifest is a configuration file that instructs Kubernetes to download all the necessary components that are required to deploy and run the Agent Sandbox controller on your cluster.
 
 To deploy Agent Sandbox to your GKE cluster, run the following command:
     
     
-    # Apply the main manifest for the controller and its Custom Resource Definitions (CRDs)
-    kubectl apply \
-    -f https://github.com/kubernetes-sigs/agent-sandbox/releases/download/${AGENT_SANDBOX_VERSION}/manifest.yaml \
-    -f https://github.com/kubernetes-sigs/agent-sandbox/releases/download/${AGENT_SANDBOX_VERSION}/extensions.yaml
+    # Apply the release manifest for the controller and its CustomResourceDefinitions
+    kubectl apply -f https://github.com/kubernetes-sigs/agent-sandbox/releases/download/${AGENT_SANDBOX_VERSION}/sandbox-with-extensions.yaml
     
+
+For more information about installing Agent Sandbox, see [Install Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox).
 
 ### Verify the controller
 
-After applying the manifests, check that the Agent Sandbox controller Pod is running correctly in the `agent-sandbox-system` namespace. The manifests automatically created the `agent-sandbox-system` namespace when you applied them in the previous step.
+After applying the manifest, check that the Agent Sandbox controller Pod is running correctly in the `agent-sandbox-system` namespace. The manifest automatically created the `agent-sandbox-system` namespace when you applied it in the previous step.
     
     
     kubectl get pods -n agent-sandbox-system
@@ -243,8 +252,8 @@ After applying the manifests, check that the Agent Sandbox controller Pod is run
 Wait for the Pod to show 'Running' in the **STATUS** column and '1/1' in the **READY** column. When the Pod is running correctly, the output looks similar to this:
     
     
-    NAME                         READY   STATUS    RESTARTS   AGE
-    agent-sandbox-controller-0      1/1     Running   0          44d
+    NAME                                        READY   STATUS    RESTARTS   AGE
+    agent-sandbox-controller-7d5c9b8f6d-x2k9p   1/1     Running   0          2m
     
 
 Now that the Agent Sandbox controller is running, it can automatically create and manage sandboxed environments for any `Sandbox` resources that you create in your cluster.
@@ -255,10 +264,10 @@ This section shows you how to configure the storage and permissions required for
 
 ### Create the Cloud Storage bucket
 
-Create a [bucket](https://docs.cloud.google.com/storage/docs/buckets) to store your snapshots. To help ensure that the snapshot process is fast and cost-effective, we recommend that you create the bucket with the following settings:
+Create a [bucket](https://docs.cloud.google.com/storage/docs/buckets) to store your snapshots. To help ensure that the snapshot process is fast and cost-effective, create the bucket with the following settings:
 
   * **Enable hierarchical namespaces:** the hierarchical namespaces feature organizes your bucket into a file system hierarchy rather than a flat namespace. This configuration allows for higher read and write throughput, and consequently speeds up saving and restoring snapshots.
-  * **Disable soft delete:** the soft delete feature protects data by retaining deleted files for a set period. However, the snapshot process creates and deletes many temporary files during upload. We recommend that you disable soft delete to avoid unnecessary charges for storing these temporary files.
+  * **Disable soft delete:** the soft delete feature protects data by retaining deleted files for a set period. However, the snapshot process creates and deletes many temporary files during upload. Disable soft delete to avoid unnecessary charges for storing these temporary files.
 
 
 
@@ -286,7 +295,7 @@ To create a managed folder, run this command:
 
 To allow GKE to save snapshots securely, the Kubernetes service account used by the Pods running your sandboxed workload needs permission to write to your bucket. You grant this permission by binding Google Cloud IAM roles to the Kubernetes service account used by the Pods. This section shows you how to create a custom IAM role, create the Kubernetes service account, and configure the necessary permissions.
 
-  1. Create a custom IAM role called `podSnapshotGcsReadWriter` that contains the permissions required to write snapshot data:
+  1. Create a custom IAM role called `podSnapshotGcsReadWriter` that contains the permissions required to write snapshot data. If this role already exists in your project, for example from an earlier run of this document, skip this step. Otherwise, run the following command:
          
          gcloud iam roles create podSnapshotGcsReadWriter \
              --project="${PROJECT_ID}" \
@@ -307,6 +316,8 @@ When the role is created successfully, the output looks like this:
          title: podSnapshotGcsReadWriter
          
 
+If the command fails with a `FAILED_PRECONDITION` error that says the role ID has been marked for deletion, you deleted a role with this ID recently, for example in the clean-up steps of an earlier run of this document. IAM doesn't let you reuse that ID for up to 37 days. Run the command again with a different role ID, such as `podSnapshotGcsReadWriter2`, and use that ID instead of `podSnapshotGcsReadWriter` in the rest of this document.
+
   2. Create the namespace in which your sandbox and its service account will reside:
          
          kubectl create namespace "${SNAPSHOT_NAMESPACE}"
@@ -325,7 +336,7 @@ When the role is created successfully, the output looks like this:
              --role="roles/storage.bucketViewer"
          
 
-  5. Grant your custom `podSnapshotGcsReadWriter` role to the Kubernetes service account for your sandbox. This binding allows only this specific account to write data to the managed folder:
+  5. Grant your custom `podSnapshotGcsReadWriter` role to the Kubernetes service account for your sandbox. This binding allows only this specific account to write data to the managed folder. A new custom role can take a few minutes to become available, so if this command fails because the role doesn't exist, wait a minute and then run the command again:
          
          gcloud storage buckets add-iam-policy-binding "gs://${SNAPSHOTS_BUCKET_NAME}" \
              --member="principal://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${PROJECT_ID}.svc.id.goog/subject/ns/${SNAPSHOT_NAMESPACE}/sa/${SNAPSHOT_KSA_NAME}" \
@@ -361,7 +372,7 @@ This section shows you how to configure the snapshot resources for your Agent Sa
 To specify where GKE saves your snapshots and which rules govern the snapshot process, you create two custom resources:
 
   * **`PodSnapshotStorageConfig`** : this resource specifies the Cloud Storage bucket and folder location where GKE saves your snapshot files.
-  * **`PodSnapshotPolicy`** : this resource defines which Pods are eligible for snapshots based on their Kubernetes labels. It also specifies the trigger rules, such as whether snapshots are manual or initiated by the sandbox workload.
+  * **`PodSnapshotPolicy`** : this resource defines which Pods are eligible for snapshots based on their Kubernetes labels. It also specifies the trigger rules, such as whether snapshots are manual or initiated by the sandbox workload. This example groups snapshots by the `agents.x-k8s.io/sandbox-name-hash` label, which the Agent Sandbox controller adds to the Pod of each sandbox. This grouping means that GKE restores each sandbox only from its own snapshots.
 
 
 
@@ -396,6 +407,10 @@ To apply both resources in one step, run the following command in Cloud Shell. T
       triggerConfig:
         type: manual
         postCheckpoint: resume
+      snapshotGroupingRules:
+        groupByLabelValue:
+          labels:
+          - agents.x-k8s.io/sandbox-name-hash
     EOF
     
 
@@ -405,8 +420,7 @@ After you apply the snapshot storage configuration and policy, verify that the r
 
   1. Check the status of the `PodSnapshotStorageConfig` resource:
          
-         kubectl get podsnapshotstorageconfigs.podsnapshot.gke.io cpu-pssc-gcs \
-           --namespace "${SNAPSHOT_NAMESPACE}" -o yaml
+         kubectl get podsnapshotstorageconfigs.podsnapshot.gke.io cpu-pssc-gcs -o yaml
          
 
 The output should contain a condition with `type: Ready` and `status: "True"`:
@@ -426,7 +440,7 @@ The output should contain a condition with `type: Ready` and `status: "True"`:
            --namespace "${SNAPSHOT_NAMESPACE}" -o yaml
          
 
-The output should contain a condition with `type: Ready` and `status: "True"`. It should also indicate that the referenced `PodSnapshotStorageConfig` was found:
+The output should contain a condition with `type: Ready` and `status: "True"`. It should also indicate that the referenced `PodSnapshotStorageConfig` resource was found:
          
          status:
            conditions:
@@ -442,11 +456,11 @@ The output should contain a condition with `type: Ready` and `status: "True"`. I
 
 ### Create the sandbox template
 
-Now that the storage policies and permissions are in place, you create the `SandboxTemplate` and `SandboxClaim` resources. For the snapshot process to work, the sandbox must run with the Kubernetes service account you created earlier in this document. The sandbox must also have the labels that you specified earlier in the `PodSnapshotPolicy`.
+Now that the storage policies and permissions are in place, you create the `SandboxTemplate`, `SandboxWarmPool`, and `SandboxClaim` resources. The `SandboxWarmPool` resource keeps a pre-warmed sandbox running, and the `SandboxClaim` resource claims that sandbox from the pool. For the snapshot process to work, the sandbox must run with the Kubernetes service account you created earlier in this document. The sandbox must also have the labels that you specified earlier in the `PodSnapshotPolicy` resource.
 
 This example uses a Python app that prints an incrementing counter to the logs. This counter lets you verify that the state is successfully saved and restored later.
 
-### Autopilot
+###  Autopilot 
 
 Pod snapshots don't support E2 machine types. In Autopilot, GKE might default to machine types that don't support Pod snapshots. To help ensure your workloads run on compatible hardware, you should use a [custom ComputeClass](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-attributes-compute-classes) to prioritize compatible machine families.
 
@@ -470,11 +484,11 @@ Pod snapshots don't support E2 machine types. In Autopilot, GKE might default to
          kubectl apply -f non-e2-class.yaml
          
 
-  3. To create the `SandboxTemplate` and `SandboxClaim` resources, apply the following manifest. Notice that the `SandboxTemplate` refers to the `ComputeClass` you just created using the `cloud.google.com/compute-class: non-e2-class` node selector.
+  3. To create the `SandboxTemplate` and `SandboxWarmPool` resources, apply the following manifest. Notice that the `SandboxTemplate` resource refers to the `ComputeClass` you just created using the `cloud.google.com/compute-class: non-e2-class` node selector.
          
          kubectl apply -f - <<EOF
          ---
-         apiVersion: extensions.agents.x-k8s.io/v1alpha1
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
          kind: SandboxTemplate
          metadata:
            name: python-runtime-template
@@ -502,14 +516,13 @@ Pod snapshots don't support E2 machine types. In Autopilot, GKE might default to
                        i += 1
                        time.sleep(1)
          ---
-         apiVersion: extensions.agents.x-k8s.io/v1alpha1
-         kind: SandboxClaim
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
+         kind: SandboxWarmPool
          metadata:
-           name: python-sandbox-example
+           name: python-sandbox-warmpool
            namespace: ${SNAPSHOT_NAMESPACE}
-           labels:
-             app: agent-sandbox-workload
          spec:
+           replicas: 1
            sandboxTemplateRef:
              name: python-runtime-template
          EOF
@@ -518,14 +531,14 @@ Pod snapshots don't support E2 machine types. In Autopilot, GKE might default to
 
 
 
-### Standard
+###  Standard 
 
-To create the `SandboxTemplate` and `SandboxClaim` resources, apply the following manifest:
+To create the `SandboxTemplate` and `SandboxWarmPool` resources, apply the following manifest:
     
     
     kubectl apply -f - <<EOF
     ---
-    apiVersion: extensions.agents.x-k8s.io/v1alpha1
+    apiVersion: extensions.agents.x-k8s.io/v1beta1
     kind: SandboxTemplate
     metadata:
       name: python-runtime-template
@@ -551,18 +564,57 @@ To create the `SandboxTemplate` and `SandboxClaim` resources, apply the followin
                   i += 1
                   time.sleep(1)
     ---
-    apiVersion: extensions.agents.x-k8s.io/v1alpha1
-    kind: SandboxClaim
+    apiVersion: extensions.agents.x-k8s.io/v1beta1
+    kind: SandboxWarmPool
     metadata:
-      name: python-sandbox-example
+      name: python-sandbox-warmpool
       namespace: ${SNAPSHOT_NAMESPACE}
-      labels:
-        app: agent-sandbox-workload
     spec:
+      replicas: 1
       sandboxTemplateRef:
         name: python-runtime-template
     EOF
     
+
+After you create the resources, claim a sandbox from the warm pool:
+
+  1. Wait until the warm pool's sandbox is ready:
+         
+         kubectl wait sandboxwarmpool python-sandbox-warmpool \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           --for=jsonpath='{.status.readyReplicas}'=1 \
+           --timeout=600s
+         
+
+  2. Create a `SandboxClaim` resource that claims the sandbox from the warm pool:
+         
+         kubectl apply -f - <<EOF
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
+         kind: SandboxClaim
+         metadata:
+           name: python-sandbox-example
+           namespace: ${SNAPSHOT_NAMESPACE}
+         spec:
+           warmPoolRef:
+             name: python-sandbox-warmpool
+         EOF
+         
+
+  3. Wait until the claim is ready, and then save the name of the sandbox that the claim uses. The sandbox's Pod has the same name as the sandbox:
+         
+         kubectl wait sandboxclaim python-sandbox-example \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           --for=condition=Ready \
+           --timeout=300s
+         
+         export SANDBOX_NAME=$(kubectl get sandboxclaim python-sandbox-example \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           -o jsonpath='{.status.sandbox.name}')
+         echo "${SANDBOX_NAME}"
+         
+
+
+
 
 Your sandbox is now running with the correct identity and is ready to be snapshotted.
 
@@ -572,7 +624,7 @@ This section shows you how to manually trigger a snapshot of your running sandbo
 
   1. **Check the initial counter logs:** Before triggering the snapshot, view the logs of the running sandbox to see the current counter value. Viewing the logs establishes a baseline to compare against after restoring.
          
-         kubectl logs python-sandbox-example --namespace "${SNAPSHOT_NAMESPACE}" --tail=5
+         kubectl logs "${SANDBOX_NAME}" --namespace "${SNAPSHOT_NAMESPACE}" --tail=5
          
 
 The output shows the last few lines of the counter, for example:
@@ -584,7 +636,7 @@ The output shows the last few lines of the counter, for example:
 
 Note the last few "Count" values printed.
 
-  2. **Create a PodSnapshotManualTrigger resource:** Initiate the snapshot:
+  2. **Create a`PodSnapshotManualTrigger` resource:** Initiate the snapshot:
          
          kubectl apply -f - <<EOF
          apiVersion: podsnapshot.gke.io/v1
@@ -593,7 +645,7 @@ Note the last few "Count" values printed.
            name: cpu-snapshot-trigger
            namespace: ${SNAPSHOT_NAMESPACE}
          spec:
-           targetPod: python-sandbox-example
+           targetPod: ${SANDBOX_NAME}
          EOF
          
 
@@ -605,8 +657,8 @@ Note the last few "Count" values printed.
 
 The output should show a status of `Complete`, indicating that GKE successfully triggered the snapshot of the target Pod:
          
-         NAME                   TARGET POD               STATUS     AGE
-         cpu-snapshot-trigger   python-sandbox-example   Complete   XXs
+         NAME                   TARGET POD                      STATUS     AGE
+         cpu-snapshot-trigger   python-sandbox-warmpool-x7k2p   Complete   XXs
          
 
   4. **View more details about the captured state** by describing the trigger:
@@ -634,27 +686,49 @@ The output contains a `Snapshot Created` section with the unique name of the sna
 
 ## Restore from a snapshot
 
-After you capture a snapshot, you can restore the sandbox environment to resume execution from its saved state. To restore the sandbox, create a new `SandboxClaim` that references the original `SandboxTemplate`. The Pod Snapshot controller automatically identifies and restores the most recent matching snapshot.
+After you capture a snapshot, you can suspend the sandbox to free up its compute resources, and later resume the sandbox from its saved state. When you suspend a sandbox, the Agent Sandbox controller deletes the sandbox's Pod but keeps the `Sandbox` resource. When you resume the sandbox, the controller re-creates the Pod, and the Pod snapshot controller automatically restores the Pod from the most recent snapshot of that sandbox.
 
-  1. Create a new `SandboxClaim` to restore the sandbox:
+  1. Wait until the snapshot is ready. GKE restores a Pod only from a snapshot that's ready. If you suspend the sandbox before the snapshot is ready, the sandbox starts without the saved state when you resume it.
          
-         kubectl apply -f - <<EOF
-         apiVersion: extensions.agents.x-k8s.io/v1alpha1
-         kind: SandboxClaim
-         metadata:
-           name: python-sandbox-from-snapshot
-           namespace: ${SNAPSHOT_NAMESPACE}
-           labels:
-             app: agent-sandbox-workload
-         spec:
-           sandboxTemplateRef:
-             name: python-runtime-template
-         EOF
+         export SNAPSHOT_NAME=$(kubectl get podsnapshotmanualtriggers.podsnapshot.gke.io cpu-snapshot-trigger \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           -o jsonpath='{.status.snapshotCreated.name}')
+         
+         kubectl wait podsnapshots.podsnapshot.gke.io "${SNAPSHOT_NAME}" \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           --for=condition=Ready \
+           --timeout=600s
          
 
-  2. Verify that the restore took place by viewing the logs. Note that the counter continues from the point where the snapshot was taken:
+  2. To suspend the sandbox, set its `operatingMode` field to `Suspended`, and then wait until the controller deletes the sandbox's Pod:
          
-         kubectl logs python-sandbox-from-snapshot --namespace "${SNAPSHOT_NAMESPACE}"
+         kubectl patch sandbox "${SANDBOX_NAME}" \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           --type=merge \
+           -p '{"spec":{"operatingMode":"Suspended"}}'
+         
+         kubectl wait pod "${SANDBOX_NAME}" \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           --for=delete \
+           --timeout=120s
+         
+
+  3. To resume the sandbox, set its `operatingMode` field to `Running`, and then wait until the sandbox is ready:
+         
+         kubectl patch sandbox "${SANDBOX_NAME}" \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           --type=merge \
+           -p '{"spec":{"operatingMode":"Running"}}'
+         
+         kubectl wait sandbox "${SANDBOX_NAME}" \
+           --namespace "${SNAPSHOT_NAMESPACE}" \
+           --for=condition=Ready \
+           --timeout=300s
+         
+
+  4. Verify that the restore took place by viewing the logs. Note that the counter continues from the point where the snapshot was taken:
+         
+         kubectl logs "${SANDBOX_NAME}" --namespace "${SNAPSHOT_NAMESPACE}"
          
 
 The output should show the counter resuming, for example:
@@ -665,6 +739,8 @@ The output should show the counter resuming, for example:
          Count: 21
          
 
+If the counter starts from `0` instead, the Pod started without restoring from the snapshot.
+
 
 
 
@@ -672,9 +748,10 @@ The output should show the counter resuming, for example:
 
 To avoid incurring charges to your Google Cloud account for the resources used in this document, perform the following steps in order to delete the resources you created:
 
-  1. Delete the sandbox claims to stop any running Pods and allow the Agent Sandbox controller to gracefully terminate the containers.
+  1. Delete the sandbox claims and warm pools to stop any running Pods and allow the Agent Sandbox controller to gracefully terminate the containers.
          
          kubectl delete sandboxclaims --all --namespace "${SNAPSHOT_NAMESPACE}"
+         kubectl delete sandboxwarmpools --all --namespace "${SNAPSHOT_NAMESPACE}"
          
 
   2. Delete the sandbox templates and manual triggers used to create sandboxes and initiate snapshots.
@@ -707,8 +784,17 @@ To avoid incurring charges to your Google Cloud account for the resources used i
          
 
   7. Delete the GKE cluster to remove the underlying infrastructure and all nodes associated with the tutorial.
+
+###  Autopilot 
          
-         gcloud container clusters delete "${CLUSTER_NAME}" --location="${GKE_LOCATION}" --quiet
+         gcloud container clusters delete "${CLUSTER_NAME}" \
+             --location="${GKE_LOCATION}" --quiet
+         
+
+###  Standard 
+         
+         gcloud container clusters delete "${CLUSTER_NAME}" \
+             --location="${ZONE}" --quiet
          
 
   8. Delete the Cloud Storage bucket (optional) by using the recursive remove command if you want to fully reset your storage. Note that you can skip this if you intend to reuse your correctly configured bucket for future tests.
@@ -736,6 +822,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults
 title: REST Resource: projects.locations.brands.evaluationCaseResults \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:29.090524+00:00
+fetched_at: 2026-10-30T06:00:18.602630+00:00
 ---
 
 # REST Resource: projects.locations.brands.evaluationCaseResults  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -33,6 +33,8 @@ Send feedback
     * JSON representation
   * LLMJudgementMatcherResult
     * JSON representation
+  * Hyperlink
+    * JSON representation
   * Methods
 
 
@@ -61,7 +63,15 @@ JSON representation
           object ([MatcherResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#MatcherResult))
         }
       ],
-      "createTime": string
+      "createTime": string,
+      "labels": [
+        string
+      ],
+      "links": [
+        {
+          object ([Hyperlink](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#Hyperlink))
+        }
+      ]
     }  
   
 Fields  
@@ -74,6 +84,8 @@ Fields
 `status` |  `enum (`[Status](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#Status)`)` Output only. The status of the evaluation case.  
 `matcherResults[]` |  `object (`[MatcherResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#MatcherResult)`)` Output only. The list of evaluation matcher results for the evaluation case. The results of the evaluation matchers.  
 `createTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Output only. The create time of the evaluation case result.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
+`labels[]` |  `string` Output only. The labels associated with the evaluation case result.  
+`links[]` |  `object (`[Hyperlink](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#Hyperlink)`)` Output only. The list of hyperlinks for the evaluation case result.  
   
 ## Status
 
@@ -99,7 +111,8 @@ JSON representation
         object ([EvaluationMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationMatchers#EvaluationMatcher))
       },
     
-      // Union field result can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "orderResultMatcherResult": {
         object ([OrderResultMatcherResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#OrderResultMatcherResult))
       },
@@ -109,16 +122,17 @@ JSON representation
       "llmJudgementMatcherResult": {
         object ([LLMJudgementMatcherResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#LLMJudgementMatcherResult))
       }
-      // End of list of possible types for union field result.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
 ---  
 `evaluationMatcher` |  `object (`[EvaluationMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationMatchers#EvaluationMatcher)`)` Output only. The evaluation matcher this result is associated with.  
-Union field `result`. The result of the evaluation matcher. `result` can be only one of the following:  
+The result of the evaluation matcher. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `orderResultMatcherResult` |  `object (`[OrderResultMatcherResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#OrderResultMatcherResult)`)` Output only. The result of an order result matcher.  
 `agentUtteranceStringMatcherResult` |  `object (`[AgentUtteranceStringMatcherResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#AgentUtteranceStringMatcherResult)`)` Output only. The result of an agent utterance string matcher.  
 `llmJudgementMatcherResult` |  `object (`[LLMJudgementMatcherResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCaseResults#LLMJudgementMatcherResult)`)` Output only. The result of an agent utterance LLM judgement matcher.  
+End of mutually exclusive fields.  
   
 ## OrderResultMatcherResult
 
@@ -172,6 +186,26 @@ Fields
 `match` |  `boolean` Output only. Whether the agent utterance LLM judgement matcher passed or not.  
 `reasoning` |  `string` Output only. Describes the reasoning on why the LLM judgement matched or failed.  
   
+## Hyperlink
+
+A hyperlink to a resource.
+
+JSON representation  
+---  
+      
+    
+    {
+      "text": string,
+      "url": string,
+      "internalOnly": boolean
+    }  
+  
+Fields  
+---  
+`text` |  `string` Output only. The text to display for the hyperlink.  
+`url` |  `string` Output only. The URL of the hyperlink.  
+`internalOnly` |  `boolean` Output only. Whether the hyperlink is internal only.  
+  
 ## Methods  
   
 ---  
@@ -192,6 +226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

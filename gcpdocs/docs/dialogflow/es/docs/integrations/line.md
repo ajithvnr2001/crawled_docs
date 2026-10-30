@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/es/docs/integrations/line/
 title: LINE \u00a0|\u00a0 Dialogflow ES \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:01.801760+00:00
+fetched_at: 2026-10-30T05:51:50.538978+00:00
 ---
 
 # LINE  |  Dialogflow ES  |  Google Cloud Documentation
@@ -61,6 +61,22 @@ To set up the integration:
      4. Paste the **Channel ID** , **Channel secret** , and **Channel access token** into the respective fields.
      5. Choose an environment, as applicable.
      6. Click **START**.
+
+
+
+## Webhook signature verification
+
+Dialogflow ES validates the `X-Line-Signature` HTTP request header on every incoming webhook request using your LINE **Channel secret**.
+
+To verify request authenticity, Dialogflow ES computes a base64-encoded HMAC-SHA256 digest of the raw HTTP POST request body with your channel secret and compares it against the `X-Line-Signature` header. For details about how LINE signs webhook payloads, see the [LINE signature validation documentation](https://developers.line.biz/en/reference/messaging-api/#signature-validation).
+
+If a webhook request has a missing, duplicate, or invalid `X-Line-Signature` header, Dialogflow ES rejects the request with an HTTP `400 Bad Request` status code.
+
+To keep webhook signature verification working:
+
+  * Make sure the **Channel secret** configured in the [Dialogflow ES console](https://dialogflow.cloud.google.com) matches the active **Channel secret** in your LINE Messaging API channel settings. If you rotate or reissue your channel secret for your LINE channel, update it in the [Dialogflow ES console](https://dialogflow.cloud.google.com) and restart the integration.
+  * If you route webhook traffic through a proxy, API gateway, or middleware service before forwarding it to Dialogflow ES, forward the `X-Line-Signature` header unmodified and send the exact raw request body bytes without re-serializing or altering whitespace.
+  * Don't send unsigned requests directly to the Dialogflow ES LINE webhook URL.
 
 
 
@@ -133,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

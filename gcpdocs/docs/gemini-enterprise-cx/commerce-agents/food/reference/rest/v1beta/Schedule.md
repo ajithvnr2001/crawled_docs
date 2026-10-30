@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Schedule/
 title: Schedule \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:31.122555+00:00
+fetched_at: 2026-10-30T06:00:15.665390+00:00
 ---
 
 # Schedule  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ Fields
 ---  
 `days[]` |  `enum (`[DayOfWeek](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/DayOfWeek)`)` Optional. The days of the week to apply the schedule to.  
 `dateRanges[]` |  `object (`[DateRange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Schedule#DateRange)`)` Optional. The date ranges to apply the schedule to. If set, the schedule is only active on these specific date ranges. If both days and dateRanges are set, the schedule is active when both condition is met. For example, if days is [MONDAY] and dateRanges is [2026-01-01, 2026-01-31], the schedule is active on all Monday in January.  
-`timeRanges[]` |  `object (`[TimeOfDayRange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Schedule#TimeOfDayRange)`)` Optional. The time of day ranges to apply the schedule to. If set, the schedule is only active during these time ranges.  
+`timeRanges[]` |  `object (`[TimeOfDayRange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Schedule#TimeOfDayRange)`)` Optional. The time of day ranges to apply the schedule to. If set, the schedule is only active during these time ranges. If unset, the schedule is not limited by time of day, except in `StoreHours.schedules`, where a schedule without `timeRanges` lists days on which the store does not open.  
   
 ## DateRange
 
@@ -106,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

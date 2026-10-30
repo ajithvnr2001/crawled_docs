@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores
 title: REST Resource: projects.locations.brands.stores \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:39.974295+00:00
+fetched_at: 2026-10-30T06:00:17.356828+00:00
 ---
 
 # REST Resource: projects.locations.brands.stores  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -29,12 +29,7 @@ Send feedback
     * State
     * StoreMetadata
       * JSON representation
-    * Address
-      * JSON representation
-    * StoreHours
-      * JSON representation
-    * Daypart
-      * JSON representation
+    * OwnershipType
   * Methods
 
 
@@ -62,7 +57,11 @@ JSON representation
       },
       "tags": [
         string
-      ]
+      ],
+      "integrationAttributes": {
+        object
+      },
+      "ownershipType": enum ([OwnershipType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.OwnershipType))
     }  
   
 Fields  
@@ -74,6 +73,8 @@ Fields
 `timeZone` |  `object (`[TimeZone](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/TimeZone)`)` Required. The time zone of the store. This is used to determine which menu daypart to use for the store at a given time and for any time-based overrides.  
 `storeMetadata` |  `object (`[StoreMetadata](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.StoreMetadata)`)` Optional. Metadata for the store.  
 `tags[]` |  `string` Optional. Tags associated with the store.  
+`integrationAttributes` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. Free-form key-value pairs for brand-specific integration attributes.  
+`ownershipType` |  `enum (`[OwnershipType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.OwnershipType)`)` Optional. The ownership type of the store.  
   
 ### StoreStatus
 
@@ -113,16 +114,16 @@ JSON representation
       "displayName": string,
       "contactEmail": string,
       "address": {
-        object ([Address](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.Address))
+        object ([Address](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Address))
       },
       "storeHours": [
         {
-          object ([StoreHours](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.StoreHours))
+          object ([StoreHours](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/StoreHours))
         }
       ],
       "dayparts": [
         {
-          object ([Daypart](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.Daypart))
+          object ([Daypart](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Daypart))
         }
       ],
       "phoneNumber": string
@@ -132,86 +133,20 @@ Fields
 ---  
 `displayName` |  `string` Optional. The display name of the store to be used in UI and customer-facing elements.  
 `contactEmail` |  `string` Optional. The email address of the store to be provided to customers.  
-`address` |  `object (`[Address](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.Address)`)` Optional. The address information for the store.  
-`storeHours[]` |  `object (`[StoreHours](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.StoreHours)`)` Optional. The open hours of the store.  
-`dayparts[]` |  `object (`[Daypart](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores#Store.Daypart)`)` Optional. Dayparts defined for the store.  
+`address` |  `object (`[Address](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Address)`)` Optional. The address information for the store.  
+`storeHours[]` |  `object (`[StoreHours](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/StoreHours)`)` Optional. The open hours of the store.  
+`dayparts[]` |  `object (`[Daypart](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Daypart)`)` Optional. Dayparts defined for the store.  
 `phoneNumber` |  `string` Optional. The main phone number of the store to take orders, ask for catering, make general inquiries, and make reservations.  
   
-### Address
+### OwnershipType
 
-The address information for the store.
+The ownership type of the store.
 
-JSON representation  
+Enums  
 ---  
-      
-    
-    {
-      "streetAddress": string,
-      "city": string,
-      "state": string,
-      "country": string,
-      "postalCode": string,
-      "latitude": number,
-      "longitude": number,
-      "googleMapsUrl": string
-    }  
-  
-Fields  
----  
-`streetAddress` |  `string` Optional. The street address of the store.  
-`city` |  `string` Optional. The city of the store.  
-`state` |  `string` Optional. The state of the store.  
-`country` |  `string` Optional. The country of the store.  
-`postalCode` |  `string` Optional. The postal code of the store.  
-`latitude` |  `number` Optional. The latitude of the store.  
-`longitude` |  `number` Optional. The longitude of the store.  
-`googleMapsUrl` |  `string` Optional. The Google Maps URL for the store.  
-  
-### StoreHours
-
-The operating hours of the store.
-
-JSON representation  
----  
-      
-    
-    {
-      "fulfillmentMethod": enum ([FulfillmentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/FulfillmentMethod)),
-      "schedules": [
-        {
-          object ([Schedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Schedule))
-        }
-      ]
-    }  
-  
-Fields  
----  
-`fulfillmentMethod` |  `enum (`[FulfillmentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/FulfillmentMethod)`)` Optional. The fulfillment method of the store hours, for instance "PICKUP", "DELIVERY", etc. If unspecified, the store hours are assumed to be applicable to all fulfillment methods.  
-`schedules[]` |  `object (`[Schedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Schedule)`)` Optional. The operating hours for the store for the specified fulfillmentMethod.  
-  
-### Daypart
-
-A daypart for the store.
-
-JSON representation  
----  
-      
-    
-    {
-      "id": string,
-      "schedules": [
-        {
-          object ([Schedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Schedule))
-        }
-      ],
-      "displayName": string
-    }  
-  
-Fields  
----  
-`id` |  `string` Optional. The day part id, for instance "BREAKFAST", "LUNCH", etc.  
-`schedules[]` |  `object (`[Schedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Schedule)`)` Optional. Daypart active hours.  
-`displayName` |  `string` Optional. Specifies an optional display name for this daypart.  
+`OWNERSHIP_TYPE_UNSPECIFIED` | Unspecified ownership type.  
+`CORPORATE` | A company-owned corporate store.  
+`FRANCHISE` | A franchisee-owned store.  
   
 ## Methods  
   
@@ -220,6 +155,10 @@ Fields
 ### `[batchDelete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/batchDelete)`
 
 |  Batch deletes stores.  
+  
+### `[batchGet](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/batchGet)`
+
+|  Batch gets stores.  
   
 ### `[batchUpdate](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/batchUpdate)`
 
@@ -249,6 +188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

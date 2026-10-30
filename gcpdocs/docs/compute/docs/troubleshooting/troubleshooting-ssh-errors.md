@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-ssh-errors/
 title: Troubleshooting SSH errors \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:51.900208+00:00
+fetched_at: 2026-10-30T06:00:09.592397+00:00
 ---
 
 # Troubleshooting SSH errors  |  Compute Engine  |  Google Cloud Documentation
@@ -357,6 +357,40 @@ Path | Permissions
 Alternatively, you can create a new VM based on the same image and check its default permissions for `$HOME`.
 
 To learn how to change permissions and ownership, read about [`chmod`](https://linux.die.net/man/1/chmod) and [`chown`](https://linux.die.net/man/1/chown).
+
+  * **The VM uses OS Login, and the`sshd` daemon can't run the OS Login authorized keys command because of unsafe ownership or permissions.** On VMs that use [OS Login](https://docs.cloud.google.com/compute/docs/oslogin), the `sshd` daemon runs the `/usr/bin/google_authorized_keys` command to retrieve your SSH keys. The `sshd` daemon refuses to run this command if the file or any parent directory isn't owned by `root` or is writable by the group or by other users. This issue causes connections from both the gcloud CLI and SSH-in-browser to fail, and the SSH logs on the VM, such as `/var/log/auth.log` or `/var/log/secure`, contain errors similar to the following:
+        
+        sshd[1297]: error: Unsafe AuthorizedKeysCommand "/usr/bin/google_authorized_keys": bad ownership or modes for directory /usr
+        
+
+To resolve this issue, do the following:
+
+    1. [Connect to the serial console of the VM](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-using-serial-console#connectserialconsole).
+    2. In the serial console, review the ownership and permissions of the command file and each of its parent directories:
+           
+           namei -l /usr/bin/google_authorized_keys
+           
+
+The output is similar to the following:
+           
+           f: /usr/bin/google_authorized_keys
+           dr-xr-xr-x root root /
+           drwxrwxr-x root root usr
+           dr-xr-xr-x root root bin
+           -rwxr-xr-x root root google_authorized_keys
+           
+
+In this example, the `/usr` directory is writable by the group (`drwxrwxr-x`), which causes the `sshd` daemon to reject the command. Each path must be owned by `root` and must not be writable by the group or by other users.
+
+    3. In the serial console, for each file or directory that doesn't meet these requirements, set the owner to `root` and remove write permission for the group and other users:
+           
+           sudo chown root:root PATH
+           sudo chmod go-w PATH
+           
+
+Replace `PATH` with the file or directory, for example, `/usr`.
+
+    4. Retry the connection.
 
 
 
@@ -1255,6 +1289,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

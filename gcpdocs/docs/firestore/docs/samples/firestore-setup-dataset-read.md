@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-setup-dataset-read/
 title: Getting Firestore documents from a collection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:32.235228+00:00
+fetched_at: 2026-10-30T05:51:49.358858+00:00
 ---
 
 # Getting Firestore documents from a collection  |  Google Cloud Documentation
@@ -88,6 +88,63 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       }
       System.out.println("Last: " + document.getString("last"));
       System.out.println("Born: " + document.getLong("born"));
+    }
+
+### Kotlin
+    
+    
+    import com.google.api.gax.rpc.ApiException
+    import com.google.api.gax.rpc.NotFoundException
+    import com.google.cloud.firestore.FirestoreOptions
+    import java.util.concurrent.ExecutionException
+    
+    /**
+     * Retrieves all documents from a Firestore collection and prints their metadata
+     * and fields.
+     *
+     * @param projectId Google Cloud project identifier (for example, "example-project-id").
+     * @param collectionId Firestore collection identifier to query (for example, "example-collection").
+     */
+    fun getCollectionDocuments(projectId: String, collectionId: String) {
+      val options =
+        FirestoreOptions.getDefaultInstance()
+          .toBuilder()
+          .setProjectId(projectId)
+          .build()
+    
+      try {
+        options.service.use { firestore ->
+          val collectionReference = firestore.collection(collectionId)
+          println("Retrieving documents from collection '$collectionId'...")
+          val querySnapshot = collectionReference.get().get()
+    
+          println("Resource ID: ${collectionReference.path}")
+          println("Document Count: ${querySnapshot.documents.size}")
+          println("Read Time: ${querySnapshot.readTime}")
+          for (document in querySnapshot.documents) {
+            println("Document ID: ${document.id}")
+            println("Creation Date: ${document.createTime}")
+            println("Data: ${document.data}")
+            println("Update Time: ${document.updateTime}")
+          }
+        }
+      } catch (err: ExecutionException) {
+        val message =
+          when (val cause = err.cause) {
+            is NotFoundException ->
+              "error: Firestore database not found in project '$projectId': ${cause.message}"
+            is ApiException ->
+              "error: failed to retrieve collection '$collectionId' in project '$projectId': ${cause.message}"
+            else ->
+              "error: execution failed while querying collection '$collectionId' in project '$projectId': ${err.message}"
+          }
+        System.err.println(message)
+      } catch (err: InterruptedException) {
+        Thread.currentThread().interrupt()
+        System.err.println(
+          "error: interrupted while querying collection '$collectionId' in project '$projectId': ${err.message}"
+        )
+      }
     }
 
 ### Node.js

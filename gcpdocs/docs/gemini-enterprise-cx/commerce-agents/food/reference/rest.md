@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/
 title: Food Ordering AI Agent API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:32.046458+00:00
+fetched_at: 2026-10-30T06:00:20.330556+00:00
 ---
 
 # Food Ordering AI Agent API  |  Google Cloud Documentation
@@ -24,6 +24,7 @@ Send feedback
 
 foodorderingaiagent.googleapis.com API.
 
+  * REST Resource: v1beta.locations
   * REST Resource: v1beta.projects.locations.brands
   * REST Resource: v1beta.projects.locations.brands.channelConfigs
   * REST Resource: v1beta.projects.locations.brands.channelConfigs.revisions
@@ -36,16 +37,21 @@ foodorderingaiagent.googleapis.com API.
   * REST Resource: v1beta.projects.locations.brands.evaluationDatasets
   * REST Resource: v1beta.projects.locations.brands.evaluationMatchers
   * REST Resource: v1beta.projects.locations.brands.ingestionLogs
+  * REST Resource: v1beta.projects.locations.brands.menuIssueClusters
+  * REST Resource: v1beta.projects.locations.brands.remediations
   * REST Resource: v1beta.projects.locations.brands.revisions
   * REST Resource: v1beta.projects.locations.brands.sessionRecords
   * REST Resource: v1beta.projects.locations.brands.stores
   * REST Resource: v1beta.projects.locations.brands.stores.discounts
   * REST Resource: v1beta.projects.locations.brands.stores.inventories
   * REST Resource: v1beta.projects.locations.brands.stores.revisions
+  * REST Resource: v1beta.projects.locations.brands.webhookSubscriptions
   * REST Resource: v1beta.projects.locations.menus
   * REST Resource: v1beta.projects.locations.menus.entities
+  * REST Resource: v1beta.projects.locations.menus.issues
   * REST Resource: v1beta.projects.locations.operations
   * REST Resource: v1beta.projects.locations.sessions
+  * REST Resource: v1.locations
   * REST Resource: v1.projects.locations.brands
   * REST Resource: v1.projects.locations.brands.channelConfigs
   * REST Resource: v1.projects.locations.brands.channelConfigs.revisions
@@ -58,14 +64,18 @@ foodorderingaiagent.googleapis.com API.
   * REST Resource: v1.projects.locations.brands.evaluationDatasets
   * REST Resource: v1.projects.locations.brands.evaluationMatchers
   * REST Resource: v1.projects.locations.brands.ingestionLogs
+  * REST Resource: v1.projects.locations.brands.menuIssueClusters
+  * REST Resource: v1.projects.locations.brands.remediations
   * REST Resource: v1.projects.locations.brands.revisions
   * REST Resource: v1.projects.locations.brands.sessionRecords
   * REST Resource: v1.projects.locations.brands.stores
   * REST Resource: v1.projects.locations.brands.stores.discounts
   * REST Resource: v1.projects.locations.brands.stores.inventories
   * REST Resource: v1.projects.locations.brands.stores.revisions
+  * REST Resource: v1.projects.locations.brands.webhookSubscriptions
   * REST Resource: v1.projects.locations.menus
   * REST Resource: v1.projects.locations.menus.entities
+  * REST Resource: v1.projects.locations.menus.issues
   * REST Resource: v1.projects.locations.operations
   * REST Resource: v1.projects.locations.sessions
 
@@ -92,6 +102,13 @@ A [service endpoint](https://cloud.google.com/apis/design/glossary#api_service_e
 
 
 
+## REST Resource: [v1beta.locations](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/locations)
+
+Methods  
+---  
+`[fetchServiceHealth](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/locations/fetchServiceHealth)` |  `GET /v1beta/{parent=locations/*}:fetchServiceHealth`   
+Fetches operational service health telemetry for a specific region.  
+  
 ## REST Resource: [v1beta.projects.locations.brands](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands)
 
 Methods  
@@ -270,6 +287,32 @@ Gets an ingestion log.
 `[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs/list)` |  `GET /v1beta/{parent=projects/*/locations/*/brands/*}/ingestionLogs`   
 Lists ingestion logs.  
   
+## REST Resource: [v1beta.projects.locations.brands.menuIssueClusters](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.menuIssueClusters)
+
+Methods  
+---  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.menuIssueClusters/get)` |  `GET /v1beta/{name=projects/*/locations/*/brands/*/menuIssueClusters/*}`   
+Gets a menu issue cluster.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.menuIssueClusters/list)` |  `GET /v1beta/{parent=projects/*/locations/*/brands/*}/menuIssueClusters`   
+Lists menu issue clusters for a brand.  
+  
+## REST Resource: [v1beta.projects.locations.brands.remediations](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.remediations)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.remediations/create)` |  `POST /v1beta/{parent=projects/*/locations/*/brands/*}/remediations`   
+Creates a remediation.  
+`[delete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.remediations/delete)` |  `DELETE /v1beta/{name=projects/*/locations/*/brands/*/remediations/*}`   
+Deletes a remediation.  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.remediations/get)` |  `GET /v1beta/{name=projects/*/locations/*/brands/*/remediations/*}`   
+Gets a remediation.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.remediations/list)` |  `GET /v1beta/{parent=projects/*/locations/*/brands/*}/remediations`   
+Lists remediations.  
+`[resume](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.remediations/resume)` |  `POST /v1beta/{name=projects/*/locations/*/brands/*/remediations/*}:resume`   
+Resumes a suspended remediation.  
+`[suspend](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.remediations/suspend)` |  `POST /v1beta/{name=projects/*/locations/*/brands/*/remediations/*}:suspend`   
+Suspends a remediation.  
+  
 ## REST Resource: [v1beta.projects.locations.brands.revisions](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.revisions)
 
 Methods  
@@ -298,6 +341,8 @@ Methods
 ---  
 `[batchDelete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores/batchDelete)` |  `POST /v1beta/{parent=projects/*/locations/*/brands/*}/stores:batchDelete`   
 Batch deletes stores.  
+`[batchGet](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores/batchGet)` |  `GET /v1beta/{parent=projects/*/locations/*/brands/*}/stores:batchGet`   
+Batch gets stores.  
 `[batchUpdate](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores/batchUpdate)` |  `POST /v1beta/{parent=projects/*/locations/*/brands/*}/stores:batchUpdate`   
 Batch updates stores.  
 `[create](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores/create)` |  `POST /v1beta/{parent=projects/*/locations/*/brands/*}/stores`   
@@ -352,6 +397,21 @@ Gets a StoreRevision.
 `[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.revisions/list)` |  `GET /v1beta/{parent=projects/*/locations/*/brands/*/stores/*}/revisions`   
 Lists StoreRevisions.  
   
+## REST Resource: [v1beta.projects.locations.brands.webhookSubscriptions](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.webhookSubscriptions)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.webhookSubscriptions/create)` |  `POST /v1beta/{parent=projects/*/locations/*/brands/*}/webhookSubscriptions`   
+Creates a webhook subscription.  
+`[delete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.webhookSubscriptions/delete)` |  `DELETE /v1beta/{name=projects/*/locations/*/brands/*/webhookSubscriptions/*}`   
+Deletes the specified webhook subscription.  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.webhookSubscriptions/get)` |  `GET /v1beta/{name=projects/*/locations/*/brands/*/webhookSubscriptions/*}`   
+Gets a webhook subscription.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.webhookSubscriptions/list)` |  `GET /v1beta/{parent=projects/*/locations/*/brands/*}/webhookSubscriptions`   
+Lists webhook subscriptions for a brand.  
+`[patch](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.webhookSubscriptions/patch)` |  `PATCH /v1beta/{webhookSubscription.name=projects/*/locations/*/brands/*/webhookSubscriptions/*}`   
+Updates the specified webhook subscription.  
+  
 ## REST Resource: [v1beta.projects.locations.menus](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus)
 
 Methods  
@@ -372,6 +432,19 @@ Methods
 `[batchGet](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus.entities/batchGet)` |  `GET /v1beta/{parent=projects/*/locations/*/menus/*}/entities:batchGet`   
 Batch gets entities for a menu.  
   
+## REST Resource: [v1beta.projects.locations.menus.issues](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus.issues)
+
+Methods  
+---  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus.issues/get)` |  `GET /v1beta/{name=projects/*/locations/*/menus/*/issues/*}`   
+Gets a menu issue.  
+`[ignore](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus.issues/ignore)` |  `POST /v1beta/{name=projects/*/locations/*/menus/*/issues/*}:ignore`   
+Ignores a menu issue, marking it as CLOSED_WONT_FIX.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus.issues/list)` |  `GET /v1beta/{parent=projects/*/locations/*/menus/*}/issues`   
+Lists menu issues.  
+`[resolve](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus.issues/resolve)` |  `POST /v1beta/{name=projects/*/locations/*/menus/*/issues/*}:resolve`   
+Resolves a menu issue and records the remediation action taken.  
+  
 ## REST Resource: [v1beta.projects.locations.operations](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.operations)
 
 Methods  
@@ -391,6 +464,15 @@ Methods
 ---  
 `[processOrder](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.sessions/processOrder)` |  `POST /v1beta/{config.session=projects/*/locations/*/sessions/*}:processOrder`   
 Performs a single turn logic to process user input and return the result.  
+`[streamProcessOrder](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.sessions/streamProcessOrder)` |  `POST /v1beta/{config.session=projects/*/locations/*/sessions/*}:streamProcessOrder`   
+Performs a single turn interaction, but uses server-side streaming to deliver incremental results and partial responses as they are generated.  
+  
+## REST Resource: [v1.locations](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/locations)
+
+Methods  
+---  
+`[fetchServiceHealth](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/locations/fetchServiceHealth)` |  `GET /v1/{parent=locations/*}:fetchServiceHealth`   
+Fetches operational service health telemetry for a specific region.  
   
 ## REST Resource: [v1.projects.locations.brands](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands)
 
@@ -570,6 +652,32 @@ Gets an ingestion log.
 `[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.ingestionLogs/list)` |  `GET /v1/{parent=projects/*/locations/*/brands/*}/ingestionLogs`   
 Lists ingestion logs.  
   
+## REST Resource: [v1.projects.locations.brands.menuIssueClusters](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.menuIssueClusters)
+
+Methods  
+---  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.menuIssueClusters/get)` |  `GET /v1/{name=projects/*/locations/*/brands/*/menuIssueClusters/*}`   
+Gets a menu issue cluster.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.menuIssueClusters/list)` |  `GET /v1/{parent=projects/*/locations/*/brands/*}/menuIssueClusters`   
+Lists menu issue clusters for a brand.  
+  
+## REST Resource: [v1.projects.locations.brands.remediations](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.remediations)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.remediations/create)` |  `POST /v1/{parent=projects/*/locations/*/brands/*}/remediations`   
+Creates a remediation.  
+`[delete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.remediations/delete)` |  `DELETE /v1/{name=projects/*/locations/*/brands/*/remediations/*}`   
+Deletes a remediation.  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.remediations/get)` |  `GET /v1/{name=projects/*/locations/*/brands/*/remediations/*}`   
+Gets a remediation.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.remediations/list)` |  `GET /v1/{parent=projects/*/locations/*/brands/*}/remediations`   
+Lists remediations.  
+`[resume](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.remediations/resume)` |  `POST /v1/{name=projects/*/locations/*/brands/*/remediations/*}:resume`   
+Resumes a suspended remediation.  
+`[suspend](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.remediations/suspend)` |  `POST /v1/{name=projects/*/locations/*/brands/*/remediations/*}:suspend`   
+Suspends a remediation.  
+  
 ## REST Resource: [v1.projects.locations.brands.revisions](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.revisions)
 
 Methods  
@@ -598,6 +706,8 @@ Methods
 ---  
 `[batchDelete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/batchDelete)` |  `POST /v1/{parent=projects/*/locations/*/brands/*}/stores:batchDelete`   
 Batch deletes stores.  
+`[batchGet](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/batchGet)` |  `GET /v1/{parent=projects/*/locations/*/brands/*}/stores:batchGet`   
+Batch gets stores.  
 `[batchUpdate](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/batchUpdate)` |  `POST /v1/{parent=projects/*/locations/*/brands/*}/stores:batchUpdate`   
 Batch updates stores.  
 `[create](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/create)` |  `POST /v1/{parent=projects/*/locations/*/brands/*}/stores`   
@@ -652,6 +762,21 @@ Gets a StoreRevision.
 `[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.revisions/list)` |  `GET /v1/{parent=projects/*/locations/*/brands/*/stores/*}/revisions`   
 Lists StoreRevisions.  
   
+## REST Resource: [v1.projects.locations.brands.webhookSubscriptions](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.webhookSubscriptions)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.webhookSubscriptions/create)` |  `POST /v1/{parent=projects/*/locations/*/brands/*}/webhookSubscriptions`   
+Creates a webhook subscription.  
+`[delete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.webhookSubscriptions/delete)` |  `DELETE /v1/{name=projects/*/locations/*/brands/*/webhookSubscriptions/*}`   
+Deletes the specified webhook subscription.  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.webhookSubscriptions/get)` |  `GET /v1/{name=projects/*/locations/*/brands/*/webhookSubscriptions/*}`   
+Gets a webhook subscription.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.webhookSubscriptions/list)` |  `GET /v1/{parent=projects/*/locations/*/brands/*}/webhookSubscriptions`   
+Lists webhook subscriptions for a brand.  
+`[patch](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.webhookSubscriptions/patch)` |  `PATCH /v1/{webhookSubscription.name=projects/*/locations/*/brands/*/webhookSubscriptions/*}`   
+Updates the specified webhook subscription.  
+  
 ## REST Resource: [v1.projects.locations.menus](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.menus)
 
 Methods  
@@ -672,6 +797,19 @@ Methods
 `[batchGet](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.menus.entities/batchGet)` |  `GET /v1/{parent=projects/*/locations/*/menus/*}/entities:batchGet`   
 Batch gets entities for a menu.  
   
+## REST Resource: [v1.projects.locations.menus.issues](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.menus.issues)
+
+Methods  
+---  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.menus.issues/get)` |  `GET /v1/{name=projects/*/locations/*/menus/*/issues/*}`   
+Gets a menu issue.  
+`[ignore](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.menus.issues/ignore)` |  `POST /v1/{name=projects/*/locations/*/menus/*/issues/*}:ignore`   
+Ignores a menu issue, marking it as CLOSED_WONT_FIX.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.menus.issues/list)` |  `GET /v1/{parent=projects/*/locations/*/menus/*}/issues`   
+Lists menu issues.  
+`[resolve](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.menus.issues/resolve)` |  `POST /v1/{name=projects/*/locations/*/menus/*/issues/*}:resolve`   
+Resolves a menu issue and records the remediation action taken.  
+  
 ## REST Resource: [v1.projects.locations.operations](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.operations)
 
 Methods  
@@ -691,11 +829,13 @@ Methods
 ---  
 `[processOrder](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.sessions/processOrder)` |  `POST /v1/{config.session=projects/*/locations/*/sessions/*}:processOrder`   
 Performs a single turn logic to process user input and return the result.  
+`[streamProcessOrder](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.sessions/streamProcessOrder)` |  `POST /v1/{config.session=projects/*/locations/*/sessions/*}:streamProcessOrder`   
+Performs a single turn interaction, but uses server-side streaming to deliver incremental results and partial responses as they are generated.  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

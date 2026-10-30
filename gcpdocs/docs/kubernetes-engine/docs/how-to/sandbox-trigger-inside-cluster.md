@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/sandbox-trigger-inside-cluster/
 title: Trigger Agent Sandbox on GKE snapshots from inside a cluster \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:55:44.596972+00:00
+fetched_at: 2026-10-30T05:51:44.505854+00:00
 ---
 
 # Trigger Agent Sandbox on GKE snapshots from inside a cluster  |  GKE AI/ML  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ For more information about taking snapshots of Pods, see [Restore from a Pod sna
 
 ## Costs
 
-Agent Sandbox on GKE is offered at no extra charge. [GKE pricing](https://cloud.google.com/kubernetes-engine/pricing) applies to the resources that you create.
+Agent Sandbox on GKE is open source software that you can use at no extra charge. [GKE pricing](https://cloud.google.com/kubernetes-engine/pricing) applies to the resources that you create, including the compute resources that the Agent Sandbox controller uses.
 
 ## Before you begin
 
@@ -70,6 +70,8 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Limitations
 
+Pod snapshots require gVisor and don't work with [microVM sandboxes](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#sandbox-technologies).
+
 In a regional cluster, nodes in different zones might have different CPU microarchitectures. Because snapshots capture the CPU state, restoring a snapshot on a node with missing CPU features fails (for example, with the error `OCI runtime restore failed: incompatible FeatureSet`).
 
 To avoid this issue, use the appropriate configuration for your environment:
@@ -85,9 +87,10 @@ To simplify the commands that you run in this tutorial, you can set environment 
     
     
     export PROJECT_ID=$(gcloud config get project)
-    export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
+    export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} --format="value(projectNumber)")
     export CLUSTER_NAME="test-snapshot"
     export LOCATION="us-central1"
+    export ZONE="us-central1-a"
     export BUCKET_LOCATION="us"
     export MACHINE_TYPE="n2-standard-2"
     export REPOSITORY_NAME="agent-sandbox"
@@ -97,14 +100,15 @@ To simplify the commands that you run in this tutorial, you can set environment 
 
 Here's an explanation of these environment variables:
 
-  * `PROJECT_ID`: the ID of your current Google Cloud project. Defining this variable helps ensure that all resources are created in the correct project.
+  * `PROJECT_ID`: the ID of your current Google Cloud project. Commands in this document use this ID to name resources and to grant IAM permissions.
   * `PROJECT_NUMBER`: the project number of your current Google Cloud project.
   * `CLUSTER_NAME`: the name of your GKE cluster—for example, `test-snapshot`.
-  * `LOCATION`: the Google Cloud region where your GKE cluster and Artifact Registry repository are located—for example, `us-central1`.
+  * `LOCATION`: the Google Cloud region for your Artifact Registry repository (for example, `us-central1`). If you create an Autopilot cluster, the cluster also uses this region.
+  * `ZONE`: the zone for your cluster. If you create a Standard cluster, set this to a zone in the `LOCATION` region (for example, `us-central1-a`). The sandbox template that you create later in this tutorial runs sandboxes in `us-central1-a`. If you use a different zone, change the zone in the template too.
   * `BUCKET_LOCATION`: the location of your Cloud Storage buckets—for example, `us`.
-  * `BUCKET_NAME`: the name of the Cloud Storage bucket used for snapshots.
-  * `CLOUDBUILD_BUCKET_NAME`: the name of the Cloud Storage bucket used for Cloud Build logs.
-  * `MACHINE_TYPE`: the machine type to use for the cluster nodes—for example, `e2-standard-8`.
+  * `BUCKET_NAME`: the name of the Cloud Storage bucket used for snapshots—for example, `PROJECT_ID_snapshots`. Bucket names must be globally unique.
+  * `CLOUDBUILD_BUCKET_NAME`: the name of the Cloud Storage bucket used for Cloud Build logs. This value is the default Cloud Build bucket name, so don't change it.
+  * `MACHINE_TYPE`: the machine type to use for the cluster nodes and the gVisor node pool—for example, `n2-standard-2`. Pod snapshots don't support E2 machine types.
   * `REPOSITORY_NAME`: the name of the Artifact Registry repository—for example, `agent-sandbox`.
 
 
@@ -126,11 +130,11 @@ This tutorial uses the following two Python applications to test the snapshot pr
 
 The following list summarizes the steps you need to perform to set up your environment and run the test:
 
-  1. **Create a cluster** : create an Autopilot or Standard cluster with Pod snapshots and Agent Sandbox on GKE enabled.
+  1. **Create a cluster** : create an Autopilot or Standard cluster with Pod snapshots enabled.
   2. **Create an Artifact Registry repository** : create a Docker repository to store the container image for your client application.
   3. **Install Agent Sandbox** : install the core agent-sandbox components and extensions on your cluster.
   4. **Configure storage and permissions** : create a Cloud Storage bucket and configure Workload Identity permissions to allow snapshots to be saved securely.
-  5. **Configure Pod snapshots** : create and apply the snapshot storage configuration, the snapshot policy, and the sandbox template.
+  5. **Configure Pod snapshots** : create and apply the snapshot storage configuration, the snapshot policy, the sandbox template, and the warm pool.
   6. **Build the client application** : build the container image for the client application and push it to your Artifact Registry repository.
   7. **Run the test** : deploy the client application Pod, which creates the sandbox, pauses it to capture a snapshot, resumes it, and verifies that the counter's state was successfully restored.
 
@@ -140,30 +144,30 @@ The following list summarizes the steps you need to perform to set up your envir
 
 Create a new GKE cluster with Pod snapshots enabled. For full feature compatibility, specify the rapid release channel.
 
-### Autopilot
+###  Autopilot 
 
 Create an Autopilot cluster with the required features:
     
     
-    gcloud beta container clusters create-auto ${CLUSTER_NAME} \
+    gcloud container clusters create-auto ${CLUSTER_NAME} \
        --enable-pod-snapshots \
        --release-channel=rapid \
        --location=${LOCATION}
     
 
-### Standard
+###  Standard 
 
-Create a Standard cluster with the required features:
+Create a Standard cluster with the required features. To reduce costs, the following command creates a zonal cluster, which runs its control plane and nodes in one zone:
     
     
-    gcloud beta container clusters create ${CLUSTER_NAME} \
+    gcloud container clusters create ${CLUSTER_NAME} \
        --enable-pod-snapshots \
        --release-channel=rapid \
        --machine-type=${MACHINE_TYPE} \
        --workload-pool=${PROJECT_ID}.svc.id.goog \
        --workload-metadata=GKE_METADATA \
        --num-nodes=1 \
-       --location=${LOCATION}
+       --location=${ZONE}
     
 
 Create a node pool with gVisor enabled:
@@ -171,8 +175,9 @@ Create a node pool with gVisor enabled:
     
     gcloud container node-pools create gvisor-pool \
        --cluster ${CLUSTER_NAME} \
+       --machine-type=${MACHINE_TYPE} \
        --num-nodes=1 \
-       --location=${LOCATION} \
+       --location=${ZONE} \
        --project=${PROJECT_ID} \
        --sandbox type=gvisor
     
@@ -190,17 +195,14 @@ Create a Docker repository in Artifact Registry to store the container image for
 
 ## Install Agent Sandbox
 
-**Note:** To support the snapshot suspend and resume workflow, this tutorial uses a manual installation method to deploy the Agent Sandbox components directly from the open-source GitHub repository. This manual installation is a temporary workaround until the snapshot features are fully available in the Agent Sandbox on GKE add-on.
+Install the Agent Sandbox core components and extensions on your cluster. This tutorial uses version 1.0.6:
+    
+    
+    # Install the core agent-sandbox components and the extensions (e.g., Warm Pools, Claims)
+    kubectl apply -f https://github.com/kubernetes-sigs/agent-sandbox/releases/download/v1.0.6/sandbox-with-extensions.yaml
+    
 
-Install the Agent Sandbox core components and extensions on your cluster (using version v0.4.6 as an example):
-    
-    
-    # Install the core agent-sandbox components
-    kubectl apply -f https://github.com/kubernetes-sigs/agent-sandbox/releases/download/v0.4.6/manifest.yaml
-    
-    # Install the extensions (e.g., Warm Pools, Claims)
-    kubectl apply -f https://github.com/kubernetes-sigs/agent-sandbox/releases/download/v0.4.6/extensions.yaml
-    
+For more information about installing Agent Sandbox, see [Install Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox).
 
 ## Configure storage and permissions
 
@@ -250,9 +252,10 @@ Configure a Cloud Storage bucket for storing Pod snapshots and grant the require
 
 Create and apply the configuration files to install the required Kubernetes custom resources. These resources define how the cluster stores and manages Pod snapshots:
 
-  * **PodSnapshotStorageConfig** : specifies the Cloud Storage bucket designated for storing snapshot binary objects.
-  * **PodSnapshotPolicy** : defines how snapshots are triggered manually, how frequently they are grouped, and their retention policies.
-  * **SandboxTemplate** : defines the underlying container, node selectors, and service accounts for running the isolated sandboxed workload.
+  * **`PodSnapshotStorageConfig`** : specifies the Cloud Storage bucket designated for storing snapshot binary objects.
+  * **`PodSnapshotPolicy`** : defines how snapshots are triggered manually, how frequently they are grouped, and their retention policies.
+  * **`SandboxTemplate`** : defines the underlying container, node selectors, and service accounts for running the isolated sandboxed workload.
+  * **`SandboxWarmPool`** : keeps a pre-warmed sandbox, created from the `SandboxTemplate` resource, ready for the client application to claim.
 
 
   1. Create a new directory for the test client files:
@@ -279,7 +282,7 @@ Create and apply the configuration files to install the required Kubernetes cust
 
   4. Substitute the environment variable placeholder in the configuration file:
          
-         sed -i "s/\$BUCKET_NAME/$BUCKET_NAME/g" snapshot_storage_config.yaml
+         sed -i "s/\$BUCKET_NAME/${BUCKET_NAME}/g" snapshot_storage_config.yaml
          
 
   5. Apply the storage configuration manifest:
@@ -321,7 +324,7 @@ Create and apply the configuration files to install the required Kubernetes cust
 
   9. Create a file named `python-counter-template.yaml`. This configuration defines the sandbox Pod, and assigns the `snapshot-sa` service account identity to it. This assignment helps ensure that the sandbox runs securely. Inside that Pod, the sandboxed application (a Python script) continuously prints an incrementing counter to the container logs:
          
-         apiVersion: extensions.agents.x-k8s.io/v1alpha1
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
          kind: SandboxTemplate
          metadata:
            name: python-counter-template
@@ -355,6 +358,24 @@ Create and apply the configuration files to install the required Kubernetes cust
          kubectl apply -f python-counter-template.yaml
          
 
+  11. Create a file named `python-counter-pool.yaml`. This configuration creates a warm pool that keeps one pre-warmed sandbox, created from the `python-counter-template` template, ready for the client application to claim:
+         
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
+         kind: SandboxWarmPool
+         metadata:
+           name: python-counter-pool
+           namespace: default
+         spec:
+           replicas: 1
+           sandboxTemplateRef:
+             name: python-counter-template
+         
+
+  12. Apply the warm pool manifest:
+         
+         kubectl apply -f python-counter-pool.yaml
+         
+
 
 
 
@@ -368,7 +389,7 @@ Create the container image for the client application and upload it to Artifact 
          
          WORKDIR /app
          
-         RUN pip install "k8s-agent-sandbox[tracing]==0.4.6"
+         RUN pip install "k8s-agent-sandbox[tracing]==1.0.6"
          
          # Copy test script
          COPY client_test.py /app/client_test.py
@@ -398,29 +419,13 @@ Create the container image for the client application and upload it to Artifact 
                  logging.error(f"Failed to read logs for pod {pod_name}: {e}")
                  return None
          
-         def get_current_pod_name(sandbox_id, namespace):
-             custom_api = client.CustomObjectsApi()
-             try:
-                 sandbox_cr = custom_api.get_namespaced_custom_object(
-                     group="agents.x-k8s.io",
-                     version="v1alpha1",
-                     namespace=namespace,
-                     plural="sandboxes",
-                     name=sandbox_id
-                 )
-                 metadata = sandbox_cr.get("metadata", {})
-                 annotations = metadata.get("annotations", {})
-                 return annotations.get("agents.x-k8s.io/pod-name")
-             except Exception as e:
-                 logging.error(f"Failed to get sandbox CR: {e}")
-                 return None
-         
-         def get_current_count(sandbox_id, namespace="default"):
-             pod_name = get_current_pod_name(sandbox_id, namespace)
+         def get_current_count(sandbox):
+             # The sandbox's Pod has the same name as the Sandbox resource.
+             pod_name = sandbox.get_pod_name()
              if not pod_name:
-                 logging.error(f"Could not determine pod name for sandbox {sandbox_id}")
+                 logging.error(f"Could not determine pod name for sandbox {sandbox.sandbox_id}")
                  return None
-             return get_last_count(pod_name, namespace)
+             return get_last_count(pod_name, sandbox.namespace)
          
          def suspend_sandbox(sandbox):
              logging.info("Pausing sandbox (using snapshots)...")
@@ -473,13 +478,13 @@ Create the container image for the client application and upload it to Artifact 
              client_reg = PodSnapshotSandboxClient()
          
              logging.info("Creating sandbox...")
-             sandbox = client_reg.create_sandbox(template="python-counter-template", namespace="default")
+             sandbox = client_reg.create_sandbox(warmpool="python-counter-pool", namespace="default")
              logging.info(f"Sandbox created with ID: {sandbox.sandbox_id}")
          
              logging.info("Waiting for sandbox to run...")
              time.sleep(10)
          
-             count_before = get_current_count(sandbox.sandbox_id)
+             count_before = get_current_count(sandbox)
              logging.info(f"Count before suspend: {count_before}")
          
              suspend_sandbox(sandbox)
@@ -492,7 +497,7 @@ Create the container image for the client application and upload it to Artifact 
              logging.info("Waiting for sandbox to be ready again...")
              time.sleep(10)
          
-             count_after = get_current_count(sandbox.sandbox_id)
+             count_after = get_current_count(sandbox)
              logging.info(f"Count after resume: {count_after}")
          
              verify_continuity(count_before, count_after)
@@ -531,12 +536,12 @@ Create the container image for the client application and upload it to Artifact 
 
      2. Substitute the environment variable placeholders in the configuration file:
             
-            sed -i "s/\$REPOSITORY_NAME/$REPOSITORY_NAME/g" cloudbuild.yaml
-            sed -i "s/\$LOCATION/$LOCATION/g" cloudbuild.yaml
-            sed -i "s/\$PROJECT_ID/$PROJECT_ID/g" cloudbuild.yaml
+            sed -i "s/\$REPOSITORY_NAME/${REPOSITORY_NAME}/g" cloudbuild.yaml
+            sed -i "s/\$LOCATION/${LOCATION}/g" cloudbuild.yaml
+            sed -i "s/\$PROJECT_ID/${PROJECT_ID}/g" cloudbuild.yaml
             
 
-     3. Create the Cloud Storage bucket for Cloud Build logs:
+     3. Create the Cloud Storage bucket for Cloud Build logs. If your project has used Cloud Build before, this bucket might already exist, and the command fails with an error that says you already own the bucket. You can safely ignore this error:
             
             gcloud storage buckets create "gs://${CLOUDBUILD_BUCKET_NAME}" \
                 --location="${BUCKET_LOCATION}"
@@ -548,16 +553,18 @@ The following commands use the Compute Engine default service account (`$PROJECT
 
 Because you added a conditional IAM binding to your project earlier in this tutorial, you should include the `--condition=None` flag when adding these new bindings. This prevents `gcloud` from pausing to ask for interactive confirmation:
             
-            gcloud projects add-iam-policy-binding $PROJECT_ID \
-               --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
-               --role="roles/artifactregistry.writer"
+            gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+               --member="serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com" \
+               --role="roles/artifactregistry.writer" \
+               --condition=None
             
-            gcloud projects add-iam-policy-binding $PROJECT_ID \
-               --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
-               --role="roles/logging.logWriter"
+            gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+               --member="serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com" \
+               --role="roles/logging.logWriter" \
+               --condition=None
             
-            gcloud storage buckets add-iam-policy-binding "gs://$CLOUDBUILD_BUCKET_NAME" \
-               --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
+            gcloud storage buckets add-iam-policy-binding "gs://${CLOUDBUILD_BUCKET_NAME}" \
+               --member="serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com" \
                --role="roles/storage.objectAdmin"
             
 
@@ -638,17 +645,26 @@ Deploy the client application to create the sandbox, trigger a snapshot, and ver
 
   4. Substitute the environment variable placeholders in the manifest:
          
-         sed -i "s/\$REPOSITORY_NAME/$REPOSITORY_NAME/g" client_pod.yaml
-         sed -i "s/\$LOCATION/$LOCATION/g" client_pod.yaml
-         sed -i "s/\$PROJECT_ID/$PROJECT_ID/g" client_pod.yaml
+         sed -i "s/\$REPOSITORY_NAME/${REPOSITORY_NAME}/g" client_pod.yaml
+         sed -i "s/\$LOCATION/${LOCATION}/g" client_pod.yaml
+         sed -i "s/\$PROJECT_ID/${PROJECT_ID}/g" client_pod.yaml
          
 
-  5. Apply the client application Pod manifest:
+  5. Wait until the warm pool's sandbox is ready:
+         
+         kubectl wait sandboxwarmpool python-counter-pool \
+             --for=jsonpath='{.status.readyReplicas}'=1 \
+             --timeout=600s
+         
+
+In the next step, the client application creates a `SandboxClaim` resource. If the application creates the claim before the pool's sandbox is ready, the controller might create a new sandbox for the claim instead of assigning the one from the pool. In an Autopilot cluster, the sandbox can take several minutes to become ready because GKE might need to create a node for it.
+
+  6. Apply the client application Pod manifest:
          
          kubectl apply -f client_pod.yaml
          
 
-  6. Stream the Pod logs to verify the execution flow:
+  7. Stream the Pod logs to verify the execution flow:
          
          kubectl logs -f agent-sandbox-client-pod
          
@@ -671,15 +687,24 @@ When the test is running correctly, the output looks similar to this (shortened 
     2026-04-21 23:03:21,329 - INFO - SUCCESS: Sandbox resumed from where it left off (or later).
     
 
-The output shows that the sandbox successfully preserves its state when suspended and resumed. The counter stops advancing while the sandbox is suspended (paused and scaled to zero), and resumes the counter when the sandbox is restored. Without suspending, the counter would have continued to advance during the suspension period and the count would be significantly higher.
+The output shows that the sandbox successfully preserves its state when suspended and resumed. The counter stops advancing while the sandbox is suspended, because the Agent Sandbox controller deletes the sandbox's Pod. When the sandbox resumes, the controller re-creates the Pod, which restores from the snapshot, and the counter continues. Without suspending, the counter would have continued to advance during the suspension period and the count would be significantly higher.
 
 ## Clean up resources
 
 To avoid incurring charges to your Google Cloud account, delete the resources that you created:
 
   1. Delete the GKE cluster. This also deletes the node pool and all Kubernetes service accounts inside it:
+
+###  Autopilot 
          
-         gcloud beta container clusters delete ${CLUSTER_NAME} --location="${LOCATION}" --quiet
+         gcloud container clusters delete ${CLUSTER_NAME} \
+             --location="${LOCATION}" --quiet
+         
+
+###  Standard 
+         
+         gcloud container clusters delete ${CLUSTER_NAME} \
+             --location="${ZONE}" --quiet
          
 
   2. Delete the Artifact Registry repository to remove the Docker repository you created for the test image:
@@ -700,25 +725,32 @@ To avoid incurring charges to your Google Cloud account, delete the resources th
              --condition="expression=resource.name.startsWith(\"projects/_/buckets/${BUCKET_NAME}\"),title=restrict_to_bucket,description=Restricts access to one bucket only"
          
 
-  5. If you used Cloud Build instead of Docker to build and push the container image, delete the logs bucket and remove the service account permissions:
-         
-         gcloud storage rm --recursive "gs://${CLOUDBUILD_BUCKET_NAME}"
-         
-         gcloud projects remove-iam-policy-binding $PROJECT_ID \
-             --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
-             --role="roles/artifactregistry.writer"
-         
-         gcloud projects remove-iam-policy-binding $PROJECT_ID \
-             --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
-             --role="roles/logging.logWriter"
-         
+  5. If you used Cloud Build instead of Docker to build and push the container image, clean up the Cloud Build resources. Delete only the resources that you created for this tutorial, because other workloads in your project might depend on resources that existed before:
+
+     * If the Cloud Build bucket didn't exist before you started this tutorial, delete it:
+           
+           gcloud storage rm --recursive "gs://${CLOUDBUILD_BUCKET_NAME}"
+           
+
+     * If the Compute Engine default service account didn't have the `roles/artifactregistry.writer` and `roles/logging.logWriter` roles before you started this tutorial, remove them:
+           
+           gcloud projects remove-iam-policy-binding ${PROJECT_ID} \
+               --member="serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com" \
+               --role="roles/artifactregistry.writer" \
+               --condition=None
+           
+           gcloud projects remove-iam-policy-binding ${PROJECT_ID} \
+               --member="serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com" \
+               --role="roles/logging.logWriter" \
+               --condition=None
+           
 
 
 
 
 ## What's next
 
-  * Learn how to [Isolate AI code execution: external trigger](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox).
+  * Learn how to [isolate AI code execution with Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox).
   * Learn how to [Save and restore Agent Sandbox on GKE environments](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots).
   * To understand the isolation layers that protect your untrusted workloads, see [GKE Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods).
   * Explore the open-source [Agent Sandbox project](https://github.com/kubernetes-sigs/agent-sandbox) on GitHub.
@@ -730,6 +762,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

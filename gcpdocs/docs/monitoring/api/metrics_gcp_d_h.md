@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h/
 title: Google Cloud metrics: API prefix is D through H \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:17.013523+00:00
+fetched_at: 2026-10-30T05:42:12.962141+00:00
 ---
 
 # Google Cloud metrics: API prefix is D through H  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### databasecenter
 
@@ -1538,7 +1538,7 @@ Index writes
   
 ### datastream
 
-Metrics from [Datastream](https://docs.cloud.google.com/datastream/docs). Launch stages of these metrics: GA
+Metrics from [Datastream](https://docs.cloud.google.com/datastream/docs). Launch stages of these metrics: BETA GA
 
 The "metric type" strings in this table must be prefixed with `datastream.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -1594,6 +1594,18 @@ event count per stream object
 `DELTA`, `INT64`, `1`   
 **[datastream.googleapis.com/StreamObject](https://docs.cloud.google.com/monitoring/api/resources#tag_datastream.googleapis.com/StreamObject)** |  _The total event count replicated per stream object._   
 `read_method`: The read method used to process the events (CDC or BACKFILL).   
+`streamobject/replicated_bytes_count` BETA ** _(project)_**   
+replicated bytes count per stream object   
+`DELTA`, `INT64`, `By`   
+**[datastream.googleapis.com/StreamObject](https://docs.cloud.google.com/monitoring/api/resources#tag_datastream.googleapis.com/StreamObject)** |  _The replicated bytes count per stream object, broken down by read method and event type._   
+`read_method`: The read method used to process the events (CDC or BACKFILL).   
+`event_type`: The type of database change event (e.g. INSERT, UPDATE, DELETE).   
+`streamobject/replicated_event_count` BETA ** _(project)_**   
+replicated event count per stream object   
+`DELTA`, `INT64`, `1`   
+**[datastream.googleapis.com/StreamObject](https://docs.cloud.google.com/monitoring/api/resources#tag_datastream.googleapis.com/StreamObject)** |  _The replicated event count per stream object, broken down by read method and event type._   
+`read_method`: The read method used to process the events (CDC or BACKFILL).   
+`event_type`: The type of database change event (e.g. INSERT, UPDATE, DELETE).   
   
 ### dbinsights
 
@@ -5978,7 +5990,7 @@ Firebase App Check service verification count
   
 ### firebaseapphosting
 
-Metrics from [Firebase](https://firebase.google.com/). Launch stages of these metrics: BETA
+Metrics from [Firebase](https://firebase.google.com/). Launch stages of these metrics: GA
 
 The "metric type" strings in this table must be prefixed with `firebaseapphosting.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -5988,7 +6000,7 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`backend/request_count` BETA ** _(project)_**   
+`backend/request_count` GA ** _(project)_**   
 Request Count   
 `DELTA`, `INT64`, `1`   
 **[firebaseapphosting.googleapis.com/Backend](https://docs.cloud.google.com/monitoring/api/resources#tag_firebaseapphosting.googleapis.com/Backend)** |  _Count of user requests._   
@@ -5997,7 +6009,7 @@ Request Count
 `response_code_class`: The HTTP response code class of the response served to the end user (200, 400, etc.).   
 `cdn_metro`: The Cloud CDN metro that this traffic was served out of.   
 `domain_name`: The domain name that this traffic was served for.   
-`backend/response_bytes_count` BETA ** _(project)_**   
+`backend/response_bytes_count` GA ** _(project)_**   
 Response Bytes Count   
 `DELTA`, `INT64`, `By`   
 **[firebaseapphosting.googleapis.com/Backend](https://docs.cloud.google.com/monitoring/api/resources#tag_firebaseapphosting.googleapis.com/Backend)** |  _Bytes sent in response to user requests._   
@@ -8210,12 +8222,12 @@ Failed jobs in queue
 `reason`: Reason why the job is in a failed state.   
 `user`: User who scheduled the job.   
   
-Generated at 2026-10-22 02:44:18 UTC.
+Generated at 2026-10-29 23:33:54 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

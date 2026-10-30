@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apis/docs/monitoring/
 title: Monitoring API usage \u00a0|\u00a0 Cloud APIs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:19:27.041315+00:00
+fetched_at: 2026-10-30T05:41:59.176633+00:00
 ---
 
 # Monitoring API usage  |  Cloud APIs  |  Google Cloud Documentation
@@ -189,7 +189,7 @@ Windowed Rate Quota usage
 `window_size`: The window size for rate operation limits.   
 `window_start_time`: The start time of the window.   
   
-Table generated at 2026-10-22 02:44:18 UTC.
+Table generated at 2026-10-29 23:33:54 UTC.
 
 To see API metrics in Metrics Explorer, select **Consumed API** as the resource type, then select one of the `serviceruntime` metrics. Then use the filter and aggregation options to refine your data. After you've found the API usage information you want, you can use Cloud Monitoring to create custom dashboards and alerts that will help you continue to monitor and maintain a robust application. You can find out how to do this in the following pages:
 
@@ -241,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

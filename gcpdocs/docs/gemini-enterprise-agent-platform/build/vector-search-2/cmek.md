@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/cmek/
 title: Customer-managed encryption keys (CMEK) in Agent Retrieval \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:11:55.687803+00:00
+fetched_at: 2026-10-30T05:54:28.891085+00:00
 ---
 
 # Customer-managed encryption keys (CMEK) in Agent Retrieval  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ The following prerequisites and constraints must be met in order to use CMEK wit
 
 ## Creating a CMEK-protected Collection
 
-After you meet all pre-requistites, you can use the gcloud CLI, REST API, or Python SDK to create a new Collection with CMEK enabled.
+After you meet all prerequisites, you can use the gcloud CLI, REST API, or Python SDK to create a new Collection with CMEK enabled.
 
 ### Using the gcloud CLI
 
@@ -117,7 +117,7 @@ Collections aren't automatically re-enabled if the key is restored.
 
 ## CMEK-supported resources
 
-The current Vertex AI resources covered by CMEK are as follows. CMEK support for Preview features is in Preview status as well.
+The Gemini Enterprise Agent Platform resources covered by CMEK are as follows. CMEK support for Preview features is in Preview status as well.
 
 Resource | Material encrypted | Documentation links  
 ---|---|---  
@@ -138,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

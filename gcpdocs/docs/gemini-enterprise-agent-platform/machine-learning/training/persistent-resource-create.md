@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create/
 title: Create a persistent resource \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:58.173053+00:00
+fetched_at: 2026-10-30T05:54:23.412461+00:00
 ---
 
 # Create a persistent resource  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -427,9 +427,9 @@ There could be stockout for scarce resources like A100 GPUs, which can lead to p
 
 ## Shared Responsibility
 
-Securing your workloads on Gemini Enterprise Agent Platform is a shared responsibility. While Gemini Enterprise Agent Platform regularly upgrades infrastructure configurations to address security vulnerabilities, Gemini Enterprise Agent Platform doesn't automatically upgrade your existing Ray on Vertex AI clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following: 
+Securing your workloads on Gemini Enterprise Agent Platform is a shared responsibility. While Gemini Enterprise Agent Platform regularly upgrades infrastructure configurations to address security vulnerabilities, Gemini Enterprise Agent Platform doesn't automatically upgrade your existing Ray on Gemini Enterprise Agent Platform clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following: 
 
-  1. Periodically delete and recreate your Ray on Vertex AI clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
+  1. Periodically delete and recreate your Ray on Gemini Enterprise Agent Platform clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
   2. Properly configure any custom images you use.
 
 
@@ -450,6 +450,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

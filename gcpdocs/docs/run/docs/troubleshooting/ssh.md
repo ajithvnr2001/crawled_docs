@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/troubleshooting/ssh/
 title: Troubleshoot Cloud Run with SSH \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:04.518780+00:00
+fetched_at: 2026-10-30T05:50:39.123443+00:00
 ---
 
 # Troubleshoot Cloud Run with SSH  |  Google Cloud Documentation
@@ -224,7 +224,7 @@ You can also allow SSH access on a service by using the `--ssh` flag when [deplo
            template:
              spec:
                containers:
-                 image: IMAGE_URL
+               - image: IMAGE_URL
          
 
 Replace the following:
@@ -280,7 +280,7 @@ Replace the following:
            template:
              spec:
                containers:
-                 image: IMAGE_URL
+               - image: IMAGE_URL
          
 
 Replace the following:
@@ -491,7 +491,7 @@ Replace the following:
              run.googleapis.com/launch-stage: BETA
          spec:
            containers:
-             image: IMAGE_URL
+           - image: IMAGE_URL
          
 
 Replace the following:
@@ -543,7 +543,7 @@ Replace the following:
              run.googleapis.com/launch-stage: BETA
          spec:
            containers:
-             image: IMAGE_URL
+           - image: IMAGE_URL
          
 
 Replace the following:
@@ -600,7 +600,7 @@ To use your OpenSSH client to connect:
              HostName cloud-run-default
              User root
              IdentityFile /Users/USER/.ssh/google_compute_engine
-             CertificateFile /Users/USER/.ssh/google_compute_engine_cert/PROJECT_ID_REGION_SERVICE-cert.pub
+             CertificateFile /Users/USER/.ssh/google_compute_engine_cert/PROJECT_ID_REGION_service_SERVICE-cert.pub
              CheckHostIP no
              HashKnownHosts no
              HostKeyAlias cloud-run-default
@@ -608,7 +608,7 @@ To use your OpenSSH client to connect:
              StrictHostKeyChecking no
              UserKnownHostsFile /dev/null
              ProxyUseFdpass no
-             ProxyCommand /usr/local/bin/python3 -S /Users/USER/google-cloud-sdk/lib/gcloud.py beta run start-iap-tunnel --project_number=PROJECT_NUMBER --project_id=PROJECT_ID --workload_type=service --deployment_name=SERVICE --region=REGION
+             ProxyCommand /usr/local/bin/python3 -S /Users/USER/google-cloud-sdk/lib/gcloud.py beta run start-iap-tunnel --project_number=PROJECT_NUMBER --project_id=PROJECT_ID --workload_type=service --deployment_name=SERVICE/revisions/REVISION --region=REGION --iap-tunnel-url-override=wss://REGION.ssh.run.app/v4
          
 
 Replace the following:
@@ -618,6 +618,7 @@ Replace the following:
      * `PROJECT_NUMBER`: the Google Cloud project number.
      * `REGION`: the region that your service is deployed in.
      * `SERVICE`: the name of your service.
+     * `REVISION`: the name of the revision.
 
 If the gcloud CLI is installed in a different folder, you might need to update the location in the last line.
 
@@ -667,6 +668,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

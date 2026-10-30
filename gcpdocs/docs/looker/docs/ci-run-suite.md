@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/ci-run-suite/
 title: Running Continuous Integration suites \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:57.717414+00:00
+fetched_at: 2026-10-30T05:51:47.281751+00:00
 ---
 
 # Running Continuous Integration suites  |  Looker  |  Google Cloud Documentation
@@ -23,9 +23,10 @@ Send feedback
 
 Continuous Integration (CI) runs can be triggered in several ways:
 
-  * Automatically when a pull request is submitted to your LookML project's repository by a Looker developer (see the [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#pr-trigger) page for information on setting this up).
-  * Automatically when a dbt Cloud CI job finishes (see the [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#dbt-trigger) page for information on setting this up).
-  * Automatically on a recurring schedule (see the [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#schedule-trigger) page for information on setting this up).
+  * Automatically when a pull request is submitted to your LookML project's repository by a Looker developer (see the [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#pr-trigger) page for information about setting this up).
+  * Automatically when a pull request is submitted to an imported LookML project (see the [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger) page for information about setting this up).
+  * Automatically when a dbt Cloud CI job finishes (see the [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#dbt-trigger) page for information about setting this up).
+  * Automatically on a recurring schedule (see the [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#schedule-trigger) page for information about setting this up).
   * Manually triggering a new run of a CI suite from the Looker IDE.
   * Manually re-running a previous CI run from the Looker IDE.
 
@@ -39,9 +40,22 @@ If you've enabled your CI suite with [**Trigger on pull requests from Looker**](
 
 For automatic pull request validation runs, CI validates the latest pull request commit and returns all of the errors in that version of the repository.
 
-**Note:** For validators in the CI suite that are configured to perform incremental validation, the validator will return errors that exist only on the pull request commit itself; validators enabled for incremental validation won't return an error if it already exists in the production version. See the [SQL Validator](https://docs.cloud.google.com/looker/docs/ci-sql-validator#incremental_validation) or [Content Validator](https://docs.cloud.google.com/looker/docs/ci-content-validator#incremental_validation) documentation for more information on incremental validation.
+**Note:** For validators in the CI suite that are configured to perform incremental validation, the validator will return errors that exist only on the pull request commit itself; validators enabled for incremental validation won't return an error if it already exists in the production version. See the [SQL Validator](https://docs.cloud.google.com/looker/docs/ci-sql-validator#incremental_validation) or [Content Validator](https://docs.cloud.google.com/looker/docs/ci-content-validator#incremental_validation) documentation for more information about incremental validation.
 
-See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information on viewing the results.
+See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information about viewing the results.
+
+## Automatic triggering from imported project pull requests
+
+If you've enabled your CI suite in a downstream (spoke) project with [**Trigger on pull requests from imported projects**](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger), CI triggers a validation run automatically in the spoke project when a developer opens or updates a pull request in a subscribed upstream (hub) project's repository.
+
+During a CI run triggered by an imported project pull request, Looker performs the following actions:
+
+  1. Validates the production version of the spoke project while temporarily pinning the imported hub project to the pull request commit.
+  2. Writes the result of the spoke project's CI run back to the pull request in the hub project's repository.
+
+**Note:** Because the spoke project is validated against its production version, [incremental validation](https://docs.cloud.google.com/looker/docs/ci-sql-validator#incremental_validation) is automatically disabled for runs triggered by imported project pull requests, regardless of the suite setting.
+
+See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information about viewing the results.
 
 ## Automatic triggering from dbt Cloud
 
@@ -64,7 +78,7 @@ If you've enabled your CI suite with [**Trigger on a schedule**](https://docs.cl
 
 For automatic scheduled validation runs, CI validates the production version of the repository and returns all of the errors in that version.
 
-See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information on viewing the results.
+See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information about viewing the results.
 
 ## Manually triggering a new run of a CI suite
 
@@ -90,7 +104,7 @@ After you trigger a run, the Looker IDE will display the **Run** page for the su
 
 **Tip:** You can also [set up alerting](https://docs.cloud.google.com/looker/docs/ci-create-suite#alerting) for your CI suite to receive email notifications when a CI run fails, errors, passes, or is cancelled, instead of having to check the **Runs** page.
 
-See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information on viewing the results.
+See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information about viewing the results.
 
 ### Workspace
 
@@ -114,7 +128,7 @@ For the **Dev Mode** option, note the following for validating development branc
 
 For runs that have finished (if the run passed, failed, errored, or was cancelled), a Looker user with the [`see_ci`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#see_ci) permission can manually trigger a rerun of the CI run from the Looker IDE:
 
-  * If you rerun a PR-triggered run, Continuous Integration runs against the same commit as the original run.
+  * If you rerun a PR-triggered run (which is triggered by a pull request in the project's repository or in an imported project), Continuous Integration runs against the same commit as the original run.
   * If you rerun a manually-triggered run, Continuous Integration runs against the production state or branch HEAD _at the time of the rerun_ , which will include any subsequents commits that were made since the initial CI run.
 
 
@@ -132,7 +146,7 @@ To rerun a CI run, follow these steps:
 
 Once you click **Rerun** , the Content Validator will initiate the run and return you to the **Run** page for the new run.
 
-See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information on viewing the results.
+See the [Viewing Continuous Integration run results](https://docs.cloud.google.com/looker/docs/ci-view-results) documentation page for information about viewing the results.
 
 ## Cancelling a CI run
 
@@ -151,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

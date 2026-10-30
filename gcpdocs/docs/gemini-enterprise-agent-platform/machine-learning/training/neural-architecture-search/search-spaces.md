@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/search-spaces/
 title: Prebuilt search spaces \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:07:28.463287+00:00
+fetched_at: 2026-10-30T05:50:17.745935+00:00
 ---
 
 # Prebuilt search spaces  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -73,19 +73,19 @@ Most of the time, these default search spaces are sufficient. However, if needed
 
 The MNasNet and EfficientV2 search spaces define different `backbone` building options such as `ConvOps`, `KernelSize`, and `ChannelSize`. The `backbone` can be used for different tasks like classification and detection.
 
-![The structure of EfficientNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/backbone.png)
+![The structure of EfficientNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/backbone.png)
 
 ## NAS-FPN search space
 
 The NAS-FPN search space defines the search space in the FPN layers that connect different levels of features for object detection as shown in the following figure.
 
-![The structure of NAS-FPN.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_fpn.png)
+![The structure of NAS-FPN.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_fpn.png)
 
 ## SpineNet search space
 
 The SpineNet search space enables searching for a backbone with scale-permuted intermediate features and cross-scale connections, achieving state-of-the-art performance of one-stage object detection on COCO with 60% less computation, and outperforms ResNet-FPN counterparts by 6% AP. The following are connections of backbone layers in the searched SpineNet-49 architecture.
 
-![The structure of SpineNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/spine_net.png)
+![The structure of SpineNet.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/spine_net.png)
 
 ## Data augmentation search space
 
@@ -97,7 +97,7 @@ Agent Platform Neural Architecture Search provides RandAugment and AutoAugment a
 
 The RandAugment search space is configured by two parameters: (a) `N` which is the number of successive augmentation operations to be applied to an image and (b) `M` which is the magnitude of ALL of those operations. For example, the following image shows an example where N=2 operations (Shear and Contrast) with different M=magnitude are applied to an image.
 
-![RandAugment applied to an image.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/image_magnitudes.png)
+![RandAugment applied to an image.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/image_magnitudes.png)
 
 For a given value of N, the list of operations are picked at random from the operation bank. The augmentation search finds the best value of `N` and `M` for the training job at hand. The search doesn't use a proxy task and therefore runs the training jobs to the end.
 
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

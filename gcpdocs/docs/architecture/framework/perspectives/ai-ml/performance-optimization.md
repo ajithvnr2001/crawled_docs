@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization/
 title: AI and ML perspective: Performance optimization \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:00.500304+00:00
+fetched_at: 2026-10-30T05:50:43.346346+00:00
 ---
 
 # AI and ML perspective: Performance optimization  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  AI and ML perspective: Performance optimization Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-02-13 UTC
+Last reviewed 2026-10-29 UTC
 
 This document in the [Google Cloud Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides principles and recommendations to help you optimize the performance of your AI and ML workloads on Google Cloud. The recommendations in this document align with the [performance optimization pillar](https://docs.cloud.google.com/architecture/framework/performance-optimization) of the Well-Architected Framework.
 
@@ -29,11 +29,11 @@ To optimize AI and ML performance, you need to make decisions regarding factors 
 
 The recommendations in this document are mapped to the following core principles:
 
-  * Establish performance objectives and evaluation methods
-  * Run and track frequent experiments
-  * Build and automate training and serving infrastructure
-  * Match design choices to performance requirements
-  * Link performance metrics to design and configuration choices
+  * [Establish performance objectives and evaluation methods](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#performance-objectives-evaluation-methods)
+  * [Run and track frequent experiments](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#run-track-exp)
+  * [Build and automate training and serving infrastructure](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#build-automate-training-serving)
+  * [Match design choices to performance requirements](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#match-design-performance)
+  * [Link performance metrics to design and configuration choices](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#link-perf-design)
 
 
 
@@ -54,7 +54,7 @@ When you define objectives, distinguish between and prioritize quality and perfo
 
 
 
-ML engineers can improve the performance metrics of a model during the training process. Gemini Enterprise Agent Platform provides an [evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction) that ML engineers can use to implement standardized and repeatable tracking of quality metrics. The _prediction efficiency_ of a model indicates how well a model performs in production or at inference time. To monitor performance, use [Cloud Monitoring](https://docs.cloud.google.com/monitoring#documentation) and [Model Monitoring on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview). To select appropriate models and decide how to train them, you must translate business goals into technical requirements that determine quality and performance metrics.
+ML engineers can improve the performance metrics of a model during the training process. Gemini Enterprise Agent Platform provides an [evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction) that ML engineers can use to implement standardized and repeatable tracking of quality metrics. The _prediction efficiency_ of a model indicates how well a model performs in production or at inference time. To monitor performance, use [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and [Model Monitoring on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview). To select appropriate models and decide how to train them, you must translate business goals into technical requirements that determine quality and performance metrics.
 
 To understand how to set realistic objectives and identify appropriate performance metrics, consider the following example for an AI-powered fraud detection system:
 
@@ -88,23 +88,25 @@ To monitor a model's quality and training efficiency, ML engineers must do the f
 
 To monitor experimentation and training, consider the following recommendations:
 
-Monitoring aspect | Recommendation  
----|---  
-Model quality | To visualize and track experiment metrics like accuracy and to visualize model architecture or training data, use [TensorBoard](https://www.tensorflow.org/tensorboard/get_started). TensorBoard is an open-source suite of tools that's compatible with ML frameworks like the following:
+  * **Model quality** : To visualize and track experiment metrics like accuracy and to visualize model architecture or training data, use [TensorBoard](https://www.tensorflow.org/tensorboard/get_started). TensorBoard is an open-source suite of tools that's compatible with ML frameworks like the following:
 
-  * [XGBoost](https://xgboost.readthedocs.io/en/stable/python/callbacks.html)
-  * [JAX](https://docs.jax.dev/en/latest/profiling.html#tensorboard-profiling)
-  * [Flax](https://github.com/google/flax/blob/main/flax/metrics/tensorboard.py)
-  * [PyTorch](https://pytorch.org/docs/stable/tensorboard.html)
-  * [PyTorch with accelerated linear algebra (XLA)](https://docs.cloud.google.com/tpu/docs/pytorch-xla-performance-profiling-tpu-vm#analysis_in_tensorboard) for TPU training
-  * [TensorFlow](https://www.tensorflow.org/tensorboard/get_started)
+    * [XGBoost](https://xgboost.readthedocs.io/en/stable/python/callbacks.html)
+    * [JAX](https://docs.jax.dev/en/latest/profiling.html#xprof-tensorboard-profiling)
+    * [Flax](https://github.com/google/flax/blob/main/flax/metrics/tensorboard.py)
+    * [PyTorch](https://docs.pytorch.org/docs/stable/tensorboard.html)
+    * [XLA-based frameworks on Cloud TPU](https://docs.cloud.google.com/tpu/docs/profile-tpu-vm#visualizing_profiles_with_tensorboard) for Cloud TPU training
+    * [TensorFlow](https://www.tensorflow.org/tensorboard/get_started)
+  * **Experiment tracking** : [Experiments on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) integrates with managed enterprise-grade [Agent Platform TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction) instances to support experiment tracking. This integration enables reliable storage and sharing of logs and metrics. To let multiple teams and individuals track experiments, we recommend that you use the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-  
-Experiment tracking | [Experiments on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) integrates with managed enterprise-grade [Agent Platform TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction) instances to support experiment tracking. This integration enables reliable storage and sharing of logs and metrics. To let multiple teams and individuals track experiments, we recommend that you use the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).   
-Training and experimentation efficiency | Agent Platform exports metrics to [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and collects telemetry data and logs by using an observability agent. You can visualize the metrics in the Google Cloud console. Alternatively, create dashboards or alerts based on these metrics by using Monitoring. For more information, see [Monitoring metrics for Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics).   
-NVIDIA GPUs | The [Ops Agent](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent) enables GPU monitoring for Compute Engine and for [other products that Ops Agent supports](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent#supported_vms).  You can also use the [NVIDIA Data Center GPU Manager (DCGM)](https://docs.cloud.google.com/monitoring/agent/ops-agent/third-party-nvidia), which is a suite of tools for managing and monitoring NVIDIA GPUs in cluster environments. Monitoring NVIDIA GPUs is particularly useful for training and serving deep learning models.  
-Deep debugging | To debug problems with the training code or the configuration of a Gemini Enterprise Agent Platform Managed Training job, you can inspect the training container by using an [interactive shell session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/monitor-debug-interactive-shell).  
-  
+  * **Training and experimentation efficiency** : Agent Platform exports metrics to [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and collects telemetry data and logs by using an observability agent. You can visualize the metrics in the Google Cloud console. Alternatively, create dashboards or alerts based on these metrics by using Monitoring. For more information, see [Monitoring metrics for Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics).
+
+  * **NVIDIA GPUs** : The [Ops Agent](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent) enables GPU monitoring for Compute Engine and for [other products that Ops Agent supports](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent#supported_vms). You can also use the [NVIDIA Data Center GPU Manager (DCGM)](https://docs.cloud.google.com/monitoring/agent/ops-agent/third-party-nvidia), which is a suite of tools for managing and monitoring NVIDIA GPUs in cluster environments. Monitoring NVIDIA GPUs is particularly useful for training and serving deep learning models.
+
+  * **Deep debugging** : To debug problems with the training code or the configuration of a Gemini Enterprise Agent Platform Managed Training job, you can inspect the training container by using an [interactive shell session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/monitor-debug-interactive-shell).
+
+
+
+
 #### Monitoring during serving: Streaming prediction
 
 After you train a model and export it to [Model Registry on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction), you can create a [Agent Platform endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment). This endpoint provides an HTTP endpoint for the model.
@@ -195,9 +197,9 @@ Data isolation | Store experimental data in separate Cloud Storage buckets and B
 To establish a curated set of tools to accelerate the entire experimentation lifecycle—from data exploration to model training and analysis—use the following techniques:
 
   * **Interactive prototyping** : For rapid data exploration, hypothesis testing, and code prototyping, use Colab Enterprise or managed JupyterLab instances on Gemini Enterprise Agent Platform Workbench. For more information, see [Choose a notebook solution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution).
-  * **Scalable model training** : Run training jobs on a managed service that supports distributed training and scalable compute resources like GPUs and TPUs. This approach helps to reduce training time from days to hours and enables more parallel experimentation. For more information, see Use specialized components for training.
+  * **Scalable model training** : Run training jobs on a managed service that supports distributed training and scalable compute resources like GPUs and Cloud TPU. This approach helps to reduce training time from days to hours and enables more parallel experimentation. For more information, see [Use specialized components for training](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#specialized-components-training).
   * **In-database ML** : Train models directly in [BigQuery ML using SQL](https://docs.cloud.google.com/bigquery/docs/bqml-introduction). This technique helps to eliminate data movement and accelerates experimentation for analysts and SQL-centric users.
-  * **Tracking experiments** : Create a searchable and comparable history of experiment data by logging parameters, metrics, and artifacts for every experiment run. For more information, see Build a data and model lineage system.
+  * **Tracking experiments** : Create a searchable and comparable history of experiment data by logging parameters, metrics, and artifacts for every experiment run. For more information, see [Build a data and model lineage system](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#data-model-lineage).
   * **Optimizing generative AI** : To optimize the performance of generative AI applications, you must experiment with prompts, model selection, and fine-tuning. For rapid prompt engineering, use [Agent Studio on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart). To experiment with foundation models (like Gemini) and find a model that's appropriate for your use case and business goals, use [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models).
 
 
@@ -220,83 +222,94 @@ To train and serve AI models, set up a robust platform that supports efficient a
 
 A reliable training platform helps to accelerate performance and provides a standardized approach to automate repeatable tasks in the ML lifecycle–from data preparation to model validation.
 
-  * **Data collection and preparation** : For effective model training, you need to collect and prepare the data that's necessary for training, testing, and validation. The data might come from different sources and be of different data types. You also need to reuse relevant data across training runs and share features across teams. To improve the repeatability of the data collection and preparation phase, consider the following recommendations:
+#### Data collection and preparation
 
-    * Improve data discoverability with [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview).
-    * Centralize feature engineering in [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview).
-    * Preprocess data by using [Dataflow](https://docs.cloud.google.com/dataflow/docs).
-  * **Training execution** : When you train a model, you use data to create a model object. To do this, you need to set up the necessary infrastructure and dependencies of the training code. You also need to decide how to persist the training models, track training progress, evaluate the model, and present the results. To improve training repeatability, consider the following recommendations:
+For effective model training, you need to collect and prepare the data that's necessary for training, testing, and validation. The data might come from different sources and be of different data types. You also need to reuse relevant data across training runs and share features across teams. To improve the repeatability of the data collection and preparation phase, consider the following recommendations:
 
-    * Follow the guidelines in Automate evaluation for reproducibility and standardization.
-    * To submit training jobs on one or more worker nodes without managing the underlying infrastructure provisioning or dependencies, use the [`CustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#before) resource in Agent Platform Managed Training. You can also use the `CustomJob` resource for [hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) jobs.
-    * Optimize scheduling goodput by leveraging [Dynamic Workload Scheduler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/schedule-jobs-dws#enable-dws) or [reservations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations) for Agent Platform Managed Training.
-    * Register your models to [Model Registry on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction).
-  * **Training orchestration** : Deploy training workloads as stages of a pipeline by using [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction). This service provides managed [Kubeflow](https://www.kubeflow.org/) and [TFX](https://www.tensorflow.org/tfx) services. Define each step of the pipeline as a [component](https://www.kubeflow.org/docs/components/) that runs in a container. Each component works like a function, with input parameters and output artifacts that become inputs to the subsequent components in the pipeline. To optimize the efficiency of your pipeline, consider the recommendations in the following table:
+  * Improve data discoverability with [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview).
+  * Centralize feature engineering in [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview).
+  * Preprocess data by using [Dataflow](https://docs.cloud.google.com/dataflow/docs).
 
-Goal | Recommendations  
----|---  
-Implement core automation. | 
+
+
+#### Training execution
+
+When you train a model, you use data to create a model object. To do this, you need to set up the necessary infrastructure and dependencies of the training code. You also need to decide how to persist the training models, track training progress, evaluate the model, and present the results. To improve training repeatability, consider the following recommendations:
+
+  * Follow the guidelines in [Automate evaluation for reproducibility and standardization](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#automate-evaluation).
+  * To submit training jobs on one or more worker nodes without managing the underlying infrastructure provisioning or dependencies, use the [`CustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#before) resource in Agent Platform Managed Training. You can also use the `CustomJob` resource for [hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) jobs.
+  * [Optimize scheduling goodput](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#optimize-scheduling-goodput) by using [Dynamic Workload Scheduler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/schedule-jobs-dws#enable-dws) or [reservations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations) for Agent Platform Managed Training.
+  * Register your models to [Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction).
+
+
+
+#### Training orchestration
+
+Deploy training workloads as stages of a pipeline by using [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction). This service provides managed [Kubeflow](https://www.kubeflow.org/) and [TFX](https://www.tensorflow.org/tfx) services. Define each step of the pipeline as a [component](https://www.kubeflow.org/docs/components/) that runs in a container. Each component works like a function, with input parameters and output artifacts that become inputs to the subsequent components in the pipeline. To optimize the efficiency of your pipeline, consider the following recommendations:
+
+  * **Implement core automation** : 
     * Use [Kubeflow Pipelines components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list).
     * Use [Control Flows](https://www.kubeflow.org/docs/components/pipelines/user-guides/core-functions/control-flow/) for advanced pipeline designs, such as conditional gates.
     * Integrate the [pipeline compilation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline#compile_your_pipeline_into_a_yaml_file) as a part of your CI/CD flow.
-    * Execute the pipeline with [Cloud Scheduler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/schedule-pipeline-run).   
-Increase speed and cost efficiency. | 
+    * Execute the pipeline with [Cloud Scheduler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/schedule-pipeline-run).
+  * **Increase speed and cost efficiency** : 
     * To increase the speed of iterations and reduce cost, use the [execution cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-caching) of Agent Platform Pipelines.
-    * [Specify the machine configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/machine-types) for each component based on the resource requirements of each step.   
-Increase robustness. | 
+    * [Specify the machine configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/machine-types) for each component based on the resource requirements of each step.
+  * **Increase robustness** : 
     * To increase robustness against temporary issues without requiring manual intervention, configure [retries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-retries).
     * To [_fail fast_](https://en.wikipedia.org/wiki/Fail-fast_system) and iterate efficiently, configure a [failure policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-failure-policy).
-    * To handle failures, [configure email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/email-notifications).   
-Implement governance and tracking. | 
+    * To handle failures, [configure email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/email-notifications).
+  * **Implement governance and tracking** : 
     * To experiment with different model configurations or training configurations, [add pipeline runs to experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#experiments).
     * Monitor [logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/logging) and [metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/metrics) for Agent Platform Pipelines.
-    * Follow the recommendations in Monitor performance at all stages of the model lifecycle.   
+    * Follow the recommendations in [Monitor performance at all stages of the model lifecycle](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#monitor-model-perf).
 
 
 
 ### Use specialized infrastructure for prediction
 
-To reduce the toil of managing infrastructure and model deployments, automate the repeatable task flows. A service-oriented approach lets you focus on speed and faster [time to value (TTV)](https://en.wikipedia.org/wiki/Time_to_value). Consider the following recommendations:
+To reduce the toil of managing infrastructure and model deployments, automate the repeatable task flows. A service-oriented approach lets you focus on speed and faster [time to value (TTV)](https://en.wikipedia.org/wiki/Time_to_value). Consider the following recommendations.
 
-Recommendation | Techniques  
----|---  
-Implement automatic deployment. | 
+#### Implement automatic deployment
 
-  * After a model is trained, use automation to deploy the model. Agent Platform Pipelines provides [specialized components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list#endpoint_components) for deploying models to Agent Platform endpoints. You can manage automatic deployment by using [Kubeflow Control Flows](https://www.kubeflow.org/docs/components/pipelines/user-guides/core-functions/control-flow/). 
+  * After a model is trained, use automation to deploy the model. Agent Platform Pipelines provides [specialized components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list#endpoint_components) for deploying models to Agent Platform endpoints. You can manage automatic deployment by using [Kubeflow Control Flows](https://www.kubeflow.org/docs/components/pipelines/user-guides/core-functions/control-flow/).
   * To decide whether to deploy a model based on an evaluation against a validation set, take advantage of the [evaluation components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/model-evaluation-component) of the pipeline. You can automate deployment for batch inference by using specialized [batch prediction components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/batchprediction-component) in Agent Platform.
 
-  
-Take advantage of managed scaling features. | 
 
-  * [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions) provides batch and online inference capabilities that let you configure the [scaling behavior](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#scaling).
-  * Cloud Run supports [autoscaling GPUs](https://docs.cloud.google.com/run/docs/configuring/services/gpu-best-practices#autoscaling-and-gpu). 
 
-  
-Optimize latency and throughput on Agent Platform endpoints.  | 
+#### Take advantage of managed scaling features
+
+  * [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) provides batch and online inference capabilities that let you configure the [scaling behavior](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#scaling).
+  * Cloud Run supports [autoscaling GPUs](https://docs.cloud.google.com/run/docs/configuring/services/gpu-best-practices#autoscaling-and-gpu).
+
+
+
+#### Optimize latency and throughput on Agent Platform endpoints
 
   * Choose an appropriate [machine type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute).
   * Choose an appropriate [endpoint type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) for your models. [Dedicated private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect) might help to reduce latency.
-  * If you use Feature Store, choose an appropriate online serving type. Optimized online serving with Private Service Connect might provide low latency. For more information, see [Online service types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types). 
+  * If you use Feature Store, use [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving) for serving feature values at high throughput and low latency, and use [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) for serving embeddings.
 
-  
-Optimize resource utilization. | 
+
+
+#### Optimize resource utilization
 
   * To optimize resource utilization, you can [share resources across model deployments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting). Instead of using a separate VM for each model (default behavior), you can deploy several models on a single VM.
   * To assure or optimize resource availability, use [reservations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations), [Dynamic Workload Scheduler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-flex-start-vms), or [Spot VMs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms).
 
-  
-Optimize model deployment. | 
+
+
+#### Optimize model deployment
 
   * To avoid breaking changes, you can perform gradual migration and implement A/B testing by automatically [deploying several models to the same endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#models-endpoint). Agent Platform decouples the endpoint layer from the models, which lets you split traffic between model versions.
-  * To replace a deployed model, use a [rolling deployment strategy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/rolling-deployment). 
+  * To replace a deployed model, use a [rolling deployment strategy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/rolling-deployment).
 
-  
-Monitor performance. | 
 
-  * To improve serving performance in production, observe [logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging) and [inference metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/view-endpoint-metrics) for Agent Platform endpoints. To understand the behavior of models in production, you need tools to monitor quality and performance. [Model Monitoring on Agent Platform v2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/set-up-model-monitoring) lets you monitor several versions of a model and iterate rapidly. 
 
-  
-  
+#### Monitor performance
+
+To improve serving performance in production, observe [logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging) and [inference metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/view-endpoint-metrics) for Agent Platform endpoints. To understand the behavior of models in production, you need tools to monitor quality and performance. [Model Monitoring on Agent Platform v2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/set-up-model-monitoring) lets you monitor several versions of a model and iterate rapidly.
+
 ## Match design choices to performance requirements
 
 When you make design choices to improve performance, assess whether the choices support your business requirements or are wasteful and counterproductive. To choose appropriate infrastructure, models, and configurations, identify performance bottlenecks and assess how they're linked to performance metrics. For example, even on very powerful GPU accelerators, training tasks can experience performance bottlenecks. These bottlenecks can be caused by data I/O issues in the storage layer or by performance limitations of the model.
@@ -360,8 +373,8 @@ The following table summarizes the obtainability modes for Google Cloud services
 Product | On-demand VMs | Spot VMs | Reservations | Dynamic Workload Scheduler  
 ---|---|---|---|---  
 Compute Engine | [Create and start a Compute Engine instance](https://docs.cloud.google.com/compute/docs/instances/create-start-instance) | [About Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot) | [About reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-overview) | [Create a MIG with GPU VMs](https://docs.cloud.google.com/compute/docs/instance-groups/create-mig-with-gpu-vms)  
-GKE | [Add and manage node pools](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-pools) | [About Spot VMs in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/spot-vms#overview) | [Consuming reserved zonal resources](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/consuming-reservations) | [GPU, TPU, and H4D consumption with flex-start provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dws)  
-Cloud Batch | [Create and run a job](https://docs.cloud.google.com/batch/docs/create-run-example-job) | [Batch job with Spot VMs](https://docs.cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#provisioningmodel) | [Ensure resource availability using VM reservations](https://docs.cloud.google.com/batch/docs/create-run-job-reservation) | [Use GPUs and flex-start VMs](https://docs.cloud.google.com/batch/docs/create-run-job-gpus#use-gpu-vms-dws)  
+GKE | [Add and manage node pools](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-pools) | [About Spot VMs in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/spot-vms#overview) | [Consuming reserved zonal resources](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/consuming-reservations) | [GPU, Cloud TPU, and H4D consumption with flex-start provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dws)  
+Batch | [Create and run a job](https://docs.cloud.google.com/batch/docs/create-run-example-job) | [Batch job with Spot VMs](https://docs.cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#provisioningmodel) | [Ensure resource availability using VM reservations](https://docs.cloud.google.com/batch/docs/create-run-job-reservation) | [Use GPUs and flex-start VMs](https://docs.cloud.google.com/batch/docs/create-run-job-gpus#use-gpu-vms-dws)  
 Agent Platform Managed Training | [Create a serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) | [Use Spot VMs for training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-spot-vms) | [Use reservations for training jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations) | [Schedule training jobs based on resource availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/schedule-jobs-dws)  
 Agent Platform | Get [batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) and [online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) from custom-trained models. | [Use Spot VMs for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms) | [Use reservations for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations) | [Use flex-start VMs for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-flex-start-vms)  
   
@@ -392,9 +405,8 @@ Technique | Description
 ---|---  
 Implement automatic checkpointing. | Frequent checkpointing lets you track the progress of training at a granular level. However, the training process is interrupted for each checkpoint, which reduces runtime goodput. To minimize interruptions, you can set up automatic checkpointing, where the host's [SIGTERM](https://en.wikipedia.org/wiki/Signal_\(IPC\)#SIGTERM) signal triggers the creation of a checkpoint. This approach limits checkpointing interruptions to when the host needs maintenance. Remember that some hardware failures might not trigger SIGTERM signals; therefore, you must find a suitable balance between automatic checkpointing and SIGTERM events. You can set up automatic checkpointing by using the following techniques:
 
-  * Preserve training progress on TPUs by using [autocheckpoint](https://docs.cloud.google.com/tpu/docs/autocheckpoint). 
   * Use the built-in automatic checkpointing in the [MaxText](https://github.com/AI-Hypercomputer/maxtext) framework.
-  * Configure host maintenance notifications for [GPUs](https://docs.cloud.google.com/compute/docs/gpus/gpu-host-maintenance) and [TPUs](https://docs.cloud.google.com/tpu/docs/view-maintenance-notifications).
+  * Configure host maintenance notifications for [GPUs](https://docs.cloud.google.com/compute/docs/gpus/gpu-host-maintenance) and [Cloud TPU](https://docs.cloud.google.com/tpu/docs/prepare-for-maintenance).
   * Use [Orbax](https://github.com/google/orbax/blob/main/README.md) for ML using JAX.
   * Implement [multi-tier checkpointing in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/training/multi-tier-checkpointing). 
 
@@ -408,7 +420,7 @@ Use appropriate container-loading strategies. | In a GKE cluster, before nodes c
   * Preload container images by using [DaemonSets](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/automatically-bootstrapping-gke-nodes-with-daemonsets). 
 
   
-Use the compilation cache. | If training requires a compilation-based stack, check whether you can use a compilation cache. When you use a compilation cache, the computation graph isn't recompiled after each training interruption. The resulting reductions in time and cost are particularly beneficial when you use TPUs. [JAX](https://docs.jax.dev/en/latest/persistent_compilation_cache.html#google-cloud) lets you store the compilation cache in a Cloud Storage bucket and then use the cached data in the case of interruptions.  
+Use the compilation cache. | If training requires a compilation-based stack, check whether you can use a compilation cache. When you use a compilation cache, the computation graph isn't recompiled after each training interruption. The resulting reductions in time and cost are particularly beneficial when you use Cloud TPU. [JAX](https://docs.jax.dev/en/latest/persistent_compilation_cache.html#google-cloud) lets you store the compilation cache in a Cloud Storage bucket and then use the cached data in the case of interruptions.  
   
 #### Optimize program goodput
 
@@ -418,8 +430,8 @@ To optimize program goodput, use the following strategies:
 
 Strategy | Description  
 ---|---  
-Use framework-level customization options. | Frameworks or compilers like [Accelerated Linear Algebra (XLA)](https://openxla.org/xla) provide many key components of program goodput. To further optimize performance, you can customize fundamental components of the computation graph. For example, [Pallas](https://docs.jax.dev/en/latest/pallas/tpu/) supports custom kernels for TPUs and GPUs.  
-Offload memory to the host DRAM. | For large-scale training, which requires significantly high memory from accelerators, you can offload some memory usage to the host DRAM. For example, XLA lets you [offload model activations](https://github.com/pytorch/xla/tree/master/examples/host_offloading) from the forward pass to the host memory instead of using the accelerator's memory. With this strategy, you can improve training performance by increasing the model capacity or the batch size.  
+Use framework-level customization options. | Frameworks or compilers like [Accelerated Linear Algebra (XLA)](https://openxla.org/xla) provide many key components of program goodput. To further optimize performance, you can customize fundamental components of the computation graph. For example, [Pallas](https://docs.jax.dev/en/latest/pallas/tpu/) supports custom kernels for Cloud TPU and GPUs.  
+Offload memory to the host DRAM. | For large-scale training, which requires significantly high memory from accelerators, you can offload some memory usage to the host DRAM. For example, JAX and XLA let you [offload model activations](https://docs.cloud.google.com/tpu/docs/performance-guide#host_memory_spaces_pinned_host_versus_unpinned_host) from the forward pass to the host memory instead of using the accelerator's memory. With this strategy, you can improve training performance by increasing the model capacity or the batch size.  
 Leverage [quantization](https://en.wikipedia.org/wiki/Large_language_model#Quantization) during training. | You can improve training efficiency and program goodput by leveraging model quantization during training. This strategy reduces the precision of the gradients or weights during certain steps of the training; therefore, program goodput improves. However, this strategy might require additional engineering effort during model development. For more information, see the following resources:
 
   * [Quantization-aware training on TensorFlow](https://www.tensorflow.org/model_optimization/guide/quantization/training_comprehensive_guide)
@@ -474,11 +486,10 @@ If an API or an open model can deliver the required performance and quality, use
 
     * [Cloud Natural Language API](https://docs.cloud.google.com/natural-language/docs/reference/rest)
     * [Cloud Vision API](https://docs.cloud.google.com/vision/docs/detect-labels-image-api)
-    * [Video Intelligence API](https://docs.cloud.google.com/video-intelligence/docs/features)
     * [Speech-to-Text API](https://docs.cloud.google.com/speech-to-text/docs/overview)
     * [Text-to-Speech API](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts)
     * [Cloud Translation API](https://docs.cloud.google.com/translate/docs/overview)
-  * For generative AI applications, consider Google models like [Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#gemini-models), [Imagen](https://deepmind.google/models/imagen/), and [Veo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#veo-models).
+  * For generative AI applications, consider Google models like [Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#gemini-models), [Imagen](https://deepmind.google/models/gemini-image/), and [Veo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#veo-models).
 
 Explore [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) and choose from a curated collection of foundation and task-specific Google models. Model Garden also provides open models like Gemma and third-party models, which you can run in Agent Platform or deploy on runtimes like GKE.
 
@@ -515,8 +526,8 @@ GPU-based inference on GKE |
     * [Serve Gemma open models with vLLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm)
     * [Serve Gemma open models with TensorRT-LLM](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tensortllm)
     * [Serve scalable LLMs with TorchServe](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/scalable-ml-models-torchserve)  
-TPU-based inference | 
-    * [Serve open models using TPUs on GKE with Optimum TPU](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/optimum-tpu)
+Cloud TPU-based inference | 
+    * [Serve open models using Cloud TPU on GKE with Optimum TPU](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/optimum-tpu)
     * [Serve open models using vLLM TPU on Cloud TPU](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/vllm/use-vllm-tpu)  
 
 
@@ -552,7 +563,7 @@ Take advantage of performance-optimized framework options, such as the following
 Build training architectures and strategies that optimize performance by using the following techniques:
 
   * Implement [distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) on Agent Platform or on the frameworks described earlier. Distributed training enables model parallelism and data parallelism, which can help to increase the training dataset size and model size, and help to reduce training time.
-  * For efficient model training and to explore different performance configurations, run checkpointing at appropriate intervals. For more information, see Optimize runtime goodput.
+  * For efficient model training and to explore different performance configurations, run checkpointing at appropriate intervals. For more information, see [Optimize runtime goodput](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#optimize-runtime-goodput).
 
 
 
@@ -564,7 +575,7 @@ To optimize your model for inference, consider the following approaches:
 
   * [Quantization](https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/llm-optimization#quantization): Reduce the model size by representing its parameters in a lower precision format. This approach helps to reduce memory consumption and latency. However, quantization _after_ training might change model quality. For example, quantization after training might cause a reduction in accuracy.
 
-    * Post-training quantization (PTQ) is a repeatable task. Major ML frameworks like [PyTorch](https://pytorch.org/docs/stable/quantization.html) and [TensorFlow](https://ai.google.dev/edge/litert/models/quantization_spec) support PTQ.
+    * Post-training quantization (PTQ) is a repeatable task. Major ML frameworks like [PyTorch](https://docs.pytorch.org/docs/stable/quantization.html) and [TensorFlow](https://ai.google.dev/edge/litert/conversion/tensorflow/quantization/quantization_spec) support PTQ.
     * You can orchestrate PTQ by using a pipeline on [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction).
     * To stabilize model performance and benefit from reductions in model size, you can use [Qwix](https://github.com/google/qwix/blob/main/README.md).
   * [Tensor parallelism](https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/llm-optimization#tensor-parallelism): Improve inference throughput by distributing computational load across multiple GPUs.
@@ -592,7 +603,7 @@ Resource optimization helps to accelerate training, iterate efficiently, improve
 
 Your choice of compute platform can have a significant impact on the training efficiency of a model.
 
-  * Deep learning models perform well on GPUs and TPUs because such models require large amounts of memory and parallel matrix computation. For more information about workloads that are well suited to CPUs, GPUs, and TPUs, see [When to use TPUs](https://docs.cloud.google.com/tpu/docs/intro-to-tpu#when_to_use_tpus).
+  * Deep learning models perform well on GPUs and Cloud TPU because such models require large amounts of memory and parallel matrix computation. For more information about workloads that are well suited to CPUs, GPUs, and Cloud TPU, see [When to use Cloud TPU](https://docs.cloud.google.com/tpu/docs/intro-to-tpu#when_to_use_tpus).
   * [Compute-optimized VMs](https://docs.cloud.google.com/compute/docs/compute-optimized-machines) are ideal for HPC workloads.
 
 
@@ -627,27 +638,27 @@ We recommend that you use large machine types for training and smaller, cost-eff
 To maximize resource utilization, we recommend that you use an appropriate combination of these strategies. For example, when you virtualize a large H100 GPU by using the GPU time-sharing _and_ multi-instance GPU strategies, the serving platform can scale up and down based on traffic. GPU resources are repurposed in real time based on the load on the model containers.  
 **Optimize routing and load balancing.** | When you deploy multiple models on a cluster, you can use [GKE Inference Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-gke-inference-gateway) for optimized routing and load balancing. Inference Gateway extends the routing mechanisms of the [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io) by using the following capabilities:
 
-  * [Request body routing logic](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-gke-inference-gateway#create-httproute) and endpoint selection. These features enable optimization strategies like using the same base model for [multiple LoRA adapters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-gke-inference-gateway#specify-model-objectives).
+  * [Request body routing logic](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-gke-inference-gateway#create-httproute) and endpoint selection. These features enable optimization strategies like using the same base model for [multiple LoRA adapters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploy-gke-inference-gateway#specify-inference-objectives).
   * Generative AI-specific [security extensions](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/customize-gke-inference-gateway-configurations#ai-safety-checks) like Model Armor.
 
   
 **Share resources for Agent Platform endpoints.** | You can configure multiple Agent Platform endpoints to use a common pool of resources. For more information about this feature and its limitations, see [Share resources across deployments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting).   
   
-#### Optimize training and serving on TPUs
+#### Optimize training and serving on Cloud TPU
 
-TPUs are Google chips that help solve massive scale challenges for ML algorithms. These chips provide optimal performance for AI training and inference workloads. When compared to GPUs, TPUs provide higher efficiency for deep learning training and serving. For information about the use cases that are suitable for TPUs, see [When to use TPUs](https://docs.cloud.google.com/tpu/docs/intro-to-tpu#when_to_use_tpus). TPUs are compatible with ML frameworks like [TensorFlow](https://docs.cloud.google.com/tpu/docs/tensorflow-pods), [PyTorch](https://docs.cloud.google.com/tpu/docs/run-calculation-pytorch), and [JAX](https://docs.cloud.google.com/tpu/docs/run-calculation-jax).
+Cloud TPU provides Google chips that help solve massive scale challenges for ML algorithms. These chips provide optimal performance for AI training and inference workloads. When compared to GPUs, Cloud TPU provides higher efficiency for deep learning training and serving. For information about the use cases that are suitable for Cloud TPU, see [When to use Cloud TPU](https://docs.cloud.google.com/tpu/docs/intro-to-tpu#when_to_use_tpus). Cloud TPU is compatible with ML frameworks like [TensorFlow](https://www.tensorflow.org/guide/tpu), [PyTorch](https://docs.cloud.google.com/tpu/docs/pytorch-on-tpu), and [JAX](https://docs.cloud.google.com/tpu/docs/jax-ai-stack).
 
-To optimize TPU performance, use the following techniques, which are described in the [Cloud TPU performance guide](https://docs.cloud.google.com/tpu/docs/performance-guide):
+To optimize Cloud TPU performance, use the following techniques, which are described in the [Cloud TPU performance guide](https://docs.cloud.google.com/tpu/docs/performance-guide):
 
-  * Maximize the batch size for each TPU memory unit.
-  * Ensure that TPUs aren't idle. For example, implement parallel data reads.
+  * Maximize the batch size for each Cloud TPU memory unit.
+  * Ensure that Cloud TPU resources aren't idle. For example, implement parallel data reads.
   * Optimize the XLA compiler. Adjust tensor dimensions as required and avoid padding. XLA automatically optimizes for graph execution performance by using tools like fusion and broadcasting.
 
 
 
-#### Optimize training on TPUs and serving on GPUs
+#### Optimize training on Cloud TPU and serving on GPUs
 
-TPUs support efficient training. GPUs provide versatility and wider availability for inference workloads. To combine the strengths of TPUs and GPUs, you can train models on TPUs and serve them on GPUs. This approach can help to reduce overall costs and accelerate development, particularly for large models. For information about the locations where TPU and GPU machine types are available, see [TPU regions and zones](https://docs.cloud.google.com/tpu/docs/regions-zones) and [GPU locations](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones).
+Cloud TPU supports efficient training. GPUs provide versatility and wider availability for inference workloads. To combine the strengths of Cloud TPU and GPUs, you can train models on Cloud TPU and serve them on GPUs. This approach can help to reduce overall costs and accelerate development, particularly for large models. For information about the locations where Cloud TPU and GPU machine types are available, see [Cloud TPU regions and zones](https://docs.cloud.google.com/tpu/docs/regions-zones) and [GPU locations](https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones).
 
 #### Optimize the storage layer
 
@@ -713,7 +724,7 @@ To innovate, troubleshoot, and investigate performance issues, you must establis
 
 To reliably improve performance, you need the ability to trace every model version back to the exact data, code, and configurations that were used to produce the model. As you scale a model, such tracing becomes difficult. You need a lineage system that automates the tracing process and creates a record that's clear and can be queried for every experiment. This system lets your teams efficiently identify and reproduce the choices that lead to the optimally performing models.
 
-To view and analyze the lineage of pipeline artifacts for workloads in Agent Platform, you can use [Agent Platform ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) or [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/introduction). Both options let you register events or artifacts to meet governance requirements and to query the metadata and retrieve information when needed. This section provides an overview of the two options. For detailed information about the differences between Agent Platform ML Metadata and Knowledge Catalog, see [Track the lineage of pipeline artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/lineage).
+To view and analyze the lineage of pipeline artifacts for workloads in Agent Platform, you can use [Agent Platform ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) or [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction). Both options let you register events or artifacts to meet governance requirements and to query the metadata and retrieve information when needed. This section provides an overview of the two options. For detailed information about the differences between Agent Platform ML Metadata and Knowledge Catalog, see [Track the lineage of pipeline artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/lineage).
 
 #### Default implementation: Agent Platform ML Metadata
 
@@ -734,11 +745,11 @@ Agent Platform ML Metadata provides a filtering syntax and operators to run quer
 
 #### Alternative implementation: Knowledge Catalog
 
-Knowledge Catalog discovers metadata from [Google Cloud resources](https://docs.cloud.google.com/dataplex/docs/catalog-overview#supported-sources), including Agent Platform artifacts. You can also integrate a [custom data source](https://docs.cloud.google.com/dataplex/docs/ingest-custom-sources).
+Knowledge Catalog discovers metadata from [Google Cloud resources](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#supported-sources), including Agent Platform artifacts. You can also integrate a [custom data source](https://docs.cloud.google.com/knowledge-catalog/docs/ingest-custom-sources).
 
 Knowledge Catalog can read metadata across multiple regions and organization-wide stores, whereas Agent Platform ML Metadata is a project-specific resource. When compared to Agent Platform ML Metadata, Knowledge Catalog involves more setup effort. However, Knowledge Catalog might be appropriate when you need integration with your wider data portfolio in Google Cloud and with organization-wide stores.
 
-Knowledge Catalog discovers and harvests metadata for projects where the Data Lineage API is enabled. The metadata in the catalog is organized by using a [data model](https://docs.cloud.google.com/dataplex/docs/catalog-overview#supported-sources) that consists of projects, entry groups, entries, and aspects. Knowledge Catalog provides a [specific syntax](https://docs.cloud.google.com/dataplex/docs/search-syntax) that you can use to discover artifacts. If required, you can [map metadata artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/lineage#map_artifacts_to_fqn) to Knowledge Catalog.
+Knowledge Catalog discovers and harvests metadata for projects where the Data Lineage API is enabled. The metadata in the catalog is organized by using a [data model](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#supported-sources) that consists of projects, entry groups, entries, and aspects. Knowledge Catalog provides a [specific syntax](https://docs.cloud.google.com/knowledge-catalog/docs/search-syntax) that you can use to discover artifacts. If required, you can [map metadata artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/lineage#map_artifacts_to_fqn) to Knowledge Catalog.
 
 ### Use explainability tools
 
@@ -810,6 +821,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-02-13 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-02-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-quickstart/
 title: Getting started with Firestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:44.128640+00:00
+fetched_at: 2026-10-30T05:51:49.002137+00:00
 ---
 
 # Getting started with Firestore  |  Google Cloud Documentation
@@ -26,20 +26,59 @@ Getting started with Firestore
 ### Kotlin
     
     
-    // Create the client.
-    val db = FirestoreOptions.newBuilder()
-        .build()
-        .service
+    import com.google.api.gax.rpc.ApiException
+    import com.google.api.gax.rpc.NotFoundException
+    import com.google.cloud.firestore.FirestoreOptions
+    import java.util.concurrent.ExecutionException
     
-    // Fetch the document reference and data object.
-    val docRef = db.collection(collectionName).document(documentName)
-    val data = docRef
-        .get() // future
-        .get() // snapshot
-        .data ?: error("Document $collectionName:$documentName not found") // MutableMap
+    /**
+     * Retrieves all documents from a Firestore collection and prints their metadata
+     * and fields.
+     *
+     * @param projectId Google Cloud project identifier (for example, "example-project-id").
+     * @param collectionId Firestore collection identifier to query (for example, "example-collection").
+     */
+    fun getCollectionDocuments(projectId: String, collectionId: String) {
+      val options =
+        FirestoreOptions.getDefaultInstance()
+          .toBuilder()
+          .setProjectId(projectId)
+          .build()
     
-    // Print the retrieved data.
-    data.forEach { (key, value) -> println("$key: $value") }
+      try {
+        options.service.use { firestore ->
+          val collectionReference = firestore.collection(collectionId)
+          println("Retrieving documents from collection '$collectionId'...")
+          val querySnapshot = collectionReference.get().get()
+    
+          println("Resource ID: ${collectionReference.path}")
+          println("Document Count: ${querySnapshot.documents.size}")
+          println("Read Time: ${querySnapshot.readTime}")
+          for (document in querySnapshot.documents) {
+            println("Document ID: ${document.id}")
+            println("Creation Date: ${document.createTime}")
+            println("Data: ${document.data}")
+            println("Update Time: ${document.updateTime}")
+          }
+        }
+      } catch (err: ExecutionException) {
+        val message =
+          when (val cause = err.cause) {
+            is NotFoundException ->
+              "error: Firestore database not found in project '$projectId': ${cause.message}"
+            is ApiException ->
+              "error: failed to retrieve collection '$collectionId' in project '$projectId': ${cause.message}"
+            else ->
+              "error: execution failed while querying collection '$collectionId' in project '$projectId': ${err.message}"
+          }
+        System.err.println(message)
+      } catch (err: InterruptedException) {
+        Thread.currentThread().interrupt()
+        System.err.println(
+          "error: interrupted while querying collection '$collectionId' in project '$projectId': ${err.message}"
+        )
+      }
+    }
 
 ## What's next
 

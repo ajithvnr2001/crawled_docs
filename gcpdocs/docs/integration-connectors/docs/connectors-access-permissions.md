@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors-access-permissions/
 title: IAM roles and permissions for Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:36.165705+00:00
+fetched_at: 2026-10-30T05:41:15.973087+00:00
 ---
 
 # IAM roles and permissions for Integration Connectors  |  Google Cloud Documentation
@@ -411,10 +411,18 @@ Role | Permissions
   
 For more information about predefined roles, see [Roles and permissions](https://docs.cloud.google.com/iam/docs/roles-overview). For help choosing the most appropriate predefined roles, see [Choose predefined roles](https://docs.cloud.google.com/iam/docs/choose-predefined-roles). 
 
+## Permissions for connection service accounts
+
+A connection runs as the service account that you specify when creating the connection. To create or update a connection, the principal that makes the request must have the `iam.serviceAccounts.actAs` permission on the connection's service account. The principal is the user or the service account that calls Integration Connectors (for example, from the Google Cloud console, Terraform, or the API). The requirement applies to every connection, regardless of the authentication type. 
+
+To grant this permission, assign the principal the Service Account User role (`roles/iam.serviceAccountUser`) on the connection's service account. For more information, see [Manage access to service accounts](https://docs.cloud.google.com/iam/docs/manage-access-service-accounts) and [Roles for service account authentication](https://docs.cloud.google.com/iam/docs/service-accounts-actas). 
+
+If the principal doesn't have the permission, the request fails with a `FAILED_PRECONDITION` error with a precondition violation type of `SERVICE_ACCOUNT_PERMISSION_DENIED`, and the connection isn't created or updated. Existing connections continue to run. 
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/known-issues/
 title: Known issues \u00a0|\u00a0 Google Cloud VMware Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:28:16.780483+00:00
+fetched_at: 2026-10-30T05:51:46.775584+00:00
 ---
 
 # Known issues  |  Google Cloud VMware Engine  |  Google Cloud Documentation
@@ -22,6 +22,15 @@ Send feedback  Stay organized with collections  Save and categorize content base
 # Known issues
 
 This page lists known issues and workarounds for deploying and operating VMware Cloud Foundation (VCF) in VMware solution on Google Cloud.
+
+## ESX host vSAN HCL compatibility during VCF deployment
+
+When you deploy a VCF management domain and include the node running the VCF Installer as part of the management domain, the ESXi HCL compatibility check fails for the node on which VCF Installer is running. This is a known issue in VCF 9.x. To ensure that the check passes, enable **Allow auto claim of HCL incompatible disks** in the VCF Installer using one of the following methods:
+
+  * **Terraform and toolkit** : If you use [Deploy nodes and VCF by using Terraform and toolkit](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/deploy-terraform), the `skipHclAutoDiskClaim` option is automatically set to `true` in the deployment configuration JSON file.
+  * **VCF installer UI** : If you use the deployment wizard, select **Allow auto claim of HCL incompatible disks** on the **Deploy VMware Cloud Foundation** > **Plan** > **Storage** options page under the **vSAN architecture** section.
+
+
 
 ## Host vMotion and vSAN IP address mismatch during VCF deployment
 
@@ -280,6 +289,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

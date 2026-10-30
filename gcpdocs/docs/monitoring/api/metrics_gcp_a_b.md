@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b/
 title: Google Cloud metrics: A or B \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:24.136436+00:00
+fetched_at: 2026-10-30T05:42:10.665339+00:00
 ---
 
 # Google Cloud metrics: A or B  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### actions
 
@@ -295,6 +295,20 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
+`agentanomalydetection/detected_event_count` BETA ** _(project)_**   
+Detected events   
+`CUMULATIVE`, `INT64`, `{event}`   
+**[aiplatform.googleapis.com/MonitoredAgent](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/MonitoredAgent)** |  _Total number of detection events Agent Anomaly Detection produced for the agent. A detection event is one detector's outcome on one unit of analyzed agent activity. Sampled every 120 seconds. After sampling, data is not visible for up to 420 seconds._   
+`detector_id`: The name of the detector that produced the event.   
+`detector_source`: Whether the detector is provided by Google or defined by the customer.   
+`severity`: The severity the detector assigned to the event, including a level for activity the detector examined and did not flag.   
+`agentanomalydetection/monitored_agents` BETA ** _(project)_**   
+Monitored agents   
+`GAUGE`, `INT64`, `{agent}`   
+**[aiplatform.googleapis.com/AgentAnomalyDetectionScope](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/AgentAnomalyDetectionScope)** |  _Current number of monitored agents in the Agent Anomaly Detection scope. Sampled every 120 seconds. After sampling, data is not visible for up to 420 seconds._   
+`enabled`: Whether the agent is being scanned.   
+`agent_type`: The runtime the agent is hosted on.   
+`agent_framework`: The framework the agent is built with.   
 `eu_multi_region_online_prediction_input_tokens_per_minute_per_base_model` BETA ** _(project)_**   
 EU multi-region online prediction input tokens per minute per base model   
 `DELTA`, `INT64`, `1`   
@@ -1834,6 +1848,21 @@ A2A Agent stream post requests like sendMessageStream, resubscribe. quota usage
 **[aiplatform.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/Location)** |  _Current usage on quota metric aiplatform.googleapis.com/non_regional_a2a_agent_stream_requests. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
 `method`: method.   
+`quota/non_regional_agent_anomaly_detection_detectors/exceeded` ALPHA ** _(project)_**   
+Agent Anomaly Detection Custom Detectors quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[aiplatform.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric aiplatform.googleapis.com/non_regional_agent_anomaly_detection_detectors. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/non_regional_agent_anomaly_detection_detectors/limit` ALPHA ** _(project)_**   
+Agent Anomaly Detection Custom Detectors quota limit   
+`GAUGE`, `INT64`, `1`   
+**[aiplatform.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/Location)** |  _Current limit on quota metric aiplatform.googleapis.com/non_regional_agent_anomaly_detection_detectors. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/non_regional_agent_anomaly_detection_detectors/usage` ALPHA ** _(project)_**   
+Agent Anomaly Detection Custom Detectors quota usage   
+`GAUGE`, `INT64`, `1`   
+**[aiplatform.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/Location)** |  _Current usage on quota metric aiplatform.googleapis.com/non_regional_agent_anomaly_detection_detectors. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
 `quota/non_regional_internal_requests/exceeded` BETA ** _(project)_**   
 Non-regional requests to internal API. quota exceeded error   
 `DELTA`, `INT64`, `1`   
@@ -5917,12 +5946,12 @@ Validator Count
 `GAUGE`, `INT64`, `1`   
 **[blockchainnodeengine.googleapis.com/BlockchainNode](https://docs.cloud.google.com/monitoring/api/resources#tag_blockchainnodeengine.googleapis.com/BlockchainNode)** |  _Total count of validators that are specifically monitored by this beacon node. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._  
   
-Generated at 2026-10-22 02:44:18 UTC.
+Generated at 2026-10-29 23:33:54 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

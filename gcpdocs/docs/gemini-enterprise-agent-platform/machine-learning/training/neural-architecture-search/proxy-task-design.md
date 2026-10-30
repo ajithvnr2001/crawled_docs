@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design/
 title: Proxy task design \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:13:38.327895+00:00
+fetched_at: 2026-10-30T05:50:15.495286+00:00
 ---
 
 # Proxy task design  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -102,11 +102,11 @@ When using a proxy task for Agent Platform Neural Architecture Search, **a key a
 
 The figure below shows an example of a poor correlation (correlation-score = -0.03), which makes this proxy task a bad candidate for a search:
 
-![Poor correlation.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/poor_correlation_example.png)
+![Poor correlation.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/poor_correlation_example.png)
 
 Each point in the plot represents a correlation-candidate model. The `x`-axis represents the stage-2 full-training scores for the models and `y`-axis represents the stage-1 proxy-task scores for the same models. Observe the highest point. This model gave the highest proxy-task score (`y`-axis) but performs poorly during stage-2 full-training (`x`-axis) compared to other models. In contrast, the figure below shows an example of a good correlation (correlation-score = 0.67) which makes this proxy task a good candidate for a search:
 
-![Good correlation.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/good_correlation_example.png)
+![Good correlation.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/good_correlation_example.png)
 
 If your search involves a latency constraint, verify a good correlation for latency-values as well.
 
@@ -118,13 +118,13 @@ Another requirement of a proxy task is that it shouldn't have a large variation 
 
 Examples are provided to mitigate large variance during training. One way is to use `cosine decay` as the learning-rate schedule. The following plot compares three learning-rate strategies:
 
-![Scores with different learning rates.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/scores_with_different_learning_rates.png)
+![Scores with different learning rates.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/scores_with_different_learning_rates.png)
 
 The lowest plot corresponds to a constant learning rate. When the score jumps around at the end of the training, then a small change in the choice of the reduced number of training steps can cause a big change in the final proxy-task reward. To make the proxy-task reward more stable, it is better to use a cosine-learning rate decay as shown by the corresponding validation scores in the highest plot. Note how the highest plot becomes smoother towards the end of the training. The middle plot shows the score corresponding to the stepwise learning-rate decay. It is better than the constant rate but still not as smooth as the cosine decay and also requires manual tuning.
 
 The learning rate schedules are shown below:
 
-![Learning rates.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/learning_rates.png)
+![Learning rates.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/learning_rates.png)
 
 **Note:** If you are training for approximately three to four epochs, then use learning-rate decay rate based on steps rather than epochs.
 
@@ -136,11 +136,11 @@ If heavy augmentation isn't the cause and you have already tried cosine decay bu
 
 If your accuracy/epoch graphs for trials look like this:
 
-![Accuray/epoch graph without smoothing applied](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/suggested_workflow_no_smooth_graph.png)
+![Accuray/epoch graph without smoothing applied](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/suggested_workflow_no_smooth_graph.png)
 
 then you can apply smoothing techniques mentioned above (such as stochastic weighted averaging or using exponential moving average) to get a more consistent graph like:
 
-![Accuray/epoch graph with smoothing applied](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/suggested_workflow_smooth_graph.png)
+![Accuray/epoch graph with smoothing applied](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/suggested_workflow_smooth_graph.png)
 
 ### Out-of-memory (OOM) and learning rate related errors
 
@@ -216,7 +216,7 @@ Load this checkpoint before you train your model:
 
 You also need the `metric-id` corresponding to accuracy and latency values reported by your trainer. If your trainer reward (which is sometimes a combination of accuracy and latency) is different from the accuracy, then make sure that you **also report back accuracy-only metric** using `other_metrics` from your trainer. For example, the following example shows accuracy-only and latency metrics reported by our prebuilt trainer:
 
-![Model selection metrics](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/model_selection_metrics.png)
+![Model selection metrics](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/model_selection_metrics.png)
 
 ### Variance measurement
 
@@ -277,15 +277,15 @@ Launch the variance-measurement job by running the following command (you need a
 
 Once you launch this variance-measurement job, you will get a job-link. The job-name should begin with prefix `Variance_Measurement`. An example job UI is shown below:
 
-![Variance measurement job](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/variance_measurement_job.png)
+![Variance measurement job](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/variance_measurement_job.png)
 
 The `variance_measurement_dir` will contain all the outputs, and you can check the logs by clicking **View logs** link. This job by default uses one CPU on cloud to run in the background as a _custom job_ and then launches and manages child _NAS_ jobs.
 
-![Custom vs nas jobs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/custom_vs_nas_jobs.png)
+![Custom vs nas jobs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/custom_vs_nas_jobs.png)
 
 Under _NAS_ jobs, you will see a job named `Find_workable_model_<your job name>`. This job will sample your search space to find one model, which doesn't generate any error. Once such a model is found, the variance-measurement job launches another _NAS_ job `<your job name>`, which runs five copies of this model for the number of training steps you set earlier. Once the training for these models is done, the variance-measurement job measures its score variance and smoothness and report these in its logs:
 
-![Variance measurement logs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/variance_measurement_logs.png)
+![Variance measurement logs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/variance_measurement_logs.png)
 
 If the variance is high, then you can explore techniques listed here.
 
@@ -305,7 +305,7 @@ Our tool **automatically and efficiently** finds these correlation-candidate mod
 
 
 
-![Model selection example](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/model_selection_example.png)
+![Model selection example](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/model_selection_example.png)
 
   * Train the selected 25 models for 1/25th of full training time and then reject five more models based on scores so far. Note that the training of the 25 models is continued from their previous checkpoint.
   * Repeat this process until only `N` models with a good distribution are left.
@@ -398,11 +398,11 @@ Now you are ready to launch the model-selection job by running the following com
 
 Once you launch this model-selection controller job, a job link is received. The job-name begins with prefix `Model_Selection_`. An example job UI is shown below:
 
-![Model selection job](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/model_selection_job.png)
+![Model selection job](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/model_selection_job.png)
 
 The `model_selection_dir` contains all of the outputs. Check the logs by clicking `View logs` link. This model-selection controller job by default uses one CPU on Google Cloud to run in the background as a _custom job_ and then launches and manages child _NAS_ jobs for each iteration of the model-selection.
 
-![Custom vs nas jobs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/custom_vs_nas_jobs.png)
+![Custom vs nas jobs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/custom_vs_nas_jobs.png)
 
 Each child _NAS_ job has a name such as `<your_job_name>_iter_3` (except for iteration `0`). Only one iteration runs at a time. At every iteration, the number of models (number of trials) reduces and the training duration increases. At the end of every iteration, each _NAS_ job saves out `gs://<job-output-dir>/search/filtered_trial_scores.png` file which visually shows which models were rejected at this iteration. You can also run the following command:
     
@@ -501,11 +501,11 @@ Recall, there are three common dimensions to search for an optimal proxy task, w
 
 You can create a _discrete_ proxy-task search space by sampling these dimensions as shown here:
 
-![Proxy task search space grid](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/proxy_task_search_space_grid.png)
+![Proxy task search space grid](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/proxy_task_search_space_grid.png)
 
 The percentage numbers above are only set as an approximate suggestion and example. In practice, you can pick any discrete choice. Note that we **haven't included the training-steps dimension** in the above search space. This is because the proxy-task search tool figures out the optimal training step given a proxy-task choice. Consider a proxy-task choice of `[50% training data, 25% model scale]`. Set the number of training steps to the same amount as for full baseline training. When evaluating this proxy task, the proxy task search tool launches training for the correlation-candidate models, monitors their current accuracy scores, and continuously computes the rank-correlation score (using the past full-training scores for the reference models):
 
-![Correlation vs training steps](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/correlation_vs_training_steps.png)
+![Correlation vs training steps](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/correlation_vs_training_steps.png)
 
 Thus, the proxy-task search tool can stop the proxy-task training once the desired correlation (such as 0.65) is obtained or can also stop early if the search-cost quota (such as 3 hours limit per proxy-task) is exceeded. Therefore, you don't need to search explicitly over the training steps. The proxy task search tool evaluates each proxy task from your discrete search space as a grid search and provides you the best option.
 
@@ -592,7 +592,7 @@ For your first proxy-task search you can try reducing only the training data (ju
 
 Set the number of training steps to the number used in full-baseline training. There are differences between stage-2 full training and stage-1 proxy-task training configurations. For proxy task, you should reduce the `batch-size` compared to the full-baseline training config to use only 2 GPUs or 4 GPUs. Typically, full training uses 4 GPUs, 8 GPUs, or more, but the proxy task uses only 2 GPUs or 4 GPUs. Another difference is the [training and validation split.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#two_stages) Here is an example of changes for MnasNet config going from 4 GPUs for stage-2 full training to 2 GPUs and a different validation split for proxy task search:
 
-![Proxy task config](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/proxy_task_config.png)
+![Proxy task config](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/proxy_task_config.png)
 
 Launch the proxy-task search controller job by running the following command (you need a [service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/environment-setup#service-account-setup)):
     
@@ -679,11 +679,11 @@ Launch the proxy-task search controller job by running the following command (yo
 
 After you launch this proxy-task search controller job, a job link is received. The job name begins with prefix `Search_controller_`. An example job UI is shown below:
 
-![Proxy task search job](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/proxy_task_search_job.png)
+![Proxy task search job](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/proxy_task_search_job.png)
 
 The `search_controller_dir` will contain all of the outputs and you can check the logs by clicking `View logs` link. This job by default uses one CPU on cloud to run in the background as a _custom job_ and then launches and manages child _NAS_ jobs for each proxy-task evaluation.
 
-![Custom vs nas jobs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/custom_vs_nas_jobs.png)
+![Custom vs nas jobs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/custom_vs_nas_jobs.png)
 
 Each proxy-task _NAS_ job has a name such as `ProxyTask_<your-job-name>_<proxy-task-name>` where `<proxy-task-name>` is what your proxy-task config generator module provides for each proxy-task. Only one proxy-task evaluation runs at a time. You can also run the following command:
     
@@ -799,7 +799,7 @@ The `proxy_tasks_map` stores output for each proxy-task evaluation and `best_pro
 
 and inspect the plot images. For example, the following plot shows the accuracy correlation vs training time for the best proxy-task:
 
-![Accuracy-correlation vs training-time](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/accuracy_correlation_vs_training_time.png)
+![Accuracy-correlation vs training-time](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/accuracy_correlation_vs_training_time.png)
 
 Your search is complete, and you have found the best proxy-task config, you must do the following:
 
@@ -841,6 +841,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

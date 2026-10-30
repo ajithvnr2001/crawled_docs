@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/use-agent-retrieval-mcp/
 title: Use the Agent Retrieval remote MCP server to connect to AI and custom applications \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:13:25.229364+00:00
+fetched_at: 2026-10-30T05:54:28.755654+00:00
 ---
 
 # Use the Agent Retrieval remote MCP server to connect to AI and custom applications  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -146,7 +146,7 @@ Scope URI | Description
   
 ## Configure an MCP client to use the Agent Retrieval MCP server
 
-AI applications and agents, such as Claude or Antigravity, can instantiate an MCP client that connects to a single MCP server. An AI application can have multiple clients that connect to different MCP servers. If your application isn't listed in the [client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance), then you can use the following information to connect from most applications.
+AI applications and agents, such as Claude or Antigravity, can instantiate an MCP client that connects to a single MCP server. An AI application can have multiple clients that connect to different MCP servers. If your application isn't listed in the [client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance), then you can use the following information to connect from most applications. 
 
 In your AI application, look for a way to add or connect to a remote MCP server. For the Agent Retrieval MCP server, enter the following information as required:
 
@@ -168,7 +168,7 @@ This single endpoint exposes all nine Agent Retrieval MCP tools. Tool calls are 
 The Agent Retrieval MCP server dispatches every `tools/call` at the network edge based on two HTTP headers:
 
   * `Mcp-Name` — must equal the tool name in the request body (`params.name`).
-  * `Mcp-Param-Region` — must equal the `location` component of the resource path in the request body (for example, `us-central1` for a Collection at `projects/PROJECT_ID/locations/us-central1/collections/COLLECTION_ID`).
+  * `Mcp-Param-Region` — must equal the `location` argument in the request body (`params.arguments.location`, for example, `us-central1`).
 
 
 
@@ -180,7 +180,7 @@ Your MCP client must emit these headers dynamically per `tools/call`. This behav
 
 For web-based applications, and some desktop applications, you must allowlist a redirect URI when you create a client ID and secret for authentication. Redirect URIs are used by the authorization server to send tokens to your application. Your application's documentation should specify the redirect URI that you must use. [Custom redirect URIs](https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_custom-scheme) aren't supported.
 
-For application-specific guidance about setting up and connecting to MCP server, see [Client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance).
+For application-specific guidance about setting up and connecting to MCP server, see [Client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance). 
 
 For more general guidance, see the following resources:
 
@@ -281,6 +281,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

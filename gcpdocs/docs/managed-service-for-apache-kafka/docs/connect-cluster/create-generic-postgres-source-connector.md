@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-generic-postgres-source-connector/
 title: Create a Generic PostgreSQL Source connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:21:29.265934+00:00
+fetched_at: 2026-10-30T05:54:41.797761+00:00
 ---
 
 # Create a Generic PostgreSQL Source connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -67,14 +67,12 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 ### Grant permissions to access Secret Manager secrets
 
-The Managed Kafka service account needs permission to view and access the secrets stored in Secret Manager. Grant the following IAM roles to the service account:
+The [Managed Kafka Service Agent](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/access-control#service-agent) needs permission to view and access Secret Manager secrets. Grant the service agent the following IAM roles:
 
-  * **Secret Manager Viewer** (`roles/secretmanager.viewer`)
-  * **Secret Manager Secret Accessor** (`roles/secretmanager.secretAccessor`)
+  * Secret Manager Viewer (`roles/secretmanager.viewer`)
+  * Secret Manager Secret Accessor (`roles/secretmanager.secretAccessor`)
 
 
-
-The Managed Kafka service account has the following format: `service-PROJECT_NUMBER@gcp-sa-managedkafka.iam.gserviceaccount.com`, where PROJECT_NUMBER is the project number of the Connect cluster.
 
 If your Connect cluster is in a different project from your Managed Service for Apache Kafka cluster, see [ Create a Connect cluster in a different project](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-connect-cluster#create-a-connect-cluster-in-a-different-project).
 
@@ -332,6 +330,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

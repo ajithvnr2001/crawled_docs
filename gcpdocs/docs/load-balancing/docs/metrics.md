@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/metrics/
 title: Load balancing metrics \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:59.530849+00:00
+fetched_at: 2026-10-30T05:42:00.210340+00:00
 ---
 
 # Load balancing metrics  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`application_lb/backend_latencies` BETA ** _(project)_**   
+`application_lb/backend_latencies` GA ** _(project)_**   
 Backend latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _A distribution of the latency calculated from when the request was sent by the Application Load Balancer proxy to the backend until the proxy received from the backend the last byte of response. For Service Extensions, this value represents the sum of latencies of each ProcessingRequest/ProcessingResponse pair between the load balancer and the extension backend._   
@@ -82,7 +82,7 @@ Backend latencies
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/backend_request_bytes_count` BETA ** _(project)_**   
+`application_lb/backend_request_bytes_count` GA ** _(project)_**   
 Backend request bytes count per application load balancer   
 `DELTA`, `INT64`, `By`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _The number of bytes sent as requests from the application load balancer to backends. For Service Extensions, this value represents the total number of bytes sent from the load balancer to the extension backend._   
@@ -96,7 +96,7 @@ Backend request bytes count per application load balancer
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/backend_request_count` BETA ** _(project)_**   
+`application_lb/backend_request_count` GA ** _(project)_**   
 Backend request count per application load balancer   
 `DELTA`, `INT64`, `1`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _The number of requests served by backends of the application load balancer. For Service Extensions, this value represents the number of gRPC streams between the load balancer and the extension backend._   
@@ -110,7 +110,7 @@ Backend request count per application load balancer
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/backend_response_bytes_count` BETA ** _(project)_**   
+`application_lb/backend_response_bytes_count` GA ** _(project)_**   
 Backend response bytes count per application load balancer   
 `DELTA`, `INT64`, `By`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _The number of bytes sent as response from backends to the application load balancer. For Service Extensions, this value represents the total number of bytes received by the load balancer from the extension backend._   
@@ -124,7 +124,7 @@ Backend response bytes count per application load balancer
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/request_bytes_count` BETA ** _(project)_**   
+`application_lb/request_bytes_count` GA ** _(project)_**   
 Request bytes   
 `DELTA`, `INT64`, `By`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _The number of request bytes received by the application load balancer. For Service Extensions, this value represents the total number of bytes sent from the load balancer to the extension backend._   
@@ -138,7 +138,7 @@ Request bytes
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/request_count` BETA ** _(project)_**   
+`application_lb/request_count` GA ** _(project)_**   
 Request count   
 `DELTA`, `INT64`, `1`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _The number of requests served by the application load balancer._   
@@ -152,7 +152,7 @@ Request count
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/response_bytes_count` BETA ** _(project)_**   
+`application_lb/response_bytes_count` GA ** _(project)_**   
 Response bytes   
 `DELTA`, `INT64`, `By`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _The number of bytes sent as responses from the application load balancer to clients._   
@@ -166,7 +166,7 @@ Response bytes
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/total_latencies` BETA ** _(project)_**   
+`application_lb/total_latencies` GA ** _(project)_**   
 Total latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _A distribution of the latency calculated from when the request was received by the proxy until the proxy got ACK from client on last response byte._   
@@ -540,12 +540,12 @@ Open Connections
 `proxy_continent`: Continent of the SSL proxy that handles the connection: 'America', 'Europe' or 'Asia'.   
 `client_country`: Country of the client that opened the TCP/SSL connection (for example, 'United States', 'Germany').   
   
-Table generated at 2026-10-22 02:44:18 UTC.
+Table generated at 2026-10-29 23:33:54 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

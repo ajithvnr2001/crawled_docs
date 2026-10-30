@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z/
 title: Google Cloud metrics: P through Z \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:22.425865+00:00
+fetched_at: 2026-10-30T05:42:08.965149+00:00
 ---
 
 # Google Cloud metrics: P through Z  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### parallelstore
 
@@ -2720,6 +2720,23 @@ Bytes sent by Cloud Spanner
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Uncompressed response bytes sent by Cloud Spanner. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `database`: Target database.   
 `method`: Cloud Spanner API method.   
+`api/tvf_request_count` BETA ** _(project)_**   
+API TVF requests   
+`DELTA`, `INT64`, `1`   
+**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Cloud Spanner API TVF requests. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`database`: Target database.   
+`method`: Cloud Spanner API method.   
+`tvf_type`: Cloud Spanner TVF type.   
+`serving_location`: The location of serving replicas.   
+`status`: Request call result, OK=success.   
+`api/tvf_request_latencies` BETA ** _(project)_**   
+API TVF request latencies   
+`DELTA`, `DISTRIBUTION`, `s`   
+**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of Cloud Spanner API TVF request latencies. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`database`: Target database.   
+`method`: Cloud Spanner API method.   
+`tvf_type`: Cloud Spanner TVF type.   
+`serving_location`: The location of serving replicas.   
 `client/afe_connectivity_error_count` GA ** _(project)_**   
 AFE Connectivity Error Count   
 `DELTA`, `INT64`, `1`   
@@ -4965,12 +4982,12 @@ VPC-SC Protected IO Count
 **[workflows.googleapis.com/Workflow](https://docs.cloud.google.com/monitoring/api/resources#tag_workflows.googleapis.com/Workflow)** |  _Number of I/O requests made using VPC-SC. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `revision_id`: The revision ID of the executed workflow.   
   
-Generated at 2026-10-22 02:44:18 UTC.
+Generated at 2026-10-29 23:33:54 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

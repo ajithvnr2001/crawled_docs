@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-nochannel/
 title: GKE release notes (No channel) \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:22.641859+00:00
+fetched_at: 2026-10-30T05:54:25.989462+00:00
 ---
 
 # GKE release notes (No channel)  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -23,11 +23,16 @@ Send feedback
 
 **Warning:** Not enrolling your cluster in a release channel (known as _No channel_ , and formerly as _Static_) is a deprecated configuration option, only allowed for existing customers, and will be removed on June 14, 2027. New customers can't create or update their cluster to use this configuration option. For any clusters not enrolled in a release channel, we recommend that you [enroll the cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/release-channels#existing-cluster) before this date. After the removal date, GKE enrolls all remaining clusters in the Stable channel. For more information about this deprecation and how you can achieve the same functionality with release channels, see [Clusters not enrolled in a release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels#no_channel).
 
-This page documents Google Kubernetes Engine version updates that are _not_ part of a [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels), that is, No Channel (formerly _Static_).
+This document describes Google Kubernetes Engine (GKE) version updates that are _not_ part of a [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels), that is, No channel (formerly _Static_). The document lists which versions are available, default, and no longer available. New features, fixes, and known issues aren't included.
 
-For all Google Kubernetes Engine version updates, fixes, known issues, or new features, see [release notes](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes). For more detailed information about security-related known issues, see the [security bulletin](https://docs.cloud.google.com/kubernetes-engine/docs/security-bulletins) page.
+For other information about GKE releases, see the following documents:
 
-To view release notes for versions prior to 2020, see the [Release notes archive](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-archive).
+  * **New features, fixes, deprecations, and known issues for all channels** : [GKE release notes](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes)
+  * **Known issues that affect specific versions** : [GKE known issues](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/known-issues)
+  * **Security-related issues** : [Security bulletins](https://docs.cloud.google.com/kubernetes-engine/security-bulletins)
+  * **Release notes for versions prior to 2020** : [Release notes archive](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-archive)
+
+
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
@@ -7948,6 +7953,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

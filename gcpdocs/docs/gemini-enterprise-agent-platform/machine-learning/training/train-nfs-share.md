@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share/
 title: Mount a Network File System share \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:50.737597+00:00
+fetched_at: 2026-10-30T05:54:31.641136+00:00
 ---
 
 # Mount a Network File System share  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ You can use a first-party managed NFS service like [Filestore](https://docs.clou
 
 When you create a serverless training job that mounts an NFS share, you must specify the following:
 
-  * The name of the network for Vertex AI to access. The way that you specify the network name differs depending on the type of serverless training job. For details, see [Perform serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#perform-serverless-training).
+  * The name of the network for Gemini Enterprise Agent Platform to access. The way that you specify the network name differs depending on the type of serverless training job. For details, see [Perform serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#perform-serverless-training).
 
   * Your NFS configuration in the [WorkerPoolSpec field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec). Include the following fields:
 
@@ -57,7 +57,7 @@ For more information, see [Where to specify compute resources](https://docs.clou
 
 ## Example: create a custom job using the gcloud CLI
 
-  1. Follow the steps in [Create a Python training application for a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) to build a training application to run on Vertex AI.
+  1. Follow the steps in [Create a Python training application for a prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) to build a training application to run on Gemini Enterprise Agent Platform.
 
   2. Create a file named `config.yaml` that describes the PSA or Private Service Connect interface config mount settings for your training job. Use one of the following formats:
 
@@ -95,7 +95,7 @@ Replace the following:
 
      * MACHINE_TYPE: The identifier of your virtual machine type.
 
-     * PYTHON_PACKAGE_EXECUTOR_IMAGE_URI or PRE_BUILT_CONTAINER_IMAGE_URI: The URI of a container image in Artifact Registry that will run the provided Python package. Vertex AI provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
+     * PYTHON_PACKAGE_EXECUTOR_IMAGE_URI or PRE_BUILT_CONTAINER_IMAGE_URI: The URI of a container image in Artifact Registry that will run the provided Python package. Gemini Enterprise Agent Platform provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
 
      * PYTHON_PACKAGE_URIS: A comma-separated list of Cloud Storage URIs that specify the Python package files that make up the training program and its dependent packages. The maximum number of package URIs is 100.
 
@@ -155,7 +155,7 @@ Replace the following:
 
      * MACHINE_TYPE: The identifier of your virtual machine type.
 
-     * PYTHON_PACKAGE_EXECUTOR_IMAGE_URI or PRE_BUILT_CONTAINER_IMAGE_URI: The URI of a container image in Artifact Registry that will run the provided Python package. Vertex AI provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
+     * PYTHON_PACKAGE_EXECUTOR_IMAGE_URI or PRE_BUILT_CONTAINER_IMAGE_URI: The URI of a container image in Artifact Registry that will run the provided Python package. Gemini Enterprise Agent Platform provides a [wide range of executor images with pre-installed packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) to meet users' various use cases.
 
      * PYTHON_PACKAGE_URIS: A comma-separated list of Cloud Storage URIs that specify the Python package files that make up the training program and its dependent packages. The maximum number of package URIs is 100.
 
@@ -206,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

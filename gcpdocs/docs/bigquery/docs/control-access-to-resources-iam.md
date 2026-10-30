@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam/
 title: Control access to resources with IAM \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:05.404117+00:00
+fetched_at: 2026-10-30T05:54:30.633443+00:00
 ---
 
 # Control access to resources with IAM  |  BigQuery  |  Google Cloud Documentation
@@ -2963,29 +2963,27 @@ Consider the following scenarios when you create [IAM deny policies](https://doc
     * `bigquery.models.getData`
     * `bigquery.models.getMetadata`
 
-To deny access to these resources, add one of the following values to the [`deniedPrincipal`](https://docs.cloud.google.com/iam/docs/deny-overview#deny-rules) field when you create the deny policy:
+To deny access to these resources, add one of the following values to the [`deniedPrincipals`](https://docs.cloud.google.com/iam/docs/deny-overview#deny-rules) field when you create the deny policy:
 
 Value | Use case  
 ---|---  
-`principalSet://goog/public:all` |  Blocks all principals, including BigQuery resources.   
+`principalSet://goog/public:all` |  Blocks all principals, including BigQuery authorized resources.   
 `principalSet://bigquery.googleapis.com/projects/PROJECT_NUMBER/*` | Blocks all BigQuery authorized resources in the specified project. [`PROJECT_NUMBER`](https://docs.cloud.google.com/resource-manager/docs/view-update-projects) is an automatically generated unique identifier for your project of type `INT64`.  
   
+Because IAM deny policies override allow policies and authorized resource access, a deny rule that uses `principalSet://goog/public:all` also blocks access from authorized views, authorized datasets, and authorized routines. To exempt BigQuery authorized resources from a deny policy, specify the project that contains the authorized resources in the [`exceptionPrincipals`](https://docs.cloud.google.com/iam/docs/deny-overview#deny-rules) field of your deny policy. Only project-level scoping with a project number is supported for BigQuery authorized resources in the `deniedPrincipals` and `exceptionPrincipals` fields. Folder-level, organization-level, dataset-level, or individual resource identifiers aren't supported.
+
 For a list of allowed principals, see [Principal identifiers for deny policies](https://docs.cloud.google.com/iam/docs/principal-identifiers#deny).
 
   * View authorization is granted at the dataset level. Therefore, if an IAM deny policy is applied to a tag on a specific table in the dataset, a user can still query that table using an authorized view. To block access, apply the tag at the dataset level, which denies view access to all tables in the dataset.
 
-  * To exempt certain resources (principals) from the deny policy, specify those principals in the [`exceptionPrincipals`](https://docs.cloud.google.com/iam/docs/deny-overview#deny-rules) field of your deny policy. You can exempt all resources in a specified project.
-
-To specify the target resources, use the following formats:
+To specify the target resources, use the following format:
 
 Format | Description  
 ---|---  
-`principalSet://bigquery.googleapis.com/projects/PROJECT_NUMBER/*` | Exempts all resources in the specified project.  
+`principalSet://bigquery.googleapis.com/projects/PROJECT_NUMBER/*` |  Exempts all BigQuery authorized resources in the specified project.   
   
-Replace the following:
+Replace `PROJECT_NUMBER` with the [project number](https://docs.cloud.google.com/resource-manager/docs/view-update-projects) of the project that contains the authorized resources.
 
-    * `PROJECT_NUMBER`: Your [Google Cloud project number](https://docs.cloud.google.com/resource-manager/docs/view-update-projects).
-    * `DATASET_ID`: The [ID of the dataset](https://docs.cloud.google.com/bigquery/docs/listing-datasets).
   * BigQuery [caches query results](https://docs.cloud.google.com/bigquery/docs/cached-results#how_cached_results_are_stored) of a job owner for 24 hours, which the job owner can access without needing the `bigquery.tables.getData` permission on the table containing the data. Hence, adding an IAM deny policy to the `bigquery.tables.getData` permission doesn't block access to cached results for the job owner until the cache expires. To block the job owner access to cached results, create a separate deny policy on the `bigquery.jobs.create` permission.
 
   * To prevent unintended data access when using deny policies to block data read operations, we recommend that you also review and revoke any existing subscriptions on the dataset.
@@ -3009,6 +3007,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage-mcp/
 title: Use the data lineage remote MCP server \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:44.620246+00:00
+fetched_at: 2026-10-30T06:00:25.549803+00:00
 ---
 
 # Use the data lineage remote MCP server  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -55,12 +55,11 @@ For more information about MCP architecture, see the MCP version 2026-07-28 [spe
 
 ## Google and Google Cloud remote MCP servers
 
-Google and Google Cloud remote MCP servers have the following features and benefits: 
+Google and Google Cloud remote MCP servers have the following features and benefits:
 
   * Simplified, centralized discovery
   * Managed global or regional HTTP endpoints
   * Fine-grained authorization
-  * Optional prompt and response security with Model Armor protection
   * Centralized audit logging
 
 
@@ -160,7 +159,7 @@ Additional scopes might be required on the resources accessed during a tool call
 
 ## Configure an MCP client to use the data lineage MCP server
 
-AI applications and agents, such as Claude or Antigravity, can instantiate an MCP client that connects to a single MCP server. An AI application can have multiple clients that connect to different MCP servers. If your application isn't listed in the [client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance), then you can use the following information to connect from most applications.
+AI applications and agents, such as Claude or Antigravity, can instantiate an MCP client that connects to a single MCP server. An AI application can have multiple clients that connect to different MCP servers. If your application isn't listed in the [client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance), then you can use the following information to connect from most applications. 
 
 In your AI application, look for a way to add or connect to a remote MCP server. For the data lineage MCP server, enter the following information as required:
 
@@ -171,6 +170,13 @@ In your AI application, look for a way to add or connect to a remote MCP server.
   * **Transport** : [Streamable HTTP](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http)
   * **Authentication details** : depending on how you want to authenticate, you can enter your Google Cloud credentials, your OAuth Client ID and secret, or an agent identity and credentials. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp).
   * **OAuth scope** : the [OAuth 2.0 scope](https://developers.google.com/identity/protocols/oauth2/scopes) that you want to use when connecting to the data lineage MCP server.
+  * Optional: **Custom headers** : to return full process details, such as display name, origin, and attributes, from the `search_lineage` tool, configure your MCP client to send the `X-Goog-FieldMask` header with `links.processes.process`. For example:
+        
+        X-Goog-FieldMask: links,links.processes.process,unreachable
+        
+
+Without the `X-Goog-FieldMask` header, `search_lineage` returns only the resource names of the processes that created each link.
+
 
 
 
@@ -178,7 +184,7 @@ In your AI application, look for a way to add or connect to a remote MCP server.
 
 For web-based applications, and some desktop applications, you must allowlist a redirect URI when you create a client ID and secret for authentication. Redirect URIs are used by the authorization server to send tokens to your application. Your application's documentation should specify the redirect URI that you must use. [Custom redirect URIs](https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_custom-scheme) aren't supported.
 
-For application-specific guidance about setting up and connecting to MCP server, see [Client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance).
+For application-specific guidance about setting up and connecting to MCP server, see [Client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance). 
 
 For more general guidance, see the following resources:
 
@@ -190,6 +196,8 @@ For more general guidance, see the following resources:
 ## What MCP tools does data lineage provide?
 
 To view details of available MCP tools and their descriptions for the data lineage MCP server, see the [data lineage MCP reference](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/mcp).
+
+By default, `search_lineage` returns only process resource names when `max_process_per_link` isn't zero. To get full process details, configure the `X-Goog-FieldMask` header in your MCP client, as described in Configure an MCP client.
 
 ### List tools
 
@@ -281,6 +289,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

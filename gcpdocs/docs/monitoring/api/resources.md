@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/resources/
 title: Monitored resource types \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:12.486966+00:00
+fetched_at: 2026-10-30T05:41:56.563429+00:00
 ---
 
 # Monitored resource types  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This list is regenerated frequently and time-stamped. The fields listed for each
 
 **Cloud Endpoints** : APIs managed by Cloud Endpoints write [ `serviceruntime`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z#gcp-serviceruntime) metrics against the [`api`](https://docs.cloud.google.com/monitoring/api/resources#tag_api) monitored-resource type.
 
-The following list was last generated at 2026-10-22 02:20:14 UTC.
+The following list was last generated at 2026-10-29 21:08:28 UTC.
 
 ## `abuseevent.googleapis.com/Location`
 
@@ -55,6 +55,36 @@ The following list was last generated at 2026-10-22 02:20:14 UTC.
   * `resource_container`: The GCP container associated with the metric.
   * `location`: Location for the quota.
   * `access_policy`: The access policy custom dimension.
+
+
+
+## `agentregistry.googleapis.com/AiApplicationComponent`
+
+**Display name** : AI Application Component
+
+**Description** : An infrastructure component of an AI Application in Agent Registry.
+
+**Labels** :
+
+  * `resource_container`: The identifier of the Google Cloud project that contains the AI Application.
+  * `location`: The location of the AI Application that this component belongs to.
+  * `ai_application_id`: The ID of the AI Application this component is associated with.
+  * `component_type`: The type of the AI Application infrastructure component, such as "registry" or "ingress".
+  * `component_instance_id`: The ID of the AI Application infrastructure component.
+
+
+
+## `aiplatform.googleapis.com/AgentAnomalyDetectionScope`
+
+**Display name** : Agent Anomaly Detection Scope
+
+**Description** : An Agent Anomaly Detection detection scope (projects/{project}/locations/{location}/agentAnomalyDetectionScopes/{scope}).
+
+**Labels** :
+
+  * `resource_container`: The identifier of the GCP project associated with this resource, such as "my-project".
+  * `location`: The location of the detection scope.
+  * `detection_scope_id`: The ID of the Agent Anomaly Detection scope.
 
 
 
@@ -180,6 +210,20 @@ The following list was last generated at 2026-10-22 02:20:14 UTC.
   * `resource_container`: The identifier of the GCP Project owning the Model Monitor.
   * `location`: The region in which the service is running.
   * `model_monitor_id`: The identifier of the Model Monitor.
+
+
+
+## `aiplatform.googleapis.com/MonitoredAgent`
+
+**Display name** : Monitored agent
+
+**Description** : An agent monitored by Agent Anomaly Detection.
+
+**Labels** :
+
+  * `resource_container`: The identifier of the GCP project associated with this resource, such as "my-project".
+  * `location`: The location of the monitored agent.
+  * `monitored_agent_id`: The ID of the monitored agent.
 
 
 
@@ -1705,10 +1749,10 @@ The following list was last generated at 2026-10-22 02:20:14 UTC.
   * `application_name`: The name of the application using the connector.
   * `region`: The GCP region in which the Cloud SQL instance is running.
   * `client_region`: The client region when the application is hosting on GCP, unknown if not on GCP.
-  * `compute_platform`: Where the application is running, detected by the client based on runtime environment heuristics. string [cloud_build, cloud_run, appengine, gke, gce, unknown].
-  * `connector_type`: Cloud SQL Connector type [java, go, python, nodejs].
+  * `compute_platform`: Where the application is running, one of [gce, gke, cloud_run, cloud_functions, app_engine, ai_studio, unknown]. Detected by the client from runtime environment heuristics, or set explicitly by the embedding client (e.g. ai_studio).
+  * `connector_type`: Cloud SQL Connector type, one of [java, go, python, nodejs, auth_proxy].
   * `connector_version`: Cloud SQL Connector version.
-  * `database_engine_type`: Database engine type [MySQL, PostgreSQL, SQL Server].
+  * `database_engine_type`: Database engine type, one of [mysql, postgresql, sqlserver, unknown].
 
 
 
@@ -5258,7 +5302,7 @@ The following list was last generated at 2026-10-22 02:20:14 UTC.
 
   * `resource_container`: The GCP project number owning the resource.
   * `location`: The deployment location of the resource.
-  * `resource_id`: The unique ID of the resource.
+  * `resource_id`: The full relative resource name, e.g. projects/123/locations/global/colossusNodes/n.
   * `resource_type`: Type of the resource.
 
 
@@ -6408,12 +6452,12 @@ The following list was last generated at 2026-10-22 02:20:14 UTC.
 
 
 
-Generated at 2026-10-22 02:20:14 UTC.
+Generated at 2026-10-29 21:08:28 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

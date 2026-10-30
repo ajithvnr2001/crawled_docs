@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/troubleshoot-live-migration/
 title: Live migration \u00a0|\u00a0 Confidential VM \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:26:53.806008+00:00
+fetched_at: 2026-10-30T05:42:17.336519+00:00
 ---
 
 # Live migration  |  Confidential VM  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 A Confidential VM instance must have the following configuration to support [live migration](https://docs.cloud.google.com/compute/docs/instances/live-migration-process): 
 
-  * An N2D machine type with AMD EPYC Milan CPU platform
+  * An N2D machine type with the AMD EPYC Milan CPU platform, or a C3D machine type.
 
   * AMD SEV Confidential Computing technology
 
@@ -81,7 +81,6 @@ The following table shows the host maintenance event notification period for Con
 Confidential Computing technology | Machine type | Notification period  
 ---|---|---  
 AMD SEV | C2D | None  
-C3D | 7 days  
 AMD SEV-SNP | N2D | 1 hour  
 Intel TDX | `c3-standard-*` | 7 days  
 `c3-standard-*-lssd` | 7 days  
@@ -118,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence/
 title: AI and ML perspective: Operational excellence \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:33.492557+00:00
+fetched_at: 2026-10-30T05:50:42.517355+00:00
 ---
 
 # AI and ML perspective: Operational excellence  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,19 +19,19 @@ Send feedback
 
 #  AI and ML perspective: Operational excellence Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-04-28 UTC
+Last reviewed 2026-10-29 UTC
 
-This document in the [Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of the principles and recommendations to build and operate robust AI and ML systems on Google Cloud. These recommendations help you set up foundational elements like observability, automation, and scalability. The recommendations in this document align with the [operational excellence pillar](https://docs.cloud.google.com/architecture/framework/operational-excellence) of the Google Cloud Well-Architected Framework.
+This document in the [Google Cloud Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of the principles and recommendations to build and operate robust AI and ML systems on Google Cloud. These recommendations help you set up foundational elements like observability, automation, and scalability. The recommendations in this document align with the [operational excellence pillar](https://docs.cloud.google.com/architecture/framework/operational-excellence) of the Well-Architected Framework.
 
 Operational excellence within the AI and ML domain is the ability to seamlessly deploy, manage, and govern the AI and ML systems and pipelines that help drive your organization's strategic objectives. Operational excellence lets you respond efficiently to changes, reduce operational complexity, and ensure that your operations remain aligned with business goals.
 
 The recommendations in this document are mapped to the following core principles:
 
-  * Build a robust foundation for model development
-  * Automate the model development lifecycle
-  * Implement observability
-  * Build a culture of operational excellence
-  * Design for scalability
+  * [Build a robust foundation for model development](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence#build_a_robust_foundation_for_model_development)
+  * [Automate the model development lifecycle](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence#automate-the-model-development-lifecycle)
+  * [Implement observability](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence#implement_observability)
+  * [Build a culture of operational excellence](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence#build_a_culture_of_operational_excellence)
+  * [Design for scalability](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence#design_for_scalability)
 
 
 
@@ -47,7 +47,7 @@ Before you start any AI or ML project, you must have a clear understanding of th
 
 ### Collect and preprocess the necessary data
 
-To implement data preprocessing and transformation, you can use [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) (for Apache Beam), [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc-serverless/docs/overview) (for Apache Spark), or [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) if an SQL-based process is appropriate. To validate schemas and detect anomalies, use [TensorFlow Data Validation (TFDV)](https://www.tensorflow.org/tfx/data_validation/get_started) and take advantage of [automated data quality scans](https://docs.cloud.google.com/bigquery/docs/data-quality-scan) in BigQuery where applicable.
+To implement data preprocessing and transformation, you can use [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) (for Apache Beam), [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/serverless-overview) (for Apache Spark), or [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) if an SQL-based process is appropriate. To validate schemas and detect anomalies, use [TensorFlow Data Validation (TFDV)](https://www.tensorflow.org/tfx/data_validation/get_started) and take advantage of [automated data quality scans](https://docs.cloud.google.com/bigquery/docs/data-quality-scan) in BigQuery where applicable.
 
 For generative AI, data quality includes accuracy, relevance, diversity, and alignment with the required output characteristics. In cases where real-world data is insufficient or imbalanced, you can generate synthetic data to help improve model robustness and generalization. To create synthetic datasets based on existing patterns or to augment training data for better model performance, use [BigQuery DataFrames](https://docs.cloud.google.com/bigquery/docs/bigquery-dataframes-introduction). Synthetic data is particularly valuable for generative AI because it can help improve prompt diversity and overall model robustness. When you build datasets for fine-tuning generative AI models, consider using the synthetic data generation capabilities in Gemini Enterprise Agent Platform.
 
@@ -57,7 +57,7 @@ For generative AI tasks like fine-tuning or reinforcement learning from human fe
 
 When you design your model and parameters, consider the model's complexity and computational needs. Depending on the task (such as classification, regression, or generation), consider using [Agent Platform custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) for custom model building or AutoML for simpler ML tasks. For common applications, you can also access pretrained models through [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models). You can experiment with a variety of state-of-the-art foundation models for various use cases, such as generating text, images, and code.
 
-You might want to fine-tune a pretrained foundation model to achieve optimal performance for your specific use case. For high-performance requirements in custom training, configure [Cloud Tensor Processing Units (TPUs)](https://docs.cloud.google.com/tpu) or [GPU resources](https://docs.cloud.google.com/compute/docs/gpus) to accelerate the training and inference of deep-learning models, like large language models (LLMs) and diffusion models.
+You might want to fine-tune a pretrained foundation model to achieve optimal performance for your specific use case. For high-performance requirements in custom training, configure [Cloud TPU](https://docs.cloud.google.com/tpu/docs/intro-to-tpu) or [GPU resources](https://docs.cloud.google.com/compute/docs/gpus) to accelerate the training and inference of deep-learning models, like large language models (LLMs) and diffusion models.
 
 ### Set up version control for code, models, and data
 
@@ -75,7 +75,7 @@ To maintain the consistency and versioning of your feature data, use [Agent Plat
 
 To ensure model reliability, implement [Model Monitoring on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview). Detect data drift, track performance, and identify anomalies in production. For generative AI systems, monitor shifts in output quality and safety compliance.
 
-## Automate the model-development lifecycle
+## Automate the model development lifecycle
 
 Automation helps you to streamline every stage of the AI and ML lifecycle. Automation reduces manual effort and standardizes processes, which leads to enhanced operational efficiency and a lower risk of errors. Automated workflows enable faster iteration, consistent deployment across environments, and more reliable outcomes, so your systems can scale and adapt seamlessly.
 
@@ -107,7 +107,7 @@ To release fine-tuned models, you can use Cloud Deploy to manage the deployment 
 
 For robust validation, use [Experiments on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) to compare new models against existing ones, and use [Agent Platform model evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction) to assess model performance. Specifically for generative AI, define evaluation metrics that align with the intended use case and the potential risks. You can use the Gen AI evaluation service in Agent Platform to assess metrics like toxicity, coherence, factual accuracy, and adherence to safety guidelines.
 
-To ensure deployment reliability, you need a robust rollback plan. For traditional ML systems, use [Model Monitoring on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) to detect data drift and performance degradation. For generative AI models, you can track relevant metrics and set up alerts for shifts in output quality or the emergence of harmful content by using Agent Platform model evaluation along with Cloud Logging and Cloud Monitoring. Configure alerts based on generative AI-specific metrics to trigger rollback procedures when necessary. To track model lineage and revert to the most recent stable version, use insights from [Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction).
+To ensure deployment reliability, you need a robust rollback plan. For traditional ML systems, use [Model Monitoring on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) to detect data drift and performance degradation. For generative AI models, you can track relevant metrics and set up alerts for shifts in output quality or the emergence of harmful content by using Agent Platform model evaluation along with Cloud Logging and Monitoring. Configure alerts based on generative AI-specific metrics to trigger rollback procedures when necessary. To track model lineage and revert to the most recent stable version, use insights from [Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction).
 
 ## Implement observability
 
@@ -131,22 +131,22 @@ Before you deploy your LLMs and other generative AI models, thoroughly evaluate 
 
 You can also define and integrate custom metrics that are specific to your use case. For feedback on generated content, integrate human-in-the-loop workflows by using Agent Platform Model Evaluation.
 
-Use [adversarial testing](https://developers.google.com/machine-learning/guides/adv-testing) to identify vulnerabilities and potential failure modes. To identify and mitigate potential biases, use techniques like subgroup analysis and counterfactual generation. Use the insights gathered from the evaluations that were completed during the development phase to define your model monitoring strategy in production. Prepare your solution for continuous monitoring as described in the Monitor performance continuously section of this document.
+Use [adversarial testing](https://developers.google.com/machine-learning/guides/adv-testing) to identify vulnerabilities and potential failure modes. To identify and mitigate potential biases, use techniques like subgroup analysis and counterfactual generation. Use the insights gathered from the evaluations that were completed during the development phase to define your model monitoring strategy in production. Prepare your solution for continuous monitoring as described in the [Monitor performance continuously](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence#automated-performance-monitoring) section of this document.
 
 ### Monitor for availability
 
-To gain visibility into the health and performance of your deployed endpoints and infrastructure, use [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview). For your Agent Platform endpoints, track key metrics like request rate, error rate, latency, and resource utilization, and set up alerts for anomalies. For more information, see [Cloud Monitoring metrics for Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics).
+To gain visibility into the health and performance of your deployed endpoints and infrastructure, use [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview). For your Agent Platform endpoints, track key metrics like request rate, error rate, latency, and resource utilization, and set up alerts for anomalies. For more information, see [Monitoring metrics for Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics).
 
-Monitor the health of the underlying infrastructure, which can include Compute Engine instances, Google Kubernetes Engine (GKE) clusters, and TPUs and GPUs. Get automated optimization recommendations from [Active Assist](https://docs.cloud.google.com/recommender/docs/whatis-activeassist). If you use autoscaling, monitor the scaling behavior to ensure that autoscaling responds appropriately to changes in traffic patterns.
+Monitor the health of the underlying infrastructure, which can include Compute Engine instances, Google Kubernetes Engine (GKE) clusters, and Cloud TPU and GPUs. Get automated optimization recommendations from [Active Assist](https://docs.cloud.google.com/recommender/docs/whatis-activeassist). If you use autoscaling, monitor the scaling behavior to ensure that autoscaling responds appropriately to changes in traffic patterns.
 
-Track the status of model deployments, including canary releases and rollbacks, by integrating Cloud Deploy with Cloud Monitoring. In addition, monitor for potential security threats and vulnerabilities by using [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview).
+Track the status of model deployments, including canary releases and rollbacks, by integrating Cloud Deploy with Monitoring. In addition, monitor for potential security threats and vulnerabilities by using [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview).
 
 ### Set up custom alerts for business-specific thresholds
 
 For timely identification and rectification of anomalies and issues, set up custom alerting based on thresholds that are specific to your business objectives. Examples of Google Cloud products that you can use to implement a custom alerting system include the following:
 
-  * [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview): Collect, store, and analyze logs from all components of your AI and ML system.
-  * Cloud Monitoring: Create custom dashboards to visualize key metrics and trends, and define custom metrics based on your needs. Configure alerts to get notifications about critical issues, and integrate the alerts with your incident management tools like PagerDuty or Slack.
+  * [Logging](https://docs.cloud.google.com/logging/docs/overview): Collect, store, and analyze logs from all components of your AI and ML system.
+  * Monitoring: Create custom dashboards to visualize key metrics and trends, and define custom metrics based on your needs. Configure alerts to get notifications about critical issues, and integrate the alerts with your incident management tools like PagerDuty or Slack.
   * [Error Reporting](https://docs.cloud.google.com/error-reporting/docs/grouping-errors): Automatically capture and analyze errors and exceptions.
   * [Cloud Trace](https://docs.cloud.google.com/trace/docs/overview): Analyze the performance of distributed systems and identify bottlenecks. Tracing is particularly useful for understanding latency between different components of your AI and ML pipeline.
   * [Cloud Profiler](https://docs.cloud.google.com/profiler/docs/about-profiler): Continuously analyze the performance of your code in production and identify performance bottlenecks in CPU or memory usage.
@@ -185,7 +185,7 @@ To design your AI and ML systems for scalability, consider the following recomme
 
 Assess future growth, and plan your infrastructure capacity and resource quotas accordingly. Work with business stakeholders to understand the projected growth and then define the infrastructure requirements accordingly.
 
-Use [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) to analyze historical resource utilization, identify trends, and project future needs. Conduct regular load testing to simulate workloads and identify bottlenecks.
+Use [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) to analyze historical resource utilization, identify trends, and project future needs. Conduct regular load testing to simulate workloads and identify bottlenecks.
 
 Familiarize yourself with [Google Cloud quotas](https://docs.cloud.google.com/docs/quotas/view-manage) for the services that you use, such as Compute Engine, Agent Platform, and Cloud Storage. Proactively request quota increases through the Google Cloud console, and justify the increases with data from forecasting and load testing. [Monitor quota usage](https://docs.cloud.google.com/monitoring/alerts/using-quota-metrics) and set up alerts to get notifications when the usage approaches the quota limits.
 
@@ -195,7 +195,7 @@ To optimize resource usage based on demand, rightsize your resources, use [Spot 
 
 Ensure that your system can handle sudden spikes in traffic or workload during peak events. Document your peak event strategy and conduct regular drills to test your system's ability to handle increased load.
 
-To aggressively scale up resources when the demand spikes, configure autoscaling policies in [Compute Engine](https://docs.cloud.google.com/compute/docs/autoscaler) and [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler). For predictable peak patterns, consider using [predictive autoscaling](https://docs.cloud.google.com/compute/docs/autoscaler/predictive-autoscaling). To trigger autoscaling based on application-specific signals, use custom metrics in Cloud Monitoring.
+To aggressively scale up resources when the demand spikes, configure autoscaling policies in [Compute Engine](https://docs.cloud.google.com/compute/docs/autoscaler) and [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler). For predictable peak patterns, consider using [predictive autoscaling](https://docs.cloud.google.com/compute/docs/autoscaler/predictive-autoscaling). To trigger autoscaling based on application-specific signals, use custom metrics in Monitoring.
 
 Distribute traffic across multiple application instances by using [Cloud Load Balancing](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview). Choose an appropriate load balancer type based on your application's needs. For geographically distributed users, you can use global load balancing to route traffic to the nearest available instance. For complex microservices-based architectures, consider using [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview).
 
@@ -209,13 +209,13 @@ To cache frequently accessed data, use one of the following fully managed in-mem
 
 
 
-Decouple the components of your system by using [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) for real-time messaging and Cloud Tasks for asynchronous task execution
+Decouple the components of your system by using [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) for real-time messaging and Cloud Tasks for asynchronous task execution.
 
 ### Scale applications for production
 
-To ensure scalable serving in production, you can use managed services like [Agent Platform distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) and [Gemini Enterprise Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview). Agent Platform Inference lets you configure the [machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types) for your prediction nodes when you deploy a model to an endpoint or request batch predictions. For some configurations, you can add GPUs. Choose the appropriate machine type and accelerators to optimize latency, throughput, and cost.
+To ensure scalable serving in production, you can use managed services like [Agent Platform distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) and [Gemini Enterprise Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions). Agent Platform Inference lets you configure the [machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types) for your prediction nodes when you deploy a model to an endpoint or request batch predictions. For some configurations, you can add GPUs. Choose the appropriate machine type and accelerators to optimize latency, throughput, and cost.
 
-To scale complex AI and Python applications and custom workloads across distributed computing resources, you can use [Ray on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray). This feature can help optimize performance and enables seamless integration with Google Cloud services. Ray on Gemini Enterprise Agent Platform simplifies distributed computing by handling cluster management, task scheduling, and data transfer. It integrates with other Agent Platform services like training, prediction, and pipelines. Ray provides fault tolerance and autoscaling, and helps you adapt the infrastructure to changing workloads. It offers a unified framework for distributed training, hyperparameter tuning, reinforcement learning, and model serving. Use Ray for distributed data preprocessing with [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) or [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/overview), accelerated model training, scalable hyperparameter tuning, reinforcement learning, and parallelized batch prediction.
+To scale complex AI and Python applications and custom workloads across distributed computing resources, you can use [Ray on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray). This feature can help optimize performance and enables seamless integration with Google Cloud services. Ray on Gemini Enterprise Agent Platform simplifies distributed computing by handling cluster management, task scheduling, and data transfer. It integrates with other Agent Platform services like training, prediction, and pipelines. Ray provides fault tolerance and autoscaling, and helps you adapt the infrastructure to changing workloads. It offers a unified framework for distributed training, hyperparameter tuning, reinforcement learning, and model serving. Use Ray for distributed data preprocessing with [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) or [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/concepts/clusters-overview), accelerated model training, scalable hyperparameter tuning, reinforcement learning, and parallelized batch prediction.
 
 ## Contributors
 
@@ -245,6 +245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-04-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-04-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

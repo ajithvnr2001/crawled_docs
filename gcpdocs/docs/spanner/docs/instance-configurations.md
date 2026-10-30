@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/instance-configurations/
 title: Regional, dual-region, and multi-region configurations \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:13:42.172485+00:00
+fetched_at: 2026-10-30T05:50:44.072166+00:00
 ---
 
 # Regional, dual-region, and multi-region configurations  |  Spanner  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ When you create a Spanner instance, you must configure it as _regional_ , _dual-
 
 For more information about region-specific considerations, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions#regions_and_zones). 
 
-Instance configurations with predefined regions and replication topologies are called **base instance configurations**. You can create **custom instance configurations** and add optional read-only replicas to a predefined base instance configuration (available in [Enterprise edition and Enterprise Plus edition](https://docs.cloud.google.com/spanner/docs/editions-overview)). The added read-only replica must be in a region that isn't part of the existing instance configuration. For a list of the optional read-only regions that you can add, see the Optional Region column under [Regional available configurations](https://docs.cloud.google.com/spanner/docs/instance-configurations#available-configurations-regional) and [Multi-region available configurations](https://docs.cloud.google.com/spanner/docs/instance-configurations#available-configurations-multi-region). You can't change the replication topology of base instance configurations. For more information, see [Read-only replicas](https://docs.cloud.google.com/spanner/docs/replication#read-only).
+Instance configurations with predefined regions and replication topologies are called **base instance configurations**. You can create **custom instance configurations** and add optional read-only replicas to a predefined base instance configuration (available in [Enterprise edition and Enterprise Plus edition](https://docs.cloud.google.com/spanner/docs/editions-overview)). The added read-only replica must be in a region that isn't part of the existing instance configuration. For a list of the optional read-only regions that you can add, see the **Optional region** column under [Regional available configurations](https://docs.cloud.google.com/spanner/docs/instance-configurations#available-configurations-regional) and [Multi-region available configurations](https://docs.cloud.google.com/spanner/docs/instance-configurations#available-configurations-multi-region). You can't change the replication topology of base instance configurations. For more information, see [Read-only replicas](https://docs.cloud.google.com/spanner/docs/replication#read-only).
 
 You can [move your instance](https://docs.cloud.google.com/spanner/docs/instance-configurations#move-instance) from any instance configuration to any other regional, dual-region, or multi-region instance configuration (for example, from `regional-us-central1` to `nam3`). You can also [create a custom instance configuration with additional replicas](https://docs.cloud.google.com/spanner/docs/create-manage-configurations#create-configuration) and then move your instance to the new custom instance configuration. For example, suppose your instance is in `regional-us-central1` and you want to add a read-only replica in `us-west1`. You can create a custom instance configuration with `regional-us-central1` as the base configuration, add `us-west1` as a read-only replica, and then move your instance to this new custom instance configuration.
 
@@ -49,7 +49,7 @@ For any base regional configuration, Spanner maintains three [read-write replica
 
 Spanner offers the following base regional instance configurations. To request an optional read-only replica region that isn't listed in the following table, submit the [optional read-only replica request form](https://docs.google.com/forms/d/e/1FAIpQLSfw9Rj4p4KA8oLu7MhIpSyPRd-4qxqazwsFZIY-_tkNrpWFcw/viewform). Google uses these requests to gauge demand for future regions and might not respond directly to your submission.
 
-Base Configuration Name | Region Description | Optional Region  
+Base configuration name | Region description | Optional region  
 ---|---|---  
 **Americas**  
 `regional-northamerica-northeast1` | Montréal ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker) |   
@@ -84,7 +84,7 @@ Base Configuration Name | Region Description | Optional Region
 `regional-europe-west2` | London ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker) |   
 `regional-europe-west3` | Frankfurt  |   
 `regional-europe-west4` | Netherlands ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker) |   
-`regional-europe-west6` | Zürich ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker) |   
+`regional-europe-west6` | Zurich ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker) |   
 `regional-europe-west8` | Milan ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker) |   
 `regional-europe-west9` | Paris ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker) |   
 `regional-europe-west10` | Berlin  |   
@@ -109,11 +109,18 @@ Base Configuration Name | Region Description | Optional Region
 **Africa**  
 `regional-africa-south1` | Johannesburg  |   
   
+  * _1-OR_ : One optional replica. You can create a custom regional instance configuration and add one optional read-only replica. For more information, see [Create a custom instance configuration](https://docs.cloud.google.com/spanner/docs/create-manage-configurations#create-configuration).
+
+  * _2-OR_ : Up to two optional replicas. You can create a custom regional instance configuration and add one or two optional read-only replicas. Where possible, add two optional replicas to help maintain low read latency. For more information, see [Create a custom instance configuration](https://docs.cloud.google.com/spanner/docs/create-manage-configurations#create-configuration).
+
+
+
+
 ### Replication
 
 Base regional configurations contain three [read-write replicas](https://docs.cloud.google.com/spanner/docs/replication#read-write). Every Spanner mutation requires a write quorum that's composed of a majority of voting replicas. In regional configurations, two of the three replicas form a write quorum. For more information about leader regions and voting replicas, see [Replication](https://docs.cloud.google.com/spanner/docs/replication).
 
-You can [create a custom regional instance configuration](https://docs.cloud.google.com/spanner/docs/create-manage-configurations#create-configuration) and add optional read-only replicas. Read-only replicas can help scale reads and support low-latency stale reads. These read-only replicas don't take part in write quorums and don't function as a standalone disaster recovery (DR) solution. Instance availability is determined by the quorum of voting replicas. If the Spanner instance goes offline, the read-only replicas also go offline shortly afterward and can't serve reads, including stale reads. The replicas don't affect the [Spanner >= 99.99% SLA](https://cloud.google.com/spanner/sla) for regional instances. You can add locations listed under the Optional Region column as optional read-only replicas. If your preferred read-only replica location isn't listed, you can [request a new optional read-only replica region](https://docs.google.com/forms/d/e/1FAIpQLSfw9Rj4p4KA8oLu7MhIpSyPRd-4qxqazwsFZIY-_tkNrpWFcw/viewform). For more information, see [Read-only replicas](https://docs.cloud.google.com/spanner/docs/replication#read-only).
+You can [create a custom regional instance configuration](https://docs.cloud.google.com/spanner/docs/create-manage-configurations#create-configuration) and add optional read-only replicas. Read-only replicas can help scale reads and support low-latency stale reads. These read-only replicas don't take part in write quorums and don't function as a standalone disaster recovery (DR) solution. Instance availability is determined by the quorum of voting replicas. If the Spanner instance goes offline, the read-only replicas also go offline shortly afterward and can't serve reads, including stale reads. The replicas don't affect the [Spanner >= 99.99% SLA](https://cloud.google.com/spanner/sla) for regional instances. You can add locations listed in the **Optional region** column as optional read-only replicas. If your preferred read-only replica location isn't listed, you can [request a new optional read-only replica region](https://docs.google.com/forms/d/e/1FAIpQLSfw9Rj4p4KA8oLu7MhIpSyPRd-4qxqazwsFZIY-_tkNrpWFcw/viewform). For more information, see [Read-only replicas](https://docs.cloud.google.com/spanner/docs/replication#read-only).
 
 ### Performance best practices for regional configurations
 
@@ -148,9 +155,9 @@ For information about the amount of throughput per Spanner node, see [Performanc
 
 Spanner offers the following base dual-region instance configurations:
 
-Base Configuration Name | Resource Location | Regions  
+Base configuration name | Resource location | Regions  
 ---|---|---  
-`dual-region-australia1` | au (Australia) | Sydney: `australia-southeast1` _L_, _2RW+1W_   
+`dual-region-australia1` | au (Australia) | Sydney: `australia-southeast1`  _L_, _2RW+1W_   
 Melbourne: `australia-southeast2`  _2RW+1W_  
 `dual-region-canada1` | ca (Canada) | Toronto: `northamerica-northeast2`  _L_, _2RW+1W_   
 Montréal: `northamerica-northeast1`  _2RW+1W_  
@@ -161,6 +168,13 @@ Delhi: `asia-south2`  _2RW+1W_
 `dual-region-japan1` | jp (Japan) | Tokyo: `asia-northeast1`  _L_, _2RW+1W_   
 Osaka: `asia-northeast2`  _2RW+1W_  
   
+  * _L_ : Default leader region. For more information, see [Modify the leader region of a database](https://docs.cloud.google.com/spanner/docs/modifying-leader-region).
+
+  * _2RW+1W_ : Two read-write replicas and one witness replica in the region.
+
+
+
+
 ### Benefits
 
 Dual-region instances offer these primary benefits:
@@ -261,7 +275,9 @@ Spanner offers the following base multi-region instance configurations. To reque
 
 #### One continent
 
-Base Configuration Name | Resource Location | Read-Write Regions | Read-Only Regions | Witness Region | Optional Region  
+The following table lists multi-region configurations that span a single continent:
+
+Base configuration name | Resource location | Read-write regions | Read-only regions | Witness region | Optional region  
 ---|---|---|---|---|---  
 `asia1` | global | Tokyo: `asia-northeast1`  _L_,_2R_   
 Osaka: `asia-northeast2`  _2R_ | None | Seoul: `asia-northeast3` | Read-only:   
@@ -335,10 +351,9 @@ Northern Virginia: `us-east4` _2R_ | None | Iowa: `us-central1` | Read-only:
 `nam16` | us (United States) | Iowa: `us-central1` _L_,_2R_   
 Northern Virginia: `us-east4` _2R_ | None | Columbus: `us-east5` | Read-only:   
 `us-west2` _2-OR_  
-`nam22` | us (United States) |  Columbus: `us-east5` (_L_, _2R_)   
-South Carolina: `us-east1` (_2R_) | None | Northern Virginia: `us-east4` | Read-only:   
-`us-west1` _1-OR_   
-  
+`nam22` | us (United States) | Columbus: `us-east5` _L_,_2R_   
+South Carolina: `us-east1` _2R_ | None | Northern Virginia: `us-east4` | Read-only:   
+`us-west1` _1-OR_  
 `nam23` | us (United States) | Iowa: `us-central1` _L_,_2R_   
 Las Vegas: `us-west4` _2R_ | None | Dallas: `us-south1` | Read-only:   
 `asia-northeast1` _1-OR_   
@@ -350,7 +365,9 @@ Oregon: `us-west1` _2R_ | None | Iowa: `us-central1` |
   
 #### Three continents
 
-Base Configuration Name | Resource Location | Read-Write Regions | Read-Only Regions | Witness Region | Optional Region  
+The following table lists multi-region configurations that span three continents:
+
+Base configuration name | Resource location | Read-write regions | Read-only regions | Witness region | Optional region  
 ---|---|---|---|---|---  
 `nam-eur-asia1` | global | Iowa: `us-central1` _L_,_2R_   
 Oklahoma: `us-central2` _2R_ | Belgium: `europe-west1` _2R_   
@@ -401,7 +418,7 @@ Each time a client issues a mutation to your database, a write quorum forms, con
 
 In general, the voting regions in a multi-region configuration are placed geographically close—less than a thousand miles apart—to form a low-latency quorum that enables fast writes. However, the regions are still far enough apart—typically, at least a few hundred miles—to avoid coordinated failures. In addition, if your client application is in a non-leader region, Spanner uses leader-aware routing to route read-write transactions dynamically to reduce latency in your database. For more information, see [Why read-only and witness replicas?](https://docs.cloud.google.com/spanner/docs/replication#aside-why-read-only-and-witness-replicas) and [Leader-aware routing](https://docs.cloud.google.com/spanner/docs/leader-aware-routing).
 
-You can [create a custom multi-region instance configuration](https://docs.cloud.google.com/spanner/docs/create-manage-configurations#create-configuration) with optional read-only replicas. Any custom read-only replicas you create can't be included in write quorums and don't function as a standalone disaster recovery (DR) solution. Instance availability is determined by the quorum of voting replicas. If the Spanner instance goes offline, the read-only replicas also go offline shortly afterward and can't serve reads, including stale reads. You can add locations listed under the Optional Region column as optional read-only replicas. If your preferred read-only replica location isn't listed, you can [request a new optional read-only replica region](https://docs.google.com/forms/d/e/1FAIpQLSfw9Rj4p4KA8oLu7MhIpSyPRd-4qxqazwsFZIY-_tkNrpWFcw/viewform). For more information, see [Read-only replicas](https://docs.cloud.google.com/spanner/docs/replication#read-only).
+You can [create a custom multi-region instance configuration](https://docs.cloud.google.com/spanner/docs/create-manage-configurations#create-configuration) with optional read-only replicas. Any custom read-only replicas you create can't be included in write quorums and don't function as a standalone disaster recovery (DR) solution. Instance availability is determined by the quorum of voting replicas. If the Spanner instance goes offline, the read-only replicas also go offline shortly afterward and can't serve reads, including stale reads. You can add locations listed in the **Optional region** column as optional read-only replicas. If your preferred read-only replica location isn't listed, you can [request a new optional read-only replica region](https://docs.google.com/forms/d/e/1FAIpQLSfw9Rj4p4KA8oLu7MhIpSyPRd-4qxqazwsFZIY-_tkNrpWFcw/viewform). For more information, see [Read-only replicas](https://docs.cloud.google.com/spanner/docs/replication#read-only).
 
 **Note:** if you are interested in more detailed information about how data is replicated in Spanner, and about the different types of replicas and their roles in reads and writes, see [Replication](https://docs.cloud.google.com/spanner/docs/replication).
 
@@ -434,11 +451,13 @@ The only regions eligible to become the default leader region for your database 
 
 **Note:** In the event that the default leader region fails or isn't available, Spanner automatically places your database's leader replicas in the second read-write region of your instance configuration, ensuring high availability and no impact to your application.
 
-Changing the default leader region is a [schema change](https://docs.cloud.google.com/spanner/docs/schema-updates), which uses a long-running operation. If needed, you can [check the progress of the long-running operation](https://docs.cloud.google.com/spanner/docs/manage-and-observe-long-running-operations#check_the_progress_of_a_long-running_schema_update_operation).
+Changing the default leader region is a metadata operation that uses a long-running operation. If needed, you can [check the progress of the long-running operation](https://docs.cloud.google.com/spanner/docs/manage-and-observe-long-running-operations#check_the_progress_of_a_long-running_schema_update_operation).
 
 ## Trade-offs: regional versus dual-region versus multi-region configurations
 
-Configuration | Availability | Latency | Cost | Data Locality  
+The following table summarizes the trade-offs between regional, dual-region, and multi-region configurations:
+
+Configuration | Availability | Latency | Cost | Data locality  
 ---|---|---|---|---  
 Regional | 99.99% | Lower write latencies within region. | Lower cost; see [pricing](https://docs.cloud.google.com/spanner/pricing). | Enables geographic data governance.  
 Dual-region | 99.999% | Lower read latencies from two geographic regions; a small increase in write latency. | Higher cost; see [pricing](https://docs.cloud.google.com/spanner/pricing). | Distributes data across two regions in a single country.  

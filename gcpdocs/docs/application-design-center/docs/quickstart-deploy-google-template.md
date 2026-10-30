@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/quickstart-deploy-google-template/
 title: Quickstart: Customize and deploy a Google template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:00.417288+00:00
+fetched_at: 2026-10-30T05:51:48.415132+00:00
 ---
 
 # Quickstart: Customize and deploy a Google template  |  Application Design Center  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Customize and deploy a Google template
 
-This quickstart helps you copy a [Google-provided template](https://docs.cloud.google.com/application-design-center/docs/build-on-google-templates), customize its components, and deploy a test application. You'll use the [Generative AI RAG with Cloud SQL](https://docs.cloud.google.com/application-design-center/docs/gen-ai-rag-with-sql) template in this quickstart, but you can apply the procedures in this document to any template. 
+[Google-provided templates](https://docs.cloud.google.com/application-design-center/docs/build-on-google-templates) in Application Design Center let you start from preconfigured architectures that follow Google Cloud best practices. In this quickstart, you copy the [Generative AI RAG with Cloud SQL](https://docs.cloud.google.com/application-design-center/docs/gen-ai-rag-with-sql) template, customize its components, and deploy a test application, using steps that apply to any template.
 
 The following image shows the components and connections of the Generative AI RAG with Cloud SQL template in the design canvas:
 
@@ -518,6 +518,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

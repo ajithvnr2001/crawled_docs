@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it/
 title: Agent Retrieval interactive demo \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:48.061039+00:00
+fetched_at: 2026-10-30T05:54:26.197601+00:00
 ---
 
 # Agent Retrieval interactive demo  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -155,7 +155,7 @@ Mercari 3M items
 Mercari 3M items  
 (768-dim Gemini text embeddings, semantic similarity) | Uses the SEMANTIC_SIMILARITY task type for similarity matching. This dataset is the best for use cases that need "find similar items" functionality where query and documents have same semantics.  | [`gemini-embedding-001`](https://developers.googleblog.com/gemini-embedding-available-gemini-api/) | SEMANTIC_SIMILARITY   
 Mercari 3M items  
-(1408-dim Vertex AI multimodal embeddings) | Has Vertex AI multimodal embeddings that encodes item images for image search.  | [`multimodal-embedding-001`](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings) | N/A   
+(1408-dim Gemini Enterprise Agent Platform multimodal embeddings) | Has Gemini Enterprise Agent Platform multimodal embeddings that encodes item images for image search.  | [`multimodal-embedding-001`](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings) | N/A   
 Mercari 3M items  
 (100-dim Word2Vec text embeddings) | Uses the Gensim Word2Vec embedding model. This dataset has the fastest inference. It provides only word-level semantic understanding but is very compact.  | Gensim [Word2Vec](https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html) | N/A   
   
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

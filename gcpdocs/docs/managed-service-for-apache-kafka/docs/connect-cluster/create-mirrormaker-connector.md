@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-mirrormaker-connector/
 title: Create a MirrorMaker 2.0 Source connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:40.750127+00:00
+fetched_at: 2026-10-30T05:50:40.452485+00:00
 ---
 
 # Create a MirrorMaker 2.0 Source connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -336,25 +336,28 @@ Replace the following:
 Here is an example of a configuration file for the MirrorMaker 2.0 Source connector:
     
     connector.class: "org.apache.kafka.connect.mirror.MirrorSourceConnector"
-    name: "MM2_CONNECTOR_ID"
     source.cluster.alias: "source"
     target.cluster.alias: "target"
-    topics: "GMK_TOPIC_NAME"
-    source.cluster.bootstrap.servers: "GMK_SOURCE_CLUSTER_DNS"
-    target.cluster.bootstrap.servers: "GMK_TARGET_CLUSTER_DNS"
-    offset-syncs.topic.replication.factor: "1"
-    source.cluster.security.protocol: "SASL_SSL"
-    source.cluster.sasl.mechanism: "OAUTHBEARER"
-    source.cluster.sasl.login.callback.handler.class: com.google.cloud.hosted.kafka.auth.GcpLoginCallbackHandler
-    source.cluster.sasl.jaas.config: org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-    target.cluster.security.protocol: "SASL_SSL"
-    target.cluster.sasl.mechanism: "OAUTHBEARER"
-    target.cluster.sasl.login.callback.handler.class: "com.google.cloud.hosted.kafka.auth.GcpLoginCallbackHandler"
-    target.cluster.sasl.jaas.config: "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
+    topics: "TOPIC_LIST"
+    source.cluster.bootstrap.servers: "SOURCE_CLUSTER_BOOTSTRAP_ADDRESS"
+    target.cluster.bootstrap.servers: "TARGET_CLUSTER_BOOTSTRAP_ADDRESS"
     
 
 
 
+
+Replace the following:
+
+  * `TOPIC_LIST`: A comma-separated list of Kafka topics to replicate. The list can include regular expressions.
+
+  * `SOURCE_CLUSTER_BOOTSTRAP_ADDRESS`: The bootstrap address of the source Kafka cluster.
+
+  * `TARGET_CLUSTER_BOOTSTRAP_ADDRESS`: The bootstrap address of the target Kafka cluster.
+
+
+
+
+If the source cluster is a self-managed Kafka cluster, then you might need to include additional properties to configure authentication. For more information, see Configure authentication.
 
 ###  Terraform 
 
@@ -642,6 +645,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

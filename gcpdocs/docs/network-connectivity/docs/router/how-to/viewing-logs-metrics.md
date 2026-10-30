@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/router/how-to/viewing-logs-metrics/
 title: View logs and metrics \u00a0|\u00a0 Cloud Router \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:22:44.411737+00:00
+fetched_at: 2026-10-30T05:41:55.756050+00:00
 ---
 
 # View logs and metrics  |  Cloud Router  |  Google Cloud Documentation
@@ -366,7 +366,7 @@ Sent routes count
 `GAUGE`, `INT64`, `1`   
 **[gce_router](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_router)** |  _Current number of routes sent by router. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
   
-Table generated at 2026-10-22 02:44:18 UTC.
+Table generated at 2026-10-29 23:33:54 UTC.
 
 ## What's next
 
@@ -378,6 +378,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/quickstart-create-template/
 title: Create and verify a template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:57.090422+00:00
+fetched_at: 2026-10-30T05:51:48.676195+00:00
 ---
 
 # Create and verify a template  |  Application Design Center  |  Google Cloud Documentation
@@ -21,19 +21,16 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Create and verify a template
 
-This quickstart helps you create and deploy a three-tier web application template that includes frontend, backend, and database components. The following image shows the design canvas, which includes the application components and connections.
+Application templates in Application Design Center let you define reusable architectures by connecting infrastructure components. In this quickstart, you complete the following steps:
+
+  1. Create a three-tier web application template with frontend, backend, and database components using the design canvas, natural language prompts in [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview), or the App Design Center [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud/reference/design-center).
+  2. Verify the template by deploying a test application.
+
+
+
+The following image shows the design canvas, which includes the application components and connections:
 
 ![A three-tier web application in the design canvas. The application includes frontend, backend, and database components.](https://docs.cloud.google.com/static/application-design-center/images/three-tier-application.png)
-
-You design the template using one of the following:
-
-  * The design canvas in Application Design Center.
-  * Natural language prompts in [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview).
-  * App Design Center [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud/reference/design-center).
-
-
-
-After you complete the design, verify the template by deploying a test application in App Design Center.
 
 * * *
 
@@ -700,6 +697,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

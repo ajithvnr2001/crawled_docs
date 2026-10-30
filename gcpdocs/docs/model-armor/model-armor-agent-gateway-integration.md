@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration/
 title: Integrate Model Armor with Agent Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:04.059614+00:00
+fetched_at: 2026-10-30T06:00:08.494707+00:00
 ---
 
 # Integrate Model Armor with Agent Gateway  |  Google Cloud Documentation
@@ -49,6 +49,8 @@ To configure Model Armor on a gateway, follow these steps:
   2. [Create one or more Model Armor templates](https://docs.cloud.google.com/model-armor/manage-templates#create-ma-template) in the same region where you plan to add the gateway. You can use the same template for both ingress and egress traffic.
 
 Take note of the template names. To copy the name of a template in the Google Cloud console, [view the template's details](https://docs.cloud.google.com/model-armor/manage-templates#view-ma-template) and click content_copy **Copy to clipboard** next to the template name.
+
+If you create the Model Armor templates in a different project from the project that contains the AI agent or Agent Gateway and you use VPC Service Controls, both projects must be in the same [VPC Service Controls service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance).
 
   3. Set up Agent Gateway in the same region where the Model Armor templates are stored. For the [Client-to-Agent (ingress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-client-to-agent), specify the Model Armor templates that you created for ingress traffic. For the [Agent-to-Anywhere (egress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere), specify the Model Armor templates that you created for egress traffic. You can use the same template for both traffic flows.
 
@@ -99,6 +101,7 @@ For instructions, see [Delegate authorization to Model Armor](https://docs.cloud
 
 For general information about how to grant a role, see [Grant a single IAM role](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#grant-single-role).
 
+**Tip:** You can provision these resources declaratively across single or multi-project environments using Terraform (`google_model_armor_template`, `google_model_armor_floorsetting`, `google_network_services_authz_extension`, and `google_network_security_authz_policy`). For instructions, see [Create a Model Armor template](https://docs.cloud.google.com/model-armor/manage-templates#create-ma-template), [Configure floor settings](https://docs.cloud.google.com/model-armor/configure-floor-settings#configure-floor-settings), and [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma).
 
 
 
@@ -288,6 +291,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/reference/rest/v1/projects.locations.servers
 title: REST Resource: projects.locations.servers \u00a0|\u00a0 Cloud FTP \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T21:15:32.930145+00:00
+fetched_at: 2026-10-30T05:41:26.567938+00:00
 ---
 
 # REST Resource: projects.locations.servers  |  Cloud FTP  |  Google Cloud Documentation
@@ -65,14 +65,15 @@ JSON representation
       },
       "serviceAgent": string,
     
-      // Union field access_config can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "externalConfig": {
         object ([ExternalServerConfig](https://docs.cloud.google.com/cloud-ftp/reference/rest/v1/projects.locations.servers#ExternalServerConfig))
       },
       "internalConfig": {
         object ([InternalServerConfig](https://docs.cloud.google.com/cloud-ftp/reference/rest/v1/projects.locations.servers#InternalServerConfig))
       }
-      // End of list of possible types for union field access_config.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
@@ -86,9 +87,10 @@ Fields
 `state` |  `enum (`[State](https://docs.cloud.google.com/cloud-ftp/reference/rest/v1/projects.locations.servers#State)`)` Output only. The state of the server.  
 `googleManagedServerCredential` |  `object (`[ServerCredential](https://docs.cloud.google.com/cloud-ftp/reference/rest/v1/projects.locations.servers#ServerCredential)`)` Output only. Credentials of the FTP Server.  
 `serviceAgent` |  `string` Output only. Service agent used to access the customer bucket.  
-Union field `access_config`. Configuration for server access. If this is set, it must match the value in the `access_type` field. `access_config` can be only one of the following:  
+Configuration for server access. If this is set, it must match the value in the `access_type` field. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `externalConfig` |  `object (`[ExternalServerConfig](https://docs.cloud.google.com/cloud-ftp/reference/rest/v1/projects.locations.servers#ExternalServerConfig)`)` Configuration for external access.  
 `internalConfig` |  `object (`[InternalServerConfig](https://docs.cloud.google.com/cloud-ftp/reference/rest/v1/projects.locations.servers#InternalServerConfig)`)` Configuration for internal access.  
+End of mutually exclusive fields.  
   
 ## ExternalServerConfig
 
@@ -155,16 +157,18 @@ JSON representation
     {
       "connectionLimit": string,
     
-      // Union field consumer_type can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "project": string
-      // End of list of possible types for union field consumer_type.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
 ---  
 `connectionLimit` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Required. The connection limit for the consumer. Value must be greater than 0.  
-Union field `consumer_type`. Required. Specifies the type of consumer. `consumer_type` can be only one of the following:  
+Required. Specifies the type of consumer. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `project` |  `string` The project ID or number of the consumer project. Must be in the format: `projects/{project}`.  
+End of mutually exclusive fields.  
   
 ## DeniedConsumer
 
@@ -176,15 +180,17 @@ JSON representation
     
     {
     
-      // Union field consumer_type can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "project": string
-      // End of list of possible types for union field consumer_type.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
 ---  
-Union field `consumer_type`. Required. Specifies the type of consumer. `consumer_type` can be only one of the following:  
+Required. Specifies the type of consumer. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `project` |  `string` The project ID or number of the consumer project. Must be in the format: `projects/{project}`.  
+End of mutually exclusive fields.  
   
 ## PscEndpoint
 
@@ -286,6 +292,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-07-30 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

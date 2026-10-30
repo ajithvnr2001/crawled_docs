@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCases
 title: REST Resource: projects.locations.brands.evaluationCases \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:17.496230+00:00
+fetched_at: 2026-10-30T06:00:18.031028+00:00
 ---
 
 # REST Resource: projects.locations.brands.evaluationCases  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -51,14 +51,15 @@ JSON representation
         string
       ],
     
-      // Union field test_case can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "staticTextTurnCase": {
         object ([StaticTextTurnCase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCases#EvaluationCase.StaticTextTurnCase))
       },
       "dynamicTextTurnCase": {
         object ([DynamicTextTurnCase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCases#EvaluationCase.DynamicTextTurnCase))
       }
-      // End of list of possible types for union field test_case.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
@@ -68,9 +69,10 @@ Fields
 `description` |  `string` Optional. The description of the evaluation case.  
 `evaluationContext` |  `string` Required. The resource name of the evaluation context this case is associated with. Format: projects/{project}/locations/{location}/brands/{brand}/evaluationContexts/{evaluationContext}  
 `evaluationMatchers[]` |  `string` Optional. The list of evaluation matchers to use for the evaluation case. The evaluation is performed once at the end of the BidiProcessOrder session. Each matcher produces a boolean result indicating whether the evaluation matcher passed or failed.  
-Union field `test_case`. The test case to use for the evaluation case. `test_case` can be only one of the following:  
+The test case to use for the evaluation case. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `staticTextTurnCase` |  `object (`[StaticTextTurnCase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCases#EvaluationCase.StaticTextTurnCase)`)` Optional. A test case where the user and agent text turns are static.  
 `dynamicTextTurnCase` |  `object (`[DynamicTextTurnCase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.evaluationCases#EvaluationCase.DynamicTextTurnCase)`)` Optional. A test case where the user text inputs are dynamically generated using LLM with an ordering instruction.  
+End of mutually exclusive fields.  
   
 ### StaticTextTurnCase
 
@@ -166,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

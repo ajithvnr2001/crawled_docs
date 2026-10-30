@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security/
 title: AI and ML perspective: Security \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:16.482343+00:00
+fetched_at: 2026-10-30T05:50:42.252814+00:00
 ---
 
 # AI and ML perspective: Security  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,26 +19,26 @@ Send feedback
 
 #  AI and ML perspective: Security Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-11-26 UTC
+Last reviewed 2026-10-29 UTC
 
-This document in the [Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of principles and recommendations to ensure that your AI and ML deployments meet the security and compliance requirements of your organization. The recommendations in this document align with the [security pillar](https://docs.cloud.google.com/architecture/framework/security) of the Google Cloud Well-Architected Framework.
+This document in the [Google Cloud Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of principles and recommendations to ensure that your AI and ML deployments meet the security and compliance requirements of your organization. The recommendations in this document align with the [security pillar](https://docs.cloud.google.com/architecture/framework/security) of the Well-Architected Framework.
 
 Secure deployment of AI and ML workloads is a critical requirement, particularly in enterprise environments. To meet this requirement, you need to adopt a holistic security approach that starts from the initial conceptualization of your AI and ML solutions and extends to development, deployment, and ongoing operations. Google Cloud offers robust tools and services that are designed to help secure your AI and ML workloads.
 
 The recommendations in this document are mapped to the following core principles:
 
-  * Define clear goals and requirements
-  * Keep data secure and prevent loss or mishandling
-  * Keep AI pipelines secure and robust against tampering
-  * Deploy on secure systems with secure tools and artifacts
-  * Verify and protect inputs
-  * Monitor, evaluate, and prepare to respond to outputs
+  * [Define clear goals and requirements](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#define_clear_goals_and_requirements)
+  * [Keep data secure and prevent loss or mishandling](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#keep_data_secure_and_prevent_loss_or_mishandling)
+  * [Keep AI pipelines secure and robust against tampering](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#keep_ai_pipelines_secure_and_robust_against_tampering)
+  * [Deploy on secure systems with secure tools and artifacts](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#deploy_on_secure_systems_with_secure_tools_and_artifacts)
+  * [Verify and protect inputs](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#verify_and_protect_inputs)
+  * [Monitor, evaluate, and prepare to respond to outputs](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#monitor_evaluate_and_prepare_to_respond_to_outputs)
 
 
 
 For more information about AI security, you can also review the following resources:
 
-  * [Google Cloud's Secure AI Framework (SAIF)](https://safety.google/cybersecurity-advancements/saif/) provides a comprehensive guide for building secure and responsible AI systems. It outlines key principles and best practices for addressing security and compliance considerations throughout the AI lifecycle.
+  * [Google Cloud's Secure AI Framework (SAIF)](https://saif.google) provides a comprehensive guide for building secure and responsible AI systems. It outlines key principles and best practices for addressing security and compliance considerations throughout the AI lifecycle.
   * To learn more about Google Cloud's approach to trust in AI, see our [compliance resource center](https://cloud.google.com/compliance).
 
 
@@ -82,7 +82,7 @@ Google Cloud provides a comprehensive suite of tools and services to help you im
   * **[Attack exposure scores and attack paths](https://docs.cloud.google.com/security-command-center/docs/attack-exposure-learn)** : Refine and use the attack exposure scores and attack paths that Security Command Center generates.
   * **[Google Threat Intelligence](https://cloud.google.com/security/products/threat-intelligence)** : Stay informed about new threats and attack techniques that emerge to target AI systems.
   * **[Logging and Monitoring](https://docs.cloud.google.com/stackdriver/docs)** : Track the performance and security of your AI systems, and detect any anomalies or suspicious activities. Conduct regular security audits to identify and address potential vulnerabilities in your AI infrastructure and models.
-  * **[Vulnerability management](https://cloud.google.com/security/resources/datasheets/consulting-services-threat-and-vulnerability-management)** : Implement a vulnerability management process to track and remediate security vulnerabilities in your AI systems.
+  * **[Vulnerability management](https://services.google.com/fh/files/misc/ds-threat-and-vulnerability-management-en.pdf)** : Implement a vulnerability management process to track and remediate security vulnerabilities in your AI systems.
 
 
 
@@ -103,7 +103,6 @@ Data collection can help drive business insights and analytics, but it's crucial
 You can use Google Cloud features to help you improve data minimization and data privacy for various use cases:
 
   * To de-identify your data and also preserve its utility, apply transformation methods like pseudonymization, de-identification, and generalization such as bucketing. To implement these methods, you can use [Sensitive Data Protection](https://docs.cloud.google.com/architecture/de-identification-re-identification-pii-using-cloud-dlp).
-  * To enrich data and mitigate potential bias, you can use an [Agent Platform data labeling job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/label-using-console). The data labeling process adds informative and meaningful tags to raw data, which transforms it into structured training data for ML models. Data labeling adds specificity to the data and reduces ambiguity.
   * To help protect resources from prolonged access or manipulation, use Cloud Storage features to [control data lifecycles](https://docs.cloud.google.com/storage/docs/control-data-lifecycles).
 
 
@@ -116,17 +115,17 @@ Your AI application's training data poses the largest risks for the introduction
 
 You can use Google Cloud features to help you implement data governance strategies:
 
-  * To establish an organization-wide or department-wide data governance platform, use [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs). A data governance platform can help you to centrally discover, manage, monitor, and govern data and AI artifacts across your data platforms. The data governance platform also provides access to trusted users. You can perform the following tasks with Knowledge Catalog: 
+  * To establish an organization-wide or department-wide data governance platform, use [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction). A data governance platform can help you to centrally discover, manage, monitor, and govern data and AI artifacts across your data platforms. The data governance platform also provides access to trusted users. You can perform the following tasks with Knowledge Catalog: 
     * Manage data lineage. BigQuery can also provide column-level lineage.
     * Manage data quality checks and data profiles.
     * Manage data discovery, exploration, and processing across different data marts.
     * Manage feature metadata and model artifacts.
     * Create a business glossary to manage metadata and establish a standardized vocabulary.
-    * [Enrich the metadata](https://docs.cloud.google.com/dataplex/docs/enrich-entries-metadata) with context through aspects and aspect types.
+    * [Enrich the metadata](https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata) with context through aspects and aspect types.
     * Unify data governance across BigLake and open-format tables like Iceberg and Delta.
     * Build a [data mesh](https://docs.cloud.google.com/architecture/data-mesh) to decentralize data ownership among data owners from different teams or domains. This practice adheres to data security principles and it can help improve data accessibility and operational efficiency.
     * [Inspect and send sensitive data results](https://docs.cloud.google.com/sensitive-data-protection/docs/add-aspects-inspection-job) from BigQuery to Knowledge Catalog.
-  * To build a unified open [lakehouse](https://cloud.google.com/discover/what-is-a-data-lakehouse) that is well-governed, integrate your data lakes and warehouses with managed metastore services like [Dataproc Metastore](https://docs.cloud.google.com/dataproc-metastore/docs/overview) and [Lakehouse runtime catalog](https://docs.cloud.google.com/biglake/docs/about-blms). An open lakehouse uses open table formats that are compatible with different data processing engines.
+  * To build a unified open [lakehouse](https://cloud.google.com/discover/what-is-a-data-lakehouse) that is well-governed, integrate your data lakes and warehouses with managed metastore services like [Dataproc Metastore](https://docs.cloud.google.com/dataproc-metastore/docs/overview) and [Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs). An open lakehouse uses open table formats that are compatible with different data processing engines.
   * To schedule the monitoring of features and feature groups, use [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/monitor-features#create-feature-monitor).
   * To scan your Agent Platform datasets at the organization, folder, or project level, use [Sensitive data discovery for Agent Platform](https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles). You can also [analyze the data profiles](https://docs.cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles) that are stored in BigQuery.
   * To capture real-time logs and collect metrics related to data pipelines, use [Cloud Logging](https://docs.cloud.google.com/logging/docs/view/streaming-live-tailing) and [Cloud Monitoring](https://docs.cloud.google.com/logging/docs/alerting/monitoring-logs). To collect audit trails of API calls, use [Cloud Audit Logs](https://docs.cloud.google.com/logging/docs/audit). Don't log PII or confidential data in experiments or in different log servers.
@@ -143,7 +142,7 @@ To help you implement these access strategies, you can use the following Google 
 
   * To implement access granularity, consider the following options:
 
-    * Map the IAM roles of different products to a user, group, or service account to allow granular access. Map these roles based on your project needs, access patterns, or [tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview).
+    * Map the Identity and Access Management (IAM) roles of different products to a user, group, or service account to allow granular access. Map these roles based on your project needs, access patterns, or [tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview).
     * Set [IAM policies with conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) to manage granular access to your data, model, and model configurations, such as code, resource settings, and hyperparameters.
     * Explore application-level granular access that helps you secure sensitive data that you audit and share outside of your team.
 
@@ -168,7 +167,7 @@ To help prevent data exfiltration and loss on Google Cloud, you can use a combin
 
 To implement encryption, consider the following:
 
-  * To gain more control over encryption keys, use customer-managed encryption keys (CMEKs) in Cloud KMS. When you use CMEKs, the following CMEK-integrated services encrypt data at rest for you: 
+  * To gain more control over encryption keys, use customer-managed encryption keys (CMEKs) in Cloud Key Management Service. When you use CMEKs, the following CMEK-integrated services encrypt data at rest for you: 
     * [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek)
     * [Cloud Storage](https://docs.cloud.google.com/storage/docs/encryption/customer-managed-keys)
     * [Cloud SQL](https://docs.cloud.google.com/sql/docs/sqlserver/cmek)
@@ -199,14 +198,14 @@ To implement restrictions on data movement, consider the following:
 
 _Data poisoning_ is a type of cyberattack in which attackers inject malicious data into training datasets to manipulate model behavior or to degrade performance. This cyberattack can be a serious threat to ML training systems. To protect the validity and quality of the data, maintain practices that guard your data. This approach is crucial for consistent unbiasedness, reliability, and integrity of your model.
 
-To track inconsistent behavior, transformation, or unexpected access to your data, set up comprehensive monitoring and alerting for data pipelines and ML pipelines.
+To track inconsistent behavior, transformation, or unexpected access to your data, set up comprehensive [monitoring and alerting](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#monitor-data-collection-storage-and-transformation) for data pipelines and ML pipelines.
 
 Google Cloud features can help you implement more protections against data poisoning:
 
   * To validate data integrity, consider the following:
 
-    * Implement robust data validation checks before you use the data for training. Verify data formats, ranges, and distributions. You can use the automatic data quality capabilities in [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/auto-data-quality-overview).
-    * Use Sensitive Data Protection with Model Armor to take advantage of comprehensive data loss prevention capabilities. For more information, see [Model Armor key concepts](https://docs.cloud.google.com/security-command-center/docs/key-concepts-model-armor). Sensitive Data Protection with Model Armor lets you discover, classify, and protect sensitive data such as intellectual property. These capabilities can help you prevent the unauthorized exposure of sensitive data in LLM interactions.
+    * Implement robust data validation checks before you use the data for training. Verify data formats, ranges, and distributions. You can use the automatic data quality capabilities in [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview).
+    * Use Sensitive Data Protection with Model Armor to take advantage of comprehensive data loss prevention capabilities. For more information, see [Model Armor overview](https://docs.cloud.google.com/model-armor/overview). Sensitive Data Protection with Model Armor lets you discover, classify, and protect sensitive data such as intellectual property. These capabilities can help you prevent the unauthorized exposure of sensitive data in LLM interactions.
     * To detect anomalies in your training data that might indicate data poisoning, use [anomaly detection in BigQuery](https://docs.cloud.google.com/bigquery/docs/anomaly-detection-overview) with statistical methods or ML models.
   * To prepare for robust training, do the following:
 
@@ -219,7 +218,7 @@ Google Cloud features can help you implement more protections against data poiso
 
 
 
-For best practices about how to create data platforms that focus on infrastructure and data security, see the [Implement security by design](https://docs.cloud.google.com/architecture/framework/security/data-security) principle in the Well-Architected Framework.
+For best practices about how to create data platforms that focus on infrastructure and data security, see the [Implement security by design](https://docs.cloud.google.com/architecture/framework/security/implement-security-by-design) principle in the Well-Architected Framework.
 
 ## Keep AI pipelines secure and robust against tampering
 
@@ -261,7 +260,7 @@ To help secure the code and artifact dependencies in your CI/CD pipeline, consid
 To consistently embed secure coding principles into every stage of development, consider the following:
 
   * To prevent the exposure of sensitive data from model interactions, use Logging with Sensitive Data Protection. When you use these products together, you can control what data your AI applications and pipeline components log, and hide sensitive data.
-  * To implement the principle of least privilege, ensure that the service accounts that you use for your Agent Platform custom jobs, pipelines, and deployed models have only the minimum required IAM permissions. For more information, see Implement role-based access controls with least privilege principles.
+  * To implement the principle of least privilege, ensure that the service accounts that you use for your Agent Platform custom jobs, pipelines, and deployed models have only the minimum required IAM permissions. For more information, see [Implement role-based access controls with least privilege principles](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#implement_role_based_access_controls_with_least_privilege_principles).
   * To help secure and protect your pipelines and build artifacts, understand the security configurations (VPC and VPC Service Controls) in the environment your code runs in.
 
 
@@ -330,16 +329,16 @@ To maintain system integrity, confidentiality, and availability for your AI and 
 
 
 
-To train your ML models in an environment with improved security, use managed services in Google Cloud like Cloud Run, GKE, and Managed Service for Apache Spark. You can also use [Agent Platform serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview).
+To train your ML models in an environment with improved security, use managed services in Google Cloud like Cloud Run, Google Kubernetes Engine (GKE), and Managed Service for Apache Spark. You can also use [Agent Platform serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview).
 
 This section provides recommendations to help you further help secure your training and deployment environment.
 
 To help secure your environment and perimeters, consider the following:
 
-  * When you implement security measures, as described earlier, consider the following:
+  * When you [implement security measures](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security#implement_security_measures_for_data_movement), as described earlier, consider the following:
 
     * To isolate training environments and limit access, use [dedicated projects or VPCs](https://docs.cloud.google.com/architecture/best-practices-vpc-design) for training.
-    * To protect sensitive data and code during execution, use [Shielded VMs](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm) or [confidential computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview) for training workloads.
+    * To protect sensitive data and code during execution, use [Shielded VM](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm) or [confidential computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview) for training workloads.
     * To help secure your network infrastructure and to control access to your deployed models, use VPCs, firewalls, and security perimeters.
   * When you use Gemini Enterprise Agent Platform Managed Training, you can use the following methods to help secure your compute infrastructure:
 
@@ -348,10 +347,10 @@ To help secure your environment and perimeters, consider the following:
   * When you use GKE or Cloud Run to set up a custom environment, consider the following options:
 
     * To secure your GKE cluster, use the appropriate network policies, pod security policies, and access controls. Use [trusted and verified container images](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#containerd) for your training workloads. To [scan container images](https://docs.cloud.google.com/artifact-analysis/docs/scan-os-automatically) for vulnerabilities, use Artifact Analysis.
-    * To protect your environment from [container escapes](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-engine-container-escape) and other attacks, implement [runtime security measures](https://docs.cloud.google.com/functions/docs/securing/execution-environment-security) for Cloud Run functions. To further protect your environment, use [GKE Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods) and [workload isolation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-separation).
+    * To protect your environment from [container escapes](https://docs.cloud.google.com/security-command-center/docs/findings/threats/agent-platform-container-escape) and other attacks, implement [runtime security measures](https://docs.cloud.google.com/functions/docs/securing/execution-environment-security) for Cloud Run functions. To further protect your environment, use [GKE Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods) and [workload isolation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-separation).
     * To help secure your GKE workloads, follow the best practices in the [GKE security overview](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/security-overview).
-    * To help meet your security requirements in Cloud Run, see the [security design overview}](https://docs.cloud.google.com/run/docs/securing/security).
-  * When you use Managed Service for Apache Spark for model training, follow the [Managed Service for Apache Spark security best practices](https://docs.cloud.google.com/dataproc/docs/concepts/security-best-practices).
+    * To help meet your security requirements in Cloud Run, see the [security design overview](https://docs.cloud.google.com/run/docs/securing/security).
+  * When you use Managed Service for Apache Spark for model training, follow the [Managed Service for Apache Spark security best practices](https://docs.cloud.google.com/managed-spark/docs/concepts/security-best-practices).
 
 
 
@@ -360,9 +359,9 @@ To help secure your deployment, consider the following:
 
   * When you deploy models, use Model Registry. If you deploy models in containers, use GKE Sandbox and [Container-Optimized OS](https://docs.cloud.google.com/container-optimized-os/docs) to enhance security and isolate workloads. [Restrict access to models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) from Model Garden according to user roles and responsibilities.
   * To help secure your model APIs, use Apigee or [API Gateway](https://docs.cloud.google.com/api-gateway/docs). To prevent abuse, implement API keys, authentication, authorization, and rate limiting. To control access to model APIs, use API keys and authentication mechanisms.
-  * To help secure access to models during prediction, use [Gemini Enterprise Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview). To prevent data exfiltration, use VPC Service Controls perimeters to protect [private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) and govern access to the underlying models. You use private endpoints to enable access to the models within a VPC network. [IAM isn't directly applied](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control) to the private endpoint, but the target service uses IAM to manage access to the models. For online prediction, we recommend that you use Private Service Connect.
+  * To help secure access to models during prediction, use [Gemini Enterprise Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions). To prevent data exfiltration, use VPC Service Controls perimeters to protect [private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) and govern access to the underlying models. You use private endpoints to enable access to the models within a VPC network. [IAM isn't directly applied](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control) to the private endpoint, but the target service uses IAM to manage access to the models. For online prediction, we recommend that you use Private Service Connect.
   * To track API calls that are related to model deployment, enable [Cloud Audit Logs for Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/audit-logging). Relevant API calls include activities such as endpoint creation, model deployment, and configuration updates.
-  * To extend Google Cloud infrastructure to edge locations, consider [Google Distributed Cloud](https://docs.cloud.google.com/distributed-cloud/docs/overview) solutions. For a fully disconnected solution, you can use [Distributed Cloud air-gapped](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/overview), which doesn't require connectivity to Google Cloud.
+  * To extend Google Cloud infrastructure to edge locations, consider [Google Distributed Cloud](https://docs.cloud.google.com/distributed-cloud/docs) solutions. For a fully disconnected solution, you can use [Distributed Cloud air-gapped](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/overview), which doesn't require connectivity to Google Cloud.
   * To help standardize deployments and to help ensure compliance with regulatory and security needs, use [Assured Workloads](https://docs.cloud.google.com/assured-workloads/docs/overview).
 
 
@@ -387,7 +386,7 @@ To implement SLSA for your AI and ML artifacts on Google Cloud, do the following
   4. **Implement SLSA requirements** : To meet your target SLSA level, [implement the necessary controls and practices](https://docs.cloud.google.com/software-supply-chain-security/docs/overview), which could include the following:
 
      * **Source control** : Use a version control system like Git to track changes to your code and configurations.
-     * **Build process** : Use a service that helps to secure your builds, like [Cloud Build](https://docs.cloud.google.com/build), and ensure that your build process is scripted or automated.
+     * **Build process** : Use a service that helps to secure your builds, like [Cloud Build](https://docs.cloud.google.com/build/docs/overview), and ensure that your build process is scripted or automated.
      * **Provenance generation** : Generate provenance metadata that captures details about how your artifacts were built, including the build process, source code, and dependencies. For details, see [Track metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) and [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts).
      * **Artifact signing** : Sign your artifacts to verify their authenticity and integrity.
      * **Vulnerability management** : Scan your artifacts and dependencies for vulnerabilities on a regular basis. Use tools like [Artifact Analysis.](https://docs.cloud.google.com/artifact-registry/docs/analysis)
@@ -414,7 +413,7 @@ To improve the security of your container management, consider the following rec
 
   * Use [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs) to create, store, and manage repositories of container images with different formats. Artifact Registry handles access control with IAM, and it has integrated observability and [vulnerability assessment](https://docs.cloud.google.com/security-command-center/docs/concepts-security-sources#ar-vuln-assessment) features. Artifact Registry lets you enable container security features, scan container images, and investigate vulnerabilities.
   * Run [continuous integration](https://docs.cloud.google.com/architecture/app-development-and-delivery-with-cloud-code-gcb-cd-and-gke) steps and [build container images](https://docs.cloud.google.com/build/docs/building/build-containers) with Cloud Build. Dependency issues can be highlighted at this stage. If you want to deploy only the images that are built by Cloud Build, you can use [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs/cloud-build). To help prevent supply chain attacks, deploy the images built by Cloud Build in Artifact Registry. Integrate automated testing tools such as SonarQube, PyLint, or OWASP ZAP.
-  * Use a container platform like GKE or Cloud Run, which are optimized for GPU or TPU for AI and ML workloads. Consider the [vulnerability scanning options](https://docs.cloud.google.com/artifact-analysis/docs/container-scanning-overview) for containers in GKE clusters.
+  * Use a container platform like GKE or Cloud Run, which are optimized for GPU or Cloud TPU for AI and ML workloads. Consider the [vulnerability scanning options](https://docs.cloud.google.com/artifact-analysis/docs/container-scanning-overview) for containers in GKE clusters.
 
 
 
@@ -427,7 +426,7 @@ To determine whether you need Confidential Computing for GPUs, consider the sens
 If you set up Confidential Computing, consider the following options:
 
   * For general-purpose AI and ML workloads, use [Confidential VM instances](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview) with NVIDIA T4 GPUs. These VM instances offer hardware-based encryption of data in use.
-  * For containerized workloads, use [Confidential GKE Nodes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus-confidential-nodes). These nodes provide a secure and isolated environment for your pods.
+  * For containerized workloads, use [Confidential Google Kubernetes Engine Nodes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus-confidential-nodes). These nodes provide a secure and isolated environment for your pods.
   * To ensure that your workload is running in a genuine and secure enclave, [verify the attestation](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/attestation) reports that Confidential VM provides.
   * To track performance, resource utilization, and security events, monitor your Confidential Computing resources and your Confidential GKE Nodes by using Monitoring and Logging.
 
@@ -441,7 +440,7 @@ To verify and protect your inputs, consider the following recommendations.
 
 ### Implement practices that help secure generative AI systems
 
-Treat prompts as a critical application component that has the same importance to security as code does. Implement a [defense-in-depth](https://en.wikipedia.org/wiki/Defense_in_depth_\(computing\)) strategy that combines proactive design, automated screening, and disciplined lifecycle management.
+Treat prompts as a critical application component that has the same importance to security as code does. Implement a [defense-in-depth](https://en.wikipedia.org/wiki/Defense_in_depth_%28computing%29) strategy that combines proactive design, automated screening, and disciplined lifecycle management.
 
 To help secure your generative AI prompts, you must design them for security, screen them before use, and manage them throughout their lifecycle.
 
@@ -462,8 +461,8 @@ To improve the security of your prompt design and engineering, consider the foll
 
 For automated prompt and response screening, consider the following practices:
 
-  * **Use comprehensive security services** : Implement a dedicated, model-agnostic security service like Model Armor as a mandatory protection layer for your LLMs. Model Armor inspects prompts and responses for threats like prompt injection, [jailbreak attempts](https://en.wikipedia.org/wiki/Privilege_escalation#Jailbreaking), and harmful content. To help ensure that your models don't leak sensitive training data or intellectual property in their responses, use the Sensitive Data Protection integration with Model Armor. For details, see [Model Armor filters](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview#ma-filters).
-  * **Monitor and log interactions** : Maintain detailed logs for all of the prompts and responses for your model endpoints. Use [Logging](https://docs.cloud.google.com/logging) to audit these interactions, identify patterns of misuse, and detect attack vectors that might emerge against your deployed models.
+  * **Use comprehensive security services** : Implement a dedicated, model-agnostic security service like Model Armor as a mandatory protection layer for your LLMs. Model Armor inspects prompts and responses for threats like prompt injection, [jailbreak attempts](https://en.wikipedia.org/wiki/Privilege_escalation#Jailbreaking), and harmful content. To help ensure that your models don't leak sensitive training data or intellectual property in their responses, use the Sensitive Data Protection integration with Model Armor. For details, see [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-filters).
+  * **Monitor and log interactions** : Maintain detailed logs for all of the prompts and responses for your model endpoints. Use [Logging](https://docs.cloud.google.com/logging/docs/overview) to audit these interactions, identify patterns of misuse, and detect attack vectors that might emerge against your deployed models.
 
 
 
@@ -471,7 +470,7 @@ To help secure prompt lifecycle management, consider the following practices:
 
   * **Implement versioning for prompts** : Treat all of your production prompts like application code. Use a version control system like Git to create a complete history of changes, enforce collaboration standards, and enable rollbacks to previous versions. This core MLOps practice can help you to maintain stable and secure AI systems.
   * **Centralize prompt management** : Use a central repository to store, manage, and deploy all of your versioned prompts. This strategy enforces consistency across environments and it enables runtime updates without the need for a full application redeployment.
-  * **Conduct regular audits and red team testing** : Test your system's defenses continuously against known vulnerabilities, such as those listed in the [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/). As an AI engineer, you must be proactive and red-team test your own application to discover and remediate weaknesses before an attacker can exploit them.
+  * **Conduct regular audits and red team testing** : Test your system's defenses continuously against known vulnerabilities, such as those listed in the [OWASP Top 10 for LLM Applications](https://owasp.org/projects/top-10-for-large-language-model-applications). As an AI engineer, you must be proactive and red-team test your own application to discover and remediate weaknesses before an attacker can exploit them.
 
 
 
@@ -485,7 +484,7 @@ To implement a comprehensive strategy that can help protect your system from pos
 
     * To create a security perimeter that prevents data exfiltration of models from Model Registry or of sensitive data from BigQuery, use [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview). Always use [dry run mode](https://docs.cloud.google.com/vpc-service-controls/docs/dry-run-mode) to validate the impact of a perimeter before you enforce it.
     * To help protect web-based tools such as notebooks, use [IAP](https://docs.cloud.google.com/iap/docs/concepts-overview).
-    * To help secure all of the inference endpoints, use [Apigee](https://docs.cloud.google.com/apigee) for enterprise-grade security and governance. You can also use API Gateway for straightforward authentication.
+    * To help secure all of the inference endpoints, use [Apigee](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee) for enterprise-grade security and governance. You can also use API Gateway for straightforward authentication.
   * **Watch for query pattern anomalies** : For example, an attacker that probes a system for vulnerabilities might send thousands of slightly different, sequential queries. Flag abnormal query patterns that don't reflect normal user behavior.
 
   * **Monitor the volume of requests** : A sudden spike in query volume strongly indicates a denial-of-service (DoS) attack or a model theft attack, which is an attempt to reverse-engineer the model. Use rate limiting and throttling to control the volume of requests from a single IP address or user.
@@ -514,7 +513,7 @@ To evaluate model robustness and security posture, consider the following recomm
     * For any model, use Cloud Build for model signing.
   * Assess your model's resilience to unexpected or adversarial inputs.
 
-    * For all of your models, test your model for common data corruptions and any potentially malicious data modifications. To orchestrate these tests, you can use Gemini Enterprise Agent Platform Managed Training or Agent Platform Pipelines.
+    * For all of your models, test your model for common data corruptions and any potentially malicious data modifications. To orchestrate these tests, you can use Agent Platform Managed Training or Agent Platform Pipelines.
     * For security-critical models, conduct adversarial attack simulations to understand the potential vulnerabilities.
     * For models that are deployed in containers, use Artifact Analysis in Artifact Registry to scan the base images for vulnerabilities.
   * Use Model Monitoring on Gemini Enterprise Agent Platform to detect drift and skew for deployed models. Then, feed these insights back into the re-evaluation or retraining cycles.
@@ -585,7 +584,7 @@ Develop and operationalize an AI-aware incident response plan. A structured inci
     * Develop AI-specific playbooks for incidents that match your organization's threat model. For example, playbooks might include the following:
 
       * A model rollback that uses versioning in Model Registry.
-      * An emergency retraining pipeline on Gemini Enterprise Agent Platform Managed Training.
+      * An emergency retraining pipeline on Agent Platform Managed Training.
       * The isolation of a compromised data source in BigQuery or Cloud Storage.
     * Use IAM to ensure that response teams have the necessary least-privilege access to tools that are required during an incident.
 
@@ -595,13 +594,13 @@ Develop and operationalize an AI-aware incident response plan. A structured inci
 
     * Disable a problematic Agent Platform endpoint.
     * Revoke specific IAM permissions.
-    * Update firewall rules or Cloud Armor policies.
+    * Update firewall rules or Google Cloud Armor policies.
     * Pause a Agent Platform pipeline that's misbehaving.
   * **Eradication** : Identify and remove the root cause of the incident. This phase might include the following tasks:
 
     * Patch the vulnerable code in a custom model container.
     * Remove the identified malicious backdoors from a model.
-    * Sanitize the poisoned data before you initiate a secure retraining job on Gemini Enterprise Agent Platform Managed Training.
+    * Sanitize the poisoned data before you initiate a secure retraining job on Agent Platform Managed Training.
     * Update any insecure configurations.
     * Refine the input validation logic to block specific prompt-injection techniques.
   * **Recovery and secure redeployment** : Restore the affected AI systems to a known good and secure operational state. This phase might include the following tasks:
@@ -655,6 +654,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-11-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-11-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

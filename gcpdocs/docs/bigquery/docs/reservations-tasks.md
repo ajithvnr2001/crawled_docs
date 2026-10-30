@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-tasks/
 title: Manage workload reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:58.725320+00:00
+fetched_at: 2026-10-30T05:51:46.240203+00:00
 ---
 
 # Manage workload reservations  |  BigQuery  |  Google Cloud Documentation
@@ -565,7 +565,7 @@ For more information about IAM roles in BigQuery, see [Predefined roles and perm
 
 ### Enable BigQuery fluid scaling
 
-To enable per-second billing with no minimum duration for a reservation, enable it at the administration-project level by listing the reservation in the `preflight_fluid_autoscaling_reservations` option. Changes to the BigQuery fluid scaling configuration can take a few minutes to propagate.
+To enable per-second billing with no minimum duration for a reservation, enable it at the administration-project level by listing the reservation in the `preflight_fluid_autoscaling_reservations` option. Enabling or disabling BigQuery fluid scaling doesn't cause downtime or interrupt running queries. The configuration applies only to the specified reservations and doesn't affect other reservations or projects. Changes to the BigQuery fluid scaling configuration can take a few minutes to propagate.
 
 For reservations using [managed disaster recovery](https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery), you must enable BigQuery fluid scaling in both the primary and secondary regions to ensure per-second billing after a failover.
 
@@ -1416,6 +1416,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

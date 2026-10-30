@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:34.371357+00:00
+fetched_at: 2026-10-30T05:51:45.576831+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,28 @@ This page documents production updates to AlloyDB for PostgreSQL. Check this pag
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydb-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Feature
+
+AlloyDB AI adds pre-registered support for the following Gemini models in version 1.6.5 and later of the `google_ml_integration` extension:
+
+  * `gemini-3.1-flash-lite`
+  * `gemini-3.5-flash`
+  * `gemini-3.5-flash-lite`
+  * `gemini-3.6-flash`
+  * `gemini-3.7-flash`
+  * `gemini-3.8-flash`
+  * `gemini-4-argon`
+
+
+
+Version 1.6.5 of the `google_ml_integration` extension sets `gemini-3.5-flash-lite` as the default Gemini model and removes the `gemini-2.0-flash`, `gemini-2.0-flash-lite`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`, and `gemini-2.5-pro` models from the list of pre-registered models.
+
+Additionally, AlloyDB AI adds pre-registered support for the `semantic-ranker-512` reranking model.
+
+For more information, see [Pre-registered Agent Platform models](https://docs.cloud.google.com/alloydb/docs/reference/supported-ai-models#pre-registered-models).
 
 ## October 28, 2026
 

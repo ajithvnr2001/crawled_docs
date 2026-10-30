@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/continuous-integration/
 title: Looker Continuous Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:56.191555+00:00
+fetched_at: 2026-10-30T05:51:46.369406+00:00
 ---
 
 # Looker Continuous Integration  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 **Note:** Looker's Continuous Integration is based on the legacy standalone Spectacles service. Looker will continue to integrate and evolve the Spectacles features into Looker's Continuous Integration, and the legacy standalone Spectacles service itself will be discontinued starting November 30, 2026. Existing Spectacles customers will receive an email with details. If you have any questions or require assistance, please contact us at [spectacles-support@google.com](mailto:spectacles-support@google.com). 
 
-The **Looker Continuous Integration (CI)** features let you run tests on your LookML project to deliver more reliable, efficient, and user-friendly data experiences. You can use the CI validators to catch issues with SQL, data tests, content, LookML, and coding style before they hit production to verify your LookML and prevent query errors for your users. You can also configure the CI validators to run automatically when a pull request is submitted to your LookML repository, on a schedule, or when a dbt Cloud CI job finishes.
+The **Looker Continuous Integration (CI)** features let you run tests on your LookML project to deliver more reliable, efficient, and user-friendly data experiences. You can use the CI validators to catch issues with SQL, data tests, content, LookML, and coding style before they hit production to verify your LookML and prevent query errors for your users. You can also configure the CI validators to run automatically when a pull request is submitted to your LookML repository or to an imported LookML project, on a schedule, or when a dbt Cloud CI job finishes.
 
 CI is composed of the following validators, which run different checks against your Looker instance:
 
@@ -45,17 +45,17 @@ To use these validators on your LookML instance, you can create a _CI suite_ , w
 
 ## Requirements
 
-To use Continuous Integration, you need the following:
+To use CI, you need the following:
 
-  * A [Looker-hosted](https://docs.cloud.google.com/looker/docs/glossary#looker-hosted) instance that is enabled for Continuous Integration.
+  * A [Looker-hosted](https://docs.cloud.google.com/looker/docs/glossary#looker-hosted) instance that is enabled for CI.
 
-**Note:** For [Looker (Google Cloud core) instances](https://docs.cloud.google.com/looker/docs/looker-core-overview), Continuous Integration is supported on instances that are configured with [public secure connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#public_ip_connections) or with [private connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#private_ip_connections) or [hybrid connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#private-ip-public-ip) that use [Private Service Connect](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#psc). In addition, Continuous Integration is supported on Looker (Google Cloud core) instances that are enabled for [CMEK](https://docs.cloud.google.com/looker/docs/looker-core-cmek) or that are within a [VPC Service Controls perimeter](https://docs.cloud.google.com/looker/docs/looker-core-vpcsc). Continuous Integration is not supported on Looker (Google Cloud core) instances that are configured with private connections or hybrid connections that use [private services access](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#psa). To use the [CI GitHub app](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#github) or the [dbt Cloud integration](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#dbt-cloud) on an instance that uses private connections, hybrid connections, or a VPC Service Controls perimeter, you must update your networking configuration to allow ingress and egress traffic to and from GitHub and your dbt Cloud host URL.
-  * A Looker CI user account. When you enable Continuous Integration on your instance, Looker automatically creates 10 Looker CI users in the [**Looker CI Users** user group](https://docs.cloud.google.com/looker/docs/admin-panel-users-groups#ci-users) with the [**Looker CI Users** role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#ci-users). A Looker admin can view the Looker CI users from the **Service Accounts** tab of the [**Users**](https://docs.cloud.google.com/looker/docs/admin-panel-users-users) Admin page.
-
-
+**Note:** For [Looker (Google Cloud core) instances](https://docs.cloud.google.com/looker/docs/looker-core-overview), CI is supported on instances that are configured with [public secure connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#public_ip_connections) or with [private connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#private_ip_connections) or [hybrid connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#private-ip-public-ip) that use [Private Service Connect](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#psc). In addition, CI is supported on Looker (Google Cloud core) instances that are enabled for [CMEK](https://docs.cloud.google.com/looker/docs/looker-core-cmek) or that are within a [VPC Service Controls perimeter](https://docs.cloud.google.com/looker/docs/looker-core-vpcsc). CI is not supported on Looker (Google Cloud core) instances that are configured with private connections or hybrid connections that use [private services access](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#psa). To use the [CI GitHub app](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#github) or the [dbt Cloud integration](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#dbt-cloud) on an instance that uses private connections, hybrid connections, or a VPC Service Controls perimeter, you must update your networking configuration to allow ingress and egress traffic to and from GitHub and your dbt Cloud host URL.
+  * A Looker CI user account. When you enable CI on your instance, Looker automatically creates 10 Looker CI users in the [**Looker CI Users** user group](https://docs.cloud.google.com/looker/docs/admin-panel-users-groups#ci-users) with the [**Looker CI Users** role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#ci-users). A Looker admin can view the Looker CI users from the **Service Accounts** tab of the [**Users**](https://docs.cloud.google.com/looker/docs/admin-panel-users-users) Admin page.
 
 
-## Compliance capabilities of Continuous Integration
+
+
+## Compliance capabilities of CI
 
 Looker CI is not included in the [FedRAMP High, FedRAMP Moderate, or DoD Impact Level 5 (IL5) authorization boundaries](https://docs.cloud.google.com/assured-workloads/docs/control-packages#regulatory-data-boundaries).
 
@@ -63,12 +63,12 @@ Prior to enabling the Looker CI setting for your Looker instance, consult with y
 
 For Looker (Google Cloud core) instances, each [Assured Workloads control package](https://docs.cloud.google.com/assured-workloads/docs/control-packages) that becomes available will add Looker CI features as default offerings as that package's change requirements and processes are met.
 
-## Enabling Continuous Integration
+## Enabling CI
 
-To enable Continuous Integration, a Looker admin must perform the following tasks:
+To enable CI, a Looker admin must perform the following tasks:
 
-  * Enable the instance for Continuous Integration in the [**Continuous Integration** page](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci) of the Looker **Admin** panel.
-  * [Install the CI GitHub app in your GitHub organization](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#github). (This is highly recommended for all implementations, and required if you want to [use pull requests to trigger CI validation runs](https://docs.cloud.google.com/looker/docs/ci-create-suite#pr-trigger)).
+  * Enable the instance for CI in the [**Continuous Integration** page](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci) of the Looker **Admin** panel.
+  * [Install the CI GitHub app in your GitHub organization](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#github). (This is highly recommended for all implementations, and required if you want to use pull requests from [your LookML project](https://docs.cloud.google.com/looker/docs/ci-create-suite#pr-trigger) or [imported LookML projects](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger) to trigger CI validation runs).
 
 
 
@@ -76,6 +76,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

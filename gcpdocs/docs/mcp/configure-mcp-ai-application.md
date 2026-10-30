@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/mcp/configure-mcp-ai-application/
 title: Configure MCP in an AI application \u00a0|\u00a0 Google Cloud MCP servers \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:47:00.748059+00:00
+fetched_at: 2026-10-30T06:00:23.921480+00:00
 ---
 
 # Configure MCP in an AI application  |  Google Cloud MCP servers  |  Google Cloud Documentation
@@ -186,17 +186,17 @@ You can authenticate to MCP servers using the following credential types:
 
 ### Client-specific guidance
 
-For application-specific instructions consult the following sections.
+For application-specific instructions, consult the following sections.
 
 ### Antigravity
 
-To add a Google or Google Cloud remote MCP server to Antigravity, follow the instructions in [Antigravity Editor: MCP Integration](https://antigravity.google/docs/mcp). You can authenticate with [Application Default Credentials (ADC)](https://antigravity.google/docs/mcp#google-credentials) or a [client ID and secret](https://antigravity.google/docs/mcp#oauth).
+To add a Google or Google Cloud MCP server to Antigravity, follow the instructions in [Antigravity Editor: MCP Integration](https://antigravity.google/docs/mcp). You can authenticate with [Application Default Credentials (ADC)](https://antigravity.google/docs/mcp#google-credentials) or a [client ID and secret](https://antigravity.google/docs/mcp#oauth).
 
 ### Gemini CLI
 
 **Important:** Unpaid tier and Google One users: Gemini CLI will be replaced by Antigravity CLI on June 18, 2026. To learn more, see [An important update: Transitioning Gemini CLI to Antigravity CLI](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/).
 
-To add a Google or Google Cloud remote MCP server to your Gemini CLI, configure it as an extension and [authenticate](https://geminicli.com/docs/tools/mcp-server/#authentication-provider-type) using Google Application Default Credentials (ADC).
+To add a Google or Google Cloud MCP server to your Gemini CLI, configure it as an extension and [authenticate](https://geminicli.com/docs/tools/mcp-server/#authentication-provider-type) using Google Application Default Credentials (ADC).
 
   1. Use your gcloud CLI credentials to configure your [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials): 
          
@@ -271,9 +271,9 @@ The remote MCP server is ready to use in Gemini CLI.
 
 ### Claude.ai
 
-To add a Google or Google Cloud remote MCP server to Claude.ai, configure a custom connector with a OAuth client ID and OAuth client secret:
+To add a Google or Google Cloud MCP server to Claude.ai, configure a custom connector with an OAuth client ID and OAuth client secret:
 
-  1. Create an Oauth 2.0 client ID and secret:
+  1. Create an OAuth 2.0 client ID and secret:
 
      1. In the Google Cloud console, go to **Google Auth Platform > Clients > Create client**.
 
@@ -302,10 +302,10 @@ The **OAuth 2.0 client created** dialog opens.
 
 ### Claude Code
 
-To add a Google or Google Cloud remote MCP server to Claude Code, configure a custom connector with a OAuth client ID and OAuth client secret:
+To add a Google or Google Cloud MCP server to Claude Code, configure a custom connector with an OAuth client ID and OAuth client secret:
 
   1. [Install Claude Code](https://code.claude.com/docs/en/quickstart).
-  2. Create an Oauth 2.0 client ID and secret:
+  2. Create an OAuth 2.0 client ID and secret:
 
      1. In the Google Cloud console, go to **Google Auth Platform > Clients > Create client**.
 
@@ -332,10 +332,10 @@ The **OAuth 2.0 client created** dialog opens.
 
 ### Claude Desktop
 
-To add a Google or Google Cloud remote MCP server to Claude Desktop, configure a custom connector with a OAuth client ID and OAuth client secret:
+To add a Google or Google Cloud MCP server to Claude Desktop, configure a custom connector with an OAuth client ID and OAuth client secret:
 
   1. [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop).
-  2. Create an Oauth 2.0 client ID and secret:
+  2. Create an OAuth 2.0 client ID and secret:
 
      1. In the Google Cloud console, go to **Google Auth Platform > Clients > Create client**.
 
@@ -364,9 +364,9 @@ The **OAuth 2.0 client created** dialog opens.
 
 You must have a [ChatGPT Business subscription](https://chatgpt.com/business/) to use Google and Google Cloud MCP servers with ChatGPT.
 
-To add a Google or Google Cloud remote MCP server to ChatGPT, create a Google OAuth 2.0 client ID and secret, and then add the MCP server as a plugin in ChatGPT.
+To add a Google or Google Cloud MCP server to ChatGPT, create a Google OAuth 2.0 client ID and secret, and then add the MCP server as a plugin in ChatGPT.
 
-#### Create an Oauth 2.0 client ID and secret
+#### Create an OAuth 2.0 client ID and secret
 
   1. In the Google Cloud console, go to **Google Auth Platform > Clients > Create client**.
 
@@ -402,9 +402,9 @@ The MCP server is displayed in the **Plugins** menu, and is ready for use throug
 
 ### Cursor
 
-To add a Google or Google Cloud remote MCP server to Cursor, create a client ID and secret, and then configure the MCP server with static OAuth. Cursor uses different redirect URIs depending on how you're accessing Cursor—through the web or a desktop application.
+To add a Google or Google Cloud MCP server to Cursor, create a client ID and secret, and then configure the MCP server with static OAuth. Cursor uses different redirect URIs depending on how you're accessing Cursor—through the web or a desktop application.
 
-  1. Create an Oauth 2.0 client ID and secret:
+  1. Create an OAuth 2.0 client ID and secret:
 
 ### Web or Cursor agents
 
@@ -457,18 +457,18 @@ The **OAuth 2.0 client created** dialog opens.
 
 ### OpenCode CLI
 
-To add a Google or Google Cloud remote MCP server to [OpenCode CLI](https://opencode.ai/docs/), follow the instructions in [OpenCode: MCP](https://opencode.ai/docs/cli/#mcp).
+To add a Google or Google Cloud MCP server to [OpenCode CLI](https://opencode.ai/docs/), follow the instructions in [OpenCode: MCP](https://opencode.ai/docs/cli/#mcp).
 
 ### Replit
 
-To add a Google or Google Cloud remote MCP server to [Replit](https://replit.com), follow the instructions in [Replit: MCP Servers Overview](https://docs.replit.com/references/mcp/overview#mcp-servers-overview).
+To add a Google or Google Cloud MCP server to [Replit](https://replit.com), follow the instructions in [Replit: MCP Servers Overview](https://docs.replit.com/references/mcp/overview#mcp-servers-overview).
 
 ### Visual Studio Code
 
-To configure an MCP server in Visual Studio Code (VS Code), do the following:
+To configure a Google or Google Cloud MCP server in Visual Studio Code (VS Code), do the following:
 
   1. Install [VS Code](https://code.visualstudio.com/).
-  2. Open VS Code and then open the **Command palette** by pressing `Ctrl`+`Shift`+`P` (Windows or Linux) or `Cmd`+`Shift`+`P` (macOS).
+  2. Open VS Code and then open the **Command palette** by pressing `Control+Shift+P` (Windows or Linux) or `Command+Shift+P` (macOS).
   3. In the Command palette, select **MCP: Add Server...**.
   4. Select **HTTP (HTTP or server-sent events)**.
   5. Enter the MCP endpoint of the server that you want to connect to and then press `Enter`. For example, `https://run.googleapis.com/mcp`
@@ -482,16 +482,16 @@ Your `mcp.json` file is updated with the server information.
 
 #### Authenticate to the MCP server
 
-You can use an Oauth client ID and secret or [Application Default Credentials](https://docs.cloud.google.com/docs/authentication#adc) (ADC) to authenticate to the MCP server.
+You can use an OAuth client ID and secret or [Application Default Credentials](https://docs.cloud.google.com/docs/authentication#adc) (ADC) to authenticate to the MCP server.
 
 **Note** : If you use ADC for authentication, then you need to regenerate your access token every hour.
 
 #### OAuth Client ID
 
-  1. In VS Code, open the Chat pane by pressing `Ctrl`+`Alt`+`I` (on Windows or linux) or `Shift`+`Command`+`I` (macOS).
+  1. In VS Code, open the Chat pane by pressing `Control+Alt+I` (Windows or Linux) or `Shift+Command+I` (macOS).
   2. In the Chat pane, select **Set agent** , and then select **Agent**.
 
-  3. The first time you use the MCP server, you'll be prompted to set up authentication. To use the MCP server, enter a prompt in chat that uses one of the available tools. If you're not sure which tool to use, then you can ask the agent to list the tools for the server. 
+  3. The first time you use the MCP server, you'll be prompted to set up authentication. To use the MCP server, enter a prompt in chat that uses one of the available tools. If you're not sure which tool to use, then you can ask the agent to list the tools for the server.
 
 For example, you can enter the following prompt to list the available tools: "List the tools available for SERVER_NAME", where SERVER_NAME is the name you gave the MCP server.
 
@@ -538,7 +538,7 @@ VS Code caches dynamic authentication providers to streamline your login experie
 
 To clear cached credentials, do the following:
 
-  1. In VS Code, open the **Command palette** by pressing `Ctrl`+`Shift`+`P` (on Windows or linux) or `Command`+`Shift`+`P` (macOS).
+  1. In VS Code, open the **Command palette** by pressing `Control+Shift+P` (Windows or Linux) or `Command+Shift+P` (macOS).
   2. In the **Command palette** , select **Authentication: Remove dynamic authentication providers** , and then select the client ID that you want to remove your cached credentials for.
 
   3. Reload VS Code and connect to a remote MCP server again.
@@ -550,7 +550,7 @@ You are prompted to enter your OAuth Client ID and secret.
 
 #### ADC
 
-  1. Set up [Application default credentials (ADC)](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc) for your environment.
+  1. Set up [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc) for your environment.
   2. If you're using a local shell, then create local authentication credentials for your user account:
          
          gcloud auth application-default login
@@ -562,7 +562,7 @@ You are prompted to enter your OAuth Client ID and secret.
   4. In your `mcp.json` file, add the following to your MCP server entry:
          
          "headers": {
-               "Authorization": "Bearer TOKEN"
+               "Authorization": "Bearer TOKEN",
                "x-goog-user-project": "PROJECT_ID"
              }
 
@@ -570,7 +570,7 @@ Replace the following:
 
      * TOKEN: the application default token.
 
-     * PROJECT_ID: your project ID.
+     * PROJECT_ID: your Google Cloud project ID.
 
 The following example shows an MCP server entry that uses ADC for authentication:
     
@@ -588,7 +588,7 @@ The following example shows an MCP server entry that uses ADC for authentication
     }
     
 
-  5. In VS Code, open the Chat pane by pressing `Ctrl`+`Alt`+`I` (on Windows or linux) or `Shift`+`Command`+`I` (macOS).
+  5. In VS Code, open the Chat pane by pressing `Control+Alt+I` (Windows or Linux) or `Shift+Command+I` (macOS).
   6. In the Chat pane, select **Set agent** , and then select **Agent**.
 
   7. Send a prompt to the agent that uses one of the available MCP tools. If you're not sure which tool to use, then you can ask the agent to list the tools for the MCP server.
@@ -606,6 +606,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

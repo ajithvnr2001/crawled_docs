@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Order/
 title: Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:28.923362+00:00
+fetched_at: 2026-10-30T06:00:19.161518+00:00
 ---
 
 # Food Ordering AI Agent  |  Google Cloud Documentation
@@ -64,7 +64,10 @@ JSON representation
       "priceInfo": {
         object ([OrderPriceInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Order#OrderPriceInfo))
       },
-      "externalOrderId": string
+      "externalOrderId": string,
+      "customIntegrationAttributes": {
+        object
+      }
     }  
   
 Fields  
@@ -74,6 +77,7 @@ Fields
 `fulfillment` |  `object (`[OrderFulfillment](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Order#OrderFulfillment)`)` Optional. The fulfillment information for the order.  
 `priceInfo` |  `object (`[OrderPriceInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Order#OrderPriceInfo)`)` Optional. Price information for the order.  
 `externalOrderId` |  `string` Output only. The external identifier for this order. Populated only if a point-of-sale integration is enabled.  
+`customIntegrationAttributes` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Output only. Arbitrary metadata associated with the order, used for downstream custom integrations. For example, it can be converted into the payload expected by a point-of-sale (POS) system or a web/mobile client to sync the cart or submit the order. Populated by brand-specific hooks.  
   
 ## OrderItem
 
@@ -107,7 +111,8 @@ JSON representation
       },
       "categoryIds": [
         string
-      ]
+      ],
+      "isPending": boolean
     }  
   
 Fields  
@@ -122,6 +127,7 @@ Fields
 `quantity` |  `integer` Optional. The quantity of this item in the order.  
 `totalPrice` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Output only. The total price for this line item, inclusive of selected modifiers and reflecting the item quantity, before tax. Used for per-item bag display.  
 `categoryIds[]` |  `string` Output only. Category IDs the underlying menu item belongs to. Mirrors the menu's Item.category_ids so clients can group ordered items by menu category.  
+`isPending` |  `boolean` Output only. Indicates if the item is in a pending state.  
   
 ## OrderModifierGroup
 
@@ -317,6 +323,9 @@ JSON representation
       },
       "fees": {
         object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
+      },
+      "tip": {
+        object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
       }
     }  
   
@@ -328,11 +337,12 @@ Fields
 `discount` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Total discount applied to the order  
 `saving` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Deal savings applied to the order  
 `fees` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Total fees applied to the order  
+`tip` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. The resolved tip amount applied to the order.  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

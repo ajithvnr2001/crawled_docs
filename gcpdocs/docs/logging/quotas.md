@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:53.616640+00:00
+fetched_at: 2026-10-30T05:54:40.104484+00:00
 ---
 
 # Quotas and limits  |  Cloud Logging  |  Google Cloud Documentation
@@ -75,7 +75,7 @@ Rate of `entries.write` requests, by region | 4.8 GB per minute, per Google Clou
 300 MB per minute, per Google Cloud project in all remaining regions | You can request a quota increase. This quota also applies to billing accounts, folders, and organizations and isn't hierarchical. For more information about these quotas, see  Per-region ingestion quotas. Using [exclusion filters](https://docs.cloud.google.com/logging/docs/routing/overview#exclusions) doesn't reduce the rate of write requests because log entries are excluded after the `entries.write` request is made.  
 Number of `entries.list` requests | 60 per minute, per Google Cloud project | Cannot be increased. This limit also applies to billing accounts, folders, and organizations and isn't hierarchical. To query large volumes of logs, consider using BigQuery APIs. For transferring large volumes of logs, consider using a log sink or [copying log entries](https://docs.cloud.google.com/logging/docs/routing/copy-logs).  
 Number of different resource names in a single `entries.write` command | 1000 | Cannot be increased. The `logName` field of a log entry specifies the log entry's resource name.  
-Control requests per minute | 600 | Cannot be increased. This quota applies to all requests included in the daily control-request quota, plus API requests for deleting logs and managing log-based metrics.  
+Control requests per minute | 600 | Cannot be increased. This quota applies to administrative and configuration API requests. It includes all requests in the daily control-request quota, as well as requests that delete logs or manage resources such as log buckets, log views, IAM policies on log views, log scopes, and log-based metrics.  
 Control requests per day | 1,000 per Google Cloud project | Cannot be increased. This quota applies to API requests for creating and updating exclusions and sinks.  
 Number of Google Cloud projects or other resource names in a  
 single `entries.list` request | 100 | Cannot be increased.  
@@ -215,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/list/
 title: Method: projects.locations.brands.stores.list \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:29.224530+00:00
+fetched_at: 2026-10-30T06:00:16.880649+00:00
 ---
 
 # Method: projects.locations.brands.stores.list  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -29,6 +29,7 @@ Send feedback
   * Response body
     * JSON representation
   * Authorization scopes
+  * StoreView
 
 
 
@@ -61,6 +62,7 @@ Parameters
   * state (String): The state of the store address. Operators: =, != Example: `state = "CA"`
 
 Logical Operators:Conditions can be combined using `AND`, `OR`, and `NOT`. Parentheses `()` can be used to group expressions to control the order of evaluation. Example: `status = "ACTIVE" AND state = "CA"`  
+`view` |  `enum (`[StoreView](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores/list#StoreView)`)` Optional. The view to return for the stores.  
   
 ### Request body
 
@@ -100,10 +102,20 @@ Requires the following OAuth scope:
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
 
+## StoreView
+
+Specifies the level of detail to return for stores.
+
+Enums  
+---  
+`STORE_VIEW_UNSPECIFIED` | The default / unset value. The API will default to the FULL view.  
+`STORE_VIEW_GEO_ONLY` | Only return the store name, latitude, and longitude. This view allows a larger page size (up to 10k).  
+`STORE_VIEW_FULL` | Include everything. This is the default value.  
+  
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts
 title: REST Resource: projects.locations.brands.stores.discounts \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:18.037507+00:00
+fetched_at: 2026-10-30T06:00:17.264108+00:00
 ---
 
 # REST Resource: projects.locations.brands.stores.discounts  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -131,7 +131,7 @@ Enums
   
 ## ItemGroup
 
-A collection of items from the menu, defined by selection criteria, used to specify required or applied items for a discount. Next ID: 6
+A collection of items from the menu, defined by selection criteria, used to specify required or applied items for a discount. Next ID: 7
 
 JSON representation  
 ---  
@@ -139,8 +139,12 @@ JSON representation
     
     {
       "name": string,
+      "customIntegrationAttributes": {
+        object
+      },
     
-      // Union field type can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "selectItems": {
         object ([SelectItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts#SelectItems))
       },
@@ -150,16 +154,18 @@ JSON representation
       "anyOf": {
         object ([AnyOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts#AnyOf))
       }
-      // End of list of possible types for union field type.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
 ---  
 `name` |  `string` Optional. Name of the item group.  
-Union field `type`. The type of item group. `type` can be only one of the following:  
+`customIntegrationAttributes` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. Arbitrary metadata to be associated with an entity, used to build downstream integrations, i.e. identifiers or schema information for constructing an order for submission to a third-party point of sale API.  
+The type of item group. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `selectItems` |  `object (`[SelectItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts#SelectItems)`)` A list of matchers. An item is considered a match if it satisfies ANY of these ItemMatcher criteria (OR logic).  
 `allOf` |  `object (`[AllOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts#AllOf)`)` Represents a logical AND of sub-groups.  
 `anyOf` |  `object (`[AnyOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts#AnyOf)`)` Represents a logical OR of sub-groups.  
+End of mutually exclusive fields.  
   
 ## SelectItems
 
@@ -288,7 +294,10 @@ JSON representation
         enum ([ChannelType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/ChannelType))
       ],
       "requiresCustomerSignin": boolean,
-      "isStackable": boolean
+      "isStackable": boolean,
+      "allowedFulfillmentMethods": [
+        enum ([FulfillmentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/FulfillmentMethod))
+      ]
     }  
   
 Fields  
@@ -298,6 +307,7 @@ Fields
 `allowedChannels[]` |  `enum (`[ChannelType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/ChannelType)`)` Optional. Channels this discount can be applied. If not set, the discount can be applied to all channels.  
 `requiresCustomerSignin` |  `boolean` Optional. For mobile orders, if we need customer to signin to get this discount.  
 `isStackable` |  `boolean` Optional. If this discount can be used with other discount.  
+`allowedFulfillmentMethods[]` |  `enum (`[FulfillmentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/FulfillmentMethod)`)` Optional. Fulfillment methods this discount can be applied to. If not set, the discount can be applied to all fulfillment methods.  
   
 ## DiscountIntegrationAttributes
 
@@ -345,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

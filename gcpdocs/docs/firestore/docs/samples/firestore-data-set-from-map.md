@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-from-map/
 title: Add a Firestore document using a map \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:29.344112+00:00
+fetched_at: 2026-10-30T05:51:49.252324+00:00
 ---
 
 # Add a Firestore document using a map  |  Google Cloud Documentation
@@ -88,6 +88,67 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     // ...
     // future.get() blocks on response
     System.out.println("Update time : " + future.get().getUpdateTime());
+
+### Kotlin
+    
+    
+    import com.google.api.gax.rpc.ApiException
+    import com.google.api.gax.rpc.NotFoundException
+    import com.google.cloud.firestore.FirestoreOptions
+    import java.util.concurrent.ExecutionException
+    
+    /**
+     * Writes a document with structured fields into a Firestore collection. Setting
+     * a document creates the record if it does not exist or overwrites its fields.
+     *
+     * @param projectId Google Cloud project identifier (for example, "example-project-id").
+     * @param collectionId Target Firestore collection identifier (for example, "cities").
+     * @param documentId Target Firestore document identifier (for example, "LA").
+     */
+    fun setDocument(projectId: String, collectionId: String, documentId: String) {
+      val options =
+        FirestoreOptions.getDefaultInstance()
+          .toBuilder()
+          .setProjectId(projectId)
+          .build()
+    
+      val documentData =
+        mapOf(
+          "name" to "Los Angeles",
+          "state" to "CA",
+          "country" to "USA",
+        )
+    
+      try {
+        options.service.use { firestore ->
+          val documentReference =
+            firestore.collection(collectionId).document(documentId)
+          println("Writing document '$documentId' in collection '$collectionId'...")
+          val writeResult = documentReference.set(documentData).get()
+    
+          println("Resource ID: ${documentReference.path}")
+          println("Collection ID: $collectionId")
+          println("Document ID: $documentId")
+          println("Update Time: ${writeResult.updateTime}")
+        }
+      } catch (err: ExecutionException) {
+        val message =
+          when (val cause = err.cause) {
+            is NotFoundException ->
+              "error: Firestore database not found in project '$projectId': ${cause.message}"
+            is ApiException ->
+              "error: failed to write document '$documentId' in collection '$collectionId' for project '$projectId': ${cause.message}"
+            else ->
+              "error: execution failed while writing document '$documentId' in collection '$collectionId' for project '$projectId': ${err.message}"
+          }
+        System.err.println(message)
+      } catch (err: InterruptedException) {
+        Thread.currentThread().interrupt()
+        System.err.println(
+          "error: interrupted while writing document '$documentId' in collection '$collectionId' for project '$projectId': ${err.message}"
+        )
+      }
+    }
 
 ### Node.js
 

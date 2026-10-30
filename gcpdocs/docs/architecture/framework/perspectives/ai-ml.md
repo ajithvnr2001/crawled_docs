@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/
 title: Well-Architected Framework: AI and ML perspective \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:18.503909+00:00
+fetched_at: 2026-10-30T05:50:42.064175+00:00
 ---
 
 # Well-Architected Framework: AI and ML perspective  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,9 +19,9 @@ Send feedback
 
 #  Well-Architected Framework: AI and ML perspective Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-10-11 UTC
+Last reviewed 2026-10-29 UTC
 
-To view the content in the AI and ML perspective on a single page or to to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/printable). 
+To view the content in the AI and ML perspective on a single page or to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/printable). 
 
 This document in the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) describes principles and recommendations to help you to design, build, and manage AI and ML workloads in Google Cloud that meet your operational, security, reliability, cost, and performance goals.
 
@@ -75,6 +75,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-10-11 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-10-11 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

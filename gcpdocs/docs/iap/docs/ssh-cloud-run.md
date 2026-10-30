@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/ssh-cloud-run/
 title: Use SSH for Cloud Run \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:34.660037+00:00
+fetched_at: 2026-10-30T05:50:39.586475+00:00
 ---
 
 # Use SSH for Cloud Run  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -329,7 +329,7 @@ Replace the following:
              HostName cloud-run-default
              User root
              IdentityFile ~/.ssh/google_compute_engine
-             CertificateFile ~/.ssh/google_compute_engine_cert/PROJECT_ID_LOCATION_SERVICE_NAME-cert.pub
+             CertificateFile ~/.ssh/google_compute_engine_cert/PROJECT_ID_LOCATION_service_SERVICE_NAME-cert.pub
              CheckHostIP no
              HashKnownHosts no
              HostKeyAlias cloud-run-default
@@ -337,7 +337,7 @@ Replace the following:
              StrictHostKeyChecking no
              UserKnownHostsFile /dev/null
              ProxyUseFdpass no
-             ProxyCommand /usr/local/bin/python3 -S ~/google-cloud-sdk/lib/gcloud.py beta run start-iap-tunnel --project_number=PROJECT_NUMBER --project_id=PROJECT_ID --workload_type=service --deployment_name=SERVICE_NAME --region=LOCATION
+             ProxyCommand /usr/local/bin/python3 -S ~/google-cloud-sdk/lib/gcloud.py beta run start-iap-tunnel --project_number=PROJECT_NUMBER --project_id=PROJECT_ID --workload_type=service --deployment_name=SERVICE_NAME/revisions/REVISION --region=LOCATION --iap-tunnel-url-override=wss://LOCATION.ssh.run.app/v4
          
 
 If your `gcloud` installation path is different, update the prefix in the `ProxyCommand` path.
@@ -347,6 +347,7 @@ Replace the following:
      * `PROJECT_ID`: your Google Cloud project ID
      * `LOCATION`: the Google Cloud region
      * `SERVICE_NAME`: the name of the service
+     * `REVISION`: the name of the revision
      * `PROJECT_NUMBER`: your Google Cloud project number
   3. Connect to the service using OpenSSH:
          
@@ -360,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

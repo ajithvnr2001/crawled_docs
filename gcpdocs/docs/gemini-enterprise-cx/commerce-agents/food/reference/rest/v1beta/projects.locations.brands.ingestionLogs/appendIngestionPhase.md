@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs/appendIngestionPhase/
 title: Method: projects.locations.brands.ingestionLogs.appendIngestionPhase \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:18.743400+00:00
+fetched_at: 2026-10-30T06:00:14.030795+00:00
 ---
 
 # Method: projects.locations.brands.ingestionLogs.appendIngestionPhase  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -56,12 +56,14 @@ JSON representation
     {
       "ingestionPhase": {
         object ([IngestionPhase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs#IngestionPhase))
-      }
+      },
+      "menu": string
     }  
   
 Fields  
 ---  
 `ingestionPhase` |  `object (`[IngestionPhase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs#IngestionPhase)`)` Required. The ingestion phase to append.  
+`menu` |  `string` Optional. The resource name of the menu created or updated by this ingestion. Format: projects/{project}/locations/{location}/menus/{menu}  
   
 ### Response body
 
@@ -81,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

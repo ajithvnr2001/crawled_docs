@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster/
 title: Create a Ray cluster on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:12.910289+00:00
+fetched_at: 2026-10-30T05:54:32.806231+00:00
 ---
 
 # Create a Ray cluster on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ To see an example of getting started with Gemma on Ray on , run the "Get started
 
 [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png)Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png)Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png)Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png)View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_fine_tuning_batch_deployment_on_rov.ipynb)
 
-This document provides instructions for setting up a Ray cluster on Gemini Enterprise Agent Platform to meet various needs. For example, to build your image, see Custom image. Some enterprises can use private networking. This document covers Private Service Connect interface for Ray on Vertex AI. Another use case involves accessing remote files as if they were local (see Ray on Agent Platform Network File System).
+This document provides instructions for setting up a Ray cluster on Gemini Enterprise Agent Platform to meet various needs. For example, to build your image, see Custom image. Some enterprises can use private networking. This document covers Private Service Connect interface for Ray on Gemini Enterprise Agent Platform. Another use case involves accessing remote files as if they were local (see Ray on Agent Platform Network File System).
 
 ## Overview
 
@@ -70,7 +70,7 @@ Under **Advanced options** , you can:
         * Specify your own encryption key.
         * Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account).
         * Disable metrics collection, if you don't need to monitor the resource stats of your workload during training.
-     3. (Optional) To deploy a private endpoint for your cluster, the recommended method is to use Private Service Connect. For further details, see Private Service Connect interface for Ray on Vertex AI.
+     3. (Optional) To deploy a private endpoint for your cluster, the recommended method is to use Private Service Connect. For further details, see Private Service Connect interface for Ray on Agent Platform.
 
   4. Click **Create**.
 
@@ -378,9 +378,9 @@ For more information, see [Where to specify compute resources](https://docs.clou
 
 ## Shared Responsibility
 
-Securing your workloads on Gemini Enterprise Agent Platform is a shared responsibility. While Gemini Enterprise Agent Platform regularly upgrades infrastructure configurations to address security vulnerabilities, Gemini Enterprise Agent Platform doesn't automatically upgrade your existing Ray on Vertex AI clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following: 
+Securing your workloads on Gemini Enterprise Agent Platform is a shared responsibility. While Gemini Enterprise Agent Platform regularly upgrades infrastructure configurations to address security vulnerabilities, Gemini Enterprise Agent Platform doesn't automatically upgrade your existing Ray on Gemini Enterprise Agent Platform clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following: 
 
-  1. Periodically delete and recreate your Ray on Vertex AI clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
+  1. Periodically delete and recreate your Ray on Gemini Enterprise Agent Platform clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
   2. Properly configure any custom images you use.
 
 
@@ -397,6 +397,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/configure-floor-settings/
 title: Configure floor settings \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:42.734955+00:00
+fetched_at: 2026-10-30T06:00:08.267650+00:00
 ---
 
 # Configure floor settings  |  Model Armor  |  Google Cloud Documentation
@@ -164,7 +164,9 @@ Floor settings use the `Stable` [filter version](https://docs.cloud.google.com/m
 
 Configure floor settings to define the minimum detection thresholds for Model Armor templates. These settings ensure that all new and modified templates meet specific requirements.
 
-To configure floor settings, do the following:
+To configure floor settings, choose one of the following options:
+
+###  Console 
 
   1. In the Google Cloud console, go to the **Model Armor** page. 
 
@@ -185,6 +187,87 @@ To configure floor settings, do the following:
   10. Select **Enable multi-language support** to use the [multi-language detection settings](https://docs.cloud.google.com/model-armor/overview#languages-supported%7D).
 
   11. Click **Save floor settings**.
+
+
+
+
+###  Terraform 
+
+To enforce minimum safety thresholds across an entire organization, folder, or project hierarchy declaratively, configure the [`google_model_armor_floorsetting`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/model_armor_floorsetting) resource using the `google` provider (`>= 6.13.0`):
+    
+    
+    resource "google_model_armor_floorsetting" "floor_setting" {
+      parent   = RESOURCE_PARENT
+      location = "global"
+    
+      filter_config {
+        rai_settings {
+          rai_filters {
+            filter_type      = "HATE_SPEECH"
+            confidence_level = "MEDIUM_AND_ABOVE"
+          }
+          rai_filters {
+            filter_type      = "HARASSMENT"
+            confidence_level = "HIGH"
+          }
+          rai_filters {
+            filter_type      = "DANGEROUS"
+            confidence_level = "MEDIUM_AND_ABOVE"
+          }
+          rai_filters {
+            filter_type      = "SEXUALLY_EXPLICIT"
+            confidence_level = "MEDIUM_AND_ABOVE"
+          }
+        }
+    
+        sdp_settings {
+          basic_config {
+            filter_enforcement = "ENABLED"
+          }
+        }
+    
+        pi_and_jailbreak_filter_settings {
+          filter_enforcement = "ENABLED"
+          confidence_level   = "HIGH"
+        }
+    
+        malicious_uri_filter_settings {
+          filter_enforcement = "ENABLED"
+        }
+      }
+    
+      enable_floor_setting_enforcement = true
+    
+      integrated_services = [
+        "AI_PLATFORM",
+        "GOOGLE_MCP_SERVER",
+      ]
+    
+      ai_platform_floor_setting {
+        inspect_and_block    = true
+        enable_cloud_logging = true
+      }
+    
+      google_mcp_server_floor_setting {
+        inspect_and_block    = true
+        enable_cloud_logging = true
+      }
+    
+      floor_setting_metadata {
+        multi_language_detection {
+          enable_multi_language_detection = true
+        }
+      }
+    }
+    
+
+Replace `RESOURCE_PARENT` with the hierarchy scope where the floor setting applies:
+
+  * Organization level: `organizations/ORGANIZATION_ID`, which governs all folders and projects in the organization.
+
+  * Folder level: `folders/FOLDER_ID`, which governs all projects in the folder.
+
+  * Project level: `projects/PROJECT_ID`, which governs a single project.
 
 
 
@@ -2081,6 +2164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

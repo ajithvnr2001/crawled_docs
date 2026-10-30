@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/display-video-transfer/
 title: Load Display & Video 360 data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:31.028896+00:00
+fetched_at: 2026-10-30T06:00:09.309938+00:00
 ---
 
 # Load Display & Video 360 data into BigQuery  |  Google Cloud Documentation
@@ -36,13 +36,16 @@ By default, data transfers are scheduled at the time when the data transfer is c
 Refresh window | The Display & Video 360 connector retrieves Display & Video 360 data from up to 2 days at the time the data transfer is run. You cannot configure the refresh window for this connector.   
   
 For more information, see Refresh windows.  
-Backfill data availability | [Run a data backfill](https://docs.cloud.google.com/bigquery/docs/working-with-transfers#manually_trigger_a_transfer) to retrieve data outside of your scheduled data transfer. You can retrieve data as far back as the data retention policy on your data source allows.  
-  
-For information about the data retention policy for Display & Video 360, see [Report data freshness and availability](https://support.google.com/displayvideo/answer/6110224).  
+Backfill data availability | [Run a data backfill](https://docs.cloud.google.com/bigquery/docs/working-with-transfers#manually_trigger_a_transfer) to retrieve data outside of your scheduled data transfer. Backfill behavior and data retention depend on the table type: 
+
+  * **Reporting data tables (`Impression`, `Click`, and `Activity`):** backfills load Data Transfer v2 (DTv2) files from your Cloud Storage bucket that match the requested run date. If no matching DTv2 files exist in your bucket for a backfill date, the transfer run completes with a `SUCCEEDED` status and loads 0 rows. For more information about DTv2 file delivery and retention, see [Data Transfer v2.0](https://developers.google.com/bid-manager/dtv2/overview).
+  * **Configuration data tables:** configuration data tables capture resource settings from the Display & Video 360 API. The connector updates these tables only when the run date is within 24 hours of the scheduled transfer time, and it doesn't update them during historical backfills.
+
+For information about data retention in standard Display & Video 360 reporting, see [Report data freshness and availability](https://support.google.com/displayvideo/answer/6110224).  
   
 ## Supported configuration data
 
-In addition to the reporting data, BigQuery Data Transfer Service also transfers the following configuration data from Display & Video 360. Configuration data is retrieved from [Display & Video 360 API v3](https://developers.google.com/display-video/api/reference/rest/v3).
+In addition to the reporting data, BigQuery Data Transfer Service also transfers the following configuration data from Display & Video 360. Configuration data is retrieved from [Display & Video 360 API v3](https://developers.google.com/display-video/api/reference/rest/v3) only when the transfer run date is within 24 hours of the scheduled transfer time. Configuration data tables aren't updated during historical backfills.
 
   * [Partner](https://developers.google.com/display-video/api/reference/rest/v3/partners#resource:-partner)
   * [Advertiser](https://developers.google.com/display-video/api/reference/rest/v3/advertisers#resource:-advertiser)
@@ -217,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

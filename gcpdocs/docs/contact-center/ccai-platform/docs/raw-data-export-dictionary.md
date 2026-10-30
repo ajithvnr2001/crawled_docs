@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/raw-data-export-dictionary/
 title: Raw data export dictionary \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:29:33.471251+00:00
+fetched_at: 2026-10-30T05:50:41.889838+00:00
 ---
 
 # Raw data export dictionary  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -4236,6 +4236,11 @@ Value  | Meaning
 10004  | Call outbound API triggered   
 10005  | Call internal dialing   
 10006  | Call internal missed   
+10007  | Call internal notification offered   
+10008  | Call internal picked up   
+10009  | Call internal canceled   
+10011  | Call internal declined   
+10012  | Call internal skipped   
 11000  | Deltacast call notification offered   
 11001  | Deltacast call pick up attempt   
 11002  | Deltacast call picked up   
@@ -4247,14 +4252,28 @@ Value  | Meaning
 11008  | Deltacast call breakthrough offered   
 11009  | Deltacast call breakthrough answered   
 11010  | Deltacast call breakthrough missed   
+11011  | Deltacast call declined   
+11012  | Inbound extension call declined   
+11020  | Deltacast call in wrap-up offered   
+11021  | Deltacast call in wrap-up answered   
+11022  | Deltacast call in wrap-up missed   
+11023  | Deltacast call in wrap-up declined   
+11024  | Deltacast call in wrap-up exceeded offered   
+11025  | Deltacast call in wrap-up exceeded answered   
+11026  | Deltacast call in wrap-up exceeded missed   
+11027  | Deltacast call in wrap-up exceeded declined   
 11100  | Auto answered call notification offered   
 11102  | Auto answered call picked up   
+11103  | Auto answered call detection miss   
+11104  | Auto answered call connection failed   
 12000  | Multicast call notification offered   
 12001  | Multicast call pick up attempt missed   
 12002  | Multicast call picked up   
 12003  | Multicast call breakthrough offered   
 12004  | Multicast call breakthrough answered   
 12005  | Multicast call breakthrough missed   
+12010  | Multicast call in wrap-up answered   
+12011  | Multicast call in wrap-up exceeded answered   
 13000  | Call agent exceeded wrap-up time   
 14000  | Call notification sent on agent app   
 14001  | Call notification received on agent app   
@@ -4290,10 +4309,18 @@ Value  | Meaning
 33001  | Emergency services conference dialed   
 33002  | Emergency services conference joined   
 33003  | Emergency services conference failed   
+33100  | Special services outbound dialed   
+33101  | Special services conference dialed   
+33102  | Special services conference joined   
+33103  | Special services conference failed   
 34000  | Chat agent exceeded wrap-up time   
 35000  | User break from external campaign   
 36000  | Send chat notification on agent app   
 36001  | Receive chat notification on agent app   
+37000  | Form opened   
+40000  | Session conflict detected   
+40001  | Session takeover   
+40002  | Session zombie expired   
   
 #### call_id
 
@@ -4313,10 +4340,11 @@ The timestamp when the interaction ended. Applies to activity 20000 for tracking
 
 #### user_status_id
 
-Zero or less values represent default platform statuses while positive integers have a relationship to **user_statuses** on primary key **id**.
+Zero or negative values represent default platform statuses, while positive integers (`> 0`) represent custom customer-configured agent statuses and reference the **user_statuses** table on primary key **id**.
 
 Value  | Meaning   
 ---|---  
+> 0  | Custom status (references **user_statuses.id**)   
 0  | Available   
 -1  | Unavailable   
 -2  | Break   
@@ -4330,6 +4358,7 @@ Value  | Meaning
 -11  | Unresponsive   
 -12  | Missed chat   
 -13  | Wrap-up exceeded   
+-14  | In-email   
   
 #### started_at
 
@@ -5198,6 +5227,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

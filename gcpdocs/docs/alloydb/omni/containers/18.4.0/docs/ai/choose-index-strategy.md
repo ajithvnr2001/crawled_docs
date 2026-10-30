@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/ai/choose-index-strategy/
 title: Choose a vector index in AlloyDB AI \u00a0|\u00a0 AlloyDB Omni using containers: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:18:14.101222+00:00
+fetched_at: 2026-10-30T05:41:15.077032+00:00
 ---
 
 # Choose a vector index in AlloyDB AI  |  AlloyDB Omni using containers: 18.4.0  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ ScaNN |  Usually well suited for low-dimensional data or massive datasets that e
   * Uses up to 4 times less memory
 
 | Vector search with the ScaNN index can be accelerated by AlloyDB Omni columnar engine. For more information, see [Accelerate vector search with the columnar engine](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/ai/accelerate-with-ce).  
-HNSW |  Usually well suited for higher-dimensional data that fits largely within the in-memory cache. Scales well to 10-20 million vectors. | The pgvector columnar engine accelerated HNSW index in AlloyDB Omni offers up to 4 times faster vector queries than standard PostgreSQL | Vector search with the HNSW index can be accelerated by AlloyDB Omni columnar engine. For more information, see [Accelerate vector search with the columnar engine](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/ai/accelerate-with-ce).  
+HNSW |  Usually well suited for higher-dimensional data that fits largely within the in-memory cache. Scales well to 10-20 million vectors. | The pgvector columnar engine accelerated HNSW index in AlloyDB Omni offers up to 5 times faster vector queries than standard PostgreSQL | Vector search with the HNSW index can be accelerated by AlloyDB Omni columnar engine. For more information, see [Accelerate vector search with the columnar engine](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/ai/accelerate-with-ce).  
   
 Google recommends that you create a vector index to optimize performance on your vector search queries. For more information about how the ANN index is used for similarity searches, see [Create indexes using ScaNN](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/ai/create-scann-index).
 
@@ -102,6 +102,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

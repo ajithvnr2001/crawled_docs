@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/ci-create-suite/
 title: Creating a Continuous Integration suite \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:24.542484+00:00
+fetched_at: 2026-10-30T05:51:46.663935+00:00
 ---
 
 # Creating a Continuous Integration suite  |  Looker  |  Google Cloud Documentation
@@ -65,16 +65,23 @@ If you enable pull request triggering for a CI suite, you can optionally use the
 
   7. (Optional) Turn on the **Trigger on pull requests from dbt Cloud** toggle if you want to set up automatic validation testing whenever a [dbt Cloud CI job](https://docs.getdbt.com/docs/deploy/continuous-integration?version=2.0) is run. See the Trigger on pull requests from dbt Cloud section of this page for more information.
 
-  8. (Optional) Turn on the **Enable email alerts** toggle if you want to receive email alerts based on the status of a CI run. See the Set up alerting section of this page for more information.
+  8. (Optional) If you want to set up automatic validation testing whenever a pull request is submitted to an imported upstream (hub) project, perform the following steps:
 
-  9. Optionally, enable the validator toggles to turn on a validator and configure its options. See the documentation pages for each of the validators for details:
+     1. Enable the **Trigger on pull requests from imported projects** toggle.
+     2. Under **Select upstream projects to subscribe to** , select the checkbox for each imported hub project that should trigger a run of this CI suite. You must select at least one upstream project.
+
+See the Trigger on pull requests from imported projects section of this page for more information.
+
+  9. (Optional) Turn on the **Enable email alerts** toggle if you want to receive email alerts that are based on the status of a CI run. See the Set up alerting section of this page for more information.
+
+  10. Optionally, enable the validator toggles to turn on a validator and configure its options. See the following documentation pages for each of the validators for details:
 
      * [SQL Validator](https://docs.cloud.google.com/looker/docs/ci-sql-validator)
      * [Assert Validator](https://docs.cloud.google.com/looker/docs/ci-assert-validator)
      * [Content Validator](https://docs.cloud.google.com/looker/docs/ci-content-validator)
      * [LookML Validator](https://docs.cloud.google.com/looker/docs/ci-lookml-validator)
      * [Style Validator](https://docs.cloud.google.com/looker/docs/ci-style-validator)
-  10. Save your changes:
+  11. Save your changes by using one of the following methods:
 
      * If you're creating a new suite, click the **Create suite** button.
      * If you're editing an existing suite, click the **Update suite** button.
@@ -88,7 +95,8 @@ CI runs can be triggered in several ways:
   * Automatically, on a recurring schedule.
   * Automatically, when a pull request is submitted to your LookML project's repository by a Looker developer.
   * Automatically, when a dbt Cloud CI job creates a pull request.
-  * Manually, [using the **Run suite** button](https://docs.cloud.google.com/looker/docs/ci-run-suite#manual-run) on the **Suites** page in the Looker IDE.
+  * Automatically, when a pull request is submitted to an imported LookML project.
+  * Manually, [by using the **Run suite** button](https://docs.cloud.google.com/looker/docs/ci-run-suite#manual-run) on the **Suites** page in the Looker IDE.
   * Manually, by [rerunning a previous CI run](https://docs.cloud.google.com/looker/docs/ci-run-suite#manual-rerun), from the **Runs** page of the Looker IDE.
 
 
@@ -143,6 +151,32 @@ For dbt Cloud-triggered runs, Looker dynamically identifies the temporary schema
 
 **Note:** CI runs that are triggered by dbt Cloud CI jobs run against the production LookML branch. Therefore, Content Validator, LookML Validator, and Style Validator runs that are triggered by dbt Cloud CI jobs won't test for errors on development branches.
 
+#### Trigger on pull requests from imported projects
+
+If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import other projects from the same Looker instance, you can configure a CI suite to test downstream projects (known as _spoke_ projects) whenever a pull request is opened or updated on an imported upstream project (known as a _hub_ project).
+
+For example, suppose you have a `company_bi` hub project that is imported into the `marketing` and `finance` spoke projects. You can configure a trigger in the `marketing` and `finance` projects to validate those spoke projects whenever a pull request is submitted to the `company_bi` repository.
+
+Before configuring this trigger, consider the following prerequisites and behaviors:
+
+  * **Local project imports only** : All subscribed hub projects must be [locally imported](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) into the spoke project by using the [`local_dependency`](https://docs.cloud.google.com/looker/docs/reference/param-manifest-local-dependency) parameter in `manifest.lkml` on the same Looker instance. Remote projects (imports that use the `remote_dependency` parameter in the project's manifest file) aren't supported.
+  * **Git and Production Mode** : Both the spoke project and the imported hub projects must be deployed to [Production Mode](https://docs.cloud.google.com/looker/docs/dev-mode-prod-mode) and have the [CI GitHub app](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#github) configured for their Git repositories.
+  * **Permissions** : The [**Looker CI Users**](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#ci-users) role must have the [`develop`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#develop) permission for the models in both the spoke project and the imported hub projects.
+  * **Validator behavior** : Because the spoke project is validated against its production version and has no development branch Git state to compare against, [incremental validation](https://docs.cloud.google.com/looker/docs/ci-sql-validator#incremental_validation) is disabled automatically for runs that are triggered by imported project pull requests, regardless of the suite setting. In addition, we recommend disabling the [CI LookML Validator](https://docs.cloud.google.com/looker/docs/ci-lookml-validator) and the [CI Style Validator](https://docs.cloud.google.com/looker/docs/ci-style-validator) on suites that are triggered only by imported project pull requests, because those validators check only the spoke project's files and aren't affected by upstream changes.
+
+
+
+To configure a spoke project to run CI validation when pull requests are submitted to one or more imported hub projects, follow these steps when creating or editing a CI suite in the spoke project:
+
+  1. Enable the **Trigger on pull requests from imported projects** toggle.
+  2. Under **Select upstream projects to subscribe to** , select the checkbox for each imported hub project that should trigger a run of this CI suite. You must select at least one upstream project.
+
+
+
+If you want changes to a hub project to trigger validation runs across multiple spoke projects, you must configure a CI suite in each spoke project.
+
+When you save the CI suite, Looker automatically creates a webhook subscription on each selected hub project's repository for pull request events. When a pull request is submitted to a subscribed hub project's repository, Looker triggers a CI run in the spoke project. The run validates the production version of the spoke project while temporarily pinning the imported hub project to the pull request commit. Looker reports the result of the spoke project's CI run as a commit status on the hub project's pull request. You can also view the run details on the spoke project's **Runs** page in the Looker IDE, where the **Trigger** column displays **Project Import** and the run results page includes a **Project Imports** section. For more information about how these runs execute and how to inspect their results, see [Running CI suites](https://docs.cloud.google.com/looker/docs/ci-run-suite#imported-project-run) and [Viewing the results of a CI run](https://docs.cloud.google.com/looker/docs/ci-view-results).
+
 ## Set up alerting
 
 To receive email alerts based on the status of your CI runs, you can set up alerting for a CI suite. This lets you monitor Continuous Integration runs without having to consult the **Runs** page in the Looker IDE.
@@ -175,6 +209,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

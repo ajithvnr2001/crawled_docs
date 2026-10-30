@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox/
 title: About Agent Sandbox on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:46.181105+00:00
+fetched_at: 2026-10-30T05:50:43.437018+00:00
 ---
 
 # About Agent Sandbox on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -24,20 +24,33 @@ Send feedback
 
 [ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
 
-Agent Sandbox on Google Kubernetes Engine (GKE) helps you manage isolated, stateful, and single-replica workloads. It is optimized for use cases like AI agent runtimes, where untrusted, LLM-generated code must be executed in a secure and performant environment.
+Agent Sandbox on Google Kubernetes Engine (GKE) helps you manage isolated, stateful, and single-replica workloads by running each sandbox in a dedicated Kubernetes Pod. This Pod-based architecture supports use cases like AI agent runtimes, where untrusted, LLM-generated code must run in an isolated environment.
 
-The Agent Sandbox on GKE add-on is based on the [open-source Agent Sandbox controller project](https://github.com/kubernetes-sigs/agent-sandbox/) and follows its release cycles. As a managed GKE add-on, Google manages the full lifecycle of the controller, including automatic upgrades and security patches.
+[Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox/) is an open source project under Kubernetes SIG Apps. To use Agent Sandbox on GKE, you install the Agent Sandbox controller on your cluster. You're responsible for upgrading the controller. For instructions, see [Install Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox).
 
 This document provides a conceptual overview of Agent Sandbox on GKE.
+
+## Choose between Pod-based and actor-based architectures
+
+GKE offers two architectures for orchestrating AI agent workloads:
+
+  * **Agent Substrate on GKE (actor-based)** : use this architecture for most agentic workloads, especially stateful agents that frequently suspend and resume. Active agents share a pool of warm Pods instead of keeping a dedicated Pod per agent, so you can run more agents on fewer nodes. Agent Substrate on GKE provides automatic suspension and resumption for idle workloads. The system saves each idle agent's memory and files to storage and restores the agent in less than one second. In contrast, Agent Sandbox on GKE requires manual [Pod snapshotting](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots), and you need to build application code to detect inactivity and save the agent's progress. Agent Substrate on GKE requires a GKE Standard cluster. For more information, see [About Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate).
+  * **Agent Sandbox on GKE (Pod-based)** : use this architecture when each agent needs a dedicated Kubernetes Pod on a GKE Autopilot or Standard cluster. Choose this option for continuously active agents or workloads that require any of the following: 
+    * Declarative Kubernetes APIs, such as the `Sandbox` and `SandboxClaim` custom resources
+    * The full Kubernetes `PodSpec` schema, including custom sidecar and init containers
+    * Direct access to hardware accelerators, such as GPUs or TPUs
+    * GKE Autopilot clusters
+
+
 
 ## Why use Agent Sandbox on GKE
 
 Agent Sandbox on GKE is built for agentic workloads that require high-level scale, extensibility, and security. Key benefits include:
 
-  * **Kernel-level isolation** : Provides strong, kernel-level isolation for untrusted, LLM-generated code. Agent Sandbox on GKE also works with open source [Kata Containers](https://katacontainers.io/). For a tutorial about using open source Kata Containers with Agent Sandbox on GKE, see [Enabling Kata Containers on GKE](https://github.com/kubernetes-sigs/agent-sandbox/tree/main/examples/kata-gke-sandbox).
+  * **Kernel-level isolation** : Provides strong, kernel-level isolation for untrusted, LLM-generated code. Agent Sandbox on GKE also works with open source [Kata Containers](https://katacontainers.io/). For a tutorial about using open source Kata Containers with Agent Sandbox on GKE, see [Enabling Kata Containers on GKE](https://github.com/kubernetes-sigs/agent-sandbox/tree/v1.0.6/examples/kata-gke-sandbox).
 
 **Note:** Kata Containers isn't a Google Cloud product. If you install and use this software, then you're responsible for management and troubleshooting. Google's support and SLAs don't apply to Kata Containers.
-  * **Sub-second provisioning** : Offers an out-of-the-box mechanism to provide sandboxes significantly faster than standard Kubernetes Pod scheduling allows (typically <1s).
+  * **Sub-second provisioning** : Provides sandboxes from a warm pool, typically in less than one second, instead of waiting for standard Kubernetes Pod scheduling and startup.
 
   * **Cloud-native extensibility** : Leverages the power of the Kubernetes paradigm and the managed infrastructure of GKE.
 
@@ -54,7 +67,7 @@ Use Agent Sandbox on GKE for workloads that require isolation, persistence, and 
   * **Development environments** : Provide developers with persistent, isolated cloud-based coding environments.
   * **Notebooks and research tools** : Host single-container sessions for interactive tools like Jupyter Notebooks.
   * **Stateful single-Pod services** : Run applications that need a stable identity and storage without the complexity of a `StatefulSet`.
-  * **Programmatic environment management** : Use provided client library SDKS, such as the [Agent Sandbox Python SDK](https://github.com/kubernetes-sigs/agent-sandbox/tree/main/clients/python/agentic-sandbox-client), to request and manage sandboxes directly from your application logic without managing Kubernetes YAML.
+  * **Programmatic environment management** : Use provided client library SDKs, such as the [Agent Sandbox Python SDK](https://github.com/kubernetes-sigs/agent-sandbox/tree/v1.0.6/clients/python/agentic-sandbox-client), to request and manage sandboxes directly from your application logic without managing Kubernetes YAML.
 
 
 
@@ -64,61 +77,64 @@ Agent Sandbox on GKE uses a custom controller and several Kubernetes Custom Reso
 
 ### Core architecture
 
-  * **[Sandbox CRD](https://docs.cloud.google.com/kubernetes-engine/docs/reference/crds/agentsandbox)** : The primary resource that represents a single, stateful Pod. It manages stable hostnames, network identity, and persistent storage.
-  * **Sandbox Router** : A component that provides a stable endpoint and tunnels traffic to the appropriate Sandbox Pods, abstracting the underlying networking complexity.
+  * **[`Sandbox` custom resource](https://github.com/kubernetes-sigs/agent-sandbox/blob/v1.0.6/docs/api.md#sandbox)**: the primary resource that represents a single, stateful Pod. The resource manages stable hostnames, network identity, and persistent storage.
+  * **Sandbox Router** : a component that provides a stable endpoint and tunnels traffic to the appropriate Sandbox Pods, abstracting the underlying networking complexity.
   * **Integration with Pod snapshots** : Agent Sandbox on GKE integrates with the [GKE Pod snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots) feature to allow pausing and resuming workloads by saving and restoring the full state of a container.
 
 
 
-### Claim Model
+### Claim model
 
-The **Claim Model** is a key feature that separates the user's request for an environment from the specific implementation details, such as where and how the workload is provisioned. Unlike a standard Kubernetes `StatefulSet`, the Claim Model lets you request a sandbox without needing to manage the underlying Pod or storage configurations directly.
+The **claim model** is a key feature that separates the user's request for an environment from the specific implementation details, such as where and how the workload is provisioned. Unlike a standard Kubernetes `StatefulSet`, the claim model lets you request a sandbox without needing to manage the underlying Pod or storage configurations directly.
 
-The Claim Model is managed using the [`SandboxClaim`](https://docs.cloud.google.com/kubernetes-engine/docs/reference/crds/agentsandbox#sandboxclaim) and [`SandboxTemplate`](https://docs.cloud.google.com/kubernetes-engine/docs/reference/crds/agentsandbox#sandboxtemplate) CRDs, and works as follows:
+The claim model uses the [`SandboxClaim`](https://github.com/kubernetes-sigs/agent-sandbox/blob/v1.0.6/docs/api.md#sandboxclaim), [`SandboxWarmPool`](https://github.com/kubernetes-sigs/agent-sandbox/blob/v1.0.6/docs/api.md#sandboxwarmpool), and [`SandboxTemplate`](https://github.com/kubernetes-sigs/agent-sandbox/blob/v1.0.6/docs/api.md#sandboxtemplate) custom resources and works as follows:
 
-  1. Users or applications request a Sandbox by creating a `SandboxClaim` that references a `SandboxTemplate`.
-  2. The controller handles the mapping of the claim to an actual Sandbox instance, offering flexible backend management. This allows the system to reuse existing Sandboxes or allocate from a pool.
+  1. Users or applications request a sandbox by creating a `SandboxClaim` resource that references a `SandboxWarmPool` resource. The warm pool references the `SandboxTemplate` resource that defines the sandbox configuration.
+  2. The controller assigns a ready sandbox from the warm pool to the claim. If no sandbox in the pool is ready, the controller creates a new sandbox for the claim from the template.
 
 
 
-### Warm Pools
+### Warm pools
 
-The **Warm Pool** feature is designed to minimize startup latency, which is critical for interactive AI agent scenarios. This feature allows Agent Sandbox on GKE to provide execution environments in less than one second, significantly faster than typical Pod scheduling. The feature is managed using the [`SandboxWarmPool`](https://docs.cloud.google.com/kubernetes-engine/docs/reference/crds/agentsandbox#sandboxwarmpool) CRD and works in the following way:
+The **warm pool** feature is designed to minimize startup latency for interactive AI agent scenarios. By using a warm pool, Agent Sandbox on GKE can provide execution environments in less than one second. The feature uses the [`SandboxWarmPool`](https://github.com/kubernetes-sigs/agent-sandbox/blob/v1.0.6/docs/api.md#sandboxwarmpool) custom resource and works as follows:
 
-  1. A `SandboxWarmPool` maintains a set of pre-warmed Pod instances in a ready state.
-  2. When a `SandboxClaim` is made, the controller instantly assigns a Pod from the pool instead of waiting for a new Pod to pull images and start from scratch.
-  3. When combined with Pod snapshots, warm pools provide fast, "instant-on" capabilities by restoring Pods from a pre-configured state.
+  1. A `SandboxWarmPool` resource maintains a set of pre-warmed Pod instances in a ready state.
+  2. When a `SandboxClaim` resource is created, the controller assigns a ready Pod from the pool instead of waiting for a new Pod to pull images and start from scratch.
+  3. When combined with Pod snapshots, warm pools can restore Pods from a pre-configured state instead of starting them from scratch.
 
 
 
 ### Network isolation
 
-Agent Sandbox on GKE implements a **Default Deny** network security posture for all sandboxed environments. This ensures that untrusted code executed inside a sandbox cannot access unauthorized internal networks or the GKE control plane by default. You can define specific network restrictions and allowed egress or ingress rules within your `SandboxTemplate` to provide fine-grained security for agentic workloads.
+Agent Sandbox on GKE implements a **Default Deny** network security posture for sandboxes that you create from a `SandboxTemplate` resource. For each `SandboxTemplate` resource, the controller creates a `NetworkPolicy` resource that helps ensure that untrusted code executed inside a sandbox cannot access unauthorized internal networks or the GKE control plane by default. You can define specific network restrictions and allowed egress or ingress rules within your `SandboxTemplate` resource to provide fine-grained security for agentic workloads.
+
+The controller doesn't create a `NetworkPolicy` resource for a `Sandbox` resource that you create directly. To restrict network access for these sandboxes, create your own `NetworkPolicy` resource.
 
 ### Programmatic access with SDKs
 
-AI engineers can consume Agent Sandbox on GKE resources programmatically using provided client libraries. For example, the [Python SDK](https://github.com/kubernetes-sigs/agent-sandbox/tree/main/clients/python/agentic-sandbox-client) provides a high-level interface that abstracts the underlying `SandboxClaim` and `SandboxTemplate` configurations. This lets you create and interact with isolated environments directly from your Python-based agent frameworks like LangChain or the Vertex AI Agentic SDK.
+AI engineers can consume Agent Sandbox on GKE resources programmatically by using the provided client libraries. For example, the [Python SDK](https://github.com/kubernetes-sigs/agent-sandbox/tree/v1.0.6/clients/python/agentic-sandbox-client) provides a high-level interface that creates the underlying `SandboxClaim` resource for you. The claim references a `SandboxWarmPool` resource that you create. This interface lets you create and interact with isolated environments directly from your Python-based agent frameworks like LangChain or the Vertex AI Agentic SDK.
 
 ## Limitations and requirements
 
 Agent Sandbox on GKE has the following limitations and requirements:
 
-  * **Cluster version** : Requires GKE version 1.35.2-gke.1269000 or later for full feature support (including snapshots).
-  * **Infrastructure requirements** : Optimized for specific node configurations (such as N2 machine types) and requires the Agent Sandbox controller to be [installed and configured](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox) on the cluster.
-  * **Isolation runtimes** : While it supports multiple runtimes, it is primarily intended to be used with security-hardened runtimes like gVisor.
+  * **Cluster version** : Agent Sandbox on GKE runs on any supported GKE version. To use [Pod snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots), your cluster must run GKE version 1.35.3-gke.1234000 or later.
+  * **Infrastructure requirements** : Requires the Agent Sandbox controller to be [installed and configured](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox) on the cluster. Agent Sandbox on GKE doesn't require a specific machine type. For example, the installation guide uses `e2-standard-2` nodes. However, [Pod snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots) don't support E2 machine types, so if you plan to use Pod snapshots, use another machine series, such as N2.
+  * **Isolation runtimes** : Agent Sandbox on GKE supports [gVisor](https://gvisor.dev/) and [microVMs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#sandbox-technologies) as isolation runtimes. [Pod snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots) require gVisor and don't work with microVMs. If you don't specify a sandbox runtime, sandboxes run without kernel isolation, which we don't recommend for untrusted code.
   * **Underlying features availability** : Some underlying features, such as [GKE Pod snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/pod-snapshots), might be in Preview or have specific regional availability.
 
 
 
 ## What's next
 
-  * [Learn how to enable Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox).
+  * [Learn how to install Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox).
   * Learn more about [isolating AI code execution with Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox).
   * To learn how to use Pod snapshots with Agent Sandbox on GKE, see [Save and restore Agent Sandbox on GKE environments with Pod snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots).
-  * Learn how to use open source [Kata Containers with Agent Sandbox on GKE](https://github.com/kubernetes-sigs/agent-sandbox/tree/main/examples/kata-gke-sandbox). Kata Containers isn't a Google Cloud product. If you install and use this software, then you're responsible for management and troubleshooting. Google's support and SLAs don't apply to Kata Containers.
+  * Learn about actor-based agent orchestration in [About Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate).
+  * Learn how to use open source [Kata Containers with Agent Sandbox on GKE](https://github.com/kubernetes-sigs/agent-sandbox/tree/v1.0.6/examples/kata-gke-sandbox). Kata Containers isn't a Google Cloud product. If you install and use this software, then you're responsible for management and troubleshooting. Google's support and SLAs don't apply to Kata Containers.
   * For the underlying open-source implementation, see the [Agent Sandbox GitHub project](https://github.com/kubernetes-sigs/agent-sandbox/).
-  * For example runtimes and YAML configurations for scenarios such as code execution or computer use, see the [Agent Sandbox examples](https://github.com/kubernetes-sigs/agent-sandbox/tree/main/examples).
-  * To interact with sandboxes programmatically, see the [Agent Sandbox Python SDK README](https://github.com/kubernetes-sigs/agent-sandbox/blob/main/clients/python/agentic-sandbox-client/README.md) on GitHub.
+  * For example runtimes and YAML configurations for scenarios such as code execution or computer use, see the [Agent Sandbox examples](https://github.com/kubernetes-sigs/agent-sandbox/tree/v1.0.6/examples).
+  * To interact with sandboxes programmatically, see the [Agent Sandbox Python SDK README](https://github.com/kubernetes-sigs/agent-sandbox/blob/v1.0.6/clients/python/agentic-sandbox-client/README.md) on GitHub.
 
 
 
@@ -126,6 +142,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

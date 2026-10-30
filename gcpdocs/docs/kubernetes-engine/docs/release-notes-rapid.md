@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-rapid/
 title: GKE release notes (Rapid channel) \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:24.578853+00:00
+fetched_at: 2026-10-30T05:54:22.668629+00:00
 ---
 
 # GKE release notes (Rapid channel)  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -21,13 +21,16 @@ Send feedback
 
 #  GKE release notes (Rapid channel) Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page documents Google Kubernetes Engine version updates in the Rapid [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels). 
+This document describes Google Kubernetes Engine (GKE) version updates in the Rapid [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels). The document lists which versions are available, default, and no longer available. New features, fixes, and known issues aren't included. 
 
-For all Google Kubernetes Engine version updates, fixes, known issues, or new features, see [release notes](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes).
+For other information about GKE releases, see the following documents:
 
-For more detailed information about security-related known issues, see the [security bulletin](https://docs.cloud.google.com/kubernetes-engine/docs/security-bulletins) page.
+  * **New features, fixes, deprecations, and known issues for all channels** : [GKE release notes](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes)
+  * **Known issues that affect specific versions** : [GKE known issues](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/known-issues)
+  * **Security-related issues** : [Security bulletins](https://docs.cloud.google.com/kubernetes-engine/security-bulletins)
+  * **Release notes for versions prior to 2020** : [Release notes archive](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-archive)
 
-To view release notes for versions prior to 2020, see the [Release notes archive](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-archive).
+
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
@@ -7756,6 +7759,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_c/
 title: Google Cloud metrics: API prefix is C \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:21.046028+00:00
+fetched_at: 2026-10-30T05:42:14.985270+00:00
 ---
 
 # Google Cloud metrics: API prefix is C  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### certificatemanager
 
@@ -605,7 +605,7 @@ Concurrent Build CPUs (Regional Default Pool) quota usage
   
 ### clouddeploy
 
-Metrics from [Cloud Deploy](https://docs.cloud.google.com/deploy/docs). Launch stages of these metrics: GA
+Metrics from [Cloud Deploy](https://docs.cloud.google.com/deploy/docs).
 
 The "metric type" strings in this table must be prefixed with `clouddeploy.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -615,17 +615,17 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`quota/deployment_time/exceeded` GA ** _(project)_**   
+`quota/deployment_time/exceeded` DEPRECATED ** _(project)_**   
 Deployment Time quota exceeded error   
 `DELTA`, `INT64`, `1`   
 **[clouddeploy.googleapis.com/DeliveryPipeline](https://docs.cloud.google.com/monitoring/api/resources#tag_clouddeploy.googleapis.com/DeliveryPipeline)** |  _Number of attempts to exceed the limit on quota metric clouddeploy.googleapis.com/deployment_time. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
-`quota/deployment_time/limit` GA ** _(project)_**   
+`quota/deployment_time/limit` DEPRECATED ** _(project)_**   
 Deployment Time quota limit   
 `GAUGE`, `INT64`, `s`   
 **[clouddeploy.googleapis.com/DeliveryPipeline](https://docs.cloud.google.com/monitoring/api/resources#tag_clouddeploy.googleapis.com/DeliveryPipeline)** |  _Current limit on quota metric clouddeploy.googleapis.com/deployment_time. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
-`quota/deployment_time/usage` GA ** _(project)_**   
+`quota/deployment_time/usage` DEPRECATED ** _(project)_**   
 Deployment Time quota usage   
 `DELTA`, `INT64`, `s`   
 **[clouddeploy.googleapis.com/DeliveryPipeline](https://docs.cloud.google.com/monitoring/api/resources#tag_clouddeploy.googleapis.com/DeliveryPipeline)** |  _Current usage on quota metric clouddeploy.googleapis.com/deployment_time. After sampling, data is not visible for up to 150 seconds._   
@@ -794,34 +794,34 @@ Connectors Closed Connections
 `CUMULATIVE`, `INT64`, `1`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _The total number of closed connections to Cloud SQL instances._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `status`: Close connections status [success, error].   
 `client/connector/connect_latencies` BETA ** _(project)_**   
 Connectors Connect Latencies   
 `CUMULATIVE`, `DISTRIBUTION`, `ms`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Distribution of the Cloud SQL connector connect latencies._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `client/connector/connection_durations` BETA ** _(project)_**   
 Connectors Connection Duration   
 `CUMULATIVE`, `DISTRIBUTION`, `s`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Distribution of connection duration in seconds between connection open and close._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `client/connector/open_connection_count` BETA ** _(project)_**   
 Connectors Connection Attempt Count   
 `CUMULATIVE`, `INT64`, `1`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Total count of connection attempts made by the connector._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
-`connection_part`: If status is not success, which part of the connection errors out, one of [client_to_proxy, proxy_to_server].   
-`status`: Status of the dial attempt, one of [success, user_error, cache_error, tcp_error, tls_error, auth_error, refresh_failed_error, refresh_expired_error, dns_lookup_error, unkown_error].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
+`connection_part`: If status is not success, which part of the connection errors out, one of [client_to_proxy, proxy_to_server, unknown]. Empty when status is success.   
+`status`: Status of the dial attempt, one of [success, user_error, cache_error, tcp_error, tls_error, auth_error, refresh_failed_error, refresh_expired_error, dns_lookup_error, unknown_error].   
 `client/connector/open_connections` BETA ** _(project)_**   
 Connectors Open Connections   
 `GAUGE`, `INT64`, `1`   
 **[cloudsql.googleapis.com/InstanceClient](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql.googleapis.com/InstanceClient)** |  _Number of currently open connections per language connector client instance._   
 `instance_auth_type`: Authentication type used, one of [built_in, iam].   
-`instance_ip_type`: IP address type of the connection, one of [public, psa, psc].   
+`instance_ip_type`: IP address type of the connection, one of [public, private, psc, auto, sql_data, unknown].   
 `database/active_directory/domain_reachable` GA ** _(project)_**   
 Active Directory domain reachable   
 `GAUGE`, `BOOL`, ``   
@@ -908,7 +908,7 @@ Instance state
 `database/memory/components` BETA ** _(project)_**   
 Memory components   
 `GAUGE`, `DOUBLE`, `1`   
-**[cloudsql_database](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql_database)** |  _Memory stats components in percentage as usage, cache and free memory for the database. Sampled every 60 seconds. After sampling, data is not visible for up to 165 seconds._   
+**[cloudsql_database](https://docs.cloud.google.com/monitoring/api/resources#tag_cloudsql_database)** |  _Memory stats components in percentage as usage, cache, and free memory for the database. The usage component represents memory allocated by database processes, including in-database caches such as PostgreSQL shared_buffers or the MySQL InnoDB buffer pool. The cache component represents memory used by the operating system page cache, which is generally reclaimable and does not necessarily indicate memory pressure when high. The free component represents unused memory. Sampled every 60 seconds. After sampling, data is not visible for up to 165 seconds._   
 `component`: Name of the component, one of [usage, cache and free].   
 `database/memory/quota` GA ** _(project)_**   
 Memory quota   
@@ -3019,7 +3019,7 @@ Workload restarts count
 **[internal_composer_workload](https://docs.cloud.google.com/monitoring/api/resources#tag_internal_composer_workload)** |  _Total number of workload restarts. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `image_version`: Version of Composer image.   
 `type`: Type of workload restart, one of [PROCESS, CONTAINER, POD].   
-`workload/scheduler/loop_duration` BETA ** _(project)_**   
+`workload/scheduler/loop_duration` GA ** _(project)_**   
 Scheduler loop duration   
 `GAUGE`, `DOUBLE`, `ms`   
 **[cloud_composer_workload](https://docs.cloud.google.com/monitoring/api/resources#tag_cloud_composer_workload)**   
@@ -4455,21 +4455,25 @@ ICI Link Flaps
 `GAUGE`, `INT64`, `1`   
 **[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Frequency of state changes between up and down states on an ICI link._   
 `accelerator_id`: The device ID of the accelerator. Valid values are 0, 1, 2, 3.   
+`port_id`: The ID of the ICI port.   
 `instance/tpu/accelerator/network/ici_link_health` BETA ** _(project)_**   
 ICI Link Health   
 `GAUGE`, `INT64`, `1`   
 **[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _A numerical indicator (0–10) representing ICI link health. Higher values indicate increasing levels of link instability—from minor, temporary flapping (1–5) to persistent degraded performance (6–9). A value of 10 represents a fatal link failure that automatically evicts active workloads._   
+`accelerator_id`: The device ID of the accelerator. Valid values are 0, 1, 2, 3.   
 `port_id`: Port Id.   
 `instance/tpu/accelerator/network/ici_packets_received_count` BETA ** _(project)_**   
 ICI Packets Received Count   
 `CUMULATIVE`, `INT64`, `1`   
 **[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Total number of packets received by the TPU accelerator over its Inter-Chip Interconnect (ICI) links._   
 `accelerator_id`: The device ID of the accelerator. Valid values are 0, 1, 2, 3.   
+`port_id`: The ID of the ICI port.   
 `instance/tpu/accelerator/network/ici_packets_sent_count` BETA ** _(project)_**   
 ICI Packets Sent Count   
 `CUMULATIVE`, `INT64`, `1`   
 **[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Total number of packets transmitted by the TPU accelerator over its Inter-Chip Interconnect (ICI) links._   
 `accelerator_id`: The device ID of the accelerator. Valid values are 0, 1, 2, 3.   
+`port_id`: The ID of the ICI port.   
 `instance/tpu/accelerator/pcie_fatal_error_count` BETA ** _(project)_**   
 PCIe Fatal Error Count   
 `CUMULATIVE`, `INT64`, `1`   
@@ -4662,6 +4666,12 @@ Alerts
 Asapd-lite Daemon Uptime   
 `CUMULATIVE`, `INT64`, `s`   
 **[compute.googleapis.com/MrdmaNic](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/MrdmaNic)** |  _Uptime of the Asapd-lite Daemon. Sampled every 60 seconds._  
+`mrdma_nic/bdf_gauges` BETA ** _(project)_**   
+BDF-level gauges   
+`GAUGE`, `BOOL`, ``   
+**[compute.googleapis.com/MrdmaNic](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/MrdmaNic)** |  _Monitors PCI BDF-level state relevant to asapd-lite. Sampled every 60 seconds._   
+`metric_name`: Name of the metric. For e.g. doca_telemetry_initialized.   
+`pci_address`: PCI address of the NIC in the format of domain:bus:device.function.   
 `mrdma_nic/build_label` BETA ** _(project)_**   
 Build Label   
 `GAUGE`, `INT64`, `1`   
@@ -4693,6 +4703,11 @@ Ethtool Link Settings
 `pci_address`: PCI address of the NIC in the format of domain:bus:device.function.   
 `interface_name`: Name of the network interface.   
 `metric_name`: Name of the metric.   
+`mrdma_nic/host_gauges` BETA ** _(project)_**   
+Host-level gauges   
+`GAUGE`, `BOOL`, ``   
+**[compute.googleapis.com/MrdmaNic](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/MrdmaNic)** |  _Monitors host-level state relevant to asapd-lite. Sampled every 60 seconds._   
+`metric_name`: Name of the metric. For e.g. fwctl_present.   
 `mrdma_nic/linkup` BETA ** _(project)_**   
 Link in Up State   
 `GAUGE`, `INT64`, `1`   
@@ -5045,6 +5060,18 @@ QoS TX Packets
 `switch_type`: The network switch type.   
 `port_identifier`: The logical name of the port on the network switch.   
 `queue_name`: The name of the queue.   
+`network_switch/rx_optical_power` BETA ** _(project)_**   
+RX Optical Power   
+`GAUGE`, `DOUBLE`, `dBm`   
+**[compute.googleapis.com/NetworkSwitch](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/NetworkSwitch)** |  _The current measured optical input (receive) power on a physical channel (lane) of the switch port transceiver, in dBm._   
+`subblock_id`: The ID of the sub-block that the network switch belongs to.   
+`block_id`: The ID of the block that the network switch belongs to.   
+`reservation_id`: The ID of the reservation.   
+`switch_type`: The network switch type.   
+`port_identifier`: The logical name of the port on the network switch.   
+`peer_target_identifier`: The identifier of the peer machine or switch.   
+`peer_port_identifier`: Index of NIC on the peer machine, or logical name of the port on the peer switch.   
+`channel_num`: The physical optical channel (lane) index within the transceiver.   
 `network_switch/total_memory_bytes` BETA ** _(project)_**   
 Total Memory   
 `GAUGE`, `INT64`, `By`   
@@ -5053,6 +5080,44 @@ Total Memory
 `block_id`: The ID of the block that the network switch belongs to.   
 `reservation_id`: The ID of the reservation.   
 `switch_type`: The network switch type.   
+`network_switch/transceiver_info` BETA ** _(project)_**   
+Transceiver Info   
+`GAUGE`, `INT64`, `1`   
+**[compute.googleapis.com/NetworkSwitch](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/NetworkSwitch)** |  _Inventory metadata for the transceiver module attached to the switch port. Value is always 1; metadata attributes are provided as metric labels._   
+`subblock_id`: The ID of the sub-block that the network switch belongs to.   
+`block_id`: The ID of the block that the network switch belongs to.   
+`reservation_id`: The ID of the reservation.   
+`switch_type`: The network switch type.   
+`port_identifier`: The logical name of the port on the network switch.   
+`peer_target_identifier`: The identifier of the peer machine or switch.   
+`peer_port_identifier`: Index of NIC on the peer machine, or logical name of the port on the peer switch.   
+`module_type`: Ethernet PMD media type.   
+`part_num`: Transceiver part number.   
+`serial_num`: Transceiver serial number.   
+`vendor_name`: Transceiver manufacturer name.   
+`network_switch/transceiver_temperature` BETA ** _(project)_**   
+Transceiver Temperature   
+`GAUGE`, `DOUBLE`, `Cel`   
+**[compute.googleapis.com/NetworkSwitch](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/NetworkSwitch)** |  _The current measured internal temperature of the switch port transceiver module, in degrees Celsius._   
+`subblock_id`: The ID of the sub-block that the network switch belongs to.   
+`block_id`: The ID of the block that the network switch belongs to.   
+`reservation_id`: The ID of the reservation.   
+`switch_type`: The network switch type.   
+`port_identifier`: The logical name of the port on the network switch.   
+`peer_target_identifier`: The identifier of the peer machine or switch.   
+`peer_port_identifier`: Index of NIC on the peer machine, or logical name of the port on the peer switch.   
+`network_switch/tx_optical_power` BETA ** _(project)_**   
+TX Optical Power   
+`GAUGE`, `DOUBLE`, `dBm`   
+**[compute.googleapis.com/NetworkSwitch](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/NetworkSwitch)** |  _The current measured optical output (transmit) power on a physical channel (lane) of the switch port transceiver, in dBm._   
+`subblock_id`: The ID of the sub-block that the network switch belongs to.   
+`block_id`: The ID of the block that the network switch belongs to.   
+`reservation_id`: The ID of the reservation.   
+`switch_type`: The network switch type.   
+`port_identifier`: The logical name of the port on the network switch.   
+`peer_target_identifier`: The identifier of the peer machine or switch.   
+`peer_port_identifier`: Index of NIC on the peer machine, or logical name of the port on the peer switch.   
+`channel_num`: The physical optical channel (lane) index within the transceiver.   
 `node_group/cpu/scheduled` GA ** _(project)_**   
 CPU Scheduled   
 `GAUGE`, `INT64`, `cores`   
@@ -6712,12 +6777,12 @@ Number of pods in GKE Standard cluster. quota usage
 **[container.googleapis.com/Cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_container.googleapis.com/Cluster)** |  _Current usage on quota metric container.googleapis.com/quota/pods_per_cluster_standard. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
   
-Generated at 2026-10-22 02:44:18 UTC.
+Generated at 2026-10-29 23:33:54 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

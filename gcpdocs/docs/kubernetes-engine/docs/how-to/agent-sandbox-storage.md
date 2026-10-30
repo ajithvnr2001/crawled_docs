@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-storage/
 title: Manage Agent Sandbox on GKE storage \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:32.599297+00:00
+fetched_at: 2026-10-30T05:50:43.775049+00:00
 ---
 
 # Manage Agent Sandbox on GKE storage  |  GKE AI/ML  |  Google Cloud Documentation
@@ -53,7 +53,22 @@ To support alternative access modes, you can modify the volume and snapshot defi
 
 ## Before you begin
 
-[Enable Agent Sandbox on GKE in your cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox#before_you_begin).
+Make sure that you have a GKE cluster that has the Agent Sandbox controller installed. If you don't, complete only the following sections of [Install Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox), and then return to this document:
+
+  1. [Define environment variables](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox#define-environment-variables)
+  2. [Create a GKE cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox#create-cluster)
+  3. [Install Agent Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox#install-agent-sandbox)
+  4. [Apply the recommended security policy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox#apply-security-policy)
+
+
+
+If you completed the [Deploy a sandboxed environment](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox#deploy-a-sandboxed-environment) section of that document, delete the sample resources that it created so that your nodes have enough capacity for the sandboxes in this document:
+    
+    
+    kubectl delete sandboxclaim sandbox-claim --ignore-not-found
+    kubectl delete sandboxwarmpool python-runtime-warmpool --ignore-not-found
+    kubectl delete sandbox sandbox-example-2 --ignore-not-found
+    
 
 ## Configure a stateful workspace
 
@@ -66,9 +81,9 @@ This approach uses standard GKE PersistentVolumeClaim (PVC) resources to link a 
 The stateful workspace pattern follows this sequence of events:
 
   1. **Provisioning** : the administrator or orchestrator manually provisions a private PVC for each agent session using a deterministic identifier (for example, `pvc-agent-1`).
-  2. **Referencing** : in the Sandbox resource, you use the `persistentVolumeClaim` field within the `volumes` block to specify the exact `claimName` of the existing volume.
+  2. **Referencing** : in the `Sandbox` resource, you use the `persistentVolumeClaim` field within the `volumes` block to specify the exact `claimName` of the existing volume.
   3. **Latency** : when the sandbox is created, GKE must dynamically attach the Compute Engine disk to the node VM, which incurs a standard multi-second delay.
-  4. **Persistence** : on session termination (deleting the Sandbox), GKE detaches the disk but does not destroy the PVC, which helps to ensure that the latest state is preserved for the next session.
+  4. **Persistence** : on session termination (deleting the `Sandbox` resource), GKE detaches the disk but does not destroy the PVC, which helps to ensure that the latest state is preserved for the next session.
 
 
 
@@ -106,17 +121,16 @@ Because the storage class uses dynamic volume binding, the disk is not attached 
 
 ### Deploy the Agent Sandbox
 
-Deploy the Sandbox custom resource, referencing the deterministic PVC.
+Deploy the `Sandbox` custom resource, referencing the deterministic PVC.
 
   1. Save the following manifest as `sandbox-agent-1.yaml`:
          
-         apiVersion: agents.x-k8s.io/v1alpha1
+         apiVersion: agents.x-k8s.io/v1beta1
          kind: Sandbox
          metadata:
            name: sandbox-agent-1 # Traceable sandbox name
            namespace: default
          spec:
-           replicas: 1
            podTemplate:
              spec:
                runtimeClassName: gvisor # Required
@@ -158,10 +172,17 @@ Deploy the Sandbox custom resource, referencing the deterministic PVC.
          kubectl apply -f sandbox-agent-1.yaml
          
 
+  3. Wait until the sandbox is ready:
+         
+         kubectl wait sandbox sandbox-agent-1 \
+             --for=condition=Ready \
+             --timeout=300s
+         
+
+GKE verifies node capacity and attaches the disk, which takes a few seconds. The container initializes inside a userspace gVisor kernel. In an Autopilot cluster, the sandbox can take several minutes to become ready because GKE might need to create a node for it.
 
 
 
-GKE verifies node capacity and attaches the disk, which takes a few seconds. The container initializes inside a userspace gVisor kernel.
 
 ### Write data from the agent
 
@@ -172,15 +193,15 @@ Simulate an active AI agent executing file modifications inside its workspace by
     POD_NAME=sandbox-agent-1
     
     # Write a state file to the persistent directory
-    kubectl exec $POD_NAME -- sh -c "echo 'Workspace State Saved - Agent 1' > /workspace/modified_data.txt"
+    kubectl exec ${POD_NAME} -- sh -c "echo 'Workspace State Saved - Agent 1' > /workspace/modified_data.txt"
     
     # Confirm the file exists on the disk
-    kubectl exec $POD_NAME -- cat /workspace/modified_data.txt
+    kubectl exec ${POD_NAME} -- cat /workspace/modified_data.txt
     
 
 ### End the agent session
 
-To simulate scaling down or terminating the session when the agent goes idle, delete the Sandbox resource but preserve the underlying storage.
+To simulate scaling down or terminating the session when the agent goes idle, delete the `Sandbox` resource but preserve the underlying storage.
     
     
     kubectl delete sandbox sandbox-agent-1
@@ -190,10 +211,14 @@ GKE unmounts and detaches the disk. The `pvc-agent-1` PVC remains, preserving th
 
 ### Reactivate the agent session
 
-To reactivate the session, redeploy a fresh Sandbox resource that references the same PVC.
+To reactivate the session, redeploy a fresh `Sandbox` resource that references the same PVC, and then wait until the sandbox is ready:
     
     
     kubectl apply -f sandbox-agent-1.yaml
+    
+    kubectl wait sandbox sandbox-agent-1 \
+        --for=condition=Ready \
+        --timeout=300s
     
 
 The disk is re-attached (incurring the attachment delay), and the container boots up.
@@ -207,7 +232,7 @@ Inspect the newly created sandbox container to verify that the previous session 
     NEW_POD_NAME=sandbox-agent-1
     
     # Read the file from the newly booted sandbox
-    kubectl exec -it $NEW_POD_NAME -- cat /workspace/modified_data.txt
+    kubectl exec ${NEW_POD_NAME} -- cat /workspace/modified_data.txt
     
 
 The output should show `Workspace State Saved - Agent 1`.
@@ -281,13 +306,12 @@ Deploy a sandbox Pod to write data to the volume.
 
   1. Save the following manifest as `3-source-sandbox.yaml`:
          
-         apiVersion: agents.x-k8s.io/v1alpha1
+         apiVersion: agents.x-k8s.io/v1beta1
          kind: Sandbox
          metadata:
            name: agent-session-v1
            namespace: default
          spec:
-           replicas: 1
            podTemplate:
              spec:
                runtimeClassName: gvisor
@@ -329,10 +353,14 @@ Deploy a sandbox Pod to write data to the volume.
          kubectl apply -f 3-source-sandbox.yaml
          
 
-  3. Wait for the Pod to be running, then write a state file:
+  3. Wait until the sandbox is ready, and then write a state file. The `sync` command flushes the write to disk so that the snapshot in the next section includes the file's contents:
+         
+         kubectl wait sandbox agent-session-v1 \
+             --for=condition=Ready \
+             --timeout=300s
          
          POD_NAME=agent-session-v1
-         kubectl exec $POD_NAME -- sh -c "echo 'Point-in-Time Snapshot - v1' > /workspace/state.txt"
+         kubectl exec ${POD_NAME} -- sh -c "echo 'Point-in-Time Snapshot - v1' > /workspace/state.txt && sync"
          
 
 
@@ -357,6 +385,13 @@ Trigger a CSI VolumeSnapshot to freeze the current state. When taking a snapshot
   2. Apply the manifest:
          
          kubectl apply -f 4-volume-snapshot.yaml
+         
+
+  3. Wait until the snapshot is ready to use:
+         
+         kubectl wait volumesnapshot agent-session-v1-snapshot \
+             --for=jsonpath='{.status.readyToUse}'=true \
+             --timeout=600s
          
 
 
@@ -394,17 +429,16 @@ Deploy a new PVC with its `dataSource` pointing to the CSI `VolumeSnapshot`.
 
 ### Launch the restored Agent Sandbox session
 
-Provision a fresh Sandbox resource that references the newly restored PVC.
+Provision a fresh `Sandbox` resource that references the newly restored PVC.
 
   1. Save the following manifest as `6-restored-sandbox.yaml`:
          
-         apiVersion: agents.x-k8s.io/v1alpha1
+         apiVersion: agents.x-k8s.io/v1beta1
          kind: Sandbox
          metadata:
            name: agent-session-v2-restored
            namespace: default
          spec:
-           replicas: 1
            podTemplate:
              spec:
                runtimeClassName: gvisor
@@ -446,6 +480,15 @@ Provision a fresh Sandbox resource that references the newly restored PVC.
          kubectl apply -f 6-restored-sandbox.yaml
          
 
+  3. Wait until the sandbox is ready:
+         
+         kubectl wait sandbox agent-session-v2-restored \
+             --for=condition=Ready \
+             --timeout=600s
+         
+
+This sandbox can take longer to become ready than the source sandbox because GKE creates its disk from the snapshot after the snapshot is ready.
+
 
 
 
@@ -455,7 +498,7 @@ Verify that the agent can read the historical data.
     
     
     NEW_POD_NAME=agent-session-v2-restored
-    kubectl exec $NEW_POD_NAME -- cat /workspace/state.txt
+    kubectl exec ${NEW_POD_NAME} -- cat /workspace/state.txt
     
 
 Expected Output: `Point-in-Time Snapshot - v1`
@@ -481,13 +524,13 @@ Use the ephemeral workspace pattern when an agent needs a storage volume for sto
 
 Use Agent Sandbox on GKE Warm Pools to pre-provision empty volumes in the background.
 
-#### Define the SandboxTemplate
+#### Define the `SandboxTemplate` resource
 
 Define the ephemeral storage backing within the `volumeClaimTemplate` block.
 
   1. Save the following manifest as `stateless-template.yaml`:
          
-         apiVersion: extensions.agents.x-k8s.io/v1alpha1
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
          kind: SandboxTemplate
          metadata:
            name: stateless-sandbox-template
@@ -536,17 +579,17 @@ Define the ephemeral storage backing within the `volumeClaimTemplate` block.
 
 
 
-#### Launch the Sandbox Warm Pool
+#### Launch the `SandboxWarmPool` resource
 
   1. Save the following manifest as `stateless-warmpool.yaml`:
          
-         apiVersion: extensions.agents.x-k8s.io/v1alpha1
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
          kind: SandboxWarmPool
          metadata:
            name: stateless-warmpool
            namespace: default
          spec:
-           replicas: 5 # Keep five standby Pods with pre-attached empty disks
+           replicas: 2 # Keep two standby Pods with pre-attached empty disks
            sandboxTemplateRef:
              name: stateless-sandbox-template
          
@@ -557,22 +600,31 @@ Define the ephemeral storage backing within the `volumeClaimTemplate` block.
          kubectl apply -f stateless-warmpool.yaml
          
 
+  3. Wait until the warm pool's sandboxes are ready:
+         
+         kubectl wait sandboxwarmpool stateless-warmpool \
+             --for=jsonpath='{.status.readyReplicas}'=2 \
+             --timeout=600s
+         
+
+If you create a `SandboxClaim` resource before the pool's sandboxes are ready, the controller might create a new sandbox for the claim instead of assigning one from the pool. In an Autopilot cluster, the sandboxes can take several minutes to become ready because GKE might need to create nodes for them.
 
 
 
-#### Claim the Sandbox
 
-Define a SandboxClaim that triggers when a user starts a session.
+#### Create a `SandboxClaim` resource
+
+Define a `SandboxClaim` resource that triggers when a user starts a session.
 
   1. Save the following manifest as `stateless-sandbox-claim.yaml`:
          
-         apiVersion: extensions.agents.x-k8s.io/v1alpha1
+         apiVersion: extensions.agents.x-k8s.io/v1beta1
          kind: SandboxClaim
          metadata:
            name: agent-1-claim
          spec:
-           sandboxTemplateRef:
-             name: stateless-sandbox-template
+           warmPoolRef:
+             name: stateless-warmpool
          
 
   2. Apply the manifest:
@@ -585,16 +637,17 @@ Define a SandboxClaim that triggers when a user starts a session.
 
 #### Verify sub-second execution
 
-Capture the Agent Sandbox Pod name and verify that the `/workspace` directory is mounted and ready for immediate use:
+Wait until the claim is ready, capture the Agent Sandbox Pod name, and then verify that the `/workspace` directory is mounted and ready for immediate use:
     
     
+    kubectl wait sandboxclaim agent-1-claim --for=condition=Ready --timeout=300s
     export POD_NAME=$(kubectl get sandboxclaim agent-1-claim -o jsonpath='{.status.sandbox.name}')
-    kubectl exec $POD_NAME -- ls -la /workspace
+    kubectl exec ${POD_NAME} -- ls -la /workspace
     
 
 #### Terminate the agent session
 
-To end the agent session and release the claimed Sandbox, delete the SandboxClaim resource:
+To end the agent session, delete the `SandboxClaim` resource. Deleting the claim also deletes the claimed sandbox and its volume:
     
     
     kubectl delete sandboxclaim agent-1-claim
@@ -602,7 +655,7 @@ To end the agent session and release the claimed Sandbox, delete the SandboxClai
 
 #### Clean up resources
 
-Delete the Sandbox Warm Pool and the Sandbox template:
+Delete the `SandboxWarmPool` and `SandboxTemplate` resources:
     
     
     kubectl delete sandboxwarmpool stateless-warmpool
@@ -617,13 +670,12 @@ To implement an ephemeral workspace that tolerates multi-second latency, use dir
 
   1. Save the following manifest as `sandbox-direct-stateless.yaml`:
          
-         apiVersion: agents.x-k8s.io/v1alpha1
+         apiVersion: agents.x-k8s.io/v1beta1
          kind: Sandbox
          metadata:
            name: sandbox-direct-stateless
            namespace: default
          spec:
-           replicas: 1
            podTemplate:
              spec:
                runtimeClassName: gvisor
@@ -684,16 +736,18 @@ Monitor the Pod status to observe the attachment delay before the Pod transition
     kubectl get pods -w
     
 
-After the Pod is running, capture the Pod name and verify that the `/workspace` directory is available:
+When the Pod is running, press `Control+C` to stop watching.
+
+Capture the Pod name and verify that the `/workspace` directory is available:
     
     
     POD_NAME=sandbox-direct-stateless
-    kubectl exec $POD_NAME -- ls -la /workspace
+    kubectl exec ${POD_NAME} -- ls -la /workspace
     
 
 #### Terminate agent session
 
-Delete the Sandbox resource to automatically terminate the Pod and destroy its ephemeral storage:
+Delete the `Sandbox` resource to automatically terminate the Pod and destroy its ephemeral storage:
     
     
     kubectl delete sandbox sandbox-direct-stateless
@@ -711,6 +765,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

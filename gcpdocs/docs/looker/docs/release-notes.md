@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/release-notes/
 title: Looker release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:40:20.206020+00:00
+fetched_at: 2026-10-30T05:41:58.626891+00:00
 ---
 
 # Looker release notes  |  Google Cloud Documentation
@@ -26,6 +26,95 @@ This page documents production updates for both Looker (original) and Looker (Go
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/looker-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Announcement
+
+Beginning October 26, 2026, the following features will be automatically enabled for Looker (original) and Looker (Google Cloud core) instances running Looker 26.20.
+
+Looker (Google Cloud core) only changes
+
+Feature
+
+The [**Legacy features** page](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule) is now available in the **Admin** panel for Looker (Google Cloud core) instances. Legacy features that appear on the Looker (Google Cloud core) **Legacy features** page might differ from those that are available on Looker (original) instances. For more information, see [Looker (Google Cloud core) admin settings](https://docs.cloud.google.com/looker/docs/looker-core-admin-looker).
+
+Looker (original) only changes
+
+Change
+
+The **Use Legacy Connections Page** [legacy feature](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) and the legacy database connection workflow have been removed. All database connections now use the connection workflow that is described in [Connecting Looker to your database](https://docs.cloud.google.com/looker/docs/connecting-to-your-db).
+
+Looker (Google Cloud core) and Looker (original) changes
+
+Breaking
+
+Some elements of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics) have been renamed. The dashboard layout and capabilities remain the same.
+
+On the **Token usage** tab, the **Conversational Analytics API** value in the **Feature** column and the **Feature Name** filter has been renamed to **Looker API**. This value refers to the Conversational Analytics methods for the Looker API.
+
+This rename might cause a breaking change if you built custom dashboards that reference the former **Feature** column or **Feature Name** filter value.
+
+Feature
+
+The ability to [generate a summary of an Explore by using Gemini assistance](https://docs.cloud.google.com/looker/docs/explore-summary-gemini) is now generally available.
+
+Feature
+
+The [bullet chart](https://docs.cloud.google.com/looker/docs/bullet-options) visualization type is now generally available. Bullet charts let you evaluate a single primary metric's performance as one or more bars and mark your goal with a target line. You can plot both against shaded background ranges that represent performance thresholds, such as "poor," "satisfactory," and "good." For more information, see [Bullet chart options](https://docs.cloud.google.com/looker/docs/bullet-options).
+
+Feature
+
+Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
+
+Feature
+
+The **Table Row Grouping** feature and the [**Grouping** menu options](https://docs.cloud.google.com/looker/docs/table-options#grouping-menu-options) are now generally available. The **Grouping** menu options let you display and customize the appearance of table chart data hierarchically in groups.
+
+Feature
+
+The [**Visualization Assistant**](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) is now generally available.
+
+Feature
+
+Two new legacy features, [**Use Legacy Explore and Merge Query Experience**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience) and [**Use Legacy Explore and Merge Query Experience for Embed**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience_for_embed), are now available for Looker (original) and Looker (Google Cloud core) instances. These features let administrators configure Explores and merged queries to open in the classic experience by default across an instance or in embedded contexts. For more information, see [Legacy feature schedule](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule).
+
+Feature
+
+Looker now includes a new [histogram chart](https://docs.cloud.google.com/looker/docs/histogram-options) visualization option. A histogram chart is a graphical representation of the data distribution of an attribute. A histogram creates intervals (bins) and counts how many values fall into each bin.
+
+Feature
+
+The [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) chart type is now generally available. The KPI (Single Value) chart type replaces the Single Value chart type.
+
+Feature
+
+The new Looker Explore and merge query experience is now generally available and is the default interface for [Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and for [joining data from multiple queries](https://docs.cloud.google.com/looker/docs/merged-results).
+
+Feature
+
+When you enter values in a string filter on dashboards, Looks, or Explores, clicking **Done** or clicking outside the input field no longer creates a filter chip from uncommitted text. To create a filter chip, press Enter, enter a comma (`,`), or paste values into the input field.
+
+Feature
+
+The new [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups) lets you [organize related tiles into collapsible containers](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#organizing_tiles_into_groups) for improved visual organization. You can move, duplicate, or delete multiple tiles as a single unit on dashboards that use the newspaper layout. This update also adds LookML support for programmatically managing tile groups.
+
+Feature
+
+Now available in [preview](https://cloud.google.com/products#product-launch-stages), the [**Release Changelog**](https://docs.cloud.google.com/looker/docs/release-changelog) gives Looker users and administrators real-time visibility into the features, behavioral changes, and bug fixes that are available for their instance.
+
+Looker (Google Cloud core) only changes
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.22**
+  * Latest version in the No Channel channel: **Looker 26.22**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
 
 ## October 27, 2026
 
@@ -138,13 +227,15 @@ Announcement
 
 The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
 
-  * Latest version in the Regular channel: **Looker 26.20**
+  * Latest version in the Regular channel: **Looker 26.18**
 
 
 
 The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
 
 **Note:** This item was added on October 23, 2026.
+
+**Note:** This item was updated on October 29, 2026, to correct the latest version in the Regular channel to Looker 26.18.
 
 ## October 15, 2026
 

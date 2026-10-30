@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/whats-new/
 title: What's new in the Well-Architected Framework \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:42.153574+00:00
+fetched_at: 2026-10-30T05:50:42.396964+00:00
 ---
 
 # What's new in the Well-Architected Framework  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,9 +19,23 @@ Send feedback
 
 #  What's new in the Well-Architected Framework Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-10-13 UTC
+Last reviewed 2026-10-29 UTC
 
 This document lists significant changes to the Google Cloud Well-Architected Framework.
+
+## October 29, 2026
+
+  * AI and ML perspective: 
+    * Cost optimization: Updated [Implement the data governance framework](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization#implement_the_data_governance_framework) to use Knowledge Catalog data domains, data products, and catalogs.
+    * Performance optimization: Updated [Use specialized infrastructure for prediction](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#specialized-components-prediction) to use Bigtable for online serving and Vector Search.
+
+
+
+## October 28, 2026
+
+  * Security, privacy, and compliance pillar: Updated [Use explainable AI](https://docs.cloud.google.com/architecture/framework/security/use-ai-securely-and-responsibly#use-vertex-xai-name) with information about explainability techniques such as feature attributions in BigQuery ML and tabular explanations in Gemini Enterprise Agent Platform.
+
+
 
 ## October 13, 2026
 
@@ -255,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

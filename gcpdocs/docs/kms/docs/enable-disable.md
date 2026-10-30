@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/enable-disable/
 title: Enable and disable key versions \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T11:14:43.071734+00:00
+fetched_at: 2026-10-30T05:51:48.913719+00:00
 ---
 
 # Enable and disable key versions  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ In Cloud KMS, the cryptographic key material that you use to encrypt, decrypt, s
 
 This document shows how to disable a key version. During the time that a key is disabled, data that was encrypted with the key can't be accessed. To access the data, you can re-enable the key version.
 
-Unless otherwise specified in the [Service Health dashboard](https://status.cloud.google.com/), disabling a key version is typically [consistent](https://docs.cloud.google.com/kms/docs/consistency) within one minute. Enabling a key version is nearly instant. You can also manage access to a key version using Identity and Access Management (IAM). IAM operations are consistent within seconds. For more information, see [Using IAM](https://docs.cloud.google.com/kms/docs/iam).
+Unless otherwise specified in the [Service Health dashboard](https://status.cloud.google.com/), disabling a key version is typically [consistent](https://docs.cloud.google.com/kms/docs/consistency) within one minute. Enabling a key version is nearly instant. You can also manage access to a key version using Identity and Access Management (IAM). IAM operations typically take effect within seconds or minutes. For more information, see [Using IAM](https://docs.cloud.google.com/kms/docs/iam).
 
 **Caution:** Disabling a key version that is required to start a container or instance can result in service outages. It is the customer's responsibility to ensure that a key version is safe to disable. Google is not responsible for outages, loss of data, or compliance issues which result from a customer disabling a key version.
 
@@ -369,7 +369,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the key version name.
     key_version_name = client.[crypto_key_version_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1-KeyManagementService-Paths.html) project:            project_id,
@@ -740,7 +740,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the key version name.
     key_version_name = client.[crypto_key_version_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1-KeyManagementService-Paths.html) project:            project_id,
@@ -774,6 +774,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

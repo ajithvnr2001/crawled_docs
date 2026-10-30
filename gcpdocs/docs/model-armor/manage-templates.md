@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/manage-templates/
 title: Create and manage templates \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:39:02.165687+00:00
+fetched_at: 2026-10-30T06:00:05.280314+00:00
 ---
 
 # Create and manage templates  |  Model Armor  |  Google Cloud Documentation
@@ -697,6 +697,75 @@ To run this code, first [set up a Python development environment](https://docs.c
     # Print the new template name.
     print(f"Created template: {response.name}")
     
+
+###  Terraform 
+
+To create a Model Armor template declaratively across single or multi-project environments, configure the [`google_model_armor_template`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/model_armor_template) resource using the `google` provider (`>= 6.13.0`):
+    
+    
+    resource "google_model_armor_template" "template" {
+      project     = PROJECT_ID
+      location    = LOCATION
+      template_id = TEMPLATE_ID
+    
+      filter_config {
+        rai_settings {
+          rai_filters {
+            filter_type      = "HATE_SPEECH"
+            confidence_level = "MEDIUM_AND_ABOVE"
+          }
+          rai_filters {
+            filter_type      = "HARASSMENT"
+            confidence_level = "HIGH"
+          }
+          rai_filters {
+            filter_type      = "DANGEROUS"
+            confidence_level = "MEDIUM_AND_ABOVE"
+          }
+          rai_filters {
+            filter_type      = "SEXUALLY_EXPLICIT"
+            confidence_level = "MEDIUM_AND_ABOVE"
+          }
+        }
+    
+        sdp_settings {
+          basic_config {
+            filter_enforcement = "ENABLED"
+          }
+        }
+    
+        pi_and_jailbreak_filter_settings {
+          filter_enforcement = "ENABLED"
+          confidence_level   = "HIGH"
+        }
+    
+        malicious_uri_filter_settings {
+          filter_enforcement = "ENABLED"
+        }
+      }
+    
+      template_metadata {
+        log_template_operations = true
+        log_sanitize_operations = true
+        enforcement_type        = "INSPECT_AND_BLOCK"
+    
+        multi_language_detection {
+          enable_multi_language_detection = true
+        }
+      }
+    }
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project where you create the Model Armor template, such as a central security or governance project. If the template is in a different project from the project that contains the agent or Agent Gateway and you use VPC Service Controls, both projects must be in the same service perimeter.
+
+  * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template. When governing traffic with Agent Gateway, create the template in the same region as the gateway.
+
+  * `TEMPLATE_ID`: a unique ID for the template.
+
+
+
 
 ### Set data residency compliance
 
@@ -1987,6 +2056,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

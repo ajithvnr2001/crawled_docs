@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords/list/
 title: Method: projects.locations.brands.sessionRecords.list \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:31.371325+00:00
+fetched_at: 2026-10-30T06:00:13.891496+00:00
 ---
 
 # Method: projects.locations.brands.sessionRecords.list  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -54,16 +54,25 @@ Parameters
 `pageToken` |  `string` Optional. A page token, received from a previous `sessionRecords.list` call. Provide this to retrieve the subsequent page.  
 `filter` |  `string` Optional. Filter expression based on AIP-160. This field allows filtering session records based on various attributes.Supported Filter Fields:
 
-  * session_id (String): The ID of the session. Operators: = Example: `session_id = "session-123"`
+  * sessionId (String): The ID of the session. Operators: = Example: `sessionId = "session-123"`
   * storeId (String): The ID of the store. Operators: =, != Example: `storeId = "store-123"`
   * storeIds (String): A comma-separated list of store IDs. Operators: =, !=, : Example: `storeIds = "store-123,store-456"`
+  * laneId (String): The ID of the lane. Operators: =, != Example: `laneId = "lane-1"`
   * sessionStartTime (Timestamp): The start time of the session. Timestamps expect an RFC-3339 formatted string (e.g. 2012-04-21T11:30:00-04:00). UTC offsets are supported Operators: =, !=,
 
 > , >=, <, <= Example: `sessionStartTime >= "2025-10-01T00:00:00Z"`
 
+  * start_time_of_day (String): The start time of day for the session in HH:MM format (24-hour). Operators: >=, <= Example: `start_time_of_day >= "09:00"`
+  * end_time_of_day (String): The end time of day for the session in HH:MM format (24-hour). Operators: >=, <= Example: `end_time_of_day <= "17:00"`
+  * timeZone (String): The IANA timezone name (or UTC offset) used when evaluating start_time_of_day and end_time_of_day. Defaults to UTC if unspecified. Operators: = Example: `timeZone = "America/New_York"`
   * outcomeLabel (String): The final outcome label of the session. Operators: =, != Example: `outcomeLabel = "SUCCESS"`
   * outcomeGroupLabel (String): The group label for the session outcome. Operators: =, != Example: `outcomeGroupLabel = "SUCCESS"`
   * predictedFailureCategory (String): The predicted failure category for the session from the intervention analysis. Operators: =, != Example: `predictedFailureCategory = "Menu"`
+  * channelType (String): The type of channel used for the session. Operators: =, != Example: `channelType = "CHANNEL_TYPE_MOBILE_APP"`
+  * environment (String): The execution environment of the session. Operators: =, != Example: `environment = "preprod"`
+  * trafficType (String): The traffic source type of the session. Operators: =, != Example: `trafficType = "CONSOLE"`
+  * experiment_study_name (String): The name of the experiment study. Operators: = Example: `experiment_study_name = "menu_study"`
+  * experiment_arm_name (String): The name of the experiment arm. Operators: = Example: `experiment_arm_name = "treatment"`
   * agent_utterances (String): Text spoken by the agent. Operator: : (HAS token/Full Text Search) Example: `agent_utterances:"anything else"`
   * user_utterances (String): Text spoken by the user. Operator: : (HAS token/Full Text Search) Example: `user_utterances:"burger"`
 
@@ -111,6 +120,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

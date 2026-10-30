@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/emulator/
 title: Emulate Spanner locally \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:04.890230+00:00
+fetched_at: 2026-10-30T06:00:04.532555+00:00
 ---
 
 # Emulate Spanner locally  |  Google Cloud Documentation
@@ -218,7 +218,7 @@ PHP | [v1.25.0+](https://github.com/googleapis/google-cloud-php/releases)
 Python | [v1.15.0+](https://github.com/googleapis/google-cloud-python/releases)  
 Ruby | [v1.13.0+](https://github.com/googleapis/google-cloud-ruby/releases)  
   
-### Additional instructions for C
+### Additional instructions for C#
 
 For the C# client library, specify the [`emulatordetection`](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.EmulatorDetection) option in the [connection string](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Data/latest/connection_string). Unlike the other client libraries, C# ignores the `SPANNER_EMULATOR_HOST` environment variable by default. The following example shows the connection string:
     
@@ -234,6 +234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

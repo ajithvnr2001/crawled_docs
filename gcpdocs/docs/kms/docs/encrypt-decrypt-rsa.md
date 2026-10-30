@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/encrypt-decrypt-rsa/
 title: Encrypting and decrypting data with an asymmetric key \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:48.479140+00:00
+fetched_at: 2026-10-30T05:51:49.782120+00:00
 ---
 
 # Encrypting and decrypting data with an asymmetric key  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -21,25 +21,25 @@ Send feedback
 
 #  Encrypting and decrypting data with an asymmetric key Stay organized with collections  Save and categorize content based on your preferences. 
 
-This topic provides information about creating and using a key for asymmetric encryption using an RSA key. If you want to use asymmetric keys for creating and validating signatures, see [Creating and validating digital signatures](https://docs.cloud.google.com/kms/docs/create-validate-signatures). If you want to use symmetric keys for encryption and decryption, see [Encrypting and decrypting data](https://docs.cloud.google.com/kms/docs/encrypt-decrypt).
+This document provides information about creating and using a key for asymmetric encryption using an RSA key. If you want to use asymmetric keys for creating and validating signatures, see [Creating and validating digital signatures](https://docs.cloud.google.com/kms/docs/create-validate-signatures). If you want to use symmetric keys for encryption and decryption, see [Encrypting and decrypting data](https://docs.cloud.google.com/kms/docs/encrypt-decrypt).
 
 Asymmetric encryption uses the public key portion of the asymmetric key and decryption uses the private key portion of the key. Cloud Key Management Service provides functionality to retrieve the public key and functionality to decrypt ciphertext that was encrypted with the public key. Cloud KMS does not allow direct access to the private key.
 
 ## Before you begin
 
-  * This topic provides examples that run at the command line. To simplify using the examples, use [Cloud Shell](https://docs.cloud.google.com/shell). The encryption example uses [OpenSSL](https://www.openssl.org/), which is pre-installed on Cloud Shell.
+  * This document provides examples that run at the command line. To simplify using the examples, use [Cloud Shell](https://docs.cloud.google.com/shell). The encryption example uses [OpenSSL](https://www.openssl.org/), which is pre-installed on Cloud Shell.
 
-  * [Create an asymmetric key](https://docs.cloud.google.com/kms/docs/creating-asymmetric-keys) with [key purpose](https://docs.cloud.google.com/kms/docs/algorithms#key_purposes) of `ASYMMETRIC_DECRYPT`. To see which algorithms are supported for key purpose `ASYMMETRIC_DECRYPT`, see [Asymmetric encryption algorithms](https://docs.cloud.google.com/kms/docs/algorithms#asymmetric_encryption_algorithms). **You cannot follow this procedure with a key with purpose of`ASYMMETRIC_SIGN`.**
+  * [Create an asymmetric key](https://docs.cloud.google.com/kms/docs/creating-asymmetric-keys) with [key purpose](https://docs.cloud.google.com/kms/docs/algorithms#key_purposes) of `ASYMMETRIC_DECRYPT`. To see which algorithms are supported for key purpose `ASYMMETRIC_DECRYPT`, see [Asymmetric encryption algorithms](https://docs.cloud.google.com/kms/docs/algorithms#asymmetric_encryption_algorithms). **You can't follow this procedure with a key with purpose of`ASYMMETRIC_SIGN`.**
 
-  * If you are going to use the command line, install [OpenSSL](https://www.openssl.org/) if you do not already have it. If you use [Cloud Shell](https://docs.cloud.google.com/shell), OpenSSL is already installed.
-
-
-
-  * **macOS users:** The version of OpenSSL installed on macOS does not support the flags used to decrypt data in this topic. To follow these steps on macOS, install OpenSSL from [Homebrew](https://brew.sh/). 
+  * If you are going to use the command line, install [OpenSSL](https://www.openssl.org/) if you don't already have it. If you use [Cloud Shell](https://docs.cloud.google.com/shell), then OpenSSL is already installed.
 
 
 
-## Access control to the key
+  * **macOS users:** The version of OpenSSL installed on macOS doesn't support the flags that are used to decrypt data in this topic. To follow these steps on macOS, install OpenSSL from [Homebrew](https://brew.sh/). 
+
+
+
+## Control access to the key
 
   * For a user or service that will retrieve the public key, grant the `cloudkms.cryptoKeyVersions.viewPublicKey` permission on the asymmetric key. The public key is required for encrypting data.
 
@@ -48,7 +48,7 @@ Asymmetric encryption uses the public key portion of the asymmetric key and decr
 
 
 
-Learn about permissions and roles in Cloud KMS at [Permissions and Roles](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles).
+For more information about permissions and roles in Cloud KMS, see [Permissions and Roles](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles).
 
 ## Encrypt data
 
@@ -65,36 +65,44 @@ This sample requires [OpenSSL](https://www.openssl.org) to be installed on your 
 Download the public key:
     
     
-    gcloud kms keys versions get-public-key key-version \
-        --key key \
-        --keyring key-ring \
-        --location location  \
-        --output-file public-key-path
+    gcloud kms keys versions get-public-key KEY_VERSION \
+        --key KEY_NAME \
+        --keyring KEY_RING \
+        --location LOCATION  \
+        --output-file PUBLIC_KEY_PATH
     
 
-Replace key-version with the key version that has the public key. Replace key with the name of the key. Replace key-ring with the name of the key ring where the key is located. Replace location with the Cloud KMS location for the key ring. Replace public-key-path with the location to save the public key on the local system.
+Replace the following:
+
+  * `KEY_VERSION`: the key version of the asymmetric key pair that you want to download the public key for.
+  * `KEY_NAME`: the name of the key.
+  * `KEY_RING`: the key ring that contains the key.
+  * `LOCATION`: the location of the key ring.
+  * `PUBLIC_KEY_PATH`: the path where you want to save the public key.
+
+
 
 ### Encrypt data
 
 Encrypt data using the public key you just downloaded and save the output to a file:
     
     
-    openssl pkeyutl -in cleartext-data-input-file \
+    openssl pkeyutl -in INPUT_PATH \
         -encrypt \
         -pubin \
-        -inkey public-key-path \
+        -inkey PUBLIC_KEY_PATH \
         -pkeyopt rsa_padding_mode:oaep \
-        -pkeyopt rsa_oaep_md:sha256 \
-        -pkeyopt rsa_mgf1_md:sha256 \
-        > encrypted-data-output-file
+        -pkeyopt rsa_oaep_md:HASH_SIZE \
+        -pkeyopt rsa_mgf1_md:HASH_SIZE \
+        > OUTPUT_PATH
     
 
-  * Replace cleartext-data-input-file with the path and file name to encrypt.
+Replace the following:
 
-  * Replace public-key-path with the path and file name where you downloaded the public key.
-
-  * Replace encrypted-data-output-file with the path and file name to save the encrypted data.
-
+  * `INPUT_PATH`: the path to the plaintext data that you want to encrypt.
+  * `PUBLIC_KEY_PATH`: the path to the public key.
+  * `HASH_SIZE`: the size of the hash—for example, `256` for SHA256.
+  * `OUTPUT_PATH`: the path where you want to save the encrypted data.
 
 
 
@@ -488,23 +496,28 @@ To use Cloud KMS on the command line, first [Install or upgrade to the latest ve
     
     
     gcloud kms asymmetric-decrypt \
-        --version key-version \
-        --key key \
-        --keyring key-ring \
-        --location location  \
-        --ciphertext-file file-path-with-encrypted-data \
-        --plaintext-file file-path-to-store-plaintext
+        --version KEY_VERSION \
+        --key KEY_NAME \
+        --keyring KEY_RING \
+        --location LOCATION  \
+        --ciphertext-file INPUT_PATH \
+        --plaintext-file OUTPUT_PATH
     
 
-Replace key-version with the key version, or omit the `--version` flag to detect the version automatically. Replace key with the name of the key to use for decryption. Replace key-ring with the name of the key ring where the key will be located. Replace location with the Cloud KMS location for the key ring. Replace file-path-with-encrypted-data and file-path-to-store-plaintext with the local file paths for reading the encrypted data and saving the decrypted output.
+Replace the following:
+
+  * `KEY_VERSION`: the key version of the asymmetric key pair that was used to encrypt the data. You can omit the `--version` flag to detect the version automatically.
+  * `KEY_NAME`: the name of the key that was used to encrypt the data.
+  * `KEY_RING`: the name of the key ring that contains the key.
+  * `LOCATION`: the location of the key ring.
+  * `INPUT_PATH`: the path to the file that contains the ciphertext.
+  * `OUTPUT_PATH`: the path to the file that will contain the plaintext.
+
+
 
 For information on all flags and possible values, run the command with the `--help` flag.
 
-To display the contents of the decrypted file, open it in your editor or terminal. Here is an example that shows the file contents using the `cat` command:
-    
-    
-    cat ./my-file.txt
-    
+To display the contents of the decrypted file, open it in a text editor or use the `cat` command to view it in a terminal.
 
 ### C#
 
@@ -856,7 +869,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the key version name.
     key_version_name = client.[crypto_key_version_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1-KeyManagementService-Paths.html) project:            project_id,
@@ -883,18 +896,18 @@ You can only decrypt data with a key with [key purpose](https://docs.cloud.googl
 
 ### `invalid parameter` when decrypting on macOS
 
-The version of OpenSSL installed on macOS does not support the flags used to decrypt data in this topic. To follow these steps on macOS, install OpenSSL from [Homebrew](https://brew.sh/). 
+The version of OpenSSL installed on macOS doesn't support the flags that are used to decrypt data in this topic. To follow these steps on macOS, install OpenSSL from [Homebrew](https://brew.sh/). 
 
 ## `data too large for key size`
 
-The maximum payload size for RSA decryption depends on the key size and padding algorithm. All RSA encryption formats used by Cloud KMS use OAEP, standardized in [RFC 2437](https://tools.ietf.org/html/rfc2437#section-7.1). As a quick reference, the following algorithms support the following maximum payload sizes (`maxMLen`, in bytes):
+The maximum payload size for RSA decryption depends on the key size and padding algorithm. All RSA encryption formats used by Cloud KMS use OAEP, standardized in [RFC 2437](https://tools.ietf.org/html/rfc2437#section-7.1). As a quick reference, the following algorithms support the following maximum payload sizes.
 
-Algorithm | Parameters | Maximum message length  
+Algorithm | Parameters | Maximum message length (bytes)  
 ---|---|---  
-RSA_DECRYPT_OAEP_2048_SHA256 | k = 256; hLen = 32; | maxMLen = 190  
-RSA_DECRYPT_OAEP_3072_SHA256 | k = 384; hLen = 32; | maxMLen = 318  
-RSA_DECRYPT_OAEP_4096_SHA256 | k = 512; hLen = 32; | maxMLen = 446  
-RSA_DECRYPT_OAEP_4096_SHA512 | k = 512; hLen = 64; | maxMLen = 382  
+RSA_DECRYPT_OAEP_2048_SHA256 | k = 256; hLen = 32; | 190  
+RSA_DECRYPT_OAEP_3072_SHA256 | k = 384; hLen = 32; | 318  
+RSA_DECRYPT_OAEP_4096_SHA256 | k = 512; hLen = 32; | 446  
+RSA_DECRYPT_OAEP_4096_SHA512 | k = 512; hLen = 64; | 382  
   
 Asymmetric encryption is not recommended for messages of varying lengths that may be larger than these limits. Consider using hybrid encryption instead. [Tink](https://github.com/google/tink) is a cryptographic library that uses this approach.
 
@@ -902,6 +915,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

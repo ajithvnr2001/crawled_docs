@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/v6e/
 title: TPU v6e \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:41.093751+00:00
+fetched_at: 2026-10-30T06:00:08.886348+00:00
 ---
 
 # TPU v6e  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ With a 256-chip footprint per Pod, v6e shares many similarities with [v5e](https
 
 ## System architecture
 
-Each v6e chip contains one TensorCore. Each TensorCore has 2 matrix-multiply units (MXU), a vector unit, and a scalar unit. The following table shows the key specifications and their values for TPU v6e.
+Each v6e chip contains one TensorCore and connects to the host through a PCIe Gen5 interface. Each TensorCore contains two 256x256 matrix-multiply units (MXU), a 128x8 vector processing unit (VPU) with 128 lanes x 8 sublanes, two cross-lane units (XLUs), and a scalar processing unit (SPU). The following table shows the key specifications and their values for TPU v6e.
 
 Specification | Values  
 ---|---  
@@ -47,6 +47,7 @@ All-reduce bandwidth per Pod | 102.4 TB/s
 Bisection bandwidth per Pod | 3.2 TB/s  
 Per-host NIC configuration | 4 x 200 Gbps NIC  
 Data center network bandwidth per Pod  | 25.6 Tbps  
+Host interface | PCIe Gen5 x8 per chip  
 Special features | [SparseCore](https://docs.cloud.google.com/tpu/docs/system-architecture-tpu-vm#sparsecore)  
 **Note:** The TPU system and `libtpu` runtime reserve part of physical high-bandwidth memory (HBM) for reliability and runtime overhead. Tools and frameworks such as `tpu-info`, JAX, and PyTorch report 31.25 GiB of usable HBM per chip, which is lower than nominal capacity.
 
@@ -105,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

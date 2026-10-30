@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/ci-view-results/
 title: Viewing the results of a CI run \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:04.502209+00:00
+fetched_at: 2026-10-30T05:51:47.144951+00:00
 ---
 
 # Viewing the results of a CI run  |  Looker  |  Google Cloud Documentation
@@ -35,11 +35,12 @@ The **Runs** page lists the CI runs for the LookML project, along with the follo
     * **Error** : One or more of the validators in the CI suite failed to run.
     * **Cancelled** : The CI run was cancelled.
   * **Suite** : The name of the CI suite.
-  * **Trigger** : How the suite was triggered (manual, pull request, schedule, or API).
+  * **Trigger** : How the suite was triggered (manual, pull request, project import, dbt Cloud, schedule, or API). For runs triggered by a pull request from an imported project (**Project Import**), you can click the trigger value to view the upstream project, branch, and a link to the pull request.
   * **Git state** : Information about the branch or commit that was validated in the run: 
     * For manual runs, the value is either "Production" or the name of the development branch.
-    * For runs triggered by a schedule, the value is always "Production."
-    * For runs triggered by a pull request, the value is a hyperlink to the commit SHA of the pull request. Click the commit SHA hyperlink to open the pull request in another browser tab.
+    * For runs that are triggered by a schedule, the value is always "Production."
+    * For runs that are triggered by a pull request, the value is a hyperlink to the commit SHA of the pull request. Click the commit SHA hyperlink to open the pull request in another browser tab.
+    * For runs that are triggered by a pull request from an imported project, the value shows "Production" for the downstream (spoke) project, along with a hyperlink to the commit SHA of the imported upstream (hub) project's pull request.
   * **Triggered at** : The time that the CI run was initiated.
 
 
@@ -52,10 +53,10 @@ On the **Runs** page, click the **View Run** button for a CI run to see its vali
 
 The run results page for a CI suite shows the following information:
 
-  1. The LookML project and Git details that the run validated (and the commit, for runs triggered by a pull request).
+  1. The LookML project and Git details that the run validated (and the commit, for runs that are triggered by a pull request).
   2. Information about the CI run: 
      * How and when the run was triggered.
-     * The Looker user who initiated the run (for manual runs) or the branch and commit (for runs triggered by a pull request).
+     * The Looker user who initiated the run (for manual runs), the branch and commit (for runs that are triggered by a pull request), or the **Project Imports** details showing the pinned upstream project, branch, and commit (for runs that are triggered by a pull request from an imported project).
      * How long it took the CI run to be completed.
      * How long the run was waiting in the queue before beginning.
   3. For validators that return errors, the results page shows each error, along with the error message and links to the LookML, Explore, or content so that you can test and correct each error.
@@ -81,6 +82,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

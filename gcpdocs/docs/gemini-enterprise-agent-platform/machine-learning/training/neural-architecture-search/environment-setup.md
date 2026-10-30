@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/environment-setup/
 title: Set up your environment \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:07:35.471695+00:00
+fetched_at: 2026-10-30T05:50:15.715941+00:00
 ---
 
 # Set up your environment  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -169,7 +169,7 @@ If you don't have enough quota and try to launch a job which needs more resource
 
 In some cases, if multiple jobs for the same project were started at the same time and the quota isn't sufficient for all of them, then one of the jobs remain in queued state and won't start training. In this case, cancel the queued job and either request more quota or wait until the previous job finishes.
 
-You can request the additional device quota from the **Quotas** page. You can apply filters to find the desired quota to edit: ![Filter Quota](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/filter_quota.png)
+You can request the additional device quota from the **Quotas** page. You can apply filters to find the desired quota to edit: ![Filter Quota](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/filter_quota.png)
 
   1. For **Service** , select **Agent Platform API**.
   2. For **region** , select the region you want to filter on.
@@ -189,19 +189,19 @@ You must set up an [artifact registry](https://cloud.google.com/artifact-registr
 
 Go to the **Artifact Registry** page for your project. If not already enabled, enable the artifact registry API for your project first:
 
-![Enable artifact registry](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/enable_artifact_registry.png)
+![Enable artifact registry](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/enable_artifact_registry.png)
 
 Once enabled, start creating a new repository by clicking **CREATE REPOSITORY** :
 
-![Create artifact registry](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/create_artifact_registry.png)
+![Create artifact registry](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/create_artifact_registry.png)
 
 Choose **Name** as **nas** , **Format** as **Docker** , and **Location type** as **Region**. For **Region** , select the location where you run your jobs and then click **CREATE**.
 
-![Artifact registry setting](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/artifact_registry_setting.png)
+![Artifact registry setting](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/artifact_registry_setting.png)
 
 This should create your desired docker repository as shown below:
 
-![Artifact registry created](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/artifact_registry_created.png)
+![Artifact registry created](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/artifact_registry_created.png)
 
 You also need to set up authentication to push dockers to this repository. The local environment set up section below contains this step.
 
@@ -297,6 +297,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

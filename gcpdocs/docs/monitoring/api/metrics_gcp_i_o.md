@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o/
 title: Google Cloud metrics: I through O \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:19.167225+00:00
+fetched_at: 2026-10-30T05:42:17.212912+00:00
 ---
 
 # Google Cloud metrics: I through O  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### iam
 
@@ -618,7 +618,7 @@ Streaming state
   
 ### loadbalancing
 
-Metrics for [Cloud Load Balancing](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview). Launch stages of these metrics: BETA GA
+Metrics for [Cloud Load Balancing](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview). Launch stages of these metrics: GA
 
 The "metric type" strings in this table must be prefixed with `loadbalancing.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -628,7 +628,7 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`application_lb/backend_latencies` BETA ** _(project)_**   
+`application_lb/backend_latencies` GA ** _(project)_**   
 Backend latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _A distribution of the latency calculated from when the request was sent by the Application Load Balancer proxy to the backend until the proxy received from the backend the last byte of response. For Service Extensions, this value represents the sum of latencies of each ProcessingRequest/ProcessingResponse pair between the load balancer and the extension backend._   
@@ -642,7 +642,7 @@ Backend latencies
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/backend_request_bytes_count` BETA ** _(project)_**   
+`application_lb/backend_request_bytes_count` GA ** _(project)_**   
 Backend request bytes count per application load balancer   
 `DELTA`, `INT64`, `By`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _The number of bytes sent as requests from the application load balancer to backends. For Service Extensions, this value represents the total number of bytes sent from the load balancer to the extension backend._   
@@ -656,7 +656,7 @@ Backend request bytes count per application load balancer
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/backend_request_count` BETA ** _(project)_**   
+`application_lb/backend_request_count` GA ** _(project)_**   
 Backend request count per application load balancer   
 `DELTA`, `INT64`, `1`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _The number of requests served by backends of the application load balancer. For Service Extensions, this value represents the number of gRPC streams between the load balancer and the extension backend._   
@@ -670,7 +670,7 @@ Backend request count per application load balancer
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/backend_response_bytes_count` BETA ** _(project)_**   
+`application_lb/backend_response_bytes_count` GA ** _(project)_**   
 Backend response bytes count per application load balancer   
 `DELTA`, `INT64`, `By`   
 **[gce_backend_service](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_backend_service)** |  _The number of bytes sent as response from backends to the application load balancer. For Service Extensions, this value represents the total number of bytes received by the load balancer from the extension backend._   
@@ -684,7 +684,7 @@ Backend response bytes count per application load balancer
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/request_bytes_count` BETA ** _(project)_**   
+`application_lb/request_bytes_count` GA ** _(project)_**   
 Request bytes   
 `DELTA`, `INT64`, `By`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _The number of request bytes received by the application load balancer. For Service Extensions, this value represents the total number of bytes sent from the load balancer to the extension backend._   
@@ -698,7 +698,7 @@ Request bytes
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/request_count` BETA ** _(project)_**   
+`application_lb/request_count` GA ** _(project)_**   
 Request count   
 `DELTA`, `INT64`, `1`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _The number of requests served by the application load balancer._   
@@ -712,7 +712,7 @@ Request count
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/response_bytes_count` BETA ** _(project)_**   
+`application_lb/response_bytes_count` GA ** _(project)_**   
 Response bytes   
 `DELTA`, `INT64`, `By`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _The number of bytes sent as responses from the application load balancer to clients._   
@@ -726,7 +726,7 @@ Response bytes
 `load_balancing_scheme`: Load balancing scheme used by the Application Load Balancer: 'EXTERNAL_MANAGED' or 'INTERNAL_MANAGED'.   
 `client_country`: Country of the client where the traffic originated from, such as 'United States' or 'Germany'.   
 `proxy_continent`: Continent of the proxy where the traffic originated from, such as 'North America' or 'Europe'.   
-`application_lb/total_latencies` BETA ** _(project)_**   
+`application_lb/total_latencies` GA ** _(project)_**   
 Total latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 **[gce_forwarding_rule](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_forwarding_rule)** |  _A distribution of the latency calculated from when the request was received by the proxy until the proxy got ACK from client on last response byte._   
@@ -1713,7 +1713,7 @@ AD Domain Trust Health
   
 ### managedkafka
 
-Metrics from [Google Cloud Managed Service for Apache Kafka](https://docs.cloud.google.com/managed-kafka/docs). Launch stages of these metrics: GA
+Metrics from [Google Cloud Managed Service for Apache Kafka](https://docs.cloud.google.com/managed-kafka/docs). Launch stages of these metrics: BETA GA
 
 The "metric type" strings in this table must be prefixed with `managedkafka.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -1723,6 +1723,26 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
+`broker/failed_isr_update_count` BETA ** _(project)_**   
+Failed ISR Update Count   
+`DELTA`, `INT64`, `{update}`   
+**[managedkafka.googleapis.com/Cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/Cluster)** |  _The total number of failed ISR updates, from MBean kafka.server:type=ReplicaManager,name=FailedIsrUpdatesPerSec. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`broker_index`: The index of the broker.   
+`broker/isr_expand_count` BETA ** _(project)_**   
+ISR Expand Count   
+`DELTA`, `INT64`, `{replica}`   
+**[managedkafka.googleapis.com/Cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/Cluster)** |  _The total number of ISR expands, from MBean kafka.server:type=ReplicaManager,name=IsrExpandsPerSec. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`broker_index`: The index of the broker.   
+`broker/isr_shrink_count` BETA ** _(project)_**   
+ISR Shrink Count   
+`DELTA`, `INT64`, `{replica}`   
+**[managedkafka.googleapis.com/Cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/Cluster)** |  _The total number of ISR shrinks, from MBean kafka.server:type=ReplicaManager,name=IsrShrinksPerSec. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`broker_index`: The index of the broker.   
+`broker/producer_ids` BETA ** _(project)_**   
+Producer IDs   
+`GAUGE`, `INT64`, `{producer_id}`   
+**[managedkafka.googleapis.com/Cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/Cluster)** |  _Total number of active Producer IDs currently being tracked in memory across all partition replicas on the broker. From MBean kafka.server:type=ReplicaManager,name=ProducerIdCount. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`broker_index`: The index of the broker.   
 `broker/under_min_isr_partitions` GA ** _(project)_**   
 Under-MinISR Partitions   
 `GAUGE`, `INT64`, `{partition}`   
@@ -5312,6 +5332,8 @@ DNS threat log count
 `inspected_project_id`: The ID of GCP project associated with Protective DNS.   
 `severity`: The severity of threat logs (info, low, medium, high, critical).   
 `type`: The type of threat logs as a string.   
+`threat_category`: The broad category of the detected threat (for example, MalwareC2, MalwareC2DGA, DNS_Tunnel, or Phishing).   
+`threat_id`: The unique threat identifier in _ format (for example, MalwareC2_Azorult or MalwareC2DGA_LookalikeDGAC).   
 `dnsthreatdetector/sent_dns_log_count` BETA ** _(project)_**   
 Inspected log count   
 `CUMULATIVE`, `INT64`, `bytes`   
@@ -5479,19 +5501,19 @@ Packets sent to partner
 `DELTA`, `INT64`, `1`   
 **[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of packets sent by the Partner SSE Gateway to the partner._   
 `zone`: The zone from which the gateway sent packets.   
-`quota/firewall_associations_per_endpoint/exceeded` BETA ** _(project)_**   
+`quota/firewall_associations_per_endpoint/exceeded` GA ** _(project)_**   
 Firewall Associations per Endpoint. quota exceeded error   
 `DELTA`, `INT64`, `1`   
 **[networksecurity.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric networksecurity.googleapis.com/firewall_associations_per_endpoint. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
 `endpoint`: The endpoint associated with the Firewall Association.   
-`quota/firewall_associations_per_endpoint/limit` BETA ** _(project)_**   
+`quota/firewall_associations_per_endpoint/limit` GA ** _(project)_**   
 Firewall Associations per Endpoint. quota limit   
 `GAUGE`, `INT64`, `1`   
 **[networksecurity.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/Location)** |  _Current limit on quota metric networksecurity.googleapis.com/firewall_associations_per_endpoint. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
 `endpoint`: The endpoint associated with the Firewall Association.   
-`quota/firewall_associations_per_endpoint/usage` BETA ** _(project)_**   
+`quota/firewall_associations_per_endpoint/usage` GA ** _(project)_**   
 Firewall Associations per Endpoint. quota usage   
 `GAUGE`, `INT64`, `1`   
 **[networksecurity.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/Location)** |  _Current usage on quota metric networksecurity.googleapis.com/firewall_associations_per_endpoint. After sampling, data is not visible for up to 150 seconds._   
@@ -5807,7 +5829,8 @@ Proxy network connection count
 `apphub_destination_workload_criticality_type`: AppHub destination workload criticality type.   
 `apphub_destination_workload_environment_type`: AppHub destination workload environment type.   
 `apphub_destination_workload_id`: AppHub destination workload ID.   
-`gen_ai.agent.id`: Gen AI agent ID.   
+`gcp.agent.source.id`: Source agent ID.   
+`gcp.agent.destination.id`: Destination agent ID.   
 `proxy.network.connection.creations` ALPHA ** _(project)_**   
 Proxy network connection creations   
 `DELTA`, `INT64`, `1`   
@@ -5835,7 +5858,8 @@ Proxy network connection creations
 `gcp.proxy.connection.direction`: Proxy connection direction.   
 `gcp.resource.source.id`: Source resource ID.   
 `gcp.resource.destination.id`: Destination resource ID.   
-`gen_ai.agent.id`: Gen AI agent ID.   
+`gcp.agent.source.id`: Source agent ID.   
+`gcp.agent.destination.id`: Destination agent ID.   
 `proxy.network.connection.duration` ALPHA ** _(project)_**   
 Proxy network connection duration   
 `DELTA`, `DISTRIBUTION`, `ms`   
@@ -5863,7 +5887,8 @@ Proxy network connection duration
 `apphub_destination_workload_criticality_type`: AppHub destination workload criticality type.   
 `apphub_destination_workload_environment_type`: AppHub destination workload environment type.   
 `apphub_destination_workload_id`: AppHub destination workload ID.   
-`gen_ai.agent.id`: Gen AI agent ID.   
+`gcp.agent.source.id`: Source agent ID.   
+`gcp.agent.destination.id`: Destination agent ID.   
 `proxy.network.connection.timeouts` ALPHA ** _(project)_**   
 Proxy network connection timeouts   
 `DELTA`, `INT64`, `1`   
@@ -5892,7 +5917,8 @@ Proxy network connection timeouts
 `apphub_destination_workload_criticality_type`: AppHub destination workload criticality type.   
 `apphub_destination_workload_environment_type`: AppHub destination workload environment type.   
 `apphub_destination_workload_id`: AppHub destination workload ID.   
-`gen_ai.agent.id`: Gen AI agent ID.   
+`gcp.agent.source.id`: Source agent ID.   
+`gcp.agent.destination.id`: Destination agent ID.   
 `proxy.network.errors` ALPHA ** _(project)_**   
 Proxy network errors   
 `DELTA`, `INT64`, `1`   
@@ -5921,7 +5947,8 @@ Proxy network errors
 `apphub_destination_workload_criticality_type`: AppHub destination workload criticality type.   
 `apphub_destination_workload_environment_type`: AppHub destination workload environment type.   
 `apphub_destination_workload_id`: AppHub destination workload ID.   
-`gen_ai.agent.id`: Gen AI agent ID.   
+`gcp.agent.source.id`: Source agent ID.   
+`gcp.agent.destination.id`: Destination agent ID.   
 `proxy.network.io` ALPHA ** _(project)_**   
 Proxy network IO   
 `DELTA`, `INT64`, `bytes`   
@@ -5952,7 +5979,8 @@ Proxy network IO
 `apphub_destination_workload_criticality_type`: AppHub destination workload criticality type.   
 `apphub_destination_workload_environment_type`: AppHub destination workload environment type.   
 `apphub_destination_workload_id`: AppHub destination workload ID.   
-`gen_ai.agent.id`: Gen AI agent ID.   
+`gcp.agent.source.id`: Source agent ID.   
+`gcp.agent.destination.id`: Destination agent ID.   
 `proxy.network.tls.handshake.errors` ALPHA ** _(project)_**   
 Proxy network TLS handshake errors   
 `DELTA`, `INT64`, `1`   
@@ -5981,7 +6009,8 @@ Proxy network TLS handshake errors
 `apphub_destination_workload_criticality_type`: AppHub destination workload criticality type.   
 `apphub_destination_workload_environment_type`: AppHub destination workload environment type.   
 `apphub_destination_workload_id`: AppHub destination workload ID.   
-`gen_ai.agent.id`: Gen AI agent ID.   
+`gcp.agent.source.id`: Source agent ID.   
+`gcp.agent.destination.id`: Destination agent ID.   
 `quota/multicast_groups_per_domain/exceeded` BETA ** _(project)_**   
 Multicast Groups quota exceeded error   
 `DELTA`, `INT64`, `1`   
@@ -8582,12 +8611,12 @@ VM instance patch state
 **[osconfig.googleapis.com/PatchJob](https://docs.cloud.google.com/monitoring/api/resources#tag_osconfig.googleapis.com/PatchJob)** |  _The number of VM instances that have patch jobs in a specific state._   
 `state`: The state of a patch job that is running on a VM instance. The following states are available: "PENDING", "STARTED", "APPLYING_PATCHES", "SUCCEEDED", "FAILED".   
   
-Generated at 2026-10-22 02:44:18 UTC.
+Generated at 2026-10-29 23:33:54 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

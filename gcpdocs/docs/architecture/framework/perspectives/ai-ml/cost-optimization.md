@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization/
 title: AI and ML perspective: Cost optimization \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:36.454528+00:00
+fetched_at: 2026-10-30T05:50:42.792417+00:00
 ---
 
 # AI and ML perspective: Cost optimization  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,9 +19,9 @@ Send feedback
 
 #  AI and ML perspective: Cost optimization Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-05-28 UTC
+Last reviewed 2026-10-29 UTC
 
-This document in [Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of principles and recommendations to optimize the cost of your AI systems throughout the ML lifecycle. By adopting a proactive and informed cost management approach, your organization can realize the full potential of AI and ML systems and also maintain financial discipline. The recommendations in this document align with the [cost optimization pillar](https://docs.cloud.google.com/architecture/framework/cost-optimization) of the Google Cloud Well-Architected Framework.
+This document in the [Google Cloud Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of principles and recommendations to optimize the cost of your AI systems throughout the ML lifecycle. By adopting a proactive and informed cost management approach, your organization can realize the full potential of AI and ML systems and also maintain financial discipline. The recommendations in this document align with the [cost optimization pillar](https://docs.cloud.google.com/architecture/framework/cost-optimization) of the Well-Architected Framework.
 
 AI and ML systems can help you unlock valuable insights and predictive capabilities from data. For example, you can reduce friction in internal processes, improve user experiences, and gain deeper customer insights. The cloud offers vast amounts of resources and quick time-to-value without large up-front investments for AI and ML workloads. To maximize business value and to align the spending with your business goals, you need to understand the cost drivers, proactively optimize costs, set up spending controls, and adopt [FinOps](https://cloud.google.com/learn/what-is-finops) practices.
 
@@ -58,7 +58,7 @@ Ensure that AI and ML projects are aligned with strategic objectives like revenu
 
 To make progress towards your business goals and to measure the return on investment (ROI), define KPIs for the following categories of metrics:
 
-  * Costs for training, inference, storage, and network resources, including specific unit costs (such as the cost per inference, data point, or task). These metrics help you gain insights into efficiency and cost optimization opportunities. You can track these costs by using [Cloud Billing reports](https://docs.cloud.google.com/billing/docs/reports) and [Cloud Monitoring dashboards](https://docs.cloud.google.com/monitoring/dashboards).
+  * Costs for training, inference, storage, and network resources, including specific unit costs (such as the cost per inference, data point, or task). These metrics help you gain insights into efficiency and cost optimization opportunities. You can track these costs by using [Cloud Billing reports](https://docs.cloud.google.com/billing/docs/reports) and [Monitoring dashboards](https://docs.cloud.google.com/monitoring/dashboards).
   * Business value metrics like revenue growth, cost savings, customer satisfaction, efficiency, accuracy, and adoption. You can track these metrics by using [BigQuery analytics](https://docs.cloud.google.com/bigquery/docs/query-overview) and [Looker dashboards](https://docs.cloud.google.com/looker/docs/dashboards).
   * Industry-specific metrics like the following:
 
@@ -77,7 +77,7 @@ To make progress towards your business goals and to measure the return on invest
 
 Adopt [FinOps](https://cloud.google.com/learn/what-is-finops) principles to ensure that each AI and ML project has estimated costs and has ways to measure and track actual costs throughout its lifecycle. Ensure that the costs and business benefits of your projects have assigned owners and clear accountability.
 
-For more information, see [Foster a culture of cost awareness](https://docs.cloud.google.com/architecture/framework/cost-optimization/foster-culture-cost-awareness) in the Cost Optimization pillar of the Google Cloud Well-Architected Framework.
+For more information, see [Foster a culture of cost awareness](https://docs.cloud.google.com/architecture/framework/cost-optimization/foster-culture-cost-awareness) in the cost optimization pillar of the Well-Architected Framework.
 
 #### Drive value and continuous optimization through iteration and feedback
 
@@ -100,7 +100,7 @@ Effective cost optimization requires visibility into the source of each cost ele
 
   * Structure your projects and resources in a hierarchy that reflects your organizational structure and your AI and ML workflows. To track and analyze costs at different levels, organize your Google Cloud resources by using organizations, folders, and projects. For more information, see [Decide a resource hierarchy for your Google Cloud landing zone](https://docs.cloud.google.com/architecture/landing-zones/decide-resource-hierarchy).
   * Apply meaningful [labels](https://docs.cloud.google.com/resource-manager/docs/labels-overview) to your resources. You can use labels that indicate the project, team, environment, model name, dataset, use case, and performance requirements. Labels provide valuable context for your billing data and enable granular cost analysis.
-  * Maintain consistency in your labeling conventions across all of your AI and ML projects. Consistent labeling conventions ensure that your billing data is organized and can be readily analyzed.
+  * Maintain consistency in your labeling conventions across all of your AI and ML projects. Consistent labeling conventions help to ensure that your billing data is organized and can be readily analyzed.
 
 
 
@@ -123,9 +123,9 @@ To create a scalable and resilient way to track costs, you need continuous monit
 
 Create scheduled reports and share them with appropriate stakeholders.
 
-Use [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs) to collect metrics from various sources, including your applications, infrastructure, and Google Cloud services like Compute Engine, Google Kubernetes Engine (GKE), and Cloud Run functions. To visualize metrics and logs in real time, you can use the prebuilt Cloud Monitoring dashboard or create custom dashboards. Custom dashboards let you define and add metrics to track specific aspects of your systems, like model performance, API calls, or business-level KPIs.
+Use [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) to collect metrics from various sources, including your applications, infrastructure, and Google Cloud services like Compute Engine, Google Kubernetes Engine (GKE), and Cloud Run functions. To visualize metrics and logs in real time, you can use the prebuilt Monitoring dashboard or create custom dashboards. Custom dashboards let you define and add metrics to track specific aspects of your systems, like model performance, API calls, or business-level KPIs.
 
-Use [Cloud Logging](https://docs.cloud.google.com/logging/docs) for centralized collection and storage of logs from your applications, systems, and Google Cloud services. Use the logs for the following purposes:
+Use [Logging](https://docs.cloud.google.com/logging/docs) for centralized collection and storage of logs from your applications, systems, and Google Cloud services. Use the logs for the following purposes:
 
   * Track costs and utilization of resources like CPU, memory, storage, and network.
   * Identify cases of over-provisioning (where resources aren't fully utilized) and under-provisioning (where there are insufficient resources). Over-provisioning results in unnecessary costs. Under-provisioning slows training times and might cause performance issues.
@@ -134,11 +134,11 @@ Use [Cloud Logging](https://docs.cloud.google.com/logging/docs) for centralized 
 
 
 
-Use [Looker](https://docs.cloud.google.com/looker/docs/intro) or [Data Studio](https://docs.cloud.google.com/looker/docs/studio) to create interactive dashboards and reports. Connect the dashboards and reports to various data sources, including BigQuery and Cloud Monitoring.
+Use [Looker](https://docs.cloud.google.com/looker/docs/intro) or [Data Studio](https://docs.cloud.google.com/data-studio/welcome) to create interactive dashboards and reports. Connect the dashboards and reports to various data sources, including BigQuery and Monitoring.
 
 #### Set alert thresholds based on key KPIs
 
-For your KPIs, determine the thresholds that should trigger alerts. Meaningful alert thresholds can help you avoid alert fatigue. Create [alerting policies](https://docs.cloud.google.com/monitoring/alerts) in Cloud Monitoring to get notifications related to your KPIs. For example, you can get notifications when accuracy drops below a certain threshold or latency exceeds a defined limit. Alerts based on log data can notify you about potential cost issues in real time. Such alerts let you take corrective actions promptly and prevent further financial loss.
+For your KPIs, determine the thresholds that should trigger alerts. Meaningful alert thresholds can help you avoid alert fatigue. Create [alerting policies](https://docs.cloud.google.com/monitoring/alerts) in Monitoring to get notifications related to your KPIs. For example, you can get notifications when accuracy drops below a certain threshold or latency exceeds a defined limit. Alerts based on log data can notify you about potential cost issues in real time. Such alerts let you take corrective actions promptly and prevent further financial loss.
 
 ## Optimize resource allocation
 
@@ -156,25 +156,24 @@ Use Google Cloud services that support autoscaling, which automatically adjusts 
 
 
 
-The following table summarizes the techniques that you can use to implement autoscaling for different stages of your AI projects.
+The following sections summarize the techniques that you can use to implement autoscaling for different stages of your AI projects.
 
-Stage | Autoscaling techniques  
----|---  
-Training | 
+#### Training
 
   * Use managed services like [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) or [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler), which offer built-in autoscaling capabilities for training jobs.
   * Configure autoscaling policies to scale the number of training instances based on metrics like CPU utilization, memory usage, and job queue length.
   * Use custom scaling metrics to fine-tune autoscaling behavior for your specific workloads.
 
-  
-Inference | 
 
-  * Deploy your models on scalable platforms like [Gemini Enterprise Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview), [GPUs on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/autoscaling), or [TPUs on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/autoscaling-tpu). 
+
+#### Inference
+
+  * Deploy your models on scalable platforms like [Gemini Enterprise Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions), [GPUs on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/autoscaling), or [Cloud TPU on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/autoscaling-tpu).
   * Use autoscaling features to adjust the number of replicas based on metrics like request rate, latency, and resource utilization.
   * Implement load balancing to distribute traffic evenly across replicas and ensure high availability.
 
-  
-  
+
+
 ### Start with small models and datasets
 
 To help reduce costs, test ML hypotheses at a small scale when possible and use an iterative approach. This approach, with smaller models and datasets, provides the following benefits:
@@ -205,14 +204,14 @@ Resource requirements for AI and ML workloads can vary significantly. To optimiz
 
 We recommend the following approach for experimentation:
 
-  1. **Start with a baseline** : Begin with a baseline configuration based on your initial estimates of the workload requirements. To create a baseline, you can use the [Pricing Calculator](https://cloud.google.com/products/calculator) for new workloads or use an existing [billing report](https://docs.cloud.google.com/billing/docs/how-to/reports).
+  1. **Start with a baseline** : Begin with a baseline configuration based on your initial estimates of the workload requirements. To create a baseline, you can use the [Google Cloud pricing calculator](https://cloud.google.com/products/calculator) for new workloads or use an existing [billing report](https://docs.cloud.google.com/billing/docs/how-to/reports).
   2. **Understand your quotas** : Before launching extensive experiments, familiarize yourself with your Google Cloud project [quotas](https://docs.cloud.google.com/docs/quotas/overview) for the resources and APIs that you plan to use. The quotas determine the range of configurations that you can realistically test. By becoming familiar with quotas, you can work within the available resource limits during the experimentation phase.
-  3. **Experiment systematically** : Adjust parameters like the number of CPUs, amount of memory, number and type of GPUs and TPUs, and storage capacity. [Gemini Enterprise Agent Platform Managed Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) and [Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview) let you experiment with different machine types and configurations.
+  3. **Experiment systematically** : Adjust parameters like the number of CPUs, amount of memory, number and type of GPUs and Cloud TPU, and storage capacity. [Gemini Enterprise Agent Platform Managed Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) and [Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) let you experiment with different machine types and configurations.
   4. **Monitor utilization, cost, and performance** : Track the resource utilization, cost, and key performance metrics such as training time, inference latency, and model accuracy, for each configuration that you experiment with.
 
      * To track resource utilization and performance metrics, you can use the Agent Platform console.
-     * To collect and analyze detailed performance metrics, use Cloud Monitoring.
-     * To view costs, use [Cloud Billing reports](https://docs.cloud.google.com/billing/docs/reports) and [Cloud Monitoring dashboards](https://docs.cloud.google.com/monitoring/dashboards).
+     * To collect and analyze detailed performance metrics, use Monitoring.
+     * To view costs, use [Cloud Billing reports](https://docs.cloud.google.com/billing/docs/reports) and [Monitoring dashboards](https://docs.cloud.google.com/monitoring/dashboards).
      * To identify performance bottlenecks in your models and optimize resource utilization, use profiling tools like [Agent Platform TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction).
   5. **Analyze costs** : Compare the cost and performance of each configuration to identify the most cost-effective option.
 
@@ -237,7 +236,7 @@ The following are common MLOps practices that help to reduce cost:
 
   * **Version control** : Tools like Git can help you to track versions of code, data, and models. Version control ensures reproducibility, facilitates collaboration, and prevents costly rework that can be caused by versioning issues.
   * **Continuous integration and continuous delivery (CI/CD)** : [Cloud Build](https://docs.cloud.google.com/build/docs/overview) and [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) let you implement CI/CD pipelines to automate building, testing, and deployment of your ML models. CI/CD pipelines ensure efficient resource utilization and minimize the costs associated with manual interventions.
-  * **Observability** : [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) let you track model performance in production, identify issues, and trigger alerts for proactive intervention. Observability lets you maintain model accuracy, optimize resource allocation, and prevent costly downtime or performance degradation.
+  * **Observability** : [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and [Logging](https://docs.cloud.google.com/logging/docs/overview) let you track model performance in production, identify issues, and trigger alerts for proactive intervention. Observability lets you maintain model accuracy, optimize resource allocation, and prevent costly downtime or performance degradation.
   * **Model retraining** : [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) simplifies the processes for retraining models periodically or when performance degrades. When you use Agent Platform Pipelines for retraining, it helps ensure that your models remain accurate and efficient, which can prevent unnecessary resource consumption and maintain optimal performance.
   * **Automated testing and evaluation** : [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction) helps you accelerate and standardize model evaluation. Implement automated tests throughout the ML lifecycle to ensure the quality and reliability of your models. Such tests can help you catch errors early, prevent costly issues in production, and reduce the need for extensive manual testing.
 
@@ -263,16 +262,16 @@ There are many pre-existing frameworks for data governance, such as the framewor
 
 Google Cloud provides the following services and tools to help you implement a robust data governance framework:
 
-  * [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/introduction) is an intelligent data fabric that helps you unify distributed data and automate data governance without the need to consolidate data sets in one place. This helps to reduce the cost to distribute and maintain data, facilitate data discovery, and promote reuse.
+  * [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction) is an intelligent data fabric that helps you unify distributed data and automate data governance without the need to consolidate data sets in one place. This helps to reduce the cost to distribute and maintain data, facilitate data discovery, and promote reuse.
 
-    * To organize data, use Knowledge Catalog abstractions and set up [logical data lakes and zones](https://docs.cloud.google.com/dataplex/docs/create-lake).
-    * To administer access to data lakes and zones, use [Google Groups](https://docs.cloud.google.com/iam/docs/groups-in-cloud-console) and [Knowledge Catalog roles](https://docs.cloud.google.com/dataplex/docs/lake-security).
-    * To streamline data quality processes, enable [auto data quality](https://docs.cloud.google.com/dataplex/docs/auto-data-quality-overview).
-  * Knowledge Catalog is also a fully managed and scalable metadata management service. The [catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview) provides a foundation that ensures that data assets are accessible and reusable.
+    * To organize data, use Knowledge Catalog abstractions and set up [data domains](https://docs.cloud.google.com/knowledge-catalog/docs/data-domains-overview) and [data products](https://docs.cloud.google.com/knowledge-catalog/docs/data-products-overview).
+    * To administer access to data assets and governance resources, use [Google Groups](https://docs.cloud.google.com/iam/docs/groups-in-cloud-console) and [Knowledge Catalog Identity and Access Management (IAM) roles](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles).
+    * To streamline data quality processes, enable [auto data quality](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview).
+  * Knowledge Catalog is also a fully managed and scalable metadata management service. The [catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview) provides a foundation that ensures that data assets are accessible and reusable.
 
-    * Metadata from the [supported Google Cloud sources](https://docs.cloud.google.com/dataplex/docs/catalog-overview#supported-sources) is automatically ingested into the universal catalog. For data sources outside of Google Cloud, [create custom entries](https://docs.cloud.google.com/dataplex/docs/ingest-custom-sources#create-custom-entry).
-    * To improve the discoverability and management of data assets, enrich technical metadata with business metadata by using [aspects](https://docs.cloud.google.com/dataplex/docs/enrich-entries-metadata#aspects).
-    * Ensure that data scientists and ML practitioners have sufficient [permissions](https://docs.cloud.google.com/dataplex/docs/iam-permissions) to access Knowledge Catalog and use the [search](https://docs.cloud.google.com/dataplex/docs/search-assets) function.
+    * Metadata from the [supported Google Cloud sources](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#supported-sources) is automatically ingested into the catalog. For data sources outside of Google Cloud, [create custom entries](https://docs.cloud.google.com/knowledge-catalog/docs/ingest-custom-sources#create-custom-entry).
+    * To improve the discoverability and management of data assets, enrich technical metadata with business metadata by using [aspects](https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata#aspects).
+    * Ensure that data scientists and ML practitioners have sufficient [permissions](https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions) to access Knowledge Catalog and use the [search](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets) function.
   * [BigQuery sharing](https://docs.cloud.google.com/bigquery/docs/analytics-hub-introduction) lets you efficiently and securely exchange data assets across your organizations to address challenges of data reliability and cost.
 
     * Set up [data exchanges](https://docs.cloud.google.com/bigquery/docs/analytics-hub-manage-exchanges) and ensure that curated data assets can be viewed as [listings](https://docs.cloud.google.com/bigquery/docs/analytics-hub-manage-listings).
@@ -310,9 +309,9 @@ This section summarizes the products, tools, and techniques that you can use to 
 
 Identify and choose the relevant data sources for your AI and ML tasks:
 
-  * Database options such as [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction), [Spanner](https://docs.cloud.google.com/spanner), [AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/overview), [Firestore](https://docs.cloud.google.com/firestore/native/docs), and [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction). Your choice depends on your requirements, such as latency on write access (static or dynamic), data volume (high or low), and data format (structured, unstructured, or semi-structured). For more information, see [Google Cloud databases](https://cloud.google.com/products/databases#our-portfolio-of-databases).
+  * Database options such as [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction), [Spanner](https://docs.cloud.google.com/spanner/docs), [AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/overview), [Firestore](https://docs.cloud.google.com/firestore/native/docs), and [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction). Your choice depends on your requirements, such as latency on write access (static or dynamic), data volume (high or low), and data format (structured, unstructured, or semi-structured). For more information, see [Google Cloud databases](https://cloud.google.com/products/databases#our-portfolio-of-databases).
   * Data lakes such as Cloud Storage with [BigLake](https://docs.cloud.google.com/bigquery/docs/biglake-intro).
-  * [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/introduction) for governing data across sources.
+  * [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction) for governing data across sources.
   * Streaming events platforms such as [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview), [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview), or [Apache Kafka](https://kafka.apache.org/).
   * External APIs.
 
@@ -335,7 +334,7 @@ Choose tools for data transformation and loading:
 
 #### Standardize data collection and processing
 
-To discover, understand, and manage data assets, use metadata management services like [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview). It helps you standardize data definitions and ensure consistency across your organization.
+To discover, understand, and manage data assets, use metadata management services like [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview). It helps you standardize data definitions and ensure consistency across your organization.
 
 To enforce standardization and avoid the cost of maintaining multiple custom implementations, use automated training pipelines and orchestration. For more information, see the next section.
 
@@ -352,7 +351,7 @@ Function | Google Cloud services and features
 Orchestration: Define complex ML workflows consisting of multiple steps and dependencies. You can define each step as a separate containerized task, which helps you manage and scale individual tasks with ease. | 
 
   * To create and orchestrate pipelines, use [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) or Kubeflow Pipelines. These tools support simple data transformation, model training, model deployment, and pipeline versioning. They let you define dependencies between steps, manage data flow, and automate the execution of the entire workflow.
-  * For complex operational tasks with heavy CI/CD and extract, transform, and load (ETL) requirements, use [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/composer-3/composer-overview). If you prefer Airflow for data orchestration, Managed Service for Apache Airflow is a compatible managed service that's built on Airflow.
+  * For complex operational tasks with heavy CI/CD and extract, transform, and load (ETL) requirements, use [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/latest/composer-overview). If you prefer Airflow for data orchestration, Managed Airflow is a compatible managed service that's built on Airflow.
   * For pipelines that are managed outside of Agent Platform Pipelines, use [Workflows](https://docs.cloud.google.com/workflows/docs/choose-orchestration) for infrastructure-focused tasks like starting and stopping VMs or integrating with external systems.
   * To automate your CI/CD process, use [Cloud Build](https://docs.cloud.google.com/build/docs/overview) with [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview). You can set up notifications and automatic triggers for when new code is pushed or when a new model needs to be trained.
   * For a fully-managed, scalable solution for pipeline management, use [Cloud Data Fusion](https://docs.cloud.google.com/data-fusion/docs/concepts/overview). 
@@ -360,14 +359,14 @@ Orchestration: Define complex ML workflows consisting of multiple steps and depe
   
 Versioning: Track and control different versions of pipelines and components to ensure reproducibility and auditability. | Store [Kubeflow pipeline](https://docs.cloud.google.com/artifact-registry/docs/kfp) templates in a Kubeflow Pipelines repository in [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview).  
 Reusability: Reuse existing pipeline components and artifacts, such as prepared datasets and trained models, to accelerate development. | Store your pipeline templates in [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) and share them across your organization.  
-Monitoring: Monitor pipeline execution to identify and address any issues. | Use Cloud Logging and Cloud Monitoring. For more information, see [Monitor resources continuously with dashboards, alerts, and reports](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization#monitor_resources_continuously_with_dashboards_alerts_and_reports).  
+Monitoring: Monitor pipeline execution to identify and address any issues. | Use Logging and Monitoring. For more information, see [Monitor resources continuously with dashboards, alerts, and reports](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization#monitor_resources_continuously_with_dashboards_alerts_and_reports).  
   
 #### Expand reusability beyond pipelines
 
 Look for opportunities to expand reusability beyond training pipelines. The following are examples of Google Cloud capabilities that let you reuse ML features, datasets, models, and code.
 
   * [Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview) provides a centralized repository for organizing, storing, and serving ML features. It lets you reuse features across different projects and models, which can improve consistency and reduce feature engineering effort. You can store, share, and access features for both online and offline use cases.
-  * [Agent Platform datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) enable teams to create and manage datasets centrally, so your organization can maximize reusability and reduce data duplication. Your teams can search and discover the datasets by using [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview).
+  * [Agent Platform datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) enable teams to create and manage datasets centrally, so your organization can maximize reusability and reduce data duplication. Your teams can search and discover the datasets by using [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview).
   * [Model Registry on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) lets you store, manage, and deploy your trained models. Model Registry lets you reuse the models in subsequent pipelines or for online prediction, which helps you take advantage of previous training efforts.
   * [Custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/containers-overview) let you package your training code and dependencies into containers and store the containers in Artifact Registry. Custom containers let you provide consistent and reproducible training environments across different pipelines and projects.
 
@@ -379,7 +378,7 @@ Google Cloud offers a powerful suite of tools and services to streamline and aut
 
 #### Use resource-efficient model evaluation and experimentation
 
-Begin an AI project with experiments before you scale up your solution. In your experiments, track various metadata such as dataset version, model parameters, and model type. For further reproducibility and comparison of the results, use metadata tracking in addition to code versioning, similar to the capabilities in Git. To avoid missing information or deploying the wrong version in production, use [Experiments on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) before you implement full-scale deployment or training jobs.
+Begin an AI project with experiments before you scale up your solution. In your experiments, track various metadata such as dataset version, model parameters, and model type. For further reproducibility and comparison of the results, use metadata tracking in addition to code versioning, similar to the capabilities in Git. To avoid missing information or deploying the wrong version in production, use [Experiments on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) before you implement full-scale deployment or training jobs.
 
 Experiments on Agent Platform lets you do the following:
 
@@ -429,7 +428,7 @@ To get the maximum value from managed services and pre-trained models, consider 
 
 [Notebook](https://en.wikipedia.org/wiki/Notebook_interface) environments are crucial for cost-effective ML experimentation. A notebook provides an interactive and collaborative space for data scientists and engineers to explore data, develop models, share knowledge, and iterate efficiently. Collaboration and knowledge sharing through notebooks significantly accelerates development, code reviews, and knowledge transfer. Notebooks help streamline workflows and reduce duplicated effort.
 
-Instead of procuring and managing expensive hardware for your development environment, you can use the scalable and on-demand infrastructure of Gemini Enterprise Agent Platform Workbench and Colab Enterprise.
+Instead of procuring and managing expensive hardware for your development environment, you can use the scalable and on-demand infrastructure of Agent Platform Workbench and Colab Enterprise.
 
   * [Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) is a Jupyter notebook development environment for the entire data science workflow. You can interact with Agent Platform and other Google Cloud services from within an instance's Jupyter notebook. Agent Platform Workbench integrations and features help you do the following:
 
@@ -440,7 +439,7 @@ Instead of procuring and managing expensive hardware for your development enviro
   * [Colab Enterprise](https://docs.cloud.google.com/colab/docs/introduction) is a collaborative, managed notebook environment that has the security and compliance capabilities of Google Cloud. Colab Enterprise is ideal if your project's priorities include collaborative development and reducing the effort to manage infrastructure. Colab Enterprise integrates with Google Cloud services and AI-powered assistance that uses Gemini. Colab Enterprise lets you do the following:
 
     * Work in notebooks without the need to manage infrastructure.
-    * Share a notebook with a single user, Google group, or Google Workspace domain. You can control notebook access through Identity and Access Management (IAM).
+    * Share a notebook with a single user, Google group, or Google Workspace domain. You can control notebook access through IAM.
     * Interact with features built into Agent Platform and BigQuery.
 
 
@@ -468,7 +467,6 @@ Google Cloud provides [AI and ML APIs](https://cloud.google.com/ai/apis) that le
   * [Cloud Vision API](https://docs.cloud.google.com/vision/docs/apis) lets you derive insights from images. This API is valuable for applications like image analysis, content moderation, and automated data entry.
   * [Cloud Natural Language API](https://docs.cloud.google.com/natural-language/docs/apis) lets you analyze text to understand its structure and meaning. This API is useful for tasks like customer feedback analysis, content categorization, and understanding social media trends.
   * [Speech-to-Text API](https://docs.cloud.google.com/speech-to-text/docs/apis) converts audio to text. This API supports a wide range of languages and dialects.
-  * [Video Intelligence API](https://docs.cloud.google.com/video-intelligence/docs/apis) analyzes video content to identify objects, scenes, and actions. Use this API for video content analysis, content moderation, and video search.
   * [Document AI API](https://docs.cloud.google.com/document-ai/docs/reference) processes documents to extract, classify, and understand data. This API helps you automate document processing workflows.
   * [Dialogflow API](https://docs.cloud.google.com/dialogflow/cx/docs/reference) enables the creation of conversational interfaces, such as chatbots and voice assistants. You can use this API to create customer service bots and virtual assistants.
   * [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) provides access to Google's most capable and general-purpose AI model.
@@ -503,14 +501,14 @@ Managed services can help reduce the cost of model training and simplify the inf
 To reduce the complexity and cost of infrastructure management, use managed services such as the following:
 
   * [Agent Platform Managed Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) provides a fully managed environment for training your models at scale. You can choose from various prebuilt containers with popular ML frameworks or use your own custom containers. Google Cloud handles infrastructure provisioning, scaling, and maintenance, so you incur lower operational overhead.
-  * [Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview) handles infrastructure scaling, load balancing, and request routing. You get high availability and performance without manual intervention.
+  * [Agent Platform Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) handles infrastructure scaling, load balancing, and request routing. You get high availability and performance without manual intervention.
   * [Ray on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) provides a fully managed Ray cluster. You can use the cluster to run complex custom AI workloads that perform many computations (hyperparameter tuning, model fine-tuning, distributed model training, and reinforcement learning from human feedback) without the need to manage your own infrastructure.
 
 
 
 #### Use managed services to optimize resource utilization
 
-For details about efficient resource utilization, see [Optimize resource utilization](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization#optimize_resource_allocation).
+For details about efficient resource utilization, see [Optimize resource allocation](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization#optimize_resource_allocation).
 
 ## Contributors
 
@@ -539,6 +537,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-05-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-05-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

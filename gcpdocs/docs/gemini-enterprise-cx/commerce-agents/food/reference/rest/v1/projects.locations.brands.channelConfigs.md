@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs
 title: REST Resource: projects.locations.brands.channelConfigs \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:04.903689+00:00
+fetched_at: 2026-10-30T06:00:18.886793+00:00
 ---
 
 # REST Resource: projects.locations.brands.channelConfigs  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -61,6 +61,10 @@ Send feedback
       * JSON representation
     * TargetModifier
       * JSON representation
+    * TTSConfig
+      * JSON representation
+    * VoiceConfig
+      * JSON representation
     * State
     * Type
     * SupplementalInstructions
@@ -86,6 +90,9 @@ JSON representation
       "operationsConfig": {
         object ([OperationsConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.OperationsConfig))
       },
+      "ttsConfig": {
+        object ([TTSConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.TTSConfig))
+      },
       "state": enum ([State](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.State)),
       "type": enum ([Type](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.Type_1)),
       "supplementalInstructions": {
@@ -96,6 +103,9 @@ JSON representation
         {
           object ([ConfigApplicationRule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.configApplicationRules#ConfigApplicationRule))
         }
+      ],
+      "enabledStores": [
+        string
       ]
     }  
   
@@ -106,11 +116,13 @@ Fields
 `createTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Output only. The time this channel configuration was created.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
 `updateTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Output only. The time this channel configuration was last updated.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
 `operationsConfig` |  `object (`[OperationsConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.OperationsConfig)`)` Optional. The operational strategy for the channel configuration.  
+`ttsConfig` |  `object (`[TTSConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.TTSConfig)`)` Optional. Configuration for text-to-speech. Note: This configuration does not apply to audio-to-audio agents.  
 `state` |  `enum (`[State](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.State)`)` Output only. The status of the channel configuration.  
 `type` |  `enum (`[Type](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.Type_1)`)` Required. The type of the channel configuration.  
 `supplementalInstructions` |  `object (`[SupplementalInstructions](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.SupplementalInstructions)`)` Optional. Supplemental instructions for the channel configuration.  
 `tone` |  `enum (`[Tone](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.Tone)`)` Optional. The tone of the agent.  
 `configApplicationRules[]` |  `object (`[ConfigApplicationRule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.configApplicationRules#ConfigApplicationRule)`)` Output only. The config application rules associated with this channel configuration.  
+`enabledStores[]` |  `string` Output only. The names of the stores that have this channel configuration enabled. Format: projects/{project}/locations/{location}/brands/{brand}/stores/{store}  
   
 ### OperationsConfig
 
@@ -138,6 +150,9 @@ JSON representation
       "interactionMode": enum ([InteractionMode](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.InteractionMode)),
       "disambiguationStrategy": {
         object ([DisambiguationStrategy](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.DisambiguationStrategy))
+      },
+      "orderLimits": {
+        object ([OrderLimits](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/OrderLimits))
       }
     }  
   
@@ -151,6 +166,7 @@ Fields
 `featuresConfig` |  `object (`[FeaturesConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.FeaturesConfig)`)` Optional. Agent features configuration.  
 `interactionMode` |  `enum (`[InteractionMode](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.InteractionMode)`)` Optional. The interaction mode of the agent.  
 `disambiguationStrategy` |  `object (`[DisambiguationStrategy](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.DisambiguationStrategy)`)` Optional. Strategy configuration for Disambiguation Control.  
+`orderLimits` |  `object (`[OrderLimits](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/OrderLimits)`)` Optional. Limits applied to orders for this channel configuration, e.g. max items and max order total.  
   
 ### UpsellStrategy
 
@@ -195,7 +211,8 @@ JSON representation
       "skipOnPreviousTurnUpsell": boolean,
       "disabled": boolean,
     
-      // Union field upsell_type_config can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "greetingOffer": {
         object ([GreetingOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.GreetingOffer))
       },
@@ -205,7 +222,7 @@ JSON representation
       "celUpsell": {
         object ([CelUpsell](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.CelUpsell))
       }
-      // End of list of possible types for union field upsell_type_config.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
@@ -222,10 +239,11 @@ Fields
 `skipOnMultiQuantityUpsoldFromItem` |  `boolean` Optional. Whether to skip this upsell if the item to upsell from has a quantity > 1\. This configuration only applies to the relevant upsell types: - Item to combo - Combo up size - Modifier addition - Combo drink - Item up size - Combo variant - Item triggered  
 `skipOnPreviousTurnUpsell` |  `boolean` Optional. Whether to skip this upsell if the prior conversational turn was an upsell.  
 `disabled` |  `boolean` Optional. Indicates whether the upsell type is disabled. If true, the upsell will not be attempted. This configuration is useful for disabling an upsell type as part of a config application rule override.  
-Union field `upsell_type_config`. The type-specific configuration of the upsell. `upsell_type_config` can be only one of the following:  
+The type-specific configuration of the upsell. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `greetingOffer` |  `object (`[GreetingOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.GreetingOffer)`)` Upsell specific items as part of the agent welcome message.  
 `closingOffer` |  `object (`[ClosingOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.ClosingOffer)`)` Upsell specific items after a customer has completed their order.  
 `celUpsell` |  `object (`[CelUpsell](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.CelUpsell)`)` Dynamically evaluated upsell rule based on Common Expression Language (CEL).  
+End of mutually exclusive fields.  
   
 ### GreetingOffer
 
@@ -576,6 +594,46 @@ Fields
 `modifierId` |  `string` Optional. The unique ID of the modifier in the menu catalog (linking directly to menu.proto).  
 `modifierGroupId` |  `string` Optional. The unique ID of the modifier group in the menu catalog.  
   
+### TTSConfig
+
+Configurations for text-to-speech behavior.
+
+JSON representation  
+---  
+      
+    
+    {
+      "voiceConfigs": [
+        {
+          object ([VoiceConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.VoiceConfig))
+        }
+      ]
+    }  
+  
+Fields  
+---  
+`voiceConfigs[]` |  `object (`[VoiceConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.channelConfigs#ChannelConfig.VoiceConfig)`)` Optional. The per-language voice configs for the channel configuration.  
+  
+### VoiceConfig
+
+Configuration for a specific language's voice.
+
+JSON representation  
+---  
+      
+    
+    {
+      "languageCode": string,
+      "voiceId": string,
+      "speakingRate": number
+    }  
+  
+Fields  
+---  
+`languageCode` |  `string` Optional. The language code of the voice configuration. BCP-47 language code, such as "en-US" or "fr-CA".  
+`voiceId` |  `string` Optional. The ID of the voice to use.  
+`speakingRate` |  `number` Optional. The speaking rate of the voice. Value is limited to the range [0.5, 2.0].  
+  
 ### State
 
 Status of the channel configuration.
@@ -606,12 +664,14 @@ JSON representation
       
     
     {
-      "freeformInstructions": string
+      "freeformInstructions": string,
+      "storeSelectionBrandInstructions": string
     }  
   
 Fields  
 ---  
 `freeformInstructions` |  `string` Optional. Free-form instructions included in the prompt.  
+`storeSelectionBrandInstructions` |  `string` Optional. Supplemental brand instructions to include in prompt during store selection & explore mode.  
   
 ### Tone
 
@@ -656,6 +716,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ItemIntegrationAttributes/
 title: ItemIntegrationAttributes \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:42.252222+00:00
+fetched_at: 2026-10-30T06:00:16.178951+00:00
 ---
 
 # ItemIntegrationAttributes  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -47,18 +47,23 @@ JSON representation
       },
       "toastAttributes": {
         object ([ToastIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ItemIntegrationAttributes#ToastIntegrationAttributes))
-      }
+      },
+      "externalItemId": string
     }  
   
 Fields  
 ---  
 `customIntegrationAttributes` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. Arbitrary metadata to be associated with an entity, used to build downstream integrations, i.e. identifiers or schema information for constructing an order for submission to a third-party point of sale API.  
-`streamAttributes` |  `object (`[StreamIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ItemIntegrationAttributes#StreamIntegrationAttributes)`)` Optional. Represents metadata associated with this item used for Stream integration. If Stream integration isn't enabled for the store, this field is ignored.  
+`streamAttributes  
+**(deprecated)**` |  `object (`[StreamIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ItemIntegrationAttributes#StreamIntegrationAttributes)`)` This item is deprecated!Optional. Represents metadata associated with this item used for Stream integration. Deprecated: StreamOrders integration is discontinued; this field is ignored.  
 `toastAttributes` |  `object (`[ToastIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ItemIntegrationAttributes#ToastIntegrationAttributes)`)` Optional. Represents metadata associated with this item used for Toast integration. If Toast integration isn't enabled for the store, this field is ignored.  
+`externalItemId` |  `string` Optional. The external item ID.  
   
 ## StreamIntegrationAttributes
 
-Represents attributes for an Item from a Stream menu.
+This item is deprecated!
+
+Represents attributes for an Item from a Stream menu. Deprecated: StreamOrders integration is discontinued; this message is ignored.
 
 JSON representation  
 ---  
@@ -122,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

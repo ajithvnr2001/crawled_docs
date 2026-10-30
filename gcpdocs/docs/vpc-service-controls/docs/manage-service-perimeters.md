@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters/
 title: Manage service perimeters \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:40.476043+00:00
+fetched_at: 2026-10-30T05:41:15.325076+00:00
 ---
 
 # Manage service perimeters  |  VPC Service Controls  |  Google Cloud Documentation
@@ -781,6 +781,39 @@ Ensure that `servicePatternsEnforcementScopes` is set to `GOOGLE_APIS_VIA_PRIVAT
     * `API_NAME.googleapis.com/*`
     * `www.googleapis.com/API_NAME/*`
     * `*.appspot.com/*`
+    * `accounts.google.com/*` (only supports paths needed for OAuth authentication of service accounts; user account authentication is interactive and not supported)
+    * `*.aiplatform-notebook.cloud.google.com/*`
+    * `*.aiplatform-notebook.googleusercontent.com/*`
+    * `appengine.google.com/*`
+    * `*.backupdr.cloud.google.com/*`
+    * `*.backupdr.googleusercontent.com/*`
+    * `*.cloudfunctions.net/*`
+    * `*.cloudproxy.app/*`
+    * `*.composer.cloud.google.com/*`
+    * `*.composer.googleusercontent.com/*`
+    * `*.datafusion.cloud.google.com/*`
+    * `*.datafusion.googleusercontent.com/*`
+    * `*.dataproc.cloud.google.com/*`
+    * `dataproc.cloud.google.com/*`
+    * `*.dataproc.googleusercontent.com/*`
+    * `dataproc.googleusercontent.com/*`
+    * `*.developerconnect.dev/*`
+    * `dl.google.com/*`
+    * `gcr.io/*` or `*.gcr.io/*`
+    * `*.gke.goog/*`
+    * `gstatic.com/*` or `*.gstatic.com/*`
+    * `*.kernels.googleusercontent.com/*`
+    * `*.ltsapis.goog/*`
+    * `*.notebooks.byoid.googleusercontent.com/*`
+    * `*.notebooks.cloud.google.com/*`
+    * `notebooks.cloud.google.com/*`
+    * `*.notebooks.googleusercontent.com/*`
+    * `packages.cloud.google.com/*`
+    * `pkg.dev/*` or `*.pkg.dev/*`
+    * `pki.goog/*` or `*.pki.goog/*`
+    * `*.run.app/*`
+    * `source.developers.google.com/*`
+    * `storage.cloud.google.com/*`
   * Only `X-Goog-Allowed-Resources` and `X-GoogApps-Allowed-Domains` are supported.
   * Headers are inserted only for requests to unsupported services.
   * Modifiers and `addRequestHeader` don't insert headers when configured in dry-run mode.
@@ -797,7 +830,7 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
   *[VPC]: Virtual Private Cloud

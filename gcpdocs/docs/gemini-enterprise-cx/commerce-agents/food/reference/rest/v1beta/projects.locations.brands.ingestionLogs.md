@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs
 title: REST Resource: projects.locations.brands.ingestionLogs \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:21.106069+00:00
+fetched_at: 2026-10-30T06:00:14.677988+00:00
 ---
 
 # REST Resource: projects.locations.brands.ingestionLogs  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -29,6 +29,7 @@ Send feedback
     * JSON representation
   * Phase
   * State
+  * IngestionType
   * Methods
 
 
@@ -51,7 +52,8 @@ JSON representation
         {
           object ([IngestionPhase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs#IngestionPhase))
         }
-      ]
+      ],
+      "ingestionType": enum ([IngestionType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs#IngestionType))
     }  
   
 Fields  
@@ -62,6 +64,7 @@ Fields
 `startTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Output only. The time when ingestion job started.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
 `endTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Output only. The time when ingestion job finished.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
 `phases[]` |  `object (`[IngestionPhase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs#IngestionPhase)`)` Output only. List of phase runtimes.  
+`ingestionType` |  `enum (`[IngestionType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.ingestionLogs#IngestionType)`)` Optional. Immutable. The type of the ingestion run.  
   
 ## State
 
@@ -121,6 +124,16 @@ Enums
 `SUCCEEDED` | The phase completed successfully.  
 `FAILED` | The phase failed.  
   
+## IngestionType
+
+The type of the ingestion run.
+
+Enums  
+---  
+`INGESTION_TYPE_UNSPECIFIED` | The ingestion type is unspecified.  
+`MENU_UPDATE` | A regular menu update.  
+`PRODUCT_OUTAGE_UPDATE` | A product outage update (e.g., product out of stock).  
+  
 ## Methods  
   
 ---  
@@ -149,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

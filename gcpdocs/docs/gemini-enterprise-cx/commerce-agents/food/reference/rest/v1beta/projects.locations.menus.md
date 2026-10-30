@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus
 title: REST Resource: projects.locations.menus \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:50.357665+00:00
+fetched_at: 2026-10-30T06:00:13.558692+00:00
 ---
 
 # REST Resource: projects.locations.menus  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -34,6 +34,8 @@ Send feedback
     * JSON representation
   * Status
   * FulfillmentMethodAvailability
+    * JSON representation
+  * ChannelTypeAvailability
     * JSON representation
   * ModifierGroupReference
     * JSON representation
@@ -100,6 +102,9 @@ JSON representation
         {
           object ([MenuSchedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#MenuSchedule))
         }
+      ],
+      "appliedRemediations": [
+        string
       ]
     }  
   
@@ -116,6 +121,7 @@ Fields
 `updateTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Output only. The time this menu was last updated.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
 `labels[]` |  `object (`[MenuLabel](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#MenuLabel)`)` Optional. Labels for this menu.  
 `menuSchedules[]` |  `object (`[MenuSchedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#MenuSchedule)`)` Optional. Menu schedules in this menu.  
+`appliedRemediations[]` |  `string` Output only. A list of Remediation resource names that were actively applied to this menu snapshot during ingestion.  
   
 ## Item
 
@@ -187,6 +193,9 @@ JSON representation
       "status": enum ([Status](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#Status)),
       "fulfillmentAvailability": {
         object ([FulfillmentMethodAvailability](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#FulfillmentMethodAvailability))
+      },
+      "channelTypeAvailability": {
+        object ([ChannelTypeAvailability](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#ChannelTypeAvailability))
       }
     }  
   
@@ -196,6 +205,7 @@ Fields
 `menuScheduleAvailability` |  `object (`[MenuScheduleAvailability](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#MenuScheduleAvailability)`)` Optional. Menu schedule-level availability information for this item. If omitted, menu schedule-based availability is ignored.  
 `status` |  `enum (`[Status](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#Status)`)` Optional. Indicates a status leading to unavailability, or that the item is available. If omitted, the item is available by default.  
 `fulfillmentAvailability` |  `object (`[FulfillmentMethodAvailability](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#FulfillmentMethodAvailability)`)` Optional. The fulfillment methods this item is available for. If omitted, the item is available for all fulfillment methods.  
+`channelTypeAvailability` |  `object (`[ChannelTypeAvailability](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#ChannelTypeAvailability)`)` Optional. The channel types this item is available for. If omitted, the item is available for all channel types.  
   
 ## DaypartAvailability
 
@@ -263,6 +273,24 @@ Fields
 ---  
 `fulfillmentMethods[]` |  `enum (`[FulfillmentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/FulfillmentMethod)`)` Required. Fulfillment methods for which this item is available.  
   
+## ChannelTypeAvailability
+
+Constrains availability of this entity to specified channel types.
+
+JSON representation  
+---  
+      
+    
+    {
+      "channelTypes": [
+        enum ([ChannelType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ChannelType))
+      ]
+    }  
+  
+Fields  
+---  
+`channelTypes[]` |  `enum (`[ChannelType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ChannelType)`)` Required. Channel types for which this item is available.  
+  
 ## ModifierGroupReference
 
 A reference to a modifier group.
@@ -279,7 +307,9 @@ JSON representation
         }
       ],
       "minSelectionCount": integer,
-      "maxSelectionCount": integer
+      "maxSelectionCount": integer,
+      "maxUniqueSelectionCount": integer,
+      "freeSelectionCount": integer
     }  
   
 Fields  
@@ -288,6 +318,8 @@ Fields
 `defaultModifiers[]` |  `object (`[DefaultModifierSelection](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus#DefaultModifierSelection)`)` Optional. The set of modifiers that are applied by default.  
 `minSelectionCount` |  `integer` Optional. The minimum count of modifiers from the referenced ModifierGroup which must be selected. If this value is set on both the ModifierGroupReference and the ModifierGroup, both constraints are enforced. If not set, there is no minimum.  
 `maxSelectionCount` |  `integer` Optional. The maximum count of total modifiers from the referenced group that may be selected. If this value is set on both the ModifierGroupReference and the ModifierGroup, both constraints are enforced. If not set, there is no maximum.  
+`maxUniqueSelectionCount` |  `integer` Optional. The maximum count of distinct modifiers from the referenced group that may be selected with a positive quantity. Overrides ModifierGroup.max_unique_selection_count when set to a value greater than 0. If not set, falls back to ModifierGroup.max_unique_selection_count.  
+`freeSelectionCount` |  `integer` Optional. The number of modifier unit selections from the referenced group that are included at no additional charge before per-modifier price adjustments apply. Overrides ModifierGroup.free_selection_count when set to a value greater than 0. If not set, falls back to ModifierGroup.free_selection_count.  
   
 ## DefaultModifierSelection
 
@@ -400,6 +432,8 @@ JSON representation
       "minSelectionCount": integer,
       "maxSelectionCount": integer,
       "maxSelectionCountPerModifier": integer,
+      "maxUniqueSelectionCount": integer,
+      "freeSelectionCount": integer,
       "integrationAttributes": {
         object ([ModifierGroupIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ModifierGroupIntegrationAttributes))
       }
@@ -415,6 +449,8 @@ Fields
 `minSelectionCount` |  `integer` Optional. The minimum count of modifiers from the referenced group that must be selected in order for the Item to be valid. If not set, there is no minimum. For a group where exactly one selection is required, this should be 1.  
 `maxSelectionCount` |  `integer` Optional. The maximum count of total modifiers from the referenced group that may be selected. If not set, there is no maximum. For a group where exactly one selection is required, this should be 1.  
 `maxSelectionCountPerModifier` |  `integer` Optional. Limits the number of times each modifier can be applied within this group. If not set, the default is 1.  
+`maxUniqueSelectionCount` |  `integer` Optional. The maximum count of distinct modifiers from this group that may be selected with a positive quantity. If not set, there is no maximum.  
+`freeSelectionCount` |  `integer` Optional. The number of modifier unit selections from this group that are included at no additional charge before per-modifier price adjustments apply. If not set, no units are free.  
 `integrationAttributes` |  `object (`[ModifierGroupIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/ModifierGroupIntegrationAttributes)`)` Optional. Metadata associated with this entity used for downstream integrations.  
   
 ## ModifierAction
@@ -519,6 +555,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

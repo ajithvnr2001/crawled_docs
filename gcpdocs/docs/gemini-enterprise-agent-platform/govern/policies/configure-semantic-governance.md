@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance/
 title: Configure semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:19.356573+00:00
+fetched_at: 2026-10-30T05:54:29.555295+00:00
 ---
 
 # Configure semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -54,9 +54,9 @@ Before you begin, enable the APIs required for Semantic governance policy and it
         --project=PROJECT_ID
     
 
-#### Grant IAM permissions to the Vertex AI service account (Google-managed binding only)
+#### Grant IAM permissions to the Gemini Enterprise Agent Platform service account (Google-managed binding only)
 
-If you use the Google-managed binding option during provisioning, grant the Vertex AI service account (P4SA) the roles it needs to create the Private Service Connect (PSC) endpoint (`roles/compute.networkAdmin`) and DNS record set (`roles/dns.admin`) in your project. If you use the Self-managed binding option, you can skip this step because you create those network resources yourself.
+If you use the Google-managed binding option during provisioning, grant the Gemini Enterprise Agent Platform service account (P4SA) the roles it needs to create the Private Service Connect (PSC) endpoint (`roles/compute.networkAdmin`) and DNS record set (`roles/dns.admin`) in your project. If you use the Self-managed binding option, you can skip this step because you create those network resources yourself.
 
 Create the service identity (idempotent) and grant the roles:
     
@@ -732,7 +732,7 @@ Key fields:
 
 ### Enable request tracing
 
-The policy engine exports a trace for each request it evaluates to Cloud Trace in your project, so you can inspect per-request latency and policy enforcement. To receive these traces, enable the Cloud Trace API and grant the Vertex AI service account (P4SA) permission to write traces.
+The policy engine exports a trace for each request it evaluates to Cloud Trace in your project, so you can inspect per-request latency and policy enforcement. To receive these traces, enable the Cloud Trace API and grant the Gemini Enterprise Agent Platform service account (P4SA) permission to write traces.
 
   1. Enable the Cloud Trace API:
          
@@ -740,7 +740,7 @@ The policy engine exports a trace for each request it evaluates to Cloud Trace i
              --project=PROJECT_ID
          
 
-  2. Grant the Cloud Trace Agent role (`roles/cloudtrace.agent`) to the Vertex AI service account. This role grants only the trace-write permission (`cloudtrace.traces.patch`):
+  2. Grant the Cloud Trace Agent role (`roles/cloudtrace.agent`) to the Gemini Enterprise Agent Platform service account. This role grants only the trace-write permission (`cloudtrace.traces.patch`):
          
          export PROJECT_NUM=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
          
@@ -847,7 +847,7 @@ Deprovisioning the engine only tears down the Google-managed backing resources. 
 
 ##### (Optional) Remove the IAM bindings
 
-If you granted permissions to the Vertex AI service account (P4SA), you can remove them:
+If you granted permissions to the Gemini Enterprise Agent Platform service account (P4SA), you can remove them:
     
     
     export PROJECT_NUM=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
@@ -918,7 +918,7 @@ Error name | Description | Suggested action
   
 ## What's next
 
-  * Learn more about [Vertex AI gcloud CLI commands](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai).
+  * Learn more about [Gemini Enterprise Agent Platform gcloud CLI commands](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai).
   * Monitor policy verdicts in Log Explorer.
 
 
@@ -927,6 +927,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/pre-built-trainer/
 title: How to use prebuilt search spaces and a prebuilt trainer \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:27.395939+00:00
+fetched_at: 2026-10-30T05:50:16.078065+00:00
 ---
 
 # How to use prebuilt search spaces and a prebuilt trainer  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -203,13 +203,13 @@ For information about how to customize the latency calculation function, see [`t
 
 In the Google Cloud console, on the job page, the **chart** shows the `reward vs. trial number` while the **table** shows the rewards for each trial. You can find the top trials with the highest reward.
 
-![Job details page showing trial reward chart and metrics table in the Google Cloud console.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_cloud_console.png)
+![Job details page showing trial reward chart and metrics table in the Google Cloud console.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/nas_cloud_console.png)
 
 ## Plot a stage-2 training curve
 
 After stage-2 training, you use either Cloud Shell or Google Cloud `TensorBoard` to plot the training curve by pointing it to the job directory:
 
-![Training curve metrics over steps visualized in TensorBoard.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/tensorboard.png)
+![Training curve metrics over steps visualized in TensorBoard.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/training/neural-architecture-search/images/tensorboard.png)
 
 ## Deploy a selected model
 
@@ -219,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

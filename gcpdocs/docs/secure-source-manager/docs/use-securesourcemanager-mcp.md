@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secure-source-manager/docs/use-securesourcemanager-mcp/
 title: Use the Secure Source Manager MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:10.063633+00:00
+fetched_at: 2026-10-30T06:00:21.821997+00:00
 ---
 
 # Use the Secure Source Manager MCP server  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ Additional permissions might be required on the resources accessed during a tool
 
 ## Configure an MCP client to use the Secure Source Manager MCP server
 
-AI applications and agents, such as Claude or Antigravity, can instantiate an MCP client that connects to a single MCP server. An AI application can have multiple clients that connect to different MCP servers. If your application isn't listed in the [client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance), then you can use the following information to connect from most applications.
+AI applications and agents, such as Claude or Antigravity, can instantiate an MCP client that connects to a single MCP server. An AI application can have multiple clients that connect to different MCP servers. If your application isn't listed in the [client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance), then you can use the following information to connect from most applications. 
 
   * **Server name** : Secure Source Manager MCP server
   * **Server URL** or **Endpoint** : the Secure Source Manager MCP server only supports regional endpoints. Use the regional endpoint for your instance location: `https://securesourcemanager.LOCATION.rep.googleapis.com/mcp`, where `LOCATION` is the [supported region](https://docs.cloud.google.com/secure-source-manager/docs/locations) where your instance is located.
@@ -136,9 +136,7 @@ The Secure Source Manager MCP server offers specialized toolset endpoints so you
   * **Instances:** `https://securesourcemanager.LOCATION.rep.googleapis.com/mcp/instance`
   * **Hooks:** `https://securesourcemanager.LOCATION.rep.googleapis.com/mcp/hook`
 
-
-
-For application-specific guidance about setting up and connecting to MCP server, see [Client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance).
+For application-specific guidance about setting up and connecting to MCP server, see [Client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance). 
 
 For more general guidance, see the following resources:
 
@@ -338,6 +336,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

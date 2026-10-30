@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-vpc/
 title: Deploy and manage index endpoints in a VPC network \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:58:00.242298+00:00
+fetched_at: 2026-10-30T05:54:27.497017+00:00
 ---
 
 # Deploy and manage index endpoints in a VPC network  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ The following example uses the [`gcloud ai index-endpoints create`](https://docs
 Before using any of the command data below, make the following replacements: 
 
   * INDEX_ENDPOINT_NAME: Display name of the index endpoint. 
-  * VPC_NETWORK_NAME: The Google Compute Engine network name to which the index endpoint should be peered. 
+  * VPC_NETWORK_NAME: The Compute Engine network name to which the index endpoint should be peered. 
   * LOCATION: The region where you are using Agent Platform. 
   * PROJECT_ID: Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
 
@@ -94,7 +94,7 @@ You should receive a response similar to the following:
 Before using any of the request data, make the following replacements: 
 
   * INDEX_ENDPOINT_NAME: Display name of the index endpoint. 
-  * VPC_NETWORK_NAME: The Google Compute Engine network name to which the index endpoint should be peered. 
+  * VPC_NETWORK_NAME: The Compute Engine network name to which the index endpoint should be peered. 
   * LOCATION: The region where you are using Agent Platform. 
   * PROJECT_ID: Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
   * PROJECT_NUMBER: Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
@@ -1655,6 +1655,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

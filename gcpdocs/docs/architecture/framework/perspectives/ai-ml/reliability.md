@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability/
 title: AI and ML perspective: Reliability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:26.532014+00:00
+fetched_at: 2026-10-30T05:50:39.433967+00:00
 ---
 
 # AI and ML perspective: Reliability  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,19 +19,19 @@ Send feedback
 
 #  AI and ML perspective: Reliability Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-08-07 UTC
+Last reviewed 2026-10-29 UTC
 
-This document in the [Google Cloud Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of the principles and recommendations to design and operate reliable AI and ML systems on Google Cloud. It explores how to integrate advanced reliability practices and observability into your architectural blueprints. The recommendations in this document align with the [reliability pillar](https://docs.cloud.google.com/architecture/framework/reliability) of the Google Cloud Well-Architected Framework.
+This document in the [Google Cloud Well-Architected Framework: AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml) provides an overview of the principles and recommendations to design and operate reliable AI and ML systems on Google Cloud. It explores how to integrate advanced reliability practices and observability into your architectural blueprints. The recommendations in this document align with the [reliability pillar](https://docs.cloud.google.com/architecture/framework/reliability) of the Well-Architected Framework.
 
 In the fast-evolving AI and ML landscape, reliable systems are essential in order to ensure customer satisfaction and achieve business goals. To meet the unique demands of both predictive ML and generative AI, you need AI and ML systems that are robust, reliable, and adaptable. To handle the complexities of [MLOps](https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)—from development to deployment and continuous improvement—you need to use a reliability-first approach. Google Cloud offers a purpose-built AI infrastructure that's aligned with [site reliability engineering (SRE)](https://sre.google/) principles and that provides a powerful foundation for reliable AI and ML systems.
 
 The recommendations in this document are mapped to the following core principles:
 
-  * Ensure that infrastructure is scalable and highly available
-  * Use a modular and loosely coupled architecture
-  * Build an automated end-to-end MLOps platform
-  * Maintain trust and control through data and model governance
-  * Implement holistic observability and reliability practices
+  * [Ensure that infrastructure is scalable and highly available](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability#scalable-highly-available-infrastructure)
+  * [Use a modular and loosely coupled architecture](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability#modular-loosely-coupled-architecture)
+  * [Build an automated end-to-end MLOps platform](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability#automated-end-to-end-mlops-platform)
+  * [Maintain trust and control through data and model governance](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability#trust-control-through-governance)
+  * [Implement holistic observability and reliability practices](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability#holistic-observability-reliability-practices)
 
 
 
@@ -50,8 +50,8 @@ To autoscale your AI and ML workloads, use the following products and features i
   * **Data processing pipelines** : Create data pipelines in [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview). Configure the pipelines to use [Dataflow's horizontal autoscaling](https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling) feature, which dynamically adjusts the number of worker instances based on CPU utilization, pipeline parallelism, and pending data. You can configure autoscaling parameters through pipeline options when you launch jobs.
   * **Training jobs** : Automate the scaling of training jobs by using [Gemini Enterprise Agent Platform custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute). You can define worker pool specifications such as the machine type, the type and number of accelerators, and the number of worker pools. For jobs that can tolerate interruptions and for jobs where the training code implements checkpointing, you can reduce costs by using [Spot VMs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-spot-vms).
   * **Online inference** : For online inference, use [Agent Platform endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment). To enable autoscaling, configure the minimum and maximum replica count. Specify a minimum of two replicas for HA. Agent Platform automatically adjusts the number of replicas based on traffic and the configured autoscaling metrics, such as CPU utilization and replica utilization.
-  * **Containerized workloads in[Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview)**: Configure autoscaling at the node and Pod levels. Configure the [cluster autoscaler](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler) and [node auto-provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning) to adjust the node count based on pending Pod resource requests like CPU, memory, GPU, and TPU. Use [Horizontal Pod Autoscaler (HPA)](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/horizontal-pod-autoscaling) for deployments to define scaling policies based on metrics like CPU and memory utilization. You can also scale based on custom AI and ML metrics, such as GPU or TPU utilization and prediction requests per second.
-  * **Serverless containerized services** : Deploy the services in [Cloud Run](https://docs.cloud.google.com/run/docs/configuring/services/gpu#gps-max-instances) and configure autoscaling by specifying the minimum and maximum number of container instances. Use [best practices](https://docs.cloud.google.com/run/docs/configuring/services/gpu-best-practices#autoscaling-and-gpu) to autoscale GPU-enabled instances by specifying the accelerator type. Cloud Run automatically scales instances between the configured minimum and maximum limits based on incoming requests. When there are no requests, it scales efficiently to zero instances. You can leverage the automatic, request-driven scaling of Cloud Run to deploy [agents](https://docs.cloud.google.com/run/docs/ai-agents) and to deploy third-party workloads like [quantized models using Ollama](https://docs.cloud.google.com/run/docs/tutorials/gpu-gemma-with-ollama) and [LLM model inference using vLLM](https://docs.cloud.google.com/run/docs/tutorials/gpu-gemma2-with-vllm).
+  * **Containerized workloads in[Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview)**: Configure autoscaling at the node and Pod levels. Configure the [cluster autoscaler](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler) and [node auto-provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning) to adjust the node count based on pending Pod resource requests like CPU, memory, GPU, and Cloud TPU. Use [Horizontal Pod Autoscaler (HPA)](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/horizontal-pod-autoscaling) for deployments to define scaling policies based on metrics like CPU and memory utilization. You can also scale based on custom AI and ML metrics, such as GPU or Cloud TPU utilization and prediction requests per second.
+  * **Serverless containerized services** : Deploy the services in [Cloud Run](https://docs.cloud.google.com/run/docs/configuring/services/gpu#gps-max-instances) and configure autoscaling by specifying the minimum and maximum number of container instances. Use [best practices](https://docs.cloud.google.com/run/docs/configuring/services/gpu-best-practices#autoscaling-and-gpu) to autoscale GPU-enabled instances by specifying the accelerator type. Cloud Run automatically scales instances between the configured minimum and maximum limits based on incoming requests. When there are no requests, it scales efficiently to zero instances. You can leverage the automatic, request-driven scaling of Cloud Run to deploy [agents](https://docs.cloud.google.com/run/docs/ai-agents) and to deploy third-party workloads like [quantized models using Ollama](https://docs.cloud.google.com/run/docs/tutorials/gpu-gemma-with-ollama) and [LLM inference using vLLM](https://docs.cloud.google.com/run/docs/run-gemma-on-cloud-run).
 
 
 
@@ -62,8 +62,8 @@ For production-grade AI and ML workloads, it's crucial that you ensure continuou
   * For HA and low latency in model serving, particularly for real-time inference and generative AI models, distribute your deployments across multiple locations.
   * For global availability and resilience, deploy the models to multiple [Agent Platform endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) across Google Cloud regions or use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global-endpoint).
   * Use global load balancing to route traffic.
-  * For training on GKE or Compute Engine MIGs, implement monitoring for [Xid errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-gpus#xid_messages). When you identify Xid errors, take appropriate remedial action. For example, [reset GPUs](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-gpus#reset-gpus), [reset Compute Engine instances](https://docs.cloud.google.com/compute/docs/instances/reset-instance#reset-instance), or trigger hardware replacement by using the [gcloud CLI report faulty host](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host#report-a-faulty-host) command.
-  * Explore fault-tolerant or elastic and resilient training solutions like [recipes to use the Google Resiliency Library](https://github.com/AI-Hypercomputer/gpu-recipes/tree/main/training/a3mega/llama3_70b) or integration of the [Resilient training with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training) logic for TPU workloads.
+  * For training on GKE or Compute Engine MIGs, implement monitoring for [Xid errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-gpus#xid-errors). When you identify Xid errors, take appropriate remedial action. For example, [reset GPUs](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-gpus#reset-gpus), [reset Compute Engine instances](https://docs.cloud.google.com/compute/docs/instances/reset-instance#reset-instance), or trigger hardware replacement by using the [Google Cloud CLI report faulty host](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host#report-a-faulty-host) command.
+  * Explore fault-tolerant or elastic and resilient training solutions like [recipes to use the Google Resiliency Library](https://github.com/AI-Hypercomputer/gpu-recipes/tree/main/training/a3mega/llama3_70b) or integration of the [Resilient training with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training) logic for Cloud TPU workloads.
 
 
 
@@ -79,16 +79,16 @@ Implement redundancy for critical AI and ML components in Google Cloud. The foll
 
 ### Manage resources proactively and anticipate requirements
 
-Effective resource management is important to help you optimize costs, performance, and reliability. AI and ML workloads are dynamic and there's high demand for specialized hardware like GPUs and TPUs. Therefore, it's crucial that you apply proactive resource management and ensure resource availability.
+Effective resource management is important to help you optimize costs, performance, and reliability. AI and ML workloads are dynamic and there's high demand for specialized hardware like GPUs and Cloud TPU. Therefore, it's crucial that you apply proactive resource management and ensure resource availability.
 
-Plan for capacity based on historical monitoring data, such as GPU or TPU utilization and throughput rates, from [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and logs in [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview). Analyze this telemetry data by using [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) or [Data Studio](https://docs.cloud.google.com/looker/docs/studio) and forecast future demand for GPUs based on growth or new models. Analysis of resource usage patterns and trends helps you to predict when and where you need critical specialized accelerators.
+Plan for capacity based on historical monitoring data, such as GPU or Cloud TPU utilization and throughput rates, from [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and logs in [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview). Analyze this telemetry data by using [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) or [Data Studio](https://docs.cloud.google.com/data-studio/welcome) and forecast future demand for GPUs based on growth or new models. Analysis of resource usage patterns and trends helps you to predict when and where you need critical specialized accelerators.
 
   * Validate capacity estimates through rigorous load testing. Simulate traffic on AI and ML services like serving and pipelines by using tools like [Apache JMeter](https://jmeter.apache.org/) or [LoadView](https://www.loadview-testing.com).
   * Analyze system behavior under stress. 
-    * To anticipate and meet increased workload demands in production, proactively identify resource requirements. Monitor latency, throughput, errors, and resource utilization, especially GPU and TPU utilization. Increase resource quotas as necessary.
+    * To anticipate and meet increased workload demands in production, proactively identify resource requirements. Monitor latency, throughput, errors, and resource utilization, especially GPU and Cloud TPU utilization. Increase resource quotas as necessary.
     * For generative AI serving, test under high concurrent loads and identify the level at which accelerator availability limits performance.
   * Perform continuous monitoring for model queries and set up proactive [alerts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/quality-alerts) for agents. 
-    * Use the [model observability dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-observability#view) to view metrics that are collected by Cloud Monitoring, such as model queries per second (QPS), token throughput, and first token latencies.
+    * Use the [model observability dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-observability#view) to view metrics that are collected by Monitoring, such as model queries per second (QPS), token throughput, and first token latencies.
 
 
 
@@ -102,12 +102,12 @@ Optimize costs and ensure resource availability by strategically selecting appro
     * For fault-tolerant tasks such as evaluation and experimentation workloads, use [Spot VMs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/spot-vms). Spot VMs can be preempted, but they can help reduce your overall costs.
     * To manage preemption risk for high-demand accelerators, you can ensure better obtainability by using [DWS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/provisioningrequest). 
       * For complex batch training that needs high-end GPUs to run up to seven days, use the DWS Flex-Start mode.
-      * For longer running workloads that run up to three months, use the Calendar mode to reserve specific GPUs (H100 and H200) and TPUs (Trillium).
-  * To optimize AI inference on GKE, you can run a [vLLM](https://docs.vllm.ai/en/stable/) engine that dynamically uses TPUs and GPUs to address fluctuating capacity and performance needs. For more information, see [vLLM GPU/TPU Fungibility](https://gke-ai-labs.dev/docs/tutorials/gpu-tpu/fungibility-recipes/).
+      * For longer running workloads that run up to three months, use the Calendar mode to reserve specific GPUs (H100 and H200) and Cloud TPU (Trillium).
+  * To optimize AI inference on GKE, you can run a [vLLM](https://docs.vllm.ai/en/stable/) engine that dynamically uses Cloud TPU and GPUs to address fluctuating capacity and performance needs. For more information, see [vLLM GPU/TPU Fungibility](https://gke-ai-labs.dev/docs/tutorials/gpu-tpu/fungibility-recipes/).
 
   * For advanced scenarios with complex resource and topology needs that involve accelerators, use tools to abstract resource management.
 
-    * [Cluster Director](https://docs.cloud.google.com/ai-hypercomputer/docs/cluster-director) lets you deploy and manage accelerator groups with colocation and scheduling for multi-GPU training (A3 Ultra H200 and A4 B200). Cluster Director supports GKE and Slurm clusters.
+    * [Cluster Director](https://docs.cloud.google.com/ai-hypercomputer/docs/cluster-capabilities) lets you deploy and manage accelerator groups with colocation and scheduling for multi-GPU training (A3 Ultra H200 and A4 B200). Cluster Director supports GKE and Slurm clusters.
     * [Ray on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) abstracts distributed computing infrastructure. It enables applications to request resources for training and serving without the need for direct management of VMs and containers.
 
 
@@ -116,10 +116,10 @@ Optimize costs and ensure resource availability by strategically selecting appro
 
 Effective load balancing is crucial for AI applications that have fluctuating demands. Load balancing distributes traffic, optimizes resource utilization, provides HA and low latency, and helps to ensure a seamless user experience.
 
-  * **Inference with varying resource needs** : Implement load balancing based on model metrics. [GKE Inference Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-gke-inference-gateway) lets you deploy models behind a load balancer with model-aware routing. The gateway prioritizes instances with GPU and TPU accelerators for compute-intensive tasks like generative AI and LLM inference. Configure detailed health checks to assess model status. Use serving frameworks like vLLM or Triton for LLM metrics and integrate the metrics into [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) by using [Google Cloud Managed Service for Prometheus](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus).
-  * **Inference workloads that need GPUs or TPUs** : To ensure that critical AI and ML inference workloads consistently run on machines that are suitable to the workloads' requirements, particularly when GPU and TPU availability is constrained, use [GKE custom compute classes](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes). You can define specific compute _profiles_ with fallback policies for autoscaling. For example, you can define a profile that specifies a higher priority for reserved GPU or TPU instances. The profile can include a fallback to use cost-efficient Spot VMs if the reserved resources are temporarily unavailable.
-  * **Generative AI on diverse orchestration platforms** : Use a centralized load balancer. For example, for cost and management efficiency, you can route requests that have low GPU needs to Cloud Run and route more complex, GPU-intensive tasks to GKE. For inter-service communication and policy management, implement a service mesh by using [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/onboarding/provision-control-plane). Ensure consistent logging and monitoring by using Cloud Logging and Cloud Monitoring.
-  * **Global load distribution** : To load balance traffic from global users who need low latency, use a [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https). Configure geolocation routing to the closest region and implement failover. Establish regional endpoint replication in Agent Platform or GKE. Configure Cloud CDN for static assets. Monitor global traffic and latency by using Cloud Monitoring.
+  * **Inference with varying resource needs** : Implement load balancing based on model metrics. [GKE Inference Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-gke-inference-gateway) lets you deploy models behind a load balancer with model-aware routing. The gateway prioritizes instances with GPU and Cloud TPU accelerators for compute-intensive tasks like generative AI and LLM inference. Configure detailed health checks to assess model status. Use serving frameworks like vLLM or Triton for LLM metrics and integrate the metrics into [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) by using [Google Cloud Managed Service for Prometheus](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus).
+  * **Inference workloads that need GPUs or Cloud TPU** : To ensure that critical AI and ML inference workloads consistently run on machines that are suitable to the workloads' requirements, particularly when GPU and Cloud TPU availability is constrained, use [GKE custom compute classes](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes). You can define specific compute _profiles_ with fallback policies for autoscaling. For example, you can define a profile that specifies a higher priority for reserved GPU or Cloud TPU instances. The profile can include a fallback to use cost-efficient Spot VMs if the reserved resources are temporarily unavailable.
+  * **Generative AI on diverse orchestration platforms** : Use a centralized load balancer. For example, for cost and management efficiency, you can route requests that have low GPU needs to Cloud Run and route more complex, GPU-intensive tasks to GKE. For inter-service communication and policy management, implement a service mesh by using [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/onboarding/provision-control-plane). Ensure consistent logging and monitoring by using Logging and Monitoring.
+  * **Global load distribution** : To load balance traffic from global users who need low latency, use a [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https). Configure geolocation routing to the closest region and implement failover. Establish regional endpoint replication in Agent Platform or GKE. Configure Cloud CDN for static assets. Monitor global traffic and latency by using Monitoring.
   * **Granular traffic management** : For requests that have diverse data types or complexity and long-running requests, implement granular traffic management. 
     * Configure [content-based routing](https://docs.cloud.google.com/load-balancing/docs/url-map#traffic-management-guides) to direct requests to specialized backends based on attributes like URL paths and headers. For example, direct requests to GPU-enabled backends for image or video models and to CPU-optimized backends for text-based models.
     * For long-running generative AI requests or batch workloads, use WebSockets or gRPC. Implement traffic management to handle timeouts and buffering. Configure request timeouts and retries and implement rate limiting and quotas by using API Gateway or Apigee.
@@ -150,7 +150,7 @@ The microservices-on-GKE approach helps you build scalable, resilient platforms 
 
 For event-driven tasks that can benefit from serverless, automatic scaling, use [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) or [Cloud Run functions](https://docs.cloud.google.com/functions/docs/concepts/overview). These services are ideal for asynchronous tasks like preprocessing or for smaller inference jobs. Trigger Cloud Run functions on events, such as a new data file that's created in Cloud Storage or model updates in Artifact Registry. For web-hook tasks or services that need a container environment, use Cloud Run.
 
-Cloud Run services and Cloud Run functions can scale up rapidly and scale down to zero, which helps to ensure cost efficiency for fluctuating workloads. These services are suitable for modular components in Agent Conversation workflows. You can orchestrate component sequences with [Workflows](https://docs.cloud.google.com/workflows/docs/overview) or[ Application Integration](https://docs.cloud.google.com/application-integration/docs/overview).
+Cloud Run services and Cloud Run functions can scale up rapidly and scale down to zero, which helps to ensure cost efficiency for fluctuating workloads. These services are suitable for modular components in Agent Conversation workflows. You can orchestrate component sequences with [Workflows](https://docs.cloud.google.com/workflows/docs/overview) or [Application Integration](https://docs.cloud.google.com/application-integration/docs/overview).
 
 #### Agent Platform managed services
 
@@ -165,7 +165,7 @@ Agent Platform services support modularity and help you simplify the development
 
 #### Agentic applications
 
-For AI agents, [Agent Development Kit (ADK)](https://adk.dev/) provides modular capabilities like [Tools](https://adk.dev/tools/) and [State](https://adk.dev/sessions/state/). To enable interoperability between frameworks like [LangChain](https://python.langchain.com/docs/tutorials), [LangGraph](https://langchain-ai.github.io/langgraph), [LlamaIndex](https://www.llamaindex.ai/), and Agent Platform, you can combine ADK with the [Agent2Agent (A2A) protocol](https://a2a-protocol.org/latest/) and the [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol). This interoperability lets you compose agentic workflows by using diverse components.
+For AI agents, [Agent Development Kit (ADK)](https://adk.dev/) provides modular capabilities like [Tools](https://adk.dev/tools/) and [State](https://adk.dev/sessions/state/). To enable interoperability between frameworks like [LangChain](https://docs.langchain.com/oss/python/langchain/overview), [LangGraph](https://langchain-ai.github.io/langgraph/), [LlamaIndex](https://www.llamaindex.ai/), and Agent Platform, you can combine ADK with the [Agent2Agent (A2A) protocol](https://a2a-protocol.org/latest/) and the [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol). This interoperability lets you compose agentic workflows by using diverse components.
 
 You can deploy agents on Agent Runtime on Gemini Enterprise Agent Platform, which is a managed runtime that's optimized for scalable agent deployment. To run containerized agents, you can leverage the autoscaling capabilities in Cloud Run.
 
@@ -178,14 +178,14 @@ The following sections provide guidance to help ensure seamless communication an
 #### Protocol choice
 
   * For universal access, use HTTP APIs, adhere to RESTful principles, and use JSON for language-agnostic data exchange. Design the API endpoints to represent actions on resources.
-  * For high-performance internal communication among microservices, use [gRPC](https://grpc.io/docs/) with[ Protocol Buffers (ProtoBuf)](https://developers.google.com/protocol-buffers/docs/overview) for efficient serialization and strict typing. Define data structures like ModelInput, PredictionResult, or ADK Tool data by using `.proto` files, and then generate language bindings.
+  * For high-performance internal communication among microservices, use [gRPC](https://grpc.io/docs/) with [Protocol Buffers (Protobuf)](https://protobuf.dev/overview/) for efficient serialization and strict typing. Define data structures like ModelInput, PredictionResult, or ADK Tool data by using `.proto` files, and then generate language bindings.
   * For use cases where performance is critical, leverage gRPC streaming for large datasets or for continuous flows such as live text-to-speech or video applications. Deploy the gRPC services on GKE.
 
 
 
 #### Standardized and comprehensive documentation
 
-Regardless of the interface protocol that you choose, standardized documentation is crucial. The [OpenAPI Specification](https://swagger.io/specification/) describes RESTful APIs. Use OpenAPI to document your AI and ML APIs: paths, methods, parameters, request-response formats that are linked to JSON schemas, and security. Comprehensive API documentation helps to improve discoverability and client integration. For API authoring and visualization, use UI tools like [Swagger Editor](https://swagger.io/tools/swagger-editor/). To accelerate development and ensure consistency, you can generate client SDKs and server stubs by using AI-assisted coding tools like [Gemini Code Assist](https://codeassist.google/). Integrate OpenAPI documentation into your CI/CD flow.
+Regardless of the interface protocol that you choose, standardized documentation is crucial. The [OpenAPI Specification](https://swagger.io/specification/) describes RESTful APIs. Use OpenAPI to document your AI and ML APIs: paths, methods, parameters, request-response formats that are linked to JSON schemas, and security. Comprehensive API documentation helps to improve discoverability and client integration. For API authoring and visualization, use UI tools like [Swagger Editor](https://swagger.io/open-source/swagger-editor/). To accelerate development and ensure consistency, you can generate client SDKs and server stubs by using AI-assisted coding tools like [Gemini Code Assist](https://codeassist.google/products/business). Integrate OpenAPI documentation into your CI/CD flow.
 
 #### Interaction with Google Cloud managed services like Agent Platform
 
@@ -201,7 +201,7 @@ Choose between the higher abstraction of the Agent Platform SDK, which is prefer
 For security, scalability, and visibility, it's crucial that you implement robust API management for your AI and ML services. To implement API management for your defined interfaces, use the following products:
 
   * **[API Gateway](https://docs.cloud.google.com/api-gateway/docs/about-api-gateway)** : For APIs that are externally exposed and managed, API Gateway provides a centralized, secure entry point. It simplifies access to serverless backend services, such as prediction, training, and data APIs. API Gateway helps to consolidate access points, enforce API contracts, and manage security capabilities like API keys and OAuth 2.0. To protect backends from overload and ensure reliability, implement rate limiting and usage quotas in API Gateway.
-  * **[Cloud Endpoints](https://docs.cloud.google.com/endpoints/docs)** : To streamline API development and deployment on GKE and Cloud Run, use Cloud Endpoints, which offers a developer-friendly solution for generating API keys. It also provides integrated monitoring and tracing for API calls and it automates the generation of OpenAPI specs, which simplifies documentation and client integration. You can use Cloud Endpoints to manage access to internal or controlled AI and ML APIs, such as to trigger training and manage feature stores.
+  * **[Cloud Endpoints](https://docs.cloud.google.com/endpoints/docs)** : To streamline API development and deployment on GKE and Cloud Run, use Endpoints, which offers a developer-friendly solution for generating API keys. It also provides integrated monitoring and tracing for API calls and it automates the generation of OpenAPI specs, which simplifies documentation and client integration. You can use Endpoints to manage access to internal or controlled AI and ML APIs, such as to trigger training and manage feature stores.
   * **[Apigee](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee)** : For enterprise-scale AI and ML, especially sophisticated generative AI APIs, Apigee provides advanced, comprehensive API management. Use Apigee for advanced security like threat protection and OAuth 2.0, for traffic management like caching, quotas, and mediation, and for analytics. Apigee can help you to gain deep insights into API usage patterns, performance, and engagement, which are crucial for understanding generative AI API usage.
 
 
@@ -227,7 +227,7 @@ Ensure data redundancy by using Cloud Storage multi-regional buckets. For distri
 
 #### Proactive monitoring
 
-Graceful degradation helps to ensure system availability during failure, but you must also implement proactive measures for continuous health checks and comprehensive monitoring. Collect metrics that are specific to AI and ML, such as latency, throughput, and GPU utilization. Also, collect model performance degradation metrics like model and data drift by using Cloud Monitoring and [Model Monitoring on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview).
+Graceful degradation helps to ensure system availability during failure, but you must also implement proactive measures for continuous health checks and comprehensive monitoring. Collect metrics that are specific to AI and ML, such as latency, throughput, and GPU utilization. Also, collect model performance degradation metrics like model and data drift by using Monitoring and [Model Monitoring on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview).
 
 Health checks can trigger the need to replace faulty nodes, deploy more capacity, or automatically trigger continuous retraining or fine-tuning of pipelines that use updated data. This proactive approach helps to prevent both accuracy-based degradation and system-level graceful degradation and it helps to enhance overall reliability.
 
@@ -251,7 +251,7 @@ A core element of an automated MLOps platform is the orchestration of the entire
     * Define end-to-end workflows with modular components for data processing, training, evaluation, and deployment.
     * Automate pipeline runs by using schedules or triggers like new data or code changes.
     * Implement automated parameterization and versioning for each pipeline run and create a version history.
-    * Monitor pipeline progress and resource usage by using built-in logging and tracing, and integrate with [Cloud Monitoring alerts](https://docs.cloud.google.com/monitoring/alerts).
+    * Monitor pipeline progress and resource usage by using built-in logging and tracing, and integrate with [Monitoring alerts](https://docs.cloud.google.com/monitoring/alerts).
   * Define your ML pipelines programmatically by using the Kubeflow Pipelines (KFP) SDK or TensorFlow Extended SDK. For more information, see [Interfaces for Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/interfaces).
   * Orchestrate operations by using Google Cloud services like [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview), [Agent Platform custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job), [Model Registry on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction), and Agent Platform endpoints.
   * For generative AI workflows, orchestrate the steps for prompt management, batched inference, human-in-the-loop (HITL) evaluation, and coordinating ADK components.
@@ -260,7 +260,7 @@ A core element of an automated MLOps platform is the orchestration of the entire
 
 ### Manage infrastructure as code
 
-Infrastructure as code (IaC) is crucial for managing AI and ML system infrastructure and for enabling reproducible, scalable, and maintainable deployments. The infrastructure needs of AI and ML systems are dynamic and complex. The systems often require specialized hardware like GPUs and TPUs. IaC helps to mitigate the risks of manual infrastructure management by ensuring consistency, enabling rollbacks, and making deployments repeatable.
+Infrastructure as code (IaC) is crucial for managing AI and ML system infrastructure and for enabling reproducible, scalable, and maintainable deployments. The infrastructure needs of AI and ML systems are dynamic and complex. The systems often require specialized hardware like GPUs and Cloud TPU. IaC helps to mitigate the risks of manual infrastructure management by ensuring consistency, enabling rollbacks, and making deployments repeatable.
 
 To effectively manage your infrastructure resources as code, use the following techniques.
 
@@ -326,11 +326,11 @@ To effectively validate the inputs and outputs of your AI and ML pipelines, use 
 
 #### Automate data validation
 
-  * Implement automated data validation in your data ingestion and preprocessing pipelines by using [TensorFlow Data Validation (TFDV)](https://www.tensorflow.org/tfx/data_validation). 
+  * Implement automated data validation in your data ingestion and preprocessing pipelines by using [TensorFlow Data Validation (TFDV)](https://www.tensorflow.org/tfx/guide/tfdv). 
     * For large-scale, SQL-based data quality checks, leverage scalable processing services like [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction).
     * For complex, programmatic validation on streaming or batch data, use [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview).
   * Monitor data distributions over time with TFDV capabilities. 
-    * Visualize trends by using tools that are integrated with [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) to detect data drift. You can automatically trigger model retraining pipelines when data patterns change significantly.
+    * Visualize trends by using tools that are integrated with [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) to detect data drift. You can automatically trigger model retraining pipelines when data patterns change significantly.
   * Store validation results and metrics in BigQuery for analysis and historical tracking and archive validation artifacts in Cloud Storage.
 
 
@@ -389,7 +389,7 @@ Control the deployment of model versions to endpoints by using your serving plat
     3. Analyze the results against business objectives.
   * Implement automated rollback mechanisms that can quickly revert endpoint traffic to a previous stable model version if monitoring alerts are triggered or performance thresholds are missed.
   * Configure traffic splitting and deployment settings programmatically by using the Agent Platform SDK or API.
-  * Use [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) to track performance and traffic across versions.
+  * Use [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) to track performance and traffic across versions.
   * Automate deployment with CI/CD pipelines. You can use [Cloud Build](https://docs.cloud.google.com/build/docs/overview) to build containers, version artifacts, and trigger deployment to Agent Platform endpoints.
   * Ensure that the CI/CD pipelines manage versions and pull from Artifact Registry.
   * Before you shift traffic, perform automated endpoint testing for prediction correctness, latency, throughput, and API function.
@@ -402,10 +402,10 @@ Control the deployment of model versions to endpoints by using your serving plat
   * Use [Model Monitoring on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) to automatically detect performance degradation, data drift (changes in input distribution compared to training), and prediction drift (changes in model outputs). 
     * Configure drift detection jobs with thresholds and alerts.
     * Monitor real-time performance: prediction latency, throughput, error rates.
-  * Define custom metrics in [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) for business KPIs.
-  * Integrate Model Monitoring on Agent Platform results and custom metrics with Cloud Monitoring for alerts and dashboards.
+  * Define custom metrics in [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) for business KPIs.
+  * Integrate Model Monitoring on Agent Platform results and custom metrics with Monitoring for alerts and dashboards.
   * Configure notification channels like email, Slack, or PagerDuty and configure automated remediation.
-  * To debug prediction logs, use [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview).
+  * To debug prediction logs, use [Logging](https://docs.cloud.google.com/logging/docs/overview).
   * Integrate monitoring with incident management.
 
 
@@ -435,7 +435,7 @@ To facilitate comprehensive tracing, auditing, and understanding the lineage of 
 
 Use the following products, tools, and techniques to create and maintain catalogs for your data assets:
 
-  * Build an enterprise-wide catalog of your data assets by using [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview). To automatically discover and build inventories of the data assets, integrate Knowledge Catalog with your storage systems, such as [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction), [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction), and [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview).
+  * Build an enterprise-wide catalog of your data assets by using [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview). To automatically discover and build inventories of the data assets, integrate Knowledge Catalog with your storage systems, such as [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction), [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction), and [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview).
   * Ensure that your data is highly available and durable by storing it in Cloud Storage [multi-region or dual-region buckets](https://docs.cloud.google.com/storage/docs/locations#considerations). Data that you upload to these buckets is stored redundantly across at least two separate geographic locations. This redundancy provides built-in resilience against regional outages and it helps to ensure data integrity.
   * Tag and annotate your datasets with relevant business metadata, ownership information, sensitivity levels, and lineage details. For example, link a processed dataset to its raw source and to the pipeline that created the dataset.
   * Create a central repository for model versions by using [Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction). Register each trained model version and link it to the associated metadata. The metadata can include the following: 
@@ -474,7 +474,7 @@ Use auditing and logs to capture, monitor, and analyze access activity:
 
   * Enable [Cloud Audit Logs](https://docs.cloud.google.com/logging/docs/audit) for all of the Google Cloud services that are used by your AI and ML system.
   * Configure audit logs to capture detailed information about API calls, data access events, and configuration changes made to your resources. Monitor the logs for suspicious activity, unauthorized access attempts, or unexpected modifications to critical data or model assets.
-  * For real-time analysis, alerting, and visualization, stream the audit logs to [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview).
+  * For real-time analysis, alerting, and visualization, stream the audit logs to [Logging](https://docs.cloud.google.com/logging/docs/overview).
   * For cost-effective long-term storage and retrospective security analysis or compliance audits, export the logs to BigQuery.
   * For centralized security monitoring, integrate audit logs with your security information and event management (SIEM) systems. Regularly review access policies and audit trails to ensure they align with your governance requirements and detect potential policy violations.
   * For applications that handle sensitive data, such as personally identifiable information (PII) for training or inference, use [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) checks within pipelines or on data storage.
@@ -546,23 +546,23 @@ Aligning SLOs directly with business needs ensures that reliability efforts are 
 
 ### Monitor infrastructure and application performance
 
-Track infrastructure metrics across all of the resources that are used by your AI and ML systems. The metrics include processor usage (CPU, GPU, and TPU), memory usage, network throughput and latency, and disk I/O. Track the metrics for managed environments like Gemini Enterprise Agent Platform training and serving and for self-managed resources like GKE nodes and Cloud Run instances.
+Track infrastructure metrics across all of the resources that are used by your AI and ML systems. The metrics include processor usage (CPU, GPU, and Cloud TPU), memory usage, network throughput and latency, and disk I/O. Track the metrics for managed environments like Agent Platform training and serving and for self-managed resources like GKE nodes and Cloud Run instances.
 
 Monitor the [four golden signals](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals) for your AI and ML applications:
 
   * **Latency** : Time to respond to requests.
   * **Traffic** : Volume of requests or workload.
   * **Error rate** : Rate of failed requests or operations.
-  * **Saturation** : Utilization of critical resources like CPU, memory, and GPU or TPU accelerators, which indicates how close your system is to capacity limits.
+  * **Saturation** : Utilization of critical resources like CPU, memory, and GPU or Cloud TPU accelerators, which indicates how close your system is to its capacity limits.
 
 
 
 Perform monitoring by using the following techniques:
 
-  * Collect, store, and visualize the infrastructure and application metrics by using [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview). You can use pre-built dashboards for Google Cloud services and create custom dashboards that are tailored based on your workload's specific performance indicators and infrastructure health. 
-    * Collect and integrate metrics from specialized serving frameworks like [vLLM](https://docs.vllm.ai/en/latest/design/v1/metrics.html) or [NVIDIA Triton Inference Server](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/metrics.html) into Cloud Monitoring by using [Google Cloud Managed Service for Prometheus](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus).
-    * Create dashboards and configure alerts for metrics that are related to custom training, endpoints, and performance, and for metrics that [Agent Platform exports to Cloud Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics).
-  * Collect detailed logs from your AI and ML applications and the underlying infrastructure by using [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview). These logs are essential for troubleshooting and performance analysis. They provide context around events and errors.
+  * Collect, store, and visualize the infrastructure and application metrics by using [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview). You can use pre-built dashboards for Google Cloud services and create custom dashboards that are tailored based on your workload's specific performance indicators and infrastructure health. 
+    * Collect and integrate metrics from specialized serving frameworks like [vLLM](https://docs.vllm.ai/en/latest/design/metrics/) or [NVIDIA Triton Inference Server](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/metrics.html) into Monitoring by using [Google Cloud Managed Service for Prometheus](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus).
+    * Create dashboards and configure alerts for metrics that are related to custom training, endpoints, and performance, and for metrics that [Agent Platform exports to Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics).
+  * Collect detailed logs from your AI and ML applications and the underlying infrastructure by using [Logging](https://docs.cloud.google.com/logging/docs/overview). These logs are essential for troubleshooting and performance analysis. They provide context around events and errors.
   * Pinpoint latency issues and understand request flows across distributed AI and ML microservices by using [Cloud Trace](https://docs.cloud.google.com/trace/docs/overview). This capability is crucial for debugging complex Agent Conversation interactions or multi-component inference pipelines.
   * Identify performance bottlenecks within function blocks in application code by using [Cloud Profiler](https://docs.cloud.google.com/profiler/docs/about-profiler). Identifying performance bottlenecks can help you optimize resource usage and execution time.
   * Gather specific accelerator-related metrics like detailed GPU utilization per process, memory usage per process, and temperature, by using tools like [NVIDIA Data Center GPU Manager (DCGM)](https://docs.cloud.google.com/monitoring/agent/ops-agent/third-party-nvidia).
@@ -580,12 +580,12 @@ Reliable generative AI systems require robust data and model observability, whic
 
 Continuous assessment of data quality is crucial.
 
-  * Manage and govern data by using [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/introduction): 
+  * Manage and govern data by using [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction): 
     * Evaluate accuracy by validating against ground truth or by tracking outlier detection rates.
     * Monitor freshness based on the age of data and frequency of updates against SLAs.
     * Assess completeness by tracking null-value percentages and required field-fill rates.
     * Ensure validity and consistency through checks for schema-adherence and duplication.
-  * Proactively detect anomalies by using Cloud Monitoring alerting and through clear data lineage for traceability.
+  * Proactively detect anomalies by using Monitoring alerting and through clear data lineage for traceability.
   * For RAG systems, examine the relevance of the retrieved context and the groundedness (attribution to source) of the responses.
   * Monitor the throughput of vector database queries.
 
@@ -599,7 +599,7 @@ Key model observability metrics include input-output token counts and model-spec
 
 
 
-To track model metrics, you can use [TensorBoard](https://www.tensorflow.org/tensorboard) or [MLflow](https://mlflow.org/). For deep analysis and profiling to troubleshoot performance issues, you can use [PyTorch XLA profiling](https://docs.cloud.google.com/tpu/docs/pytorch-xla-performance-profiling-tpu-vm) or [NVIDIA Nsight](https://developer.nvidia.com/nsight-systems).
+To track model metrics, you can use [TensorBoard](https://www.tensorflow.org/tensorboard) or [MLflow](https://mlflow.org/). For deep analysis and profiling to troubleshoot performance issues, you can [profile models on Cloud TPU VMs](https://docs.cloud.google.com/tpu/docs/profile-tpu-vm) or use [NVIDIA Nsight](https://developer.nvidia.com/nsight-systems).
 
 ## Contributors
 
@@ -630,6 +630,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-08-07 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-08-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
