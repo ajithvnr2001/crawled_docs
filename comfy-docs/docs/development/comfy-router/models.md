@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:11.020574+00:00
+fetched_at: 2026-10-30T13:55:13.266321+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -70,7 +70,7 @@ Every model below is served by the same route, `POST /v2/models/{provider}/{mode
 
 Find by output
 
-Video (78)
+Video (76)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -106,8 +106,6 @@ Video (78)
   * [LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
   * [Ray 3.2](https://docs.comfy.org/development/comfy-router/models/luma_2/ray-3-2/code): `luma_2/ray-3.2`
-  * [Ray 2](https://docs.comfy.org/development/comfy-router/models/luma/ray-2/code): `luma/ray-2`
-  * [Ray Flash 2](https://docs.comfy.org/development/comfy-router/models/luma/ray-flash-2/code): `luma/ray-flash-2`
   * [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code): `minimax/minimax-h3`
   * [Image To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/image-to-video/code): `moonvalley/image-to-video`
   * [Text To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/text-to-video/code): `moonvalley/text-to-video`
@@ -491,7 +489,7 @@ Model| ID| Input| Output
 [Crystal Upscaler](https://docs.comfy.org/development/comfy-router/models/fal/crystal-upscaler/code)| `fal/crystal-upscaler`| Image| Image  
 [Crystal Video Upscaler](https://docs.comfy.org/development/comfy-router/models/fal/crystal-video-upscaler/code)| `fal/crystal-video-upscaler`| Video| Video  
 [FLUX 3 Max](https://docs.comfy.org/development/comfy-router/models/fal/flux-3-max/code)| `fal/flux-3-max`| Text, Image| Video + Audio  
-[H3 Max Turbo](https://docs.comfy.org/development/comfy-router/models/fal/h3-max-turbo/code)| `fal/h3-max-turbo`| Text, Image| Video + Audio  
+[H3 Max Turbo](https://docs.comfy.org/development/comfy-router/models/fal/h3-max-turbo/code)| `fal/h3-max-turbo`| Text, Image, Video, Audio| Video + Audio  
 [H3 Max](https://docs.comfy.org/development/comfy-router/models/fal/h3-max/code)| `fal/h3-max`| Text, Image, Video, Audio| Video + Audio  
 [Patina](https://docs.comfy.org/development/comfy-router/models/fal/patina/code)| `fal/patina`| Image| Image  
   
@@ -626,8 +624,6 @@ Model| ID| Input| Output
 ---|---|---|---  
 [Photon 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-1/code)| `luma/photon-1`| Text| Image  
 [Photon Flash 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-flash-1/code)| `luma/photon-flash-1`| Text| Image  
-[Ray 2](https://docs.comfy.org/development/comfy-router/models/luma/ray-2/code)| `luma/ray-2`| Text, Image| Video  
-[Ray Flash 2](https://docs.comfy.org/development/comfy-router/models/luma/ray-flash-2/code)| `luma/ray-flash-2`| Text, Image| Video  
   
 ## 
 

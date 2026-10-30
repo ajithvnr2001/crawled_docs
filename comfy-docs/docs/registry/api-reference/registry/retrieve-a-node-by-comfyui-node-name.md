@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/retrieve-a-node-by-comfyui-node-name/
 title: Retrieve a node by ComfyUI node name - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:00:25.582843+00:00
+fetched_at: 2026-10-30T13:55:20.695207+00:00
 ---
 
 # Retrieve a node by ComfyUI node name - ComfyUI
