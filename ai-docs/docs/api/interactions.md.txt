@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions.md.txt
 title: interactions
 method: httpx-raw-text
-fetched_at: 2026-10-29T10:42:34.388660+00:00
+fetched_at: 2026-10-30T10:43:25.176537+00:00
 ---
 
 # interactions

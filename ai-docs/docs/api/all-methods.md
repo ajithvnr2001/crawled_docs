@@ -1,25 +1,13 @@
 ---
 url: https://ai.google.dev/api/all-methods/
-title: All methods \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers
+title: All methods
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T19:15:51.861991+00:00
+fetched_at: 2026-10-30T10:43:24.406033+00:00
 ---
 
-# All methods  |  Gemini API  |  Google AI for Developers
+# All methods
 
 > Source: https://ai.google.dev/api/all-methods/
-
-Gemini 4 Argon is now available. [Try it out](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon). 
-
-  * [ Home ](https://ai.google.dev/)
-  * [ Gemini API ](https://ai.google.dev/gemini-api)
-  * [ API reference ](https://ai.google.dev/api)
-
-
-
-Send feedback 
-
-#  All methods
 
 ## Gemini API
 
@@ -185,10 +173,6 @@ Generates a model response given an input `GenerateContentRequest`.
 Gets information about a specific `Model` such as its version number, token limits, [parameters](https://ai.google.dev/gemini-api/docs/models/generative-models#model-parameters) and other metadata.  
 `[list](https://ai.google.dev/api/models#v1beta.models.list)` |  `GET /v1beta/models`   
 Lists the [`Model`s](https://ai.google.dev/gemini-api/docs/models/gemini) available through the Gemini API.  
-`[predict](https://ai.google.dev/api/models#v1beta.models.predict)` |  `POST /v1beta/{model=models/*}:predict`   
-Performs a prediction request.  
-`[predictLongRunning](https://ai.google.dev/api/models#v1beta.models.predictLongRunning)` |  `POST /v1beta/{model=models/*}:predictLongRunning`   
-Same as Predict but returns an LRO.  
 `[streamGenerateContent](https://ai.google.dev/api/generate-content#v1beta.models.streamGenerateContent)` |  `POST /v1beta/{model=models/*}:streamGenerateContent`   
 Generates a [streamed response](https://ai.google.dev/gemini-api/docs/text-generation?lang=python#generate-a-text-stream) from the model given an input `GenerateContentRequest`.  
   
@@ -299,12 +283,4 @@ Gets a credential by ID.
 `[UpdateCredential](https://ai.google.dev/api/credentials#UpdateCredential)` |  `PATCH /v1beta/credentials/{id}`   
 Updates a credential.  
 `[DeleteCredential](https://ai.google.dev/api/credentials#DeleteCredential)` |  `DELETE /v1beta/credentials/{id}`   
-Deletes a credential.  
-  
-Send feedback 
-
-Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-13 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Deletes a credential.

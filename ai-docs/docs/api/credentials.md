@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/credentials/
 title: Gemini Credentials API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:48.081886+00:00
+fetched_at: 2026-10-30T10:43:22.316656+00:00
 ---
 
 # Gemini Credentials API

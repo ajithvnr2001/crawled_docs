@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/webhooks.md.txt
 title: webhooks
 method: httpx-raw-text
-fetched_at: 2026-10-29T10:42:39.339194+00:00
+fetched_at: 2026-10-30T10:43:21.232145+00:00
 ---
 
 # webhooks
@@ -74,7 +74,7 @@ id string (optional) Output only. The ID of the webhook.
 
 ### Example
 
-<iframe src="https:///frame/api/webhooks_bb052094475d7d96f844f8a46b764ffc3f2f642945095c90fc9f46941b94fde6.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+<iframe src="https:///frame/api/webhooks_ef540b4d861fd6c40c2378a3b1f919d893266783836aa25d10ac9603c263ec3d.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 #### Example Response
 
@@ -115,7 +115,7 @@ If successful, the response is empty.
 
 ### Example
 
-<iframe src="https:///frame/api/webhooks_b95bbd961cbc1f974e712ccae89211dd075b24ac2cc8a650651a22545b5b2124.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+<iframe src="https:///frame/api/webhooks_aa89441b333504a440d6120bbf862f74e4c142f745d094b0a5d18ee4850a42cb.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 ## RotateSigningSecret
 
@@ -134,7 +134,7 @@ secret string (optional) Output only. The newly generated signing secret.
 
 ### Example
 
-<iframe src="https:///frame/api/webhooks_649bb9cbcaa205a19524acbbc6e60c8ec54097b347ea24d30e2a15c8c7960680.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+<iframe src="https:///frame/api/webhooks_8ba90b8e3e1a065e5a0d9073921a168e687bd67df6793be428bb8c40605cdecd.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 #### Example Response
 
@@ -167,7 +167,7 @@ If this field is omitted, there are no subsequent pages.
 
 ### Example
 
-<iframe src="https:///frame/api/webhooks_f6b0311fd35e32ced0fc0f9753399f557424c984e151cd6e4a1f535c81b8cd01.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+<iframe src="https:///frame/api/webhooks_4222052f97326e9af5de25c2c0e69587f0fb5aba5f20fdaea19f230deb13fbce.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 #### Example Response
 
@@ -249,7 +249,7 @@ id string (optional) Output only. The ID of the webhook.
 
 ### Example
 
-<iframe src="https:///frame/api/webhooks_bf5bb657875d7542a20a71b83fab6c7773c90c0df72740e2d003f2fccdcc5de8.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+<iframe src="https:///frame/api/webhooks_395043761371559d2f915a2ae7525da3fb43a927b7a67c0f002023bdb166f94b.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 #### Example Response
 
@@ -363,7 +363,7 @@ id string (optional) Output only. The ID of the webhook.
 
 ### Example
 
-<iframe src="https:///frame/api/webhooks_c4ef076dfea9dc58f35da8ae34021a5834372d6f5b5f824c608d91bf3b91d4cc.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+<iframe src="https:///frame/api/webhooks_699de3c94ab5e734825934f0950091f65037891c5ece43c39385cd1e2c7c02d6.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 #### Example Response
 
@@ -404,7 +404,7 @@ If successful, the response is empty.
 
 ### Example
 
-<iframe src="https:///frame/api/webhooks_db080921e9420d499a2f8b55744f5d62d5e52eb6c7afd75f3a092750f44a4640.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+<iframe src="https:///frame/api/webhooks_64bfac6bbd16d65ac00c18dd5b584cbe760b7f9578556b56d68827f07952772e.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 ## Resources
 

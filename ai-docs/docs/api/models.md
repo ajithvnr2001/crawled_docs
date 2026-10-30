@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/models/
 title: Models
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:40.521827+00:00
+fetched_at: 2026-10-30T10:43:22.867324+00:00
 ---
 
 # Models
@@ -47,7 +47,7 @@ The request body must be empty.
     
     client = genai.Client()
     model_info = client.models.get(model="gemini-3.8-flash")
-    print(model_info)[models.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/models.py#L41-L45)
+    print(model_info)[models.py](https://github.com/google-gemini/api-examples/blob/b2452b76cb9a4860c7071140c289f7ab2df8f5d6/python/models.py#L41-L45)
 
 ### Go
     
@@ -66,7 +66,7 @@ The request body must be empty.
     	log.Fatal(err)
     }
     
-    fmt.Println(modelInfo)[models.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/models.go#L54-L68)
+    fmt.Println(modelInfo)[models.go](https://github.com/google-gemini/api-examples/blob/b2452b76cb9a4860c7071140c289f7ab2df8f5d6/go/models.go#L54-L68)
 
 ### Shell
     
@@ -122,7 +122,7 @@ The request body must be empty.
     for m in client.models.list():
       for action in m.supported_actions:
         if action == "embedContent":
-          print(m.name)[models.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/models.py#L22-L36)
+          print(m.name)[models.py](https://github.com/google-gemini/api-examples/blob/b2452b76cb9a4860c7071140c289f7ab2df8f5d6/python/models.py#L22-L36)
 
 ### Go
     
@@ -160,7 +160,7 @@ The request body must be empty.
     			break
     		}
     	}
-    }[models.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/models.go#L14-L47)
+    }[models.go](https://github.com/google-gemini/api-examples/blob/b2452b76cb9a4860c7071140c289f7ab2df8f5d6/go/models.go#L14-L47)
 
 ### Shell
     
@@ -230,79 +230,4 @@ Examples:
       "maxTemperature": number,
       "topP": number,
       "topK": integer
-    }  
-  
-## Method: models.predict
-
-  * Endpoint
-  * Path parameters
-  * Request body
-    * JSON representation
-  * Response body
-    * JSON representation
-  * Authorization scopes
-
-
-
-Performs a prediction request.
-
-### Endpoint
-
-post  `https://generativelanguage.googleapis.com/v1beta/{model=models/*}:predict`   
-
-
-### Path parameters
-
-`model` `string` Required. The name of the model for prediction. Format: `name=models/{model}`. It takes the form `models/{model}`.
-
-### Request body
-
-The request body contains data with the following structure: | Fields  
-  
-`instances[]` `value (`[Value](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)` Required. The instances that are the input to the prediction call. | `parameters` `value (`[Value](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)` Optional. The parameters that govern the prediction call. | `labels` `map (key: string, value: string)` Optional. Labels with user-defined metadata for the request.Optional. Labels must follow standard unified Cloud label requirements: - Label keys must start with a letter. - Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. - International characters are allowed.Usage: - Safety identifiers from aggregators: Use the key `safety_identifier` (e.g. `{"safety_identifier": "user_session_123"}`)An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.
-
-### Response body
-
-Response message for [PredictionService.Predict]. If successful, the response body contains data with the following structure: | Fields  
-  
-`predictions[]` `value (`[Value](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)` The outputs of the prediction call. | JSON representation  
----  
-      
-    
-    {
-      "predictions": [
-        value
-      ]
-    }  
-  
-## Method: models.predictLongRunning
-
-  * Endpoint
-  * Path parameters
-  * Request body
-    * JSON representation
-  * Response body
-  * Authorization scopes
-
-
-
-Same as models.predict but returns an LRO.
-
-### Endpoint
-
-post  `https://generativelanguage.googleapis.com/v1beta/{model=models/*}:predictLongRunning`   
-
-
-### Path parameters
-
-`model` `string` Required. The name of the model for prediction. Format: `name=models/{model}`.
-
-### Request body
-
-The request body contains data with the following structure: | Fields  
-  
-`instances[]` `value (`[Value](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)` Required. The instances that are the input to the prediction call. | `parameters` `value (`[Value](https://protobuf.dev/reference/protobuf/google.protobuf/#value)` format)` Optional. The parameters that govern the prediction call. | `webhookConfig.uris[]` `string` Optional. If set, these webhook URIs will be used for webhook events instead of the registered webhooks. | `labels` `map (key: string, value: string)` Optional. Labels with user-defined metadata for the request.Optional. Labels must follow standard unified Cloud label requirements: - Label keys must start with a letter. - Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. - International characters are allowed.Usage: - Safety identifiers from aggregators: Use the key `safety_identifier` (e.g. `{"safety_identifier": "user_session_123"}`)An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.
-
-### Response body
-
-If successful, the response body contains an instance of `[Operation](https://ai.google.dev/api/batch-api#Operation)`.
+    }

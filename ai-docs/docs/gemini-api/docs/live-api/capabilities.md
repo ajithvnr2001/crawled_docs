@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/live-api/capabilities/
 title: Live API capabilities guide
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:18.006350+00:00
+fetched_at: 2026-10-30T10:43:24.999234+00:00
 ---
 
 # Live API capabilities guide
@@ -508,6 +508,30 @@ To enable transcription of the model's audio input, send `input_audio_transcript
     }
     
     main();
+    
+
+To improve how input transcription recognizes specific terms, such as proper nouns, brand names, or technical terms, add a `custom_vocabulary` list to `input_audio_transcription`. You can provide up to 1,000 terms, but best results are typically achieved with up to 100 terms. For more details, see [Custom vocabulary biasing](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe#custom-vocabulary-biasing).
+
+### Python
+    
+    
+    config = {
+        "response_modalities": ["AUDIO"],
+        "input_audio_transcription": {
+            "custom_vocabulary": ["Gemini", "Kubernetes", "BigQuery"],
+        },
+    }
+    
+
+### JavaScript
+    
+    
+    const config = {
+      responseModalities: [Modality.AUDIO],
+      inputAudioTranscription: {
+        customVocabulary: ['Gemini', 'Kubernetes', 'BigQuery'],
+      },
+    };
     
 
 ### Change voice and language

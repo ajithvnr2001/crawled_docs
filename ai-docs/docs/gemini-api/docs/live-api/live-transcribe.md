@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe/
 title: Live transcription with Gemini Live API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:21.877836+00:00
+fetched_at: 2026-10-30T10:43:24.631513+00:00
 ---
 
 # Live transcription with Gemini Live API
@@ -24,7 +24,7 @@ Feature | Live Agent | Live Transcription
 **Primary role** | Conversational assistant that listens, reasons, and speaks back. | Real-time speech-to-text pipeline that transcribes incoming audio.  
 **Response modality** | Spoken audio and text (`response_modalities=["AUDIO"]`). | Streaming text transcriptions (`response_modalities=["TEXT"]`).  
 **Interaction style** | Turn-based dialogue with pause detection and interruptions. | Continuous stream processing as the speaker talks.  
-**Supported features** | Function calling, Google Search, system instructions. | Speech biasing (`custom_vocabulary`), language detection, manual & hybrid VAD, Smart transcription.  
+**Supported features** | Function calling, Google Search, system instructions, input audio transcription with speech biasing (`custom_vocabulary`) on `gemini-3.8-live`. | Speech biasing (`custom_vocabulary`), language detection, manual & hybrid VAD, Smart transcription.  
 **Input stream** | Multimodal: audio, video, images, text. | Audio input (raw 16-bit PCM).  
   
 ## Get started
