@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload/
 title: Upload cohort | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:39:10.399032+00:00
+fetched_at: 2026-10-31T06:34:31.945652+00:00
 ---
 
 # Upload cohort | Sarvam API Docs
@@ -23,6 +23,8 @@ POST
 
 https://apps.sarvam.ai/api/scheduling/v1/orgs/:org_id/workspaces/:workspace_id/campaigns/:campaign_id/cohorts/upload
 
+Upload cohortExclude cohort
+
 POST
 
 /api/scheduling/v1/orgs/:org_id/workspaces/:workspace_id/campaigns/:campaign_id/cohorts/upload
@@ -36,13 +38,17 @@ Python
     
     files = {
     
-        "cohort_file": "open('string', 'rb')",
+        "cohort_file": open("string", "rb"),
     
-        "cohort_transformation_file": "open('string', 'rb')"
+        "cohort_transformation_file": open("string", "rb")
     
     }
     
-    payload = { "name": "April Batch 1" }
+    payload = {
+    
+        "name": "April Batch 1"
+    
+    }
     
     headers = {"X-API-Key": "<your-api-key>"}
     
@@ -52,7 +58,7 @@ Python
 
 Try it
 
-200Successful
+200Upload cohort
     
     
     {
@@ -64,6 +70,8 @@ Try it
       "status": "completed",
     
       "source_type": "file_upload",
+    
+      "cohort_category": "cohort",
     
       "created_by": "user@company.com",
     
@@ -93,6 +101,8 @@ Upload a cohort as multipart form-data with three fields:
 
 
 
+Set `cohort_category` to `stop_file` to exclude users already on this campaign. It defaults to `cohort`.
+
 ### Path parameters
 
 org_idstringRequired
@@ -114,6 +124,12 @@ This endpoint expects a multipart form with multiple files.
 namestringRequired
 
 Name of the resource
+
+cohort_categoryenumOptional
+
+cohort adds contacts. stop_file is an exclude cohort for users already on this campaign. Defaults to cohort.
+
+Allowed values:cohortstop_file
 
 cohort_filefileRequired
 
@@ -147,6 +163,12 @@ How the cohort was uploaded
 
 Allowed values:pre_signed_urlfile_upload
 
+cohort_categoryenum
+
+cohort is a contact batch. stop_file is an exclude cohort for users already on this campaign.
+
+Allowed values:cohortstop_file
+
 created_bystring
 
 User who created this resource
@@ -179,7 +201,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)[Stream cohortNext](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)[Exclude cohortNext](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -242,6 +264,7 @@ YesNo
 
       * Cohorts
         * [POSTUpload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+        * [POSTExclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
         * [POSTStream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
         * [GETList cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
         * [GETGet cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)
@@ -368,6 +391,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

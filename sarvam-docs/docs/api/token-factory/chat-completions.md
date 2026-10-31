@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/chat-completions/
 title: Chat Completion API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:10.528705+00:00
+fetched_at: 2026-10-31T06:34:17.071876+00:00
 ---
 
 # Chat Completion API | Sarvam API Docs
@@ -57,11 +57,11 @@ See [Agent Skills](https://docs.sarvam.ai/api/developer-tools/agent-skills) for 
 
 Our Chat Completion APIs support the following chat models:
 
-[Sarvam-105BModel ID `sarvam-105b`. Flagship model for complex reasoning, coding, and agentic workflows. 128K token context length.](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)[Sarvam-105B ConversationsModel ID `sarvam-105b-conversations`. Conversational variant post-trained for real-time dialogue and voice-agent workloads.](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b#conversational-variant)
+[Sarvam-105BModel ID `sarvam-105b`. Flagship model for complex reasoning, coding, and agentic workflows. 128K token context length.](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)[Sarvam-105B ConversationsModel ID `sarvam-105b-conversations`. Conversational variant post-trained for real-time dialogue and voice-agent workloads.](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant)
 
 Simply pass the model name as the `model` parameter (e.g., `model="sarvam-105b"` or `model="sarvam-105b-conversations"`).
 
-**Endpoints:** `POST /v1/chat/completions` serves `sarvam-105b` and `sarvam-105b-conversations`. `POST /v2/chat/completions` serves `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, and the beta models `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`. See [Open-Weight Models](https://docs.sarvam.ai/api/token-factory/models).
+**Endpoints:** `POST /v1/chat/completions` serves `sarvam-105b` and `sarvam-105b-conversations`. `POST /v2/chat/completions` serves `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, and the beta models `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`. See [Open-Weight Models](https://docs.sarvam.ai/api/token-factory/models).
 
 **Token budgeting:** the context length covers _everything_ , your messages, any `reasoning_content` the model produces in think mode, and the generated reply (capped by `max_tokens`, default 2048). Reasoning tokens are billed as completion tokens, so high `reasoning_effort` increases both latency and cost. For long conversations, trim or summarize older turns instead of resending the full history.
 
@@ -92,7 +92,7 @@ PythonJavaScriptcURL
 
 ## V2 Chat Completion
 
-`POST /v2/chat/completions` supports `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, and the beta models `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`. Use V2 for the OpenAI-compatible API and open-weight models. See the [Chat Completion V2 API Reference](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2) for the complete request and response schema.
+`POST /v2/chat/completions` supports `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, and the beta models `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`. Use V2 for the OpenAI-compatible API and open-weight models. See the [Chat Completion V2 API Reference](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2) for the complete request and response schema.
 
 Moving from [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview)? The migration guides cover base URLs, model IDs, and the request fields to change.
 
@@ -113,17 +113,17 @@ PythonJavaScriptcURL
     
     print(response.choices[0].message.content)
 
-**Beta models:** `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro` are in beta. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
+**Beta models:** `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro` are in beta. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
 
 ### V2 models
 
 Model ID| Type| Context| Reasoning| Guide  
 ---|---|---|---|---  
-`sarvam-105b`| Sarvam| 128K| Hybrid| [Sarvam-105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)  
+`sarvam-105b`| Sarvam| 128K| Hybrid| [Sarvam-105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)  
 `glm5.3`| Open-weight| 1M| `low` · `high` · `max`| [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)  
 `glm5.3-flash`| Open-weight| 1M, text + image| `low` · `high` · `max`| [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)  
 `gemma4`| Open-weight| 256K, text + image| Off by default; `low` · `high` · `max`| [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
-`deepseekv4.1-flash-1017`| Open-weight (beta)| 1M, text + image| `low` · `high` (default) · `max`; can be off| [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)  
+`deepseekv4.1-flash-1017`| Open-weight| 1M, text + image| `low` · `high` (default) · `max`; can be off| [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)  
 `deepseekv4-pro`| Open-weight (beta)| 1M, text| `low` · `high` (default) · `max`; can be off| [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)  
 `kimi-k3`| Open-weight (beta)| 1M, text + image + video| `low` · `high` · `max`; always on| [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)  
 `mimo-v2.6-flash`| Open-weight (beta)| 1M, text + image + audio + video| On by default; on/off| [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)  
@@ -1049,6 +1049,7 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -1078,7 +1079,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)

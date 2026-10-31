@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/
 title: Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:17.131469+00:00
+fetched_at: 2026-10-31T06:34:15.497839+00:00
 ---
 
 # Models | Sarvam API Docs
@@ -37,10 +37,10 @@ Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/getting-s
 
 This page is for Model APIs.
 
-Sarvam Model APIs come in two families that share one API key, one SDK, and one credit balance:
+Model APIs come in two families that share one API key, one SDK, and one credit balance:
 
-  * **Sarvam Models** : Sarvam’s own models for Indian languages, covering speech to text, text to speech, translation, document intelligence, and the Sarvam-105B LLM. Each is trained and evaluated on Indian languages, accents, and code-mixed input.
-  * **Token Factory (Open-Weight)** : open-weight LLMs (GLM, Gemma, DeepSeek, Kimi, and MiMo) on an OpenAI-compatible `/v2` API.
+  * **Sarvam Models** : Sarvam’s own models for Indian languages, covering speech to text, text to speech, translation, and document intelligence. Each is trained and evaluated on Indian languages, accents, and code-mixed input.
+  * **Token Factory (Open-Weight)** : open-weight LLMs (Sarvam 105B, GLM, Gemma, DeepSeek, Kimi, and MiMo) on an OpenAI-compatible `/v2` API.
 
 
 
@@ -59,8 +59,6 @@ Model| API| Description
 [Bulbul v4 Flash](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)| Text to Speech| Latest text-to-speech model — 200+ persona voices with natural prosody, and the same request/response contract as v3.  
 [Bulbul v3](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)| Text to Speech| Stable text-to-speech model with 30+ named speakers across 11 languages (10 Indian + English). The API default when `model` is omitted.  
 [Sarvam Instant Voice Cloning](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)| Instant Voice Cloning (Beta)| Create a voice from a short reference clip and synthesize speech with it across 12 Indian languages - clone inline per request, or save the voice once and reuse its ID.  
-[Sarvam-105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)| Chat Completion| 105B parameter flagship model (`sarvam-105b`) for complex reasoning, coding, and agentic tasks.  
-[Sarvam-105B Conversations](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)| Chat Completion| Conversational variant (`sarvam-105b-conversations`), post-trained for real-time dialogue and voice agents.  
 [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)| Text Translation| High-quality translation between 11 languages (10 Indian + English) with context preservation.  
 [Sarvam-Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)| Text Translation| Extended translation support for all 23 languages (22 Indian + English) with superior accuracy.  
 [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)| Document Intelligence| Extract and digitize content from documents in 23 languages with accurate OCR and structured output.  
@@ -69,10 +67,12 @@ Model| API| Description
 
 Token Factory models are available on **`/v2`** using the same Sarvam API key and credits.
 
-DeepSeek V4.1 Flash 1017, DeepSeek V4 Pro, Kimi K3, MiMo V2.6 Flash, and MiMo V2.6 Pro are **in beta**. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
+DeepSeek V4 Pro, Kimi K3, MiMo V2.6 Flash, and MiMo V2.6 Pro are **in beta**. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
 
 Model| Context window| Modality| Reasoning  
 ---|---|---|---  
+[Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)| 128K tokens| Text → text| Yes, `low` by default  
+[Sarvam 105B Conversations](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant)| 32K tokens| Text → text| No  
 [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| 1,048,576 tokens| Text → text| Yes  
 [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| 1,048,576 tokens| Text + image → text| Yes  
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| 262,144 tokens| Text + image → text| Yes, off by default  
@@ -105,7 +105,7 @@ Model| Languages| Status
 **GLM-5.3** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
 **GLM-5.3 Flash** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
 **Gemma 4 31B** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
-**DeepSeek V4.1 Flash 1017** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
+**DeepSeek V4.1 Flash 1017** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
 **DeepSeek V4 Pro** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
 **Kimi K3** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
 **MiMo V2.6 Flash** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
@@ -243,6 +243,7 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -272,7 +273,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)

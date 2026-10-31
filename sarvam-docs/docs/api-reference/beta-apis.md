@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/beta-apis/
 title: Beta APIs and Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:33.020168+00:00
+fetched_at: 2026-10-31T06:34:16.771637+00:00
 ---
 
 # Beta APIs and Models | Sarvam API Docs
@@ -30,7 +30,7 @@ This page is for API Reference.
 
 ## Beta models
 
-[`POST /v2/chat/completions`](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2) and [`POST /v2/responses`](https://docs.sarvam.ai/api-reference/responses/create) are generally available with `sarvam-105b`, [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3), [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), and [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b).
+[`POST /v2/chat/completions`](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2) and [`POST /v2/responses`](https://docs.sarvam.ai/api-reference/responses/create) are generally available with `sarvam-105b`, [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3), [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b), and [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017).
 
 The following models on those endpoints are in **beta**. Their behaviour, limits, and availability may change before general availability.
 
@@ -38,7 +38,6 @@ Beta models are enabled **per API key**. A key without access gets `400 invalid_
 
 Model ID| Chat Completion V2| Responses  
 ---|---|---  
-[`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| Yes| Yes  
 [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)| Yes| Yes  
 [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)| Yes| Yes  
 [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)| Yes| Yes  

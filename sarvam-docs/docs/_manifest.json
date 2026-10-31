@@ -1,15 +1,15 @@
 {
   "base": "https://docs.sarvam.ai",
-  "total_seeds": 565,
-  "sitemap_count": 556,
+  "total_seeds": 581,
+  "sitemap_count": 572,
   "llms_files": [
     "https://docs.sarvam.ai/llms.txt",
     "https://docs.sarvam.ai/llms-full.txt"
   ],
-  "visited": 1117,
+  "visited": 1156,
   "failed": 2,
   "stats": {
-    "ok": 1117,
+    "ok": 1156,
     "fail": 0,
     "skipped_existing": 0,
     "by_method": {},
@@ -22,6 +22,6 @@
     "crawl4ai (AsyncWebCrawler fallback)",
     "scrapegraph-ai (cleanup_html/convert_to_md)"
   ],
-  "generated_at": "2026-10-30T06:37:07.041335+00:00",
-  "last_verified": "2026-10-30"
+  "generated_at": "2026-10-31T06:34:13.343317+00:00",
+  "last_verified": "2026-10-31"
 }

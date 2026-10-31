@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/
 title: AI for all from India | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:33:33.622064+00:00
+fetched_at: 2026-10-31T06:34:18.034693+00:00
 ---
 
 # AI for all from India | Sarvam API Docs
@@ -59,7 +59,7 @@ Guides and tutorials for each capability, from a first request to production pat
 
 [All API guides →](https://docs.sarvam.ai/api/getting-started/welcome)
 
-[Speech-to-Text Saaras v3Transcribe, translate, and caption audio in real time or in batch, across code-mixed and regional speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text-to-Speech Bulbul v3Generate natural, expressive speech in Indian languages with control over pitch, pace, and speaker.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Chat Completion Sarvam-105BBuild conversational AI on a flagship model tuned for Indic reasoning, with a 128K context window.](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview)[Text translation MayuraTranslate, transliterate, and detect languages in short text — not whole files. Use Document Translation for PDF and Office exports.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document TranslationTranslate PDF, Word, Excel, PowerPoint, and HTML into up to 12 languages per job while keeping layout and formatting intact.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[Document AI Sarvam VisionTurn PDFs, scans, and handwriting into structured, searchable data: whole documents or just the fields you define.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Dubbing BetaLocalize video and audio into Indian languages with speaker voice cloning, tone control, and multi-format exports.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice Cloning BetaGenerate speech in a cloned voice from a short reference clip, in 13 Indian languages, with cross-lingual cloning and built-in quality control.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)
+[Speech-to-Text Saaras v3Transcribe, translate, and caption audio in real time or in batch, across code-mixed and regional speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text-to-Speech Bulbul v3Generate natural, expressive speech in Indian languages with control over pitch, pace, and speaker.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Chat Completion Sarvam-105BBuild conversational AI on a flagship model tuned for Indic reasoning, with a 128K context window.](https://docs.sarvam.ai/api/token-factory/chat-completions)[Text translation MayuraTranslate, transliterate, and detect languages in short text — not whole files. Use Document Translation for PDF and Office exports.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document TranslationTranslate PDF, Word, Excel, PowerPoint, and HTML into up to 12 languages per job while keeping layout and formatting intact.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[Document AI Sarvam VisionTurn PDFs, scans, and handwriting into structured, searchable data: whole documents or just the fields you define.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Dubbing BetaLocalize video and audio into Indian languages with speaker voice cloning, tone control, and multi-format exports.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice Cloning BetaGenerate speech in a cloned voice from a short reference clip, in 13 Indian languages, with cross-lingual cloning and built-in quality control.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)
 
 ## Models
 
@@ -67,7 +67,7 @@ Every model is trained and evaluated on Indian languages, accents, and code-mixe
 
 [Compare models →](https://docs.sarvam.ai/api/getting-started/models)
 
-[Saaras v3Speech-to-text23 languages (22 Indian + English), with transcribe, translate, verbatim, translit, and codemix output modes.](https://docs.sarvam.ai/api/getting-started/models/saaras)[Bulbul v3Text-to-speechNatural voices for 11 languages (10 Indian + English), with customizable pitch, pace, and speaker.](https://docs.sarvam.ai/api/getting-started/models/bulbul)[Sarvam-105BChatFlagship 105B-parameter chat model: the highest quality Indian language understanding, reasoning, and generation.](https://docs.sarvam.ai/api/getting-started/models/sarvam-105b)[MayuraTranslationHigh-quality translation between 11 languages (10 Indian + English) with context preservation.](https://docs.sarvam.ai/api/getting-started/models/mayura)[Sarvam VisionDocument intelligenceDocument model with accurate OCR and structured output across 23 languages.](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision)
+[Saaras v3Speech-to-text23 languages (22 Indian + English), with transcribe, translate, verbatim, translit, and codemix output modes.](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)[Bulbul v3Text-to-speechNatural voices for 11 languages (10 Indian + English), with customizable pitch, pace, and speaker.](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)[Sarvam-105BChatFlagship 105B-parameter chat model: the highest quality Indian language understanding, reasoning, and generation.](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)[MayuraTranslationHigh-quality translation between 11 languages (10 Indian + English) with context preservation.](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)[Sarvam VisionDocument intelligenceDocument model with accurate OCR and structured output across 23 languages.](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
 
 ## Integrations
 
@@ -107,7 +107,7 @@ Get started
 Operate
 
   * [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)
-  * [Credits & rate limits](https://docs.sarvam.ai/api/getting-started/ratelimits)
+  * [Credits & rate limits](https://docs.sarvam.ai/api/getting-started/pricing#rate-limits)
   * [Errors & troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)
   * [API status](https://status.sarvam.ai/)
 

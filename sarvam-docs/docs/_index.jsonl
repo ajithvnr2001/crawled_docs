@@ -239,7 +239,7 @@
 {"url": "https://docs.sarvam.ai/api/getting-started/pricing/", "file": "api/getting-started/pricing.md", "title": "Pricing, Credits & Rate Limits | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/getting-started/models/sarvam-vision/", "file": "api/getting-started/models/sarvam-vision.md", "title": "Sarvam Vision | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/getting-started/quickstart/", "file": "api/getting-started/quickstart.md", "title": "Developer Quickstart | Sarvam API Docs", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.sarvam.ai/api/getting-started/welcome/", "file": "api/getting-started/welcome.md", "title": "Welcome to Sarvam Model APIs Documentation | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api/getting-started/welcome/", "file": "api/getting-started/welcome.md", "title": "Welcome to Model APIs Documentation | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/getting-started/sdks/", "file": "api/getting-started/sdks.md", "title": "Libraries & SDKs | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/getting-started/ratelimits/", "file": "api/getting-started/ratelimits.md", "title": "Credits & Rate Limits | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit/", "file": "api/integration/build-voice-agent-with-live-kit.md", "title": "Build a LiveKit voice agent with Sarvam | Sarvam API Docs", "method": "scrapling+scrapegraph"}
@@ -1111,3 +1111,6 @@
 {"url": "https://docs.sarvam.ai/changelog/2026/10/20/", "file": "changelog/2026/10/20.md", "title": "October 20, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro", "file": "api/token-factory/models/mimo-v2.6-pro.md", "title": "MiMo V2.6 Pro | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/token-factory/responses-api/", "file": "api/token-factory/responses-api.md", "title": "Responses API | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/10/30/", "file": "changelog/2026/10/30.md", "title": "October 30, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/10/29/", "file": "changelog/2026/10/29.md", "title": "October 29, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api/token-factory/models/sarvam-105b/", "file": "api/token-factory/models/sarvam-105b.md", "title": "Sarvam-105B | Sarvam API Docs", "method": "scrapling+scrapegraph"}

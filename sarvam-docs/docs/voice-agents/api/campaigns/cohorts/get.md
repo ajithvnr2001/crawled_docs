@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get/
 title: Get cohort | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:39:11.327840+00:00
+fetched_at: 2026-10-31T06:34:32.826960+00:00
 ---
 
 # Get cohort | Sarvam API Docs
@@ -54,6 +54,8 @@ Try it
       "status": "completed",
     
       "source_type": "file_upload",
+    
+      "cohort_category": "cohort",
     
       "created_by": "user@company.com",
     
@@ -117,6 +119,12 @@ How the cohort was uploaded
 
 Allowed values:pre_signed_urlfile_upload
 
+cohort_categoryenum
+
+cohort is a contact batch. stop_file is an exclude cohort for users already on this campaign.
+
+Allowed values:cohortstop_file
+
 created_bystring
 
 User who created this resource
@@ -149,7 +157,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)[Download cohort fileNext](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/download)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)[Download cohort fileNext](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/download)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -212,6 +220,7 @@ YesNo
 
       * Cohorts
         * [POSTUpload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+        * [POSTExclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
         * [POSTStream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
         * [GETList cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
         * [GETGet cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)
@@ -338,6 +347,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

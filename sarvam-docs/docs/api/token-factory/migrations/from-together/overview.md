@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview/
 title: Migrating from Together AI: Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:13.761591+00:00
+fetched_at: 2026-10-31T06:34:16.444941+00:00
 ---
 
 # Migrating from Together AI: Overview | Sarvam API Docs
@@ -127,8 +127,8 @@ Together `model`| Sarvam `model`| Status on Sarvam
 `zai-org/GLM-5.3`| [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| GA  
 `zai-org/GLM-5.3-Flash`| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| GA  
 `google/gemma-4-31B-it` (dedicated endpoints only on Together)| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| GA  
-`deepseek-ai/DeepSeek-V4.1-Flash`| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| Beta  
-`deepseek-ai/DeepSeek-V4.1-Flash-1017`| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| Beta  
+`deepseek-ai/DeepSeek-V4.1-Flash`| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| GA  
+`deepseek-ai/DeepSeek-V4.1-Flash-1017`| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| GA  
 `deepseek-ai/DeepSeek-V4-Pro-0813` (`deepseek-ai/DeepSeek-V4-Pro` is dedicated only on Together)| [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) (same 0813 snapshot)| Beta  
 `moonshotai/Kimi-K3`| [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)| Beta  
 Not offered on Together| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)| Beta  
@@ -157,7 +157,7 @@ For other model families, such as Qwen, Llama, gpt-oss, or MiniMax, choose by wh
 
 If you need| Try on Sarvam  
 ---|---  
-Indian-language quality| [`sarvam-105b`](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)  
+Indian-language quality| [`sarvam-105b`](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)  
 The lowest cost| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)  
 Image input| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b), or the MiMo models  
 Audio input| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash) or [`mimo-v2.6-pro`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)  
@@ -292,6 +292,7 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -321,7 +322,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)

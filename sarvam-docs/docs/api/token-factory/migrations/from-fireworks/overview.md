@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview/
 title: Migrating from Fireworks AI: Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:12.288064+00:00
+fetched_at: 2026-10-31T06:34:16.605787+00:00
 ---
 
 # Migrating from Fireworks AI: Overview | Sarvam API Docs
@@ -127,8 +127,8 @@ Fireworks `model`| Sarvam `model`| Status on Sarvam
 `accounts/fireworks/models/glm-5p3` (also `routers/glm-5p3-fast`, `routers/glm-5p3-us`)| [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| GA  
 `accounts/fireworks/models/glm-5p3-flash` (also `routers/glm-5p3-flash-us`)| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| GA  
 `accounts/fireworks/models/gemma-4-31b-it` (on-demand deployment on Fireworks)| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| GA  
-`accounts/fireworks/models/deepseek-v4p1-flash` (also `routers/deepseek-v4p1-flash-us`)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| Beta  
-`accounts/fireworks/routers/deepseek-v4p1-flash-1017-us` (US-only router on Fireworks)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| Beta  
+`accounts/fireworks/models/deepseek-v4p1-flash` (also `routers/deepseek-v4p1-flash-us`)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| GA  
+`accounts/fireworks/routers/deepseek-v4p1-flash-1017-us` (US-only router on Fireworks)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| GA  
 `accounts/fireworks/models/deepseek-v4-pro` (April 2026 snapshot; on-demand deployment on Fireworks)| [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) (0813 snapshot)| Beta  
 `accounts/fireworks/models/kimi-k3` (also `routers/kimi-k3-fast`, `routers/kimi-k3-us`)| [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)| Beta  
 Not offered on Fireworks| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)| Beta  
@@ -159,7 +159,7 @@ For other model families, such as Qwen, Llama, gpt-oss, or MiniMax, choose by wh
 
 If you need| Try on Sarvam  
 ---|---  
-Indian-language quality| [`sarvam-105b`](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)  
+Indian-language quality| [`sarvam-105b`](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)  
 The lowest cost| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)  
 Image input| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b), or the MiMo models  
 Audio input| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash) or [`mimo-v2.6-pro`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)  
@@ -288,6 +288,7 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -317,7 +318,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)

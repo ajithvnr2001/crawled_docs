@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/call-logs/
 title: Voice agent call logs: find, filter and export calls | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:51.414634+00:00
+fetched_at: 2026-10-31T06:34:14.991533+00:00
 ---
 
 # Voice agent call logs: find, filter and export calls | Sarvam API Docs
@@ -15,6 +15,7 @@ On this page
 
   * What you can do
   * Filter the table
+  * Export calls to CSV
   * How to review a call
   * Column reference
   * Next
@@ -35,7 +36,7 @@ This page is for Voice Agents.
 
 Use it to locate the exact call behind a change in connect rate or engagement, open its transcript and metadata, and then continue to [Log Analyser](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/log-analyser) for turn-level detail.
 
-![Call Logs table with interaction rows, connectivity, language, duration, and failure reason columns.](https://docs.sarvam.ai/_fern-img/8b26fbbdfef695dce2beb0b7fe413742bf4b5617c89764146969bda2a2269652.webp)
+![Call Logs table with interaction rows, connectivity, language, duration, and failure reason columns.](https://docs.sarvam.ai/_fern-files/_img/8b26fbbdfef695dce2beb0b7fe413742bf4b5617c89764146969bda2a2269652.webp)
 
 Call Logs
 
@@ -56,10 +57,16 @@ Control| Behavior
 **All / Connected**|  Restrict to connected calls when you only care about conversations that started  
 **Show only test agent calls** / **Show all calls**|  Include or exclude debug / test agent traffic  
 **Column visibility**|  Show or hide table columns  
-**CSV export**|  Available when a single agent is selected  
+**CSV export**|  Available when a single agent is selected. See [Export calls to CSV](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/call-logs#export-calls-to-csv)  
 **Clear all views**|  Resets viewed-row highlighting  
   
 Default sort is newest first. Click any column header to re-sort. Text filters support equals / contains / starts with; number filters support comparisons.
+
+## Export calls to CSV
+
+Select a single agent, click the download button, then **Download CSV**. We email you a download link once your file is ready, so you don’t have to wait on the page. You can also download it from **Recent exports** in the same menu, which keeps your exports from the last 7 days.
+
+Each export holds up to 1,000,000 rows.
 
 ## How to review a call
 
@@ -91,7 +98,7 @@ Full conversation. Click a message, or the **Conversation Initiated** / **Conver
 
 Use Call Logs to **find** the call, then use [Log Analyser](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/log-analyser) to **explain** what happened during a turn.
 
-![Unified View Details panel open on the Transcript tab, showing the agent and caller conversation with an audio player at the bottom.](https://docs.sarvam.ai/_fern-img/1de6cb724d0e15dbd4f40811695c0c1ca169278a803be62756dfc8b9b74bbe29.webp)
+![Unified View Details panel open on the Transcript tab, showing the agent and caller conversation with an audio player at the bottom.](https://docs.sarvam.ai/_fern-files/_img/1de6cb724d0e15dbd4f40811695c0c1ca169278a803be62756dfc8b9b74bbe29.webp)
 
 Call detail (Unified View Details): transcript and recording.
 
@@ -145,7 +152,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/group-by)[Debug a voice agent call turn by turn with Log AnalyserNext](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/log-analyser)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/group-by)[Debug a voice agent call turn by turn with Log AnalyserNext](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/log-analyser)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -329,6 +336,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

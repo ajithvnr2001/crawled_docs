@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api/getting-started/welcome/
-title: Welcome to Sarvam Model APIs Documentation | Sarvam API Docs
+title: Welcome to Model APIs Documentation | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:16.763938+00:00
+fetched_at: 2026-10-31T06:34:15.092369+00:00
 ---
 
-# Welcome to Sarvam Model APIs Documentation | Sarvam API Docs
+# Welcome to Model APIs Documentation | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api/getting-started/welcome/
 
@@ -26,19 +26,22 @@ Scroll to top
 
 [Getting Started](https://docs.sarvam.ai/api/getting-started/welcome)
 
-# Welcome to Sarvam Model APIs Documentation
+# Welcome to Model APIs Documentation
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/getting-started/welcome.md "View this page as plain text")|More actions
 
 This page is for Model APIs.
 
-Sarvam Model APIs come in two families that share one API key, one SDK, and one credit balance:
+Model APIs bring two model families together. Both use the same API key, the same `sarvamai` SDK, and the same credit balance, so you can mix them in one app.
 
-  * **Token Factory** serves open-weight LLMs (GLM, Gemma, DeepSeek, Kimi, and MiMo) on one OpenAI-compatible API.
-  * **Sarvam Models** are Sarvam’s own models for Indian languages. They hear, speak, reason, translate, and read Hindi, Tamil, Telugu, and every major Indian language, including code-mixed input.
-
-
-
+| Token Factory (Open-Weight)| Sarvam Models  
+---|---|---  
+**What it is**|  Open-weight LLMs served on Sarvam infrastructure| Sarvam’s own models for Indian-language speech, translation, and documents  
+**Models**|  Sarvam 105B, GLM-5.3, Gemma 4, DeepSeek, Kimi, MiMo| Saaras, Bulbul, Mayura, Sarvam-Translate, Sarvam Vision  
+**APIs**|  Chat Completions and Responses on `/v2`, compatible with the OpenAI SDK| Speech to Text, Text to Speech, Text Processing, Document Intelligence, Document Translation, Dubbing, Voice Cloning  
+**Use it to**|  Reason, write code, call tools, and run agents| Hear, speak, translate, and read Hindi, Tamil, Telugu, and every major Indian language, including code-mixed input  
+**Start here**| [Token Factory overview](https://docs.sarvam.ai/api/token-factory)| [Speech to Text](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview) or [Text to Speech](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)  
+  
 ## Get started
 
 [Quickstart (< 5 minutes)Get your API key and make your first request, with code for cURL, Python, and JavaScript.](https://docs.sarvam.ai/api/getting-started/quickstart)[SDKs & LibrariesOfficial Python and JavaScript clients, with async, retries, and streaming built in.](https://docs.sarvam.ai/api/getting-started/sdks)[Pricing, Credits & Rate LimitsRates for every model in Indian Rupees, how credits work, and the limits on each plan.](https://docs.sarvam.ai/api/getting-started/pricing)[API ReferenceREST and WebSocket specs for every endpoint, with request and response schemas.](https://docs.sarvam.ai/api-reference/introduction)
@@ -49,11 +52,14 @@ Open-weight LLMs on `https://api.sarvam.ai/v2`, compatible with the OpenAI SDK. 
 
 Model| Model ID| Best for  
 ---|---|---  
+[Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)| `sarvam-105b`| Indian-language reasoning, coding, and agents  
+[Sarvam 105B Conversations](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant)| `sarvam-105b-conversations`| Real-time dialogue and voice agents  
 [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| `glm5.3`| Coding and long-horizon agents  
 [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| `glm5.3-flash`| Fast reasoning with image input  
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| `gemma4`| Images and low-latency answers  
+[DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| `deepseekv4.1-flash-1017`| Long documents and cost-sensitive reasoning  
   
-[DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017), [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per API key.
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per API key.
 
 [Token Factory overviewWhat Token Factory is, and the two-line switch from the OpenAI SDK.](https://docs.sarvam.ai/api/token-factory)[Compare modelsContext windows, modalities, reasoning, and feature support side by side.](https://docs.sarvam.ai/api/token-factory/models)[Chat CompletionsStreaming, tool calling, reasoning, and structured output.](https://docs.sarvam.ai/api/token-factory/chat-completions)[Responses APIStateless responses with reasoning, structured output, and tool calling.](https://docs.sarvam.ai/api/token-factory/responses-api)
 
@@ -61,7 +67,7 @@ Moving from another provider? Follow the migration guide for [OpenRouter](https:
 
 ## Sarvam Models
 
-[Sarvam 105BSarvam’s flagship LLM for Indian-language reasoning, coding, and agents, on the Chat Completions API.](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)[Speech to TextTranscribe and translate audio in real time or in batch with Saaras, including code-mixed speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text to SpeechGenerate natural, expressive speech in Indian languages with Bulbul, streamed or in one request.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Text ProcessingTranslate, transliterate, and detect languages with Mayura and Sarvam-Translate.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document IntelligenceTurn PDFs, scans, and handwritten documents into structured data with Sarvam Vision.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Document TranslationTranslate whole PDF, Word, spreadsheet, presentation, and web page files into 23 languages, layout preserved.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[DubbingLocalize video and audio into Indian languages, keeping each speaker’s voice.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip, in 12 Indian languages.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)[Self-Hosted DeploymentsRun Saaras, Bulbul, and Sarvam Vision in your own AWS account on Amazon SageMaker.](https://docs.sarvam.ai/api/self-hosted/introduction)
+[Speech to TextTranscribe and translate audio in real time or in batch with Saaras, including code-mixed speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text to SpeechGenerate natural, expressive speech in Indian languages with Bulbul, streamed or in one request.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Text ProcessingTranslate, transliterate, and detect languages with Mayura and Sarvam-Translate.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document IntelligenceTurn PDFs, scans, and handwritten documents into structured data with Sarvam Vision.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Document TranslationTranslate whole PDF, Word, spreadsheet, presentation, and web page files into 23 languages, layout preserved.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[DubbingLocalize video and audio into Indian languages, keeping each speaker’s voice.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip, in 12 Indian languages.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)[Self-Hosted DeploymentsRun Saaras, Bulbul, and Sarvam Vision in your own AWS account on Amazon SageMaker.](https://docs.sarvam.ai/api/self-hosted/introduction)
 
 ## Combine them
 
@@ -163,6 +169,7 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -192,7 +199,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)

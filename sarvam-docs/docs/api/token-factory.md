@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/
 title: Token Factory | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:09.616465+00:00
+fetched_at: 2026-10-31T06:34:16.311228+00:00
 ---
 
 # Token Factory | Sarvam API Docs
@@ -54,7 +54,7 @@ Point your client at `https://api.sarvam.ai/v2`, pass your Sarvam key, and pick 
     
     response = client.chat.completions.create(
     
-        model="glm5.3",  # or "glm5.3-flash", "gemma4"
+        model="glm5.3",  # or "glm5.3-flash", "gemma4", "deepseekv4.1-flash-1017"
     
         messages=[{"role": "user", "content": "Explain UPI in two sentences."}],
     
@@ -68,15 +68,16 @@ Point your client at `https://api.sarvam.ai/v2`, pass your Sarvam key, and pick 
 
 Model| Model ID| Best for| Input / output price (₹ per 1M tokens)  
 ---|---|---|---  
+[Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)| `sarvam-105b`| Indian-language reasoning, coding, and agents| ₹15 / ₹60  
+[Sarvam 105B Conversations](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant)| `sarvam-105b-conversations`| Real-time dialogue and voice agents| ₹15 / ₹60  
 [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| `glm5.3`| Coding and long-horizon agents| ₹126 / ₹390  
 [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| `glm5.3-flash`| Fast reasoning with image input| ₹13.5 / ₹45  
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| `gemma4`| Images and low-latency answers| ₹35 / ₹90  
+[DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| `deepseekv4.1-flash-1017`| Long documents and cost-sensitive reasoning| ₹25 / ₹105  
   
-[DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017), [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per API key. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing) for their rates and for cached-input rates.
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per API key. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing) for their rates and for cached-input rates.
 
 Moving from another provider? Follow the guide for [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview).
-
-Looking for Sarvam’s own LLM? [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b) is listed with the other Sarvam Models and uses the same Chat Completions API.
 
 ## Where to go next
 
@@ -154,6 +155,7 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -183,7 +185,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
