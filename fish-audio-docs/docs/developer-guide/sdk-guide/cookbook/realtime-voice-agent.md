@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-voice-agent/
 title: Build a realtime voice agent: streaming speech in, reply, speech out - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:56.251373+00:00
+fetched_at: 2026-10-31T13:46:33.182165+00:00
 ---
 
 # Build a realtime voice agent: streaming speech in, reply, speech out - Fish Audio
@@ -132,8 +132,9 @@ voice_agent.py
     import websockets
     
     URL = "wss://api.fish.audio/v1/asr/realtime"
-    CHUNK_MS = 100
-    TAGS = re.compile(r"<\|[^|]*\|>|\[[^\[\]]*\]")  # speaker tags such as <|speaker:0|>, sound tags such as [laughter]
+    CHUNK_MS = 40  # ms of audio per message; 20-40 ms suits live audio
+    # Speaker tags such as <|speaker:0|>; sound tags such as [laughter], also in full-width brackets.
+    TAGS = re.compile(r"<\|[^|]*\|>|\[[^\[\]]*\]|\uFF3B[^\uFF3B\uFF3D]*\uFF3D|\u3010[^\u3010\u3011]*\u3011")
     T0 = time.monotonic()
     
     
@@ -298,7 +299,7 @@ The recipe keeps a reply’s full text in its history even when the user interru
 
 Decide when to answer
 
-Answer a turn when `committed.user_turn` is `true` and its text, without speaker tags and [sound tags](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#sound-tags), is not empty. Do not decide by `reason`: a turn can end for several reasons, and non-user turns end with `eot` too. If `user_turn` is ever missing, treat it as `true`. A turn with `user_turn: false` is not the user talking to your agent: usually background noise, a TV or another person nearby (`turn_kind: "other"`), or an acknowledgement while your agent was speaking (`turn_kind: "backchannel"`). Its text can be shown dimmed in a transcript, or left out. In `auto` mode, short pauses in the middle of a sentence usually do not end the turn: the server judges from what was said and how whether the speaker has finished. A speaker who stops mid-sentence and does not go on has the turn ended about 2 seconds later. `silence_timeout_ms` (default 5000) is only a safety net.
+Answer a turn when `committed.user_turn` is `true` and its text, without speaker tags and [sound tags](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#sound-tags) (already removed with `results.diarize: false` and `results.tag_audio_events: false`), is not empty. Do not decide by `reason`: a turn can end for several reasons, and non-user turns end with `eot` too. If `user_turn` is ever missing, treat it as `true`. A turn with `user_turn: false` is not the user talking to your agent: usually background noise, a TV or another person nearby (`turn_kind: "other"`), or an acknowledgement while your agent was speaking (`turn_kind: "backchannel"`). Its text can be shown dimmed in a transcript, or left out. In `auto` mode, short pauses in the middle of a sentence usually do not end the turn: the server judges from what was said and how whether the speaker has finished. A speaker who stops mid-sentence and does not go on has the turn ended about 2 seconds later. `silence_timeout_ms` (default 5000) is only a safety net.
 
 ## 
 
@@ -387,7 +388,7 @@ Capture audio well
   * **Keep echo cancellation on.** Without it, the agent’s own voice reaches the microphone, opens turns and can be taken for the user. In a browser, request `echoCancellation: true` from `getUserMedia`. Some echo can remain even with echo cancellation. It is usually committed as a non-user turn, but it still opens turns (`speech_start`) while your agent speaks, which is why ducks need a cap. If the start of most replies is ducked, echo is leaking: check echo cancellation, or test with headphones.
   * **Turn automatic gain control off where you can** (`autoGainControl: false` in a browser), so quiet background sound is not amplified between phrases.
   * **Test with headphones first.** They keep the agent’s voice out of the microphone, so you can check turn-taking before you tune echo cancellation.
-  * **Send audio as you capture it** , mono 16-bit PCM in 80–100 ms messages, at the device’s own rate if it is one of the supported rates. The server converts the rate, so do not resample. Telephony audio at 8 kHz is supported; decode μ-law or A-law call audio to 16-bit PCM first.
+  * **Send audio as you capture it** , mono 16-bit PCM in 20–40 ms messages, at the device’s own rate if it is one of the supported rates. The server converts the rate, so do not resample. Telephony audio at 8 kHz is supported; decode μ-law or A-law call audio to 16-bit PCM first.
   * **Watch your audio source.** The server closes a session after 30 seconds without any client message (`idle_timeout`, close 4408), but a WebSocket ping counts as one, and Python’s `websockets` sends a ping every 20 seconds by default. With that default, a session stays open even when your audio stops, and it counts against your concurrency limit until you close it or the 60-minute session limit ends it. If your audio source can stall, watch it in your own code and send `audio_done` or close the connection when it stops, or pass `ping_interval=None` to `websockets.connect` to leave idle detection to the server. Node’s `ws` sends no pings by default.
   * **Keep keys on your server.** In a browser, capture audio and relay it through your server, as in [Capture from a browser microphone](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-transcription#capture-from-a-browser-microphone). Send `agent_speaking` on that same connection so it stays in order with the audio.
 

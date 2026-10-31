@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/speech-to-text/realtime/
 title: Realtime Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:28.818722+00:00
+fetched_at: 2026-10-31T13:46:34.410050+00:00
 ---
 
 # Realtime Speech to Text - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:37:28.818722+00:00
 > Source: https://docs.fish.audio/features/speech-to-text/realtime/
 
 ## On this page
+
+Back to top
 
   * When to use it
   * Quick start
@@ -117,7 +119,7 @@ Send a `config` message with your audio format and options, and wait for `sessio
 
 Stream audio
 
-Send `audio` messages with 16-bit mono PCM, 80–100 ms each, as you capture it.
+Send `audio` messages with 16-bit mono PCM, 20–40 ms each, as you capture it.
 
 4
 
@@ -258,7 +260,7 @@ Measured on the production service with synthetic speech:
   * `eager_end_of_turn` arrives about 0.6 seconds after the speaker stops.
   * `committed` arrives about 1.1 seconds after the speaker stops.
 
-Your network and how you send audio add to these times. Send audio as you capture it, in 80–100 ms messages.
+Your network and how you send audio add to these times. Each result also waits for the message that carries its audio, on average half a message: about 50 ms with 100 ms messages and 20 ms with 40 ms messages. Send audio as you capture it, in 20–40 ms messages.
 
 ## 
 
@@ -280,7 +282,7 @@ Send 16-bit little-endian PCM, mono, at 8000, 12000, 16000, 22050, 24000, 32000,
 
 Speakers
 
-Transcripts contain speaker tags such as `<|speaker:0|>`, stable within a session. Strip them, or send `results.diarize: false` for plain text. Whitespace right after a tag can vary, so trim the text after you strip the tags. Transcripts can also contain sound tags such as `[laughter]` or `[pause]`; see [Sound tags](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#sound-tags).
+Transcripts contain speaker tags such as `<|speaker:0|>`, stable within a session. Strip them, or send `results.diarize: false` for plain text. Whitespace right after a tag can vary, so trim the text after you strip the tags. Transcripts can also contain sound tags such as `[laughter]` or `[pause]`. Strip them too, or send `results.tag_audio_events: false` to remove them; see [Sound tags](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#sound-tags).
 
 ### 
 
