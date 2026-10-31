@@ -3,8 +3,5 @@
   "file": "development/comfy-router/models/openai/gpt-image-1-5/code.md",
   "title": "Use GPT Image 1.5 with Comfy Router - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:30.526368+00:00",
-  "html_len": 727712,
-  "md_len": 20601,
-  "depth": 0
+  "fetched_at": "2026-10-31T13:26:44.709579+00:00"
 }

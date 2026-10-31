@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-fast-260128/code/
 title: Use Dreamina Seedance 2.0 Fast 260128 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:58.156286+00:00
+fetched_at: 2026-10-31T13:26:44.886641+00:00
 ---
 
 # Use Dreamina Seedance 2.0 Fast 260128 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:58.156286+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-fast-260128/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -217,7 +219,7 @@ callback_url
 
 string (uri)
 
-Callback notification address for the result of this generation taskFormat: `uri`
+Ignored. Accepted for compatibility with the BytePlus request shape, but removed before the task is submitted, so no callback is ever sent; poll the task status route for the result instead.Format: `uri`
 
 ​
 
@@ -475,6 +477,30 @@ Container format of the generated video (mp4 or mov), when BytePlus nests it ins
 
 ​
 
+content.upstream_expires_at
+
+string (date-time)
+
+RFC 3339 time the upstream URLs stop working: the earliest signing time plus validity the URLs themselves carry, never later than the task’s `updated_at` plus 24 hours (BytePlus’s documented URL life) when `updated_at` is present; otherwise the task’s `updated_at` plus 24 hours. Present only when `upstream_video_url` or `upstream_last_frame_url` is, and omitted when neither source gives a time. Unrelated to the lifetime of the re-hosted `video_url` / `last_frame_url`.Format: `date-time`
+
+​
+
+content.upstream_last_frame_url
+
+string
+
+BytePlus’s own download URL for the last frame, returned byte for byte beside the re-hosted `last_frame_url` on the same terms as `upstream_video_url`: opted-in workspaces only, Seedance 2.x only, absent once BytePlus clears it, and a bearer credential until `upstream_expires_at`.
+
+​
+
+content.upstream_video_url
+
+string
+
+BytePlus’s own download URL for the output video, returned byte for byte beside the re-hosted `video_url`. Present ONLY for Seedance 2.x tasks polled by a workspace Comfy has opted in server-side (there is no request parameter); absent for everyone else, including a credential that resolves to no workspace (such as a legacy API key not scoped to one), and absent once BytePlus clears its URLs 24 hours after generation. It is a presigned object-storage URL and therefore a bearer credential: anyone holding it can download the video until it expires, so treat it like a secret. It expires at `upstream_expires_at`, and on Seedance 2.5 BytePlus caps it at 100 downloads, one of which Router’s own re-host consumes.
+
+​
+
 content.video_url
 
 string
@@ -678,26 +704,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/byteplus/dreamina-seedance-2-0-fast-260128/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/byteplus/dreamina-seedance-2-0-fast-260128/code)
 
-[Use Dreamina Seedance 2.0 260128 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code)[Use Dreamina Seedance 2.0 Mini with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-mini/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Dreamina Seedance 2.0 260128](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code)[Dreamina Seedance 2.0 Mini](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-mini/code)

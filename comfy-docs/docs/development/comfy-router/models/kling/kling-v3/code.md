@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kling/kling-v3/code/
 title: Use Kling V3 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:54:47.519880+00:00
+fetched_at: 2026-10-31T13:26:52.577746+00:00
 ---
 
 # Use Kling V3 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-24T11:54:47.519880+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/kling/kling-v3/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Serving providers
@@ -222,7 +224,7 @@ callback_url
 
 string (uri)
 
-The callback notification addressFormat: `uri`
+The callback notification address. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.Format: `uri`
 
 ​
 
@@ -318,7 +320,7 @@ external_task_id
 
 string
 
-Customized Task ID
+Customized Task ID. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.
 
 ​
 

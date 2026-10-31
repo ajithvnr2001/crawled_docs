@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/create-node-translations/
 title: Create Node Translations - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T13:55:21.195645+00:00
+fetched_at: 2026-10-31T13:26:50.818210+00:00
 ---
 
 # Create Node Translations - ComfyUI

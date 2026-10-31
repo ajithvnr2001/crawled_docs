@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/veed/fabric-1-0/code/
 title: Use Fabric 1.0 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:28.955481+00:00
+fetched_at: 2026-10-31T13:26:46.540359+00:00
 ---
 
 # Use Fabric 1.0 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:28.955481+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/veed/fabric-1-0/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -195,7 +197,7 @@ string
 
 required
 
-Public http(s) URL of the speech track to lip-sync to. The video is as long as the audio.
+Public http(s) URL of the speech track to lip-sync to. The video is as long as the audio. Refused with 400 when the audio is longer than the per-call input ceiling.
 
 ​
 

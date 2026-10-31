@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-relight/code/
 title: Use Image Edit Relight with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:00.711746+00:00
+fetched_at: 2026-10-31T13:26:43.575550+00:00
 ---
 
 # Use Image Edit Relight with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-19T14:35:00.711746+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/bria/image-edit-relight/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -202,6 +204,8 @@ The image to edit. Supported input types are Base64-encoded string or URL pointi
 light_direction
 
 string
+
+required
 
 The light direction, one of “front”, “side”, “bottom”, or “top-down”.
 
@@ -398,26 +402,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/bria/image-edit-relight/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/bria/image-edit-relight/code)
 
-[Use Image Edit Increase Resolution with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/bria/image-edit-increase-resolution/code)[Use Image Edit Remove Background with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/bria/image-edit-remove-background/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Image Edit Product Virtual Tryon](https://docs.comfy.org/development/comfy-router/models/bria/image-edit-product-virtual-tryon/code)[Image Edit Remove Background Guided](https://docs.comfy.org/development/comfy-router/models/bria/image-edit-remove-background-guided/code)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code/
 title: Use Kling 3.0 Turbo with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:13.545554+00:00
+fetched_at: 2026-10-31T13:26:52.889093+00:00
 ---
 
 # Use Kling 3.0 Turbo with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:13.545554+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Serving providers
@@ -247,7 +249,7 @@ options.callback_url
 
 string
 
-Callback notification URL for task results. The server notifies when the task status changes.
+Callback notification URL for task results. The server notifies when the task status changes. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.
 
 ​
 
@@ -255,7 +257,7 @@ options.external_task_id
 
 string
 
-Customized Task ID. Does not overwrite the system-generated task ID but can be used for queries. Must be unique within a single user account.
+Customized Task ID. Does not overwrite the system-generated task ID but can be used for queries. Must be unique within a single user account. Ignored: comfy-api drops this field before forwarding; Comfy Router polls on your behalf.
 
 ​
 
@@ -627,26 +629,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/kling/kling-3-0-turbo/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/kling/kling-3-0-turbo/code)
 
-[Use P Image Ideogram with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/ideogram/p-image-ideogram/code)[Use Kling Image O1 with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/kling/kling-image-o1/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[P Image Ideogram](https://docs.comfy.org/development/comfy-router/models/ideogram/p-image-ideogram/code)[Kling Image O1](https://docs.comfy.org/development/comfy-router/models/kling/kling-image-o1/code)

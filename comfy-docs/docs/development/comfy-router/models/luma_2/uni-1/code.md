@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1/code/
 title: Use Uni 1 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:40.000259+00:00
+fetched_at: 2026-10-31T13:26:44.205681+00:00
 ---
 
 # Use Uni 1 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:40.000259+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -375,7 +377,7 @@ video.exr_export
 
 boolean
 
-Export an EXR file alongside the MP4. Requires hdr true. Rejected for video_reframe.
+Not available yet: requests with exr_export=true are rejected with 400 until Luma ships EXR delivery. Will export an EXR file alongside the MP4 (requires hdr true). Rejected for video_reframe.
 
 ​
 

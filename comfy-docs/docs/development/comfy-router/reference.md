@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:00.648561+00:00
+fetched_at: 2026-10-31T13:26:43.402233+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -31,6 +31,7 @@ Back to top
   * Result assets
   * Per-model input and output schemas
   * Schemas
+    * RouterBilledWorkspace
     * RouterChargesOnPolicyRejection
     * RouterCostEstimate
     * RouterErrorResponse
@@ -334,7 +335,7 @@ OK - without `model_provider`, or with `model_provider` and `strict_mode=false` 
 
 RouterErrorResponse
 
-Invalid request. Check the error type and request body.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Comfy-Upstream-Status`, `X-Comfy-Upstream-Detail`, `X-Comfy-Refusal-Subject`, `Idempotent-Replayed`
+Invalid request. Check the error type and request body.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Comfy-Upstream-Status`, `X-Comfy-Upstream-Detail`, `X-Comfy-Refusal-Subject`, `X-Comfy-Credits-Used`, `Idempotent-Replayed`
 
 ​
 
@@ -1140,6 +1141,7 @@ Raised by Router itself, before or around the call to the model.
 `queue_timeout`| A queued request waited past its queue timeout without ever being admitted.  
 `request_not_found`| The `request_id` names no request of the caller’s under this model.  
 `queue_backlog_full`| The caller already has too many queued requests waiting to run, so this submit was refused.  
+`result_expired`| The request existed and finished, but its result is no longer stored, so the collect has nothing to return.  
   
 ## 
 
@@ -1375,6 +1377,7 @@ Pre-flight cost estimates
 ---|---|---  
 `exact`| `amount`, `amount_cents`, `credits`| An estimate equal to the charge for this body at the rates in `pricing_as_of`; the settled charge in your workspace’s usage and billing records is final.  
 `estimated`| `min_amount`, `max_amount` and their `_cents` forms, no `amount`| An estimate whose charge depends on a quantity the provider reports back, and the body bounds it; the charge is expected between the bounds, and the settled charge in your workspace’s usage and billing records is final.  
+`free`| `amount` “0”, `amount_cents` and `credits` `0`| The rate card prices this request at zero, so the estimate is `0`; the settled charge in your workspace’s usage and billing records is final. Only a `free` quote reads `0`.  
 `unknown`| `reason`, no figure| No price could be given before the run. Treat any other `source` value as `unknown`.  
   
 An `unknown` estimate’s `reason` is one of:
@@ -1416,7 +1419,7 @@ Models| What is copied onto Comfy storage| Maximum Comfy-hosted URL lifetime
 `minimax/*`| the finished video| 12 hours  
 `xai/*`| every generated image, and the finished video| 24 hours  
   
-These lifetimes start when the URL is signed, not when you open it. Cached or replayed URLs can have less time remaining; replay does not renew them. Download the asset promptly. Only the assets named in each row are copied: `byteplus/seedream-*` and `byteplus/seededit-*` images are not covered by the BytePlus video row. Copying is performed by the model’s native provider only. A run served by an alternate provider — `model_provider` naming one, or a native run whose fallback retry landed on one (disclosed by `X-Comfy-Router-Fallback-Provider`) — returns that provider’s own URLs, which follow the provider’s expiry and are not copied. `model_provider` values `default`, `comfy` and `comfyui` name no alternate provider, so those runs are native and copied as above, as is a `model_provider` run whose fallback retry landed back on the native provider. **Veo (`veo/*`) has a separate storage path.** In `response.videos[]`, read whichever member is present: `bytesBase64Encoded` contains the clip inline, while `gcsUri` contains a Comfy-signed HTTPS link when the environment is configured for direct provider writes to Comfy storage. That link is valid for 24 hours from the response. The latter case writes the asset directly rather than copying it, so Veo is not in the rehosting table. Other models return provider asset references or inline bytes. Provider URLs follow the provider’s expiry, which can be much shorter than the lifetimes above and is not specified by the Router contract. Copying is best effort per asset. If one copy fails, that entry keeps its provider reference; the response can contain both Comfy and provider URLs, with no explicit per-asset copy-status field. The generation still succeeds and is charged. Do not infer every URL’s lifetime from one successfully rehosted asset. Whether a result is Comfy-hosted also decides whether a completed call can still be replayed from its `Idempotency-Key` record later; the `Idempotency-Key` parameter above says what a retry is answered with when it cannot be.
+These lifetimes start when the URL is signed, not when you open it. Cached or replayed URLs can have less time remaining; replay does not renew them. Download the asset promptly. Only the assets named in each row are copied: `byteplus/seedream-*` and `byteplus/seededit-*` images are not covered by the BytePlus video row. Copying is performed by the model’s native provider only. A run served by an alternate provider — `model_provider` naming one, or a native run whose fallback retry landed on one (disclosed by `X-Comfy-Router-Fallback-Provider`) — returns that provider’s own URLs, which follow the provider’s expiry and are not copied. `model_provider` values `default`, `comfy` and `comfyui` name no alternate provider, so those runs are native and copied as above, as is a `model_provider` run whose fallback retry landed back on the native provider. **Veo (`veo/*`) has a separate storage path.** In `response.videos[]`, read whichever member is present: `bytesBase64Encoded` contains the clip inline, while `gcsUri` contains a Comfy-signed HTTPS link when the environment is configured for direct provider writes to Comfy storage. That link is valid for 24 hours from the response. The latter case writes the asset directly rather than copying it, so Veo is not in the rehosting table. Other models return provider asset references or inline bytes. Provider URLs follow the provider’s expiry, which can be much shorter than the lifetimes above and is not specified by the Router contract. **Original BytePlus URLs (Seedance 2.x, opt-in).** For a workspace Comfy has opted in server-side, a Seedance 2.x result also carries BytePlus’s own URLs in `content.upstream_video_url` and `content.upstream_last_frame_url`, beside the copied ones, plus `content.upstream_expires_at`. There is no request parameter and no workspace is opted in by default. These URLs expire 24 hours after generation and are absent once BytePlus clears them; on Seedance 2.5 BytePlus caps each at 100 downloads, and Router’s own copy uses one. Each is a bearer credential for its object: anyone holding it can download the asset until it expires. Copying is best effort per asset. If one copy fails, that entry keeps its provider reference; the response can contain both Comfy and provider URLs, with no explicit per-asset copy-status field. The generation still succeeds and is charged. Do not infer every URL’s lifetime from one successfully rehosted asset. Whether a result is Comfy-hosted also decides whether a completed call can still be replayed from its `Idempotency-Key` record later; the `Idempotency-Key` parameter above says what a retry is answered with when it cannot be.
 
 ## 
 
@@ -1436,6 +1439,40 @@ Schemas
 
 ​
 
+RouterBilledWorkspace
+
+The wallet a refused call would have charged, on `RouterErrorResponse.billed_workspace`. Answers “which wallet is empty?” - it is not necessarily the workspace the caller’s UI currently has selected, and a team member’s personal credential names their personal wallet here even while a funded team is open. Present only alongside `denied_reason`. **Fields**
+
+​
+
+id
+
+string
+
+The Cloud workspace id. Absent on the legacy rail.
+
+​
+
+type
+
+string
+
+required
+
+`personal` or `team`. An open string: treat any other value as personal.
+
+​
+
+rail
+
+string
+
+`legacy` when the call bills the caller’s pre-workspace Metronome customer rather than a Cloud workspace; that customer has no workspace id. Absent for a Cloud workspace.
+
+### 
+
+​
+
 RouterChargesOnPolicyRejection
 
 Whether a content-policy refusal is charged for this model. Treat an unknown value as potentially charged. Type: `string`
@@ -1446,7 +1483,7 @@ Whether a content-policy refusal is charged for this model. Treat an unknown val
 
 RouterCostEstimate
 
-A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against (or, for a model billed the cost its vendor reports, estimated from the vendor’s published price list). It is not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`. **Fields**
+A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against (or, for a model billed the cost its vendor reports, estimated from the vendor’s published price list). It is not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` “0” (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`. **Fields**
 
 ​
 
@@ -1456,7 +1493,7 @@ string
 
 required
 
-`exact` | `estimated` | `unknown`; read any other value as `unknown`. `exact` and `estimated` both label an estimate; neither is the final charge. `unknown` carries no figure.
+`exact` | `estimated` | `free` | `unknown`; read any other value as `unknown`. `exact` and `estimated` both label an estimate; neither is the final charge. `free` means the rate card prices this request at zero, so `amount` is “0”. `unknown` carries no figure.
 
 ​
 
@@ -1474,7 +1511,7 @@ amount
 
 string
 
-The estimated cost in dollars as a decimal string, e.g. “0.04”, with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as “0”. Present only when `source` is `exact`. Not the final charge: the settled charge in your workspace’s usage and billing records is.
+The estimated cost in dollars as a decimal string, e.g. “0.04”, with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as “0”; only a `free` quote reads “0”. Present only when `source` is `exact` or `free`. Not the final charge: the settled charge in your workspace’s usage and billing records is.
 
 ​
 
@@ -1552,7 +1589,7 @@ string
 
 required
 
-When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor’s published price list (a model billed the cost the vendor reports) carries the date that list was read instead. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.date-time
+When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor’s published price list (a model billed the cost the vendor reports) carries the date that list was read instead; one whose billed quantity is predicted from that list and then priced from the rate card (a model billed the credits its vendor reports) carries the older of the two dates. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.date-time
 
 ​
 
@@ -1588,7 +1625,7 @@ RouterErrorType
 
 required
 
-Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at nineteen values: the six request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found` and `queue_backlog_full`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
+Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at twenty values: the six request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` and `result_expired`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
 
 ​
 
@@ -1605,6 +1642,30 @@ refusal_subject
 string
 
 Which input or output a content-policy refusal was about, as a Router-level closed vocabulary: `input`, `output`, `input_text`, `input_image`, `input_video`, `input_audio`, `output_text`, `output_image`, `output_video`, `output_audio`. The bare `input` / `output` values name the side when the provider did not name a modality. Present only when `error_type` is `content_policy_violation` and the provider named the refused subject with a machine-readable code; absent otherwise. Never provider text. Named today for BytePlus, Runway, BFL, Gemini, Veo, Vertex, xAI and Wan refusals, and for the MiniMax Router’s Nano Banana legs’ Gemini refusals; a provider whose refusal does not say which side it was about leaves it absent. It mirrors the `X-Comfy-Refusal-Subject` header.
+
+​
+
+denied_reason
+
+string
+
+Billing’s policy branch for a partner-node spend denial - `no_funds` when the billed wallet is empty, `unspecified` when the call was refused without a funds reading saying so. Present only when `error_type` is `insufficient_credits` and the deployment reports wallet facts; absent otherwise. A machine-readable code, not display text: show `detail`, branch on this.
+
+​
+
+billed_workspace
+
+RouterBilledWorkspace
+
+The wallet a refused call would have charged, on `RouterErrorResponse.billed_workspace`. Answers “which wallet is empty?” - it is not necessarily the workspace the caller’s UI currently has selected, and a team member’s personal credential names their personal wallet here even while a funded team is open. Present only alongside `denied_reason`.Type: `RouterBilledWorkspace`
+
+​
+
+credential_kind
+
+string
+
+How the refused request authenticated - `personal_api_key`, `team_api_key`, `personal_session` or `team_session`. Answers “which credential do I switch to bill the other wallet?”. It is not a permission and grants nothing. Present only alongside `denied_reason`.
 
 ### 
 
@@ -1630,7 +1691,7 @@ RouterChargesOnPolicyRejection
 
 required
 
-Whether a call this model refuses on content-policy grounds is nevertheless charged to the caller. Providers differ, the difference is invisible at call time, and a user who sees an error and a charge for the same call has no way to have known - so it is stated per model, before the call, rather than left to per-provider folklore.Type: `RouterChargesOnPolicyRejection`
+Whether a call this model refuses on content-policy grounds is nevertheless charged to the caller. Providers differ, the difference is invisible at call time, and a user who sees an error and a charge for the same call has no way to have known - so it is stated per model, before the call, rather than left to per-provider folklore. When it is `yes`, a `content_policy_violation` error on the synchronous route can carry `X-Comfy-Credits-Used`: it does when the provider refused the model’s generated output and Comfy recorded usage for that refused generation, and carries that amount. An input-side refusal, a same-key replay (`Idempotent-Replayed: true`), and a charge too small to show in the header’s two decimals do not carry it; a refusal without the header is not reported, not proof it was free.Type: `RouterChargesOnPolicyRejection`
 
 ### 
 
@@ -2110,4 +2171,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/reference.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/reference)
 
-[Billing](https://docs.comfy.org/development/comfy-router/billing)[Headers](https://docs.comfy.org/development/comfy-router/headers)
+[Realtime voice](https://docs.comfy.org/development/comfy-router/realtime)[Headers](https://docs.comfy.org/development/comfy-router/headers)

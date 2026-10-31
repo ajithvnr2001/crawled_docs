@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/fal/h3-max-turbo/code/
 title: Use H3 Max Turbo with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T13:55:12.932993+00:00
+fetched_at: 2026-10-31T13:26:45.637692+00:00
 ---
 
 # Use H3 Max Turbo with Comfy Router - ComfyUI

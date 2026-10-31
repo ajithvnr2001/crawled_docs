@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/veed/lipsync-2-0/code/
 title: Use Lipsync 2.0 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:28.601199+00:00
+fetched_at: 2026-10-31T13:26:46.342313+00:00
 ---
 
 # Use Lipsync 2.0 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:28.601199+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/veed/lipsync-2-0/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -191,7 +193,7 @@ string
 
 required
 
-Public http(s) URL of the new audio track to lip-sync the video to.
+Public http(s) URL of the new audio track to lip-sync the video to. Refused with 400 when the audio is longer than the per-call input ceiling.
 
 ​
 

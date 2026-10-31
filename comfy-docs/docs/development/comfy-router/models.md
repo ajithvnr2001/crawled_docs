@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T13:55:13.266321+00:00
+fetched_at: 2026-10-31T13:26:44.490023+00:00
 ---
 
 # Comfy Router models - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-video-upscale/code/
 title: Use FLUX Video Upscale with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:51.386696+00:00
+fetched_at: 2026-10-31T13:26:42.600506+00:00
 ---
 
 # Use FLUX Video Upscale with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:51.386696+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-video-upscale/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -213,7 +215,7 @@ string
 
 required
 
-Video to upscale, either an HTTP(S) URL or a base64-encoded MP4. At most 20 seconds of source footage and 50MB.
+Video to upscale, either an HTTP(S) URL or a base64-encoded MP4. At most 20 seconds of source footage, 50MB and 2560x1440 (3.7 megapixels) per frame; downscale a larger source before submitting it.
 
 ​
 
@@ -241,7 +243,7 @@ number
 
 default:"2"
 
-Output scaling relative to the source resolution. The output preserves the source aspect ratio and is capped at roughly 14.4 megapixels per frame, so very large sources scale by less than the requested factor.Range: `1.5` to `3`Format: `float`
+Output scaling relative to the source resolution. The output preserves the source aspect ratio and is capped at roughly 14.4 megapixels per frame, so very large sources scale by less than the requested factor. There is no resolution option; to target 2K (2560x1440) or 4K (3840x2160), divide the target height by the source height. A 720p source reaches 2K at 2 and 4K at 3; a 1080p source reaches 4K at 2 but cannot reach 2K, which needs 1.33.Range: `1.5` to `3`Format: `float`
 
 ​
 
@@ -433,26 +435,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/black-forest-labs/flux-video-upscale/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/black-forest-labs/flux-video-upscale/code)
 
-[Use FLUX Pro 1.0 Fill with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-pro-1-0-fill/code)[Use Video Edit V1 with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/video-edit-v1/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[FLUX Pro 1.0 Fill](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-pro-1-0-fill/code)[Video Edit V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/video-edit-v1/code)

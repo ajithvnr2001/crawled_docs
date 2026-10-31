@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/luma_2/ray-3-2/code/
 title: Use Ray 3.2 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:27.109456+00:00
+fetched_at: 2026-10-31T13:26:45.005576+00:00
 ---
 
 # Use Ray 3.2 with Comfy Router - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:27.109456+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/luma_2/ray-3-2/code/
 
 ## On this page
+
+Back to top
 
   * Quick start
   * Schema
@@ -391,7 +393,7 @@ video.exr_export
 
 boolean
 
-Export an EXR file alongside the MP4. Requires hdr true. Rejected for video_reframe.
+Not available yet: requests with exr_export=true are rejected with 400 until Luma ships EXR delivery. Will export an EXR file alongside the MP4 (requires hdr true). Rejected for video_reframe.
 
 ​
 
@@ -674,4 +676,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/luma_2/ray-3-2/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/luma_2/ray-3-2/code)
 
-[Ray Flash 2](https://docs.comfy.org/development/comfy-router/models/luma/ray-flash-2/code)[Uni 1 Max](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1-max/code)
+[Photon Flash 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-flash-1/code)[Uni 1 Max](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1-max/code)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-a-specific-version-of-a-node/
 title: Retrieve a specific version of a node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T13:55:19.651066+00:00
+fetched_at: 2026-10-31T13:26:49.822982+00:00
 ---
 
 # Retrieve a specific version of a node - ComfyUI
