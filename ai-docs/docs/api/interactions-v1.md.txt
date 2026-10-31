@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-v1.md.txt
 title: interactions v1
 method: httpx-raw-text
-fetched_at: 2026-10-30T10:43:25.367814+00:00
+fetched_at: 2026-10-31T10:10:14.946066+00:00
 ---
 
 # interactions v1
@@ -2693,6 +2693,148 @@ func main() {
     body := operations.NewCreateInteractionRequestBody(gaos_interactions.CreateModelInteraction{
         Model: gaos_interactions.Model("gemini-flash-latest"),
         Input: genai.Ptr(gaos_interactions.NewInteractionsInput("Calculate the first 10 Fibonacci numbers")),
+        Tools: []gaos_interactions.Tool{tool},
+    })
+
+    req := operations.CreateInteractionRequest{
+        Body: body,
+    }
+
+    res, err := client.Interactions.Create(ctx, req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction != nil && res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+
+```
+
+
+- **ComputerUse**: A tool that can be used by the model to interact with the computer.
+  - **type** (`object`) *(Required)*
+    Value: `computer_use`
+  - **environment** (`enum (string)`)  The environment being operated.
+    Possible values:
+    - `browser`: Operates in a web browser.
+    - `mobile`: Operates in a mobile environment.
+    - `desktop`: Operates in a desktop environment.
+
+  - **excluded_predefined_functions** (`array (string)`)  The list of predefined functions that are excluded from the model call.
+
+  - **enable_prompt_injection_detection** (`boolean`)  Whether enable the prompt injection detection check on computer-use request.
+
+  - **disabled_safety_policies** (`array (enum (string))`)  Optional. Disabled safety policies for computer use.
+    Possible values:
+    - `financial_transactions`: Safety policy for financial transactions.
+    - `sensitive_data_modification`: Safety policy for sensitive data modification.
+    - `communication_tool`: Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+    - `account_creation`: Safety policy for account creation.
+    - `data_modification`: Safety policy for data modification.
+    - `user_consent_management`: Safety policy for user consent management.
+    - `legal_terms_and_agreements`: Safety policy for legal terms and agreements.
+
+    **Examples**
+    **computer_use**
+
+```sh
+curl -X POST https://generativelanguage.googleapis.com/v1/interactions \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-2.5-computer-use-preview-10-2025",
+    "tools": [{
+      "type": "computer_use"
+    }],
+    "input": "Find a flight to Tokyo"
+  }'
+
+```
+
+    **computer_use**
+
+```python
+from google import genai
+
+client = genai.Client()
+response = client.interactions.create(
+    model="gemini-2.5-computer-use-preview-10-2025",
+    tools=[{"type": "computer_use"}],
+    input="Find a flight to Tokyo",
+)
+print(response.output_text)
+
+```
+
+    **computer_use**
+
+```javascript
+import {GoogleGenAI} from '@google/genai';
+
+const ai = new GoogleGenAI({});
+const interaction = await ai.interactions.create({
+  model: 'gemini-2.5-computer-use-preview-10-2025',
+  tools: [{type: 'computer_use'}],
+  input: 'Find a flight to Tokyo',
+});
+console.log(interaction.output_text);
+
+```
+
+    **computer_use**
+
+```java
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.CreateInteractionResponse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+
+Client client = new Client();
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-2.5-computer-use-preview-10-2025")
+        .tools(List.of(new ComputerUse()))
+        .input(InteractionsInput.of("Find a flight to Tokyo"))
+        .build();
+CreateInteractionResponse response =
+    client.interactions.create(CreateInteractionRequestBody.of(params));
+Interaction interaction =
+    response.interaction().orElseThrow(() -> new RuntimeException("No interaction returned"));
+System.out.println(interaction.outputText().orElse(""));
+
+```
+
+    **computer_use**
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "google.golang.org/genai"
+    gaos_interactions "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    tool := gaos_interactions.NewTool(gaos_interactions.ComputerUse{})
+
+    body := operations.NewCreateInteractionRequestBody(gaos_interactions.CreateModelInteraction{
+        Model: gaos_interactions.Model("gemini-2.5-computer-use-preview-10-2025"),
+        Input: genai.Ptr(gaos_interactions.NewInteractionsInput("Find a flight to Tokyo")),
         Tools: []gaos_interactions.Tool{tool},
     })
 

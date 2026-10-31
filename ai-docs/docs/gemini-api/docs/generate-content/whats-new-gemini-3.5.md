@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5
 title: What's new in Gemini 3.5 Flash
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:55.329621+00:00
+fetched_at: 2026-10-31T10:10:19.091402+00:00
 ---
 
 # What's new in Gemini 3.5 Flash
@@ -21,7 +21,7 @@ Model | Model ID | Status
 ---|---|---  
 Gemini 3.5 Flash | `gemini-3.5-flash` | **Deprecated** (automatically routed to [`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6)).  
   
-Gemini 3.5 Flash supported the 1M token context window, 65k max output tokens, thinking, and the same set of tools and platform features as Gemini 3 Flash, including [Computer Use (Preview)](https://ai.google.dev/gemini-api/docs/computer-use). For complete specs, see the [models overview](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash).
+Gemini 3.5 Flash supported the 1M token context window, 65k max output tokens, thinking, and the same set of tools and platform features as Gemini 3 Flash, including [Computer Use](https://ai.google.dev/gemini-api/docs/computer-use). For complete specs, see the [models overview](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash).
 
 ## Quickstart
 

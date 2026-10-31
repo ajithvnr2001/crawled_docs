@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/tools/
 title: Using tools with Gemini API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:45:15.956495+00:00
+fetched_at: 2026-10-31T10:10:19.313551+00:00
 ---
 
 # Using tools with Gemini API
@@ -23,7 +23,7 @@ Tool | Description | Use Cases
 [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding) | Build location-aware assistants that can find places, get directions, and provide rich local context. | Planning travel itineraries with multiple stops, finding local businesses based on user criteria.  
 [Code Execution](https://ai.google.dev/gemini-api/docs/code-execution) | Allow the model to write and run Python code to solve math problems or process data accurately. | Solving complex mathematical equations, processing and analyzing text data precisely.  
 [URL Context](https://ai.google.dev/gemini-api/docs/url-context) | Direct the model to read and analyze content from specific web pages or documents. | Answering questions based on specific URLs or documents, retrieving information across different web pages.  
-[Computer Use (Preview)](https://ai.google.dev/gemini-api/docs/computer-use) | Enable Gemini to view a screen and generate actions to interact with web browser UIs (Client-side execution). | Automating repetitive web-based workflows, testing web application user interfaces.  
+[Computer Use](https://ai.google.dev/gemini-api/docs/computer-use) | Enable Gemini to view a screen and generate actions to interact with web browser UIs (Client-side execution). | Automating repetitive web-based workflows, testing web application user interfaces.  
 [File Search](https://ai.google.dev/gemini-api/docs/file-search) | Index and search your own documents to enable Retrieval Augmented Generation (RAG). | Searching technical manuals, question answering over proprietary data.  
   
 See the [Pricing page](https://ai.google.dev/gemini-api/docs/pricing#pricing_for_tools) for details on costs associated with specific tools.

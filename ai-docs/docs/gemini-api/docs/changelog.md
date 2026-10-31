@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/changelog/
 title: Release notes
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:49.996499+00:00
+fetched_at: 2026-10-31T10:10:17.046239+00:00
 ---
 
 # Release notes
@@ -10,6 +10,12 @@ fetched_at: 2026-10-28T10:18:49.996499+00:00
 > Source: https://ai.google.dev/gemini-api/docs/changelog/
 
 This page documents updates to the Gemini API.
+
+## October 30, 2026
+
+  * **Computer Use generally available (GA)** : Released the [Computer Use](https://ai.google.dev/gemini-api/docs/computer-use) tool to general availability (GA) across the Interactions and GenerateContent APIs.
+
+
 
 ## October 27, 2026
 

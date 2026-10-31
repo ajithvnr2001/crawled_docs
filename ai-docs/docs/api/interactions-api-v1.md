@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-api-v1/
 title: Gemini Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:42:38.284117+00:00
+fetched_at: 2026-10-31T10:10:18.721280+00:00
 ---
 
 # Gemini Interactions API
@@ -1819,6 +1819,82 @@ No description provided.
 
 Always set to `"code_execution"`.
 
+ComputerUse
+
+A tool that can be used by the model to interact with the computer.
+
+type object (required)
+
+No description provided.
+
+Always set to `"computer_use"`.
+
+environment enum (string) (optional)
+
+The environment being operated.
+
+Possible values:
+
+  * `browser`
+
+Operates in a web browser.
+
+  * `mobile`
+
+Operates in a mobile environment.
+
+  * `desktop`
+
+Operates in a desktop environment.
+
+
+
+
+excluded_predefined_functions array (string) (optional)
+
+The list of predefined functions that are excluded from the model call.
+
+enable_prompt_injection_detection boolean (optional)
+
+Whether enable the prompt injection detection check on computer-use request.
+
+disabled_safety_policies array (enum (string)) (optional)
+
+Optional. Disabled safety policies for computer use.
+
+Possible values:
+
+  * `financial_transactions`
+
+Safety policy for financial transactions.
+
+  * `sensitive_data_modification`
+
+Safety policy for sensitive data modification.
+
+  * `communication_tool`
+
+Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+
+  * `account_creation`
+
+Safety policy for account creation.
+
+  * `data_modification`
+
+Safety policy for data modification.
+
+  * `user_consent_management`
+
+Safety policy for user consent management.
+
+  * `legal_terms_and_agreements`
+
+Safety policy for legal terms and agreements.
+
+
+
+
 FileSearch
 
 A tool that can be used by the model to search files.
@@ -1984,6 +2060,8 @@ Always set to `"url_context"`.
 ### Examples
 
 ### CodeExecution
+
+### ComputerUse
 
 ### FileSearch
 

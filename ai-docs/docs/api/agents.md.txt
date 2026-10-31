@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/agents.md.txt
 title: agents
 method: httpx-raw-text
-fetched_at: 2026-10-30T10:43:25.291123+00:00
+fetched_at: 2026-10-31T10:10:22.668784+00:00
 ---
 
 # agents

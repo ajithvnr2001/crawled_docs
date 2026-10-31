@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/api-versions/
 title: API versions explained
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:42:49.221149+00:00
+fetched_at: 2026-10-31T10:10:20.015935+00:00
 ---
 
 # API versions explained

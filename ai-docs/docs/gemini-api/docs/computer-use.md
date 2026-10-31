@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/computer-use/
 title: Computer use
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:02.640150+00:00
+fetched_at: 2026-10-31T10:10:21.579594+00:00
 ---
 
 # Computer use
@@ -338,7 +338,7 @@ Use curl to send a request:
     
     
     curl -X POST \
-      "https://generativelanguage.googleapis.com/v1beta/interactions" \
+      "https://generativelanguage.googleapis.com/v1/interactions" \
       -H "x-goog-api-key: $GEMINI_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{
@@ -1833,7 +1833,7 @@ The following examples demonstrate how to enable prompt injection detection in y
 ### cURL
     
     
-    curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI_API_KEY}" \
+    curl "https://generativelanguage.googleapis.com/v1/interactions?key=${GEMINI_API_KEY}" \
     -H 'Content-Type: application/json' \
     -d '{
       "model": "gemini-3.8-flash",
