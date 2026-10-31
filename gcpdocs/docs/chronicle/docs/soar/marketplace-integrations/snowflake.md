@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/snowflake/
 title: Integrate Snowflake with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:02.074783+00:00
+fetched_at: 2026-10-31T06:00:01.964409+00:00
 ---
 
 # Integrate Snowflake with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -103,8 +103,8 @@ The following example shows the JSON result output received when using the **Exe
     
     
     {
-        "C_CUSTKEY": "CUSTOMER_KEY",
-        "C_NAME": "Customer#ID",
+        "C_CUSTKEY": &quot;CUSTOMER_KEY",
+        &quot;C_NAME": "Customer#ID",
         "C_ADDRESS": "9Ii4zQn9cX",
         "C_NATIONKEY": "14",
         "C_PHONE": "800-555-0175"
@@ -177,8 +177,8 @@ The following example shows the JSON result output received when using the **Exe
     
     
     {
-        "C_CUSTKEY": "CUSTOMER_KEY",
-        "C_NAME": "Customer#ID",
+        "C_CUSTKEY": &quot;CUSTOMER_KEY",
+        &quot;C_NAME": "Customer#ID",
         "C_ADDRESS": "9Ii4zQn9cX",
         "C_NATIONKEY": "14",
         "C_PHONE": "800-555-0175"

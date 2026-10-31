@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-workload-management/
 title: Understand reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:01.938441+00:00
+fetched_at: 2026-10-31T05:48:00.741158+00:00
 ---
 
 # Understand reservations  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Understand reservations
 
-This page describes how to use slot reservations to manage your BigQuery workloads.
+BigQuery reservations let you group [slots](https://docs.cloud.google.com/bigquery/docs/slots) into isolated pools to manage capacity and isolate workloads across your organization. For example, you can create separate `prod` and `test` reservations so test jobs don't compete with production queries, or create reservations for different departments to track compute costs.
+
+This document explains core reservation concepts, including assignments, commitments, and project caps. For step-by-step instructions, see [Work with slot reservations](https://docs.cloud.google.com/bigquery/docs/reservations-tasks).
 
 ## Slot reservations
 
-In BigQuery, [slots](https://docs.cloud.google.com/bigquery/docs/slots) are allocated in pools called _reservations_. Reservations let you manage capacity and isolate workloads in ways that make sense for your organization. For example, you might create a reservation named `prod` for production workloads, and a separate reservation named `test` for testing, so that test jobs don't compete for resources with production jobs. Or, you might create reservations for different departments in your organization to allocate compute costs.
-
-Reservations also let administrators configure slot capacity based on the workloads assigned to them. For example, if you have production-level, time-sensitive workloads, create a reservation with adequate baseline slots.
+Reservations let administrators configure slot capacity based on the workloads assigned to them. For example, if you have production-level, time-sensitive workloads, create a reservation with adequate baseline slots.
 
 Once allocated, baseline slots remain constantly available to your reservation, though increasing this baseline depends on current system capacity. In contrast, when you use autoscaling reservations, BigQuery doesn't reserve the capacity between your baseline and the maximum reservation size in advance. Instead, BigQuery automatically scales this capacity up and down based on your demand and system availability. Autoscaling reservations are billed per second with a one-minute minimum duration by default. You can opt in to [BigQuery fluid scaling](https://docs.cloud.google.com/bigquery/docs/slots#fluid-scaling) at the reservation level for per-second billing with no minimum duration. In addition, [idle slots](https://docs.cloud.google.com/bigquery/docs/slots#idle_slots) can be shared across reservations.
 
@@ -440,6 +440,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

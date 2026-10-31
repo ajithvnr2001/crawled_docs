@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/explore-summary-gemini/
 title: Generate a summary of an Explore using Gemini assistance \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:47:10.341300+00:00
+fetched_at: 2026-10-31T05:48:48.513857+00:00
 ---
 
 # Generate a summary of an Explore using Gemini assistance  |  Looker  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ To use Gemini in Looker to generate Explore summaries, note the following requir
 
 When enabled, Gemini in Looker will generate a summary of an Explore by using the [description parameter](https://docs.cloud.google.com/looker/docs/reference/param-explore-description) in the LookML model for any Explore where the LookML developer hasn't already defined a summary.
 
-To view the summary, click the info **Explore Summary** info button on the [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#navigating_the_configure_panel).
+To view the summary, click the info **Explore Summary** info button on the [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#navigating-the-configure-panel).
 
 To view the summary from a Looker [classic Explore](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores), open the Explore, and click the info **Explore Summary** info button next to the Explore name.
 
@@ -55,6 +55,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release/release-notes/
 title: Apigee release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:38.178492+00:00
+fetched_at: 2026-10-31T05:58:43.550271+00:00
 ---
 
 # Apigee release notes  |  Google Cloud Documentation
@@ -58,6 +58,20 @@ rss_feed Subscribe:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-x-release-notes.xml) directly. 
+
+## November 02, 2026
+
+Announcement
+
+On November 2, 2026, we released an updated version of Apigee.
+
+**Note:** Rollouts of this release began today and may take four or more business days to be completed across all Google Cloud zones. Your instances may not have the features and fixes available until the rollout is complete.
+
+Feature
+
+**EKM health monitoring**
+
+You can now monitor EKM health and configure alerts for EKM-related issues using Cloud Logging. For more information, see [EKM health monitoring](https://docs.cloud.google.com/apigee/docs/api-platform/security/ekm-monitoring).
 
 ## October 27, 2026
 

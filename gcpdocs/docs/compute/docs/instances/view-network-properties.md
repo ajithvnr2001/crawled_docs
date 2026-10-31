@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/view-network-properties/
 title: View the network configuration for an instance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:01.570074+00:00
+fetched_at: 2026-10-31T05:58:58.993105+00:00
 ---
 
 # View the network configuration for an instance  |  Compute Engine  |  Google Cloud Documentation
@@ -299,12 +299,12 @@ The following fields contain the required information:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html);
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).Type;
-    import com.google.cloud.compute.v1.[GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html);
-    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
-    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
-    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.AccessConfig;
+    import com.google.cloud.compute.v1.AccessConfig.Type;
+    import com.google.cloud.compute.v1.GetInstanceRequest;
+    import com.google.cloud.compute.v1.Instance;
+    import com.google.cloud.compute.v1.InstancesClient;
+    import com.google.cloud.compute.v1.NetworkInterface;
     import java.io.IOException;
     import java.util.ArrayList;
     import java.util.List;
@@ -328,17 +328,17 @@ The following fields contain the required information:
       public static List<String> getVmAddress(String projectId, String instanceId, IpType ipType)
               throws IOException {
         List<String> result = new ArrayList<>();
-        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instance = getInstance(projectId, instanceId);
+        Instance instance = getInstance(projectId, instanceId);
     
-        for ([NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface : instance.[getNetworkInterfacesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html#com_google_cloud_compute_v1_Instance_getNetworkInterfacesList__)()) {
+        for (NetworkInterface networkInterface : instance.getNetworkInterfacesList()) {
           if (ipType == IpType.EXTERNAL) {
-            for ([AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html) accessConfig : networkInterface.getAccessConfigsList()) {
+            for (AccessConfig accessConfig : networkInterface.getAccessConfigsList()) {
               if (accessConfig.getType().equals(Type.ONE_TO_ONE_NAT.name())) {
                 result.add(accessConfig.getNatIP());
               }
             }
           } else if (ipType == IpType.IP_V6) {
-            for ([AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html) accessConfig : networkInterface.getAccessConfigsList()) {
+            for (AccessConfig accessConfig : networkInterface.getAccessConfigsList()) {
               if (accessConfig.hasExternalIpv6()
                       && accessConfig.getType().equals(Type.DIRECT_IPV6.name())) {
                 result.add(accessConfig.getExternalIpv6());
@@ -352,11 +352,11 @@ The following fields contain the required information:
         return result;
       }
     
-      private static [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) getInstance(String projectId, String instanceId) throws IOException {
+      private static Instance getInstance(String projectId, String instanceId) throws IOException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) instancesClient = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
-          [GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html) request = [GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html).newBuilder()
+        try (InstancesClient instancesClient = InstancesClient.create()) {
+          GetInstanceRequest request = GetInstanceRequest.newBuilder()
                   .setInstance(instanceId)
                   .setProject(projectId)
                   .setZone("us-central1-b")

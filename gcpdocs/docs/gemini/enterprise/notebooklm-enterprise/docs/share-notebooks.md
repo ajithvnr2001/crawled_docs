@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/share-notebooks/
 title: Share notebooks \u00a0|\u00a0 Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:27.223419+00:00
+fetched_at: 2026-10-31T05:47:59.908388+00:00
 ---
 
 # Share notebooks  |  Gemini Notebook Enterprise  |  Google Cloud Documentation
@@ -83,7 +83,7 @@ Be aware of the following limitations related to sharing notebooks in Gemini Not
 
 To share a notebook with people using their email addresses, follow these steps:
 
-  1. Click group **Share**.
+  1. Click ios_share **Share**.
 
   2. Enter comma-separated email addresses and click person_add.
 
@@ -104,7 +104,7 @@ You can share a notebook with others using an email distribution group such as a
 
 To share a notebook with a group, follow these steps:
 
-  1. Click group **Share**.
+  1. Click ios_share **Share**.
 
   2. In the **Add people and groups** field, type the name of the group that you want to share the notebook with (for example, `my-google-group@example.com`), and click person_add.
 
@@ -125,7 +125,7 @@ If you've shared a notebook with someone and you decide that you no longer want 
 
 To revoke access to a notebook, follow these steps:
 
-  1. Click group **Share**.
+  1. Click ios_share **Share**.
 
   2. Select **Revoke access** next to the email address of the person.
 
@@ -138,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

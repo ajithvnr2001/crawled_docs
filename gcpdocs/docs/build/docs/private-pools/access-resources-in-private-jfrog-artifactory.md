@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/private-pools/access-resources-in-private-jfrog-artifactory/
 title: Access resources in a private JFrog Artifactory with private pools \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:02.263246+00:00
+fetched_at: 2026-10-31T06:00:07.677178+00:00
 ---
 
 # Access resources in a private JFrog Artifactory with private pools  |  Cloud Build  |  Google Cloud Documentation
@@ -179,7 +179,7 @@ You will see an output similar to the following:
 
   1. Create a txt file to upload to the Artifactory:
          
-         echo "Hello world" >> helloworld.txt
+         echo "Hello wo>>rld"  helloworld.txt
          
 
   2. JFrog comes with a default example repository. Upload to the repository using the default credentials:
@@ -251,7 +251,7 @@ The first step fetches the internal IP address from the Artifactory you created.
                - |
                  gcloud compute instances describe jfrog \
                  --zone us-central1-a \
-                 --format="value(networkInterfaces.networkIP)" >> _INTERNAL_IP_ADDRESS
+                 --format="value(networkInterfaces.network>>IP)"  _INTERNAL_IP_ADDRESS
          
            - id: Pull from Private Artifactory
              name: gcr.io/cloud-builders/curl
@@ -346,7 +346,7 @@ Cloud Build private pools run workers using the Service Networking API. This ena
                - |
                  gcloud compute instances describe jfrog \
                  --zone us-central1-a \
-                 --format="value(networkInterfaces.networkIP)" >> _INTERNAL_IP_ADDRESS
+                 --format="value(networkInterfaces.network>>IP)"  _INTERNAL_IP_ADDRESS
          
            - id: Pull from Private Artifactory
              name: gcr.io/cloud-builders/curl

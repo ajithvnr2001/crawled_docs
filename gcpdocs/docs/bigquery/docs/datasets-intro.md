@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/datasets-intro/
 title: Introduction to datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:41.024413+00:00
+fetched_at: 2026-10-31T06:00:24.778456+00:00
 ---
 
 # Introduction to datasets  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to datasets
 
-BigQuery datasets let you organize and control access to your tables and views. You can also use datasets to specify storage locations, manage retention policies, and connect to external data sources.
+BigQuery datasets let you organize and control access to your tables and views. You can also use datasets to specify storage locations, manage retention policies, configure cross-region replication and disaster recovery, set default table properties, and connect to external data sources.
 
 ## Datasets
 
@@ -31,7 +31,7 @@ A dataset is contained within a specific [project](https://docs.cloud.google.com
 
 You specify a location for storing your BigQuery data when you create a dataset. For a list of BigQuery dataset locations, see [BigQuery locations](https://docs.cloud.google.com/bigquery/docs/locations). BigQuery stores your data in the selected location in accordance with the [Service Specific Terms](https://cloud.google.com/terms/service-terms). For example, if you choose `EU` or an EU-based region for the dataset location, your Core BigQuery Customer Data resides in the EU.
 
-After you create the dataset, the location cannot be changed, but you can [copy datasets to different locations](https://docs.cloud.google.com/bigquery/docs/managing-datasets#copy-datasets), or manually [move (recreate) the dataset in a different location](https://docs.cloud.google.com/bigquery/docs/managing-datasets#recreate-dataset).
+After you create the dataset, its location cannot be changed directly. However, you can use [cross-region dataset replication](https://docs.cloud.google.com/bigquery/docs/data-replication#migrate_datasets) to replicate the dataset to a different location and promote the secondary replica, [copy datasets to different locations](https://docs.cloud.google.com/bigquery/docs/copying-datasets), or manually [move (recreate) the dataset in a different location](https://docs.cloud.google.com/bigquery/docs/managing-datasets#recreate-dataset).
 
 If you don't [explicitly specify a location](https://docs.cloud.google.com/bigquery/docs/locations#specify_locations), the location is determined in one of the following ways:
 
@@ -43,9 +43,17 @@ If you don't [explicitly specify a location](https://docs.cloud.google.com/bigqu
 
 If the location isn't explicitly specified, and it can't be determined from the resources in the request, the default location is used. If default location isn't set, the job runs in the `US` multi-region.
 
+## Cross-region dataset replication
+
+With BigQuery [cross-region dataset replication](https://docs.cloud.google.com/bigquery/docs/data-replication), you can set up automatic asynchronous replication of a dataset between two different regions or multi-regions. Dataset replication provides geo-redundancy, lets you run read queries against the secondary replica in another region, and lets you migrate datasets across regions. For more information, see [Cross-region dataset replication](https://docs.cloud.google.com/bigquery/docs/data-replication).
+
+## Managed disaster recovery
+
+For business continuity during total regional outages, you can configure BigQuery [managed disaster recovery](https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery). Managed disaster recovery pairs [cross-region dataset replication](https://docs.cloud.google.com/bigquery/docs/data-replication) with [Enterprise Plus edition](https://docs.cloud.google.com/bigquery/docs/editions-intro) failover reservations to manage both storage and compute failover. It offers both hard failover for regional outages and soft failover for synchronized maintenance. For more information, see [Managed disaster recovery](https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery) and [Migrate to managed disaster recovery](https://docs.cloud.google.com/bigquery/docs/disaster-recovery-migration).
+
 ## Data retention
 
-Datasets use [time travel](https://docs.cloud.google.com/bigquery/docs/time-travel#time_travel) in conjunction with the [fail-safe period](https://docs.cloud.google.com/bigquery/docs/time-travel#fail-safe) to retain deleted and modified data for a short time, in case you need to recover it. For more information, see [Data retention with time travel and fail-safe](https://docs.cloud.google.com/bigquery/docs/time-travel).
+Datasets use [time travel](https://docs.cloud.google.com/bigquery/docs/time-travel#time_travel) in conjunction with the [fail-safe period](https://docs.cloud.google.com/bigquery/docs/time-travel#fail-safe) to retain deleted and modified data. By default, the time travel window is 7 days, but you can configure it from 2 to 7 days. Time travel lets you query historical data at a point in time or restore deleted or expired tables and datasets. After the time travel window ends, data enters an unconfigurable 7-day fail-safe period for emergency recovery by Cloud Customer Care. For more information, see [Data retention with time travel and fail-safe](https://docs.cloud.google.com/bigquery/docs/time-travel).
 
 ## Storage billing models
 
@@ -119,7 +127,10 @@ To control access to datasets in BigQuery, see [Controlling access to datasets](
 ## What's next
 
   * For more information on creating datasets, see [Creating datasets](https://docs.cloud.google.com/bigquery/docs/datasets).
-  * For more information on assigning access controls to datasets, see [Work with dataset access controls](https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam#work_with_dataset_access_controls).
+  * For more information on listing and inspecting datasets, see [List datasets](https://docs.cloud.google.com/bigquery/docs/listing-datasets).
+  * For more information on assigning access controls to datasets, see [Controlling access to datasets](https://docs.cloud.google.com/bigquery/docs/dataset-access-controls).
+  * For more information on replicating datasets across regions, see [Cross-region dataset replication](https://docs.cloud.google.com/bigquery/docs/data-replication).
+  * For more information on configuring disaster recovery, see [Managed disaster recovery](https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery).
 
 
 
@@ -127,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/hns-overview/
 title: Hierarchical namespace \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:15.597146+00:00
+fetched_at: 2026-10-31T05:53:34.366109+00:00
 ---
 
 # Hierarchical namespace  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Hierarchical namespace Stay organized with collections  Save and categorize content based on your preferences. 
 
-Hierarchical namespace is a capability offered by Cloud Storage that lets you organize objects into folders and store your data in a logical file system structure, making it easier to streamline data management tasks. Hierarchical namespace provides the high-performance directory semantics and atomic folder operations that are required to accelerate data-intensive AI/ML and analytics workloads.
+Hierarchical namespace lets you organize objects in Cloud Storage buckets into folders within a logical file system structure, which simplifies data management tasks. Hierarchical namespace provides the high-performance directory semantics and atomic folder operations that help accelerate data-intensive AI/ML and analytics workloads.
 
-This page provides an overview of hierarchical namespace and its use cases, including its capabilities, benefits, and limitations.
+This document describes the capabilities, benefits, use cases, and limitations of hierarchical namespace.
 
 ## How it works
 
@@ -191,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

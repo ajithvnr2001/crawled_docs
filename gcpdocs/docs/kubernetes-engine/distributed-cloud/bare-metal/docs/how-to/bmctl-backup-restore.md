@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/bmctl-backup-restore/
 title: Back up and restore clusters with bmctl \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:14.202667+00:00
+fetched_at: 2026-10-31T05:50:34.878825+00:00
 ---
 
 # Back up and restore clusters with bmctl  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,13 +22,13 @@ Send feedback
 
 #  Back up and restore clusters with bmctl Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to use `bmctl` to back up and restore clusters created with Distributed Cloud software only for bare metal. These instructions apply to all cluster types.
-
-**Warning:** Using a backup file to restore your cluster is a last resort. The restore process resets the existing cluster and overwrites the cluster information. We don't recommend restoring from a backup file unless the cluster has failed catastrophically. Contact Cloud Customer Care for help in deciding the best course of action.
+The `bmctl` command-line tool lets you back up and restore clusters created with Distributed Cloud software only for bare metal to prepare for disaster recovery or to recover a damaged cluster across all cluster types. Restoring from a backup is a last resort that resets the cluster and overwrites existing cluster information. Restore from backup only if a cluster fails catastrophically. Contact Cloud Customer Care for help in deciding the best course of action.
 
 ## What is and isn't backed up
 
 The `bmctl` backup and restore process operates at the Kubernetes control plane layer and is different from other backup solutions. Non-Kubernetes backup solutions capture workload data, persistent storage, and the host operating systems of the physical machines. The `bmctl` backup and restore process restores your Kubernetes clusters without backing up any of these other components.
+
+**Warning:** Using a backup file to restore your cluster is a last resort. The restore process resets the existing cluster and overwrites the cluster information. Restore from a backup file only if the cluster has failed catastrophically. Contact Cloud Customer Care for help in deciding the best course of action.
 
 ### Control plane state (backed up by the `bmctl` backup process)
 
@@ -293,6 +293,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

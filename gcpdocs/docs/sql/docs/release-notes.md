@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/release-notes/
 title: Cloud SQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:21:14.798474+00:00
+fetched_at: 2026-10-31T05:40:13.210630+00:00
 ---
 
 # Cloud SQL release notes  |  Google Cloud Documentation
@@ -24,6 +24,87 @@ Send feedback
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-release-notes.xml) directly. 
+
+## October 30, 2026
+
+**Cloud SQL for MySQL**
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, unpatched Cloud SQL for MySQL instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+Before November 1, 2026, do one of the following fixes:
+
+  * **Apply self-service maintenance (Recommended):** If your applications rely on database functions to calculate, schedule, or display times in these Canadian time zones (such as Calgary, Edmonton, Vancouver, or Winnipeg), then update your instances to the latest maintenance release using the Google Cloud console or the gcloud CLI.
+
+Updated time zone rules that reflect permanent standard daylight offsets across Alberta, British Columbia, Manitoba, and Northwest Territories are supported in Cloud SQL for MySQL [maintenance release `*.R20260726.00_36` or later](https://docs.cloud.google.com/sql/docs/mysql/maintenance-changelog).
+
+For more information, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/mysql/self-service-maintenance).
+
+  * **Database configuration stopgap:** If your organization can't restart instances before November 1, 2026, then you can set the time zone for your database session without causing downtime for your instance. Set the `default_time_zone` flag for the database session to your target fixed numeric offset (for example, `'-06:00'` for Alberta, `'-07:00'` for British Columbia, or `'-05:00'` for Manitoba).
+
+For more information about configuring database flags, see [Configure database flags](https://docs.cloud.google.com/sql/docs/mysql/flags).
+
+
+
+
+**Cloud SQL for PostgreSQL**
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, unpatched Cloud SQL for PostgreSQL instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+Before November 1, 2026, do one of the following fixes:
+
+  * **Apply self-service maintenance (Recommended):** If your applications rely on database functions to calculate, schedule, or display times in these Canadian time zones (such as Calgary, Edmonton, Vancouver, or Winnipeg), then update your instances to the latest maintenance release using the Google Cloud console or the gcloud CLI.
+
+Updated time zone rules that reflect permanent standard daylight offsets across Alberta, British Columbia, Manitoba, and Northwest Territories are supported in Cloud SQL for PostgreSQL [maintenance release `*.R20260712.01_44` or later](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog).
+
+For more information, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance).
+
+  * **Database configuration stopgap:** If your organization can't restart instances before November 1, 2026, then you can set your database session time zone without downtime to an anchor zone.
+        
+        ALTER DATABASE database_name SET timezone TO 'anchor_zone';
+
+Replace the following:
+
+    * `database_name`: the name of your database.
+    * `anchor_zone`: the anchor zone to use as the time zone for your database. Specify an anchor zone that operates on a permanent offset.
+
+For example, `'America/Regina'` for Alberta and Northwest Territories (UTC-6), `'America/Whitehorse'` for British Columbia (UTC-7), or `'America/Coral_Harbour'` for Manitoba (UTC-5).
+
+
+
+
+**Cloud SQL for SQL Server**
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, Cloud SQL for SQL Server instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+For SQL Server, Microsoft has [published guidance](https://devblogs.microsoft.com/azure-sql/canadas-2026-time-zone-updates-guidance-for-microsoft-sql/), recommending updating each applicable instance's time zone to the Windows time zone with the matching fixed offset.
+
+Update each instance's time zone to the Windows time zone with the matching fixed offset:
+
+Jurisdiction | Current time zone | Recommended time zone | Fixed offset  
+---|---|---|---  
+British Columbia | Pacific Standard Time | Yukon Standard Time | UTC-07:00  
+Alberta / Inuvik, NWT | Mountain Standard Time | Canada Central Standard Time | UTC-06:00  
+Manitoba | Central Standard Time | Eastern Standard Time (Mexico) | UTC-05:00  
+  
+You can make the change in the Google Cloud console (**Edit instance** > **Flags and parameters** > **Time zone**) or with gcloud:
+    
+    
+    gcloud sql instances patch INSTANCE_NAME \
+      --project=PROJECT_ID \
+      --time-zone="Yukon Standard Time"
+    
 
 ## October 28, 2026
 
@@ -95,6 +176,50 @@ In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gc
 ## October 16, 2026
 
 **Cloud SQL for PostgreSQL**
+
+Change
+
+The rollout of the following Cloud SQL for PostgreSQL minor version and extension upgrades is complete:
+
+**Minor versions**
+
+  * 14.23 is upgraded to 14.24.
+
+  * 15.18 is upgraded to 15.19.
+
+  * 16.14 is upgraded to 16.15.
+
+  * 17.10 is upgraded to 17.11.
+
+  * 18.4 is upgraded to 18.6. This version includes a backported fix for [PostgreSQL bug #19616](https://git.postgresql.org/gitweb/?p=postgresql.git;h=caa463e3f8d2b9c1441e6a59c50f90b8598439f3) that prevents logical decoding from emitting `STREAM_ABORT` messages for unstreamed transactions when an aborted transaction with a subtransaction is truncated during memory eviction.
+
+
+
+
+**Extensions**
+
+  * `hll` (`postgresql-hll`) is upgraded from 2.18 to 2.20.
+
+  * `pg_qualstats` is upgraded from 2.1.2 to 2.1.4.
+
+  * `pglogical` is upgraded from 2.4.5 (for PostgreSQL 17 and earlier) and 2.4.6 (for PostgreSQL 18) to 2.4.8.
+
+  * `pgTAP` is upgraded from 1.3.0 to 1.3.4.
+
+  * `pgtt` is upgraded from 4.0 to 4.6.0 for PostgreSQL 12 and later.
+
+  * `PL/Proxy` is upgraded from 2.11.0 to 2.12.0.
+
+  * `PostGIS` is upgraded from 3.5.2 (for PostgreSQL 13 through 17) and 3.6.0 (for PostgreSQL 18) to 3.6.4 for PostgreSQL 13 and later.
+
+  * `roaringbitmap` (`pg_roaringbitmap`) is upgraded from 0.5 to 1.2 for PostgreSQL 12 and later.
+
+
+
+
+The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog). If you use a maintenance window, then the updates to the minor and extension versions happen according to the timeframe that you set in the window. Otherwise, the updates occur within the next few weeks.
+
+For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
 
 Change
 
@@ -9568,6 +9693,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/deploy-gemini-gov/
 title: Deployment guidance for Gemini for Government \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:11.982484+00:00
+fetched_at: 2026-10-31T05:57:41.133605+00:00
 ---
 
 # Deployment guidance for Gemini for Government  |  Security  |  Google Cloud Documentation
@@ -51,11 +51,12 @@ Authorized data stores such as [Cloud Storage](https://docs.cloud.google.com/gem
 [Web Grounding for Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise) | Authorized | Authorized  
 [Uploading documents](https://docs.cloud.google.com/gemini/enterprise/docs/assistant-chat#upload_and_chat_about_files) from local machines | Authorized | Authorized  
 Ability for end users to [select models](https://docs.cloud.google.com/gemini/enterprise/docs/answer-generation-models) | Authorized | Authorized  
+[In-memory data caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#in-memory-caching) | Authorized | Authorized  
 [Deep Research agent](https://docs.cloud.google.com/gemini/enterprise/docs/research-assistant) | Authorized | DISA review  
 No-code agent creation using [Agent Designer](https://docs.cloud.google.com/gemini/enterprise/docs/agent-designer) | Authorized | DISA review  
 [Agent Gallery](https://docs.cloud.google.com/gemini/enterprise/docs/agent-gallery) | Authorized | DISA review  
 [Image generation using Nano Banana](https://docs.cloud.google.com/gemini/enterprise/docs/assistant-analyze#generate_an_image) | Authorized | DISA review  
-[Gemini Notebook Enterprise](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview) (excludes Audio Overview, Infographic, Slide Deck, and Video Overview | Authorized | DISA review  
+[Gemini Notebook Enterprise](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview) (excludes Audio Overview, Infographic, Slide Deck, and Video Overview) | Authorized | DISA review  
 [Model Armor](https://docs.cloud.google.com/gemini/enterprise/docs/enable-model-armor) | Authorized | DISA review  
 Google Workspace federated connectors (includes [Gmail](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/gmail), [Google Drive](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/gdrive), and [Google Calendar](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/gcal)) | Authorized | DISA review  
 Third-party federated connectors (such as Microsoft Office 365 Government Community Cloud (GCC), Office GCC High and DoD, and [Salesforce](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce)) | Authorized | DISA review  
@@ -144,11 +145,11 @@ Other features |
 
   * [Private Knowledge Graph in Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/use-knowledge-graph-search)
   * [Model Armor (for IL4 and IL5 use cases)](https://docs.cloud.google.com/gemini/enterprise/docs/enable-model-armor)
-  * [Implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)
+  * [Durable caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#durable-data-caching)
 
   
   
-For more information about implicit context caching, see [ Gemini Enterprise Agent Platform and zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention).
+For more information about durable caching, see [ Gemini Enterprise Agent Platform and zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention).
 
 ## Unauthorized features that you can't disable
 
@@ -593,9 +594,9 @@ To disable the **Model Armor API** (`modelarmor.googleapis.com`), use one of the
 
 
 
-### Turn off implicit context caching
+### Turn off durable caching
 
-To turn off implicit context caching, see [Enabling and disabling data caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#enabling-disabling-caching).
+To turn off durable caching, see [Turn off durable caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#expandable-4).
 
 ### Turn off Gemini Notebook Enterprise (IL4 and IL5 only)
 

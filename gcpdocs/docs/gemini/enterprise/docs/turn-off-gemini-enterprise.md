@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/turn-off-gemini-enterprise/
 title: Turn off Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:23.898392+00:00
+fetched_at: 2026-10-31T05:40:26.113108+00:00
 ---
 
 # Turn off Gemini Enterprise  |  Google Cloud Documentation
@@ -27,6 +27,7 @@ You can turn off Gemini Enterprise by disabling the Discovery Engine API. Disabl
 
   * All Gemini Enterprise and Agent Search resources might be deleted
   * Charges might continue to appear for up to a day after disabling the API
+  * [Prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits#expiration-refunds) stay on your Cloud Billing account until they expire. Credits are non-refundable, except as allowed by the [Supplemental Paid Credit Terms](https://cloud.google.com/terms/supplemental-paid-credit).
 
 
 
@@ -44,6 +45,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

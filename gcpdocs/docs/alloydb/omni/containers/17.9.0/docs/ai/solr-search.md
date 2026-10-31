@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.9.0/docs/ai/solr-search/
 title: Access Apache Solr data from AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:18:49.403957+00:00
+fetched_at: 2026-10-31T05:50:42.581776+00:00
 ---
 
 # Access Apache Solr data from AlloyDB Omni  |  AlloyDB Omni using containers: 17.9.0  |  Google Cloud Documentation
@@ -25,6 +25,11 @@ Send feedback
 
 Select a documentation version: 17.9.0keyboard_arrow_down
 
+  * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/ai/solr-search)
+  * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/ai/solr-search)
+  * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.3.0/docs/ai/solr-search)
+  * [ 17.10.0 ](https://docs.cloud.google.com/alloydb/omni/containers/17.10.0/docs/ai/solr-search)
+  * [ 17.9.0 ](https://docs.cloud.google.com/alloydb/omni/containers/17.9.0/docs/ai/solr-search)
 
 
 
@@ -49,7 +54,7 @@ Before you begin, complete the following:
 
 AlloyDB Omni stores and reads your Solr credentials from Secret Manager. For Basic HTTP authentication, the value of the secret in Secret Manager must be a base64-encoded string in the format `username:password`. For more information on how to use Secret Manager, see [Create and access a secret using Secret Manager](https://docs.cloud.google.com/secret-manager/docs/create-secret-quickstart).
 
-Make sure that the service account that AlloyDB Omni uses has the `secretmanager.secretAccessor` permission to read the secret from Secret Manager. For more information, see [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets).
+Make sure that the service account that AlloyDB Omni uses has the `secretmanager.secretAccessor` permission to read the secret from Secret Manager. For more information, see [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets). 
 
 ## Enable and configure the `external_search_fdw` extension
 
@@ -234,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-download-charts/
 title: Step 2: Download the Apigee Helm charts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:32:52.419844+00:00
+fetched_at: 2026-10-31T05:48:52.711961+00:00
 ---
 
 # Step 2: Download the Apigee Helm charts  |  Google Cloud Documentation
@@ -83,7 +83,7 @@ for example:
   1. In the `$APIGEE_HELM_CHARTS_HOME` directory, use the `pull` command to copy all of the Apigee hybrid Helm charts to your local storage: 
          
          export **CHART_REPO** =oci://us-docker.pkg.dev/apigee-release/apigee-hybrid-helm-charts
-         export **CHART_VERSION** =1.16.11
+         export **CHART_VERSION** =1.16.13
          helm pull **$CHART_REPO** /apigee-operator --version **$CHART_VERSION** --untar
          helm pull **$CHART_REPO** /apigee-datastore --version **$CHART_VERSION** --untar
          helm pull **$CHART_REP** O/apigee-env --version **$CHART_VERSION** --untar
@@ -351,6 +351,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

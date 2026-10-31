@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-on-prem-api/
 title: Upgrade an admin or user cluster using GKE On-Prem API clients \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:12.350636+00:00
+fetched_at: 2026-10-31T05:50:35.187955+00:00
 ---
 
 # Upgrade an admin or user cluster using GKE On-Prem API clients  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,9 @@ Send feedback
 
 #  Upgrade an admin or user cluster using GKE On-Prem API clients Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to use the Google Cloud console or the Google Cloud CLI to upgrade a Google Distributed Cloud admin or user cluster that is enrolled in the GKE On-Prem API. If you created your user cluster using Terraform, you can use Terraform to upgrade the user cluster. For upgrade requirements, best practices, and additional information about the upgrade process, review [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-best-practices) and [Lifecycle and stages of cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-lifecycle) before proceeding.
+Upgrading your Google Distributed Cloud clusters lets you deploy the latest Kubernetes features, security updates, and bug fixes. You can upgrade admin or user clusters enrolled in the GKE On-Prem API by using the Google Cloud console or the Google Cloud CLI. If you created your user cluster with Terraform, you can also use Terraform to upgrade it.
+
+For upgrade requirements, best practices, and additional information about the upgrade process, review [Upgrade best practices](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-best-practices) and [Lifecycle and stages of cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-lifecycle) before proceeding.
 
 ## What is the GKE On-Prem API?
 
@@ -317,6 +319,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

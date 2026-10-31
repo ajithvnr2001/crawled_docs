@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks/
 title: Set up cross-cloud connection for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:01.366155+00:00
+fetched_at: 2026-10-31T05:53:27.390384+00:00
 ---
 
 # Set up cross-cloud connection for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -381,7 +381,7 @@ Federation requires authenticating to the remote catalog as a Databricks service
 
 OpenID Connect (OIDC) allows secretless authentication through [Databricks OAuth token federation](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-federation).
 
-  1. Create a [Service Principal](https://docs.databricks.com/aws/en/admin/users-groups/manage-service-principals) in your Databricks account that has read access to the target Unity Catalog and the `EXTERNAL USE SCHEMA` privilege on the target schemas or catalog.
+  1. Create a [Service Principal](https://docs.databricks.com/aws/en/admin/users-groups/manage-service-principals) in your Databricks account that has read access to the target Unity Catalog and the `EXTERNAL USE SCHEMA` privilege on the catalog and its resources.
   2. Save the **Application ID** (UUID) for the Service Principal. You will need this for a later step.
 
 
@@ -390,8 +390,7 @@ OpenID Connect (OIDC) allows secretless authentication through [Databricks OAuth
 
 This option uses an OAuth client ID and client secret stored securely with regional [Secret Manager](https://docs.cloud.google.com/secret-manager/regional-secrets/overview-rs) secrets.
 
-  1. Create a [Service Principal](https://docs.databricks.com/aws/en/admin/users-groups/manage-service-principals) in your Databricks account that has read access to the target Unity Catalog.
-
+  1. Create a [Service Principal](https://docs.databricks.com/aws/en/admin/users-groups/manage-service-principals) in your Databricks account that has read access to the target Unity Catalog and the `EXTERNAL USE SCHEMA` privilege on the catalog and its resources.
   2. Generate an [OAuth secret](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-m2m) for the service principal.
 
   3. Create a JSON file named `credentials.json` with your payload:
@@ -438,7 +437,7 @@ Create the federated catalog using the Google Cloud console or the `gcloud` CLI.
 
   * You must enable [external data access](https://docs.databricks.com/aws/en/external-access/admin) on the metastore used by Unity Catalog, which is disabled by default.
 
-  * You must grant the `EXTERNAL USE SCHEMA` privilege to the Databricks Service Principal on the target schemas or catalog to enable credential vending for external data access. Without this privilege, background metadata refresh and credential vending for queries will fail.
+  * You must grant the `EXTERNAL USE SCHEMA` privilege to the Databricks Service Principal on the catalog and its resources to enable credential vending for external data access. Without this privilege, background metadata refresh and credential vending for queries will fail.
 
 
 
@@ -624,7 +623,7 @@ When the catalog is created, Lakehouse provisions a unique service account for i
      * **Subject** : the numeric unique ID of the Lakehouse catalog service account retrieved in the previous step.
      * **Audience** : `https://accounts.cloud.databricks.com`
 
-Ensure that the Databricks Service Principal has read access to the target catalog and workspace, as well as the `EXTERNAL USE SCHEMA` privilege on the target schemas or catalog.
+Ensure that the Databricks Service Principal has read access to the target catalog and workspace, as well as the `EXTERNAL USE SCHEMA` privilege on the catalog and its resources.
 
 
 
@@ -657,7 +656,7 @@ To verify that the federated catalog service account has access to the secret, r
 
 In the output, verify that the `biglake-service-account` service account has the `roles/secretmanager.secretAccessor` role assigned to it.
 
-Ensure that the Databricks Service Principal has read access to the target catalog and workspace, as well as the `EXTERNAL USE SCHEMA` privilege on the target schemas or catalog.
+Ensure that the Databricks Service Principal has read access to the target catalog and workspace, as well as the `EXTERNAL USE SCHEMA` privilege on the catalog and its resources.
 
 ### Complete private interconnect setup (Cross-Cloud Interconnect only)
 
@@ -818,6 +817,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

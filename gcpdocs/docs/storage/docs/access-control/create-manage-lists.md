@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/create-manage-lists/
 title: Create and manage access control lists (ACLs) \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:20.775666+00:00
+fetched_at: 2026-10-31T06:01:08.531207+00:00
 ---
 
 # Create and manage access control lists (ACLs)  |  Cloud Storage  |  Google Cloud Documentation
@@ -176,9 +176,9 @@ The following sample adds an ACL to an object:
                                  gcs::ObjectAccessControl::ROLE_OWNER());
     
       if (!patched_acl) throw std::move(patched_acl).status();
-      std::cout << "ACL entry for " << patched_acl->entity() << " in object "
-                << patched_acl->object() << " in bucket " << patched_acl->bucket()
-                << " is now " << *patched_acl << "\n";
+      std::cout << "ACL entry f<<or "  pa>tched_acl<<-entity()  " in object<< "
+         >        p<<atched_acl-obje<<ct()  " >in bucket "  pat<<ched_acl-buc<<ket()
+            <<     &quot; is now "  *patched_acl  "\n";
     }
 
 The following sample removes an ACL from an object:
@@ -202,9 +202,9 @@ The following sample removes an ACL from an object:
                              });
     
       if (it == original_acl.end()) {
-        std::cout << "Could not find entity " << entity << " for file "
-                  << object_name << " with role OWNER in bucket " << bucket_name
-                  << "\n";
+        std::cout << "Could not find enti<<ty "<<;  entity  " for file &<<quot;
+           <<        object_name  " wit<<h role OWNER in bucket &quo<<t;  bucket_name
+                   "\n";
         return;
       }
     
@@ -212,9 +212,9 @@ The following sample removes an ACL from an object:
       google::cloud::Status status =
           client.DeleteObjectAcl(bucket_name, object_name, owner.entity());
     
-      if (!status.ok()) throw std::runtime_error(status.message());
-      std::cout << "Deleted ACL entry for " << owner.entity() << " for file "
-                << object_name << " in bucket " << bucket_name << "\n";
+      if (!status.ok()) throw std::runti<<me_error(status.message())<<;
+      std::cout  &<<quot;Deleted ACL entry for<< "  owne<<r.entity()  &qu<<ot; for file <<"
+                 object_name  " in bucket "  bucket_name  "\n";
     }
 
 ### C#
@@ -235,15 +235,15 @@ The following sample adds an ACL to an object:
         public Google.Apis.Storage.v1.Data.Object AddFileOwner(
             string bucketName = "your-unique-bucket-name",
             string objectName = "my-file-name",
-            string userEmail = "dev@iam.gserviceaccount.com")
+            string userEmail = "dev@iam.gserviceaccount.com"[)
         {
-            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
-            var storageObject = storage.GetObject(bucketName, objectName, new [GetObjectOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetObjectOptions.html)
-            {
-                Projection = [Projection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html).[Full](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full)
-            });
+         ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html) [  var ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)storage = StorageClient.Create();
+            var storageObject = storage.GetObjec[t](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetObjectOptions.html)(bucketName, objectName, new GetObjectOptions
+         [   ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html){
+          [    ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full)  Projection = Projection.Full
+         [   ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl)});
     
-            storageObject.[Acl](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl).Add(new ObjectAccessControl
+            storageObject.Acl.Add(new ObjectAccessControl
             {
                 Bucket = bucketName,
                 Entity = $"user-{userEmail}",
@@ -267,17 +267,17 @@ The following sample removes an ACL from an object:
         public void RemoveFileOwner(
             string bucketName = "your-unique-bucket-name",
             string objectName = "your-object-name",
-            string userEmail = "dev@iam.gserviceaccount.com")
+            string userEmail = "dev@iam.gserviceaccount.com"[)
         {
-            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
-            var storageObject = storage.GetObject(bucketName, objectName, new [GetObjectOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetObjectOptions.html) { Projection = [Projection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html).[Full](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full) });
-            if (storageObject.[Acl](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl) == null)
+         ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html) [  var ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)storage = StorageClient.Create();
+            var storageObject = storage.GetObjec[t](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetObjectOptions.html)(bucketName, objectName, new Ge[tObjectOpt](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html)i[ons](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full) { Projection = Projection.Full [});](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl)
+            if (storageObject.Acl == null)
             {
                 Console.WriteLine("No owner to remove");
             }
-            else
+            e[lse](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl)
             {
-                storageObject.[Acl](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl) = storageObject.[Acl](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl).Where((acl) => !(acl.Entity == $"user-{userEmail}" && acl.Role == "OWNER")).ToList();
+          [   ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl)   storageObje>ct.Acl = storageObject.Acl.Where((acl&&) = !(acl.Entity == $"user-{userEmail}"  acl.Role == "OWNER")).ToList();
                 var updatedObject = storage.UpdateObject(storageObject);
                 Console.WriteLine($"Removed user {userEmail} from file {objectName}.");
             }
@@ -301,21 +301,21 @@ The following sample adds an ACL to an object:
     )
     
     // addFileOwner adds ACL to the specified object.
-    func addFileOwner(bucket, object string, entity storage.[ACLEntity](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)) error {
+    func addFileOwner(bucket, [object st](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)ring, entity storage.ACLEntity) error {
     	// bucket := "bucket-name"
-    	// object := "object-name"
+    	// object := "object-name"[;](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_RoleOwner_RoleReader_RoleWriter)
     	// entity := storage.AllUsers
-    	role := storage.[RoleOwner](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_RoleOwner_RoleReader_RoleWriter)
+    	role := storage.RoleOwner
     
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("storage.NewClient: %w", err)
+    		return fmt.Errorf("storage.NewClie[nt: %w](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)", e[rr](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object))
     	}
     	defer client.Close()
     
-    	acl := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[Object](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)(object).ACL()
-    	if err := acl.[Set](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLHandle_Set)(ctx, entity, role); err != nil {
+    	acl :[=](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLHandle_Set) client.Bucket(bucket).Object(object).ACL()
+    	if err := acl.Set(ctx, entity, role); err != nil {
     		return fmt.Errorf("ACLHandle.Set: %w", err)
     	}
     	return nil
@@ -333,18 +333,18 @@ The following sample removes an ACL from an object:
     )
     
     // removeFileOwner removes default ACL from the given object.
-    func removeFileOwner(bucket, object string, entity storage.[ACLEntity](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)) error {
+    func removeFileOwner(bucket, [object st](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)ring, entity storage.ACLEntity) error {
     	// bucket := "bucket-name"
     	// object := "object-name"
     	// entity := storage.AllUsers
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("storage.NewClient: %w", err)
+    		return fmt.Errorf("storage.NewClie[nt: %w](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)", e[rr](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object))
     	}
     	defer client.Close()
     
-    	acl := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[Object](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)(object).ACL()
+    	acl := client.Bucket(bucket).Object(object).ACL()
     	if err := acl.Delete(ctx, entity); err != nil {
     		return fmt.Errorf("ACLHandle.Delete: %w", err)
     	}
@@ -383,13 +383,13 @@ The following sample adds an ACL to an object:
         // String userEmail = "someuser@domain.com"
     
         // The name of the blob/file that you wish to modify permissions on
-        // String blobName = "your-blob-name";
+        // String blob[Name = ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)"your-[blob-name"](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);;
     
-        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
-        [Blob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html) blob = storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(BlobId.of(bucketName, blobName));
-        [Acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html) newOwner = [Acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html).of(new [User](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)(userEmail), [Role](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.Role.html).OWNER);
+        Storage storage = StorageOptions.newBu[ilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)().setProject[Id](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html)(projectId).build([).](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)getService();
+        Blob blob = storage.ge[t](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html)(BlobId.of(buc[ket](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html)Name, bl[obNa](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)me));
+        Acl[ new](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.Role.html)Owner = Acl.of(new [User(user](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_createAcl_com_google_cloud_storage_Acl_)Email), Role.OWNER);
     
-        blob.[createAcl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_createAcl_com_google_cloud_storage_Acl_)(newOwner);
+        blob.createAcl(newOwner);
         System.out.println(
             "Added user "
                 + userEmail
@@ -423,13 +423,13 @@ The following sample removes an ACL from an object:
         // String userEmail = "someuser@domain.com"
     
         // The name of the blob/file that you wish to modify permissions on
-        // String blobName = "your-blob-name";
+        // String blob[Name = ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)"your-[blob-name"](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);;
     
-        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
-        [Blob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html) blob = storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(BlobId.of(bucketName, blobName));
-        [User](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html) ownerToRemove = new [User](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)(userEmail);
+        Storage storage = StorageOptions.newBu[ilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)().setProject[Id](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html)(projectId).build([).](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)getService();
+        Blob blob = storage.ge[t](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)(BlobId.of(bucketName, b[lobN](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)ame));
+        User ownerToRemove = new User([userEmail](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_deleteAcl_com_google_cloud_storage_Acl_Entity_));
     
-        boolean success = blob.[deleteAcl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_deleteAcl_com_google_cloud_storage_Acl_Entity_)(ownerToRemove);
+        boolean success = blob.deleteAcl(ownerToRemove);
         if (success) {
           System.out.println(
               "Removed user "
@@ -466,10 +466,10 @@ The following sample adds an ACL to an object:
     // const userEmail = 'user-email-to-add';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
+    con[st](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html) {Storage} = require('@google-cloud/storage');
     
-    // Creates a client
-    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
+    // Creat[es a cl](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)ient
+    const storage = new Storage();
     
     async function addFileOwner() {
       await storage
@@ -498,10 +498,10 @@ The following sample removes an ACL from an object:
     // const userEmail = 'user-email-to-remove';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
+    con[st](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html) {Storage} = require('@google-cloud/storage');
     
-    // Creates a client
-    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
+    // Creat[es a cl](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)ient
+    const storage = new Storage();
     
     async function removeFileOwner() {
       // Removes the user from the access control list of the file. You can use
@@ -542,11 +542,11 @@ The following sample adds an ACL to an object:
      */
     function add_object_acl(string $bucketName, string $objectName, string $entity, string $role): void
     {
-        $storage = new StorageClient();
-        $bucket = $storage->bucket($bucketName);
-        $object = $bucket->object($objectName);
-        $acl = $object->acl();
-        $acl->add($entity, $role);
+        $storage = new Stor>ageClient();
+        $bucket = $storage-bucket(>$bucketName);
+        $object = $bucket-obje>ct($objectName);>
+        $acl = $object-acl();
+        $acl-add($entity, $role);
         printf('Added %s (%s) to gs://%s/%s ACL' . PHP_EOL, $entity, $role, $bucketName, $objectName);
     }
 
@@ -567,11 +567,11 @@ The following sample removes an ACL from an object:
      */
     function delete_object_acl(string $bucketName, string $objectName, string $entity): void
     {
-        $storage = new StorageClient();
-        $bucket = $storage->bucket($bucketName);
-        $object = $bucket->object($objectName);
-        $acl = $object->acl();
-        $acl->delete($entity);
+        $storage = new StorageClien>t();
+        $bucket = $storage-bucket($bucketN>ame);
+        $object = $bucket-object($obje>ctName);
+        $ac>l = $object-acl();
+        $acl-delete($entity);
         printf('Deleted %s from gs://%s/%s ACL' . PHP_EOL, $entity, $bucketName, $objectName);
     }
 
@@ -591,10 +591,10 @@ The following sample adds an ACL to an object:
         """Adds a user as an owner on the given blob."""
         # bucket_name = "your-bucket-name"
         # blob_name = "your-object-name"
-        # user_email = "name@example.com"
+        # user[_email ](https://docs.cloud.google.com/python/docs/reference/storage/latest)=[ "](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html);name@example.com"
     
-        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
-        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+        st[orage_](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)client = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
     
         # Reload fetches the current ACL from Cloud Storage.
@@ -602,8 +602,8 @@ The following sample adds an ACL to an object:
     
         # You can also use `group`, `domain`, `all_authenticated` and `all` to
         # grant access to different types of entities. You can also use
-        # `grant_read` or `grant_write` to grant different roles.
-        blob.acl.[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).grant_owner()
+        # `grant_re[ad` ](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)or `grant_write` to grant different roles.
+        blob.acl.user(user_email).grant_owner()
         blob.acl.save()
     
         print(
@@ -625,21 +625,21 @@ The following sample removes an ACL from an object:
         given bucket."""
         # bucket_name = "your-bucket-name"
         # blob_name = "your-object-name"
-        # user_email = "name@example.com"
+        # user[_email ](https://docs.cloud.google.com/python/docs/reference/storage/latest)=[ "](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html);name@example.com"
     
-        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
-        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+        st[orage_](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)client = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
     
         # You can also use `group`, `domain`, `all_authenticated` and `all` to
-        # remove access for different types of entities.
-        blob.acl.[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).revoke_read()
-        blob.acl.[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).revoke_write()
-        blob.acl.[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).revoke_owner()
+        # [remo](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)ve access for different types of entitie[s.span>
+        blob.acl.user(user_email).revoke_read([)pan>
+        blob.acl.user(user_email).revoke_write()
+        blob.acl.user(user_email).revoke_owner()
         blob.acl.save()
     
         print(
-            f"Removed user {user_email} from blob {blob_name} in bucket {bucket_name}."
+            f"Removed user {us](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)er_email} from blob {blob_name} in bucket {bucket_name}."
         )
     
     
@@ -658,11 +658,11 @@ The following sample adds an ACL to an object:
     # file_name   = "Name of a file in the Storage bucket"
     # email       = "Google Cloud Storage ACL Entity email"
     
-    require "google/cloud/storage"
+    require "google/cloud/[storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)&[quo](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)t;
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
-    bucket  = storage.bucket bucket_name
-    file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
+    storage = Google::Cloud::Storage.new
+    bucket  = stor[age](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).bucket bucket_name
+    file    = bucket.file file_name
     
     file.acl.add_owner email
     
@@ -676,11 +676,11 @@ The following sample removes an ACL from an object:
     # file_name   = "Name of a file in the Storage bucket"
     # email       = "Google Cloud Storage ACL Entity email"
     
-    require "google/cloud/storage"
+    require "google/cloud/[storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)&[quo](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)t;
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
-    bucket  = storage.bucket bucket_name
-    file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
+    storage = Google::Cloud::Storage.new
+    bucket  = stor[age](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).bucket bucket_name
+    file    = bucket.file file_name
     
     file.acl.delete email
     
@@ -705,13 +705,13 @@ The following sample adds an ACL to an object:
         let want = format!("user-{user}");
         let mut acl = object.acl.clone();
         let entry = acl.iter_mut().find(|x| x.entity == want);
-        match entry {
-            None => acl.push(
+      >  match entry {
+            None = acl.push(
                 ObjectAccessControl::new()
                     .set_entity(want)
-                    .set_role("OWNER"),
+                    .set_role("OW>NER"),
             ),
-            Some(e) => e.role = "OWNER".into(),
+            Some(e) = e.role = "OWNER".into(),
         };
         let metageneration = object.metageneration;
         let updated = client
@@ -742,12 +742,12 @@ The following sample removes an ACL from an object:
         let want = format!("user-{user}");
         let mut acl = object.acl.clone();
         let entry = acl.iter().position(|x| x.entity == want);
-        match entry {
-            None => {
+      >  match entry {
+            None = {
                 println!("entry for {want} not found, nothing to update");
-                return Ok(());
+                re>turn Ok(());
             }
-            Some(i) => acl.remove(i),
+            Some(i) = acl.remove(i),
         };
         let metageneration = object.metageneration;
         let updated = client
@@ -1087,11 +1087,11 @@ The following sample adds a default object ACL to a bucket:
           client.CreateDefaultObjectAcl(bucket_name, entity, role);
       if (!default_object_acl) throw std::move(default_object_acl).status();
     
-      std::cout << "Role " << default_object_acl->role()
-                << " will be granted default to " << default_object_acl->entity()
-                << " on any new object created on bucket "
-                << default_object_acl->bucket() << "\n"
-                << "Full attributes: " << *default_object_acl << "\n";
+      std::cout << "Ro<<le "  default_o>bject_acl-role()
+      <<           " will be grante<<d default to " > default_object_acl-e<<ntity()
+                 " on any new object created<< on bucket "
+      >         <<  default_object_a<<cl-bucket()  "\n<<"
+                 &<<quot;Full attributes: "  *default_object_acl  "\n";
     }
 
 The following sample deletes a default object ACL from a bucket:
@@ -1104,8 +1104,8 @@ The following sample deletes a default object ACL from a bucket:
           client.DeleteDefaultObjectAcl(bucket_name, entity);
     
       if (!status.ok()) throw std::runtime_error(status.message());
-      std::cout << "Deleted ACL entry for " << entity << " in bucket "
-                << bucket_name << "\n";
+      std::cout << "Deleted ACL entry f<<or "<<;  entity  " in bucket<< "
+         <<        bucket_name  "\n";
     }
 
 ### C#
@@ -1126,8 +1126,8 @@ The following sample prints the default object ACL for a bucket:
     {
         public IEnumerable<ObjectAccessControl> PrintBucketDefaultAcl(string bucketName = "your-unique-bucket-name")
         {
-            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
-            var bucket = storage.GetBucket(bucketName, new [GetBucketOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketOptions.html) { Projection = [Projection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html).[Full](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full) });
+            var [storage = Sto](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html)r[ageCli](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)ent.Create();
+            var bucket = storage.GetBucket(bucket[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketOptions.html), new GetBucketOptions { Pro[jection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html) = P[roje](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full)ction.Full });
     
             foreach (var acl in bucket.DefaultObjectAcl)
             {
@@ -1151,8 +1151,8 @@ The following sample adds a default object ACL to a bucket:
             string bucketName = "your-unique-bucket-name",
             string userEmail = "dev@iam.gserviceaccount.com")
         {
-            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
-            var bucket = storage.GetBucket(bucketName, new [GetBucketOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketOptions.html) { Projection = [Projection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html).[Full](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full) });
+      [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html)var stor[age](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create) = StorageClient.Create();
+            var bucket = storage.GetBuc[ket](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketOptions.html)(bucketName, new GetBucketOpt[ions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html) { Proj[ecti](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full)on = Projection.Full });
     
             bucket.DefaultObjectAcl.Add(new ObjectAccessControl
             {
@@ -1179,15 +1179,15 @@ The following sample deletes a default object ACL from a bucket:
             string bucketName = "your-unique-bucket-name",
             string userEmail = "user@iam.gserviceaccount.com")
         {
-            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
-            var bucket = storage.GetBucket(bucketName, new [GetBucketOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketOptions.html) { Projection = [Projection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html).[Full](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full) });
+      [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html)var stor[age](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create) = StorageClient.Create();
+            var bucket = storage.GetBuc[ket](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketOptions.html)(bucketName, new GetBucketOpt[ions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html) { Proj[ecti](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full)on = Projection.Full });
             if (bucket.DefaultObjectAcl == null)
             {
                 Console.WriteLine("No default owner to remove");
             }
             else
             {
-                bucket.DefaultObjectAcl = bucket.DefaultObjectAcl.Where(acl => !(acl.Entity == $"user-{userEmail}" && acl.Role == "OWNER")).ToList();
+                bucket.DefaultObjectAcl = bucke>t.DefaultObjectAcl.Where(acl = !(acl.&&Entity == $"user-{userEmail}"  acl.Role == "OWNER")).ToList();
                 var updatedBucket = storage.UpdateBucket(bucket);
                 Console.WriteLine($"Removed user {userEmail} from bucket {bucketName}.");
             }
@@ -1211,20 +1211,20 @@ The following sample adds a default object ACL to a bucket:
     )
     
     // addBucketDefaultOwner adds default ACL to the specified bucket.
-    func addBucketDefaultOwner(bucket string, entity storage.[ACLEntity](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)) error {
+    func addBucketDefaultOwner([bucket st](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)ring, entity storage.ACLEntity) error {
     	// bucket := "bucket-name"
-    	// entity := storage.AllUsers
-    	role := storage.[RoleOwner](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_RoleOwner_RoleReader_RoleWriter)
+    	// enti[ty := sto](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_RoleOwner_RoleReader_RoleWriter)rage.AllUsers
+    	role := storage.RoleOwner
     
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("storage.NewClient: %w", err)
+    		return fmt.Errorf("storage.NewClient: %w&quo[t;](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket), err)
     	}
-    	defer client.Close()
+    	de[fer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_DefaultObjectACL) client.Close()
     
-    	acl := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[DefaultObjectACL](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_DefaultObjectACL)()
-    	if err := acl.[Set](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLHandle_Set)(ctx, entity, role); err != nil {
+    	acl := client[.Bu](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLHandle_Set)cket(bucket).DefaultObjectACL()
+    	if err := acl.Set(ctx, entity, role); err != nil {
     		return fmt.Errorf("ACLHandle.Set: %w", err)
     	}
     	return nil
@@ -1242,17 +1242,17 @@ The following sample deletes a default object ACL from a bucket:
     )
     
     // deleteDefaultBucketACL removes default ACL from a bucket.
-    func removeBucketDefaultOwner(bucket string, entity storage.[ACLEntity](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)) error {
+    func removeBucketDefaultOwner([bucket st](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLEntity)ring, entity storage.ACLEntity) error {
     	// bucket := "bucket-name"
     	// entity := storage.AllUsers
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("storage.NewClient: %w", err)
+    		return fmt.Errorf("storage.NewClient: %w&quo[t;](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket), err)
     	}
-    	defer client.Close()
+    	de[fer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_DefaultObjectACL) client.Close()
     
-    	acl := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[DefaultObjectACL](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_DefaultObjectACL)()
+    	acl := client.Bucket(bucket).DefaultObjectACL()
     	if err := acl.Delete(ctx, entity); err != nil {
     		return fmt.Errorf("ACLHandle.Delete: %w", err)
     	}
@@ -1284,13 +1284,13 @@ The following sample adds a default object ACL to a bucket:
         // String bucketName = "your-unique-bucket-name";
     
         // The email of the user you wish to add as a default owner
-        // String userEmail = "someuser@domain.com"
+        // String userEmail = "someuser@do[main.co](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)m"
     
-        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
-        [Bucket](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html) bucket = storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(bucketName);
-        [Acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html) newDefaultOwner = [Acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html).of(new [User](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)(userEmail), [Role](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.Role.html).OWNER);
+      [  ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html)Storage storage = StorageOptions.n[ewBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)().build([).](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html)getService();
+        Buck[et](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_) bucket = storage.g[et](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html)(bucketName);
+        Ac[l](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html) newDefaul[tOwn](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)er = Acl.of(n[ew](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.Role.html) User(userEmail), Role.[OWNER);
     
-        bucket.[createDefaultAcl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html#com_google_cloud_storage_Bucket_createDefaultAcl_com_google_cloud_storage_Acl_)(newDefaultOwner);
+        buc](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html#com_google_cloud_storage_Bucket_createDefaultAcl_com_google_cloud_storage_Acl_)ket.createDefaultAcl(newDefaultOwner);
         System.out.println("Added user " + userEmail + " as an owner on " + bucketName);
       }
     }
@@ -1311,17 +1311,17 @@ The following sample deletes a default object ACL from a bucket:
         // String bucketName = "your-unique-bucket-name";
     
         // The email of the user you wish to remove as a default owner
-        // String userEmail = "someuser@domain.com"
+        // String userEmail = "someuser@do[main.co](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)m"
     
-        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
-        [Bucket](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html) bucket = storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(bucketName);
-        [User](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html) userToRemove = new [User](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)(userEmail);
+      [  ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html)Storage storage = StorageOptions.n[ewBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)().build([).](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html)getService();
+        Buck[et](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_) bucket = storage.g[et](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)(bucketName);
+        User[ use](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.User.html)rToRemove = new User(userEmail);
     
-        boolean success = bucket.[deleteDefaultAcl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html#com_google_cloud_storage_Bucket_deleteDefaultAcl_com_google_cloud_storage_Acl_Entity_)(userToRemove);
+        boole[an](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Bucket.html#com_google_cloud_storage_Bucket_deleteDefaultAcl_com_google_cloud_storage_Acl_Entity_) success = bucket.deleteDefaultAcl(userToRemove);
         if (success) {
           System.out.println("Removed user " + userEmail + " as an owner on " + bucketName);
         } else {
-          System.out.println("User " + userEmail + " was not found");
+          System.out.println("User &quot; + userEmail + " was not found");
         }
       }
     }
@@ -1345,10 +1345,10 @@ The following sample adds a default object ACL to a bucket:
     // const userEmail = 'user-email-to-add';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
+    const {Stor[age](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)} = require('@google-cloud/storage');
     
-    // Creates a client
-    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
+    // Creates a cli[ent](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)
+    const storage = new Storage();
     
     async function addBucketDefaultOwner() {
       // Makes the user an owner in the default ACL of the bucket. You can use
@@ -1375,10 +1375,10 @@ The following sample deletes a default object ACL from a bucket:
     // const userEmail = 'user-email-to-remove';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
+    const {Stor[age](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)} = require('@google-cloud/storage');
     
-    // Creates a client
-    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
+    // Creates a cli[ent](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)
+    const storage = new Storage();
     
     async function removeBucketDefaultOwner() {
       // Removes the user from the access control list of the bucket. You can use
@@ -1414,10 +1414,10 @@ The following sample adds a default object ACL to a bucket:
      */
     function add_bucket_default_acl(string $bucketName, string $entity, string $role): void
     {
-        $storage = new StorageClient();
-        $bucket = $storage->bucket($bucketName);
-        $acl = $bucket->defaultAcl();
-        $acl->add($entity, $role);
+        $storage = new StorageClien>t();
+        $bucket = $storage-bucket($buck>etName);
+        $acl = $bu>cket-defaultAcl();
+        $acl-add($entity, $role);
         printf('Added %s (%s) to gs://%s default ACL' . PHP_EOL, $entity, $role, $bucketName);
     }
 
@@ -1437,9 +1437,9 @@ The following sample deletes a default object ACL from a bucket:
     function delete_bucket_default_acl(string $bucketName, string $entity): void
     {
         $storage = new StorageClient();
-        $bucket = $storage->bucket($bucketName);
-        $acl = $bucket->defaultAcl();
-        $acl->delete($entity);
+       > $bucket = $storage-bucket($bucketName);>
+        $acl = $bucket-def>aultAcl();
+        $acl-delete($entity);
         printf('Deleted %s from gs://%s default ACL' . PHP_EOL, $entity, $bucketName);
     }
 
@@ -1459,22 +1459,22 @@ The following sample adds a default object ACL to a bucket:
         """Adds a user as an owner in the given bucket's default object access
         control list."""
         # bucket_name = "your-bucket-name"
-        # user_email = "name@example.com"
+        # user_email[ = &quo](https://docs.cloud.google.com/python/docs/reference/storage/latest)t[;name@](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)example.com"
     
-        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
-        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+        storage_[client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket) = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
     
         # Reload fetches the current ACL from Cloud Storage.
         bucket.acl.reload()
     
         # You can also use `group`, `domain`, `all_authenticated` and `all` to
         # grant access to different types of entities. You can also use
-        # `grant_read` or `grant_write` to grant different roles.
-        bucket.[default_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).grant_owner()
-        bucket.[default_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).save()
+        # `grant_read` [or `grant_write` t](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl)o[ gra](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)nt different roles.
+        bucket.default[_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).user(user_email).grant_owner()
+        bucket.default_object_acl.save()
     
         print(
-            "Added user {} as an owner in the default acl on bucket {}.".format(
+            "Added user {} as an owner in the default acl on bucket {}.&quot;.format(
                 user_email, bucket_name
             )
         )
@@ -1491,20 +1491,20 @@ The following sample deletes a default object ACL from a bucket:
         """Removes a user from the access control list of the given bucket's
         default object access control list."""
         # bucket_name = "your-bucket-name"
-        # user_email = "name@example.com"
+        # user_email[ = &quo](https://docs.cloud.google.com/python/docs/reference/storage/latest)t[;name@](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)example.com"
     
-        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
-        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+        storage_[client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket) = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
     
         # Reload fetches the current ACL from Cloud Storage.
         bucket.acl.reload()
     
         # You can also use `group`, `domain`, `all_authenticated` and `all` to
-        # remove access for different types of entities.
-        bucket.[default_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).revoke_read()
-        bucket.[default_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).revoke_write()
-        bucket.[default_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).[user](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)(user_email).revoke_owner()
-        bucket.[default_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).save()
+        # remo[ve access for diff](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl)e[rent](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user) types of entities.
+        bucket.default[_object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).user(us[er_e](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)mail).revoke_read()
+        bucket.default_[object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).user(use[r_em](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.acl.ACL.html#google_cloud_storage_acl_ACL_user)ail).revoke_write()
+        bucket.default_[object_acl](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.bucket.Bucket.html#google_cloud_storage_bucket_Bucket_default_object_acl).user(user_email).revoke_owner()
+        bucket.default_object_acl.save()
     
         print(
             f"Removed user {user_email} from the default acl of bucket {bucket_name}."
@@ -1525,12 +1525,12 @@ The following sample adds a default object ACL to a bucket:
     # bucket_name = "your-unique-bucket-name"
     # email       = "Google Cloud Storage ACL Entity email"
     
-    require "google/cloud/storage"
+    require "google/cloud/storage&qu[ot;](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
-    bucket  = storage.bucket bucket_name
+    sto[rag](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)e = Google::Cloud::Storage.new
+    bucket  = stora[ge](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).bucket bucket_name
     
-    bucket.[default_acl](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).add_owner email
+    bucket.default_acl.add_owner email
     
     puts "Added default OWNER permission for #{email} to #{bucket_name}"
 
@@ -1541,12 +1541,12 @@ The following sample deletes a default object ACL from a bucket:
     # bucket_name = "your-unique-bucket-name"
     # email       = "Google Cloud Storage ACL Entity email"
     
-    require "google/cloud/storage"
+    require "google/cloud/storage&qu[ot;](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
-    bucket  = storage.bucket bucket_name
+    sto[rag](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)e = Google::Cloud::Storage.new
+    bucket  = stora[ge](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).bucket bucket_name
     
-    bucket.[default_acl](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).delete email
+    bucket.default_acl.delete email
     
     puts "Removed default ACL permissions for #{email} from #{bucket_name}"
 
@@ -1895,10 +1895,10 @@ The following sample gets an object ACL:
           client.ListObjectAcl(bucket_name, object_name);
     
       if (!items) throw std::move(items).status();
-      std::cout << "ACLs for object=" << object_name << " in bucket "
-                << bucket_name << "\n";
-      for (gcs::ObjectAccessControl const& acl : *items) {
-        std::cout << acl.role() << ":" << acl.entity() << "\n";
+      std::cout << "ACLs for obje<<ct="  ob<<ject_name  " in bucket<< "
+         <<        bucket_name  "\n";
+      for (&gcs::ObjectAccessControl const <<acl : *items<<) {
+     <<   std::cout  <<acl.role()  ":"  acl.entity()  "\n";
       }
     }
 
@@ -1922,18 +1922,18 @@ The following sample gets an object ACL:
             string bucketName = "your-unique-bucket-name",
             string objectName = "your-object-name")
         {
-            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
-            var storageObject = storage.GetObject(bucketName, objectName, new [GetObjectOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetObjectOptions.html)
+      [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html)var stor[age](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create) = StorageClient.Create();
+            var storageObject = storage.GetObject(bucketNa[me](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetObjectOptions.html), objectName, new GetObjectOptions
             {
-                Projection = [Projection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html).[Full](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full)
+         [       ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html)Proj[ecti](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.Projection.html#Google_Cloud_Storage_V1_Projection_Full)on = Projection.Full
             });
     
-            foreach (var acl in storageObject.[Acl](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl))
+            foreach (var a[cl](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl) in storageObject.Acl)
             {
                 Console.WriteLine($"{acl.Role}:{acl.Entity}");
             }
-    
-            return storageObject.[Acl](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl);
+    [
+      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UrlSigner.PostPolicyStandardElement.html#Google_Cloud_Storage_V1_UrlSigner_PostPolicyStandardElement_Acl)      return storageObject.Acl;
         }
     }
 
@@ -1954,18 +1954,18 @@ The following sample gets an object ACL:
     	"cloud.google.com/go/storage"
     )
     
-    // printFileACL lists ACL of the specified object.
-    func printFileACL(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucket, object string) error {
+    // printFileACL lists ACL of the s[pecifi](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer)ed object.
+    func printFileACL(w io.Writer, bucket, object string) error {
     	// bucket := "bucket-name"
     	// object := "object-name"
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("storage.NewClient: %w", err)
+    		return fmt.Errorf("storage.NewC[lient:](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket) %w"[, err)](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)
     	}
-    	defer client.Close()
+    	defer clie[nt](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLHandle_List).Close()
     
-    	rules, err := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[Object](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)(object).ACL().[List](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ACLHandle_List)(ctx)
+    	rules, err := client.Bucket(bucket).Object(object).ACL().List(ctx)
     	if err != nil {
     		return fmt.Errorf("ACLHandle.List: %w", err)
     	}
@@ -2000,21 +2000,21 @@ The following sample gets an object ACL:
         // String bucketName = "your-unique-bucket-name";
     
         // The name of the blob/file that you wish to view Acls of
-        // String blobName = "your-blob-name";
+        // String blobName = "your-bl[ob-name](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)";
     
-        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
-        [Blob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html) blob = storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(BlobId.of(bucketName, blobName));
-        List<Acl> blobAcls = blob.[getAcl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_getAcl_com_google_cloud_storage_Acl_Entity_)();
+      [  ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html)Storage storage = StorageOptions.n[ewBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)().build([).](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html)getService();
+        [Blo](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)b blob = storage.get(BlobId.of(bucketName, <blo>bName));
+        List[Acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_getAcl_com_google_cloud_storage_Acl_Entity_) blobAcls = blob.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html)Acl();
     
-        for ([Acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html) acl : blobAcls) {
+        for (Acl acl : blobAcls) {
     
           // This will give you the role.
           // See https://cloud.google.com/storage/docs/access-control/lists#permissions
-          String role = [acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributes.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributes_acl__).[getRole](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html#com_google_cloud_storage_Acl_getRole__)().[name](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributeView.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributeView_name__)();
+    [   ](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributes.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributes_acl__) [  Strin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html#com_google_cloud_storage_Acl_getRole__)g r[ole](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributeView.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributeView_name__) = acl.getRole().name();
     
           // This will give you the Entity type (i.e. User, Group, Project etc.)
           // See https://cloud.google.com/storage/docs/access-control/lists#scopes
-          String entityType = [acl](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributes.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributes_acl__).[getEntity](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html#com_google_cloud_storage_Acl_getEntity__)().getType().[name](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributeView.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributeView_name__)();
+          [Str](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributes.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributes_acl__)i[ng entity](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Acl.html#com_google_cloud_storage_Acl_getEntity__)Type = acl.ge[tEnt](https://docs.cloud.google.com/java/docs/reference/google-cloud-nio/latest/com.google.cloud.storage.contrib.nio.CloudStorageFileAttributeView.html#com_google_cloud_storage_contrib_nio_CloudStorageFileAttributeView_name__)ity().getType().name();
     
           System.out.printf("%s: %s %n", role, entityType);
         }
@@ -2040,16 +2040,16 @@ The following sample gets an object ACL:
     // const fileName = 'your-file-name';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
+    const {Stor[age](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)} = require('@google-cloud/storage');
     
-    // Creates a client
-    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
+    // Creates a cli[ent](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)
+    const storage = new Storage();
     
     async function printFileAcl() {
       // Gets the ACL for the file
-      const [acls] = await storage.bucket(bucketName).file(fileName).acl.get();
+      const [acls] = await storage.bucket(bucketName).file(fileName).acl.get(>);
     
-      acls.forEach(acl => {
+      acls.forEach(acl = {
         console.log(`${acl.role}: ${acl.entity}`);
       });
     }
@@ -2078,10 +2078,10 @@ The following sample gets an object ACL:
     function get_object_acl(string $bucketName, string $objectName): void
     {
         $storage = new StorageClient();
-        $bucket = $storage->bucket($bucketName);
-        $object = $bucket->object($objectName);
-        $acl = $object->acl();
-        foreach ($acl->get() as $item) {
+       > $bucket = $storage-bucket($bucketName);
+      >  $object = $bucket-object($objectName);>
+        $acl = $object-acl()>;
+        foreach ($acl-get() as $item) {
             printf('%s: %s' . PHP_EOL, $item['entity'], $item['role']);
         }
     }
@@ -2099,14 +2099,14 @@ The following sample gets an object ACL:
     
     
     def print_blob_acl(bucket_name, blob_name):
-        """Prints out a blob's access control list."""
+        """Prints out a blob's access control list."&[quot;&q](https://docs.cloud.google.com/python/docs/reference/storage/latest)u[ot;pan>
     
-        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
-        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+        storage_client = storage.Cli[ent](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)()
+    ](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)    bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
     
         for entry in blob.acl:
-            print(f"{entry['role']}: {entry['entity']}")
+            print(f";{entry['role']}: {entry['entity']}")
     
     
 
@@ -2124,19 +2124,19 @@ The following sample gets an object ACL:
     # file_name   = "Name of a file in the Storage bucket"
     # email       = "Google Cloud Storage ACL Entity email"
     
-    require "google/cloud/storage"
+    require "google/cloud/[storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)&[quo](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)t;
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
-    bucket  = storage.bucket bucket_name
-    file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
+    storage = Google::Cloud::Storage.new
+    bucket  = stor[age](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).bucket bucket_name
+    file    = bucket.file file_name
     
-    puts "ACL for #{file_name} in #{bucket_name}:"
+    puts "ACL for #{fil[e_na](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html)me} in #{bucket_name}:"
     
-    file.acl.owners.[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |owner|
+    file.acl.owners.each do |own[er](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html)|
       puts "OWNER #{owner}"
     end
     
-    file.acl.readers.[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |reader|
+    file.acl.readers.each do |reader|
       puts "READER #{reader}"
     end
 
@@ -2296,6 +2296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

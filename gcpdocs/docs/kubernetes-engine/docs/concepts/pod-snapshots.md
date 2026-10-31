@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/pod-snapshots/
 title: About GKE Pod snapshots \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:23.393362+00:00
+fetched_at: 2026-10-31T05:51:20.391843+00:00
 ---
 
 # About GKE Pod snapshots  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -231,7 +231,7 @@ To use GKE Pod snapshots, make sure that you meet the following requirements:
   * To use GPUs with Pod snapshots, you must also meet the following requirements: 
     * Single-GPU Pods are supported on both single-GPU and multi-GPU nodes.
     * Multi-GPU Pods are supported only on L4 GPUs (`g2-standard-*` machine types).
-    * In GKE versions 1.35.0-gke.1738000 and earlier, a Pod that runs on a multi-GPU node must use all the GPUs available on that node. In versions 1.35.0-gke.1738000 and later, Pods can use a subset of the GPUs on a node.
+    * In GKE versions earlier than 1.35.0-gke.1738000, a Pod that runs on a multi-GPU node must use all the GPUs available on that node. In versions 1.35.0-gke.1738000 and later, Pods can use a subset of the GPUs on a node.
     * For GPU workloads, you must use one of the following supported GPU machine types: 
       * `g2-standard-4` (1 x L4)
       * `g2-standard-8` (1 x L4)
@@ -269,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

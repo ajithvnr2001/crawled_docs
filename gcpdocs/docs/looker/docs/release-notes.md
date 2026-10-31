@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/release-notes/
 title: Looker release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:41:58.626891+00:00
+fetched_at: 2026-10-31T05:47:19.960122+00:00
 ---
 
 # Looker release notes  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates for both Looker (original) and Looker (Go
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/looker-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Looker (Google Cloud core) and Looker (original) changes
+
+Announcement
+
+On November 1, 2026, several Canadian provinces and territories—Manitoba, Alberta, British Columbia, and parts of the Northwest Territories—transition to permanent daylight saving time (DST) or remain on their summer UTC offsets year-round. On unpatched Looker instances, these changes affect scheduled content delivery fire times and [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations) that use `now()` with the affected Canadian time zones (`America/Winnipeg`, `Canada/Central`, `America/Rainy_River`, `America/Edmonton`, `Canada/Mountain`, `America/Vancouver`, `Canada/Pacific`, and `America/Inuvik`). Patched Looker builds update the scheduler (Ruby) and browser (JavaScript) time zone data, while server-evaluated `now()` table calculations on the JVM still use the bundled JDK time zone database (`tzdb 2026b`). To learn how to upgrade to a patched Looker build or configure an alternative schedule delivery time zone, see [2026 Canadian time zone changes](https://docs.cloud.google.com/looker/docs/canada-permanent-dst-2026).
 
 ## October 29, 2026
 
@@ -65,7 +73,9 @@ The [bullet chart](https://docs.cloud.google.com/looker/docs/bullet-options) vis
 
 Feature
 
-Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
+Looker now includes [network diagnostics](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#network-diagnostics) to help you troubleshoot database connectivity issues. When a [database connection test](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#troubleshooting) fails, Looker automatically tests DNS resolution and TCP connectivity for the connection's endpoints and appends the results to the error message. To [test network reachability](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#test-network-reachability) to any hostname and port without creating a connection, Looker administrators can click **Test Reachability** on the **Connections** page.
+
+**Note:** This item was added on October 30, 2026.
 
 Feature
 
@@ -74,6 +84,10 @@ The **Table Row Grouping** feature and the [**Grouping** menu options](https://d
 Feature
 
 The [**Visualization Assistant**](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) is now generally available.
+
+Feature
+
+Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
 
 Feature
 

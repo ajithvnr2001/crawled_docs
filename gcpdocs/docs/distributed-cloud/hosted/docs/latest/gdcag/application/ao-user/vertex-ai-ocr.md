@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ocr/
 title: Learn about character recognition features \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:50:59.146392+00:00
+fetched_at: 2026-10-31T05:53:23.901930+00:00
 ---
 
 # Learn about character recognition features  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,7 +22,9 @@ Send feedback
 
 #  Learn about character recognition features Stay organized with collections  Save and categorize content based on your preferences. 
 
-Optical Character Recognition (OCR) is one of the three Vertex AI pre-trained APIs on Google Distributed Cloud (GDC) air-gapped. The OCR service detects text in various file types, such as images, document files, and handwritten text.
+Optical Character Recognition (OCR) is a pre-trained Vertex AI API in Google Distributed Cloud (GDC) air-gapped that lets you detect and extract text from supported file types, including images, documents, and handwritten notes. You can process inline requests for text extraction or run asynchronous batch jobs on files stored in buckets across [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ocr-supported-langs).
+
+## Optical character recognition methods
 
 OCR offers the following methods available in Distributed Cloud to recognize text:
 
@@ -32,8 +34,6 @@ Method | Description
 [`BatchAnnotateFiles`](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-async-ocr#detect-text-inline) | Detect text from a batch of PDF or TIFF files provided in an inline request.  
 [`AsyncBatchAnnotateFiles`](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-async-ocr#detect-text-offline) | Detect text from a batch of PDF or TIFF files in a storage bucket for offline requests.  
 **Note:** The `BatchAnnotateImages` and `BatchAnnotateFiles` API methods only support a single request per batch call.
-
-Learn more about the [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ocr-supported-langs) detected by the text recognition feature.
 
 ## Optical character recognition features
 
@@ -93,6 +93,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

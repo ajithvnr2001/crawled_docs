@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/
 title: Developer Connect API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:12:28.545678+00:00
+fetched_at: 2026-10-31T06:00:25.462117+00:00
 ---
 
 # Developer Connect API  |  Google Cloud Documentation
@@ -122,12 +122,28 @@ ProcessGitHubEnterpriseWebhook is called by the external GitHub Enterprise insta
 
 Methods  
 ---  
+`[addPullRequestComment](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/addPullRequestComment)` |  `POST /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:addPullRequestComment`   
+Add a comment to a Pull Request.  
+`[addPullRequestReviewComment](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/addPullRequestReviewComment)` |  `POST /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:addPullRequestReviewComment`   
+Add a review comment (inline on diff) to a Pull Request.  
 `[create](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/create)` |  `POST /v1/{parent=projects/*/locations/*/connections/*}/gitRepositoryLinks`   
 Creates a GitRepositoryLink.  
 `[delete](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/delete)` |  `DELETE /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}`   
 Deletes a single GitRepositoryLink.  
+`[diffCommit](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/diffCommit)` |  `GET /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:diffCommit`   
+Diff commits for a GitRepositoryLink.  
+`[fetchCommit](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchCommit)` |  `GET /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchCommit`   
+Fetch Commit details from a Git repository link.  
+`[fetchCommitList](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchCommitList)` |  `GET /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchCommitList`   
+Fetch a list of Commits from a Git repository link.  
+`[fetchFileBlame](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchFileBlame)` |  `GET /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchFileBlame`   
+Fetches blame information for a file or line range in a file.  
 `[fetchGitRefs](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchGitRefs)` |  `GET /v1/{gitRepositoryLink=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchGitRefs`   
 Fetch the list of branches or tags for a given repository.  
+`[fetchPullRequest](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchPullRequest)` |  `GET /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchPullRequest`   
+Fetch Pull Request details from a Git repository link.  
+`[fetchPullRequestList](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchPullRequestList)` |  `GET /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchPullRequestList`   
+Fetches a list of Pull Requests from the remote repository.  
 `[fetchReadToken](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchReadToken)` |  `POST /v1/{gitRepositoryLink=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchReadToken`   
 Fetches read token of a given gitRepositoryLink.  
 `[fetchReadWriteToken](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchReadWriteToken)` |  `POST /v1/{gitRepositoryLink=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:fetchReadWriteToken`   
@@ -136,6 +152,10 @@ Fetches read/write token of a given gitRepositoryLink.
 Gets details of a single GitRepositoryLink.  
 `[list](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/list)` |  `GET /v1/{parent=projects/*/locations/*/connections/*}/gitRepositoryLinks`   
 Lists GitRepositoryLinks in a given project, location, and connection.  
+`[modifyPullRequest](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/modifyPullRequest)` |  `POST /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:modifyPullRequest`   
+Modifies a Pull Request in the remote SCM repository associated with a GitRepositoryLink.  
+`[openPullRequest](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/openPullRequest)` |  `POST /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:openPullRequest`   
+Opens a Pull Request in the remote SCM repository associated with a GitRepositoryLink.  
 `[processBitbucketCloudWebhook](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/processBitbucketCloudWebhook)` |  `POST /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:processBitbucketCloudWebhook`   
 ProcessBitbucketCloudWebhook is called by the external Bitbucket Cloud instances for notifying events.  
 `[processBitbucketDataCenterWebhook](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/processBitbucketDataCenterWebhook)` |  `POST /v1/{name=projects/*/locations/*/connections/*/gitRepositoryLinks/*}:processBitbucketDataCenterWebhook`   
@@ -186,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-12-18 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-12-18 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

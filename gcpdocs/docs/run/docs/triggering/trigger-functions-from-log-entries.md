@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/trigger-functions-from-log-entries/
 title: Trigger functions from log entries \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:47.262428+00:00
+fetched_at: 2026-10-31T05:49:40.676635+00:00
 ---
 
 # Trigger functions from log entries  |  Cloud Run  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback
 
 #  Trigger functions from log entries Stay organized with collections  Save and categorize content based on your preferences. 
 
-[Many Google Cloud events](https://docs.cloud.google.com/logging/docs/audit/services) are logged in Cloud Audit Logs. You can filter these logs and forward them to Pub/Sub topics using [sinks](https://docs.cloud.google.com/logging/docs/export). These Pub/Sub topics can then send notifications that [trigger](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers) Cloud Run functions. You can create custom events from any Google Cloud service that produces [audit logs](https://docs.cloud.google.com/logging/docs/audit/services).
+Cloud Audit Logs records [events across many Google Cloud services](https://docs.cloud.google.com/logging/docs/audit/services). Using [sinks](https://docs.cloud.google.com/logging/docs/export), you can filter these logs and forward them to Pub/Sub topics that trigger Cloud Run functions. This lets you respond to events from any Google Cloud service that produces audit logs.
 
-This page shows an example of how to trigger functions from log entries routed to a Pub/Sub topic.
+This page shows an example of how to invoke functions from log entries routed to a Pub/Sub topic. This tutorial uses Eventarc triggers, but you can alternatively use [direct Pub/Sub triggers](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers) when triggering your function.
 
 ## Event structure of Pub/Sub-triggered functions
 
-Like all [Pub/Sub-triggered functions](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers), functions triggered by Cloud Logging log entries receive a [`PubsubMessage`](https://docs.cloud.google.com/pubsub/docs/reference/rest/v1/PubsubMessage) object whose `data` parameter is a `base64`-encoded string. For Cloud Logging log events, decoding this value returns the relevant log entry as a JSON string.
+Functions triggered by Cloud Logging log entries receive a [`PubsubMessage`](https://docs.cloud.google.com/pubsub/docs/reference/rest/v1/PubsubMessage) object whose `data` parameter is a `base64`-encoded string. For Cloud Logging log events, decoding this value returns the relevant log entry as a JSON string.
 
 ## Before you begin
 
@@ -165,14 +165,11 @@ To configure a trigger during function deployment:
                --region REGION
          
 
-Replace:
+Replace the following:
 
-     * REGION with the Google Cloud [region](https://docs.cloud.google.com/run/docs/locations) where you want to deploy your function. For example, `europe-west1`.
-
+     * REGION: the Google Cloud [region](https://docs.cloud.google.com/run/docs/locations) where you want to deploy your function. For example, `europe-west1`.
      * The `--function` flag specifies the entry point to the function in example source code. This is the code Cloud Run executes when your function runs. The value of this flag must be a function name or fully-qualified class name that exists in your source code.
-
      * The `--base-image` flag specifies the base image environment for your function. For more details about base images and the packages included in each image, see [Runtimes base images](https://docs.cloud.google.com/run/docs/configuring/services/runtime-base-images#how_to_obtain_base_images).
-
   2. Run the following command to create a trigger that filters events:
          
          gcloud eventarc triggers create TRIGGER_NAME  \
@@ -180,23 +177,20 @@ Replace:
              --destination-run-service=SERVICE  \
              --destination-run-region=REGION \
              --event-filters="type=google.cloud.pubsub.topic.v1.messagePublished" \
+             --transport-topic=projects/PROJECT_ID/topics/TOPIC_NAME \
              --service-account=PROJECT_NUMBER-compute@developer.gserviceaccount.com
          
 
-Replace:
+Replace the following:
 
-     * TRIGGER_NAME with the name for your trigger.
-
-     * EVENTARC_TRIGGER_LOCATION with the location for the Eventarc trigger. In general, the location of an Eventarc trigger should match the location of the Google Cloud resource that you want to monitor for events. In most scenarios, you should also deploy your function in the same region. See [Understand Eventarc locations](https://docs.cloud.google.com/eventarc/docs/understand-locations) for more details about Eventarc trigger locations.
-
-     * SERVICE with the name of the function you are deploying.
-
-     * REGION with the Cloud Run [region](https://docs.cloud.google.com/run/docs/locations) of the function.
-
-     * PROJECT_NUMBER with your Google Cloud project number. Eventarc triggers are linked to service accounts to use as an identity when invoking your function. Your Eventarc trigger's service account must have the permission to invoke your function. By default, Cloud Run uses the Default compute service account.
-
-     * The `--event-filters` flag specifies the event filters that the trigger monitors. An event that matches all the `event-filters`, filters triggers calls to your function. Each trigger must have a supported [event type](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#directly-from-a-google-cloud-source). You can't change the event filter type after creation. To change the event filter type, you must create a new trigger and delete the old one. Optionally, you can repeat the `--event-filters` flag with a supported filter in the form `ATTRIBUTE=VALUE` to add more filters.
-
+     * TRIGGER_NAME: the name for your trigger.
+     * EVENTARC_TRIGGER_LOCATION: the location for the Eventarc trigger. In general, the location of an Eventarc trigger should match the location of the Google Cloud resource that you want to monitor for events. In most scenarios, you should also deploy your function in the same region. See [Understand Eventarc locations](https://docs.cloud.google.com/eventarc/docs/understand-locations) for more details about Eventarc trigger locations.
+     * SERVICE: the name of the function you are deploying.
+     * REGION: the Cloud Run [region](https://docs.cloud.google.com/run/docs/locations) where you deployed your function.
+     * PROJECT_NUMBER: your Google Cloud project number. Eventarc triggers are linked to service accounts to use as an identity when invoking your function. Your Eventarc trigger's service account must have the permission to invoke your function. By default, Cloud Run uses the Default compute service account.
+     * The `--event-filters` flag specifies the event filters that the trigger monitors. When an event matches all the event filters, it triggers a call to your function. Each trigger must have a supported [event type](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#directly-from-a-google-cloud-source). You can't change the event filter type after creation. To change the event filter type, you must create a new trigger and delete the old one. Optionally, you can repeat the `--event-filters` flag with a supported filter in the form `ATTRIBUTE=VALUE` to add more filters.
+     * TOPIC_NAME: the name of the Pub/Sub topic that receives the log entry events.
+     * The `--transport-topic` flag specifies the Pub/Sub topic that Eventarc uses to transport events to your function. Note that this flag is [not required](https://docs.cloud.google.com/eventarc/standard/docs/run/route-trigger-cloud-pubsub#pubsub-messages-new-topic) if you did not previously create a Pub/Sub topic.
 
 
 
@@ -213,6 +207,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

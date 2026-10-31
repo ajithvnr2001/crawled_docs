@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/fhir-etag/
 title: Prevent FHIR resource conflicts using ETags \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:22:40.866470+00:00
+fetched_at: 2026-10-31T05:52:29.284354+00:00
 ---
 
 # Prevent FHIR resource conflicts using ETags  |  Cloud Healthcare API  |  Google Cloud Documentation
@@ -181,7 +181,7 @@ Use the [`fhir.update`](https://docs.cloud.google.com/healthcare-api/docs/refere
     
     
     $cred = gcloud auth print-access-token
-    $etag = W/\"ETAG_VALUE\""
+    $etag = W/\&quot;n>ETAG_VALUE\""
     $headers = @{
       "Authorization" = "Bearer $cred"
       "If-Match"      = "$etag"}
@@ -190,7 +190,7 @@ Use the [`fhir.update`](https://docs.cloud.google.com/healthcare-api/docs/refere
         -Method PUT `
         -Headers $headers `
         -InFile request.json `
-        -Uri "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/fhirStores/FHIR_STORE_ID/fhir/FHIR_RESOURCE_TYPE/FHIR_RESOURCE_ID" | Select-Object -Expand Content
+        -Uri &quot;https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/fhirStores/FHIR_STORE_ID/fhir/FHIR_RESOURCE_TYPE/FHIR_RESOURCE_ID" | Select-Object -Expand Content
 
 The response contains the updated FHIR resource.
 
@@ -260,7 +260,7 @@ Use the [`fhir.read`](https://docs.cloud.google.com/healthcare-api/docs/referenc
     
     
     $cred = gcloud auth print-access-token
-    $etag = W/\"ETAG_VALUE\""
+    $etag = W/\&quot;n>ETAG_VALUE\""
     $headers = @{
     "Authorization" = "Bearer $cred"
       "If-None-Match"      = "$etag"}
@@ -268,7 +268,7 @@ Use the [`fhir.read`](https://docs.cloud.google.com/healthcare-api/docs/referenc
     Invoke-WebRequest `
         -Method GET `
         -Headers $headers `
-        -Uri "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/fhirStores/FHIR_STORE_ID/fhir/FHIR_RESOURCE_TYPE/FHIR_RESOURCE_ID" | Select-Object -Expand Headers
+        -Uri &quot;https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/fhirStores/FHIR_STORE_ID/fhir/FHIR_RESOURCE_TYPE/FHIR_RESOURCE_ID" | Select-Object -Expand Headers
 
 The response contains a `304 Not Modified` status code.
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/number-registry/overview/
 title: Cloud Number Registry overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:14.786483+00:00
+fetched_at: 2026-10-31T05:47:32.507516+00:00
 ---
 
 # Cloud Number Registry overview  |  Google Cloud Documentation
@@ -41,6 +41,20 @@ After you configure Cloud Number Registry, the designated project contains IP ad
 
   * Create a new project to designate to use for Cloud Number Registry.
   * Configure Identity and Access Management policies so that only principals that need to view all IP address ranges in the organization can access that project.
+
+
+
+### Project designation enforcement
+
+**Caution:** Starting November 25, 2026, if your configuration doesn't have a designated project, Cloud Number Registry will stop discovering resources.
+
+Without a designated project, Cloud Number Registry won't discover new resources, and existing discovered resources will remain but won't be updated. For example, if you delete a subnet, the corresponding discovered range remains in Cloud Number Registry.
+
+To continue discovering and updating resources in Cloud Number Registry after November 25, 2026, check or configure the designated project for your organization:
+
+  * [View the required roles to list and create project designations](https://docs.cloud.google.com/number-registry/designate-project-cloud-number-registry#required-roles)
+  * [List project designations](https://docs.cloud.google.com/number-registry/designate-project-cloud-number-registry#view-designated-project)
+  * [Designate a project](https://docs.cloud.google.com/number-registry/designate-project-cloud-number-registry#designate-project)
 
 
 
@@ -175,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

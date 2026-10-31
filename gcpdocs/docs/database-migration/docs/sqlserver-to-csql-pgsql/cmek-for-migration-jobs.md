@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/cmek-for-migration-jobs/
 title: Use customer-managed encryption keys (CMEK) for continuous migrations \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:42.081696+00:00
+fetched_at: 2026-10-31T05:53:34.631106+00:00
 ---
 
 # Use customer-managed encryption keys (CMEK) for continuous migrations  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -66,11 +66,27 @@ You have complete control over keys and data access. If you destroy a key versio
 
 You might have situations where you want to permanently destroy data encrypted with CMEK. To do this, you destroy the CMEK version. You can't destroy the keyring or key, but you can destroy key versions of the key.
 
+## Rotate and change keys
+
+### Rotate key versions
+
+When you rotate a key in Cloud Key Management Service to create a new primary key version, Database Migration Service automatically uses the new primary key version to encrypt new temporary data written during the migration. You don't need to update or recreate the migration job when rotating a key.
+
+Existing temporary migration data expires automatically within eight days. Don't destroy or disable earlier key versions while an active migration job still reads data encrypted with those versions.
+
+To rotate keys that protect your destination Cloud SQL for PostgreSQL instance, see [ Use customer-managed encryption keys (CMEK) in Cloud SQL for PostgreSQL](https://docs.cloud.google.com/sql/docs/postgres/configure-cmek).
+
+### Change to a different key
+
+You can change the CMEK associated with a migration job while the migration job is saved as a draft. For more information, see [ Update a draft migration job](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/manage-migration-jobs#update-draft).
+
+After a migration job starts, you can't change its CMEK. To use a different CMEK for a migration job that has already started, [ create a new migration job](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/create-migration-job) and configure it with the new key.
+
 ## Restrictions
 
 The following restrictions apply when using CMEK:
 
-  * You can't update CMEK on a running migration job.
+  * You can't update the CMEK on a migration job after the migration job starts. You can only change the CMEK while the migration job is saved as a draft.
 
   * Although you can use CMEK to encrypt data from the source database, you can't use these keys to encrypt any migration job metadata, such as the migration job ID, IP address of the source database, and so on.
 
@@ -244,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

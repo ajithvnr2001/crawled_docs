@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-new-bucket-tf/
 title: Create a Bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:27.972716+00:00
+fetched_at: 2026-10-31T06:01:30.640609+00:00
 ---
 
 # Create a Bucket  |  Cloud Storage  |  Google Cloud Documentation

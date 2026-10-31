@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/manifest/
 title: Transfer specific files or objects using a manifest \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:48:16.102829+00:00
+fetched_at: 2026-10-31T05:48:11.776277+00:00
 ---
 
 # Transfer specific files or objects using a manifest  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -135,7 +135,14 @@ If successful, the response looks like the following example:
     
     Completed files 1/1 | 164.3kiB/164.3kiB
 
-You can encrypt a manifest using customer-managed [Cloud KMS encryption keys](https://docs.cloud.google.com/kms/docs/cmek). In this case, ensure that any service accounts accessing the manifest are [assigned the applicable encryption keys](https://docs.cloud.google.com/storage/docs/encryption/using-customer-managed-keys#service-agent-access). Customer-supplied keys are not supported.
+You can encrypt a manifest or the bucket that contains it using customer-managed [Cloud KMS encryption keys](https://docs.cloud.google.com/kms/docs/cmek). In this case, grant the **Cloud KMS CryptoKey Encrypter/Decrypter** (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) role on the Cloud KMS key used to encrypt the manifest to both of the following service agents:
+
+  * The Storage Transfer Service service agent, `project-PROJECT_NUMBER@storage-transfer-service.iam.gserviceaccount.com`.
+  * The Cloud Storage service agent for the project that contains the manifest bucket, `service-PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com`.
+
+
+
+For instructions on granting this role, see [Assign a Cloud KMS key to a service agent](https://docs.cloud.google.com/storage/docs/encryption/using-customer-managed-keys#service-agent-access). Customer-supplied encryption keys are not supported.
 
 ### Store the manifest on a file system
 
@@ -535,6 +542,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

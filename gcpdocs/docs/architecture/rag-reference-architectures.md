@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/rag-reference-architectures/
 title: Generative AI with RAG \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:43:32.256703+00:00
+fetched_at: 2026-10-31T05:57:52.384819+00:00
 ---
 
 # Generative AI with RAG  |  Cloud Architecture Center  |  Google Cloud Documentation

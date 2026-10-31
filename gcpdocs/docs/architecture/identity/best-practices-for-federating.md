@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/identity/best-practices-for-federating/
 title: Best practices for federating Google Cloud with an external identity provider \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:16.972953+00:00
+fetched_at: 2026-10-31T05:58:08.897334+00:00
 ---
 
 # Best practices for federating Google Cloud with an external identity provider  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/admin-panel-database-connections/
 title: Admin settings - Connections \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:45.650792+00:00
+fetched_at: 2026-10-31T05:48:06.219825+00:00
 ---
 
 # Admin settings - Connections  |  Looker  |  Google Cloud Documentation
@@ -36,6 +36,8 @@ The **Databases** tab shows basic information about the database connections tha
 You can click **Public IP Addresses** to view the list of IP addresses that are needed to allow network traffic from your Looker instance. All network traffic from Looker will come from one of the listed IP addresses, based on the region where your Looker instance is hosted. Prohibiting traffic to your database, except from these and other trusted IP addresses, is a way to limit data access.
 
 **Note:** The **Public IP Addresses** button is not available for [Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-overview) instances. If you are using a Looker (Google Cloud core) instance that is set up for public secure connections or for hybrid connections, use the IP address listed in the **Egress Public IP** field on the [**Details** tab](https://docs.cloud.google.com/looker/docs/looker-core-view-console#details_tab) of the **Instances** page in the Google Cloud console.
+
+If you have the [Admin role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles), you can click the **Test Reachability** button at the top of the Looker **Connections** page to check whether Looker can reach a hostname and port over the network. For more information, see Network reachability diagnostics.
 
 The following table describes the elements on the **Databases** tab:
 
@@ -129,7 +131,7 @@ Each connection test includes a list of status checks to tell you whether Looker
 
 Potential issues are shown in yellow; errors are shown in red. If a connection "passes", it appears in green.
 
-> Database connections that use OAuth, such as [Snowflake](https://docs.cloud.google.com/looker/docs/db-config-snowflake#oauth) and [Google BigQuery](https://docs.cloud.google.com/looker/docs/db-config-google-bigquery#oauth_for_bigquery_connections), require a user login. If you are not logged in to your OAuth user account when you test one of these connections, Looker will show a warning with a **Log In** link. Click the link to enter your OAuth credentials or to allow Looker access to your OAuth account information.
+**Note:** Database connections that use OAuth, such as [Snowflake](https://docs.cloud.google.com/looker/docs/db-config-snowflake#oauth) and [Google BigQuery](https://docs.cloud.google.com/looker/docs/db-config-google-bigquery#oauth_for_bigquery_connections), require a user login. If you are not logged in to your OAuth user account when you test one of these connections, Looker will show a warning with a **Log In** link. Click the link to enter your OAuth credentials or to allow Looker access to your OAuth account information.
 
 You can check the status of:
 
@@ -146,6 +148,90 @@ Two checks are common cause for confusion:
 
 
 These checks don't need to pass for Looker to function. However, you do need them to pass to use [persistent derived tables](https://docs.cloud.google.com/looker/docs/derived-tables#persistent-derived-tables), which are a very valuable modeling feature.
+
+## Network diagnostics
+
+Looker provides two tools that help you find out whether a connection problem is caused by the network, such as a firewall rule or a missing route, or by the database, such as incorrect credentials:
+
+  * Network diagnostics in connection test results: When a connection test can't connect to the database, Looker adds network diagnostics to the error message.
+  * Network reachability diagnostics: If you have the Looker [Admin role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles), you can use the **Test Reachability** button at the top of the Looker **Connections** page to check whether Looker can reach any hostname and port.
+
+
+
+Both tools look up the hostname in DNS and then try to open a TCP connection to each IP address that the lookup returns. Because they use TCP connections instead of ICMP ping requests, a host that blocks ping requests can still show as reachable.
+
+### Network diagnostics in connection test results
+
+When a connection test can't connect to the database, Looker tests the following endpoints and adds the results to the end of the error message, under `Network Diagnostics:`:
+
+  * For all connections, the host and port that are configured for the connection.
+  * For Amazon Athena connections, the AWS Glue endpoint for the connection's AWS Region, on port 443, such as `glue.us-east-1.amazonaws.com`.
+  * For Cloud SQL connections whose **Host** field contains an instance connection name, such as `my-project:us-central1:my-instance`, the `sqladmin.googleapis.com` endpoint on port 443. The Cloud SQL connector uses this endpoint to get instance information and certificates.
+
+
+
+Looker tests up to three IP addresses for each endpoint, and the diagnostics take at most 3 seconds. Looker doesn't run network diagnostics for connections that use an [SSH tunnel](https://docs.cloud.google.com/looker/docs/using-an-ssh-tunnel).
+
+For example, the following diagnostics show that Looker can reach the Athena endpoint, but connections to the AWS Glue endpoint time out:
+    
+    
+    Network Diagnostics:
+    - athena.eu-central-1.amazonaws.com (Port: 443):
+      - 203.0.113.10 - success
+    - glue.eu-central-1.amazonaws.com (Port: 443):
+      - 203.0.113.20 - timeout (3000ms)
+      - 203.0.113.21 - timeout (3000ms)
+    
+
+Each IP address shows one of the following results:
+
+  * `success`: Looker opened a TCP connection to the IP address and port. If every IP address shows `success` but the test still fails, check the connection settings, such as the credentials, SSL settings, and database user permissions.
+  * `timeout (3000ms)`: Looker got no response within 3 seconds. This result often means that a firewall rule, security group, or missing network route drops the traffic.
+  * `failed:` followed by a reason: the connection was rejected, or the network was unreachable. For example, `Connection refused` means that nothing is listening on the port, or that a firewall rejected the connection.
+  * `blocked (sensitive IP)`: Looker didn't test the IP address because it's in a restricted range.
+
+
+
+If the DNS lookup fails, the endpoint shows `DNS resolution failed:` followed by the reason. Check the hostname for typos. If the database uses a private hostname, make sure that Looker can resolve it.
+
+### Network reachability diagnostics
+
+If you have the Looker [Admin role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles), you can test a database host before you add a connection, or test an endpoint that a connection depends on, such as `sqladmin.googleapis.com` on port `443`.
+
+To test network reachability, follow these steps:
+
+  1. On the **Connections** page, click the **Test Reachability** button at the top of the page.
+  2. In the **Network Reachability Diagnostics** dialog, in the **Hostname or Domain** field, enter a hostname or an IP address.
+  3. In the **Port** field, enter the port to test. The default is `443`.
+  4. Click **Test**.
+
+
+
+Looker tests up to five IP addresses for the hostname, and the test takes at most 3 seconds. Here is an example Network Reachability Diagnostics dialog showing test results for a hostname and port:
+
+![The Network Reachability Diagnostics dialog showing test results for a hostname and port.](https://docs.cloud.google.com/static/looker/docs/images/admin-connections-test-reachability-2620.png)
+
+For each IP address, the dialog shows a message, how long the connection took in milliseconds if it succeeded, and one of the following statuses:
+
+  * **Connected** : Looker opened a TCP connection to the IP address and port.
+  * **Timed Out** : Looker got no response within 3 seconds.
+  * **Failed** : the connection was rejected, or the network was unreachable. The message shows the reason.
+  * **SSRF Blocked** : Looker didn't test the IP address because it's in a restricted range. These restrictions protect against server-side request forgery (SSRF).
+
+
+
+If Looker can't resolve the hostname, or if the port is restricted, the dialog shows an error message instead of results.
+
+### Restricted addresses and ports
+
+To protect your instance, Looker network diagnostics doesn't test IP addresses in the following ranges:
+
+  * Loopback, link-local, multicast, and other restricted address ranges, including the metadata server address `169.254.169.254`.
+  * Private address ranges (`10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`), on Looker (Google Cloud core) instances that use only [public secure connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#public_ip_connections).
+
+
+
+In addition, the **Test Reachability** function doesn't test some ports that are restricted for security reasons, such as port 22. If you enter one of these ports, the dialog shows a message such as `Port 22 is restricted from diagnostic probing for security reasons`.
 
 ## Adding connections
 
@@ -192,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

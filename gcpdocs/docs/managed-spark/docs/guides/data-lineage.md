@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/data-lineage/
 title: Use data lineage with Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:17.418963+00:00
+fetched_at: 2026-10-31T05:52:24.373245+00:00
 ---
 
 # Use data lineage with Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Use data lineage with Managed Service for Apache Spark Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to enable [data lineage](https://docs.cloud.google.com/dataplex/docs/about-data-lineage) on Managed Service for Apache Spark batch workloads and interactive sessions at the project, batch workload, or interactive session level.
+This document describes how to enable [data lineage](https://docs.cloud.google.com/dataplex/docs/about-data-lineage) on Managed Service for Apache Spark batch workloads and interactive sessions at the project, batch workload, or interactive session or runtime profile (session template) level.
 
 ## Overview
 
@@ -84,7 +84,7 @@ You can enable Spark data lineage for your project, batch workload, or interacti
 
 After you enable Spark data lineage at the project level, subsequent Spark jobs that run in a batch workload or interactive session will have Spark data lineage enabled.
 
-**Note:** Setting data lineage on a project does not enable data lineage for batch workloads and interactive sessions that use the [Managed Service for Apache Spark 3.0 runtime](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/serverless-versions#supported-dataproc-serverless-for-spark-runtime-versions). You must separately enable data lineage on the 3.0 batch workload, interactive session or session template. 
+**Note:** Setting data lineage on a project doesn't enable data lineage for batch workloads and interactive sessions that use the [Managed Service for Apache Spark 3.0 runtime](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/serverless-versions#supported-dataproc-serverless-for-spark-runtime-versions). You must separately enable data lineage on the 3.0 batch workload, or interactive session or runtime profile (session template).
 
 To enable Spark data lineage on your project, [set the following custom project metadata](https://docs.cloud.google.com/compute/docs/metadata/setting-custom-metadata#set-custom-project-wide-metadata):
 
@@ -153,11 +153,11 @@ You can view the lineage graph in the Knowledge Catalog UI.
 
 ![Spark lineage graph](https://docs.cloud.google.com/static/managed-spark/images/lineage-example.png)
 
-### Enable data lineage on a Spark interactive session or session template
+### Enable data lineage on a Spark interactive session or runtime profile (session template)
 
-To enable data lineage on a Spark interactive session or session template, set the `spark.dataproc.lineage.enabled` property to `true` when you [create the session or session template](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates). This setting overrides any Spark data lineage setting at the project level: if Spark data lineage is disabled at the project level but enabled for the interactive session, the interactive session setting takes precedence.
+To enable data lineage on a Spark interactive session or runtime profile (session template), set the `spark.dataproc.lineage.enabled` property to `true` when you [create the session or runtime profile (session template)](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates). For example, on the **Create a runtime profile** page in the Google Cloud console, under **Additional configuration** , edit **Other customizations** and add the `spark.dataproc.lineage.enabled` property with the value `true` under **Spark properties**. This setting overrides any Spark data lineage setting at the project level: if Spark data lineage is disabled at the project level but enabled for the interactive session, the interactive session setting takes precedence.
 
-You can disable Spark data lineage on a Spark interactive session or session template by setting the `spark.dataproc.lineage.enabled` property to `false` when you create the interactive session or session template.
+You can disable Spark data lineage on a Spark interactive session or runtime profile (session template) by setting the `spark.dataproc.lineage.enabled` property to `false` when you create the interactive session or runtime profile (session template).
 
 **Note:** You can also disable Spark data lineage by [disabling lineage ingestion for Managed Service for Apache Spark](https://docs.cloud.google.com/dataplex/docs/use-lineage#disable-lineage-ingestion). This setting overrides all other data lineage settings.
 
@@ -215,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

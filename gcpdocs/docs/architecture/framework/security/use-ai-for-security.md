@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security/
 title: Use AI for security \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:43.257064+00:00
+fetched_at: 2026-10-31T05:57:37.005192+00:00
 ---
 
 # Use AI for security  |  Cloud Architecture Center  |  Google Cloud Documentation

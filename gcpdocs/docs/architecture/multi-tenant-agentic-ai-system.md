@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/multi-tenant-agentic-ai-system/
 title: Multi-tenant agentic AI system \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:13:56.879851+00:00
+fetched_at: 2026-10-31T05:58:03.314849+00:00
 ---
 
 # Multi-tenant agentic AI system  |  Cloud Architecture Center  |  Google Cloud Documentation

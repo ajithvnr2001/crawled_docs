@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner-omni/deploy-on-kubernetes/
 title: Create a deployment on Kubernetes \u00a0|\u00a0 Spanner Omni \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:03.203622+00:00
+fetched_at: 2026-10-31T05:47:06.009383+00:00
 ---
 
 # Create a deployment on Kubernetes  |  Spanner Omni  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ To run Spanner Omni on a single server on GKE with the monitoring stack, run the
     
     
       kubectl create ns monitoring
-      helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.0.0 \
+      helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.1.0 \
         --set global.platform=gke \
         --set deployment.singleServer=true \
         --set monitoring.enabled=true \
@@ -74,7 +74,7 @@ To run Spanner Omni on multiple servers in a single zone (`us-central1-a`) in GK
     
     
       kubectl create ns monitoring
-      helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.0.0 \
+      helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.1.0 \
         --set global.platform=gke \
         --set deployment.replicasPerZone=5 \
         --set deployment.rootServersPerZone=3 \
@@ -94,7 +94,7 @@ This deployment keeps three copies of data, allowing Spanner Omni to continue wo
     
     
       kubectl create ns monitoring
-      helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.0.0 \
+      helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.1.0 \
         --set global.platform=gke \
         --set-json 'locations=[{"name":"us-central1","zones":[{"name":"us-central1-a","shortName":"a"},{"name":"us-central1-c","shortName":"b"},{"name":"us-central1-d","shortName":"c"}]}]' \
         --set monitoring.enabled=true \
@@ -204,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

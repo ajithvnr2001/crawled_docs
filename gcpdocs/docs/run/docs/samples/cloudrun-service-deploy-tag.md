@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-service-deploy-tag/
 title: Update a Cloud Run Service and create a tagged immutable revision \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:05.222676+00:00
+fetched_at: 2026-10-31T05:49:32.525126+00:00
 ---
 
 # Update a Cloud Run Service and create a tagged immutable revision  |  Google Cloud Documentation

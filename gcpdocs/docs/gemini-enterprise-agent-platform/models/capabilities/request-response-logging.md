@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging/
 title: Log and share requests and responses \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:28.938579+00:00
+fetched_at: 2026-10-31T05:55:26.052493+00:00
 ---
 
 # Log and share requests and responses  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -59,20 +59,20 @@ This method can be used to create or update a `PublisherModelConfig`.
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
     
     publisher_model = GenerativeModel("gemini-2.5-flash")
     
     # Set logging configuration
-    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=True,
         sampling_rate=1.0,
         bigquery_destination="bq://PROJECT_ID.DATASET_NAME.TABLE_NAME",
@@ -244,20 +244,20 @@ Disable request-response logging for the foundation model by using the REST API 
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
     
     publisher_model = GenerativeModel("gemini-2.5-flash")
     
     # Disable logging
-    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=False,
         sampling_rate=1.0,
         bigquery_destination="bq://PROJECT_ID.DATASET_NAME.TABLE_NAME"
@@ -359,20 +359,20 @@ This method can be used to update the request-response logging configuration for
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
     
     tuned_model = GenerativeModel(f"projects/{PROJECT_ID}/locations/{LOCATION}/endpoints/ENDPOINT_ID")
     
     # Set logging configuration
-    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=True,
         sampling_rate=1.0,
         bigquery_destination=f"bq://{PROJECT_ID}.DATASET_NAME.TABLE_NAME",
@@ -489,20 +489,20 @@ Disable the request-response logging configuration for the endpoint.
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
     
     tuned_model = GenerativeModel(f"projects/{PROJECT_ID}/locations/{LOCATION}/endpoints/ENDPOINT_ID")
     
     # Disable logging
-    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=False,
         sampling_rate=1.0,
         bigquery_destination="bq://PROJECT_ID.DATASET_NAME.TABLE_NAME"
@@ -852,6 +852,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

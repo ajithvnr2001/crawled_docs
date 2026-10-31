@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/vector_functions/
 title: Vector Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:33.878608+00:00
+fetched_at: 2026-10-31T05:53:02.403965+00:00
 ---
 
 # Vector Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -151,7 +151,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_vector.go#L28-L34)
+    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_vector.go#L28-L34)
 
 ### DOT_PRODUCT
 
@@ -273,7 +273,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_vector.go#L48-L54)
+    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_vector.go#L48-L54)
 
 ### EUCLIDEAN_DISTANCE
 
@@ -399,7 +399,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_vector.go#L68-L74)
+    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_vector.go#L68-L74)
 
 ### MANHATTAN_DISTANCE
 
@@ -524,7 +524,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_vector.go#L88-L93)
+    [pipeline_snippets_vector.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_vector.go#L88-L93)
 
 ## What's next
 

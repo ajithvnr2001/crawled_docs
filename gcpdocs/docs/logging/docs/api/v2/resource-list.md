@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/api/v2/resource-list/
 title: Monitored resources and services \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:41:56.994711+00:00
+fetched_at: 2026-10-31T05:59:59.292690+00:00
 ---
 
 # Monitored resources and services  |  Cloud Logging  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-memory-swap/
 title: Configure nodes to use disk space as virtual memory \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:04:09.109631+00:00
+fetched_at: 2026-10-31T05:47:40.855503+00:00
 ---
 
 # Configure nodes to use disk space as virtual memory  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -44,8 +44,8 @@ GKE calculates [container swap limits](https://kubernetes.io/docs/concepts/clust
 You can configure swap on different storage types to balance performance and cost:
 
   * **Boot disk** : uses the node's boot disk for swap space.
-  * **Ephemeral local SSD** : uses a local SSD that is also shared with Pod ephemeral storage.
-  * **Dedicated local SSD** : reserves one or more local SSDs exclusively for swap.
+  * **Ephemeral Local SSD** : uses a Local SSD that is also shared with Pod ephemeral storage. If the node uses mixed Local SSD capacity, swap uses only the ephemeral storage portion of the Local SSDs.
+  * **Dedicated Local SSD** : reserves one or more Local SSDs exclusively for swap.
 
 
 
@@ -62,14 +62,14 @@ Node memory swap has the following requirements and limitations:
 
 
 
-If you configure node memory swap to use a local SSD, you must ensure the following requirements are met:
+If you configure node memory swap to use a Local SSD, you must ensure the following requirements are met:
 
-  * The machine type must support local SSDs. You can't use raw block storage with a local SSD.
-  * Nodes must be provisioned with local SSDs. The provisioning method depends on the machine series: 
+  * The machine type must support Local SSDs. You can only use Local SSDs provisioned as [ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd) or [mixed storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd). You can't use Local SSD provisioned as raw block device storage. For a list of supported swap profiles in this mode, see Node memory swap with mixed Local SSD capacity.
+  * Nodes must be provisioned with Local SSDs. The provisioning method depends on the machine series: 
     * For first or second generation machine series, set the `--ephemeral-storage-local-ssd=count` flag.
-    * For third or fourth generation machine series, choose a machine type that bundles local SSDs.
-  * The default `e2-medium` machine type does not support local SSDs, so you must select a different machine type.
-  * For instructions on how to create or update a cluster so it provisions local SSDs, see [Provision and use Local SSD-backed ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd).
+    * For third or fourth generation machine series, choose a machine type that bundles Local SSDs.
+  * The default `e2-medium` machine type does not support Local SSDs, so you must select a different machine type.
+  * For instructions on how to create or update a cluster so it provisions Local SSDs, see [Provision and use Local SSD-backed ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd).
 
 
 
@@ -105,7 +105,7 @@ You can enable node memory swap on a cluster or node pool basis. To enable node 
         enabled: true
     
 
-There are additional settings that you can configure. This example configures unencrypted swap to use 30% of an ephemeral local SSD's storage:
+There are additional settings that you can configure. This example configures unencrypted swap to use 30% of an ephemeral Local SSD's storage:
     
     
     linuxConfig:
@@ -135,7 +135,7 @@ Replace the following:
 
     * `CLUSTER_NAME`: the name of your new cluster.
     * `LOCATION`: the region or zone for your cluster.
-**Note:** For local SSDs on first and second generation machine types, pass the [`--ephemeral-storage-local-ssd` flag](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd).
+**Note:** For Local SSDs on first and second generation machine types, pass the [`--ephemeral-storage-local-ssd` flag](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd).
   * To update an existing cluster to enable node memory swap, run the following command:
         
         gcloud container clusters update CLUSTER_NAME \
@@ -169,8 +169,8 @@ Replace the following:
     * `NODEPOOL_NAME`: the name of your new node pool.
     * `CLUSTER_NAME`: the name of your cluster.
     * `LOCATION`: the region or zone for your cluster.
-    * `MACHINE_TYPE`: a compatible machine type. For local SSDs, ensure that you choose a machine type that [bundles local SSDs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd), for example `n1-standard-1`.
-**Note:** For local SSDs on first and second generation machine types, pass the [`--ephemeral-storage-local-ssd` flag](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd).
+    * `MACHINE_TYPE`: a compatible machine type. For Local SSDs, ensure that you choose a machine type that [bundles Local SSDs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd), for example `n1-standard-1`.
+**Note:** For Local SSDs on first and second generation machine types, pass the [`--ephemeral-storage-local-ssd` flag](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd).
   * To update an existing node pool to enable node memory swap, run the following command:
         
         gcloud container node-pools update NODEPOOL_NAME \
@@ -260,6 +260,57 @@ The output is similar to the following:
 
 
 
+## Node memory swap with mixed Local SSD capacity
+
+**Note:** To use mixed Local SSD capacity for swap, your nodes must be running GKE version 1.37.0-gke.3570000 or later.
+
+You can enable node memory swap on node pools that [provision mixed Local SSDs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd). GKE supports the following swap profiles:
+
+  * **Boot disk (`bootDiskProfile`)**
+  * **Ephemeral Local SSD (`ephemeralLocalSsdProfile`)**: GKE allocates swap space from the ephemeral storage portion of the Local SSDs, not from the raw block partitions.
+
+
+
+GKE does not support the dedicated Local SSD swap profile (`dedicatedLocalSsdProfile`) with mixed Local SSDs.
+
+If you use the ephemeral Local SSD profile, note the following:
+
+  * The `swapSizePercent` field is a percentage of the ephemeral capacity that you set with the `capacity` subfield, not the total physical Local SSD capacity. For example, with settings like `capacity=200GB` and `swapSizePercent: 20`, GKE allocates 40 GiB of swap.
+  * Swap space reduces the ephemeral storage available to your Pods. GKE calculates the [reserved ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#local_ephemeral_storage_reservation) from the ephemeral capacity minus the swap size.
+  * The swap size can't exceed 80% of the ephemeral capacity minus the ephemeral storage that GKE reserves for system use. If the ephemeral capacity is too small to fit swap, the request fails.
+
+
+
+The following example `system-config.yaml` file allocates 20% of the ephemeral capacity to swap:
+    
+    
+    linuxConfig:
+      swapConfig:
+        enabled: true
+        ephemeralLocalSsdProfile:
+          swapSizePercent: 20
+    
+
+To create a node pool with mixed Local SSD capacity and node memory swap, run the following command:
+    
+    
+    gcloud container node-pools create POOL_NAME \
+        --cluster=CLUSTER_NAME \
+        --machine-type=MACHINE_TYPE \
+        --ephemeral-storage-local-ssd count=NUMBER_OF_DISKS,capacity=CAPACITY \
+        --system-config-from-file=system-config.yaml
+    
+
+Replace the following:
+
+  * `POOL_NAME`: the name of the new node pool you want to create.
+  * `CLUSTER_NAME`: the name of the cluster.
+  * `MACHINE_TYPE`: the machine type to use. You cannot use Local SSDs with the default `e2-medium` machine type, because [shared-core machine types](https://docs.cloud.google.com/compute/docs/disks/local-ssd#limitations) don't support them.
+  * `NUMBER_OF_DISKS`: the number of Local SSD disks to provision on each node.
+  * `CAPACITY`: the total Local SSD capacity to format for ephemeral storage. This value must be greater than 0 and strictly less than the total physical Local SSD capacity (disk count × per-disk size), for example, `200GB`.
+
+
+
 ## Disable node memory swap
 
 To disable node memory swap, update your `system-config.yaml` file by completing the following steps:
@@ -293,6 +344,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

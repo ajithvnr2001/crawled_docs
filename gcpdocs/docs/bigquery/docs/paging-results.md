@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/paging-results/
 title: Using pagination with the BigQuery API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:19.741189+00:00
+fetched_at: 2026-10-31T05:59:22.687704+00:00
 ---
 
 # Using pagination with the BigQuery API  |  Google Cloud Documentation
@@ -327,7 +327,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def browse_table
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer-v1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html) project_id: "bigquery-public-data"
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html) project_id: "bigquery-public-data"
       dataset  = bigquery.dataset "samples"
       table    = dataset.table "shakespeare"
     

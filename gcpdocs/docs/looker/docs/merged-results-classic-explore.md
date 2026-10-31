@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/merged-results-classic-explore/
 title: Merging results from different Explores in the classic Explore \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:38:28.422339+00:00
+fetched_at: 2026-10-31T05:48:23.377225+00:00
 ---
 
 # Merging results from different Explores in the classic Explore  |  Looker  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback
 
 #  Merging results from different Explores in the classic Explore Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** If you're using Looker's [new Explore](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience), see the [Joining data from multiple queries](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore) documentation page.**Note:** This page is part of the [Retrieve and chart data](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data) learning series.
+**Note:** If you're using Looker's [new Explore](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores), see the [Joining data from multiple queries](https://docs.cloud.google.com/looker/docs/merged-results) documentation page.**Note:** This page is part of the [Retrieve and chart data](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data) learning series.
 
 Explores in Looker are designed by your Looker developers to combine the data from your database tables in the most effective way by using defined relationships between data fields and tables. Because of this, it's best to use a single Explore to examine your data.
 
 However, there may be times when your Looker developers haven't created the relationships you need or have encountered technical limitations. In these cases, **Merged Results** lets you combine results from different Explores (even from different models or projects) to create data tables on which to [Explore](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and [create visualizations](https://docs.cloud.google.com/looker/docs/creating-visualizations). You can use **Merged Results** as a proof of concept to further develop and define your LookML projects and models.
 
-**Note:** For information about understanding merged results queries, see the [Understanding merged results](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore#understanding-merged-results) section of "Joining data from multiple queries."
+**Note:** For information about understanding merged results queries, see the [Understanding joined results](https://docs.cloud.google.com/looker/docs/merged-results#understanding-joined-results) section of "Joining data from multiple queries."
 
 ## Merging queries
 
@@ -149,7 +149,7 @@ You can add or remove fields, add table calculations, or change the source query
 The query's gear menu also has these options:
 
   * **Rename** : Specify a different name to display for the query in the **Merged Results** window.
-  * **Make Primary** : Make the query the base for the merged results. See the [Understanding merged results](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore#understanding-merged-results) section of "Joining data from multiple queries" to understand the role of the primary query.
+  * **Make Primary** : Make the query the base for the merged results. See the [Understanding joined results](https://docs.cloud.google.com/looker/docs/merged-results#understanding-joined-results) section of "Joining data from multiple queries" to understand the role of the primary query.
   * **Delete** : Remove the query from the merged results. (If you want to add the query back into the merged results after you've deleted it, you can use the **Back** button in your browser.)
 
 
@@ -172,7 +172,7 @@ When merging queries, you start out by creating a single query from a single Exp
 
 Each added query must have at least one dimension whose values can be matched exactly to a dimension in the primary query.
 
-When you switch the primary query, the merged results are likely to change. See the [Understanding merged results](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore#understanding-merged-results) section of "Joining data from multiple queries" for more information about the role of the primary query.
+When you switch the primary query, the merged results are likely to change. See the [Understanding joined results](https://docs.cloud.google.com/looker/docs/merged-results#understanding-joined-results) section of "Joining data from multiple queries" for more information about the role of the primary query.
 
 ## Saving your merged results to a dashboard
 
@@ -204,8 +204,8 @@ To merge an [embedded dashboard](https://docs.cloud.google.com/looker/docs/priva
   * Your **Merged Results** query may have row limits:
 
     * By default, the join for a **Merged Results** query is processed in Looker memory, and therefore each of the queries being merged is limited to 5,000 rows that can be joined (or up to 50,000 rows [if a higher limit is specified by your admin](https://docs.cloud.google.com/looker/docs/admin-panel-performance-center-content-guardrails#visualization-limits)). If you are joining a query that returns more than the limited rows of data, only the first number of limited rows that are returned are included in the merged results.
-    * If your Looker admin has enabled the [**In-database merge queries** Looker Labs feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#in-database-merge-queries), and you are merging the results from two queries that are on the same BigQuery connection, the join between two queries is performed in the BigQuery database itself. In-database merge queries are more performant and can join unlimited rows. See the [In-database merge queries](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore#in-database-merge-queries) section of "Joining data from multiple queries" for more information.
-  * For merged queries that are processed in Looker memory, **Merged Results** is a post-query processing feature that, if not used thoughtfully, can overtax Looker instance resources and cause your Looker instance to respond more slowly for all users. If you can't take advantage of [in-database merge queries](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore#in-database-merge-queries), the best practice is to define functions and logic in LookML, which generates SQL that is processed by your database. View the [Optimize Looker performance](https://docs.cloud.google.com/looker/docs/best-practices/how-to-optimize-looker-server-performance) Best Practices page for more information about optimizing Looker performance.
+    * If your Looker admin has enabled the [**In-database merge queries** Looker Labs feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#in-database-merge-queries), and you are merging the results from two queries that are on the same BigQuery connection, the join between two queries is performed in the BigQuery database itself. In-database merge queries are more performant and can join unlimited rows. See the [In-database merge queries](https://docs.cloud.google.com/looker/docs/merged-results#in-database-merge-queries) section of "Joining data from multiple queries" for more information.
+  * For merged queries that are processed in Looker memory, **Merged Results** is a post-query processing feature that, if not used thoughtfully, can overtax Looker instance resources and cause your Looker instance to respond more slowly for all users. If you can't take advantage of [in-database merge queries](https://docs.cloud.google.com/looker/docs/merged-results#in-database-merge-queries), the best practice is to define functions and logic in LookML, which generates SQL that is processed by your database. View the [Optimize Looker performance](https://docs.cloud.google.com/looker/docs/best-practices/how-to-optimize-looker-server-performance) Best Practices page for more information about optimizing Looker performance.
 
 
 
@@ -218,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

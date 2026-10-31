@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-track-token-usage/
 title: Track third-party model token usage \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:14.437891+00:00
+fetched_at: 2026-10-31T05:46:58.606430+00:00
 ---
 
 # Track third-party model token usage  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Track third-party model token usage Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** To use this feature, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** To use this feature, your project must be linked to a [Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). With a self-serve (online) billing account, you pay for usage above quota with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits). With an invoiced billing account, usage above quota is billed on your monthly invoice.
+
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
 
 You can calculate token consumption by model, day, and user for third-party models in [AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview), such as **Anthropic Claude Opus 5.5** and **Anthropic Claude Sonnet 5.5** , using Cloud Logging and **Observability Analytics**.
 
@@ -239,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

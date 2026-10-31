@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/known-issues/
 title: Known issues \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:58:42.439556+00:00
+fetched_at: 2026-10-31T06:01:51.165191+00:00
 ---
 
 # Known issues  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -674,6 +674,8 @@ This issue doesn't affect the environment's functionality. The environment is st
 
 ## Degraded environment performance in several google-api-core package versions
 
+### Versions from 2.28.0 to 2.30.2
+
 The `google-api-core` preinstalled package versions from 2.28.0 to 2.30.2 might cause degraded environment performance, which can result in longer times to execute a task and longer times to move a task from the queued to the executing state.
 
 Affected [Managed Airflow (Gen 3) builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3):
@@ -694,21 +696,84 @@ Affected [Managed Airflow (Gen 2) builds](https://docs.cloud.google.com/composer
 
 
 
-We recommend to upgrade your environment to the following versions, which contain a version of the package where the problem is fixed or isn't present:
+Upgrade your environment to one of the following builds, which include preinstalled `google-api-core` version 2.27.0 and aren't affected by this issue:
 
-  * composer-3-airflow-3.1.7-build.7 and later
-  * composer-3-airflow-2.11.1-build.3 and later
-  * composer-3-airflow-2.10.5-build.36 and later
-  * composer-3-airflow-2.9.3-build.54 (contains 2.27.0)
-  * composer-2.17.0-airflow-2.11.1 and later
-  * composer-2.17.0-airflow-2.10.5 and later
-  * composer-2.16.11-airflow-2.11.1 (contains 2.27.0)
-  * composer-2.16.11-airflow-2.10.5 (contains 2.27.0)
-  * composer-2.16.11-airflow-2.9.3 (contains 2.27.0)
+  * composer-3-airflow-2.11.1-build.1
+  * composer-3-airflow-2.10.5-build.34
+  * composer-3-airflow-2.9.3-build.54
+  * composer-2.16.11-airflow-2.11.1
+  * composer-2.16.11-airflow-2.10.5
+  * composer-2.16.11-airflow-2.9.3
 
 
 
-As a workaround, you can manually install a later version of the `google-api-core` package to an affected environment by specifying `>=2.30.3` as the required version.
+Alternatively, upgrade to an image that includes `google-api-core` 2.43.1 or later, or manually install a compatible version.
+
+On Python 3.11, `google-api-core` versions 2.30.3 to 2.43.0 cause **a separate performance issue** starting October 24, 2026. If your environment runs Python 3.11, apply one of the workarounds listed in Versions from 2.30.3 to 2.43.0 on Python 3.11.
+
+### Versions from 2.30.3 to 2.43.0 on Python 3.11
+
+Starting October 24, 2026, `google-api-core` package versions 2.30.3 to 2.43.0 run a Python 3.11 deprecation check that scans installed package metadata whenever a Google Cloud client library is imported in a new Python subprocess.
+
+In Managed Airflow environments that run Python 3.11, this behavior can degrade performance. This issue is more severe in environments that have many DAGs, frequent short-running tasks, or data lineage integration enabled.
+
+Symptoms include the following:
+
+  * Increased DAG parsing times and higher CPU usage on Airflow DAG processors.
+  * Longer task execution times and higher CPU usage on Airflow workers.
+  * Frequent `FutureWarning` log entries from `google/api_core/_python_version_support.py` stating that Python 3.11 support ends on 2027-10-24.
+
+
+
+This issue affects any Python 3.11 environment where `google-api-core` version 2.30.3 to 2.43.0 is either preinstalled or installed manually, including the following builds.
+
+This issue affects the following [Managed Airflow (Gen 3) builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3):
+
+  * composer-3-airflow-3.3.1-build.0 to composer-3-airflow-3.3.1-build.5
+  * composer-3-airflow-3.2.2-build.0 to composer-3-airflow-3.2.2-build.9
+  * composer-3-airflow-3.1.8-build.0 to composer-3-airflow-3.1.8-build.4
+  * composer-3-airflow-3.1.7-build.7 to composer-3-airflow-3.1.7-build.13
+  * composer-3-airflow-2.11.1-build.3 to composer-3-airflow-2.11.1-build.22
+  * composer-3-airflow-2.10.5-build.36 to composer-3-airflow-2.10.5-build.52
+
+
+
+Affected [Managed Airflow (Gen 2) builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-2):
+
+  * composer-2.17.0-airflow-2.11.1 to composer-2.17.16-airflow-2.11.1
+  * composer-2.17.0-airflow-2.10.5 to composer-2.17.13-airflow-2.10.5
+
+
+
+**Workarounds** :
+
+Choose one of the following options based on your environment's image version:
+
+  * **Option 1**. Compatible Managed Airflow (Gen 3) builds with Airflow 3 only: [Install](https://docs.cloud.google.com/composer/docs/composer-2/install-python-dependencies) the `google-api-core` PyPI package with the `>=2.43.1` version constraint.
+
+Compatible Managed Airflow (Gen 3) builds:
+
+    * composer-3-airflow-3.3.1-build.0 to composer-3-airflow-3.3.1-build.5
+    * composer-3-airflow-3.2.2-build.1 to composer-3-airflow-3.2.2-build.9
+    * composer-3-airflow-3.1.8-build.3 to composer-3-airflow-3.1.8-build.4
+
+Do not use this option on Airflow 2 builds or earlier Airflow 3 builds, including `composer-3-airflow-3.2.2-build.0` and `composer-3-airflow-3.1.8-build.0` through `build.2`. In those builds, `google-api-core` 2.43.1 causes dependency conflicts because it requires `opentelemetry-api>=1.44.0`. For those builds, use Option 2.
+
+  * **Option 2**. All affected Managed Airflow (Gen 3) and Managed Airflow (Gen 2) builds: Apply a `sitecustomize.py` runtime patch.
+
+    1. Download [sitecustomize.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/main/composer/tools/google_api_core_workaround/sitecustomize.py) from GitHub.
+
+**Important:** Don't modify the file to include the words `airflow` or `dag` (including in comments), so that Airflow's DAG discovery safe mode ignores it.
+    2. Upload `sitecustomize.py` to the `dags/patches` folder in your environment's bucket.
+
+    3. [Set the `PYTHONPATH` environment variable](https://docs.cloud.google.com/composer/docs/composer-2/set-environment-variables#set-existing) to `/home/airflow/gcs/dags/patches`.
+
+If `PYTHONPATH` is already set, then prepend `/home/airflow/gcs/dags/patches:` to the existing value. Example: `/home/airflow/gcs/dags/patches:PREVIOUS_PYTHONPATH_VALUE`
+
+**Cleanup after an upgrade:** In future Managed Airflow releases, the `google-api-core` package version 2.43.1 or later will be preinstalled. After you upgrade to an image with `google-api-core` 2.43.1 or later, you can remove the `PYTHONPATH` override and delete `dags/patches/sitecustomize.py`.
+
+
+
 
 ## What's next
 
@@ -722,6 +787,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

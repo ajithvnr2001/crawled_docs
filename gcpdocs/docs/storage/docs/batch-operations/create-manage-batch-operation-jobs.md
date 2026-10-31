@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/batch-operations/create-manage-batch-operation-jobs/
 title: Create and manage batch operation jobs \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:51:08.266916+00:00
+fetched_at: 2026-10-31T05:53:29.985080+00:00
 ---
 
 # Create and manage batch operation jobs  |  Cloud Storage  |  Google Cloud Documentation
@@ -1326,7 +1326,7 @@ To get the permissions that you need to create a storage batch operations job, a
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
-#### Create a manifest using Storage Insights datasets
+#### Create a manifest by using Storage Insights datasets
 
 You can create the [manifest](https://docs.cloud.google.com/storage/docs/batch-operations/overview#manifest) for your storage batch operations job by extracting data from BigQuery. To do so, you'll need to [query the linked dataset](https://docs.cloud.google.com/storage/docs/insights/manage-datasets#query-linked-datasets), export the resulting data as a CSV file, and save it to a Cloud Storage bucket. The storage batch operations job can then use this CSV file as its manifest.
 
@@ -1364,7 +1364,37 @@ Where:
 
 
 
-### Create a storage batch operations job using a manifest file
+##### Export a manifest of objects to re-encrypt with CMEK
+
+To re-encrypt objects with a customer-managed encryption key (CMEK), you can export CSV manifest files of live objects that use standard encryption (`GMEK`). The following `EXPORT DATA` query exports these manifest files from the `object_attributes_latest_snapshot_view` view:
+    
+    
+    EXPORT DATA OPTIONS(
+      uri='gs://MANIFEST_BUCKET/manifests/objects_to_reencrypt_*.csv',
+      format='CSV',
+      overwrite=true,
+      header=true
+    ) AS
+    SELECT
+      bucket,
+      name
+    FROM
+      `DATASET_NAME.object_attributes_latest_snapshot_view`
+    WHERE
+      bucket = 'BUCKET_NAME'
+      AND encryptionType = 'GMEK'
+      AND timeDeleted IS NULL
+      AND softDeleteTime IS NULL;
+
+Where:
+
+  * `MANIFEST_BUCKET` is the name of the Cloud Storage bucket where you want to store the exported CSV manifest files. If the manifest exceeds 1 GB, BigQuery uses the `*.csv` wildcard to export the results across multiple CSV files.
+  * `DATASET_NAME` is the name of your Storage Insights linked dataset in BigQuery, in `PROJECT_ID.DATASET_ID` format.
+  * `BUCKET_NAME` is the name of the bucket that contains the objects you want to re-encrypt.
+
+**Note:** This query filters for live `GMEK` objects (`encryptionType = 'GMEK'`, `timeDeleted IS NULL`, and `softDeleteTime IS NULL`). Filtering for these objects prevents `404 NOT_FOUND` errors from soft-deleted objects, avoids duplicate `(bucket, name)` rows from noncurrent object versions, and excludes CSEK-encrypted objects. Because Google Cloud doesn't store CSEK keys, storage batch operations can't decrypt CSEK-encrypted objects.
+
+### Create a storage batch operations job by using a manifest file
 
 To create a storage batch operations job to process objects contained in the manifest, complete the following steps:
 
@@ -1447,9 +1477,27 @@ Where:
 
        * `--delete-object`: Delete one or more objects.
 
-       * `--put-metadata`: Update [object metadata](https://docs.cloud.google.com/storage/docs/batch-operations/overview#metadata-updates). Object metadata is stored as key-value pairs. Specify the key-value pair for the metadata you want to modify. You can specify one or more key-value pairs as a list. You can also provide [object retention configurations](https://docs.cloud.google.com/storage/docs/object-lock) using the `--put-metadata` flag.
+       * `--put-metadata`: Update [object metadata](https://docs.cloud.google.com/storage/docs/batch-operations/overview#metadata-updates). Object metadata is stored as key-value pairs. Specify the key-value pair for the metadata you want to modify. You can specify one or more key-value pairs as a list. You can also provide [object retention configurations](https://docs.cloud.google.com/storage/docs/object-lock) by using the `--put-metadata` flag.
 
-       * `--rewrite-object`: Update the [customer-managed encryption keys](https://docs.cloud.google.com/storage/docs/encryption/customer-managed-keys) for one or more objects. You can also use this flag to change the object's storage class by specifying the `storage-class` key. Supported storage classes include `STANDARD`, `NEARLINE`, `COLDLINE`, and `ARCHIVE`. For example: `--rewrite-object=storage-class=NEARLINE`.
+       * `--rewrite-object`: Rewrite one or more objects to encrypt them with a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/storage/docs/encryption/customer-managed-keys), change their [storage class](https://docs.cloud.google.com/storage/docs/storage-classes), or both. Specify one or both of the following key-value pairs, separated by a comma:
+
+         * **Encrypt or re-encrypt objects with a Cloud KMS key** : Specify `--rewrite-object=kms-key=KMS_KEY`, where `KMS_KEY` is the resource name of the Cloud KMS key in the format `projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/CRYPTO_KEY`. The Cloud KMS key must be in the same location as the bucket.
+
+Before you run the job, ask your administrator to grant the [Cloud KMS CryptoKey Encrypter/Decrypter role](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudkms#cloudkms.cryptoKeyEncrypterDecrypter) (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the Cloud KMS key to both of the following service agents in the project that contains the bucket:
+
+           * The storage batch operations service agent (`service-PROJECT_NUMBER@gcp-sa-storagebatchoperations.iam.gserviceaccount.com`)
+           * The Cloud Storage service agent (`service-PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com`)
+
+Replace `PROJECT_NUMBER` with the project number of the project that contains the bucket.
+
+The following example rewrites the objects listed in the manifest files to encrypt them with a Cloud KMS key. To verify the job configuration before modifying objects, include the `--dry-run` flag:
+    
+    gcloud storage batch-operations jobs create JOB_NAME \
+      --bucket="SOURCE_BUCKET" \
+      --manifest-location="gs://MANIFEST_BUCKET/manifests/objects_to_reencrypt_*.csv" \
+      --rewrite-object="kms-key=KMS_KEY"
+
+         * **Change the storage class** : Specify `--rewrite-object=storage-class=STORAGE_CLASS`, where `STORAGE_CLASS` is `STANDARD`, `NEARLINE`, `COLDLINE`, or `ARCHIVE`. For example, `--rewrite-object=storage-class=NEARLINE`.
 
        * `--set-object-acls-from-file`: Patch object access control lists (ACLs). Provide the path to a JSON or YAML file with grants to add or update for entities such as `allUsers` or `allAuthenticatedUsers`. For example: `--set-object-acls-from-file=acl-updates.yaml`.
 
@@ -1526,6 +1574,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

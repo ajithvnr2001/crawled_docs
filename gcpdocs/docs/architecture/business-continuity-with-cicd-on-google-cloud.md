@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/business-continuity-with-cicd-on-google-cloud/
 title: Business continuity with CI/CD on Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:46:07.033609+00:00
+fetched_at: 2026-10-31T05:57:36.308942+00:00
 ---
 
 # Business continuity with CI/CD on Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

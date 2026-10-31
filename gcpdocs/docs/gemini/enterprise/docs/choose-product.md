@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/choose-product/
 title: Gemini Notebook Enterprise, Gemini Enterprise, or both? \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:13.630471+00:00
+fetched_at: 2026-10-31T05:50:43.947291+00:00
 ---
 
 # Gemini Notebook Enterprise, Gemini Enterprise, or both?  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 Choosing the right AI tools for your organization is crucial. Google offers Gemini Notebook Enterprise and Gemini Enterprise, powerful AI solutions designed for distinct challenges. This page gives some key features of each and helps you decide which product to use for what applications.
 
-Subscriptions for Gemini Enterprise (Standard and Plus) includes Gemini Notebook Enterprise. Gemini Notebook Enterprise is also available as a standalone product.
+Subscriptions for Gemini Enterprise (Standard and Plus) include Gemini Notebook Enterprise. Gemini Notebook Enterprise is also available as a standalone product.
 
 ## Gemini Notebook Enterprise, AI-powered research and knowledge assistant
 
@@ -135,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

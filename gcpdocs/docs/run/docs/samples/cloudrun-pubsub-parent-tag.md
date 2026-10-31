@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-pubsub-parent-tag/
 title: Connect a Pub/Sub subscription to a Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:09.542706+00:00
+fetched_at: 2026-10-31T05:49:46.580442+00:00
 ---
 
 # Connect a Pub/Sub subscription to a Cloud Run services  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/tutorials/pubsub-eventdriven/
 title: Trigger functions from Pub/Sub using Eventarc \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:42.460531+00:00
+fetched_at: 2026-10-31T05:49:13.883730+00:00
 ---
 
 # Trigger functions from Pub/Sub using Eventarc  |  Cloud Run  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback
 
 #  Trigger functions from Pub/Sub using Eventarc Stay organized with collections  Save and categorize content based on your preferences. 
 
-This tutorial demonstrates how to write and trigger an event-driven Cloud Run functions with a [Pub/Sub trigger](https://docs.cloud.google.com/run/docs/tutorials/pubsub).
+This tutorial demonstrates how to write and trigger event-driven Cloud Run functions from [Pub/Sub using Eventarc](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers).
 
 You can configure the routing of events, including the event source and the event target, by specifying filters for an Eventarc trigger. For the example in this tutorial, publishing a message to a Pub/Sub topic triggers the event, and a request is sent to your function in the form of an HTTP request.
 
 If you are new to Pub/Sub and want to learn more, see the [Pub/Sub documentation](https://docs.cloud.google.com/pubsub/docs) for quickstarts and key references.
 
-**Note:** You can also use [HTTP-triggered functions](https://docs.cloud.google.com/run/docs/triggering/https-request) to listen to [Pub/Sub push subscriptions](https://docs.cloud.google.com/pubsub/docs/push). Using an HTTP function enables a single function to subscribe to multiple Pub/Sub topics.
+**Note:** You can also use [HTTP-triggered functions](https://docs.cloud.google.com/run/docs/triggering/https-request) to listen to [Pub/Sub push subscriptions](https://docs.cloud.google.com/pubsub/docs/push) by [configuring direct Pub/Sub triggers](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers). Using an HTTP function enables a single function to subscribe to multiple Pub/Sub topics.
 
 ## Objectives
 
@@ -239,13 +239,6 @@ Note that if you create a trigger for an authenticated Cloud Run service without
 
 
 
-
-## Create a Pub/Sub topic
-
-In Cloud Run, Pub/Sub topics are not automatically created when you deploy a function. Before deploying your function, publish a message to this Pub/Sub topic to trigger the function:
-    
-    
-    gcloud pubsub topics create YOUR_TOPIC_NAME
 
 ## Prepare the application
 
@@ -515,7 +508,7 @@ To deploy the function, run the following command in the directory that contains
       gcloud run deploy FUNCTION \
             --source . \
             --function helloPubSub \
-            --base-image BASE_IMAGE \
+            --base-image BASE_IMAGE
     
 
 Replace:
@@ -531,7 +524,7 @@ Replace:
       gcloud run deploy FUNCTION \
             --source . \
             --function subscribe \
-            --base-image BASE_IMAGE \
+            --base-image BASE_IMAGE
     
 
 Replace:
@@ -547,7 +540,7 @@ Replace:
       gcloud run deploy FUNCTION \
             --source . \
             --function HelloPubSub \
-            --base-image BASE_IMAGE \
+            --base-image BASE_IMAGE
     
 
 Replace:
@@ -563,7 +556,7 @@ Replace:
       gcloud run deploy FUNCTION \
             --source . \
             --function functions.SubscribeToTopic \
-            --base-image BASE_IMAGE \
+            --base-image BASE_IMAGE
     
 
 Replace:
@@ -579,7 +572,7 @@ Replace:
       gcloud run deploy FUNCTION \
             --source . \
             --function HelloPubSub.Function \
-            --base-image BASE_IMAGE \
+            --base-image BASE_IMAGE
     
 
 Replace:
@@ -595,7 +588,7 @@ Replace:
       gcloud run deploy FUNCTION \
             --source . \
             --function hello_pubsub \
-            --base-image BASE_IMAGE \
+            --base-image BASE_IMAGE
     
 
 Replace:
@@ -611,7 +604,7 @@ Replace:
       gcloud run deploy FUNCTION \
             --source . \
             --function helloworldPubsub \
-            --base-image BASE_IMAGE \
+            --base-image BASE_IMAGE
     
 
 Replace:
@@ -679,7 +672,7 @@ To test the Pub/Sub function:
 
 The Cloud Run service logs the body of the incoming message. You can view this in the Logs section of your Cloud Run instance:
 
-  1. Navigate to the [Google Cloud console](https://console.cloud.google.com/run).
+  1. Navigate to the [Google Cloud console](https://console.cloud.google.com/run/services).
   2. Click the function.
   3. Select the **Logs** tab.
 
@@ -751,6 +744,7 @@ Replace `TRIGGER_NAME` with the name of your trigger.
   * [Create Eventarc triggers for other event types](https://docs.cloud.google.com/run/docs/triggering/trigger-with-events)
   * [Manage functions](https://docs.cloud.google.com/run/docs/managing/services)
   * [Configure retries](https://docs.cloud.google.com/run/docs/tips/function-retries).
+  * Learn how to [configure Pub/Sub triggers](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers).
 
 
 
@@ -758,6 +752,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

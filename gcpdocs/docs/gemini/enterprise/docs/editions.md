@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/editions/
 title: Compare editions of Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:25.719951+00:00
+fetched_at: 2026-10-31T05:40:27.621464+00:00
 ---
 
 # Compare editions of Gemini Enterprise  |  Google Cloud Documentation
@@ -28,7 +28,9 @@ Send feedback
 
 To compare features and capabilities of different Gemini Enterprise editions, see the following table.
 
-**Note:** To subscribe to the Gemini Enterprise Pay-as-you-go edition, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
+
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
 
 Feature | Gemini Enterprise Business | Gemini Enterprise Standard | Gemini Enterprise Plus | Gemini Enterprise Pay-as-you-go | Gemini Enterprise Frontline  
 ---|---|---|---|---|---  
@@ -65,7 +67,7 @@ Google Cloud console access5 |  | check | check | check | check
 
 3 With Gemini Enterprise Frontline, users can only access previously-developed agents that have been provisioned for them by their administrator.
 
-4 To configure and use AI developer tools, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). Included monthly seat credits apply strictly to first-party Gemini models. When an administrator enables partner models (Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5) in [Configure AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#configure-model-availability), the console and model picker display a billing warning clarifying that partner model usage is **not** gated on the standard pay-as-you-go usage above quota toggle and is billed immediately on a consumption basis up to your project's monthly spend limit. For more information, see [AI developer tools overview](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview).
+4 To configure and use AI developer tools, your project must be linked to a [Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). Included monthly seat credits apply strictly to first-party Gemini models. When an administrator enables partner models (Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5) in [Configure AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#configure-model-availability), partner model usage is billed as pay-as-you-go usage. If you use a license-based edition, you must turn on [pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota). With a self-serve (online) billing account, usage is paid from [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits); with an invoiced billing account, usage is billed on the monthly invoice. Usage is subject to your project's [monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#set-spend-limit). For more information, see [AI developer tools overview](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview).
 
 5 Gemini Enterprise Business edition is a software as a service (SaaS) application accessible through the web at business.gemini.google. As a result, administrators don't need access to the Google Cloud console, and there are no project numbers or project-level IAM roles to manage.
 
@@ -81,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

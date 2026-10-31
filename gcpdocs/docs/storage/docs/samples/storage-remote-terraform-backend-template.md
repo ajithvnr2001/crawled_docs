@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-remote-terraform-backend-template/
 title: Setup Terraform for a Cloud Storage backend \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:08.277684+00:00
+fetched_at: 2026-10-31T06:01:32.059737+00:00
 ---
 
 # Setup Terraform for a Cloud Storage backend  |  Google Cloud Documentation

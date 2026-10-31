@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/type_functions/
 title: Type Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:23.060773+00:00
+fetched_at: 2026-10-31T05:53:01.873407+00:00
 ---
 
 # Type Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -155,7 +155,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_comparison.go#L123-L128)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_comparison.go#L123-L128)
 
 ### IS_TYPE
 

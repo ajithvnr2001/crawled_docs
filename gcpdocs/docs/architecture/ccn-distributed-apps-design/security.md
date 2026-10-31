@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ccn-distributed-apps-design/security/
 title: Network security for distributed applications in Cross-Cloud Network \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:16.726238+00:00
+fetched_at: 2026-10-31T05:58:09.196316+00:00
 ---
 
 # Network security for distributed applications in Cross-Cloud Network  |  Cloud Architecture Center  |  Google Cloud Documentation

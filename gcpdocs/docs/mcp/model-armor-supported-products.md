@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/mcp/model-armor-supported-products/
 title: Model Armor supported products \u00a0|\u00a0 Google Cloud MCP servers \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:10.558729+00:00
+fetched_at: 2026-10-31T05:58:34.287099+00:00
 ---
 
 # Model Armor supported products  |  Google Cloud MCP servers  |  Google Cloud Documentation
@@ -98,6 +98,7 @@ Database Center | check |  | Cross-jurisdictional routing. Model Armor is always
 Datastream | check |  | Cross-jurisdictional routing. Model Armor is always called when enabled.  
 Database Migration Service | check |  | Cross-jurisdictional routing. Model Armor is always called when enabled.  
 Developer Knowledge API | check |  | Cross-jurisdictional routing. Model Armor is always called when enabled.  
+Developer Connect | check |  | Cross-jurisdictional routing. Model Armor is always called when enabled.  
 Error Reporting | check |  | Cross-jurisdictional routing. Model Armor is always called when enabled.  
 Firebase SQL Connect |  | check | Jurisdictional routing. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction. The following Firebase SQL Connect MCP tool types can't be scanned by Model Armor:
 
@@ -165,6 +166,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

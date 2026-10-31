@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/overview/
 title: Get started with Pipeline Queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:25.592347+00:00
+fetched_at: 2026-10-31T05:52:41.031108+00:00
 ---
 
 # Get started with Pipeline Queries  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -145,7 +145,7 @@ Android
     	Sort(firestore.Orders(firestore.Ascending(firestore.FieldOf("name")))).
     	Limit(10)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L1709-L1713)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L1709-L1713)
 
 ### Initialization
 
@@ -274,7 +274,7 @@ Android
     pipeline := client.Pipeline().Collection("cities").
     	Where(firestore.FieldOf("name").Equal(firestore.ConstantOf("Toronto")))
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L1766-L1767)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L1766-L1767)
 
 ## Stages
 
@@ -465,7 +465,7 @@ Android
     	return err
     }
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L1776-L1808)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L1776-L1808)
 
 As with all other stages, the order of results from these input stages is not stable. A [`sort(...)`](https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/sort) operator should always be added if a specific ordering is required.
 
@@ -609,7 +609,7 @@ Android
     	return err
     }
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L1548-L1568)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L1548-L1568)
 
 ### Select / Add & Remove Fields
 
@@ -720,7 +720,7 @@ Android
     	).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L206-L212)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L206-L212)
 
 When `groupings` is not specified, this stage will produce only a single document, otherwise a document will be generated for each unique combination of `groupings` values.
 
@@ -814,7 +814,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L226-L232)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L226-L232)
 
 ## Functions
 
@@ -984,7 +984,7 @@ Android
     	return err
     }
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_array.go#L237-L261)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_array.go#L237-L261)
 
 ## Limits
 
@@ -1121,7 +1121,7 @@ Android
     	Sort(firestore.Orders(firestore.Descending(firestore.FieldOf("published")))).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L788-L794)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L788-L794)
 
 The recommended index is a collection scope index on `books` for `(genre [...], published DESC, avg_rating DESC).`
 
@@ -1227,7 +1227,7 @@ Android
     	Select(firestore.Fields("title", "author")).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L842-L848)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L842-L848)
 
 If the database already has a collection scope index on `books` for `(category [...], title [...], author [...])` then it can avoid fetching anything from the main documents themselves. In this case the order in the index does not matter, `[...]` is used to signify that.
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/troubleshooting/
 title: Troubleshoot \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:33.143383+00:00
+fetched_at: 2026-10-31T06:00:19.486280+00:00
 ---
 
 # Troubleshoot  |  Model Armor  |  Google Cloud Documentation
@@ -112,10 +112,38 @@ To resolve this issue, do one of the following:
 
 
 
+## Policy controls or filters are skipped for large prompts or payloads
+
+When screening large prompts or responses—such as retrieval-augmented generation (RAG) payloads or multi-step agent conversation histories—individual filters might not run, or the sanitization result might return `EXECUTION_SKIPPED` with one of the following warning messages in the `messageItems` field:
+    
+    
+    Detection skipped as token limit exceeded.
+    
+    
+    
+    Input size exceeded the limit of 4194304 bytes.
+    
+
+This issue occurs when a unary sanitization request or a buffered streaming request exceeds a filter's [token system limit](https://docs.cloud.google.com/model-armor/quotas#token-limits) (65,536 tokens for prompt injection and jailbreak detection, responsible AI, and CSAM; 130,000 tokens for Sensitive Data Protection) or the 4 MB [input size limit](https://docs.cloud.google.com/model-armor/quotas#input-size-limit). When an input exceeds a filter's token limit and no match is detected, the filter returns `EXECUTION_SKIPPED` and `NO_MATCH_FOUND`, which allows the request to proceed in inline integrations.
+
+To verify whether a filter was skipped due to token or input size limits, query your `SanitizeOperation` logs in Cloud Logging:
+    
+    
+    jsonPayload.@type="type.googleapis.com/google.cloud.modelarmor.logging.v1.SanitizeOperationLogEntry"
+    "EXECUTION_SKIPPED"
+    
+
+To resolve this issue:
+
+  1. For streaming workloads or long-running agent interactions, use [real-time streaming sanitization](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#sanitize-streaming) (`StreamSanitizeUserPrompt` and `StreamSanitizeModelResponse`). Use `streamQuery` for Agent Development Kit agents that use Agent Gateway, which processes input in chunks and supports [unlimited tokens](https://docs.cloud.google.com/model-armor/quotas#unlimited-tokens-real-time-streaming).
+  2. For unary requests, chunk large RAG payloads or trim multi-step agent conversation histories before sending them to Model Armor, so that each request stays within the [token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits) and the 4 MB [input size limit](https://docs.cloud.google.com/model-armor/quotas#input-size-limit).
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

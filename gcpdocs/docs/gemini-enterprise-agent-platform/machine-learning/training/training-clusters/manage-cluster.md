@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster/
 title: Manage cluster \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:07:10.961832+00:00
+fetched_at: 2026-10-31T05:40:14.911793+00:00
 ---
 
 # Manage cluster  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -195,7 +195,7 @@ Because `node_pools` is replaced in full, a node pool in your update payload tha
 
 **Caution:** Moving a node pool to a different image recreates its nodes. Compute nodes in the pool are drained and replaced, and the login nodes are recreated, which ends active SSH sessions and discards data stored on the login node's boot disk. Because the image is resolved on every `USER_AND_SERVICE` update, an unrelated change such as editing a label is enough to trigger this once a newer default image is available. To apply your changes without moving any node pool off its current image, use `updateMode=USER_ONLY`. 
 
-To keep a node pool on a specific image across updates, set `node_image` to that image. If you read the current value from `Get` in order to send it back, note that a cluster that has never been updated reports an empty `node_image`.
+To keep a node pool on a specific image across updates, set `node_image` to that image (for example, `projects/IMAGE_PROJECT/global/images/IMAGE`). If you read the current value from `Get` in order to send it back, note that a cluster that has never been updated reports an empty `node_image` unless `node_image` was set when the cluster was created.
 
 **Post-update behavior and cluster status**
 
@@ -235,6 +235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

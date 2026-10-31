@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/nodejs/configure-remote-auth-npm-registry/
 title: Configure remote repository authentication to the npm registry \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:42:54.386227+00:00
+fetched_at: 2026-10-31T05:59:28.090896+00:00
 ---
 
 # Configure remote repository authentication to the npm registry  |  Artifact Registry  |  Google Cloud Documentation
@@ -374,7 +374,7 @@ To authenticate to Artifact Registry, set up Application Default Credentials. Fo
     require "google/cloud/secret_manager"
     
     # Create a Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
     # Build the resource name of the secret.
     name = client.secret_path project: project_id, secret: secret_id

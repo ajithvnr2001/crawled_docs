@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor/
 title: Configure Model Armor on a gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:06.574210+00:00
+fetched_at: 2026-10-31T05:54:36.541044+00:00
 ---
 
 # Configure Model Armor on a gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -264,9 +264,11 @@ Sanitizing prompts and responses that contain documents or file uploads (such as
 
 Quota is consumed in the project where the Model Armor templates reside. If the gateway is in a different project, then `ExternalProcessor` quota is consumed in the gateway project as well.
 
-For more information about quotas that apply when you use Model Armor with other services, see [Manage quotas](https://docs.cloud.google.com/model-armor/integrations#manage-quota).
+Unary sanitization requests and buffered streaming requests are subject to per-filter [token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits) (65,536 tokens for prompt injection and jailbreak detection, responsible AI, and child sexual abuse material (CSAM) filters, and 130,000 tokens for Sensitive Data Protection) and a 4 MB [input size limit](https://docs.cloud.google.com/model-armor/quotas#input-size-limit). If a prompt or response—such as a large retrieval-augmented generation (RAG) payload or a multi-step agent conversation history—exceeds a filter's token limit without a detected violation, that filter skips evaluation and returns `EXECUTION_SKIPPED` with `Detection skipped as token limit exceeded.` in the `SanitizeOperation` log entry. The request proceeds without triggering a block for that filter. To screen large payloads without hitting token limits, use [real-time streaming sanitization](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#sanitize-streaming).
 
-For general information about Model Armor quotas and system limits—including input size and token limits—see [Quotas and system limits](https://docs.cloud.google.com/model-armor/quotas) in the Model Armor documentation.
+For example, use `streamQuery` for agents built with the Agent Development Kit, which supports [unlimited tokens](https://docs.cloud.google.com/model-armor/quotas#unlimited-tokens-real-time-streaming). Alternatively, chunk large RAG payloads and agent histories so that each unary request stays within the token limits.
+
+For more information about quotas that apply when you integrate Model Armor with other services, see [Manage quotas](https://docs.cloud.google.com/model-armor/integrations#manage-quota). For general information about Model Armor quotas and system limits—including input size and token limits—see [Quotas and system limits](https://docs.cloud.google.com/model-armor/quotas) in the Model Armor documentation.
 
 ## What's next
 
@@ -281,6 +283,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

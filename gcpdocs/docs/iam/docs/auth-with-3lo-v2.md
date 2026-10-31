@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/auth-with-3lo-v2/
 title: Authenticate using 3-legged OAuth with auth manager \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:32:18.181729+00:00
+fetched_at: 2026-10-31T05:52:26.531007+00:00
 ---
 
 # Authenticate using 3-legged OAuth with auth manager  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -580,7 +580,7 @@ Reference the auth provider in your agent's code using an authenticated function
             return "Error: No authentication token available."
     
         async with httpx.AsyncClient() as client:
-            response = await client.[get](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
+            response = await client.[get](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.agent_engines.html)(
                 "https://api.spotify.com/v1/search",
                 headers={"Authorization": f"Bearer {token}"},
                 params={"q": query, "type": "track", "limit": 1},
@@ -855,14 +855,14 @@ If you're deploying programmatically using the Vertex AI Python SDK, use the `id
 **Caution:** The SDK serializes your app object, so the `CredentialManager.register_auth_provider()` call that your local script runs at import time doesn't run in the deployed container. Instead, register the auth provider in your app's `set_up()` method, which the runtime calls when the container starts. Otherwise, the agent fails at query time with `No auth provider registered for custom auth scheme 'gcpAuthProviderScheme'`. For more information, see [Deployment considerations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#deployment-considerations). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
-    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.AdkApp.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
+    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.reasoning_engines.AdkApp.html)
     from google.adk.auth.credential_manager import CredentialManager
     from google.adk.integrations.agent_identity import GcpAuthProvider
     
     # Initialize the Vertex AI client with v1beta1 API for Agent Identity support
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(
         project="PROJECT_ID",
         location="LOCATION",
         http_options=dict(api_version="v1beta1")
@@ -878,10 +878,10 @@ If you're deploying programmatically using the Vertex AI Python SDK, use the `id
     app = AuthenticatedAdkApp(agent=agent)
     
     # Deploy the agent with Agent Identity enabled
-    remote_app = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(
+    remote_app = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).create(
         agent=app,
         config={
-            "identity_type": [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
+            "identity_type": [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
             "requirements": [
                 "google-cloud-aiplatform[agent_engines,adk]",
                 "google-adk[agent-identity,mcp]>=2.7.1",

@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/infrastructure-manager/docs/deploy-resources/
 title: Deploy infrastructure using Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:30:53.851573+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-31T05:52:28.343420+00:00
 ---
 
 # Deploy infrastructure using Infrastructure Manager  |  Google Cloud Documentation
@@ -183,7 +169,7 @@ If the storage bucket is in the same project as Infra Manager, read permission t
                  --quota-validation=QUOTA_VALIDATION \
                  --input-values=INPUT_1_NAME=VALUE,INPUT_2_NAME=VALUE \
                  --tf-version-constraint=TERRAFORM_VERSION \
-                 --annotations="ANNOTATION_KEY=ANNOTATION_VALUE"
+                 --annotations=&quot;ANNOTATION_KEY=ANNOTATION_VALUE"
                  --provider-source=SERVICE_MAINTAINED
                  
 
@@ -226,13 +212,13 @@ This section describes how to work with a Terraform configuration that is stored
          
          gcloud infra-manager deployments apply projects/PROJECT_ID/locations/LOCATION/deployments/DEPLOYMENT_ID \
                  --service-account projects/SERVICE_ACCOUNT_PROJECT_ID/serviceAccounts/SERVICE_ACCOUNT \
-                 --git-source-repo="GIT_REPO" \
+                 --git-source-repo=&quot;GIT_REPO" \
                  --git-source-directory="DIRECTORY" \
-                 --git-source-ref="REF" \
+                 </span>--git-source-ref="REF" \
                  --quota-validation=QUOTA_VALIDATION \
                  --input-values=INPUT_1_NAME=VALUE,INPUT_2_NAME=VALUE \
                  --tf-version-constraint=TERRAFORM_VERSION \
-                 --annotations="ANNOTATION_KEY=ANNOTATION_VALUE"
+                 --annotations=&quot;ANNOTATION_KEY=ANNOTATION_VALUE"
                  --provider-source=SERVICE_MAINTAINED
                  
 
@@ -272,11 +258,11 @@ This section describes how to work with a Terraform configuration that is stored
          
          gcloud infra-manager deployments apply projects/PROJECT_ID/locations/LOCATION/deployments/DEPLOYMENT_ID \
                  --service-account projects/SERVICE_ACCOUNT_PROJECT_ID/serviceAccounts/SERVICE_ACCOUNT \
-                 --local-source="LOCAL_DIRECTORY" \
+                 --local-source=&quot;LOCAL_DIRECTORY" \
                  --quota-validation=QUOTA_VALIDATION \
                  --input-values=INPUT_1_NAME=VALUE,INPUT_2_NAME=VALUE \
                  --tf-version-constraint=TERRAFORM_VERSION \
-                 --annotations="ANNOTATION_KEY=ANNOTATION_VALUE"
+                 --annotations=";ANNOTATION_KEY=ANNOTATION_VALUE"
                  --provider-source=SERVICE_MAINTAINED
                  
 

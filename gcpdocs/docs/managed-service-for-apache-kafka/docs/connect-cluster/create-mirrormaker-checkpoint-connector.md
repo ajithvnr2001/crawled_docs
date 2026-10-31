@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-mirrormaker-checkpoint-connector/
 title: Create a MirrorMaker 2.0 Checkpoint connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:50:39.929123+00:00
+fetched_at: 2026-10-31T05:48:06.511842+00:00
 ---
 
 # Create a MirrorMaker 2.0 Checkpoint connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -88,24 +88,21 @@ The **Connect cluster details** page displays.
 
 ###  gcloud 
 
-  1. Run the [`gcloud managed-kafka connectors create`](https://docs.cloud.google.com/sdk/gcloud/reference/managed-kafka/connectors/create) command:
-         
-         gcloud managed-kafka connectors create CONNECTOR_ID \
-             --location=LOCATION \
-             --connect-cluster=CONNECT_CLUSTER_ID \
-             --config-file=CONFIG_FILE
-         
+Run the [`gcloud managed-kafka connectors create`](https://docs.cloud.google.com/sdk/gcloud/reference/managed-kafka/connectors/create) command:
+    
+    
+    gcloud managed-kafka connectors create CONNECTOR_ID \
+        --connect-cluster=CONNECT_CLUSTER_ID \
+        --location=LOCATION \
+        --config-file=CONFIG_FILE
+    
 
 Replace the following:
 
-     * `CONNECTOR_ID`: The ID or name of the connector.
-
-     * `LOCATION`: The location of the Connect cluster.
-
-     * `CONNECT_CLUSTER_ID`: The ID of the Connect cluster.
-
-     * `CONFIG_FILE`: The path to a YAML or JSON configuration file.
-
+  * `CONNECTOR_ID`: The ID or name of the connector.
+  * `CONNECT_CLUSTER_ID`: The ID of the Connect cluster where the connector is created.
+  * `LOCATION`: The location of the Connect cluster.
+  * `CONFIG_FILE`: The path to a local YAML or JSON configuration file.
 
 
 
@@ -179,6 +176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

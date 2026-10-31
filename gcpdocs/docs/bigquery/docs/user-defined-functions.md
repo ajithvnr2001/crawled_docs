@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/user-defined-functions/
 title: User-defined functions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:38.027548+00:00
+fetched_at: 2026-10-31T05:58:32.798136+00:00
 ---
 
 # User-defined functions  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # User-defined functions
 
-A user-defined function (UDF) lets you create a function by using a SQL expression or JavaScript code. A UDF accepts columns of input, performs actions on the input, and returns the result of those actions as a value.
+User-defined functions (UDFs) in BigQuery let you encapsulate custom business logic using SQL expressions or JavaScript code. Defining your own temporary or persistent functions lets you extend BigQuery's capabilities and reuse complex calculations across multiple queries.
 
-You can define UDFs as either persistent or temporary. You can reuse persistent UDFs across multiple queries, while temporary UDFs only exist in the scope of a single query.
-
-**Note:** Persistent UDFs are safe to call when shared between owners. UDFs cannot mutate data, talk to external systems, or send logs to Google Cloud Observability or similar applications.
-
-To create a UDF, use the [`CREATE FUNCTION`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_function_statement) statement. To delete a persistent user-defined function, use the [`DROP FUNCTION`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_function_statement) statement. Temporary UDFs expire as soon as the query finishes. The `DROP FUNCTION` statement is only supported for temporary UDFs in [multi-statement queries](https://docs.cloud.google.com/bigquery/docs/multi-statement-queries) and [procedures](https://docs.cloud.google.com/bigquery/docs/procedures).
+You can define UDFs as either persistent or temporary. You can reuse persistent UDFs across multiple queries, while temporary UDFs expire as soon as the query finishes. The `DROP FUNCTION` statement is only supported for temporary UDFs in [multi-statement queries](https://docs.cloud.google.com/bigquery/docs/multi-statement-queries) and [procedures](https://docs.cloud.google.com/bigquery/docs/procedures).
 
 For information on UDFs in legacy SQL, see [User-defined functions in legacy SQL](https://docs.cloud.google.com/bigquery/docs/user-defined-functions-legacy).
 
@@ -660,6 +656,7 @@ The following limitations apply to persistent user-defined functions:
   * Each dataset can only contain one persistent UDF with the same name. However, you can create a UDF whose name is the same as the name of a table in the same dataset.
   * When referencing a persistent UDF from another persistent UDF or a logical view, you must qualify the name with the dataset. For example:  
 `CREATE FUNCTION mydataset.referringFunction() AS (mydataset.referencedFunction());`
+  * Persistent UDFs are safe to call when shared between owners. UDFs cannot mutate data, talk to external systems, or send logs to Google Cloud Observability or similar applications.
 
 
 
@@ -674,6 +671,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

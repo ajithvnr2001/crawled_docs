@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner-omni/deploy-multi-cluster-on-kubernetes/
 title: Create a multi-cluster deployment for Spanner Omni on Kubernetes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:40:57.507453+00:00
+fetched_at: 2026-10-31T05:47:05.597234+00:00
 ---
 
 # Create a multi-cluster deployment for Spanner Omni on Kubernetes  |  Google Cloud Documentation
@@ -180,7 +180,7 @@ The following commands install a Helm chart on clusters. In each command, PATH_T
 #### Install a chart in `us-west1` with monitoring enabled
     
     
-    helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.0.0 \
+    helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.1.0 \
       -f PATH_TO_HELM_CONFIG_FILE \
       --namespace spanner-ns-usw1 \
       --set currentLocation=us-west1 \
@@ -192,7 +192,7 @@ The following commands install a Helm chart on clusters. In each command, PATH_T
 #### Install a chart in `us-west2` without monitoring
     
     
-    helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.0.0 \
+    helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.1.0 \
       -f  PATH_TO_HELM_CONFIG_FILE \
       --namespace spanner-ns-usw2 \
       --set currentLocation=us-west2 \
@@ -203,7 +203,7 @@ The following commands install a Helm chart on clusters. In each command, PATH_T
 #### Install a chart in `us-west3` without monitoring
     
     
-    helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.0.0 \
+    helm upgrade --install spanner-omni oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.1.0 \
       -f  PATH_TO_HELM_CONFIG_FILE \
       --namespace spanner-ns-usw3 \
       --set currentLocation=us-west3 \
@@ -348,6 +348,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

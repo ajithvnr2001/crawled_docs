@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/create-manage-users/
 title: Manage users with built-in authentication \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:46.680336+00:00
+fetched_at: 2026-10-31T05:53:26.641458+00:00
 ---
 
 # Manage users with built-in authentication  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -1840,13 +1840,17 @@ You should receive a JSON response similar to the following:
 
 ### mysql Client
 
-  1. To change the password, at the `mysql` prompt, use the following [ SET PASSWORD](https://dev.mysql.com/doc/refman/8.0/en/set-password.html) statement: 
-         
-         SET PASSWORD FOR USER_NAME = PASSWORD('auth_string');
+  * To change the password, at the `mysql` prompt, use the following [ SET PASSWORD](https://dev.mysql.com/doc/refman/8.0/en/set-password.html) statement: 
+        
+        SET PASSWORD FOR USER_NAME = 'PASSWORD';
 
-  2. Flush the `mysql.user` table to ensure that the change persists: 
-         
-         FLUSH TABLES mysql.user;
+  * To change the password for another user account (for example, as the `root` user), use the following [ALTER USER](https://dev.mysql.com/doc/refman/8.0/en/alter-user.html) statement:
+        
+        ALTER USER 'USER_NAME'@'HOST' IDENTIFIED BY 'PASSWORD';
+
+  * To ensure that the changes made are written, flush the `mysql.user` table: 
+        
+        FLUSH TABLES mysql.user;
 
 
 
@@ -2236,6 +2240,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

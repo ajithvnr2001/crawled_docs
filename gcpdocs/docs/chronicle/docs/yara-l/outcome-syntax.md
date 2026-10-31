@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/yara-l/outcome-syntax/
 title: Outcome section syntax \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:59.386548+00:00
+fetched_at: 2026-10-31T05:53:44.722896+00:00
 ---
 
 # Outcome section syntax  |  Google Security Operations  |  Google Cloud Documentation
@@ -282,6 +282,8 @@ Mathematical operations are allowed on the following types of operands as long a
 
 Modulus is not allowed on floats.
 
+Standard integer literals default to signed 64-bit integers (`INT64`), which are incompatible with unsigned 64-bit integer (`UINT64`) UDM fields, such as `network.received_bytes`, `network.sent_bytes`, and `principal.file.size`. Combining these types in arithmetic (`+`, `-`, `*`) or modulo (`%`) operations can cause a runtime error in the `outcome` section. To resolve this issue, use `cast.as_int()` or `cast.as_uint()` to match integer types. Explicit casting is required for the `%` operator. For arithmetic operations, you can also force integer constants to behave as floats using floating-point literals, such as `2.0` or `100.0`, or division coercion, such as `(2/1)`, in expressions without other `/` operators on the same line. For more information, see [Arithmetic with unsigned event fields](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-issues#arithmetic_with_unsigned_event_fields).
+
 ## Placeholder variables in outcomes
 
 When computing outcome variables, you can use placeholder variables which were defined in the events section of your query. In this example, assume that `$email_sent_bytes` was defined in the events section of the rule:
@@ -314,7 +316,7 @@ When computing outcome variables, you can use placeholder variables which were d
     
       // Use placeholder in a mathematical computation.
       $total_bytes_exfiltrated = sum(
-        1024
+        1024.0
         + $email_sent_bytes
         + $file_event.principal.file.size
       )
@@ -482,6 +484,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

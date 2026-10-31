@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrate-across-regions/design-resilient-single-region-environments/
 title: Migrate across Google Cloud regions: Design resilient single-region environments on Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:58.700236+00:00
+fetched_at: 2026-10-31T05:57:42.504563+00:00
 ---
 
 # Migrate across Google Cloud regions: Design resilient single-region environments on Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/vertex-ai-ocr-supported-langs/
 title: Supported languages \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:22:14.021535+00:00
+fetched_at: 2026-10-31T05:53:24.372342+00:00
 ---
 
 # Supported languages  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Supported languages Stay organized with collections  Save and categorize content based on your preferences. 
 
-The text recognition feature of Google Distributed Cloud (GDC) air-gapped appliance detects a variety of languages and can detect multiple languages in a single image.
+The text recognition feature in Google Distributed Cloud (GDC) air-gapped appliance lets you [detect and extract print and handwritten text](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/quickstart-ocr-images) across multiple languages within a single image. To improve detection accuracy when an image is ambiguous, you can provide optional `BCP 47` language hints in your Optical Character Recognition (OCR) API requests.
 
-You can specify an optional language hint to an Optical Character Recognition (OCR) API request. For example, you might want to provide a hint when the API is having trouble detecting the language used in your image.
+## Specify language hints
 
 To specify optional language hints, add them to your `BatchAnnotateImages` or `BatchAnnotateFiles` request in the `image_context` field as a list of values in the `language_hints` field.
 
@@ -45,7 +45,7 @@ The text recognition feature supports three levels of language:
 
 
 
-One of the key features of the OCR service is the capability to [detect and extract text from images](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/quickstart-ocr-images). An image can be, for example, handwritten text. For a list of handwriting scripts that are supported for handwriting recognition, see Handwriting scripts.
+For a list of handwriting scripts that are supported for handwriting recognition, see Handwriting scripts.
 
 ## Supported languages
 
@@ -297,6 +297,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-04-08 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-04-08 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

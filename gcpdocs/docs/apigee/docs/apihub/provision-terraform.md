@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/apihub/provision-terraform/
 title: Provision API hub using Terraform \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:51:53.736871+00:00
+fetched_at: 2026-10-31T06:00:17.708864+00:00
 ---
 
 # Provision API hub using Terraform  |  Apigee  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ To use a local development environment, follow these steps:
 `
     
     
-    gcloud projects add-iam-policy-binding PROJECT_ID --member="user:USER_IDENTIFIER" --role=ROLE
+    gcloud projects add-iam-policy-binding PROJECT_ID --member="user:USER_IDENTIFIER&quot; --role=ROLE
 
 Replace the following:
 
@@ -343,7 +343,7 @@ Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["
        * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
        * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/ve828226d17bf98b2ac333a1bbe96ed6401cc6183d543bad39ccac2722acbc6a7/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
      * [ Android ](https://developer.android.com/)
      * [ Chrome ](https://developer.chrome.com/)
      * [ Firebase ](https://firebase.google.com/)

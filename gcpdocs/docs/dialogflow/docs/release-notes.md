@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/docs/release-notes/
 title: Dialogflow release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:47:08.310646+00:00
+fetched_at: 2026-10-31T05:58:28.432707+00:00
 ---
 
 # Dialogflow release notes  |  Google Cloud Documentation
@@ -28,6 +28,12 @@ This page documents production updates to Dialogflow CX (and Dialogflow ES). We 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/dialogflow-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Security
+
+**Dialogflow ES** : The Dialogflow ES [LINE integration](https://docs.cloud.google.com/dialogflow/es/docs/integrations/line#signature-verification) validates the `X-Line-Signature` HTTP header on incoming webhook requests using your LINE channel secret and rejects requests with missing, duplicate, or invalid signatures with an HTTP `400 Bad Request` error. Make sure your configured channel secret matches your LINE Messaging API channel and that any intermediate proxy forwards the `X-Line-Signature` header and raw request body unmodified.
 
 ## October 19, 2026
 

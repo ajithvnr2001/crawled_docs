@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/jobs/gpu/
 title: Configure GPUs for Cloud Run jobs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:27.704240+00:00
+fetched_at: 2026-10-31T05:49:35.296883+00:00
 ---
 
 # Configure GPUs for Cloud Run jobs  |  Google Cloud Documentation
@@ -355,12 +355,16 @@ For more information, see [Best practices: Cloud Run jobs with GPUs](https://doc
 
 ## What's next
 
-See [Run AI inference on Cloud Run with GPUs](https://docs.cloud.google.com/run/docs/ai/inference) for tutorials.
+  * See an example that illustrates [finetuning with checkpointing](https://github.com/GoogleCloudPlatform/devrel-demos/blob/main/ai-ml/finetune_gemma/README.md#interruption-resilience--checkpoint-configuration).
+  * Learn how to design [resilient long-running GPU jobs](https://docs.cloud.google.com/run/docs/tutorials/long-running-gpu-jobs) that checkpoint and resume across infrastructure interruptions.
+  * See [Run AI inference on Cloud Run with GPUs](https://docs.cloud.google.com/run/docs/ai/inference) for tutorials.
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

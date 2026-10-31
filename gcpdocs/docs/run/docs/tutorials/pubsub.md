@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/tutorials/pubsub/
 title: Use Pub/Sub with Cloud Run tutorial \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:41.194870+00:00
+fetched_at: 2026-10-31T05:50:22.979284+00:00
 ---
 
 # Use Pub/Sub with Cloud Run tutorial  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Use Pub/Sub with Cloud Run tutorial Stay organized with collections  Save and categorize content based on your preferences. 
 
-This tutorial shows how to write, deploy, and call a Cloud Run service from a [Pub/Sub push subscription](https://docs.cloud.google.com/pubsub/docs/push).
+This tutorial shows how to write, deploy, and call a Cloud Run service from a [Pub/Sub push subscription](https://docs.cloud.google.com/pubsub/docs/push) using a [direct Pub/Sub trigger](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers).
 
 ## Objectives
 
@@ -200,11 +200,34 @@ OK
 ## Create an Artifact Registry standard repository
 
 Create an Artifact Registry standard repository to store your container image:
+
+###  Console 
+
+  1. In the Google Cloud console, go to the **Repositories** page:
+
+[Open the Repositories page](https://console.cloud.google.com/artifacts)
+
+  2. Click **Create Repository**.
+
+  3. Specify the repository name. For each repository location in a project, repository names must be unique.
+
+  4. Leave the default repository format (Docker).
+
+  5. Leave the default repository mode (Standard).
+
+  6. For the location, leave the default location type (Region), and select a region. For information about location types and supported locations, see [Repository locations](https://docs.cloud.google.com/artifact-registry/docs/repositories/repository-locations).
+
+  7. Leave the remaining options as the default values and click **Create**.
+
+
+
+
+###  gcloud 
     
     
     gcloud artifacts repositories create REPOSITORY \
-        --repository-format=docker \
-        --location=REGION
+      --repository-format=docker \
+      --location=REGION
 
 Replace:
 
@@ -216,6 +239,21 @@ Replace:
 ## Create a Pub/Sub topic
 
 The sample service is triggered by messages published to a Pub/Sub topic, so you'll need to create a topic in Pub/Sub.
+
+###  Console 
+
+To create a topic, follow these steps:
+
+  1. In the Google Cloud console, go to the Pub/Sub **Create topic** page.
+
+[Go to Create topic](https://console.cloud.google.com/cloudpubsub/topic/create)
+
+  2. In the **Topic ID** field, enter an ID for your topic, such as `myRunTopic`. For more information about naming topics, see the [naming guidelines](https://docs.cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+
+  3. Leave the remaining options as the default values, and click **Create**.
+
+
+
 
 ###  gcloud 
 
@@ -321,10 +359,10 @@ The Node.js web server is set up in `app.js`.
 The web server is started in `index.js`:
         
         const app = require('./app.js');
-        const PORT = parseInt(parseInt(process.env.PORT)) || 8080;
+        const PORT = parseInt(process.env.PORT, 10) || 8080;
         
         app.listen(PORT, () =>
-          console.log(`nodejs-pubsub-tutorial listening on port ${PORT}`)
+        console.log(`nodejs-pubsub-tutorial listening on port ${PORT}`)
         );
 
 ###  Python 
@@ -538,7 +576,7 @@ The web server is started in `index.js`:
         });
         
 
-You must code the service to return an accurate HTTP response code. Success codes, such as HTTP `200` or `204`, acknowledge complete processing of the Pub/Sub message. Error codes, such as HTTP `400` or `500`, indicate the message will be retried, as described in [Receiving messages using Push guide](https://docs.cloud.google.com/pubsub/docs/push). Unlike functions created with the **Cloud Functions v2 API** , you cannot disable retries for functions created with the **Cloud Run Admin API**. To learn more, see [Configure event-driven function retries](https://docs.cloud.google.com/run/docs/tips/function-retries).
+You must code the service to return an accurate HTTP response code. Success codes, such as HTTP `200` or `204`, acknowledge complete processing of the Pub/Sub message. Error codes, such as HTTP `400` or `500`, indicate the message will be retried, as described in [Receiving messages using Push guide](https://docs.cloud.google.com/pubsub/docs/push).
 
   * A `Dockerfile` that defines the operating environment for the service. The contents of the `Dockerfile` vary by language.
 
@@ -762,7 +800,19 @@ Upon success, you should see a SUCCESS message containing the ID, creation time,
 
   2. Deploy your application:
 
-### Command line
+### Console
+
+     1. In the Google Cloud console, go to the Cloud Run **Services** page:   
+[ Go to Cloud Run ](https://console.cloud.google.com/run/services)
+     2. Click **Deploy container**. 
+     3. In the **Create service** page, select **Deploy one revision from an existing container image**. 
+     4. In the **Container image URL** field, enter the image URL that you created earlier. For example, `REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/pubsub`. 
+     5. In the **Service name** field, enter `pubsub-tutorial`. 
+     6. In the **Region** field, select the same region used for the Artifact Registry repository. 
+     7. In the **Authentication** field, select **Require authentication**. 
+     8. Leave the remaining fields as default and click **Create**. 
+
+### gcloud
 
      1. Run the following command to deploy your app:
             
@@ -773,7 +823,7 @@ Replace:
         * REPOSITORY with the name of the Artifact Registry repository.
         * REGION with the Google Cloud region to be used for the Artifact Registry repository.
 
-`pubsub` is the image name and `pubsub-tutorial` is the name of the service. Notice that the container image is deployed to the service and region that you configured previously under [Setting up gcloud](https://docs.cloud.google.com/run/docs/securing/managing-access)
+`pubsub` is the image name and `pubsub-tutorial` is the name of the service. Notice that the container image is deployed to the service and region that you configured previously under Set up gcloud defaults
 
 The `--no-allow-unauthenticated` flag restricts unauthenticated access to the service. By keeping the service private you can rely on Cloud Run's automatic Pub/Sub integration to authenticate requests. See Integrate with Pub/Sub for more details on how this is configured. For more details about authentication that is based on Identity and Access Management (IAM), see [Managing access using IAM](https://docs.cloud.google.com/run/docs/securing/managing-access). 
 
@@ -812,9 +862,31 @@ Replace:
 
 ## Integrate with Pub/Sub
 
-**Important:** If your project was created on or before April 8, 2021, you must grant the [`iam.serviceAccountTokenCreator`](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountTokenCreator) role to the [service agent](https://docs.cloud.google.com/iam/docs/service-agents) `service-{PROJECT_NUMBER}@gcp-sa-pubsub.iam.gserviceaccount.com` on the project in order to allow Pub/Sub to create tokens. However, if your project was created after that date, you do not need to grant it this role because it has the [`roles/pubsub.serviceAgent`](https://docs.cloud.google.com/iam/docs/roles-permissions/pubsub#pubsub.serviceAgent) role with identical permissions.
+**Important:** If your project was created on or before April 8, 2021, you must grant the [`iam.serviceAccountTokenCreator`](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountTokenCreator) role to the [service agent](https://docs.cloud.google.com/iam/docs/service-agents) `service-PROJECT_NUMBER@gcp-sa-pubsub.iam.gserviceaccount.com` on the project in order to allow Pub/Sub to create tokens. However, if your project was created after that date, you do not need to grant it this role because it has the [`roles/pubsub.serviceAgent`](https://docs.cloud.google.com/iam/docs/roles-permissions/pubsub#pubsub.serviceAgent) role with identical permissions.
 
 To integrate the service with Pub/Sub:
+
+###  Console 
+
+  1. In the Google Cloud console, go to the Cloud Run **Services** page:
+
+[Go to Cloud Run](https://console.cloud.google.com/run/services)
+
+  2. Click the `pubsub-tutorial` service.
+
+  3. Select the **Triggers** tab.
+
+  4. Click add **Add trigger** , and select **Pub/Sub trigger > Direct**.
+
+  5. In the **Direct Pub/Sub subscription** panel:
+
+     * Select the topic you created earlier in the **Cloud Pub/Sub topic** field.
+     * In the **Service account** field, select the service account that the subscription uses to invoke your service. If the console lists missing roles, click **Grant all**.
+     * For the **Service URL path** , enter the path on your service that should receive messages, such as `/` (default) or `/pubsub`. The console adds this path to your service's URL.
+  6. Click **Save**.
+
+
+
 
 ###  gcloud 
 
@@ -1013,6 +1085,7 @@ You can also delete Cloud Run services from the [Google Cloud console](https://c
 
 ## What's next
 
+  * Learn how to [configure Pub/Sub triggers](https://docs.cloud.google.com/run/docs/triggering/pubsub-triggers).
   * Learn how to [configure retries](https://docs.cloud.google.com/run/docs/tips/function-retries).
   * See [Restricting ingress](https://docs.cloud.google.com/run/docs/securing/ingress) for information on increasing production security by using internal ingress controls to limit ingress.
   * Expand the sample service deployed in this tutorial to add [image processing functionality that modifies images uploaded to Cloud Storage](https://docs.cloud.google.com/run/docs/tutorials/image-processing).
@@ -1026,6 +1099,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

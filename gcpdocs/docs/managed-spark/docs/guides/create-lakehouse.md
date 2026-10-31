@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/create-lakehouse/
 title: Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:35.953550+00:00
+fetched_at: 2026-10-31T05:40:24.395919+00:00
 ---
 
 # Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -30,6 +30,33 @@ This architecture uses open table formats like Iceberg to add data warehousing c
 This document covers catalogs that you create in Lakehouse runtime catalog. To query Iceberg tables that are managed by AWS Glue Data Catalog, Databricks Unity Catalog, or Snowflake Horizon Catalog through Lakehouse runtime catalog federated catalogs, see [Query federated catalogs with Spark](https://docs.cloud.google.com/managed-spark/docs/guides/query-federated-catalogs).
 
 ![Diagram showing the components of a lakehouse architecture, including Managed Service for Apache Spark, Cloud Storage, and the Lakehouse REST Catalog.](https://docs.cloud.google.com/static/managed-spark/images/architecture-lakehouse.png)Lakehouse architecture diagram.
+
+## About the Lakehouse runtime catalog
+
+The Lakehouse runtime catalog is a serverless, fully managed metastore built on [Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/introduction). It stores table metadata for open table formats such as Iceberg, and exposes the following endpoints:
+
+  * **[Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint)** : lets Spark and other engines read and write Iceberg tables through the standard Iceberg REST protocol.
+  * **[Hive catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-spark-hive-metastore)** : lets Spark and Hive workloads manage standard Hive and Spark tables, such as Parquet, ORC, Avro, and Delta Lake tables, without a self-hosted Hive Metastore.
+
+
+
+Starting with Managed Service for Apache Spark image and runtime versions `4.0`, the Lakehouse runtime catalog is the default Spark catalog, so you can create and query Iceberg tables without any catalog configuration.
+
+### Benefits compared with the Hive Metastore
+
+By default, open source Apache Spark stores table metadata in a Hive Metastore that runs with the cluster, such as an embedded Apache Derby database or a Hive Metastore service on the cluster master node. The Lakehouse runtime catalog provides the following advantages:
+
+Capability | Spark Hive Metastore | Lakehouse runtime catalog  
+---|---|---  
+Infrastructure | Runs on the cluster. You size, patch, back up, and scale it. | Serverless and fully managed. No metastore infrastructure to operate.  
+Metadata lifetime | Tied to the cluster. Metadata is lost when you delete an ephemeral cluster, and serverless workloads have no persistent metastore. | Persists independently of clusters, batch workloads, and sessions.  
+Sharing across workloads | Each cluster has its own metastore unless you set up and connect an external metastore. | Clusters, batch workloads, sessions, and other projects share the same catalog.  
+Multi-engine access | Spark and Hive. | Spark, Hive, BigQuery, and any engine that supports the Iceberg REST protocol.  
+Table formats | Hive tables. Iceberg requires additional catalog configuration. | Iceberg tables through the Iceberg REST catalog endpoint, and Hive tables through the Hive catalog endpoint.  
+Access control | Metastore-level access, often managed separately from data access. | IAM-based catalog and table permissions.  
+Setup | Manual catalog properties in every cluster or workload. | On by default for image and runtime version `4.0` and later.  
+  
+For a detailed list of Hive Metastore operations that the Hive catalog endpoint supports, see [Feature comparison with Hive Metastore](https://docs.cloud.google.com/lakehouse/docs/about-spark-hive-metastore#feature-compare-hive).
 
 ## Before you begin
 
@@ -79,7 +106,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 [Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=dataproc.googleapis.com,biglake.googleapis.com,bigquery.googleapis.com,storage.googleapis.com)
 
   10. [Create a Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/creating-buckets) to store Iceberg data.
-  11. [Create a catalog in Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog#process) that points to your bucket. A multiple-bucket catalog is recommended.
+  11. [Create a catalog in Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog#process) that points to your bucket. A multiple-bucket catalog is recommended. This step is optional for image and runtime versions `4.0` and later if you use the default starter catalog, which is created automatically.
 
 
 
@@ -133,24 +160,110 @@ To ensure that the Compute Engine default service account or a custom service ac
 
 
 
+## Use the Lakehouse runtime catalog
+
+Starting with image and runtime version `4.0`, Managed Service for Apache Spark sets the Lakehouse runtime catalog as the default Spark catalog for clusters, batch workloads, interactive sessions, and runtime profiles. You don't need to create a catalog or set any catalog properties.
+
+On image and runtime version `3.0` and earlier, you can opt in to the default Lakehouse runtime catalog by setting the following property:
+
+  * Batch workloads, interactive sessions, and runtime profiles: `dataproc.lakehouse.defaultCatalog=standard-lh-catalog-REGION`
+  * Clusters: `dataproc:dataproc.lakehouse.defaultCatalog=standard-lh-catalog-REGION`
+
+
+
+Replace `REGION` with the region of the workload, for example, `us-central1`.
+
+Managed Service for Apache Spark resolves the default catalog as follows:
+
+  1. If you set `dataproc.lakehouse.defaultCatalog` (for clusters, `dataproc:dataproc.lakehouse.defaultCatalog`), Managed Service for Apache Spark uses your value and doesn't change it.
+
+  2. Otherwise, for image and runtime version `4.0` and later, Managed Service for Apache Spark sets `dataproc.lakehouse.defaultCatalog` to the regional starter catalog, `standard-lh-catalog-REGION`, where `REGION` is the region of the workload. If the starter catalog doesn't exist, Managed Service for Apache Spark creates it automatically in the project that runs the workload. You don't need any additional IAM roles to create the starter catalog.
+
+  3. For image and runtime version `3.0` and earlier, Managed Service for Apache Spark doesn't set a default catalog. To opt in, set `dataproc.lakehouse.defaultCatalog=standard-lh-catalog-REGION` explicitly, as described earlier in this section.
+
+
+
+
+When the default catalog is set, Spark registers it with the catalog name `default_catalog` and the following resolved properties:
+
+Spark property | Value  
+---|---  
+`spark.sql.defaultCatalog` | `default_catalog`  
+`spark.sql.catalog.default_catalog` | `org.apache.iceberg.spark.SparkCatalog`  
+`spark.sql.catalog.default_catalog.type` | `rest`  
+`spark.sql.catalog.default_catalog.warehouse` | `bl://projects/PROJECT_ID/catalogs/CATALOG_ID`  
+  
+As a result, unqualified table names such as `my_namespace.my_table` resolve to `default_catalog.my_namespace.my_table` in the Lakehouse runtime catalog.
+
+### Set the default catalog
+
+To use the Lakehouse runtime catalog as the default catalog on an earlier image or runtime version, or to use a catalog other than the starter catalog, set the `dataproc.lakehouse.defaultCatalog=CATALOG` property (for clusters, `dataproc:dataproc.lakehouse.defaultCatalog=CATALOG`), where `CATALOG` is one of the following:
+
+  * `standard-lh-catalog-REGION`: the regional starter catalog in the workload project.
+  * `projects/PROJECT_ID/catalogs/CATALOG_ID`: an existing catalog, which can be in another project.
+
+
+
+For example, the following command submits a batch workload that uses an existing catalog as the default catalog:
+    
+    
+    gcloud dataproc batches submit pyspark PYSPARK_FILE \
+        --region=REGION \
+        --version=RUNTIME_VERSION \
+        --properties=dataproc.lakehouse.defaultCatalog=projects/PROJECT_ID/catalogs/CATALOG_ID
+
+To configure the default catalog in the Google Cloud console, see the Runtime profile and Cluster configuration instructions.
+
+### Opt out of the starter catalog
+
+On image and runtime version `4.0` and later, you can opt out of the regional starter catalog by setting `dataproc.lakehouse.defaultCatalog=CATALOG` (for clusters, `dataproc:dataproc.lakehouse.defaultCatalog=CATALOG`) to the full resource name of another catalog, such as `projects/PROJECT_ID/catalogs/CATALOG_ID`. Managed Service for Apache Spark uses your catalog instead of the starter catalog, and doesn't override the property when you set it explicitly.
+
+**Note:** If you set `spark.sql.defaultCatalog`, as the examples in Configure Managed Service for Apache Spark and create a Spark session do, Managed Service for Apache Spark doesn't set the starter catalog as the default catalog.
+
+### Verify the default catalog
+
+  1. Check the resolved properties:
+
+     * For interactive sessions, run the following command:
+           
+           gcloud beta dataproc sessions describe SESSION_ID \
+               --location=REGION \
+               --format="yaml(runtimeConfig.properties)"
+
+     * For clusters, check `/etc/spark/conf/spark-defaults.conf` on the master node.
+
+  2. In your Spark application, confirm that the default catalog is active:
+         
+         print(spark.conf.get("spark.sql.defaultCatalog"))  # default_catalog
+         
+
+
+
+
 ## Configure Managed Service for Apache Spark and create a Spark session
 
-Configure a Managed Service for Apache Spark cluster, a Managed Service for Apache Spark serverless batch workload, or a Managed Service for Apache Spark serverless interactive session to use the Lakehouse runtime catalog Iceberg REST Catalog. All three support the `dataproc.lakehouse.catalog.CATALOG_NAME` simplified configuration property (recommended), which lets Managed Service for Apache Spark read the catalog definition and generate the Iceberg REST Catalog Spark properties. Only the cluster form takes the `dataproc:` prefix.
+Configure a cluster, a batch workload, or an interactive session to use the Lakehouse runtime catalog Iceberg REST Catalog. All three support the `dataproc.lakehouse.catalog.CATALOG_NAME` simplified configuration property (recommended), which lets Managed Service for Apache Spark read the catalog definition and generate the Iceberg REST Catalog Spark properties. Only the cluster form takes the `dataproc:` prefix.
+
+On image and runtime version `4.0` and later, you can skip this configuration and use the default Lakehouse runtime catalog. Use the following instructions to register your own catalogs, or to configure the Lakehouse runtime catalog on earlier versions.
 
 **Supported image and runtime versions:**
 
 Both simplified configuration and manual configuration use Google authorization for Iceberg (`GoogleAuthManager`), which requires one of the following versions:
 
-  * Managed Service for Apache Spark clusters: `2.2` image versions `2.2.65` and later, or `2.3` image versions `2.3.11` and later.
-  * Managed Service for Apache Spark serverless batch workloads and interactive sessions: `2.2` runtimes `2.2.60` and later, `2.3` runtimes `2.3.10` and later, or `3.0` runtimes.
+  * Managed Service for Apache Spark clusters: `2.2` image versions `2.2.65` and later, `2.3` image versions `2.3.11` and later, or `4.0` and later image versions.
+  * Managed Service for Apache Spark serverless batch workloads and interactive sessions: `2.2` runtimes `2.2.60` and later, `2.3` runtimes `2.3.10` and later, or `3.0` and later runtimes.
 
 
+
+On image and runtime version `4.0` and later, the Lakehouse runtime catalog is the default catalog.
 
 For serverless batch workloads and interactive sessions, the required roles depend on the runtime version. Runtimes `3.0` and later use end-user credentials by default. For details, see Required roles.
 
 ###  Cluster 
 
 Create a Managed Service for Apache Spark cluster with the Iceberg and Jupyter optional components using simplified configuration properties (recommended), or by manually specifying catalog properties in your notebook.
+
+**Note:** On image version `4.0` and later, clusters use the default Lakehouse runtime catalog without any catalog properties.
 
 ### Simplified configuration using properties (recommended)
 
@@ -250,9 +363,30 @@ The following example configures the `SparkSession` with credential vending:
 
 Simplified configuration adds this header when the catalog uses credential vending mode. For more information, see the [Headers in the `RESTCatalog`](https://py.iceberg.apache.org/configuration/#headers-in-rest-catalog) section of the Iceberg documentation.
 
+### Console configuration
+
+To configure the Lakehouse runtime catalog when you create a cluster in the Google Cloud console, complete the following steps:
+
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Clusters** page.
+
+[Go to Clusters](https://console.cloud.google.com/dataproc/clusters)
+
+  2. Click **Create cluster** , and then click **Create** in the **Cluster on Compute Engine** row.
+
+  3. In the metastore configuration step, under **Select metastore and project** , select **Lakehouse runtime catalog**.
+
+  4. Configure the **Project ID** , the **Iceberg REST Endpoint** catalog, and the optional **Hive Endpoint** catalog, as described in the Runtime profile tab.
+
+  5. Complete the remaining cluster settings, and then click **Create**.
+
+
+
+
 ###  Serverless 
 
 Submit a PySpark batch workload to Managed Service for Apache Spark serverless using simplified configuration properties (recommended), or by manually specifying catalog properties.
+
+**Note:** On runtime version `4.0` and later, batch workloads use the default Lakehouse runtime catalog without any catalog properties.
 
 ### Simplified configuration using properties (recommended)
 
@@ -337,6 +471,8 @@ Simplified configuration adds this header when the catalog uses credential vendi
 
 Create a Managed Service for Apache Spark serverless interactive session from a notebook with the [`DataprocSparkSession`](https://docs.cloud.google.com/managed-spark/docs/guides/spark-connect-client) API, using simplified configuration properties (recommended), or by manually specifying catalog properties.
 
+**Note:** On runtime version `4.0` and later, interactive sessions use the default Lakehouse runtime catalog without any catalog properties.
+
 ### Simplified configuration using properties (recommended)
 
 In a notebook that has the `dataproc-spark-connect` package installed, such as a BigQuery Studio notebook or a Vertex AI Workbench notebook, pass the `dataproc.lakehouse.catalog.CATALOG_NAME` property (without the `dataproc:` prefix) when you create the session:
@@ -366,7 +502,7 @@ Replace the following:
 
 
 
-You can also set these properties in a [session template](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates).
+You can also configure a Lakehouse catalog in a runtime profile. For more information, see the Runtime profile tab.
 
 #### Manual configuration
 
@@ -432,11 +568,71 @@ The following example creates a session with credential vending:
 
 Simplified configuration adds this header when the catalog uses credential vending mode. For more information, see the [Headers in the `RESTCatalog`](https://py.iceberg.apache.org/configuration/#headers-in-rest-catalog) section of the Iceberg documentation.
 
+###  Serverless 
+
+A [runtime profile](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#create-a-runtime-profile), called a session template in the gcloud CLI and the Dataproc API, stores reusable serverless settings, including the metastore. Interactive sessions that you create from the runtime profile use its catalog configuration.
+
+### Console configuration
+
+  1. In the Google Cloud console, go to the **Runtime Profiles** page.
+
+[Go to Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles)
+
+  2. Click **Create** , or click the name of an existing runtime profile and then click **Edit**.
+
+  3. Expand **Additional configuration** , and then next to **Metastore configuration** , click **Edit**.
+
+  4. Select **Lakehouse runtime catalog**. This is the default selection.
+
+  5. Configure the catalog:
+
+     * **Project ID** : the project that contains the catalog. The default is the current project.
+     * **Iceberg REST Endpoint** : selected by default. Choose one of the following: 
+       * Define a new catalog to use the regional starter catalog, `standard-lh-catalog-REGION`.
+       * Choose an existing **Catalog ID**.
+     * Optional: **Hive Endpoint** : select this checkbox and specify the **Project ID** , **Catalog ID** , and **Catalog Name** of a Hive catalog.
+  6. Click **Save** , and then click **Create** or **Save**.
+
+
+
+
+### gcloud configuration
+
+  1. Create a YAML file that sets the default catalog in `runtimeConfig.properties`:
+         
+         runtimeConfig:
+         version: "RUNTIME_VERSION"
+         properties:
+           dataproc.lakehouse.defaultCatalog: projects/PROJECT_ID/catalogs/CATALOG_ID
+         sparkConnectSession: {}
+
+On runtime version `4.0` and later, you can omit `dataproc.lakehouse.defaultCatalog` to use the regional starter catalog.
+
+  2. Import the file to create or update the runtime profile:
+         
+         gcloud beta dataproc session-templates import RUNTIME_PROFILE_ID \
+           --location=REGION \
+           --source=FILE_NAME.yaml
+
+
+
+
+Replace the following:
+
+  * `RUNTIME_VERSION`: the Managed Service for Apache Spark serverless runtime version, for example, `4.0`.
+  * `PROJECT_ID`: the project that contains the catalog.
+  * `CATALOG_ID`: the ID of the catalog.
+  * `RUNTIME_PROFILE_ID`: the ID of the runtime profile.
+  * `REGION`: the region of the runtime profile.
+  * `FILE_NAME`: the name of the YAML file.
+
+
+
 ## Manage data with Spark SQL
 
 After you configure the Spark session, use Spark SQL to perform data management operations.
 
-**Setting the catalog:** The `dataproc.lakehouse.catalog.` property registers the catalog with Spark, but it doesn't make it the _default_ catalog. The examples in the preceding section set `spark.sql.defaultCatalog` (`spark:spark.sql.defaultCatalog` on a cluster) so that you can use unqualified table names. If you omit that property, qualify table names with the catalog name—for example, `CATALOG_NAME.NAMESPACE_NAME.base_table`.
+**Setting the catalog:** The `dataproc.lakehouse.catalog.` property registers the catalog with Spark, but it doesn't make it the _default_ catalog. The examples in the preceding section set `spark.sql.defaultCatalog` (`spark:spark.sql.defaultCatalog` on a cluster) so that you can use unqualified table names. If you omit that property, qualify table names with the catalog name—for example, `CATALOG_NAME.NAMESPACE_NAME.base_table`. On image and runtime version `4.0` and later, if you don't set `dataproc.lakehouse.defaultCatalog`, unqualified table names resolve to the default Lakehouse runtime catalog (`default_catalog`).
 
   1. Create a namespace. In the Lakehouse runtime catalog Iceberg REST Catalog, a namespace corresponds to a BigQuery dataset.
          
@@ -645,6 +841,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

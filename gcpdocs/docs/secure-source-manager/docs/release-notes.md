@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secure-source-manager/docs/release-notes/
 title: Secure Source Manager release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:59:20.830239+00:00
+fetched_at: 2026-10-31T05:49:14.775435+00:00
 ---
 
 # Secure Source Manager release notes  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page documents production updates to Secure Source Manager. Check this page
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/secure-source-manager-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Feature
+
+You can now enable [vulnerability scanning](https://docs.cloud.google.com/secure-source-manager/docs/enable-vulnerability-scanning) to detect known vulnerabilities in your dependencies.
 
 ## September 29, 2026
 

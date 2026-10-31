@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-spatial-analysis/
 title: Best practices for spatial analysis \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:52.059498+00:00
+fetched_at: 2026-10-31T05:56:25.047138+00:00
 ---
 
 # Best practices for spatial analysis  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Best practices for spatial analysis
 
-This document describes best practices for optimizing geospatial query performance in BigQuery. You can use these best practices to improve performance and reduce cost and latency.
+When you analyze complex geospatial features in BigQuery, datasets can contain large collections of polygons, multipolygon shapes, and linestrings to represent complex features—for example, roads, land parcels, and flood zones. Each shape can contain thousands of points. In most spatial operations in BigQuery (for example, intersections and distance calculations), the underlying algorithm usually visits the majority of points in each shape to produce a result. For some operations, the algorithm visits all points.
 
-Datasets can contain large collections of polygons, multipolygon shapes, and linestrings to represent complex features—for example, roads, land parcels, and flood zones. Each shape can contain thousands of points. In most spatial operations in BigQuery (for example, intersections and distance calculations), the underlying algorithm usually visits the majority of points in each shape to produce a result. For some operations, the algorithm visits all points. For complex shapes, visiting each point can increase the cost and duration of the spatial operations. You can use the strategies and methods presented in this guide to optimize these common spatial operations for improved performance and reduced cost.
+Processing shapes with thousands of points can drastically increase your query costs and duration. To optimize your geospatial query performance and reduce latency, you can apply specific spatial analysis best practices to your datasets.
 
 This document assumes that your BigQuery geospatial tables are [clustered on a geography column](https://docs.cloud.google.com/bigquery/docs/geospatial-data#partitioning_and_clustering_geospatial_data).
 
@@ -198,6 +198,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/restore-data/restore-compute-engine/
 title: Restore a Compute Engine instance from the appliance management console \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:44.989843+00:00
+fetched_at: 2026-10-31T06:00:16.674256+00:00
 ---
 
 # Restore a Compute Engine instance from the appliance management console  |  Backup and DR  |  Google Cloud Documentation
@@ -34,6 +34,11 @@ Before restoring a backup image, make sure you have all the required permissions
   * Grant the Backup and DR Compute Engine Operator (`roles/backupdr.computeEngineOperator`) IAM role for the [backup vault service agent](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/backup-vault-create#service-agent) of the vault in the target project where restore is being performed.
 
   * Grant the Compute Network User (`roles/compute.networkUser`) IAM role for the [backup vault service agent](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/backup-vault-create#service-agent) of the vault in the VPC host project if you are using Shared VPC.
+
+  * Grant the Service Account User (`roles/iam.serviceAccountUser`) IAM role for the [backup vault service agent](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/backup-vault-create#service-agent) of the vault on the service account in the other project if you are using a cross-project service account.
+
+
+**Note:** If the restored Compute Engine instance uses a service account from a different project (cross-project service account setup), the backup vault service agent needs the `iam.serviceAccount.ActAs` permission on that service account. Additionally, the `iam.disableCrossProjectServiceAccountUsage` organization policy may need to be disabled on the service account's project.
 
   * Grant the following IAM roles for the user who performs the restore in the backup vault project.
 
@@ -154,6 +159,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

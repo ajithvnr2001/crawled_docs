@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade/
 title: Upgrade clusters \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:37.979010+00:00
+fetched_at: 2026-10-31T05:50:34.558968+00:00
 ---
 
 # Upgrade clusters  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,17 +22,15 @@ Send feedback
 
 #  Upgrade clusters Stay organized with collections  Save and categorize content based on your preferences. 
 
-When you install a new version of `bmctl`, you can upgrade your existing clusters that were created with an earlier version. Upgrading a cluster to the latest Google Distributed Cloud version brings added features and fixes to your cluster. It also ensures that your cluster remains [supported](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/getting-support#version-support). You can upgrade admin, hybrid, standalone, or user clusters with the `bmctl upgrade cluster` command, or you can use `kubectl`.
+The `bmctl` command-line tool lets you upgrade existing clusters to the latest Google Distributed Cloud version. Upgrading adds new features and fixes to your cluster while ensuring that it remains [supported](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/getting-support#version-support). You can upgrade admin, hybrid, standalone, or user clusters by using the `bmctl upgrade cluster` command or `kubectl`.
 
 To learn more about the upgrade process and versioning rules, see [Lifecycle and stages of cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-lifecycle).
-
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
-
-**Note:** When upgrading Google Distributed Cloud from a version with a security patch to the next minor release, we recommend you upgrade to the highest patch version available to ensure you have the latest security patches. Always review the release notes before upgrading so you are aware of what has changed, including security fixes and known issues. Downgrading to a lower cluster version isn't supported.
 
 ## Plan your upgrade
 
 This section contains information and links to information that you should consider before you upgrade a cluster. For more information about upgrades, including versioning rules for clusters and node pools, see [Lifecycle and stages of cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-lifecycle).
+
+When upgrading Google Distributed Cloud from a version with a security patch to the next minor release, we recommend you upgrade to the highest patch version available to ensure you have the latest security patches. Always review the release notes before upgrading so you are aware of what has changed, including security fixes and known issues. Downgrading to a lower cluster version isn't supported.
 
 ### Best practices
 
@@ -909,6 +907,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

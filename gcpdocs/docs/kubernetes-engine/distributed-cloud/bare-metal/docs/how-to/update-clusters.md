@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/update-clusters/
 title: Update clusters \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:17.190863+00:00
+fetched_at: 2026-10-31T05:50:35.531952+00:00
 ---
 
 # Update clusters  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,31 +22,20 @@ Send feedback
 
 #  Update clusters Stay organized with collections  Save and categorize content based on your preferences. 
 
-After you create a cluster, you can change some aspects of the cluster's configuration. For example you can:
+Modifying existing cluster configurations lets you adjust infrastructure capacity and operational settings as your workloads evolve. You can add, remove, or replace nodes, update annotations, and modify mutable settings across your environment by using `bmctl`, the Google Cloud CLI, or Terraform. For a comprehensive list of supported fields, see the [Cluster configuration field reference](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#cluster_configuration_fields).
 
-  * Add, remove, or replace nodes.
-  * Add or remove annotations to the cluster.
-  * Modify the values of mutable fields in the cluster and node pool resources.
-  * Modify other custom resources.
+Tool support depends on the cluster type and the resources you are modifying:
 
-
-
-You can use `bmctl` or the Google Cloud CLI to make updates to a cluster. If you created an admin or user cluster using Terraform, then you can use Terraform to update the cluster. Note the following:
-
-  * Many aspects of your cluster configuration are immutable and can't be updated after you create your cluster. For a comprehensive list of mutable and immutable fields, see the [Cluster configuration field reference](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#cluster_configuration_fields). The field reference is a sortable table. Click the column headings to change the sort order. Click a field name to view its description.
-
-  * The gcloud CLI and Terraform only support updating admin and user clusters. You have to use `bmctl` to update other cluster types.
-
-  * The gcloud CLI and Terraform only support changes to the cluster and node pool resources. You have to use `kubectl` or `bmctl` to update other custom resources that affect the cluster.
-
-Modifying the namespace of an existing cluster in the cluster configuration file is `not a supported operation` and can lead to cluster instability and potential failures. To avoid these issues, don't attempt to modify the cluster namespace after its creation. 
+  * The gcloud CLI and Terraform only support updating admin and user clusters. To update other cluster types, you must use `bmctl`.
+  * The gcloud CLI and Terraform only support changes to `Cluster` and `NodePool` resources. To update other custom resources that affect the cluster, you must use `kubectl` or `bmctl`.
 
 
-
-
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
 ## How to update clusters
+
+Many aspects of your cluster configuration are immutable and can't be updated after you create your cluster. For a comprehensive list of mutable and immutable fields, see the [Cluster configuration field reference](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#cluster_configuration_fields). The field reference is a sortable table. Click the column headings to change the sort order. Click a field name to view its description.
+
+Modifying the namespace of an existing cluster in the cluster configuration file is `not a supported operation` and can lead to cluster instability and potential failures. To avoid these issues, don't attempt to modify the cluster namespace after you create it. 
 
 Generally, you do the following sequence of actions to update a cluster:
 
@@ -1226,6 +1215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/arithmetic_functions/
 title: Arithmetic Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:01.635369+00:00
+fetched_at: 2026-10-31T05:52:41.798500+00:00
 ---
 
 # Arithmetic Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -198,7 +198,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L28-L33)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L28-L33)
 
 ### SUBTRACT
 
@@ -322,7 +322,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L47-L53)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L47-L53)
 
 ### MULTIPLY
 
@@ -439,7 +439,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L67-L72)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L67-L72)
 
 ### DIVIDE
 
@@ -558,7 +558,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L86-L91)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L86-L91)
 
 ### MOD
 
@@ -690,7 +690,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L105-L111)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L105-L111)
 
 ### CEIL
 
@@ -834,7 +834,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L125-L131)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L125-L131)
 
 ### FLOOR
 
@@ -967,7 +967,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L145-L150)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L145-L150)
 
 ### ROUND
 
@@ -1109,7 +1109,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L164-L172)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L164-L172)
 
 ### TRUNC
 
@@ -1383,7 +1383,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L186-L199)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L186-L199)
 
 ### SQRT
 
@@ -1618,7 +1618,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L213-L226)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L213-L226)
 
 ### EXP
 
@@ -1734,7 +1734,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L240-L245)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L240-L245)
 
 ### LN
 
@@ -1853,7 +1853,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L259-L264)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L259-L264)
 
 ### LOG
 

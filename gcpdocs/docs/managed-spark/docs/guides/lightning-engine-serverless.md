@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine-serverless/
 title: Accelerate Spark batch workloads and sessions with Lightning Engine \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:34.811131+00:00
+fetched_at: 2026-10-31T05:53:22.735616+00:00
 ---
 
 # Accelerate Spark batch workloads and sessions with Lightning Engine  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -42,14 +42,17 @@ For more information: see [Introducing Lightning Engine — the next generation 
   * Lightning Engine is available only with the Managed Service for Apache Spark [premium pricing tier](https://docs.cloud.google.com/managed-spark/docs/tiers#premium_tier_differentiation).
 
     * **Batch workloads:** Lightning Engine is automatically enabled for batch workloads on the premium tier. No action is required.
-    * **Interactive sessions:** Lightning Engine is not enabled by default for interactive sessions. To enable it, see [Enable Lightning Engine](https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine#enable_lightning_engine).
-    * **Session templates:** Lightning Engine is not enabled by default for session templates. To enable it, see [Enable Lightning Engine](https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine#enable_lightning_engine).
+
+    * **Interactive sessions:** Lightning Engine isn't enabled by default for interactive sessions. To enable it, see [Enable Lightning Engine](https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine#enable_lightning_engine).
+
+    * **Runtime profiles (session templates):** When you create a runtime profile in the Google Cloud console, the **Premium** tier and **Enable Lightning Engine to accelerate performance** are selected by default. When you create a session template using the Google Cloud CLI or Dataproc API, Lightning Engine isn't enabled by default. To enable or configure it, see [Enable Lightning Engine](https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine#enable_lightning_engine).
+
 
 
 
 ## Enable Lightning Engine
 
-The following sections show you how to enable Lightning engine on a Managed Service for Apache Spark batch workload, session template, and interactive session.
+The following sections show you how to enable Lightning Engine on a Managed Service for Apache Spark batch workload, runtime profile (session template), and interactive session.
 
 ### Batch workload
 
@@ -147,53 +150,50 @@ For more information, see [resource allocation properties](https://docs.cloud.go
 
 See [Submit a Spark batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload) to set other batch workload API fields.
 
-### Session template
+### Runtime profile
 
-### Enable Lightning Engine on a session template
+### Enable Lightning Engine on a runtime profile (session template)
 
-You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to enable Lightning Engine on a session template for a Jupyter or [Spark Connect](https://spark.apache.org/docs/latest/spark-connect-overview.html) session.
+You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to enable Lightning Engine on a runtime profile (session template) for a Jupyter or [Spark Connect](https://spark.apache.org/docs/latest/spark-connect-overview.html) session.
 
 ### Console
 
-Use the Google Cloud console to enable Lightning Engine on a batch workload.
+Use the Google Cloud console to enable Lightning Engine on a runtime profile (session template):
 
-  1. In the Google Cloud console:
+  1. In the Google Cloud console, go to the **Runtime Profiles** page:
 
-     1. [Go to Managed Service for Apache Spark Session Templates](https://console.cloud.google.com/dataproc/sessionTemplates).
-     2. Click **Create** to open the **Create session template** page.
-  2. Select and fill in the following fields:
+[Go to Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles)
 
-     * **Session template info:**
-       * Select "Enable Lightning Engine to accelerate Spark performance".
-     * **Execution Configuration:**
-       * **Runtime version:** Select `2.3`.
-     * **Properties:** Enter the following `Key` (property name) and `Value` pairs to select the Premium tier: 
+  2. Click **Create** to open the **Create a runtime profile** page.
 
-Key | Value  
----|---  
-`dataproc.tier` | premium  
-`spark.dataproc.engine` | lightningEngine  
-  
-Optional: Enter the following `Key` (property name) and `Value` pair to select the Native Query Execution runtime: 
+  3. Select and fill in the following fields:
+
+     * **Tier:** verify that **Premium** (default) is selected, and verify that **Enable Lightning Engine to accelerate performance** (selected by default, which sets `spark.dataproc.engine=lightningEngine`) is selected.
+
+     * **Additional configuration:** configure the following runtime and Spark property settings:
+
+       * **Runtime configuration:** click **Edit** and verify that **Spark runtime version** is set to `2.3`, and then click **Save**.
+
+       * **Other customizations:** (optional) to select the Native Query Execution runtime, click **Edit** , click **Add property** under **Spark properties** , enter the following **Key** (property name) and **Value** pair, and then click **Save** : 
 
 Key | Value  
 ---|---  
 `spark.dataproc.lightningEngine.runtime` | `native`  
 The `spark.dataproc.runtimeEngine=native` property, previously used to enable Native Query Execution, is deprecated. It is unsupported starting with `3.0+` runtimes.
-  3. Fill in, select, or confirm other session template settings. See [Create a session template](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#dataproc_serverless_session_template_create-console).
+  4. Fill in, select, or confirm other runtime profile settings. For more information about runtime profile settings, see [Create a runtime profile](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#dataproc_serverless_session_template_create-console).
 
-  4. Click **Submit** to create the session template.
+  5. Click **Create**.
 
 
 
 
 ### gcloud
 
-You can't directly create a Managed Service for Apache Spark session template using the gcloud CLI. Instead, you can use the `gcloud beta dataproc session-templates import` command to import an existing session template, edit the imported template to enable the Lightning Engine and optionally the Native Query runtime, and then export the edited template using the `gcloud beta dataproc session-templates export` command.
+You can't directly create a Managed Service for Apache Spark session template (runtime profile) using the gcloud CLI. Instead, you can use the `gcloud beta dataproc session-templates import` command to import an existing session template, edit the imported template to enable the Lightning Engine and optionally the Native Query runtime, and then export the edited template using the `gcloud beta dataproc session-templates export` command.
 
 ### API
 
-To enable Lightning Engine on a session template, as part of your [`sessionTemplates.create`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/projects.locations.sessionTemplates/create) request: 
+To enable Lightning Engine on a session template (runtime profile), as part of your [`sessionTemplates.create`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/projects.locations.sessionTemplates/create) request:
 
   * Set [RuntimeConfig.version](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/RuntimeConfig) to `2.3`.
   * Add "dataproc.tier":"premium" and "spark.dataproc.engine":"lightningEngine" to [RuntimeConfig.properties](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/RuntimeConfig).
@@ -206,7 +206,7 @@ Other `RuntimeConfig.properties`:
 
 
 
-See [Create a session template](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#dataproc_serverless_session_template_create-rest) to set other session template API fields.
+For more information about setting other session template API fields, see [Create a runtime profile (session template)](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#dataproc_serverless_session_template_create-rest).
 
 ### Interactive session
 
@@ -287,7 +287,7 @@ You can enable Lightning Engine when you create a session in a [BigQuery Studio 
 
 ## Verify Lightning Engine settings
 
-You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to verify Lightning Engine settings on a batch workload, session template, or interactive session.
+You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to verify Lightning Engine settings on a batch workload, runtime profile (session template), or interactive session.
 
 ### Batch workload
 
@@ -299,23 +299,29 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to verif
 
 
 
-### Session template
+### Runtime profile
 
-  * To verify **engine** is set to `Lightning Engine` for a session template:
+  * To verify **engine** is set to `Lightning Engine` for a runtime profile (session template):
 
-    * Google Cloud console: On the [Session Templates](https://console.cloud.google.com/dataproc/sessionTemplates) page, see the **Engine** column for your template. You can click the session template **Name** to also view this setting on the session template details page.
+    * Google Cloud console: On the [Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles) page, click the runtime profile name to view its settings on the runtime profile details page.
+
     * gcloud CLI: Run the `gcloud beta dataproc session-templates describe` command.
+
     * API: Issue a `sessionTemplates.get` request.
+
 
 
 
 ### Interactive session
 
-  * To the **engine** is set to `Lightning Engine` for an interactive session:
+  * To verify **engine** is set to `Lightning Engine` for an interactive session:
 
-    * Google Cloud console: On the [Interactive Sessions](https://console.cloud.google.com/dataproc/interactive) page, see the **Engine** column for the template. You can click the **Interactive Session ID** to also view this setting on the session template details page.
+    * Google Cloud console: On the [Interactive Sessions](https://console.cloud.google.com/dataproc/interactive) page, see the **Engine** column for the session. You can click the **Interactive Session ID** to also view this setting on the session details page.
+
     * gcloud CLI: Run the `gcloud beta dataproc sessions describe` command.
+
     * API: Issue a `sessions.get` request.
+
 
 
 
@@ -384,6 +390,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

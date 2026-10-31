@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/move-your-cloud-storage-data-to-another-location/
 title: Move your Cloud Storage data to another location \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:48.263461+00:00
+fetched_at: 2026-10-31T06:00:49.595442+00:00
 ---
 
 # Move your Cloud Storage data to another location  |  Storage Transfer Service  |  Google Cloud Documentation

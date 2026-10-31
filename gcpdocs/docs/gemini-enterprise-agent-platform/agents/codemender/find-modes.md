@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/find-modes/
 title: CodeMender find modes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:25.911535+00:00
+fetched_at: 2026-10-31T05:53:22.398373+00:00
 ---
 
 # CodeMender find modes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -195,7 +195,6 @@ Flag | Default | Description
 ---|---|---  
 `--diff[=REF]` | Off |  Enable diff mode against the target reference, such as `origin/main` or `HEAD~1`. Without `REF`, compares against `HEAD`. Can't be used with `--deep` or `--quick`.   
 `--staged` | Off |  Scope diff to staged index only (`git diff --cached`). Requires `--diff`.   
-`--diff-depth DEPTH` | `1` | Traversal depth for impact analysis (1 to 3, default: 1-hop).  
 `--diff-workers COUNT` | `4` |  Number of concurrent workers for pull request audit jobs (1 to 16).   
 `--diff-max-neighbors COUNT` | `10` | Maximum number of dependent caller or callee files to inspect.  
 `--fail-on SEVERITIES` | `CRITICAL,HIGH` |  Comma-separated severities causing `cm find` to exit with code 1.   
@@ -215,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:41:25.910232+00:00
+fetched_at: 2026-10-31T05:40:21.987524+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,445 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## October 30, 2026
+
+**Agent Registry**
+
+Feature
+
+Agent Registry supports cross-project [management boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) ([Preview](https://cloud.google.com/products#product-launch-stages)), letting you centrally discover, search, and govern AI agents, Model Context Protocol (MCP) servers, and tools across multiple Google Cloud projects from a central [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project). For more information, see [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) and [Configure a management boundary for multiple projects](https://docs.cloud.google.com/agent-registry/setup#configure-boundary).
+
+**AlloyDB for PostgreSQL**
+
+Fixed
+
+For AlloyDB clusters compatible with PostgreSQL 18 or later, an instance restart is no longer required when you enable or edit [Advanced Query Insights](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights) settings, including changing the query length or enabling active query analysis. For clusters compatible with PostgreSQL 17 or earlier, saving changes still requires an instance restart.
+
+For more information, see [Use Advanced Query Insights](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights) and [Monitor active queries](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries).
+
+**Apigee hybrid**
+
+Announcement
+
+### v1.16.13
+
+On October 30, 2026 we released an updated version of the Apigee hybrid software, v1.16.13.
+
+  * For information about upgrading, see [Upgrading Apigee hybrid to v1.16.13](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/upgrade).
+  * For information about new installations, see [The big picture](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/big-picture).
+
+**Note:** Do not use Apigee hybrid v1.16.12 due to a potential regression in `apigee-connect-agent` (see known issue [578314600](https://docs.cloud.google.com/apigee/docs/release/known-issues#578314600)). Use v1.16.13 instead.**Note:** This is a patch release. The container images used in patch releases are integrated with the Apigee hybrid Helm charts. Upgrading to a patch by using the Helm chart automatically updates the images. You don't typically need to make manual image changes. For information about container image support in Apigee hybrid releases, see [Apigee release process](https://docs.cloud.google.com/apigee/docs/release/apigee-release-process#apigee-hybrid-container-images).
+
+Fixed
+
+#### Fixed in this release
+
+Bug ID | Description  
+---|---  
+**578314600** | **Fixed an issue where`apigee-connect-agent` ignored `HTTPS_PROXY` and failed to establish a tether in clusters that require an HTTP forward proxy for egress; the agent now uses HTTP/2 keepalive pings on the control-plane connection while honoring `HTTPS_PROXY` (including proxy credentials).**  
+**576707253** | **Removed the compromised emSign roots and the cross-signing Comodo AAA Services root from the system and Java (`cacerts`) trust stores across containers.**  
+**573622417** | **Fixed an issue where`apigee-ingressgateway` forwarded the `x-envoy-decorator-operation` header to upstream runtime and target backends.**  
+**492041991** | **Fixed an issue where`VerifyAPIKey` and `VerifyAccessToken` set the `apiproduct.operation.llmTokenQuota.*` flow variables from unmatched LLM operations; they are now set only from the LLM operations that matched the request.**  
+  
+Security
+
+Bug ID | Description  
+---|---  
+**N/A** | **Security fixes for`apigee-asm-ingress`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+
+  
+**N/A** | **Security fixes for`apigee-asm-istiod`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-40179](https://nvd.nist.gov/vuln/detail/CVE-2026-40179)
+  * [CVE-2026-42151](https://nvd.nist.gov/vuln/detail/CVE-2026-42151)
+  * [CVE-2026-42154](https://nvd.nist.gov/vuln/detail/CVE-2026-42154)
+  * [CVE-2026-44903](https://nvd.nist.gov/vuln/detail/CVE-2026-44903)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+
+  
+**N/A** | **Security fixes for`apigee-envoy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
+  * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
+
+  
+**N/A** | **Security fixes for`apigee-fluent-bit`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-8286](https://nvd.nist.gov/vuln/detail/CVE-2026-8286)
+  * [CVE-2026-8924](https://nvd.nist.gov/vuln/detail/CVE-2026-8924)
+  * [CVE-2026-8927](https://nvd.nist.gov/vuln/detail/CVE-2026-8927)
+  * [CVE-2026-92392](https://nvd.nist.gov/vuln/detail/CVE-2026-92392)
+
+  
+**N/A** | **Security fixes for`apigee-hybrid-cassandra`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-18401](https://nvd.nist.gov/vuln/detail/CVE-2026-18401)
+  * [CVE-2026-33818](https://nvd.nist.gov/vuln/detail/CVE-2026-33818)
+  * [CVE-2026-39821](https://nvd.nist.gov/vuln/detail/CVE-2026-39821)
+  * [CVE-2026-39822](https://nvd.nist.gov/vuln/detail/CVE-2026-39822)
+  * [CVE-2026-42505](https://nvd.nist.gov/vuln/detail/CVE-2026-42505)
+  * [CVE-2026-54512](https://nvd.nist.gov/vuln/detail/CVE-2026-54512)
+  * [CVE-2026-54513](https://nvd.nist.gov/vuln/detail/CVE-2026-54513)
+  * [CVE-2026-54514](https://nvd.nist.gov/vuln/detail/CVE-2026-54514)
+  * [CVE-2026-54515](https://nvd.nist.gov/vuln/detail/CVE-2026-54515)
+  * [CVE-2026-56853](https://nvd.nist.gov/vuln/detail/CVE-2026-56853)
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56858](https://nvd.nist.gov/vuln/detail/CVE-2026-56858)
+  * [CVE-2026-56859](https://nvd.nist.gov/vuln/detail/CVE-2026-56859)
+  * [CVE-2026-56860](https://nvd.nist.gov/vuln/detail/CVE-2026-56860)
+  * [CVE-2026-56862](https://nvd.nist.gov/vuln/detail/CVE-2026-56862)
+  * [CVE-2026-56864](https://nvd.nist.gov/vuln/detail/CVE-2026-56864)
+  * [CVE-2026-56865](https://nvd.nist.gov/vuln/detail/CVE-2026-56865)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-59888](https://nvd.nist.gov/vuln/detail/CVE-2026-59888)
+  * [CVE-2026-59889](https://nvd.nist.gov/vuln/detail/CVE-2026-59889)
+  * [CVE-2026-68494](https://nvd.nist.gov/vuln/detail/CVE-2026-68494)
+  * [CVE-2026-77310](https://nvd.nist.gov/vuln/detail/CVE-2026-77310)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-kube-rbac-proxy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-operators`.**   
+This addresses the following vulnerability: 
+
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+
+  
+**N/A** | **Security fixes for`apigee-prom-prometheus`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-watcher`.**   
+This addresses the following vulnerability: 
+
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+
+  
+  
+**Backup and DR**
+
+Feature
+
+You can now edit existing backup plans for Cloud SQL instances to update settings such as backup rules and maximum custom on-demand retention periods. To learn more, see [Back up Cloud SQL instances to a backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/sql/csql-backup).
+
+**BigQuery**
+
+Feature
+
+You can now retrieve query results [directly in the Apache Arrow format](https://docs.cloud.google.com/bigquery/docs/running-queries#arrow-format) for faster retrieval speed and improved serialization efficiency. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+**Bigtable**
+
+Feature
+
+You can use Knowledge Catalog to discover authorized views, logical views, and continuous materialized views. This integration lets you search for these granular data assets alongside your Bigtable instances and tables. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [Manage data assets using Knowledge Catalog](https://docs.cloud.google.com/bigtable/docs/manage-data-assets-using-knowledge-catalog).
+
+**Cloud Number Registry**
+
+Breaking
+
+Starting November 25, 2026, if your configuration doesn't have a designated project, Cloud Number Registry will stop discovering resources.
+
+For more information, see [Project designation enforcement](https://docs.cloud.google.com/number-registry/overview#project-designation-enforcement).
+
+**Cloud Run**
+
+Feature
+
+You can run Cloud Run jobs with [GPUs enabled](https://docs.cloud.google.com/run/docs/configuring/jobs/gpu) for [up to 12 hours](https://docs.cloud.google.com/run/docs/tutorials/long-running-gpu-jobs) ([Preview](https://cloud.google.com/products)).
+
+**Cloud SQL for MySQL**
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, unpatched Cloud SQL for MySQL instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+Before November 1, 2026, do one of the following fixes:
+
+  * **Apply self-service maintenance (Recommended):** If your applications rely on database functions to calculate, schedule, or display times in these Canadian time zones (such as Calgary, Edmonton, Vancouver, or Winnipeg), then update your instances to the latest maintenance release using the Google Cloud console or the gcloud CLI.
+
+Updated time zone rules that reflect permanent standard daylight offsets across Alberta, British Columbia, Manitoba, and Northwest Territories are supported in Cloud SQL for MySQL [maintenance release `*.R20260726.00_36` or later](https://docs.cloud.google.com/sql/docs/mysql/maintenance-changelog).
+
+For more information, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/mysql/self-service-maintenance).
+
+  * **Database configuration stopgap:** If your organization can't restart instances before November 1, 2026, then you can set the time zone for your database session without causing downtime for your instance. Set the `default_time_zone` flag for the database session to your target fixed numeric offset (for example, `'-06:00'` for Alberta, `'-07:00'` for British Columbia, or `'-05:00'` for Manitoba).
+
+For more information about configuring database flags, see [Configure database flags](https://docs.cloud.google.com/sql/docs/mysql/flags).
+
+
+
+
+**Cloud SQL for PostgreSQL**
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, unpatched Cloud SQL for PostgreSQL instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+Before November 1, 2026, do one of the following fixes:
+
+  * **Apply self-service maintenance (Recommended):** If your applications rely on database functions to calculate, schedule, or display times in these Canadian time zones (such as Calgary, Edmonton, Vancouver, or Winnipeg), then update your instances to the latest maintenance release using the Google Cloud console or the gcloud CLI.
+
+Updated time zone rules that reflect permanent standard daylight offsets across Alberta, British Columbia, Manitoba, and Northwest Territories are supported in Cloud SQL for PostgreSQL [maintenance release `*.R20260712.01_44` or later](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog).
+
+For more information, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance).
+
+  * **Database configuration stopgap:** If your organization can't restart instances before November 1, 2026, then you can set your database session time zone without downtime to an anchor zone.
+        
+        ALTER DATABASE database_name SET timezone TO 'anchor_zone';
+
+Replace the following:
+
+    * `database_name`: the name of your database.
+    * `anchor_zone`: the anchor zone to use as the time zone for your database. Specify an anchor zone that operates on a permanent offset.
+
+For example, `'America/Regina'` for Alberta and Northwest Territories (UTC-6), `'America/Whitehorse'` for British Columbia (UTC-7), or `'America/Coral_Harbour'` for Manitoba (UTC-5).
+
+
+
+
+**Cloud SQL for SQL Server**
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, Cloud SQL for SQL Server instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+For SQL Server, Microsoft has [published guidance](https://devblogs.microsoft.com/azure-sql/canadas-2026-time-zone-updates-guidance-for-microsoft-sql/), recommending updating each applicable instance's time zone to the Windows time zone with the matching fixed offset.
+
+Update each instance's time zone to the Windows time zone with the matching fixed offset:
+
+Jurisdiction | Current time zone | Recommended time zone | Fixed offset  
+---|---|---|---  
+British Columbia | Pacific Standard Time | Yukon Standard Time | UTC-07:00  
+Alberta / Inuvik, NWT | Mountain Standard Time | Canada Central Standard Time | UTC-06:00  
+Manitoba | Central Standard Time | Eastern Standard Time (Mexico) | UTC-05:00  
+  
+You can make the change in the Google Cloud console (**Edit instance** > **Flags and parameters** > **Time zone**) or with gcloud:
+    
+    
+    gcloud sql instances patch INSTANCE_NAME \
+      --project=PROJECT_ID \
+      --time-zone="Yukon Standard Time"
+    
+
+**Cloud Storage**
+
+Feature
+
+Security and compliance findings in Storage Intelligence advisor are available in [Preview](https://cloud.google.com/products#product-launch-stages). You can use these findings to identify buckets with objects that violate default customer-managed encryption key (CMEK) policies or enforced encryption rules, and re-encrypt the affected objects. For more information, see the following resources:
+
+  * [About Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview#monitor-security-compliance)
+  * [Re-encrypt objects that violate default CMEK bucket policies](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-default-cmek-policies)
+  * [Re-encrypt objects that violate enforced encryption rules](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-enforced-encryption-rules)
+
+
+
+**Container Optimized OS**
+
+Change
+
+### cos-133-19999-44-174 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/ebad2aad500721882e43d07ea6b43fef5882463d) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.174/lakitu/gpu_driver_versions.textproto)  
+  
+Security
+
+Fixed CVE-2026-42508, CVE-2026-39830, CVE-2026-39833 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1807671 -> 1807627
+  * Changed: fs.fanotify.max_user_marks: 68382 -> 68378
+  * Changed: fs.inotify.max_user_watches: 64161 -> 64158
+  * Changed: kernel.threads-max: 63445 -> 63443
+  * Changed: net.ipv4.tcp_mem: 93972 125298 187944 -> 93969 125295 187938
+  * Changed: net.ipv4.udp_mem: 187947 250597 375894 -> 187941 250590 375882
+  * Changed: user.max_cgroup_namespaces: 31722 -> 31721
+  * Changed: user.max_fanotify_marks: 68382 -> 68378
+  * Changed: user.max_inotify_watches: 64161 -> 64158
+  * Changed: user.max_ipc_namespaces: 31722 -> 31721
+  * Changed: user.max_mnt_namespaces: 31722 -> 31721
+  * Changed: user.max_net_namespaces: 31722 -> 31721
+  * Changed: user.max_pid_namespaces: 31722 -> 31721
+  * Changed: user.max_time_namespaces: 31722 -> 31721
+  * Changed: user.max_user_namespaces: 31722 -> 31721
+  * Changed: user.max_uts_namespaces: 31722 -> 31721
+
+
+
+**Datastream**
+
+Feature
+
+Datastream integration with Knowledge Catalog is now [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [the documentation](https://docs.cloud.google.com/datastream/docs/knowledge-catalog-integration).
+
+**Gemini Enterprise**
+
+Feature
+
+**Gemini Notebook Enterprise: Visual refresh**
+
+This update includes the following changes and features. These features are generally available (GA):
+
+  * **Refreshed UI design** : The user interface features an updated color scheme and style that match the consumer and Google Workspace versions of Gemini Notebook.
+
+  * **Audio overview language selection** : You can choose the language for the audio overview output. This lets you create an audio output in a language different from the notebook's language (Settings > Output language).
+
+  * **Infographic update** : You can see examples of the visual style before you choose one for your infographic.
+
+  * **Customize the notebook summary** : You can replace the autogenerated summary of the notebook with your own custom summary. Select **Customize notebook** from the more_vert **More options** menu.
+
+  * **Sharing notebooks** : When you notify people that you're sharing a notebook with them, you no longer have the option to write a welcome note.
+
+  * **Fast Research on the web** : **Web** and **Fast Research** replace **Discover sources**. The **I'm feeling curious** button is no longer available.
+
+
+
+
+Feature
+
+**Gemini Enterprise: S &P Global - Adaptive Retrieval data store (Preview)**
+
+The [S&P Global - Adaptive Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global_adaptive_retrieval) data store is available in Public Preview in Gemini Enterprise. You can use natural language to ask questions about the S&P Global data your S&P Global account is entitled to access. For more information, see [Connect a third-party data source](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source).
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Inference request metadata logging (GA)**
+
+Inference request metadata logging is generally available. Gemini Enterprise Agent Platform can write one Cloud Logging entry for every inference request your project serves. Each entry records the model, region, consumption option, token counts, Provisioned Throughput usage, latency and error code. Entries record metadata only and never contain prompts or responses. Logging is supported for Gemini models that use `generateContent` and `streamGenerateContent`, and for Claude models that use `rawPredict` and `streamRawPredict`.
+
+You can turn on logging in the Google Cloud console, from the Provisioned Throughput page, or with the REST API. Turning on logging in the console also turns on detailed metrics, which chart Provisioned Throughput traffic at one-second resolution. With logging on, the model observability dashboard adds 1-second resolution options to its charts for pay-as-you-go traffic. To attribute usage to a team, application or tenant, add request headers with the `x-goog-agent-platform-observability-label-` prefix, and query the entries with SQL in Observability Analytics.
+
+For more information, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging).
+
+Feature
+
+**Computer use tool is available in General Availability**
+
+The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/tools/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
+
+**Looker**
+
+Announcement
+
+On November 1, 2026, several Canadian provinces and territories—Manitoba, Alberta, British Columbia, and parts of the Northwest Territories—transition to permanent daylight saving time (DST) or remain on their summer UTC offsets year-round. On unpatched Looker instances, these changes affect scheduled content delivery fire times and [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations) that use `now()` with the affected Canadian time zones (`America/Winnipeg`, `Canada/Central`, `America/Rainy_River`, `America/Edmonton`, `Canada/Mountain`, `America/Vancouver`, `Canada/Pacific`, and `America/Inuvik`). Patched Looker builds update the scheduler (Ruby) and browser (JavaScript) time zone data, while server-evaluated `now()` table calculations on the JVM still use the bundled JDK time zone database (`tzdb 2026b`). To learn how to upgrade to a patched Looker build or configure an alternative schedule delivery time zone, see [2026 Canadian time zone changes](https://docs.cloud.google.com/looker/docs/canada-permanent-dst-2026).
+
+**SAP on Google Cloud**
+
+Announcement
+
+**Google SecOps for SAP is generally available (GA)**
+
+Google SecOps for SAP is generally available (GA). This solution helps you protect your enterprise SAP applications by integrating business-critical telemetry into Google SecOps to provide unified visibility, threat detection, and security response capabilities.
+
+This release includes:
+
+  * Log ingestion from SAP RISE and self-managed SAP environments that run on Google Cloud, on-premises, or other clouds.
+  * SAP-specific YARA-L threat detection rules available in the Google SecOps Detection Rules GitHub repository.
+  * Automated threat response and containment capabilities by using the SAP RFC Gateway and SOAR playbooks ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+
+
+For more information, see [Secure SAP applications with Google SecOps](https://docs.cloud.google.com/sap/docs/secops/overview).
+
+**Secure Source Manager**
+
+Feature
+
+You can now enable [vulnerability scanning](https://docs.cloud.google.com/secure-source-manager/docs/enable-vulnerability-scanning) to detect known vulnerabilities in your dependencies.
+
+**Spanner**
+
+Feature
+
+Spanner supports equality and ordering comparisons on JSONB and JSON values. You can use these values in `GROUP_BY` and `ORDER BY` clauses without first converting them to another data type.
+
+In GoogleSQL, you can also convert other data types to `JSON` using `CAST(expression AS JSON)` and compare JSON values directly with non-JSON values. Spanner can implicitly coerces the non-JSON value to `JSON` for comparison.
+
+Additionally, you can use search indexes to accelerate equality comparisons such as `=` or `IN` on JSONB and JSON columns and subpaths.
+
+For more information, see [JSON comparison and sorting](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/data-types#comparison_and_sorting) , [JSON comparison coercion](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/conversion_rules#json_comparison_coercion) , [CAST AS JSON](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/conversion_functions#cast_as_json) , [JSON search indexes](https://docs.cloud.google.com/spanner/docs/full-text-search/json-indexes) , and [Working with JSONB](https://docs.cloud.google.com/spanner/docs/working-with-jsonb).
 
 ## October 29, 2026
 
@@ -54,6 +493,388 @@ Announcement
 
 New minor engine version released for the retail line of business within the `v004.011` version line (`aml-retail.default.v004.011.202610-000`). This version extends support for the major engine version and includes no significant changes compared to the previous minor version.
 
+**Apigee hybrid**
+
+Announcement
+
+### v1.17.3
+
+On October 29, 2026 we released an updated version of the Apigee hybrid software, v1.17.3.
+
+  * For information on upgrading, see [Upgrading Apigee hybrid to version v1.17.3](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/upgrade).
+  * For information on new installations, see [The big picture](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/big-picture).
+
+**Note:** Do not use Apigee hybrid v1.17.2 due to a potential regression in `apigee-connect-agent` (see known issue [578314600](https://docs.cloud.google.com/apigee/docs/release/known-issues#578314600)). Use v1.17.3 instead.**Note:** This is a patch release: The container images used in patch releases are integrated with the Apigee hybrid Helm charts. Upgrading to a patch via the Helm chart automatically updates the images. No manual image changes are typically needed. For information on container image support in Apigee hybrid releases, see [Apigee release process](https://docs.cloud.google.com/apigee/docs/release/apigee-release-process#apigee-hybrid-container-images).
+
+Fixed
+
+#### Fixed in this release
+
+Bug ID | Description  
+---|---  
+**578314600** | **Fixed an issue where`apigee-connect-agent` ignored `HTTPS_PROXY` and failed to establish a tether in clusters that require an HTTP forward proxy for egress; the agent now uses HTTP/2 keepalive pings on the control-plane connection while honoring `HTTPS_PROXY` (including proxy credentials).**  
+**576707253** | **Removed the compromised emSign roots and the cross-signing Comodo AAA Services root from the system and Java (`cacerts`) trust stores across containers.**  
+**573622417** | **Fixed an issue where`apigee-ingressgateway` forwarded the `x-envoy-decorator-operation` header to upstream runtime and target backends.**  
+**572025634** | **Fixed an issue where responses with a compressed`text/event-stream` body to a proxy with an `EventFlow` returned a corrupted body; compressed `text/event-stream` responses now skip `EventFlow` processing and pass through intact.**  
+**571378258** | **The`apigee-redis` container now uses the Valkey engine (version 8.1.10). The RESP2 wire protocol and `redis-server` and `redis-cli` binary names are unchanged.**  
+**568860869** | **Fixed an issue in the`RegularExpressionProtection` policy where patterns starting and ending with `.*` whose middle section contained regular expression syntax were matched as literal text instead of regular expressions.**  
+**560272924** | **Apigee hybrid now supports continuous-scan bidirectional gRPC streaming for the`SanitizeModelResponse` policy over Server-Sent Events (SSE) streams, preserving native LLM provider SSE JSON envelopes and event framing.**  
+**555332621** | **Fixed an issue where Model Armor policies did not honor`HTTPClient.managementplane.skip.proxy`: when set, Model Armor callouts now bypass the forward proxy like other `googleapis` traffic, while streaming (`ContinuousScan`) Model Armor traffic uses the forward proxy.**  
+**554114419** | **Fixed an issue where an`AssignMessage`, `HTTPModifier`, or `RaiseFault` policy that creates a new request (`createNew="true"`) in an HTTP/2 flow could not set the `:path` and `:authority` pseudo-headers and failed with an invalid-header error.**  
+**549779897** | **Apigee analytics now reports the Model Armor template, verdict, and matched filters for each request on both the prompt and model-response directions.**  
+**546141116** | **The`SemanticCacheLookup` policy now reports the cache key and cache name to analytics in the `ai_semantic_cache_key` and `ai_semantic_cache_name` fields.**  
+**535395491** | **Extension Processor (`ext_proc`) denials now return the status and body that the policy or FaultRule produced, instead of always returning HTTP `500`.**  
+**524115876** | **Fixed an intermittent HTTP`400` error in the `OASValidation` policy's strict parameter validation that rejected valid requests under load.**  
+**502231886** | **Fixed an issue where the`SanitizeUserPrompt` and `SanitizeModelResponse` policies failed to extract content using default source templates when the `<Source>` element was omitted and `<IgnoreUnresolvedVariables>` was set to `false`.**  
+**492041991** | **Fixed an issue where`VerifyAPIKey` and `VerifyAccessToken` set the `apiproduct.operation.llmTokenQuota.*` flow variables from unmatched LLM operations; they are now set only from the LLM operations that matched the request.**  
+**449228485** | **Fixed an issue where`podDisruptionBudget` overrides configured in the Helm charts were dropped by the Kubernetes API server.**  
+  
+Security
+
+Bug ID | Description  
+---|---  
+**N/A** | **Security fixes for`apigee-asm-ingress`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-84445](https://nvd.nist.gov/vuln/detail/CVE-2026-84445)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-asm-istiod`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-40179](https://nvd.nist.gov/vuln/detail/CVE-2026-40179)
+  * [CVE-2026-42151](https://nvd.nist.gov/vuln/detail/CVE-2026-42151)
+  * [CVE-2026-42154](https://nvd.nist.gov/vuln/detail/CVE-2026-42154)
+  * [CVE-2026-44903](https://nvd.nist.gov/vuln/detail/CVE-2026-44903)
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-84445](https://nvd.nist.gov/vuln/detail/CVE-2026-84445)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+  * [GHSA-gcjh-h69q-9w9g](https://osv.dev/vulnerability/GHSA-gcjh-h69q-9w9g)
+
+  
+**N/A** | **Security fixes for`apigee-connect-agent`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-envoy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
+  * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
+
+  
+**N/A** | **Security fixes for`apigee-fluent-bit`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-35189](https://nvd.nist.gov/vuln/detail/CVE-2026-35189)
+  * [CVE-2026-35191](https://nvd.nist.gov/vuln/detail/CVE-2026-35191)
+  * [CVE-2026-42772](https://nvd.nist.gov/vuln/detail/CVE-2026-42772)
+  * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
+  * [CVE-2026-54872](https://nvd.nist.gov/vuln/detail/CVE-2026-54872)
+  * [CVE-2026-54873](https://nvd.nist.gov/vuln/detail/CVE-2026-54873)
+  * [CVE-2026-54875](https://nvd.nist.gov/vuln/detail/CVE-2026-54875)
+  * [CVE-2026-58050](https://nvd.nist.gov/vuln/detail/CVE-2026-58050)
+  * [CVE-2026-58051](https://nvd.nist.gov/vuln/detail/CVE-2026-58051)
+  * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
+  * [CVE-2026-66032](https://nvd.nist.gov/vuln/detail/CVE-2026-66032)
+  * [CVE-2026-66033](https://nvd.nist.gov/vuln/detail/CVE-2026-66033)
+  * [CVE-2026-66034](https://nvd.nist.gov/vuln/detail/CVE-2026-66034)
+  * [CVE-2026-66035](https://nvd.nist.gov/vuln/detail/CVE-2026-66035)
+  * [CVE-2026-72897](https://nvd.nist.gov/vuln/detail/CVE-2026-72897)
+  * [CVE-2026-75804](https://nvd.nist.gov/vuln/detail/CVE-2026-75804)
+  * [CVE-2026-75805](https://nvd.nist.gov/vuln/detail/CVE-2026-75805)
+  * [CVE-2026-75806](https://nvd.nist.gov/vuln/detail/CVE-2026-75806)
+  * [CVE-2026-77696](https://nvd.nist.gov/vuln/detail/CVE-2026-77696)
+  * [CVE-2026-8286](https://nvd.nist.gov/vuln/detail/CVE-2026-8286)
+  * [CVE-2026-84782](https://nvd.nist.gov/vuln/detail/CVE-2026-84782)
+  * [CVE-2026-84784](https://nvd.nist.gov/vuln/detail/CVE-2026-84784)
+  * [CVE-2026-8924](https://nvd.nist.gov/vuln/detail/CVE-2026-8924)
+  * [CVE-2026-8927](https://nvd.nist.gov/vuln/detail/CVE-2026-8927)
+  * [CVE-2026-92392](https://nvd.nist.gov/vuln/detail/CVE-2026-92392)
+
+  
+**N/A** | **Security fixes for`apigee-hybrid-cassandra`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-hybrid-cassandra-client`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-kube-rbac-proxy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-33818](https://nvd.nist.gov/vuln/detail/CVE-2026-33818)
+  * [CVE-2026-39821](https://nvd.nist.gov/vuln/detail/CVE-2026-39821)
+  * [CVE-2026-46600](https://nvd.nist.gov/vuln/detail/CVE-2026-46600)
+  * [CVE-2026-56853](https://nvd.nist.gov/vuln/detail/CVE-2026-56853)
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56858](https://nvd.nist.gov/vuln/detail/CVE-2026-56858)
+  * [CVE-2026-56859](https://nvd.nist.gov/vuln/detail/CVE-2026-56859)
+  * [CVE-2026-56860](https://nvd.nist.gov/vuln/detail/CVE-2026-56860)
+  * [CVE-2026-56862](https://nvd.nist.gov/vuln/detail/CVE-2026-56862)
+  * [CVE-2026-56864](https://nvd.nist.gov/vuln/detail/CVE-2026-56864)
+  * [CVE-2026-56865](https://nvd.nist.gov/vuln/detail/CVE-2026-56865)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-84445](https://nvd.nist.gov/vuln/detail/CVE-2026-84445)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+  * [GHSA-gcjh-h69q-9w9g](https://osv.dev/vulnerability/GHSA-gcjh-h69q-9w9g)
+  * [GHSA-hrxh-6v49-42gf](https://osv.dev/vulnerability/GHSA-hrxh-6v49-42gf)
+
+  
+**N/A** | **Security fixes for`apigee-mart-server`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-19032](https://nvd.nist.gov/vuln/detail/CVE-2026-19032)
+  * [CVE-2026-68497](https://nvd.nist.gov/vuln/detail/CVE-2026-68497)
+  * [CVE-2026-83557](https://nvd.nist.gov/vuln/detail/CVE-2026-83557)
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-mint-task-scheduler`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-19032](https://nvd.nist.gov/vuln/detail/CVE-2026-19032)
+  * [CVE-2026-68497](https://nvd.nist.gov/vuln/detail/CVE-2026-68497)
+  * [CVE-2026-83557](https://nvd.nist.gov/vuln/detail/CVE-2026-83557)
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-operators`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-prom-prometheus`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-prometheus-adapter`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-redis`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-runtime`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-19032](https://nvd.nist.gov/vuln/detail/CVE-2026-19032)
+  * [CVE-2026-68497](https://nvd.nist.gov/vuln/detail/CVE-2026-68497)
+  * [CVE-2026-83557](https://nvd.nist.gov/vuln/detail/CVE-2026-83557)
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-synchronizer`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-19032](https://nvd.nist.gov/vuln/detail/CVE-2026-19032)
+  * [CVE-2026-68497](https://nvd.nist.gov/vuln/detail/CVE-2026-68497)
+  * [CVE-2026-83557](https://nvd.nist.gov/vuln/detail/CVE-2026-83557)
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-watcher`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+  
 **Dataflow**
 
 Feature
@@ -72,6 +893,14 @@ You can configure these features when you create a job or update them while the 
 Security
 
 **Dialogflow ES** : The Dialogflow ES [LINE integration](https://docs.cloud.google.com/dialogflow/es/docs/integrations/line#signature-verification) validates the `X-Line-Signature` HTTP header on incoming webhook requests using your LINE channel secret and rejects requests with missing, duplicate, or invalid signatures with an HTTP `400 Bad Request` error. Make sure your configured channel secret matches your LINE Messaging API channel and that any intermediate proxy forwards the `X-Line-Signature` header and raw request body unmodified.
+
+**Gemini**
+
+Other
+
+### Bug fixes in VS Code
+
+Various bug fixes and minor product enhancements.
 
 **Google Kubernetes Engine**
 
@@ -111,7 +940,9 @@ The [bullet chart](https://docs.cloud.google.com/looker/docs/bullet-options) vis
 
 Feature
 
-Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
+Looker now includes [network diagnostics](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#network-diagnostics) to help you troubleshoot database connectivity issues. When a [database connection test](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#troubleshooting) fails, Looker automatically tests DNS resolution and TCP connectivity for the connection's endpoints and appends the results to the error message. To [test network reachability](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#test-network-reachability) to any hostname and port without creating a connection, Looker administrators can click **Test Reachability** on the **Connections** page.
+
+**Note:** This item was added on October 30, 2026.
 
 Feature
 
@@ -120,6 +951,10 @@ The **Table Row Grouping** feature and the [**Grouping** menu options](https://d
 Feature
 
 The [**Visualization Assistant**](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) is now generally available.
+
+Feature
+
+Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
 
 Feature
 
@@ -283,6 +1118,23 @@ Application Integration agent skills are available in the public [`google/skills
 Feature
 
 You can configure Bigtable tables with microsecond timestamp granularity to capture and store high-frequency data. By supporting microsecond precision for cell timestamps, Bigtable helps you prevent data loss from write collisions in workloads with high event rates. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for instances in the Enterprise Plus edition. For more information, see [Data type enforcement in Bigtable](https://docs.cloud.google.com/bigtable/docs/data-types).
+
+**Cloud Asset Inventory**
+
+Feature
+
+The following resource types are publicly available through the [ExportAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/exportAssets), [ListAssets](https://docs.cloud.google.com/asset-inventory/docs/listing-assets), [BatchGetAssetsHistory](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/batchGetAssetsHistory), [QueryAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/queryAssets), [Feed](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/feeds), and Search ([SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources), [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies)) APIs.
+
+  * Google Cloud Migration Center 
+    * `migrationcenter.googleapis.com/DiscoveryClient`
+    * `migrationcenter.googleapis.com/Group`
+    * `migrationcenter.googleapis.com/ImportJob`
+    * `migrationcenter.googleapis.com/PreferenceSet`
+    * `migrationcenter.googleapis.com/ReportConfig`
+    * `migrationcenter.googleapis.com/Settings`
+    * `migrationcenter.googleapis.com/Source`
+
+
 
 **Cloud Database Migration Service**
 
@@ -492,11 +1344,11 @@ Following the [March 26, 2025 deprecation announcement](https://docs.cloud.googl
 
 Feature
 
-Media CDN supports EU data residency (Private GA), along with a new Europe flexible origin shielding region.
+Media CDN supports flexible origin shielding in Frankfurt (`europe-west3`). This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [Flexible shielding](https://docs.cloud.google.com/media-cdn/docs/origins#flex-shielding).
 
-Media CDN supports EU Data Residency in Private GA. This feature ensures that customer content and end-user data are processed within the EU. This feature is available via support allowlist.
+Feature
 
-Media CDN supports flexible origin shielding in Frankfurt (`europe-west3`). This feature is **Generally Available**. For more information, see [Flexible shielding](https://docs.cloud.google.com/media-cdn/docs/origins#flex-shielding).
+Media CDN supports EU data residency in **Private GA**. This feature helps ensure that your content and end-user data are processed within the EU. To enable this feature, contact [Google Cloud sales](https://cloud.google.com/contact).
 
 **Memorystore for Redis Cluster**
 
@@ -635,172 +1487,6 @@ This feature is available in:
 
 
 For more information, see [Regular expression URL rewrites for route rules](https://docs.cloud.google.com/load-balancing/docs/url-map-concepts#regex-url-rewrite).
-
-**Cloud SDK**
-
-Breaking
-
-## 591.0.0 (2026-10-27)
-
-### Breaking Changes
-
-  * **(Google Cloud CLI)** Fixed issue where `gcloud components update` on macOS was stuck and would exit immediately after printing "WARNING: Known issue encountered updating Python modules", preventing updates to the latest release. 
-    * However, because this issue is present in the 590.0.0 and 590.0.1 releases, existing installations currently at those versions still contain the bug, and affected users will need to perform a one-time workaround to become unstuck.
-    * This can be achieved by running: `gcloud components --flags-file=<(echo 'update:')`
-    * Users updating from version <=589.0.0 or >=591.0.0 are unaffected and can run `gcloud components update` as normal; the workaround is only needed for installations currently stuck at version 590.0.0 or 590.0.1.
-    * This issue can be tracked at <https://issuetracker.google.com/issues/578071727>.
-
-
-
-### Google Cloud CLI
-
-  * Updated bundled Python to 3.14.9.
-
-
-
-### Agent Registry
-
-  * Promoted `gcloud agent-registry skills`, `gcloud agent-registry skills revisions`, `gcloud agent-registry publishers`, and `gcloud agent-registry findings` command groups to GA.
-
-
-
-### App Engine
-
-  * Updated `gcloud beta app migrate-to-run` to mask environment variable values in the printed `service.yaml`. The saved `service.yaml` file keeps the original values.
-
-
-
-### Audit Manager
-
-  * Added `gcloud audit-manager audit-schedules describe` command to describe an audit schedule.
-
-
-
-### Beyondcorp
-
-  * Added `--dispatch-info-output-type` flag to `gcloud beyondcorp security-gateways create` and `gcloud beyondcorp security-gateways update`, and upstream `dispatchInfo` configuration to `gcloud beyondcorp security-gateways applications create` and `gcloud beyondcorp security-gateways applications update` to configure delegated dispatch info headers.
-
-
-
-### BigQuery
-
-  * Updated the bundled `certifi` package to version `2026.10.19` and removed the distrusted `AAA Certificate Services` root certificate from bundled `httplib2`.
-
-
-
-### Cloud Bigtable
-
-  * Added `--timestamp-granularity` flag to `gcloud bigtable instances tables create` and `gcloud bigtable tables create` to configure table timestamp granularity (`millis` or `micros`). Microsecond granularity is supported only on Enterprise Plus instances.
-  * Rebuild with 1.26.9 for CVE-2026-94439.
-
-
-
-### Cloud DNS
-
-  * Updated `gcloud beta dns outbound-endpoints create` to make `--endpoint-ip` flag optional.
-
-
-
-### Cloud Dataproc
-
-  * Promoted `--master-flexible-config`, `--worker-flexible-config`, and `--secondary-worker-flexible-config` flags to GA for `gcloud dataproc clusters create` and `gcloud dataproc workflow-templates set-managed-cluster`.
-  * Promoted `--worker-flexible-config` and `--secondary-worker-flexible-config` flags to GA for `gcloud dataproc clusters update`.
-
-
-
-### Cloud IAM
-
-  * Added `--discovery-uri` flag to `gcloud iam workload-identity-pools providers create-oidc` and `gcloud iam workload-identity-pools providers update-oidc` to specify a custom OIDC discovery URI when the identity provider does not use the default well-known path.
-  * Added `--actor-providers` flag to `gcloud iam workload-identity-pools providers create-oidc` and `gcloud iam workload-identity-pools providers update-oidc` to authorize providers in the same pool to issue actor tokens for identity delegation.
-
-
-
-### Cloud Memorystore
-
-  * Promote `gcloud redis clusters` basic auth feature related commands to GA track.
-
-
-
-### Cloud Spanner Emulator
-
-  * Updated cloud spanner emulator to v1.5.59.
-
-
-
-### Cloud Storage
-
-  * Added `--labels` and `--labels-file` flags to `gcloud storage buckets create`.
-
-
-
-### Compute Engine
-
-  * Promoted `--identity-type` flag to the beta and GA tracks for `gcloud compute instances create`, `gcloud compute instances update`, and `gcloud compute instance-templates create`.
-  * Added circuit breakers flags (`--circuit-breakers-max-connections`, `--circuit-breakers-max-pending-requests`, `--circuit-breakers-max-requests`, `--circuit-breakers-max-requests-per-connection`, `--circuit-breakers-max-retries`) to `gcloud compute backend-services create` and `update` commands, and `--no-circuit-breakers` to the `update` command.
-  * Added colorization for `ACTION`, `HEALTH_STATE`, and `STATUS` columns to `gcloud compute instance-groups managed list-instances` in beta and GA.
-  * Added `--circuit-breakers-connect-timeout` flag to `gcloud compute backend-services create` and `update` commands in beta.
-  * Added `--allowed-actions` flag to `gcloud beta compute instance-groups managed update-instances` to specify allowed actions (including `restart-in-place`) when updating instances in a managed instance group.
-  * Added `--update-policy-allowed-actions` flag to `gcloud beta compute instance-groups managed create` and `gcloud beta compute instance-groups managed update` to specify allowed actions (including `restart-in-place`) in a managed instance group's update policy.
-
-
-
-### Database Migration
-
-  * Added `--ai-processing-location` flag to `gcloud database-migration conversion-workspaces create|update` to set the location where Gemini features process conversion workspace data. Pass an empty value to remove a previously set location.
-
-
-
-### GKE Hub
-
-  * Promoted `--prioritized` flag on `gcloud container fleet|hub rolloutsequences upgrade` command to `GA`.
-  * Promoted `gcloud container fleet|hub config-management update` command to `GA`.
-
-
-
-### Kubernetes Engine
-
-  * Added flag `--node-config-update-mode` to `gcloud container node-pools update` to trigger live update on nodes. Supported values are `LIVE_UPDATE_WITHOUT_DRAIN`.
-
-
-
-### Network Connectivity
-
-  * Added `--group` flag to `gcloud beta network-connectivity transports create` to specify the group of the Network Connectivity Center hub that the spokes created for this transport should be attached to.
-
-
-
-### Network Security
-
-  * Promoted `add-override`, `update-override`, `delete-override`, `add-inline-ml-exception` and `delete-inline-ml-exception` commands of `gcloud network-security security-profiles wildfire-analysis` to GA.
-  * Promoted WildFire-related flags in `gcloud network-security firewall-endpoints create` and `gcloud network-security firewall-endpoints update` commands to GA.
-  * Promoted `gcloud network-security server-tls-policies create` to GA.
-  * Promoted `gcloud network-security server-tls-policies update` to GA.
-  * Added `--wildfire-analysis-profile-project` flag to `gcloud network-security security-profile-groups update` to support project-scoped WildFire Analysis profiles.
-  * Fixed an issue where `gcloud network-security security-profiles wildfire-analysis` modification commands failed when specifying a full resource URI without `--location=global`.
-  * Removed `--async` flag from `gcloud beta network-security firewall-endpoints wildfire-verdict-change-requests create`. The command now returns the created verdict change request directly because the API does not return a long-running operation.
-  * Promoted `gcloud network-security firewall-endpoints wildfire-verdict-change-requests` command group and its `create`, `get` and `list` commands to GA.
-
-
-
-### Secure Source Manager
-
-  * Promoted the following command groups to beta: 
-    * `gcloud beta source-manager branch-rules`
-    * `gcloud beta source-manager hooks`
-    * `gcloud beta source-manager issues`
-    * `gcloud beta source-manager issues comments`
-    * `gcloud beta source-manager pull-requests`
-    * `gcloud beta source-manager pull-requests comments`
-
-
-
-### Workspace Key Access
-
-  * Added `gcloud beta workspace-key-access` command group to manage Workspace Key Access endpoints, configs, and operations.
-
-
-
-Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
 
 **Config Connector**
 
@@ -1052,6 +1738,10 @@ Fixed CVE-2026-82474 in app-admin/sudo.
 Security
 
 Fixed CVE-2026-84445, CVE-2026-24051, CVE-2026-84304, CVE-2026-39831, CVE-2026-39829, CVE-2026-39834, CVE-2026-34986, CVE-2026-39835, CVE-2026-39832, CVE-2026-39827, CVE-2026-81870, CVE-2026-46598, CVE-2026-29181, CVE-2026-39830, CVE-2026-46595, CVE-2026-39828, CVE-2026-25680, CVE-2026-39833, CVE-2026-39883, CVE-2026-84303, CVE-2026-46597, CVE-2026-42508 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
 
 Security
 
@@ -3055,6 +3745,10 @@ Security
 
 Fixed CVE-2026-46595, CVE-2026-42508 in google-osconfig-agent.
 
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
 Change
 
 ### cos-121-18867-652-7 
@@ -3115,6 +3809,10 @@ Security
 
 Fixed CVE-2026-46595 in guest-agent.
 
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
+
 Change
 
 ### cos-129-19506-578-9 
@@ -3158,6 +3856,10 @@ Fixed CVE-2026-39833 in nvidia-container-toolkit.
 Security
 
 Fixed CVE-2026-46595, CVE-2026-39832 in cri-tools.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
 
 Change
 
@@ -3847,6 +4549,26 @@ This function is [generally available](https://cloud.google.com/products#product
 Feature
 
 Patch updates to [PHP runtimes](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#php) are available on `google-22` and `google-24` tags: `8.5.12`, `8.4.27`, `8.3.36`, and `8.2.35`. Take immediate action to protect your PHP workloads by rebuilding your workloads with updated dependencies. See [Responding to core PHP vulnerabilities](https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619) for more information.
+
+**Cloud Asset Inventory**
+
+Feature
+
+The following resource type is publicly available through the [SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources) and [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies) APIs.
+
+  * Cloud TPU API 
+    * `tpu.googleapis.com/QueuedResource`
+
+
+
+Feature
+
+The following resource type is publicly available through the [SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources) and [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies) APIs.
+
+  * Network Management API 
+    * `networkmanagement.googleapis.com/VpcFlowLogsConfig`
+
+
 
 **Cloud Billing**
 
@@ -4817,6 +5539,50 @@ Feature
 For more information, see [Locations](https://docs.cloud.google.com/bigquery/docs/conversational-analytics#locations).
 
 **Cloud SQL for PostgreSQL**
+
+Change
+
+The rollout of the following Cloud SQL for PostgreSQL minor version and extension upgrades is complete:
+
+**Minor versions**
+
+  * 14.23 is upgraded to 14.24.
+
+  * 15.18 is upgraded to 15.19.
+
+  * 16.14 is upgraded to 16.15.
+
+  * 17.10 is upgraded to 17.11.
+
+  * 18.4 is upgraded to 18.6. This version includes a backported fix for [PostgreSQL bug #19616](https://git.postgresql.org/gitweb/?p=postgresql.git;h=caa463e3f8d2b9c1441e6a59c50f90b8598439f3) that prevents logical decoding from emitting `STREAM_ABORT` messages for unstreamed transactions when an aborted transaction with a subtransaction is truncated during memory eviction.
+
+
+
+
+**Extensions**
+
+  * `hll` (`postgresql-hll`) is upgraded from 2.18 to 2.20.
+
+  * `pg_qualstats` is upgraded from 2.1.2 to 2.1.4.
+
+  * `pglogical` is upgraded from 2.4.5 (for PostgreSQL 17 and earlier) and 2.4.6 (for PostgreSQL 18) to 2.4.8.
+
+  * `pgTAP` is upgraded from 1.3.0 to 1.3.4.
+
+  * `pgtt` is upgraded from 4.0 to 4.6.0 for PostgreSQL 12 and later.
+
+  * `PL/Proxy` is upgraded from 2.11.0 to 2.12.0.
+
+  * `PostGIS` is upgraded from 3.5.2 (for PostgreSQL 13 through 17) and 3.6.0 (for PostgreSQL 18) to 3.6.4 for PostgreSQL 13 and later.
+
+  * `roaringbitmap` (`pg_roaringbitmap`) is upgraded from 0.5 to 1.2 for PostgreSQL 12 and later.
+
+
+
+
+The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog). If you use a maintenance window, then the updates to the minor and extension versions happen according to the timeframe that you set in the window. Otherwise, the updates occur within the next few weeks.
+
+For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
 
 Change
 
@@ -6345,6 +7111,14 @@ New [Airflow builds](https://docs.cloud.google.com/composer/docs/composer-versio
 
 
 ## October 12, 2026
+
+**Agent Assist**
+
+Feature
+
+[Gemini transcribe live](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/gemini-transcribe-live) is generally available. Live transcription converts streaming audio to text in real time to deliver quick, reliable intermediate transcriptions for live conversations.
+
+The `model_id` field in `GeminiAsrConfig` remains in preview. Leave `model_id` unset to use the default Gemini transcribe live model.
 
 **Agent Platform Workbench**
 
@@ -9872,6 +10646,20 @@ Feature
 API key authentication is now supported for the Model Context Protocol (MCP) `tools/list` method. You can name an API key security scheme in `tools-list.security`, in addition to a JWT security scheme.
 
 For more information, see [Configure Model Context Protocol](https://docs.cloud.google.com/api-gateway/docs/mcp-configure).
+
+**Agent Assist**
+
+Feature
+
+Agent Assist offers [companion agent](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/companion-agent-overview) in General Availability (GA). Companion agent unifies real-time agent assistance into a single interface that operates in both **proactive** and **on-demand** modes:
+
+  * **Proactive guidance** : Monitors live customer conversations to surface context-aware next-best-action recommendations and follow configured instructions.
+  * **On-demand assistant (`StreamingReactiveCompanionSuggestions`)**: Enables human agents to ask natural-language questions in an interactive panel and receive streamed, source-cited answers grounded in conversation context.
+  * **Tool execution and grounding** : Connects to [data store tools, OpenAPI tools, custom tools, and Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/companion-agent-tools) to retrieve live data and automate tasks, with built-in human-in-the-loop confirmation for state-modifying actions.
+
+
+
+Companion agent is available across supported Agent Assist [regions](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/regionalization) with default resource allocation and token [quotas](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/quotas#companion-agent).
 
 **Apigee API hub**
 
@@ -16884,7 +17672,9 @@ Feature
 The Gemini Enterprise app for Slack has the following new capabilities:
 
   * **Channel mentions:** You can `@mention` the Gemini Enterprise app directly in Slack channels and conversational threads. The app returns responses privately so you can review them before choosing to share.
+
   * **Multi-turn conversations:** The Gemini Enterprise app remembers the context of your current session in direct messages. You can ask follow-up questions and refine previous responses. You can clear the context and start over by clicking **New chat**.
+
 
 
 
@@ -19421,6 +20211,12 @@ For more information, see [`TABLESAMPLE` operator](https://docs.cloud.google.com
 
 ## September 01, 2026
 
+**Agent Assist**
+
+Feature
+
+Agent Assist offers [Gemini Transcribe Live](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/gemini-transcribe-live) in preview, which converts streaming audio to text in real time to deliver quick, reliable intermediate transcriptions for live conversations.
+
 **Apigee UI**
 
 Announcement
@@ -19620,1226 +20416,10 @@ Change
 
 Fraud Defense Mobile SDK v18.9.3 is available for Android. This version includes detection and performance enhancements.
 
-## August 31, 2026
-
-**Assured Workloads**
-
-Feature
-
-The [EU Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary) and [EU Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary-support) support the following products:
-
-  * AI Protection
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-  * Vertex AI Tuning
-
-
-
-Feature
-
-The [South Africa Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/south-africa-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [Taiwan Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/taiwan-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [Israel Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/israel-data-boundary) and [Israel Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/israel-data-boundary-support) support the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [UK Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/uk-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Model Armor
-  * Spanner
-
-
-
-Feature
-
-The [Qatar Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/qatar-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [Indonesia Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/indonesia-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [Australia Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/australia-data-boundary) and [Australia Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/australia-data-boundary-support) support the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Model Armor
-  * Spanner
-
-
-
-Feature
-
-The [Chile Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/chile-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [Switzerland Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/switzerland-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [Brazil Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/brazil-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [South Korea Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/south-korea-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Model Armor
-  * Spanner
-
-
-
-Feature
-
-The [Singapore Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/singapore-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Model Armor
-  * Spanner
-  * Vertex AI Tuning
-
-
-
-Feature
-
-The [Japan Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/japan-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-Feature
-
-The [Canada Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary) and [Canada Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary-support) support the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Model Armor
-  * Spanner
-
-
-
-Feature
-
-The [India Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/india-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Model Armor
-  * Spanner
-
-
-
-Feature
-
-The [US Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) and [US Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary-support) support the following products:
-
-  * AI Protection
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-  * Vertex AI Tuning
-
-
-
-Feature
-
-The [Hong Kong Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/hong-kong-data-boundary) supports the following products:
-
-  * Audit Manager
-  * Backup and DR Service
-  * Cloud Trace
-  * Flow Analyzer
-  * Gemini Enterprise Agent Platform Workbench
-  * Integration Connectors
-  * Migrate to Containers
-  * Spanner
-
-
-
-**BigQuery**
-
-Feature
-
-You can now [create, store](https://docs.cloud.google.com/bigquery/docs/create-pipelines), and [manage pipelines](https://docs.cloud.google.com/bigquery/docs/manage-pipelines) in Git folders. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-Feature
-
-BigQuery now supports [TabFM](https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/), Google's pre-trained foundation model for tabular data. TabFM enables zero-shot regression and classification through in-context learning. It delivers high-accuracy predictions on structured data without requiring model training or hyperparameter tuning. You can use TabFM directly through the [`AI.PREDICT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-predict) and evaluate model performance by using the [`AI.EVALUATE` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-evaluate). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-Fixed
-
-Support for [configuring daily token quotas](https://docs.cloud.google.com/bigquery/docs/control-genai-costs) for BigQuery generative AI functions has been restored.
-
-Feature
-
-Using [folders](https://docs.cloud.google.com/bigquery/docs/code-asset-folders) to [create, store, and manage pipelines](https://docs.cloud.google.com/bigquery/docs/create-pipelines) is [generally available](https://cloud.google.com/products#product-launch-stages).
-
-Feature
-
-You can now create an [identity column](https://docs.cloud.google.com/bigquery/docs/identity-columns), sometimes referred to as an auto-incrementing column, on a table. You can use identity columns to create and maintain primary keys on your tables. When you insert a row into a table that has an identity column, BigQuery generates a unique integer value for that column. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-Feature
-
-[BigQuery Graph](https://docs.cloud.google.com/bigquery/docs/graph-overview) is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
-
-BigQuery Graph now includes support for the `CALL` [graph query statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-query-statements), and the following path inspection [GQL functions](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-gql-functions):
-
-  * `IS_ACYCLIC`
-  * `IS_SIMPLE`
-  * `IS_TRAIL`.
-
-
-
-**Bigtable**
-
-Libraries
-
-### Go
-
-#### [1.53.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.52.0...bigtable/v1.53.0) (2026-08-27)
-
-##### Features
-
-  * **bigtable/accelerator:** Add --user-agent flag to daemon ([#20341](https://github.com/googleapis/google-cloud-go/issues/20341)) ([6b33c06](https://github.com/googleapis/google-cloud-go/commit/6b33c06f6a19ce512cbe9556fe2932f5d7878b66))
-  * **bigtable/accelerator:** Add daemon binary with identity verification ([#20330](https://github.com/googleapis/google-cloud-go/issues/20330)) ([2f9cf89](https://github.com/googleapis/google-cloud-go/commit/2f9cf898f165c0b4fee6fdda8d037c109b0779e1))
-  * **bigtable/accelerator:** Add proxy channel scaffold owning a sessi… ([#20310](https://github.com/googleapis/google-cloud-go/issues/20310)) ([d65ca7d](https://github.com/googleapis/google-cloud-go/commit/d65ca7da8108c643abc56237e2db0a17c3447c7c))
-  * **bigtable/accelerator:** Add stdin-EOF and parent-PID lifecycle wa… ([#20328](https://github.com/googleapis/google-cloud-go/issues/20328)) ([dc1c6ae](https://github.com/googleapis/google-cloud-go/commit/dc1c6ae0f773d405e35ffe68741c46d220e450d1))
-  * **bigtable/accelerator:** Add UDS server with authenticated proxy i… ([#20320](https://github.com/googleapis/google-cloud-go/issues/20320)) ([a837020](https://github.com/googleapis/google-cloud-go/commit/a837020465473f8cc21213de818dc96d5ff46f3a))
-  * **bigtable/accelerator:** Add V2-to-session request adapters ([#20271](https://github.com/googleapis/google-cloud-go/issues/20271)) ([4cb6f16](https://github.com/googleapis/google-cloud-go/commit/4cb6f1644d070b0af8ee3706d36640a91ded48d8))
-  * **bigtable/accelerator:** Authenticate UDS callers with a stdin tok… ([#20324](https://github.com/googleapis/google-cloud-go/issues/20324)) ([7847ab7](https://github.com/googleapis/google-cloud-go/commit/7847ab71efc0c5745eaa49235762ecab523312f1))
-  * **bigtable/accelerator:** Dispatch MutateRow and single-row ReadRow… ([#20312](https://github.com/googleapis/google-cloud-go/issues/20312)) ([c89f336](https://github.com/googleapis/google-cloud-go/commit/c89f336749601fa958d02c984cafd7e96007c8f1))
-  * Update API sources and regenerate ([#20369](https://github.com/googleapis/google-cloud-go/issues/20369)) ([bfe3aaf](https://github.com/googleapis/google-cloud-go/commit/bfe3aafc49e0c13815aa0401b1eba47aef4511df))
-  * Update sources and regenerate ([#20399](https://github.com/googleapis/google-cloud-go/issues/20399)) ([a6b5cdb](https://github.com/googleapis/google-cloud-go/commit/a6b5cdb4eec5e66fb6bb4a00f9ec89c088826e26))
-
-
-
-##### Bug Fixes
-
-  * **bigtable/internal/transport:** Drop redundant defer p.Close() in AFE picker tests ([#20311](https://github.com/googleapis/google-cloud-go/issues/20311)) ([c05b767](https://github.com/googleapis/google-cloud-go/commit/c05b76788b76de616cf49ca7c3a7cfec863913b8))
-  * **bigtable:** Register c2p resolver + RLS balancer for accelerator daemon DirectPath ([#20362](https://github.com/googleapis/google-cloud-go/issues/20362)) ([95f372f](https://github.com/googleapis/google-cloud-go/commit/95f372f660f8246fe869ae085b75b70e537533f0))
-  * **bigtable:** Session client — set AllowNonDefaultServiceAccount on DirectPath dial ([#20343](https://github.com/googleapis/google-cloud-go/issues/20343)) ([b9c76ec](https://github.com/googleapis/google-cloud-go/commit/b9c76ec52f46f4fb1f1252b4ca159ca3cd2f86fa))
-  * **bigtable:** Session client — single ownership + single-flight pool loading ([#20368](https://github.com/googleapis/google-cloud-go/issues/20368)) ([f4ad950](https://github.com/googleapis/google-cloud-go/commit/f4ad950b6ace8c34820568073129e43bc69c7797))
-  * **bigtable:** Session pool — re-drive creation after a never-activated close so the consecutive-failure breaker is reachable ([#20355](https://github.com/googleapis/google-cloud-go/issues/20355)) ([ee74949](https://github.com/googleapis/google-cloud-go/commit/ee749491ff2316f35ae17cb9f82a3059e6e122db))
-  * **bigtable:** Use composed user agent as CSM client_name ([#20383](https://github.com/googleapis/google-cloud-go/issues/20383)) ([cb02335](https://github.com/googleapis/google-cloud-go/commit/cb02335f55c4c3f8ce04edd890d0745370996cc7))
-
-
-
-**Cloud SQL for PostgreSQL**
-
-Feature
-
-You can use the pgAudit extension to prevent string literals that might indicate sensitive information, such as passwords and secrets, from appearing in your log query results.
-
-This pgAudit extension capability is supported on `[PostgreSQL version].R20260712.01_06` or later.
-
-For more information, see [Audit for PostgreSQL using pgAudit](https://docs.cloud.google.com/sql/docs/postgres/pg-audit).
-
-**Cloud Service Mesh**
-
-Announcement
-
-**1.30.4-asm.1 is now available for in-cluster Cloud Service Mesh.**
-
-You can now download 1.30.4-asm.1 for in-cluster Cloud Service Mesh. It includes the features of [Istio 1.30.4](https://istio.io/latest/news/releases/1.30.x/announcing-1.30/) subject to the list of [supported features](https://docs.cloud.google.com/service-mesh/v1.30/docs/supported-features-in-cluster).
-
-Fixed an issue that caused incomplete telemetry in multicluster deployments for routes configured with TLS or PROXY traffic policies. Refer Istio 1.30 Telemetry Release Notes ([last bullet](https://istio.io/latest/news/releases/1.30.x/announcing-1.30/#telemetry)) for more details on the issue.
-
-The following are not supported:
-
-  * Failover Priority support for DNS clusters
-  * `ENABLE_WILDCARD_HOST_SERVICE_ENTRIES_FOR_TLS`
-  * Multiple `CUSTOM` external authorization providers per workload
-  * The `DEBUG_ENDPOINT_AUTH_ALLOWED_NAMESPACES` flag
-
-
-
-For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/v1.30/docs/upgrade/upgrade). Cloud Service Mesh version 1.30.4-asm.1 uses Envoy v1.38.4-dev.
-
-Announcement
-
-**1.30.4-asm.1 is now available for in-cluster Cloud Service Mesh.**
-
-You can now download 1.30.4-asm.1 for in-cluster Cloud Service Mesh. It includes the features of [Istio 1.30.4](https://istio.io/latest/news/releases/1.30.x/announcing-1.30/) subject to the list of [supported features](https://docs.cloud.google.com/service-mesh/docs/supported-features-in-cluster).
-
-Fixed an issue that caused incomplete telemetry in multicluster deployments for routes configured with TLS or PROXY traffic policies. Refer Istio 1.30 Telemetry Release Notes ([last bullet](https://istio.io/latest/news/releases/1.30.x/announcing-1.30/#telemetry)) for more details on the issue.
-
-The following are not supported:
-
-  * Failover Priority support for DNS clusters
-  * `ENABLE_WILDCARD_HOST_SERVICE_ENTRIES_FOR_TLS`
-  * Multiple `CUSTOM` external authorization providers per workload
-  * The `DEBUG_ENDPOINT_AUTH_ALLOWED_NAMESPACES` flag
-
-
-
-For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/upgrade/upgrade). Cloud Service Mesh version 1.30.4-asm.1 uses Envoy v1.38.4-dev.
-
-Announcement
-
-In-cluster Cloud Service Mesh 1.27 is no longer supported. For more information and to view the earliest end-of-life dates for other versions, see [Supported versions](https://docs.cloud.google.com/service-mesh/v1.30/docs/supported-features-in-cluster#supported_versions).
-
-Announcement
-
-In-cluster Cloud Service Mesh 1.27 is no longer supported. For more information and to view the earliest end-of-life dates for other versions, see [Supported versions](https://docs.cloud.google.com/service-mesh/docs/supported-features-in-cluster#supported_versions).
-
-**Cloud Trace**
-
-Breaking
-
-Starting August 31, 2026, you can no longer create or edit [trace sinks](https://docs.cloud.google.com/trace/docs/trace-export-overview). Trace sinks were deprecated on February 18, 2026. For more information, see [Export trace spans with sinks deprecation](https://docs.cloud.google.com/stackdriver/docs/deprecations/export-spans-with-sinks).
-
-For information about how to analyze your trace data using SQL, see the following documents:
-
-  * [Query and analyze traces using Observability Analytics](https://docs.cloud.google.com/trace/docs/analytics)
-  * [Query a linked BigQuery dataset](https://docs.cloud.google.com/trace/docs/analytics-query-linked-dataset)
-
-
-
-**Container Optimized OS**
-
-Change
-
-### cos-dev-138-20085-0-0 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.18.46](https://cos.googlesource.com/third_party/kernel/+/80c4ee1448ac9d5efa455b31d1aaff342fcc1c3d) | v29.4.3 | v2.3.2 | [See List](https://storage.googleapis.com/cos-tools/20085.0.0/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Updated cos-gpu-installer to v2.7.7.
-
-Change
-
-Updated the Linux kernel to v6.18.46.
-
-Fixed
-
-Added support for net-fs/lustre-client-drivers v2.14.0_p259.
-
-Fixed
-
-Updated cos-gpu-installer to v2.7.6.
-
-Fixed
-
-Updated net-misc/openssh to version 10.4_p1.
-
-Fixed
-
-Upgraded app-admin/google-guest-configs to v20260819.00.
-
-Fixed
-
-Upgraded app-admin/oslogin to v20260814.00.
-
-Fixed
-
-Upgraded app-arch/zstd to v1.5.7-r1.
-
-Fixed
-
-Upgraded app-containers/docker-credential-helpers to v0.9.9.
-
-Fixed
-
-Upgraded app-shells/dash to v0.5.13.5.
-
-Fixed
-
-Upgraded chromeos-base/chromeos-dbus-bindings to v0.0.1-r2802.
-
-Fixed
-
-Upgraded chromeos-base/power_manager-client to v0.0.1-r2975.
-
-Fixed
-
-Upgraded chromeos-base/session_manager-client to v0.0.1-r2837.
-
-Fixed
-
-Upgraded dev-db/sqlite to v3.53.4.
-
-Fixed
-
-Upgraded dev-lang/luajit to v2.1.1780076327.
-
-Fixed
-
-Upgraded dev-libs/expat to v2.8.3.
-
-Fixed
-
-Upgraded dev-libs/gmp to v6.3.0-r2.
-
-Fixed
-
-Upgraded dev-libs/inih to v62.
-
-Fixed
-
-Upgraded dev-libs/libaio to v0.3.113_p8.
-
-Fixed
-
-Upgraded dev-libs/libgpg-error to v1.61.
-
-Fixed
-
-Upgraded dev-libs/libltdl to v2.5.4.
-
-Fixed
-
-Upgraded dev-libs/libpcre2 to v10.47.
-
-Fixed
-
-Upgraded dev-libs/libverto to v0.3.2-r1.
-
-Fixed
-
-Upgraded dev-libs/popt to v1.19-r1.
-
-Fixed
-
-Upgraded dev-libs/userspace-rcu to v0.15.6.
-
-Fixed
-
-Upgraded dev-python/oauthlib to v3.3.1.
-
-Fixed
-
-Upgraded net-dns/c-ares to v1.34.8.
-
-Fixed
-
-Upgraded net-libs/nghttp2 to v1.70.0.
-
-Fixed
-
-Upgraded sys-apps/acl to v2.4.0-r2.
-
-Fixed
-
-Upgraded sys-apps/ethtool to v7.0.
-
-Fixed
-
-Upgraded sys-apps/pciutils to v3.15.0.
-
-Fixed
-
-Upgraded sys-apps/xemu to v0.0.10.
-
-Fixed
-
-Upgraded sys-auth/passwdqc to v2.1.0-r1.
-
-Fixed
-
-Upgraded sys-libs/libcap-ng to v0.9.5-r1.
-
-Fixed
-
-Upgraded sys-process/lsof to v4.99.7.
-
-Security
-
-Upgraded dev-libs/libxml2 to v2.15.3. This fixes CVE-2026-0989, CVE-2026-0990, and CVE-2026-0992.
-
-Security
-
-Upgraded vim & vim-core to version 9.2.0280. This fixes CVE-2026-35177.
-
-Change
-
-### cos-beta-133-19999-44-21 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.18.46](https://cos.googlesource.com/third_party/kernel/+/8a624874a5e03d8358d92374b02facb4cef881f8) | v29.4.3 | v2.3.2 | [See List](https://storage.googleapis.com/cos-tools/19999.44.21/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-LTS Refresh from main-R133-cos-6.18 to release-R133-cos-6.18
-
-Change
-
-Updated cos-gpu-installer to v2.7.7.
-
-Change
-
-Updated the Linux kernel to v6.18.45.
-
-Change
-
-Updated the Linux kernel to v6.18.46.
-
-Fixed
-
-Added support for net-fs/lustre-client-drivers v2.14.0_p259.
-
-Fixed
-
-Updated cos-gpu-installer to v2.7.6.
-
-Fixed
-
-Updated net-misc/openssh to version 10.4_p1.
-
-Fixed
-
-Upgraded app-admin/fluent-bit to v4.2.8.
-
-Fixed
-
-Upgraded app-admin/google-guest-configs to v20260819.00.
-
-Fixed
-
-Upgraded app-admin/node-problem-detector to v0.8.25.
-
-Fixed
-
-Upgraded app-admin/oslogin to v20260814.00.
-
-Fixed
-
-Upgraded app-admin/sosreport to v4.12.0.
-
-Fixed
-
-Upgraded app-arch/unzip to v6.0_p31.
-
-Fixed
-
-Upgraded app-containers/docker-credential-helpers to v0.9.9.
-
-Fixed
-
-Upgraded app-containers/docker-registry-test to v2.8.3.
-
-Fixed
-
-Upgraded app-shells/dash to v0.5.13.5.
-
-Fixed
-
-Upgraded dev-db/sqlite to v3.53.4.
-
-Fixed
-
-Upgraded sys-apps/acl to v2.4.0-r2.
-
-Fixed
-
-Upgraded sys-apps/xemu to v0.0.10.
-
-Fixed
-
-Upgraded sys-auth/passwdqc to v2.0.3-r1.
-
-Fixed
-
-Upgraded sys-fs/e2fsprogs to v1.47.4.
-
-Fixed
-
-Upgraded sys-libs/libcap-ng to v0.9.5-r1.
-
-Fixed
-
-Upgraded sys-process/lsof to v4.99.7.
-
-Security
-
-Fixed CVE-2026-39827, CVE-2026-39828, CVE-2026-39829, CVE-2026-39830, CVE-2026-39831, CVE-2026-39832, CVE-2026-39833, CVE-2026-39834, CVE-2026-39835, CVE-2026-42508, CVE-2026-46595, CVE-2026-46597, and CVE-2026-46598 in dev-go/crypto.
-
-Security
-
-Upgraded dev-libs/libxml2 to v2.15.3. This fixes CVE-2026-0989, CVE-2026-0990, and CVE-2026-0992.
-
-Change
-
-### cos-129-19506-448-8 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/583df4fb246cc3cdc69bbb933a78ef88032ecfd6) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.448.8/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Updated containerd and containerd-test to v2.2.7.
-
-Fixed
-
-LTS Refresh from main-R129-cos-6.12 to release-R129-cos-6.12
-
-Fixed
-
-Upgraded app-admin/fluent-bit to v4.2.8.
-
-Fixed
-
-Upgraded app-arch/unzip to v6.0_p31.
-
-Fixed
-
-Upgraded app-shells/dash to v0.5.13.5.
-
-Fixed
-
-Upgraded dev-libs/libverto to v0.3.2-r1.
-
-Fixed
-
-Upgraded dev-libs/popt to v1.19-r1.
-
-Fixed
-
-Upgraded sys-apps/acl to v2.4.0-r2.
-
-Fixed
-
-Upgraded sys-auth/passwdqc to v2.0.3-r1.
-
-Security
-
-Fixed CVE-2026-68293 in the Linux kernel.
-
-Security
-
-Upgraded dev-libs/libxml2 to v2.15.3. This fixes CVE-2026-0989, CVE-2026-0990, and CVE-2026-0992.
-
-Change
-
-Runtime sysctl changes: 
-
-  * Changed: net.ipv4.udp_mem: 188034 250715 376068 -> 188034 250714 376068
-
-
-
-Change
-
-### cos-125-19216-655-6 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/728af8e16745d2a2cef9323806e50619cc900208) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.655.6/lakitu/gpu_driver_versions.textproto)  
-  
-Fixed
-
-LTS Refresh from main-R125-cos-6.12 to release-R125-cos-6.12
-
-Fixed
-
-Upgraded app-arch/zstd to v1.5.7-r1.
-
-Fixed
-
-Upgraded app-containers/cni-plugins to v1.9.1.
-
-Fixed
-
-Upgraded dev-libs/libverto to v0.3.2-r1.
-
-Fixed
-
-Upgraded dev-libs/popt to v1.19-r1.
-
-Fixed
-
-Upgraded dev-libs/xxhash to v0.8.3-r2.
-
-Fixed
-
-Upgraded sys-auth/passwdqc to v2.0.3-r1.
-
-Security
-
-Fixed CVE-2026-68293 in the Linux kernel.
-
-Security
-
-Upgraded dev-libs/libxml2 to v2.15.3. This fixes CVE-2026-0989, CVE-2026-0990, and CVE-2026-0992.
-
-Change
-
-Runtime sysctl changes: 
-
-  * Changed: net.ipv4.udp_mem: 188034 250714 376068 -> 188034 250715 376068
-
-
-
-Change
-
-### cos-121-18867-584-3 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/bce7645596996d31068d8b3c7ad0f24fc8848df3) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.584.3/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Updated cos-gpu-installer to v2.7.7.
-
-Fixed
-
-LTS Refresh from main-R121-cos-6.6 to release-R121-cos-6.6
-
-Security
-
-Fixed CVE-2026-64371 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-68142 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-68142 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-68432 in the Linux kernel.
-
-Security
-
-Upgraded dev-libs/libxml2 to v2.15.3. This fixes CVE-2026-0989, CVE-2026-0990, and CVE-2026-0992.
-
-Change
-
-### cos-117-18613-731-2 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/3f9d5994b9233645cbedcc27ffb9885482af3d41) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.2/lakitu/gpu_driver_versions.textproto)  
-  
-Fixed
-
-LTS Refresh from main-R117-cos-6.6 to release-R117-cos-6.6
-
-Security
-
-Fixed CVE-2026-59995, CVE-2026-59996, CVE-2026-59997, CVE-2026-59999, CVE-2026-60000, CVE-2026-60001, and CVE-2026-60002 in openssh.
-
-Security
-
-Fixed CVE-2026-68142 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-68142 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-68432 in the Linux kernel.
-
-Security
-
-Upgraded dev-libs/libxml2 to v2.15.3. This fixes CVE-2026-0989, CVE-2026-0990, and CVE-2026-0992.
-
-**Datastream**
-
-Feature
-
-You can now create a Datastream stream directly from the overview page of your Cloud SQL instances using the automated flow.
-
-For more information, see [Create a Cloud SQL stream using the automated flow](https://docs.cloud.google.com/datastream/docs/create-a-stream-automated).
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: Support for federated data stores in Assured Workloads with FedRAMP High compliance**
-
-Gemini Enterprise now supports connecting Google Workspace and third-party federated data stores to projects inside Assured Workloads folders, which automatically enforce security and compliance controls on your Google Cloud resources to meet FedRAMP High standards. This feature is generally available (GA). For more information, see
-
-  * [Connect a Google data source](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/create-data-store).
-
-  * [Connect a third-party data source](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source).
-
-
-
-
-Feature
-
-**Gemini Enterprise: Gemini 3.5 Flash regional availability in Canada**
-
-Gemini 3.5 Flash is available in Canada (`ca`) with in-region at-rest data residency (DRZ) and machine learning processing (MLP).
-
-For more information, see [Locations](https://docs.cloud.google.com/gemini/enterprise/docs/locations).
-
-Feature
-
-**Gemini Enterprise: Gemini 3.1 Flash image available in US and EU multi-regions**
-
-Gemini 3.1 Flash image (Nano Banana 2) for image generation is generally available in the `us` and `eu` multi-regions.
-
-For more information, see:
-
-  * [Manage features on the web app](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features)
-  * [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations)
-
-
-
-Feature
-
-**Gemini Enterprise: Protect sensitive data with content policies**
-
-You can apply Sensitive Data Protection content policies to your Gemini Enterprise connectors, apps, and Gemini Notebook Enterprise notebooks.
-
-Content policies inspect data for violating or unwanted content and block it. Content policies can block Gemini Enterprise apps from presenting sensitive or inappropriate material to users and can stop end users from uploading files that contain sensitive or inappropriate material.
-
-This feature is generally available (GA). For more information, see [Protect sensitive data in sources](https://docs.cloud.google.com/gemini/enterprise/docs/protect-sensitive-data) and [Protect sensitive data in NotebookLM Enterprise sources](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/protect-sensitive-data).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Gemini 3.1 Flash Image and Gemini 3 Pro Image updates**
-
-This release introduces feature updates and expanded endpoint availability for Gemini 3.1 Flash Image and Gemini 3 Pro Image:
-
-  * **Multi-region endpoint support** : [Gemini 3.1 Flash Image (`gemini-3.1-flash-image`)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) is now available on US (`us`) and EU (`eu`) multi-region endpoints for model availability, ML processing, Provisioned Throughput, and PayGo Standard.
-
-  * **4K image output in GA** : Generating 4K resolution images is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for both [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image).
-
-  * **Video inputs in GA** : Image generation from video inputs is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image).
-
-
-
-
-For more information, see the following:
-
-  * [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  * [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
-  * [Model locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#multi-region)
-
-
-
-Feature
-
-**IAM Unified Access Policies are generally available (GA)**
-
-IAM Unified Access Policies (Access policies) for Gemini Enterprise Agent Platform are [generally available (GA)](https://cloud.google.com/products#product-launch-stages). Agent Gateway uses Identity-Aware Proxy and Access policies to govern agentic communication between agent principals and destination resources, such as Model Context Protocol (MCP) servers, other agents, and registered or unregistered endpoints.
-
-Key capabilities include:
-
-  * Multiple allow and deny rules within a single Access policy to establish fine-grained behavioral guardrails.
-  * Common Expression Language (CEL) conditions in rules to enforce access criteria based on tool names, read-only constraints, HTTP methods, and URL path attributes.
-  * Dry-run and enforcement modes to validate and audit policy evaluation before blocking agent traffic.
-  * End-to-end agent identity authentication and authorization using mutual TLS (mTLS) and Context-Aware Access (CAA) with Demonstrating Proof of Possession (DPoP).
-
-
-
-For more information, see [IAM access policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap).
-
-**Google Kubernetes Engine**
-
-Feature
-
-Session affinity support using GCPTrafficDistributionPolicy for GKE Gateway is generally available. This release currently supports single-cluster GKE Gateway load balancers using the following GatewayClasses:
-
-  * `gke-l7-rilb`
-  * `gke-l7-regional-external-managed`
-  * `gke-l7-global-external-managed`
-
-
-
-In addition to the session affinity types available in Preview, you can now use the `STRONG_COOKIE_AFFINITY` type, which provides the most persistent session stickiness among the session affinity types available in Google Cloud Application Load Balancers.
-
-The session affinity types require the following minimum GKE versions:
-
-  * `CLIENT_IP`, `HEADER_FIELD`, `GENERATED_COOKIE`, and `HTTP_COOKIE`: version 1.35.2-gke.1269001 or later
-  * `STRONG_COOKIE_AFFINITY`: version 1.36.3-gke.1767000 or later
-
-
-
-For more information, see [Configure session affinity using GCPTrafficDistributionPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#expanded-session-affinity).
-
-**Google SecOps**
-
-Feature
-
-**[Spotlight Feature] Customizable schedules for multi-event rules general availability**
-
-The [customizable schedules for multi-event rules](https://docs.cloud.google.com/chronicle/docs/detection/set-customized-schedule) feature is now in General Availability (GA).
-
-Customizable schedules give security teams granular control and transparency over how multi-event rules execute in Google SecOps, and provide the following capabilities:
-
-  * **Configure settlement delays:** Set first-run delay offsets (from 1 minute up to 48 hours) to account for log ingestion latency and reduce false negatives.
-  * **Leverage automated true-up runs:** Automatically re-evaluate time windows at 4 hours (and optionally 30 hours for full context enrichment) to capture late-arriving logs.
-  * **Migrate legacy rules:** Upgrade existing custom multi-event rules to customizable schedules directly from the **Rules Dashboard**.
-
-
-
-To manage rule schedules with custom IAM roles, make sure your roles include `chronicle.rules.modifyRules` and `chronicle.ruleDeployments.update`. Predefined IAM roles include these permissions automatically.
-
-For more information, see [Configure customized schedules for rules](https://docs.cloud.google.com/chronicle/docs/detection/set-customized-schedule) and [Understand rule run scheduling](https://docs.cloud.google.com/chronicle/docs/detection/rule-execution-frequency).
-
-**Identity-Aware Proxy**
-
-Feature
-
-**IAM Unified Access Policies for Agent Gateway are generally available (GA)**
-
-IAM Unified Access Policies (Access policies) for Agent Gateway and Identity-Aware Proxy (IAP) are [generally available (GA)](https://cloud.google.com/products#product-launch-stages). Identity-Aware Proxy integrates with Agent Gateway and uses Access policies to help secure and govern agentic egress communication between agent principals and destination resources, such as Model Context Protocol (MCP) servers, other agents, and registered or unregistered endpoints.
-
-Key capabilities include:
-
-  * Multiple allow and deny rules within a single Access policy to establish fine-grained behavioral guardrails for egress traffic.
-  * Common Expression Language (CEL) condition evaluation in rules to enforce egress access criteria based on tool names, read-only constraints, HTTP methods, and URL paths.
-  * Dry-run and enforcement modes to validate and audit policy evaluation before blocking egress traffic.
-  * End-to-end agent identity authentication and authorization using mutual TLS (mTLS) and Context-Aware Access (CAA) with Demonstrating Proof of Possession (DPoP).
-
-
-
-For more information, see [IAM access policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap).
-
-**Looker**
-
-Announcement
-
-[Localized data processing](https://docs.cloud.google.com/looker/docs/conversational-analytics-overview#eu-ca-compliance) for European Union (EU)-based customers now applies to all Conversational Analytics data agents, including agents that are associated with Looker Explores, user-defined dashboards, and LookML dashboards. This support means that localized data processing now applies to [all Conversational Analytics in Looker features](https://docs.cloud.google.com/looker/docs/conversational-analytics-overview#key-features).
-
-**Note:** This item was added September 9, 2026.
-
-Deprecated
-
-The [Looker Mobile (Legacy) application](https://docs.cloud.google.com/looker/docs/mobile-app-legacy) is no longer available for download from the App Store or Play Store and support for the app has been discontinued. Although users will still be able to use the Looker Mobile (Legacy) app if they already have it installed, we recommend that you install the non-legacy [Looker mobile app](https://docs.cloud.google.com/looker/docs/mobile-app-installation).
-
-**Note:** The deprecation of the Looker Mobile (Legacy) application has been postponed to January 31, 2027. This item was updated on September 9, 2026.
-
-**Managed Service for Apache Spark**
-
-Announcement
-
-**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine): The following subminor image versions announced on [August 19, 2026](https://cloud.google.com/managed-spark/docs/release-notes#August_19_2026) have been rolled back:
-
-  * 2.2.86-debian12, 2.2.86-rocky9, 2.2.86-ubuntu22, 2.2.86-ubuntu22-arm
-
-
-
-**Memorystore for Redis Cluster**
-
-Feature
-
-You can use [access control list (ACL) policies](https://docs.cloud.google.com/memorystore/docs/cluster/use-acl-policies) to secure access to your clusters. You can enable fine-grained security by restricting user and service access to specific keys, commands, operations, and Pub/Sub channels. This feature is [Generally Available](https://docs.cloud.google.com/products#product-launch-stages).
-
-**Memorystore for Valkey**
-
-Feature
-
-You can use [access control list (ACL) policies](https://docs.cloud.google.com/memorystore/docs/valkey/use-acl-policies) to secure access to your instances. You can enable fine-grained security by restricting user and service access to specific keys, commands, operations, and Pub/Sub channels. This feature is [Generally Available](https://docs.cloud.google.com/products#product-launch-stages).
-
-**NetApp Volumes**
-
-Feature
-
-The manual QoS feature is generally available for the Flex Unified service level. For more information, see [Manual QoS](https://docs.cloud.google.com/netapp/volumes/docs/performance/optimize-performance#manual_qos).
-
-**Network Connectivity Center**
-
-Feature
-
-IPv6 dynamic routes support for include and exclude [spoke filters](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/spoke-filters-overview) for hybrid spokes is available in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-Export filters control which subnets or routes a spoke can send to the hub. Import filters control which subnets or routes can be accepted by a spoke from the hub.
-
-**Sensitive Data Protection**
-
-Feature
-
-Sensitive Data Protection content policies are in [General Availability](https://cloud.google.com/products#product-launch-stages). You can use content policies to evaluate content and return an `ALLOW` or `BLOCK` verdict based on data sensitivity.
-
-For more information about content policies, see the following:
-
-  * [Overview of content policies](https://docs.cloud.google.com/sensitive-data-protection/docs/content-policy)
-  * [Create and manage content policies](https://docs.cloud.google.com/sensitive-data-protection/docs/manage-content-policies)
-
-
-
-Sensitive Data Protection content policies are integrated with Gemini Enterprise. For more information, see the following:
-
-  * [Protect sensitive data in sources](https://docs.cloud.google.com/gemini/enterprise/docs/protect-sensitive-data)
-  * [Protect sensitive data in Gemini Notebook Enterprise sources](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/protect-sensitive-data)
-
-
-
-**Service Extensions**
-
-Feature
-
-[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) supports Service Extensions to evaluate requests and delegate authorization decisions for agent traffic to either Google services or custom authorization services. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
-
-For more information, see [Integration with Agent Gateway](https://docs.cloud.google.com/service-extensions/docs/integration-with-google-services#integration-with-agent-gateway).
-
-**Virtual Private Cloud**
-
-Feature
-
-**General Availability** : You can create Compute Engine instances that have multiple virtual network interfaces (vNICs) in the same VPC network. For more information, see [Multiple network interfaces in the same VPC network](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#same-vpc).
-
-## August 30, 2026
-
-**Agent Platform Workbench**
-
-Change
-
-### 20260830-2330-rc0 Release
-
-Change
-
-### 20260831.01_p0 Release
-
-Change
-
-Installed latest packages from upstream dependencies.
-
-Change
-
-Installed latest packages from upstream dependencies.
-
-Fixed
-
-The terminal and file browser are now more responsive when working in a Cloud Storage bucket that is mounted through the file browser. Frequent background checks for non-existent files are now cached instead of repeatedly querying Cloud Storage, which previously could make actions such as listing files or running terminal commands take several seconds.
-
-Fixed
-
-Cloud Storage buckets that you mount through the file browser are now automatically re-mounted after the instance is restarted or is stopped and started. Previously the mounted folder could be left behind as an empty, unusable directory that had to be manually removed and re-mounted.
-
-Change
-
-The obsolete google-cloud-sdk transitional package is no longer installed. The Google Cloud CLI itself is unchanged; it was already provided by the google-cloud-cli package.
-
-Change
-
-### 20260830-2230-rc0 Release
-
-Change
-
-### 20260830-2230-rc0 Release
-
-Change
-
-Installed latest packages from upstream dependencies.
-
-Change
-
-Installed latest packages from upstream dependencies.
-
-Fixed
-
-Cloud Storage buckets that you mount through the file browser are now automatically re-mounted after the instance is restarted or is stopped and started. Previously the mounted folder could be left behind as an empty, unusable directory that had to be manually removed and re-mounted.
-
-Fixed
-
-The terminal and file browser are now more responsive when working in a Cloud Storage bucket that is mounted through the file browser. Frequent background checks for non-existent files are now cached instead of repeatedly querying Cloud Storage, which previously could make actions such as listing files or running terminal commands take several seconds.
-
-Change
-
-### 20260830-2154-rc1 Release
-
-Change
-
-Installed latest packages from upstream dependencies.
-
-Fixed
-
-Fixed an issue where a notebook's cells and their outputs could be unexpectedly erased. The automatic reload of an open notebook (which keeps it in sync with changes made to its file on disk) is now restricted to run only while the Gemini CLI is in use, so notebooks are no longer overwritten at other times.
-
-Fixed
-
-Cloud Storage buckets that you mount through the file browser are now automatically re-mounted after the instance is restarted or is stopped and started. Previously the mounted folder could be left behind as an empty, unusable directory that had to be manually removed and re-mounted.
-
-Fixed
-
-The terminal and file browser are now more responsive when working in a Cloud Storage bucket that is mounted through the file browser. Frequent background checks for non-existent files are now cached instead of repeatedly querying Cloud Storage, which previously could make actions such as listing files or running terminal commands take several seconds.
-
-Change
-
-Agent Platform Workbench instances internal agents now honor custom CA certificates installed on the host OS (e.g. via a custom VM image), fixing TLS certificate verification failures when Google API traffic is routed through a customer-managed proxy.
-
-Change
-
-### M148 Release
-
-Change
-
-Installed latest packages from upstream dependencies.
-
-Fixed
-
-Fixed an issue where a notebook's cells and their outputs could be unexpectedly erased. The automatic reload of an open notebook (which keeps it in sync with changes made to its file on disk) is now restricted to run only while the Gemini CLI is in use, so notebooks are no longer overwritten at other times.
-
-Fixed
-
-The terminal and file browser are now more responsive when working in a Cloud Storage bucket that is mounted through the file browser. Frequent background checks for non-existent files are now cached instead of repeatedly querying Cloud Storage, which previously could make actions such as listing files or running terminal commands take several seconds.
-
-Fixed
-
-Cloud Storage buckets that you mount through the file browser are now automatically re-mounted after the instance is restarted or is stopped and started. Previously the mounted folder could be left behind as an empty, unusable directory that had to be manually removed and re-mounted.
-
-Change
-
-Agent Platform Workbench instances internal agents now honor custom CA certificates installed on the host OS (e.g. via a custom VM image), fixing TLS certificate verification failures when Google API traffic is routed through a customer-managed proxy.
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

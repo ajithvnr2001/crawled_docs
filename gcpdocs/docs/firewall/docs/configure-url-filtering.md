@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/configure-url-filtering/
 title: Configure the URL filtering service \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:51.908787+00:00
+fetched_at: 2026-10-31T06:00:27.823405+00:00
 ---
 
 # Configure the URL filtering service  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -127,7 +127,7 @@ A firewall endpoint with jumbo frame support can accept packets only up to 8,500
 
 **Caution:** A firewall endpoint doesn't perform URL filtering service for a VPC network if the network is configured with an MTU that's greater than the firewall endpoint's limit.
 
-For more information about creating firewall endpoint associations, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoint-associations#create-endpoint-association).
+For more information about creating firewall endpoint associations, see [Create a firewall endpoint association](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#create-endpoint-association).
 
   3. Create a security profile for URL filtering.
 
@@ -182,7 +182,7 @@ A firewall endpoint with jumbo frame support can accept packets only up to 8,500
 
 **Caution:** A firewall endpoint doesn't perform URL filtering service for a VPC network if the network is configured with an MTU that's greater than the firewall endpoint's limit.
 
-For more information about creating firewall endpoint associations, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoint-associations#create-endpoint-association).
+For more information about creating firewall endpoint associations, see [Create a firewall endpoint association](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#create-endpoint-association).
 
   3. Create a security profile for URL filtering.
 
@@ -194,7 +194,7 @@ For more information, see [Create a URL filtering security profile](https://docs
 
 To scan traffic for security threats, create another security profile of type `threat-prevention`. Review the list of threat signatures, evaluate the default responses, and customize actions for the selected signatures according to your requirements.
 
-For more information, see [Create a threat prevention security profile](https://docs.cloud.google.com/firewall/docs/configure-security-profiles#create-security-profile). To learn more about intrusion detection and prevention service, see [Intrusion detection and prevention service overview](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention).
+For more information, see [Create a threat prevention security profile](https://docs.cloud.google.com/firewall/docs/configure-security-profiles#create-tp-security-profile). To learn more about intrusion detection and prevention service, see [Intrusion detection and prevention service overview](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention).
 
   5. Create a security profile group.
 
@@ -234,7 +234,7 @@ To configure the URL filtering service, create a [global network firewall policy
 
      * If you create a new global firewall policy or use an existing one, add a firewall policy rule with the `apply_security_profile_group` action and specify the name of the security profile group that you created previously. Make sure that the firewall policy is associated with the same VPC network as the workloads that require inspection.
 
-For more information, see [Create global network firewall policy](https://docs.cloud.google.com/firewall/docs/use-network-firewall-policies#create-network-firewall-policy) and [Add firewall policy rule](https://docs.cloud.google.com/firewall/docs/use-network-firewall-policies#add_rules).
+For more information, see [Create a global network firewall policy](https://docs.cloud.google.com/firewall/docs/use-network-firewall-policies#create-network-firewall-policy) and [Add firewall policy rule](https://docs.cloud.google.com/firewall/docs/use-network-firewall-policies#add_rules).
 
      * If you create a new hierarchical firewall policy or use an existing one, add a firewall policy rule with the `apply_security_profile_group` action configured. Make sure that the firewall policy is associated with the same VPC network as the workloads that require inspection.
 
@@ -280,6 +280,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

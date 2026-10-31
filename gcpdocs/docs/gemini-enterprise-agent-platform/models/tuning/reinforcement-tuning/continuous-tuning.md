@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning/
 title: Continuous tuning for reinforcement learning fine-tuning \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:24.234925+00:00
+fetched_at: 2026-10-31T05:55:47.566430+00:00
 ---
 
 # Continuous tuning for reinforcement learning fine-tuning  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ To configure a continuous tuning job in the Google Cloud console:
   3. Under **Tuning method** , select **Reinforcement learning fine tuning**.
   4. In the **Base model** section, select **Tune a pre-tuned model**.
   5. Click **Select model** , choose your previously tuned model, and select a version or checkpoint to continue tuning from.
-  6. Proceed through the remaining steps to configure your reward functions, training dataset, and hyperparameters. For more information, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console).
+  6. Proceed through the remaining steps to configure your reward functions, training dataset, and hyperparameters. For more information, see the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console).
 
 
 
@@ -95,7 +95,7 @@ Replace the following:
   * `PROJECT_ID`: your Google Cloud project ID.
   * `LOCATION_ID`: the location ID.
   * `PRETUNED_MODEL_ID`: the model ID of the previously tuned model to continue from.
-  * `CHECKPOINT_ID`: the ID of a specific checkpoint of the previously tuned model. Optional — if omitted, the latest checkpoint of the pretuned model is used.
+  * `CHECKPOINT_ID`: the ID of a specific checkpoint of the previously tuned model. Optional; if omitted, the latest checkpoint of the pretuned model is used.
 
 
 
@@ -111,6 +111,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

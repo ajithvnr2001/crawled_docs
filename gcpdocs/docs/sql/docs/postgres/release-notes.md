@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/release-notes/
 title: Cloud SQL for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:49:55.327569+00:00
+fetched_at: 2026-10-31T05:48:04.587021+00:00
 ---
 
 # Cloud SQL for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,36 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-postgres-release-notes.xml) directly. 
 
+## October 30, 2026
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, unpatched Cloud SQL for PostgreSQL instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+Before November 1, 2026, do one of the following fixes:
+
+  * **Apply self-service maintenance (Recommended):** If your applications rely on database functions to calculate, schedule, or display times in these Canadian time zones (such as Calgary, Edmonton, Vancouver, or Winnipeg), then update your instances to the latest maintenance release using the Google Cloud console or the gcloud CLI.
+
+Updated time zone rules that reflect permanent standard daylight offsets across Alberta, British Columbia, Manitoba, and Northwest Territories are supported in Cloud SQL for PostgreSQL [maintenance release `*.R20260712.01_44` or later](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog).
+
+For more information, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance).
+
+  * **Database configuration stopgap:** If your organization can't restart instances before November 1, 2026, then you can set your database session time zone without downtime to an anchor zone.
+        
+        ALTER DATABASE database_name SET timezone TO 'anchor_zone';
+
+Replace the following:
+
+    * `database_name`: the name of your database.
+    * `anchor_zone`: the anchor zone to use as the time zone for your database. Specify an anchor zone that operates on a permanent offset.
+
+For example, `'America/Regina'` for Alberta and Northwest Territories (UTC-6), `'America/Whitehorse'` for British Columbia (UTC-7), or `'America/Coral_Harbour'` for Manitoba (UTC-5).
+
+
+
+
 ## October 23, 2026
 
 Security
@@ -46,6 +76,50 @@ In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gc
 
 
 ## October 16, 2026
+
+Change
+
+The rollout of the following Cloud SQL for PostgreSQL minor version and extension upgrades is complete:
+
+**Minor versions**
+
+  * 14.23 is upgraded to 14.24.
+
+  * 15.18 is upgraded to 15.19.
+
+  * 16.14 is upgraded to 16.15.
+
+  * 17.10 is upgraded to 17.11.
+
+  * 18.4 is upgraded to 18.6. This version includes a backported fix for [PostgreSQL bug #19616](https://git.postgresql.org/gitweb/?p=postgresql.git;h=caa463e3f8d2b9c1441e6a59c50f90b8598439f3) that prevents logical decoding from emitting `STREAM_ABORT` messages for unstreamed transactions when an aborted transaction with a subtransaction is truncated during memory eviction.
+
+
+
+
+**Extensions**
+
+  * `hll` (`postgresql-hll`) is upgraded from 2.18 to 2.20.
+
+  * `pg_qualstats` is upgraded from 2.1.2 to 2.1.4.
+
+  * `pglogical` is upgraded from 2.4.5 (for PostgreSQL 17 and earlier) and 2.4.6 (for PostgreSQL 18) to 2.4.8.
+
+  * `pgTAP` is upgraded from 1.3.0 to 1.3.4.
+
+  * `pgtt` is upgraded from 4.0 to 4.6.0 for PostgreSQL 12 and later.
+
+  * `PL/Proxy` is upgraded from 2.11.0 to 2.12.0.
+
+  * `PostGIS` is upgraded from 3.5.2 (for PostgreSQL 13 through 17) and 3.6.0 (for PostgreSQL 18) to 3.6.4 for PostgreSQL 13 and later.
+
+  * `roaringbitmap` (`pg_roaringbitmap`) is upgraded from 0.5 to 1.2 for PostgreSQL 12 and later.
+
+
+
+
+The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog). If you use a maintenance window, then the updates to the minor and extension versions happen according to the timeframe that you set in the window. Otherwise, the updates occur within the next few weeks.
+
+For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
 
 Change
 

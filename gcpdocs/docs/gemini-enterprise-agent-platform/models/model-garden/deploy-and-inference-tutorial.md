@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial/
 title: Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:48.822589+00:00
+fetched_at: 2026-10-31T05:53:09.525783+00:00
 ---
 
 # Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints  |  Google Cloud Documentation
@@ -245,12 +245,12 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
   1. List the models that you can deploy and record the model ID to deploy. You can optionally list the supported Hugging Face models in Model Garden and even filter them by model names. The output doesn't include any tuned models.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
          from vertexai import model_garden
          
          # TODO(developer): Update and un-comment below lines
          # PROJECT_ID = "your-project-id"
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
          
          # List deployable models, optionally list Hugging Face models only or filter by model name.
          deployable_models = model_garden.list_deployable_models(list_hf_models=False, model_filter="gemma")
@@ -261,13 +261,13 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
   2. View the deployment specifications for a model by using the model ID from the previous step. You can view the machine type, accelerator type, and container image URI that Model Garden has verified for a particular model.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
          from vertexai import model_garden
          
          # TODO(developer): Update and un-comment below lines
          # PROJECT_ID = "your-project-id"
          # model = "google/gemma3@gemma-3-1b-it"
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
          
          # For Hugging Face modelsm the format is the Hugging Face model name, as in
          # "meta-llama/Llama-3.3-70B-Instruct".
@@ -295,12 +295,12 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
   3. Deploy a model to an endpoint. Model Garden uses the default deployment configuration unless you specify additional argument and values.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
          from vertexai import model_garden
          
          # TODO(developer): Update and un-comment below lines
          # PROJECT_ID = "your-project-id"
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
          
          open_model = model_garden.OpenModel("google/gemma3@gemma-3-12b-it")
          endpoint = open_model.deploy(
@@ -1187,7 +1187,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     import com.google.cloud.aiplatform.v1.[PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html);
     import com.google.gson.Gson;
     import com.google.protobuf.[InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html);
     import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
     import java.io.IOException;
     import java.util.ArrayList;
@@ -1230,11 +1230,11 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         paramsMap.put("maxOutputTokens", 1024);
         paramsMap.put("topP", 1.0);
         paramsMap.put("topK", 1);
-        [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) parameters = mapToValue(paramsMap);
+        [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) parameters = mapToValue(paramsMap);
     
         // Prompt used in the prediction
         String instance = "{ \"inputs\": \"Why is the sky blue?\"}";
-        [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder instanceValue = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
+        [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).Builder instanceValue = [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).newBuilder();
         [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(instance, instanceValue);
         // Encapsulate the prompt in a correct format for GPUs
         // Example format: [{'inputs': 'Why is the sky blue?', 'parameters': {'temperature': 0.8}}]
@@ -1250,10 +1250,10 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         return textResponse;
       }
     
-      private static [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) mapToValue(Map<String, Object> map) throws [InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html) {
+      private static [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) mapToValue(Map<String, Object> map) throws [InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html) {
         Gson gson = new Gson();
         String json = gson.toJson(map);
-        [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder builder = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
+        [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).Builder builder = [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).newBuilder();
         [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(json, builder);
         return [builder](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormatParseInfoTree.html#com_google_protobuf_TextFormatParseInfoTree_builder__).build();
       }
@@ -1511,6 +1511,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

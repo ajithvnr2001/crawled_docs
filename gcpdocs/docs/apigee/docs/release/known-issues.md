@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release/known-issues/
 title: Apigee known issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:28:42.043115+00:00
+fetched_at: 2026-10-31T05:48:24.197488+00:00
 ---
 
 # Apigee known issues  |  Google Cloud Documentation
@@ -33,6 +33,7 @@ This section lists known issues for Apigee components. For a list of bugs, new f
 
 Issue ID | Affects | Status | Description  
 ---|---|---|---  
+578314600 | hybrid 1.14.9, hybrid 1.15.8, hybrid 1.15.9, hybrid 1.16.11, hybrid 1.16.12, hybrid 1.17.1, and hybrid 1.17.2 | FIXED in hybrid 1.16.13 and hybrid 1.17.3 |  **`apigee-connect-agent` ignores `HTTPS_PROXY` and fails to establish a tether in clusters that require an HTTP forward proxy for egress.** When `httpProxy` is configured in `overrides.yaml` (setting `HTTPS_PROXY` on the `apigee-connect-agent` pod), the custom TCP keep-alive dialer introduced in bug 513032450 bypasses gRPC's built-in HTTP `CONNECT` proxy handling and attempts to connect to `apigeeconnect.googleapis.com:443` directly. In clusters where outbound traffic is restricted to the forward proxy, the connection times out and management plane operations fail with `no connections available from the Apigee connect agent(s)`. **Workaround:** Upgrade to Apigee hybrid 1.16.13 or 1.17.3 (do not use 1.16.12 or 1.17.2).  
 543171828 | hybrid 1.14.7, hybrid 1.15.7, and hybrid 1.16.8 | FIXED in hybrid 1.16.9 |  **The`apigee-logger` DaemonSet is not scheduled on any node, so Apigee runtime logs stop reaching Cloud Logging.** After you install or upgrade to an affected version, `kubectl get daemonset apigee-logger -n apigee` reports a desired count of `0` and no logger pods are created. The `apigee-telemetry` chart has always shipped a default `logger.nodeSelector` of `apigee.cloud.google.com/apigee-logger-enabled: "true"`, which requires you to label the nodes that should run the logger. Releases before the affected versions ignored component-level node selectors, so the logger was scheduled on the Apigee node pools even though the nodes were not labeled. The affected releases apply component-level node selectors correctly, so the default now takes effect and the DaemonSet matches no nodes. Only deployments that set `logger.enabled: true` are affected. **Workaround:** Choose one of the following, then upgrade the `apigee-telemetry` chart. To run the logger on every node, which matches the behavior of earlier releases, clear the default node selector in your `overrides.yaml` file:
     
     
@@ -885,6 +886,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

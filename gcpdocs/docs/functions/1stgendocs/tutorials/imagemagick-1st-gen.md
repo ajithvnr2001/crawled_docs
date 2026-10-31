@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/1stgendocs/tutorials/imagemagick-1st-gen/
 title: ImageMagick Tutorial (1st gen) \u00a0|\u00a0 Cloud Run functions (1st gen) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:24.530214+00:00
+fetched_at: 2026-10-31T05:53:20.480528+00:00
 ---
 
 # ImageMagick Tutorial (1st gen)  |  Cloud Run functions (1st gen)  |  Google Cloud Documentation
@@ -343,7 +343,7 @@ The application must import several dependencies in order to interact with Googl
     
       set_global :vision_client do
         require "google/cloud/vision"
-        Google::Cloud::[Vision](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p4beta1/latest/Google-Cloud-Vision.html).[image_annotator](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision/latest/Google-Cloud-Vision.html)
+        Google::Cloud::[Vision](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p3beta1/latest/Google-Cloud-Vision.html).[image_annotator](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision/latest/Google-Cloud-Vision.html)
       end
     end
 

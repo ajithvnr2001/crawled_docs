@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/jupyterlab-sessions-serverless/
 title: Use the JupyterLab extension to develop serverless Spark workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:51.531825+00:00
+fetched_at: 2026-10-31T05:52:24.901620+00:00
 ---
 
 # Use the JupyterLab extension to develop serverless Spark workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -185,7 +185,7 @@ You must restart the extension for the changes to take effect.
 
 ## Create a Managed Service for Apache Spark runtime template
 
-Managed Service for Apache Spark runtime templates (also called session templates) contain configuration settings for executing Spark code in a session. You can create and manage runtime templates using Jupyterlab or the Google Cloud CLI.
+Managed Service for Apache Spark runtime templates (called _runtime profiles_ on the [Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles) page in the Google Cloud console and _session templates_ in the Google Cloud CLI and Dataproc API) contain configuration settings for executing Spark code in a session. You can create and manage runtime templates using JupyterLab, the [Google Cloud console](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#dataproc_serverless_session_template_create-console), or the Google Cloud CLI.
 
 ### JupyterLab
 
@@ -285,7 +285,7 @@ Managed Service for Apache Spark runtime templates (also called session template
          description: Team A Development Environment
          
 
-  2. Create a session (runtime) template from your YAML file by running the following [gcloud beta dataproc session-templates import](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/session-templates/import) command locally or in [Cloud Shell](https://console.cloud.google.com/?cloudshell=true): 
+  2. Create a session template (runtime profile) from your YAML file by running the following [gcloud beta dataproc session-templates import](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/session-templates/import) command locally or in [Cloud Shell](https://console.cloud.google.com/?cloudshell=true): 
          
          gcloud beta dataproc session-templates import TEMPLATE_ID \
              --source=YAML_FILE \
@@ -293,7 +293,7 @@ Managed Service for Apache Spark runtime templates (also called session template
              --location=REGION
          
 
-     * See [gcloud beta dataproc session-templates](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/session-templates) for commands to describe, list, export, and delete session templates.
+     * See [gcloud beta dataproc session-templates](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/session-templates) for commands to describe, list, export, and delete session templates (runtime profiles).
 
 
 
@@ -420,7 +420,9 @@ Managed Service for Apache Spark clusters created with image versions `2.0` and 
 You can use the Google Cloud [Visual Studio Code (VS Code)](https://code.visualstudio.com/) extension lets you do the following:
 
   * Develop and run Spark code in Managed Service for Apache Spark notebooks.
-  * Create and manage Managed Service for Apache Spark runtime (session) templates, interactive sessions, and batch workloads.
+
+  * Create and manage Managed Service for Apache Spark runtime profiles (session templates), interactive sessions, and batch workloads.
+
 
 
 
@@ -474,7 +476,7 @@ The **Google Cloud Code** icon is now visible in the VS Code [activity bar](http
 
   1. Open VS Code, and then in the activity bar, click **Google Cloud Code**.
   2. Open the **Notebooks** section, then click **New Serverless Spark Notebook**.
-  3. Select or create a new runtime (session) template to use for the notebook session.
+  3. Select or create a new runtime profile (session template) to use for the notebook session.
   4. A new `.ipynb` file containing sample code is created and opened in the editor.
 
 ![New Serverless Spark notebook in the VS Code console.](https://docs.cloud.google.com/static/managed-spark/docs/images/vs-code-new-serverless-notebook.png)
@@ -490,8 +492,10 @@ You can now write and execute code in your Managed Service for Apache Spark note
   2. Open the **Dataproc** section, then click the following resource names:
 
      * **Clusters** : Create and manage clusters and jobs.
+
      * **Serverless** : Create and manage batch workloads and interactive sessions.
-     * **Spark Runtime Templates** : Create and manage session templates.
+
+     * **Spark Runtime Templates** : Create and manage runtime profiles (session templates).
 
 ![Dataproc resources listed in the VS Code console.](https://docs.cloud.google.com/static/managed-spark/docs/images/vscode-dataproc-resources.png)
 
@@ -609,6 +613,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

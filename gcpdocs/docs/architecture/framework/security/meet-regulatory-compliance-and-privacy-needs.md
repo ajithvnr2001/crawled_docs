@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/meet-regulatory-compliance-and-privacy-needs/
 title: Meet regulatory, compliance, and privacy needs \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:42.576285+00:00
+fetched_at: 2026-10-31T05:57:49.179488+00:00
 ---
 
 # Meet regulatory, compliance, and privacy needs  |  Cloud Architecture Center  |  Google Cloud Documentation

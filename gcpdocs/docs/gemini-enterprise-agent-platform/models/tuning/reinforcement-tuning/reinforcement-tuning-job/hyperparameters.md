@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters/
 title: Hyperparameters for reinforcement learning fine-tuning \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:57.949352+00:00
+fetched_at: 2026-10-31T05:57:28.802294+00:00
 ---
 
 # Hyperparameters for reinforcement learning fine-tuning  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -33,9 +33,9 @@ For the API definition of these parameters, see the [`ReinforcementTuningHyperPa
 
 ### `epochCount`
 
-The number of times the dataset is iterated over. This is different from the number of training _steps_ — each epoch can produce a varying number of training steps.
+The number of times the dataset is iterated over. This is different from the number of training _steps_ ; each epoch can produce a varying number of training steps.
 
-  * **Default:** `min(110 * promptsPerBatch / promptsInDataset, 10)` if left empty. The default is computed dynamically so that the model sees each prompt multiple times, capped at 10 epochs to prevent overfitting on smaller datasets.
+  * **Default:** `min(110 * promptsPerBatch / promptsInDataset, 10)` if left empty. The default is computed dynamically so that the training job processes each prompt multiple times, capped at 10 epochs to prevent overfitting on smaller datasets.
   * **Maximum:** The total training run is capped at 500 _steps_ for stable tuning.
 
 
@@ -62,9 +62,9 @@ Controls the length and depth of the internal chain-of-thought processing used d
 
 These two hyperparameters control how prompts are batched and how many responses the model generates per prompt during each training step.
 
-  * **`batchSize`** — The number of prompts per batch (also called `promptsPerBatch`). A larger batch size slows down tuning but can produce more stable updates for each step. 
+  * **`batchSize`** : The number of prompts per batch (also called `promptsPerBatch`). A larger batch size slows down tuning but can produce more stable updates for each step. 
     * **Default:** `32`
-  * **`samplesPerPrompt`** — The number of different responses the model generates for each prompt during a single training step. A larger `samplesPerPrompt` slows down tuning but can increase the diversity of responses the model explores. 
+  * **`samplesPerPrompt`** : The number of different responses the model generates for each prompt during a single training step. A larger `samplesPerPrompt` slows down tuning but can increase the diversity of responses the model explores. 
     * **Default:** `16`
 
 
@@ -109,7 +109,7 @@ The LoRA adapter size. Larger adapter sizes provide greater learning capacity fo
   * [Prepare a tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset).
   * [Define reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) for your tuning job.
   * [Monitor job status and metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring).
-  * Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+  * Follow the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
 
 
 
@@ -117,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

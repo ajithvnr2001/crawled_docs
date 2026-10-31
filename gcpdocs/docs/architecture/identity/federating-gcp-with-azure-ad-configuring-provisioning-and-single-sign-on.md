@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/identity/federating-gcp-with-azure-ad-configuring-provisioning-and-single-sign-on/
 title: Microsoft Entra ID (formerly Azure AD) user provisioning and single sign-on \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:19.416675+00:00
+fetched_at: 2026-10-31T05:58:12.207947+00:00
 ---
 
 # Microsoft Entra ID (formerly Azure AD) user provisioning and single sign-on  |  Cloud Architecture Center  |  Google Cloud Documentation

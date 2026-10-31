@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/use-pitr/
 title: Work with point-in-time recovery (PITR) \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:59:52.055923+00:00
+fetched_at: 2026-10-31T05:47:29.589946+00:00
 ---
 
 # Work with point-in-time recovery (PITR)  |  Firestore in Datastore mode  |  Google Cloud Documentation
@@ -401,6 +401,7 @@ You can also export a specific subset of kinds and namespaces with an entity fil
 
 Note the following points before exporting PITR data:
 
+     * Enable PITR on your database. If PITR is disabled, exporting at a snapshot timestamp fails, even for timestamps within the past hour after `earliestVersionTime`. The export operation returns the `Point-in-Time Recovery must be enabled in order to execute exports at a snapshot timestamp` error.
      * Specify the timestamp in [RFC 3339 format](https://tools.ietf.org/html/rfc3339). For example, `2023-05-26T10:20:00.00Z` or `2023-10-19T10:30:00.00-07:00`.
      * Make sure that the timestamp you specify is a whole minute timestamp within the past seven days, but not earlier than the `earliestVersionTime`. If data no longer exists at the specified timestamp, you will get an error. The timestamp must be a whole minute, even if the specified time is within the past hour.
      * You won't be charged for a failed PITR export.
@@ -416,6 +417,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

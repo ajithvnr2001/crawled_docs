@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/geospatial-data/
 title: Work with geospatial data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:41.128815+00:00
+fetched_at: 2026-10-31T05:58:33.488899+00:00
 ---
 
 # Work with geospatial data  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,14 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with geospatial data
 
-Geospatial analytics let you analyze geographic data in BigQuery. Geographic data is also known as _geospatial data_.
+Geospatial analytics lets you load, transform, and analyze geographic data, also known as _geospatial data_ , in BigQuery. You can use standard formats like GeoJSON and WKT to run optimized spatial joins and extract location-based insights directly from BigQuery.
+
+## Data types
 
 Common types of objects when working with geospatial data include the following:
 
-  * A _geometry_ represents a surface area on the Earth. It is often described using points, lines, polygons, or a collection of points, lines, and polygons. A _geometry collection_ is a geometry that represents the spatial union of all shapes in the collection.
+  * A _geometry_ represents a surface area on the Earth. A geometry is often described using points, lines, polygons, or a collection of points, lines, and polygons.
+  * A _geometry collection_ is a geometry that represents the spatial union of all shapes in the collection.
   * A _spatial feature_ represents a logical spatial object. It combines a geometry with additional attributes that are application-specific.
   * A _spatial feature collection_ is a set of spatial features.
 
@@ -305,7 +308,7 @@ If you use the [`ST_GEOGFROMTEXT`](https://docs.cloud.google.com/bigquery/docs/r
 
   * `FALSE`: Interpret the input as the polygon with the smaller area. This is the default behavior.
 
-  * `TRUE`: Use the left-hand orientation rule described previously. This option allows you to load polygons with an area larger than a hemisphere.
+  * `TRUE`: Use the left-hand orientation rule described previously. This option lets you load polygons with an area larger than a hemisphere.
 
 
 
@@ -389,7 +392,7 @@ Spatial JOINs are joins of two tables with a predicate geographic function in th
     GROUP BY zip
     ORDER BY bike_stations DESC
 
-Spatial joins perform better when your geography data is persisted. The example above creates the geography values in the query. It is more performant to store the geography values in a BigQuery table.
+Spatial joins perform better when your geography data is persisted. The previous example creates the geography values in the query. It is more performant to store the geography values in a BigQuery table.
 
 For example, the following query retrieves longitude, latitude pairs and converts them to geographic points. When you run this query, you specify a new destination table to store the query results:
     
@@ -454,6 +457,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

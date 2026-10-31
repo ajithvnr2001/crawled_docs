@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/spark-properties-serverless/
 title: Spark properties \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:19.433739+00:00
+fetched_at: 2026-10-31T05:53:23.628122+00:00
 ---
 
 # Spark properties  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ Property | Description | Default
 `spark.dataproc.engine` |  The engine to use to run the batch workload or the interactive session: either `lightningEngine` (see [Lightning Engine](https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine)) or the `default` engine. 
 
   * **Batch workloads:** If you select the standard `dataproc.tier` property for your workload, this property is automatically set to `default` and cannot be overridden. If you select the `premium` `dataproc.tier` for your workload, this property is automatically set to `lightningEngine`, but you can change the setting to `default` if needed.
-  * **Interactive sessions:** This setting is automatically set to `default`, but you can change this setting to `lightningEngine`. Note that interactive session always run at the `premium` tier.
+  * **Interactive sessions:** This setting is automatically set to `default`, but you can change this setting to `lightningEngine`. Note that interactive sessions always run at the `premium` tier. When you create a runtime profile (session template) on the **Create a runtime profile** page in the Google Cloud console, the **Premium** tier and **Enable Lightning Engine to accelerate performance** (which sets `spark.dataproc.engine=lightningEngine`) are selected by default.
 
 | 
 
@@ -105,7 +105,7 @@ Property | Description | Default
   
 ### Resource allocation properties
 
-**Note:** Since Spark resource allocation properties must be fully configured before workload executions starts, set Spark resource allocation properties when you [submit a batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload) or create a [session or session template](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates), not on the `SparkContext`/`SparkSession` during workload execution.
+**Note:** Since Spark resource allocation properties must be fully configured before workload executions starts, set Spark resource allocation properties when you [submit a batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload) or create a [session or runtime profile (session template)](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates), not on the `SparkContext`/`SparkSession` during workload execution.
 
 Managed Service for Apache Spark supports the following Spark properties for configuring resource allocation:
 
@@ -157,13 +157,13 @@ Property | Description
 `dataproc.profiling.enabled` | **Supported in 2.3 and earlier runtimes only**. Set this property to `true` to enable profiling for the Managed Service for Apache Spark workload.  
 `dataproc.profiling.name` | **Supported in 2.3 and earlier runtimes only** Use this property to set the name used to create a profile on the [Profiler](https://docs.cloud.google.com/profiler/docs/about-profiler) service.  
 `spark.jars` | Use this property to set the comma-separated list of jars to include on the driver and executor classpaths  
-`spark.archives` | Use this property to set the comma-separated list of archives to be extracted into the working directory of each executor. .jar, .tar.gz, .tgz and .zip are supported. For serverless interactive sessions add this property when creating an interactive session/template  
+`spark.archives` | Use this property to set the comma-separated list of archives to be extracted into the working directory of each executor. .jar, .tar.gz, .tgz and .zip are supported. For serverless interactive sessions, add this property when creating an interactive session or runtime profile (session template).  
 `dataproc.artifacts.remove` | Use this property to remove default artifacts installed on [Managed Service for Apache Spark runtimes](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/serverless-versions). Supported artifacts are `conscrypt`, `delta-lake`, `iceberg`, `rapids`, and `spark-bigquery-connector`.  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/
 title: Overview \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:10.000770+00:00
+fetched_at: 2026-10-31T06:00:25.235915+00:00
 ---
 
 # Overview  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -25,7 +25,14 @@ Send feedback
 
 The Salesforce connector for Gemini Enterprise lets you search and act on your Salesforce records using natural language. End users can query accounts, contacts, opportunities, cases, leads, and custom objects, and create, update, and delete records without leaving Gemini Enterprise.
 
-Connecting Salesforce requires your Salesforce administrator to install the [Gemini Enterprise - Salesforce Connector](https://appexchange.salesforce.com/appxListingDetail?listingId=ee18ab11-351b-4178-b6af-3573d35e2d29) managed package from Salesforce AppExchange first. You don't create your own OAuth application or provide a client ID and client secret. For more information, see [Salesforce configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration).
+To connect Salesforce, your Salesforce administrator enables the **SObject All** MCP server in your organization and configures one of two OAuth 2.0 authentication methods:
+
+  * **Google-managed OAuth (default)** : Install the [Gemini Enterprise - Salesforce Connector](https://appexchange.salesforce.com/appxListingDetail?listingId=ee18ab11-351b-4178-b6af-3573d35e2d29) managed package from Salesforce AppExchange. You don't create your own OAuth application or provide a client ID and client secret.
+  * **Bring your own app** : Create and configure your own external client app in Salesforce, and provide its client ID and client secret when you set up the data store.
+
+
+
+For more information, see [Salesforce configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration).
 
 ## Supported actions
 
@@ -64,13 +71,13 @@ The Salesforce data store for Gemini Enterprise has the following limitations:
   * Enforcing a VPC Service Controls perimeter on existing Salesforce data stores is not supported. To enforce VPC Service Controls, you must delete and recreate the data stores. For more information on VPC Service Controls and how to use actions after enabling VPC Service Controls, see [Secure your app with VPC Service Controls](https://docs.cloud.google.com/gemini/enterprise/docs/use-vpc-service-controls).
 
 
-  * Static IP addresses aren't supported for the Salesforce data store. Instead, IP validation for authentication and token refresh requests is enforced directly by the Google-managed AppExchange app, and data requests are authorized using the user's valid access token. For more information, see [Set the login IP policy for the app](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration#ip-policy).
+  * Static IP addresses aren't supported for the Salesforce data store. Instead, login IP policy for authentication and token refresh requests is configured on the app in Salesforce, and data requests are authorized using the user's valid access token. For more information, see [Set the login IP policy for the app](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration#ip-policy).
 
 
 
 ## What's next
 
-  * To install the managed package that your Salesforce administrator must add before anyone can authorize the connector, see [Salesforce configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration).
+  * To enable the MCP server and configure OAuth authentication in Salesforce before anyone can authorize the connector, see [Salesforce configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration).
 
   * To create and configure a data store with Salesforce, see [Set up a Salesforce data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store).
 
@@ -81,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

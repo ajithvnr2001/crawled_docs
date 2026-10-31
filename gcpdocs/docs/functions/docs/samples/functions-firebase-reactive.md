@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-firebase-reactive/
 title: React to value change by updating a value \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:58.058108+00:00
+fetched_at: 2026-10-31T05:53:22.289150+00:00
 ---
 
 # React to value change by updating a value  |  Cloud Run functions  |  Google Cloud Documentation
@@ -397,7 +397,7 @@ To authenticate to Cloud Run functions, set up Application Default Credentials. 
       # subsequent calls.
       set_global :firestore_client do
         require "google/cloud/firestore"
-        Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: ENV["GOOGLE_CLOUD_PROJECT"]
+        Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin-v1/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: ENV["GOOGLE_CLOUD_PROJECT"]
       end
     end
     

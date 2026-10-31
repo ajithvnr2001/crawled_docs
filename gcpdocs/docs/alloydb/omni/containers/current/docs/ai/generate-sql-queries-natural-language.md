@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/current/docs/ai/generate-sql-queries-natural-language/
 title: Generate SQL queries using natural language questions \u00a0|\u00a0 AlloyDB Omni using containers: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:18:33.275459+00:00
+fetched_at: 2026-10-31T05:51:18.849378+00:00
 ---
 
 # Generate SQL queries using natural language questions  |  AlloyDB Omni using containers: Current (18.4.0)  |  Google Cloud Documentation
@@ -73,7 +73,7 @@ To enable the `alloydb_ai_nl` extension, which is the AlloyDB Omni natural langu
 
 ### Enable the required extension
 
-Before you install and use AlloyDB AI natural language, enable the extension by running the following PostgreSQL command in the `postgresql.conf` file:
+Before you install and use AlloyDB AI natural language, enable the extension by running the following SQL statements: 
     
     
     ALTER SYSTEM SET alloydb_ai_nl.enabled=on;
@@ -557,7 +557,7 @@ After you have a representative dataset in your tables, we recommend that you ru
 
 After you run the queries, AlloyDB AI natural language can automatically generate templates based on the query history. You can call the following APIs to generate templates. You need to review and apply the generated templates before they take effect.
 
-Template auto generation is based on the most frequently used queries in the query log, [`google_db_advisor_workload_statements`](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/reference/use-index-advisor#view-logs). The queries are filtered based on the following criteria:
+Template auto generation is based on the most frequently used queries in the query log, [`google_db_advisor_workload_statements`](https://docs.cloud.google.com/alloydb/docs/use-index-advisor#view-logs). The queries are filtered based on the following criteria:
 
   * `SELECT` statements
   * Executables: the query can be successfully processed by the `EXPLAIN` command.
@@ -904,6 +904,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

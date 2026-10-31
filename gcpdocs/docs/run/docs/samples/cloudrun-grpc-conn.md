@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-grpc-conn/
 title: Open a gRPC connection to a service \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:01.760789+00:00
+fetched_at: 2026-10-31T05:49:12.732555+00:00
 ---
 
 # Open a gRPC connection to a service  |  Cloud Run  |  Google Cloud Documentation

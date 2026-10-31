@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/apigee-pull-push/
 title: apigee-pull-push \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:46:29.699107+00:00
+fetched_at: 2026-10-31T05:48:56.195399+00:00
 ---
 
 # apigee-pull-push  |  Apigee  |  Google Cloud Documentation
@@ -120,27 +120,27 @@ Example output:
     
     
     apigee:
-            gcr.io/apigee-release/hybrid/apigee-mart-server:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-synchronizer:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-runtime:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra-client:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-connect-agent:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-watcher:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-operators:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-redis:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-mint-task-scheduler:1.16.11
+            gcr.io/apigee-release/hybrid/apigee-mart-server:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-synchronizer:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-runtime:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra-client:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-connect-agent:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-watcher:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-operators:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-redis:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-mint-task-scheduler:1.16.13
     third party:
-            gcr.io/apigee-release/hybrid/apigee-stackdriver-logging-agent:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-prom-prometheus:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-stackdriver-prometheus-sidecar:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-kube-rbac-proxy:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-envoy:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-prometheus-adapter:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-asm-ingress:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-asm-istiod:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-fluent-bit:1.16.11
-            gcr.io/apigee-release/hybrid/apigee-open-telemetry-collector:1.16.11
+            gcr.io/apigee-release/hybrid/apigee-stackdriver-logging-agent:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-prom-prometheus:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-stackdriver-prometheus-sidecar:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-kube-rbac-proxy:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-envoy:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-prometheus-adapter:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-asm-ingress:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-asm-istiod:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-fluent-bit:1.16.13
+            gcr.io/apigee-release/hybrid/apigee-open-telemetry-collector:1.16.13
     
 
 **Note:** You can see the original version tag as the label returned by the `docker history` or `docker inspect` commands. For example: 
@@ -160,6 +160,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

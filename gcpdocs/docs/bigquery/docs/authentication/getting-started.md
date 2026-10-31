@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authentication/getting-started/
 title: Get started with authentication \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:21.753459+00:00
+fetched_at: 2026-10-31T05:59:54.811615+00:00
 ---
 
 # Get started with authentication  |  BigQuery  |  Google Cloud Documentation
@@ -325,7 +325,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     # This uses Application Default Credentials to authenticate.
     # @see https://cloud.google.com/bigquery/docs/authentication/getting-started
-    bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer-v1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+    bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
     
     sql     = "SELECT " \
               "CONCAT('https://stackoverflow.com/questions/', CAST(id as STRING)) as url, view_count " \

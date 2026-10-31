@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts/
 title: Gemini 3.8 Flash TTS \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:15.773509+00:00
+fetched_at: 2026-10-31T05:47:52.265606+00:00
 ---
 
 # Gemini 3.8 Flash TTS  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ Feature or workload | Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`) | [Gemini 3.
 **Best use cases** | Audiobooks, studio narration, complex multi-speaker dialogue, frequent vocal-burst tags, difficult pronunciation, regional dialects | High-volume production, real-time voice agent cascades, read-aloud features, voice replication, everyday single-speaker speech  
 **Supported languages** | 130 languages | 101 languages  
   
-[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID | `gemini-3.8-flash-tts`  
 ---|---  
@@ -115,7 +115,7 @@ Versions |
 
   * `gemini-3.8-flash-tts`
     * Launch stage: GA
-    * Release date: September 28, 2026
+    * Release date: October 28, 2026
 
   
 Supported languages |  130 languages. See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#languages).   
@@ -123,6 +123,14 @@ Supported languages |  130 languages. See [Supported languages](https://docs.clo
 ## Get started
 
 The following example generates single-speaker speech and saves it as a WAV file:
+
+### Console
+
+  1. Open [Gemini 3.8 Flash TTS in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts).
+  2. In the settings panel, choose a **Voice** , a **Language** (or keep **Auto-detect**), and an optional **Style** description (for example, `cheerful and friendly`).
+  3. Enter the transcript to speak in the prompt box and submit it to generate, play, or download the WAV audio. Click **Get code** to export the request as Python, JavaScript, or curl.
+
+
 
 ### Python
     
@@ -182,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

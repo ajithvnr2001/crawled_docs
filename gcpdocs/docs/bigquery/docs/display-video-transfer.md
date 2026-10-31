@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/display-video-transfer/
 title: Load Display & Video 360 data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:09.309938+00:00
+fetched_at: 2026-10-31T05:53:27.185745+00:00
 ---
 
 # Load Display & Video 360 data into BigQuery  |  Google Cloud Documentation
@@ -45,20 +45,18 @@ For information about data retention in standard Display & Video 360 reporting, 
   
 ## Supported configuration data
 
-In addition to the reporting data, BigQuery Data Transfer Service also transfers the following configuration data from Display & Video 360. Configuration data is retrieved from [Display & Video 360 API v3](https://developers.google.com/display-video/api/reference/rest/v3) only when the transfer run date is within 24 hours of the scheduled transfer time. Configuration data tables aren't updated during historical backfills.
+In addition to the reporting data, BigQuery Data Transfer Service also transfers the following configuration data from Display & Video 360. Configuration data is retrieved from [Display & Video 360 API v4](https://developers.google.com/display-video/api/reference/rest/v4) only when the transfer run date is within 24 hours of the scheduled transfer time. Configuration data tables aren't updated during historical backfills.
 
-  * [Partner](https://developers.google.com/display-video/api/reference/rest/v3/partners#resource:-partner)
-  * [Advertiser](https://developers.google.com/display-video/api/reference/rest/v3/advertisers#resource:-advertiser)
-  * [LineItem](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.lineItems#LineItem)
-  * [LineItemTargeting](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.lineItems/bulkListAssignedTargetingOptions#LineItemAssignedTargetingOption)
-  * [Campaign](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.campaigns#Campaign)
-  * [CampaignTargeting](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.campaigns.targetingTypes.assignedTargetingOptions#AssignedTargetingOption)
-  * [InsertionOrder](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.insertionOrders#InsertionOrder)
-  * [InsertionOrderTargeting](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.insertionOrders.targetingTypes.assignedTargetingOptions#AssignedTargetingOption)
-  * [AdGroup](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.adGroups#AdGroup)
-  * [AdGroupTargeting](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.adGroups/bulkListAdGroupAssignedTargetingOptions#AdGroupAssignedTargetingOption)
-  * [AdGroupAd](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.adGroupAds#AdGroupAd)
-  * [Creative](https://developers.google.com/display-video/api/reference/rest/v3/advertisers.creatives#resource:-creative)
+  * [Partner](https://developers.google.com/display-video/api/reference/rest/v4/partners#Partner)
+  * [Advertiser](https://developers.google.com/display-video/api/reference/rest/v4/advertisers#Advertiser)
+  * [LineItem](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.lineItems#LineItem)
+  * [LineItemTargeting](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.lineItems/bulkListAssignedTargetingOptions#LineItemAssignedTargetingOption)
+  * [Campaign](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.campaigns#Campaign)
+  * [InsertionOrder](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.insertionOrders#InsertionOrder)
+  * [AdGroup](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.adGroups#AdGroup)
+  * [AdGroupTargeting](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.adGroups/bulkListAssignedTargetingOptions#AdGroupAssignedTargetingOption)
+  * [AdGroupAd](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.adGroupAds#AdGroupAd)
+  * [Creative](https://developers.google.com/display-video/api/reference/rest/v4/advertisers.creatives#Creative)
 
 
 
@@ -220,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

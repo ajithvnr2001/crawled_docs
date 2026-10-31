@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/building-lookml-dashboards/
 title: Building LookML dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:55.896505+00:00
+fetched_at: 2026-10-31T05:53:30.152745+00:00
 ---
 
 # Building LookML dashboards  |  Looker  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ To build a LookML dashboard, begin by creating a dashboard file, which has the [
 
 ## Editing LookML dashboard files
 
-When you create a LookML dashboard file, Looker pre-populates the file with several basic [dashboard parameters](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard), which implement settings for the entire dashboard. It also pre-populates the file with several sample [dashboard element parameters](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-element), which are grouped under the [`elements`](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard#elements_2) dashboard parameter, and which define the function and appearance of dashboard tiles, text, and buttons. A newly created `.dashboard.lookml` file contains dashboard LookML similar to this:
+When you create a LookML dashboard file, Looker pre-populates the file with several basic [dashboard parameters](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard), which implement settings for the entire dashboard. It also pre-populates the file with several sample [dashboard element parameters](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-element), which are grouped under the [`elements`](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard#elements-for-dashboard) dashboard parameter, and which define the function and appearance of dashboard tiles, text, buttons, and [tile groups](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard#group). A newly created `.dashboard.lookml` file contains dashboard LookML similar to this:
     
     
     - dashboard: order_analysis
@@ -177,7 +177,7 @@ The code in the previous example creates the following filters:
 
 Once you've created a dashboard filter, you can apply that filter to individual dashboard elements by using the `listen` parameter. Using the `listen` parameter in this way allows the linked elements to be dynamically updated based on the user's selection in the filter.
 
-**Note:** The `listen` parameter is supported by all [element types](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-element) except [`type: text`](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-text-tile) and [`type: button`](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-button).
+**Note:** The `listen` parameter is supported by all [element types](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-element) except [`type: text`](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-text-tile), [`type: button`](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard-button), and [`type: group`](https://docs.cloud.google.com/looker/docs/reference/param-lookml-dashboard#group).
 
 For example, consider the following sample LookML code for an area chart element:
     
@@ -354,6 +354,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

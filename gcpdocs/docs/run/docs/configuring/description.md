@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/description/
 title: Set service descriptions \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:50.736873+00:00
+fetched_at: 2026-10-31T05:49:40.006941+00:00
 ---
 
 # Set service descriptions  |  Cloud Run  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Set service descriptions Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows how to set a custom description on your Cloud Run services. A description is an optional human-readable text attached to the service. A description is limited to 512 characters. If present, the description is displayed when [viewing details of a service using `gcloud run services describe`](https://docs.cloud.google.com/run/docs/managing/services#details).
+To document your Cloud Run services, you can add a custom, human-readable description of up to 512 characters. Each description appears when you [view details of a service using `gcloud run services describe`](https://docs.cloud.google.com/run/docs/managing/services#details).
 
 ## Required roles
 
@@ -115,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

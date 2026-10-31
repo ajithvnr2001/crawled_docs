@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app/
 title: Harness CI/CD pipeline for RAG applications \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:47:10.082797+00:00
+fetched_at: 2026-10-31T05:58:21.748171+00:00
 ---
 
 # Harness CI/CD pipeline for RAG applications  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Harness CI/CD pipeline for RAG applications Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-04-11 UTC
+Last reviewed 2026-10-29 UTC
 
 By Martin Ansong, Senior Solutions Engineer at Harness
 
@@ -37,7 +37,7 @@ The following diagram shows a CI/CD pipeline for deploying Cloud Run services fo
 
 This architecture consists of the following components:
 
-  * **Source code management (SCM)** : The development workflow starts with a Git-based SCM repository like GitHub, [Harness Code Repository](https://developer.harness.io/docs/code-repository/get-started/overview), or [Cloud Code](https://docs.cloud.google.com/code). The repository triggers the CI/CD pipeline for new commits or merge events.
+  * **Source code management (SCM)** : The development workflow starts with a Git-based SCM repository like GitHub or [Harness Code Repository](https://developer.harness.io/docs/code-repository/get-started/overview), or from an IDE that uses [Cloud Code](https://docs.cloud.google.com/code/docs). The repository triggers the CI/CD pipeline for new commits or merge events.
   * [**Harness Continuous Integration (CI)**](https://developer.harness.io/docs/continuous-integration/get-started/overview): This component does the following: 
     * Runs unit tests and security scans and builds the container image.
     * Pushes the built image to Google Cloud's Artifact Registry or to [Harness Artifact Registry](https://developer.harness.io/docs/artifact-registry/get-started/overview).
@@ -100,7 +100,7 @@ This reference architecture uses the following products:
 
   * Google Cloud products: 
     * [ Cloud Run](https://cloud.google.com/run): A serverless compute platform that lets you run containers directly on top of Google's scalable infrastructure.
-    * [ Artifact Registry](https://cloud.google.com/artifact-registry/docs/overview): A universal package manager for all of your build artifacts and dependencies. 
+    * [ Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview): A universal package manager for all of your build artifacts and dependencies. 
     * [ Cloud Logging](https://cloud.google.com/logging): A real-time log management system with storage, search, analysis, and alerting.
     * [ Cloud Monitoring](https://cloud.google.com/monitoring): A service that provides visibility into the performance, availability, and health of your applications and infrastructure. 
   * [**Harness**](https://www.harness.io/) products: 
@@ -132,7 +132,7 @@ This architecture is ideal for the following use cases:
 
 ## Design considerations
 
-This section describes design factors, best practices, and design recommendations that you should consider when you use this reference architecture to develop a topology that meets your specific requirements for security, reliability, cost, and operational efficiency.
+This section describes design factors, best practices, and recommendations in alignment with the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework). Consider this information when you use this reference architecture to develop a topology that meets your specific requirements for security, reliability, cost optimization, and operational efficiency.
 
 The guidance in this section isn't exhaustive. Depending on the specific requirements of your application and the Google Cloud and third-party products and features that you use, there might be additional design factors and trade-offs that you should consider.
 
@@ -158,6 +158,9 @@ Harness SCS | Enable Harness SCS and gain insights into the security posture of 
 [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) | Implement secure secrets management for API keys and credentials.  
 [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) | Enable IAM policies for role-based access control (RBAC), to help ensure that only authorized users and service accounts can modify and deploy to specific environments.  
 [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation) | Use Workload Identity Federation instead of service account tokens. Workload Identity Federation helps you to avoid the maintenance and security burden that's associated with service account keys.  
+[Secure Source Manager](https://docs.cloud.google.com/secure-source-manager/docs/overview) | If you host your Git repositories in Google Cloud, use Secure Source Manager for single-tenant, managed Git source code management with branch protection rules, webhook triggers, and [Developer Connect](https://docs.cloud.google.com/developer-connect/docs/overview) integration.  
+[Artifact Analysis](https://docs.cloud.google.com/artifact-registry/docs/analysis) and [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs/run/overview) | Enable automatic vulnerability scanning with Artifact Analysis when container images are pushed to Artifact Registry. Enforce deploy-time attestation policies with Binary Authorization so that only verified, compliant images are deployed to Cloud Run services.  
+[Model Armor](https://docs.cloud.google.com/model-armor/overview) | Use Model Armor to screen RAG prompts and model responses for prompt injection and jailbreak attempts. Filter harmful content and redact sensitive data through [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-text-redaction). You can manage and promote Model Armor input and output templates across environments in your CI/CD pipeline.  
   
 ### Reliability
 
@@ -167,7 +170,7 @@ Product | Design considerations and recommendations
 ---|---  
 Harness Platform | Use [Harness templates](https://developer.harness.io/docs/platform/templates/template/) to standardize deployment practices and configuration across environments.  
 Harness CD & GitOps | Use a [verify step](https://developer.harness.io/docs/continuous-delivery/verify/verify-deployments-with-the-verify-step/) in deployments to monitor application health and automatically roll back when anomalies are detected.  
-Cloud Run | Configure [autoscaling](https://docs.cloud.google.com/run/docs/about-instance-autoscaling) in Cloud Run to handle anticipated loads.  
+Cloud Run | Configure [autoscaling](https://docs.cloud.google.com/run/docs/about-instance-autoscaling) in Cloud Run to handle anticipated loads. Use [gradual rollouts, revision traffic splitting, and rollbacks](https://docs.cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration) to validate new RAG service revisions with minimal impact on production traffic.  
 Cloud Logging and Cloud Monitoring | Implement proactive monitoring to detect and resolve availability issues in real time.  
   
 ### Cost optimization
@@ -204,10 +207,10 @@ Harness CI |
   * Enable [Build Intelligence](https://developer.harness.io/docs/continuous-integration/use-ci/build-and-upload-artifacts/build-intelligence) to improve build times.
 
 
-  * Use [Test Intelligence (TI) ](https://developer.harness.io/docs/continuous-integration/use-ci/run-tests/ti-overview)to speed up unit test cycles.
+  * Use [Test Intelligence (TI)](https://developer.harness.io/docs/continuous-integration/use-ci/run-tests/ti-overview) to speed up unit test cycles.
 
 
-  * User [Docker layer caching (DLC)](https://developer.harness.io/docs/continuous-integration/use-ci/caching-ci-data/docker-layer-caching) to seamlessly cache Docker image layers between builds and accelerate the time to build Docker images.
+  * Use [Docker layer caching (DLC)](https://developer.harness.io/docs/continuous-integration/use-ci/caching-ci-data/docker-layer-caching) to seamlessly cache Docker image layers between builds and accelerate the time to build Docker images.
 
   
 Harness Chaos Engineering | Validate application resilience by simulating failures and high traffic conditions.  
@@ -221,7 +224,7 @@ Harness Platform |
 
   
 [Harness DB DevOps](https://developer.harness.io/docs/database-devops/get-started/overview) | Seamlessly integrate database updates to ensure consistency and avoid breaking changes.  
-[Harness Incident Response (IR)](https://www.harness.io/demo/harness-incident-response) | Use Harness IR to triage, adapt, and resolve incidents.  
+[Harness AI SRE](https://developer.harness.io/docs/ai-sre/get-started/overview) | Use Harness AI SRE to triage, adapt, and resolve incidents.  
 Cloud Logging and Cloud Monitoring | Set up alerts and logging for proactive operational insights.  
   
 ## Deployment
@@ -232,7 +235,7 @@ To deploy this reference architecture, you can download and use the Terraform sa
 
   * Learn more about the [Harness products](https://developer.harness.io/docs/) that are used in this reference architecture.
   * Explore Harness [reference architectures](https://developer.harness.io/kb/reference-architectures) and best practices.
-  * Learn how to build [RAG infrastructure for generative AI using Agent Platform and Vector Search](https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search).
+  * Learn how to build [RAG infrastructure for generative AI using Gemini Enterprise Agent Platform and Vector Search](https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search).
   * For more reference architectures, diagrams, and best practices, explore the [Cloud Architecture Center](https://docs.cloud.google.com/architecture). 
 
 
@@ -261,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-04-11 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-04-11 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

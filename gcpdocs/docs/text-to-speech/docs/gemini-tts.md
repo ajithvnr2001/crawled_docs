@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/text-to-speech/docs/gemini-tts/
 title: Gemini-TTS \u00a0|\u00a0 Cloud Text-to-Speech \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:51.978602+00:00
+fetched_at: 2026-10-31T05:49:10.960245+00:00
 ---
 
 # Gemini-TTS  |  Cloud Text-to-Speech  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  Gemini-TTS Stay organized with collections  Save and categorize content based on your preferences. 
 
-[ Try Gemini-TTS in Vertex AI Studio](https://console.cloud.google.com/agent-platform/studio/media/speech) [Try in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/getting-started/gemini_3_1_flash_tts.ipynb) [View notebook on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/getting-started/gemini_3_1_flash_tts.ipynb)
+[ Try Gemini-TTS in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/speech) [Try in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/getting-started/gemini_3_1_flash_tts.ipynb) [View notebook on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/getting-started/gemini_3_1_flash_tts.ipynb)
 
 Gemini-TTS is the latest evolution of our Cloud TTS technology that moves beyond natural-sounding speech and provides granular control over generated audio using text-based prompts. Using Gemini-TTS, you can synthesize single or multi-speaker speech from short snippets to long-form narratives, precisely dictating style, accent, pace, tone, and even emotional expression, all steerable through natural-language prompts.
 
-**Note:** Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS models, including voice design and voice replication, are available in Preview through the Gemini Enterprise API only. They aren't available through the Cloud Text-to-Speech API. For details, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview). To move existing requests, see the [migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/migration-guide).
+**Note:** Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS are Generally Available (GA) through the Agent Platform API and [Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) (with voice design and voice replication in Preview). They aren't available through the Cloud Text-to-Speech API. For details, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview). To move existing requests, see the [migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/migration-guide).
 
 ## Available models
 
@@ -1399,7 +1399,7 @@ To perform this task, you must have the following [permissions](https://docs.clo
 
 You can use the Media Studio in the Google Google Cloud console to experiment with text-to-speech models. This provides a user interface for quickly generating, listening to synthesized audio and experimenting with different style instructions and parameters.
 
-  1. In the Google Google Cloud console, go to the **Vertex AI Studio > Media Studio** page.
+  1. In the Google Google Cloud console, go to the **Agent Studio > Media Studio** page.
 
 [ Media Studio](https://console.cloud.google.com/agent-platform/studio/media/speech)
 
@@ -1628,6 +1628,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

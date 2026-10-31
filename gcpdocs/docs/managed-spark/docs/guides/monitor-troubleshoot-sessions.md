@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/monitor-troubleshoot-sessions/
 title: Monitor and troubleshoot interactive sessions \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:15:22.694027+00:00
+fetched_at: 2026-10-31T05:52:24.259784+00:00
 ---
 
 # Monitor and troubleshoot interactive sessions  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ The Spark UI collects Apache Spark execution details from Managed Service for Ap
 
 The following permissions are required to use the Spark UI feature with interactive sessions:
 
-  * Data collection permission: `dataproc.sessions.sparkApplicationWrite`. This permission must be granted to the service account that runs interactive sessions. It is included in the [`Managed Service for Apache Spark Worker`](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.worker) role, which is automatically granted to the Compute Engine default service account that Managed Service for Apache Spark uses by default. However, if you specify a [custom service account](https://docs.cloud.google.com/managed-spark/docs/concepts/service-account) for your [session](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/sessions/create#--service-account) or [session runtime template](https://docs.cloud.google.com/managed-spark/docs/quickstarts/jupyterlab-sessions#dataproc_create_serverless_runtime_template_yaml-Complex%20YAML), you must add this `dataproc.sessions.sparkApplicationWrite` permission to that service account (typically, by granting the service account the Managed Service for Apache Spark `Worker` role).
+  * Data collection permission: `dataproc.sessions.sparkApplicationWrite`. This permission must be granted to the service account that runs interactive sessions. It is included in the [`Managed Service for Apache Spark Worker`](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.worker) role, which is automatically granted to the Compute Engine default service account that Managed Service for Apache Spark uses by default. However, if you specify a [custom service account](https://docs.cloud.google.com/managed-spark/docs/concepts/service-account) for your [session](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/sessions/create#--service-account) or [runtime profile (session template)](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#create-a-session-template), you must add this `dataproc.sessions.sparkApplicationWrite` permission to that service account (typically, by granting the service account the Managed Service for Apache Spark `Worker` role).
 
   * Spark UI access permission: `dataproc.sessions.sparkApplicationRead`. This permission must be granted to a user to access the Spark UI in the Google Cloud console. It is included in the [`Dataproc Viewer`, `Dataproc Editor` and `Dataproc Administrator`](https://docs.cloud.google.com/managed-spark/docs/concepts/iam#roles) roles. To open the Spark UI in the Google Cloud console, you must have one of these roles or have a custom role that includes this permission.
 
@@ -53,12 +53,12 @@ The Spark UI page is available in the Google Cloud console.
 
 
 
-**Is the _View Spark UI_ link disabled?** If a required permission is not granted, or if you clear the **Enable Spark UI** checkbox on the interactive session details page or set the `spark.dataproc.appContext.enabled` property to `false` (default: `true`) when you [create a session](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/sessions/create/spark#--property) or [create a session runtime template](https://docs.cloud.google.com/managed-spark/docs/quickstarts/jupyterlab-sessions#create_a_serverless_runtime_template), the **View Spark UI** button will be disabled.
+**Is the _View Spark UI_ link disabled?** If a required permission isn't granted, or if you clear the **Enable Spark UI** checkbox on the interactive session details page or set the `spark.dataproc.appContext.enabled` property to `false` (default: `true`) when you [create a session](https://docs.cloud.google.com/sdk/gcloud/reference/beta/dataproc/sessions/create/spark#--property) or [create a runtime profile (session template)](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#create-a-session-template), the **View Spark UI** button is disabled.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

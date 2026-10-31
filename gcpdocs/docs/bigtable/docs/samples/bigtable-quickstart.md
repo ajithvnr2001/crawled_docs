@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-quickstart/
 title: Bigtable quickstart \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:47:23.254046+00:00
+fetched_at: 2026-10-31T05:59:26.374013+00:00
 ---
 
 # Bigtable quickstart  |  Google Cloud Documentation
@@ -355,7 +355,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     require "google/cloud/bigtable"
     
     # Instantiates a client
-    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable-admin-v2/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
+    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
     
     # Your Cloud Bigtable instance ID
     # instance_id = "my-instance"

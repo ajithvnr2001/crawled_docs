@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling/
 title: Function calling for Grok models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:39.296095+00:00
+fetched_at: 2026-10-31T05:55:57.109319+00:00
 ---
 
 # Function calling for Grok models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -354,7 +354,7 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
       tool_choice="auto",
     )
 
-  * MODEL: The model name you want to use, for example `xai/grok-4.1-fast-reasoning`.
+  * MODEL: The model name you want to use, for example `xai/grok-4.6`.
   * CONTENT: The user prompt to send to the model.
   * FUNCTION_NAME: The name of the function to call.
   * FUNCTION_DESCRIPTION: A description of the function.
@@ -453,7 +453,7 @@ The following is the complete output you could expect after using the `get_curre
     client = OpenAI()
     
     response = client.chat.completions.create(
-      model="xai/grok-4.1-fast-reasoning",
+      model="xai/grok-4.6",
       messages=[
         {
           "role": "user",
@@ -509,7 +509,7 @@ The following is the complete output you could expect after using the `get_curre
     -H "Content-Type: application/json" \
     https://us-central1-aiplatform.googleapis.com/v1/projects/sample-project/locations/us-central1/endpoints/openapi/chat/completions -d \
     '{
-      "model": "xai/grok-4.1-fast-reasoning",
+      "model": "xai/grok-4.6",
       "messages": [
         {
           "role": "user",
@@ -577,7 +577,7 @@ After receiving the information retrieved through the calling the external `get_
      ],
      "created": 1750450289,
      "id": "2025-06-20|13:11:29.240295-07|6.230.75.101|-987540014",
-     "model": "xai/grok-4.1-fast-reasoning",
+     "model": "xai/grok-4.6",
      "object": "chat.completion",
      "system_fingerprint": "",
      "usage": {
@@ -598,6 +598,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

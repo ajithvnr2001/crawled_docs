@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/cmek-serverless/
 title: Use CMEK with Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:59.738590+00:00
+fetched_at: 2026-10-31T05:53:23.762058+00:00
 ---
 
 # Use CMEK with Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -90,10 +90,12 @@ Replace the following:
 
      1. Specify your key in the batch [`kmsKey`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/EnvironmentConfig#ExecutionConfig.FIELDS.kms_key) parameter.
      2. Specify the name of your Cloud Storage bucket in the batch [`stagingBucket`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/EnvironmentConfig#ExecutionConfig.FIELDS.staging_bucket) parameter.
-  5. When you [create an interactive session or session template](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates):
+  5. When you [create an interactive session or runtime profile (session template)](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates), configure the encryption key and staging bucket:
 
-     1. Specify your key in the session [`kmsKey`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/EnvironmentConfig#ExecutionConfig.FIELDS.kms_key) parameter.
-     2. Specify the name of your Cloud Storage bucket in the session [`stagingBucket`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/EnvironmentConfig#ExecutionConfig.FIELDS.staging_bucket) parameter.
+     1. Specify your key. On the **Create a runtime profile** page in the Google Cloud console, under **Additional configuration** , edit **Network and security** , select **Cloud KMS key** under **Encryption** , and select your key. Alternatively, specify your key in the session or session template [`kmsKey`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/EnvironmentConfig#ExecutionConfig) parameter.
+
+     2. Specify the name of your Cloud Storage bucket. On the **Create a runtime profile** page in the Google Cloud console, under **Additional configuration** , edit **Runtime configuration** and select your bucket in the **Staging bucket** field. Alternatively, specify the bucket in the session or session template [`stagingBucket`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/EnvironmentConfig#ExecutionConfig.FIELDS.staging_bucket) parameter.
+
 
 
 
@@ -101,6 +103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

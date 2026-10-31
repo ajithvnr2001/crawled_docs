@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/profiling-serverless/
 title: Profile resource usage \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:05:37.757557+00:00
+fetched_at: 2026-10-31T05:53:23.673739+00:00
 ---
 
 # Profile resource usage  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Complete the following steps to enable profiling on a workload:
 
   1. [Enable the Profiler](https://docs.cloud.google.com/profiler/docs/profiling-java#enabling-profiler).
   2. If you are using a [custom VM service account](https://docs.cloud.google.com/managed-spark/docs/concepts/service-account), grant the [Cloud Profiler Agent](https://docs.cloud.google.com/profiler/docs/iam#cloudprofiler.agent) role to the custom VM service account. This role contains required Profiler permissions.
-  3. Set profiling properties when you [submit a batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload) or [create a session template](https://docs.cloud.google.com/managed-spark/docs/quickstarts/jupyterlab-sessions#create_a_serverless_runtime_template).
+  3. Set profiling properties when you [submit a batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload) or [create a runtime profile (session template)](https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates#create-a-session-template) (for example, on the **Create a runtime profile** page in the Google Cloud console, under **Additional configuration** > **Other customizations** > **Spark properties**).
 
 
 
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

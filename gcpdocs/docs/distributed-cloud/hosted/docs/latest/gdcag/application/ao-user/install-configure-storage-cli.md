@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/install-configure-storage-cli/
 title: Install and configure the storage CLI for projects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:01:25.714185+00:00
+fetched_at: 2026-10-31T05:48:03.182775+00:00
 ---
 
 # Install and configure the storage CLI for projects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -32,23 +32,25 @@ To install and configure the storage CLI, contact your IAM Org Admin to request 
 
 ## Download the gdcloud CLI
 
-Follow the instructions to [download the gdcloud CLI](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-download).
+Download and extract a gdcloud CLI bundle archive by following the instructions in [Download the gdcloud CLI](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-download). Don't use a standalone gdcloud CLI binary that doesn't include the `bin/component_bundles/` directory.
 
 ## Install the gdcloud CLI
 
-To use the storage command tree, the storage dependencies component must be installed.
+To use the `gdcloud storage` command group, install the `storage-cli-dependencies` component from an extracted gdcloud CLI bundle:
 
-  1. Follow [Install gdcloud CLI](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-install).
+  1. Follow the instructions in [Install the gdcloud CLI](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-install) to add the extracted bundle's `bin` directory to your `PATH`.
 
-  2. To install the storage dependencies component, run the following commands:
+  2. To install the `storage-cli-dependencies` component, run the following command:
          
          gdcloud components install storage-cli-dependencies
          
 
-For more information on the `components install` command, see [Install gdcloud CLI](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-install).
+This command installs `storage-cli-dependencies` from the `bin/component_bundles/` directory in your extracted gdcloud CLI bundle. If you run this command from a standalone gdcloud CLI binary that lacks `bin/component_bundles/`, then the command fails with a `component_registry.yaml: no such file or directory` error. To resolve this error, download and extract a bundle from [Download the gdcloud CLI](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-download) and run `bin/gdcloud` from the extracted bundle directory.
+
+For more information about the `components install` command, see [Install components](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-install#install-components).
 
 
-**Note:** This command only installs the dependencies onto the client machine. For configuring the gdcloud CLI follow Configure gdcloud CLI for object storage.
+**Note:** This command only installs the storage dependencies on the client machine. To finish setup, complete the steps in Configure the gdcloud CLI for object storage.
 
 ## Configure the gdcloud CLI for object storage
 
@@ -97,6 +99,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

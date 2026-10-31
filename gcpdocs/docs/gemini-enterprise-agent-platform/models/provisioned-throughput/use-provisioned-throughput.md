@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput/
 title: Use Provisioned Throughput \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:14.839728+00:00
+fetched_at: 2026-10-31T05:40:28.899237+00:00
 ---
 
 # Use Provisioned Throughput  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -483,9 +483,19 @@ In the **Provisioned Throughput utilization by model** table, you can view the f
 
 
 
+### Detailed metrics
+
+Detailed metrics compute the Provisioned Throughput dashboards from per-request inference logs instead of one-minute aggregate metrics. They show traffic at second-level resolution, so you can see bursts that a one-minute average hides and the individual seconds where traffic spilled over.
+
+Detailed metrics add the following charts beside the standard ones: throughput, cache hit rate and cached token use.
+
+To turn on detailed metrics, see [Enable in the console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#enable-console). After the log bucket upgrade finishes, open an order or a model from the **Utilization summary** tab to see the detailed charts. To query the same data with SQL, for example burndown by project, spillover by minute or cache hit rate, see [Query with Observability Analytics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#observability-analytics).
+
+**Note:** Turning on detailed metrics turns on inference request metadata logging for the whole project: every Gemini and Claude model, on Provisioned Throughput and every pay-as-you-go option that the logs support.![Detailed metrics on a Provisioned Throughput details page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/provisioned-throughput/images/pt_detailed_metrics.png) Detailed metrics selected on a Provisioned Throughput details page, over the last day. Provisioned Throughput Utilization shows throughput per second as dedicated and spillover against the limit (tokens per second). Request Rate shows requests per second as dedicated and spillover. ![Cached Token Hit Rate chart with detailed metrics selected](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/provisioned-throughput/images/pt_cached_token_hit_rate.png) The Cached Token Hit Rate chart with detailed metrics selected, over seven days. It shows the percentage of input tokens served from cache, labeled cached token use. 
+
 ### How to interpret monitoring dashboards
 
-Provisioned Throughput [checks available quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking) in real time at the millisecond level for requests as they are made, but compares this data against a rolling [quota enforcement period](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-enforcement-period), based on the Agent Platform internal clock time. This comparison is independent of the time when the requests are made. The monitoring dashboards report usage metrics after quota reconciliation takes place. However, these metrics are aggregated to provide averages for dashboard alignment periods, based on the selected time range. The lowest possible granularity that the monitoring dashboards support is at the minute level. Moreover, the clock time for the monitoring dashboards is different from that of Agent Platform.
+Provisioned Throughput [checks available quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-checking) in real time at the millisecond level for requests as they are made, but compares this data against a rolling [quota enforcement period](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#pt-quota-enforcement-period), based on the Agent Platform internal clock time. This comparison is independent of the time when the requests are made. The monitoring dashboards report usage metrics after quota reconciliation takes place. However, these metrics are aggregated to provide averages for dashboard alignment periods, based on the selected time range. The lowest possible granularity that the monitoring dashboards support is at the minute level. To see second-level traffic, turn on detailed metrics. Moreover, the clock time for the monitoring dashboards is different from that of Agent Platform.
 
 These differences in timings might occasionally result in discrepancies between the data in the monitoring dashboards and real-time performance. These can result from any of the following reasons:
 
@@ -586,6 +596,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

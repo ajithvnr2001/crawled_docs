@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/viewing-dashboards/
 title: Viewing dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:58:24.645084+00:00
+fetched_at: 2026-10-31T05:53:34.060036+00:00
 ---
 
 # Viewing dashboards  |  Looker  |  Google Cloud Documentation
@@ -42,6 +42,7 @@ Each dashboard contains a number of elements:
   * Add to boards icon
   * Certification icon
   * Dashboard tabs
+  * Tile groups
   * Dashboard filters
   * Dashboard last updated indicator
   * Reload data icon
@@ -83,6 +84,22 @@ Content may be organized on different dashboard tabs, if your content creator ha
 ![ ](https://docs.cloud.google.com/static/looker/docs/images/looker-tabbed-dashboard-example.png)
 
 To view the content on a tab, click the name of the tab. [Learn more about viewing and interacting with tabbed dashboards](https://docs.cloud.google.com/looker/docs/tabbed-dashboards#tabbed-dashboard-features-for-viewers).
+
+### Tile groups
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+**Note:** Use the [Looker Tile Groups - Preview Issues form](https://docs.google.com/forms/d/e/1FAIpQLSdqtRfbUyyIhZqKkyfsEJyVhJ83sGG58-t1sAssvZ3V_ruUrw/viewform) to provide feedback or report issues with this preview feature.
+
+![](https://docs.cloud.google.com/static/looker/docs/images/tile-group-2620.png)
+
+If your Looker admin has enabled the [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups), dashboard creators can organize related tiles—including visualizations, text tiles, buttons, and extensions—into collapsible group containers.
+
+To collapse or expand a tile group while viewing a dashboard, click the expand or collapse arrow next to the group title in the group header. Collapsing a group hides all of the tiles inside the group and reduces the container to its header so that you can focus on other sections of the dashboard.
+
+When a tile group is expanded, you can interact with the tiles inside the group just as you do with ungrouped dashboard tiles, including exploring data, viewing or following alerts, downloading data, drilling into data points, and cross-filtering. For information about creating and editing tile groups, see [Organizing tiles into groups](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#organizing_tiles_into_groups) on the **Editing user-defined dashboards** documentation page.
 
 ### Dashboard filters
 
@@ -585,6 +602,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

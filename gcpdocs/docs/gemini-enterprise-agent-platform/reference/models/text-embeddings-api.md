@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api/
 title: Text embeddings API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:10.798614+00:00
+fetched_at: 2026-10-31T05:56:58.982233+00:00
 ---
 
 # Text embeddings API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -65,13 +65,13 @@ For superior embedding quality, `gemini-embedding-001` is our large model design
     REGION = us-central1
     MODEL_ID = MODEL_ID
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.language_models import TextEmbeddingModel
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=REGION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=REGION)
     
     model = TextEmbeddingModel.from_pretrained(MODEL_ID)
-    embeddings = model.[get_embeddings](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.vision_models.MultiModalEmbeddingModel.html#vertexai_preview_vision_models_MultiModalEmbeddingModel_get_embeddings)(...)
+    embeddings = model.[get_embeddings](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.vision_models.MultiModalEmbeddingModel.html#vertexai_preview_vision_models_MultiModalEmbeddingModel_get_embeddings)(...)
 
 ## Parameter list
 
@@ -604,6 +604,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

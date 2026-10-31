@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/sdk-migration/
 title: Agent Platform SDK for Python: version 2.0.1 migration guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:19.629144+00:00
+fetched_at: 2026-10-31T05:54:59.294499+00:00
 ---
 
 # Agent Platform SDK for Python: version 2.0.1 migration guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -91,10 +91,10 @@ Run your test suite with `-W error::UserWarning` to catch imports you missed.
          
          # pip install google-cloud-aiplatform
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-         from vertexai.generative_models import [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         from vertexai.generative_models import [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html)
          
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="my-project", location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="my-project", location="us-central1")
          
          # Model identity and config are bound at construction time.
          model = GenerativeModel("gemini-2.5-flash")
@@ -437,7 +437,7 @@ Note the following changes for function calling and grounding tasks:
 ###  Before 
     
     
-    from vertexai.generative_models import GenerativeModel, FunctionDeclaration, Tool, [grounding](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.generative_models.grounding.html)
+    from vertexai.generative_models import GenerativeModel, FunctionDeclaration, Tool, [grounding](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.generative_models.grounding.html)
     
     weather_tool = Tool(function_declarations=[
         FunctionDeclaration(
@@ -456,7 +456,7 @@ Note the following changes for function calling and grounding tasks:
     call = response.candidates[0].content.parts[0].function_call
     
     # Grounding
-    search_tool = Tool.from_google_search_retrieval([grounding](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.generative_models.grounding.html).[GoogleSearchRetrieval](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.generative_models.grounding.GoogleSearchRetrieval.html)())
+    search_tool = Tool.from_google_search_retrieval([grounding](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.generative_models.grounding.html).[GoogleSearchRetrieval](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.generative_models.grounding.GoogleSearchRetrieval.html)())
     
 
 ###  After 
@@ -730,6 +730,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

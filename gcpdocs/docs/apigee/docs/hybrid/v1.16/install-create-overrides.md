@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-create-overrides/
 title: Step 7: Create the overrides \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:33:05.321333+00:00
+fetched_at: 2026-10-31T05:48:39.793859+00:00
 ---
 
 # Step 7: Create the overrides  |  Apigee  |  Google Cloud Documentation
@@ -197,7 +197,7 @@ For installations in production environments, look at the storage requirements f
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountRef: MINT_TASK_SCHEDULER_SERVICE_ACCOUNT_SECRET
@@ -357,7 +357,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountRef: apigee-mint-task-scheduler-svc-account
@@ -531,7 +531,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountRef: NON_PROD_SERVICE_ACCOUNT_SECRET
@@ -683,7 +683,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountRef: apigee-non-prod-svc-account
@@ -878,7 +878,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountPath: MINT_TASK_SCHEDULER_SERVICE_ACCOUNT_FILEPATH
@@ -1055,7 +1055,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountPath: my-project-apigee-mint-task-scheduler.json"
@@ -1256,7 +1256,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountPath: NON_PROD_SERVICE_ACCOUNT_FILEPATH
@@ -1425,7 +1425,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountPath: my-project-apigee-non-prod.json"
@@ -1606,7 +1606,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     # If using message payloads larger than 10MB.
     # See [configure large message payload support](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/configure-large-payload-support):
@@ -1715,7 +1715,7 @@ VALUE | (Optional). This is a key-value pair that provides annotations for your 
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     # For message payloads larger than 10MB:
     runtime:
@@ -1834,7 +1834,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     # If using message payloads larger than 10MB.
     # See [configure large message payload support](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/configure-large-payload-support):
@@ -1935,7 +1935,7 @@ VALUE | (Optional). This is a key-value pair that provides annotations for your 
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     # for message payloads larger than 10MB:
     runtime:
@@ -2098,7 +2098,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       gsa: MINT_TASK_SCHEDULER_SERVICE_ACCOUNT_EMAIL
@@ -2248,7 +2248,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountPath: my-project-apigee-mint-task-scheduler.json"
@@ -2389,7 +2389,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     # If using message payloads larger than 10MB.
     # See [configure large message payload support](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/configure-large-payload-support):
@@ -2499,7 +2499,7 @@ VALUE | (Optional). This is a key-value pair that provides annotations for your 
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     # For message payloads larger than 10MB:
     runtime:
@@ -2677,7 +2677,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountRef: MINT_TASK_SCHEDULER_WORKLOAD_IDENTITY_SECRET
@@ -2866,7 +2866,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountRef: "apigee-mint-task-scheduler-workload-identity-secret"
@@ -3079,7 +3079,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountRef: NON_PROD_WORKLOAD_IDENTITY_SECRET
@@ -3260,7 +3260,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountRef: "non-prod-workload-identity-secret"
@@ -3488,7 +3488,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountPath: MINT_TASK_SCHEDULER_CREDENTIAL_CONFIGURATION_FILEPATH
@@ -3698,7 +3698,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountPath: apigee-mint-task-scheduler-credential-configuration.json"
@@ -3934,7 +3934,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     mintTaskScheduler: # Required for Monetization for Apigee hybrid
       serviceAccountPath: NON_PROD_CREDENTIAL_CONFIGURATION_FILEPATH
@@ -4136,7 +4136,7 @@ See:
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     mintTaskScheduler:
       serviceAccountPath: apigee-non-prod-credential-configuration.json"
@@ -4356,7 +4356,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     # If using message payloads larger than 10MB.
     # See [configure large message payload support](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/configure-large-payload-support):
@@ -4497,7 +4497,7 @@ VALUE | (Optional). This is a key-value pair that provides annotations for your 
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     # For message payloads larger than 10MB:
     runtime:
@@ -4653,7 +4653,7 @@ Values in red, bold italics are property values that you must provide. You can e
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11" # Must be 1.15.1 or higher.
+        tag: "1.16.13" # Must be 1.15.1 or higher.
     
     # If using message payloads larger than 10MB.
     # See [configure large message payload support](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/configure-large-payload-support):
@@ -4786,7 +4786,7 @@ VALUE | (Optional). This is a key-value pair that provides annotations for your 
     runtime:
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-        tag: "1.16.11"
+        tag: "1.16.13"
     
     # for message payloads larger than 10MB:
     runtime:
@@ -4878,6 +4878,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

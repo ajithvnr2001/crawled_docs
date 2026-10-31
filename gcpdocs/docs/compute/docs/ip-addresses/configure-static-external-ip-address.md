@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address/
 title: Configure static external IP addresses \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:27.597986+00:00
+fetched_at: 2026-10-31T05:58:57.817409+00:00
 ---
 
 # Configure static external IP addresses  |  Compute Engine  |  Google Cloud Documentation
@@ -257,7 +257,7 @@ Replace the following:
     
     	ctx := context.Background()
     	// Create the service client.
-    	addressesClient, err := compute.[NewAddressesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_AddressesClient_NewAddressesRESTClient)(ctx)
+    	addressesClient, err := compute.NewAddressesRESTClient(ctx)
     	if err != nil {
     		return nil, err
     	}
@@ -276,7 +276,7 @@ Replace the following:
     	var addresses []*computepb.Address
     	for {
     		address, err := it.Next()
-    		if err == iterator.[Done](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Done) {
+    		if err == iterator.Done {
     			break
     		}
     		if err != nil {
@@ -288,7 +288,7 @@ Replace the following:
     	// Print the addresses.
     	fmt.Fprint(w, "Fetched addresses: \n")
     	for _, address := range addresses {
-    		fmt.Fprintf(w, "%s\n", *address.[Name](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Name))
+    		fmt.Fprintf(w, "%s\n", *address.Name)
     	}
     
     	return addresses, nil
@@ -300,7 +300,7 @@ Replace the following:
     
     	ctx := context.Background()
     	// Create the service client.
-    	addressesClient, err := compute.[NewGlobalAddressesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_GlobalAddressesClient_NewGlobalAddressesRESTClient)(ctx)
+    	addressesClient, err := compute.NewGlobalAddressesRESTClient(ctx)
     	if err != nil {
     		return nil, err
     	}
@@ -318,7 +318,7 @@ Replace the following:
     	var addresses []*computepb.Address
     	for {
     		address, err := it.Next()
-    		if err == iterator.[Done](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Done) {
+    		if err == iterator.Done {
     			break
     		}
     		if err != nil {
@@ -330,7 +330,7 @@ Replace the following:
     	// Print the addresses.
     	fmt.Fprint(w, "Fetched addresses: \n")
     	for _, address := range addresses {
-    		fmt.Fprintf(w, "%s\n", *address.[Name](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Name))
+    		fmt.Fprintf(w, "%s\n", *address.Name)
     	}
     
     	return addresses, nil
@@ -340,11 +340,11 @@ Replace the following:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.[Address](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Address.html);
-    import com.google.cloud.compute.v1.[AddressesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AddressesClient.html);
-    import com.google.cloud.compute.v1.[GlobalAddressesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalAddressesClient.html);
-    import com.google.cloud.compute.v1.[ListAddressesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListAddressesRequest.html);
-    import com.google.cloud.compute.v1.[ListGlobalAddressesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListGlobalAddressesRequest.html);
+    import com.google.cloud.compute.v1.Address;
+    import com.google.cloud.compute.v1.AddressesClient;
+    import com.google.cloud.compute.v1.GlobalAddressesClient;
+    import com.google.cloud.compute.v1.ListAddressesRequest;
+    import com.google.cloud.compute.v1.ListGlobalAddressesRequest;
     import com.google.common.collect.Lists;
     import java.io.IOException;
     import java.util.List;
@@ -371,8 +371,8 @@ Replace the following:
         if (region != null) {
           // Initialize client that will be used to send requests. This client only needs to be created
           // once, and can be reused for multiple requests.
-          try ([AddressesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AddressesClient.html) client = [AddressesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AddressesClient.html).create()) {
-            [ListAddressesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListAddressesRequest.html) request = [ListAddressesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListAddressesRequest.html).newBuilder()
+          try (AddressesClient client = AddressesClient.create()) {
+            ListAddressesRequest request = ListAddressesRequest.newBuilder()
                     .setProject(projectId)
                     .setRegion(region)
                     .build();
@@ -382,8 +382,8 @@ Replace the following:
         } else {
           // Initialize client that will be used to send requests. This client only needs to be created
           // once, and can be reused for multiple requests.
-          try ([GlobalAddressesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalAddressesClient.html) client = [GlobalAddressesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalAddressesClient.html).create()) {
-            [ListGlobalAddressesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListGlobalAddressesRequest.html) request = [ListGlobalAddressesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListGlobalAddressesRequest.html).newBuilder()
+          try (GlobalAddressesClient client = GlobalAddressesClient.create()) {
+            ListGlobalAddressesRequest request = ListGlobalAddressesRequest.newBuilder()
                     .setProject(projectId)
                     .build();
     
@@ -694,17 +694,17 @@ Replace the following:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html);
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).Type;
-    import com.google.cloud.compute.v1.[Address](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Address.html).NetworkTier;
-    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html);
-    import com.google.cloud.compute.v1.[AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html);
-    import com.google.cloud.compute.v1.[GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html);
-    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html);
-    import com.google.cloud.compute.v1.[InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html);
-    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
-    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
-    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.AccessConfig;
+    import com.google.cloud.compute.v1.AccessConfig.Type;
+    import com.google.cloud.compute.v1.Address.NetworkTier;
+    import com.google.cloud.compute.v1.AttachedDisk;
+    import com.google.cloud.compute.v1.AttachedDiskInitializeParams;
+    import com.google.cloud.compute.v1.GetInstanceRequest;
+    import com.google.cloud.compute.v1.ImagesClient;
+    import com.google.cloud.compute.v1.InsertInstanceRequest;
+    import com.google.cloud.compute.v1.Instance;
+    import com.google.cloud.compute.v1.InstancesClient;
+    import com.google.cloud.compute.v1.NetworkInterface;
     import java.io.IOException;
     import java.util.UUID;
     import java.util.concurrent.ExecutionException;
@@ -738,31 +738,31 @@ Replace the following:
       }
     
       // Create a new VM instance with assigned static external IP address.
-      public static [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) assignStaticExternalNewVmAddress(String projectId, String instanceName,
+      public static Instance assignStaticExternalNewVmAddress(String projectId, String instanceName,
                                                               String zone, boolean externalAccess,
                                                               String machineType, String externalIpv4)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         String sourceImage;
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html) imagesClient = [ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).create()) {
-          sourceImage = imagesClient.[getFromFamily](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html#com_google_cloud_compute_v1_ImagesClient_getFromFamily_com_google_cloud_compute_v1_GetFromFamilyImageRequest_)("debian-cloud", "debian-13").getSelfLink();
+        try (ImagesClient imagesClient = ImagesClient.create()) {
+          sourceImage = imagesClient.getFromFamily("debian-cloud", "debian-13").getSelfLink();
         }
-        [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) attachedDisk = buildAttachedDisk(sourceImage, zone);
+        AttachedDisk attachedDisk = buildAttachedDisk(sourceImage, zone);
     
         return createInstance(projectId, instanceName, zone,
                 attachedDisk, machineType, externalAccess, externalIpv4);
       }
     
-      private static [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) buildAttachedDisk(String sourceImage, String zone) {
-        [AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html) initializeParams = [AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
+      private static AttachedDisk buildAttachedDisk(String sourceImage, String zone) {
+        AttachedDiskInitializeParams initializeParams = AttachedDiskInitializeParams.newBuilder()
                 .setSourceImage(sourceImage)
                 .setDiskSizeGb(10)
                 .setDiskType(String.format("zones/%s/diskTypes/pd-standard", zone))
                 .build();
     
-        return [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
-                .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)(initializeParams)
+        return AttachedDisk.newBuilder()
+                .setInitializeParams(initializeParams)
                 // Remember to set auto_delete to True if you want the disk to be deleted
                 // when you delete your VM instance.
                 .setAutoDelete(true)
@@ -771,18 +771,18 @@ Replace the following:
       }
     
       // Send an instance creation request to the Compute Engine API and wait for it to complete.
-      private static [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) createInstance(String projectId, String instanceName,
-                                             String zone, [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) disks,
+      private static Instance createInstance(String projectId, String instanceName,
+                                             String zone, AttachedDisk disks,
                                              String machineType, boolean externalAccess,
                                              String externalIpv4)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) client = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instanceResource =
+        try (InstancesClient client = InstancesClient.create()) {
+          Instance instanceResource =
                   buildInstanceResource(instanceName, disks, machineType, externalAccess, externalIpv4);
     
-          [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html) build = [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html).newBuilder()
+          InsertInstanceRequest build = InsertInstanceRequest.newBuilder()
                   .setProject(projectId)
                   .setRequestId(UUID.randomUUID().toString())
                   .setZone(zone)
@@ -790,7 +790,7 @@ Replace the following:
                   .build();
           client.insertCallable().futureCall(build).get(60, TimeUnit.SECONDS);
     
-          [GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html) getInstanceRequest = [GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html).newBuilder()
+          GetInstanceRequest getInstanceRequest = GetInstanceRequest.newBuilder()
                   .setInstance(instanceName)
                   .setProject(projectId)
                   .setZone(zone)
@@ -800,13 +800,13 @@ Replace the following:
         }
       }
     
-      private static [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) buildInstanceResource(String instanceName, [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) disk,
+      private static Instance buildInstanceResource(String instanceName, AttachedDisk disk,
                                                     String machineType, boolean externalAccess,
                                                     String externalIpv4) {
-        [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface =
+        NetworkInterface networkInterface =
                 networkInterface(externalAccess, externalIpv4);
     
-        return [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html).newBuilder()
+        return Instance.newBuilder()
                 .setName(instanceName)
                 .addDisks(disk)
                 .setMachineType(machineType)
@@ -814,18 +814,18 @@ Replace the following:
                 .build();
       }
     
-      private static [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface(boolean externalAccess, String externalIpv4) {
-        [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).Builder build = [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder()
+      private static NetworkInterface networkInterface(boolean externalAccess, String externalIpv4) {
+        NetworkInterface.Builder build = NetworkInterface.newBuilder()
                 .setNetwork("global/networks/default");
         if (externalAccess) {
-          [AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).Builder accessConfig = [AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).newBuilder()
+          AccessConfig.Builder accessConfig = AccessConfig.newBuilder()
                   .setType(Type.ONE_TO_ONE_NAT.name())
                   .setName("External NAT")
                   .setNetworkTier(NetworkTier.PREMIUM.name());
           if (externalIpv4 != null) {
-            accessConfig.[setNatIP](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.Builder.html#com_google_cloud_compute_v1_AccessConfig_Builder_setNatIP_java_lang_String_)(externalIpv4);
+            accessConfig.setNatIP(externalIpv4);
           }
-          build.[addAccessConfigs](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.Builder.html#com_google_cloud_compute_v1_NetworkInterface_Builder_addAccessConfigs_com_google_cloud_compute_v1_AccessConfig_)(accessConfig.build());
+          build.addAccessConfigs(accessConfig.build());
         }
     
         return build.build();
@@ -1250,7 +1250,7 @@ For more information, see [Assign a static external IP address to a new instance
     	// networkInterfaceName := "nic0"
     
     	ctx := context.Background()
-    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
+    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -1269,7 +1269,7 @@ For more information, see [Assign a static external IP address to a new instance
     
     	var networkInterface *computepb.NetworkInterface
     	for _, ni := range instance.NetworkInterfaces {
-    		if *ni.[Name](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Name) == networkInterfaceName {
+    		if *ni.Name == networkInterfaceName {
     			networkInterface = ni
     			break
     		}
@@ -1281,7 +1281,7 @@ For more information, see [Assign a static external IP address to a new instance
     
     	var accessConfig *computepb.AccessConfig
     	for _, ac := range networkInterface.AccessConfigs {
-    		if *ac.Type == computepb.[AccessConfig_ONE_TO_ONE_NAT](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AccessConfig_UNDEFINED_TYPE_AccessConfig_DIRECT_IPV6_AccessConfig_ONE_TO_ONE_NAT).String() {
+    		if *ac.Type == computepb.AccessConfig_ONE_TO_ONE_NAT.String() {
     			accessConfig = ac
     			break
     		}
@@ -1293,7 +1293,7 @@ For more information, see [Assign a static external IP address to a new instance
     			Project:          projectID,
     			Zone:             zone,
     			Instance:         instanceName,
-    			AccessConfig:     *accessConfig.[Name](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Name),
+    			AccessConfig:     *accessConfig.Name,
     			NetworkInterface: networkInterfaceName,
     		}
     
@@ -1313,7 +1313,7 @@ For more information, see [Assign a static external IP address to a new instance
     		Instance: instanceName,
     		AccessConfigResource: &computepb.AccessConfig{
     			NatIP: &IPAddress,
-    			Type:  proto.String(computepb.[AccessConfig_ONE_TO_ONE_NAT](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AccessConfig_UNDEFINED_TYPE_AccessConfig_DIRECT_IPV6_AccessConfig_ONE_TO_ONE_NAT).String()),
+    			Type:  proto.String(computepb.AccessConfig_ONE_TO_ONE_NAT.String()),
     		},
     		NetworkInterface: networkInterfaceName,
     	}
@@ -1336,11 +1336,11 @@ For more information, see [Assign a static external IP address to a new instance
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html);
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).Type;
-    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
-    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
-    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.AccessConfig;
+    import com.google.cloud.compute.v1.AccessConfig.Type;
+    import com.google.cloud.compute.v1.Instance;
+    import com.google.cloud.compute.v1.InstancesClient;
+    import com.google.cloud.compute.v1.NetworkInterface;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -1368,16 +1368,16 @@ For more information, see [Assign a static external IP address to a new instance
       // in case of any assigned ip (static or ephemeral).
       // VM and ip address must be created before calling this function.
       // IMPORTANT: VM and assigned IP must be in the same region.
-      public static [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) assignStaticExistingVmAddress(String projectId, String instanceId,
+      public static Instance assignStaticExistingVmAddress(String projectId, String instanceId,
                                                            String zone, String netInterfaceName)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) client = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instance = client.get(projectId, zone, instanceId);
+        try (InstancesClient client = InstancesClient.create()) {
+          Instance instance = client.get(projectId, zone, instanceId);
     
-          [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface = null;
-          for ([NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) netInterface : instance.[getNetworkInterfacesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html#com_google_cloud_compute_v1_Instance_getNetworkInterfacesList__)()) {
+          NetworkInterface networkInterface = null;
+          for (NetworkInterface netInterface : instance.getNetworkInterfacesList()) {
             if (netInterface.getName().equals(netInterfaceName)) {
               networkInterface = netInterface;
               break;
@@ -1391,8 +1391,8 @@ For more information, see [Assign a static external IP address to a new instance
                             instanceId)
             );
           }
-          [AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html) accessConfig = null;
-          for ([AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html) config : networkInterface.[getAccessConfigsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html#com_google_cloud_compute_v1_NetworkInterface_getAccessConfigsList__)()) {
+          AccessConfig accessConfig = null;
+          for (AccessConfig config : networkInterface.getAccessConfigsList()) {
             if (config.getType().equals(Type.ONE_TO_ONE_NAT.name())) {
               accessConfig = config;
               break;
@@ -1401,20 +1401,20 @@ For more information, see [Assign a static external IP address to a new instance
     
           if (accessConfig != null) {
             // Delete the existing access configuration first
-            client.[deleteAccessConfigAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html#com_google_cloud_compute_v1_InstancesClient_deleteAccessConfigAsync_com_google_cloud_compute_v1_DeleteAccessConfigInstanceRequest_)(projectId, zone, instanceId,
-                            accessConfig.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html#com_google_cloud_compute_v1_AccessConfig_getName__)(), netInterfaceName)
+            client.deleteAccessConfigAsync(projectId, zone, instanceId,
+                            accessConfig.getName(), netInterfaceName)
                     .get(30, TimeUnit.SECONDS);
           }
     
           // Add a new access configuration with the new IP
-          [AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html) newAccessConfig = [AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).newBuilder()
+          AccessConfig newAccessConfig = AccessConfig.newBuilder()
                   // Leave this field undefined to use an IP from a shared ephemeral IP address pool
                   // .setNatIP(ipAddress)
                   .setType(Type.ONE_TO_ONE_NAT.name())
                   .setName("external-nat")
                   .build();
     
-          client.[addAccessConfigAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html#com_google_cloud_compute_v1_InstancesClient_addAccessConfigAsync_com_google_cloud_compute_v1_AddAccessConfigInstanceRequest_)(projectId, zone, instanceId, netInterfaceName, newAccessConfig)
+          client.addAccessConfigAsync(projectId, zone, instanceId, netInterfaceName, newAccessConfig)
                   .get(30, TimeUnit.SECONDS);
     
           // return updated instance
@@ -1428,10 +1428,10 @@ For more information, see [Assign a static external IP address to a new instance
     
     import uuid
     
-    from google.cloud.compute_v1 import [InstancesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html)
-    from google.cloud.compute_v1.types import [AccessConfig](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AccessConfig.html)
-    from google.cloud.compute_v1.types import [AddAccessConfigInstanceRequest](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AddAccessConfigInstanceRequest.html)
-    from google.cloud.compute_v1.types import [DeleteAccessConfigInstanceRequest](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.DeleteAccessConfigInstanceRequest.html)
+    from google.cloud.compute_v1 import InstancesClient
+    from google.cloud.compute_v1.types import AccessConfig
+    from google.cloud.compute_v1.types import AddAccessConfigInstanceRequest
+    from google.cloud.compute_v1.types import DeleteAccessConfigInstanceRequest
     
     
     def assign_static_ip_to_existing_vm(
@@ -1458,7 +1458,7 @@ For more information, see [Assign a static external IP address to a new instance
             google.cloud.compute_v1.types.Instance: Updated instance object.
         """
         client = InstancesClient()
-        instance = client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_get)(project=project_id, zone=zone, instance=instance_name)
+        instance = client.get(project=project_id, zone=zone, instance=instance_name)
         network_interface = next(
             (ni for ni in instance.network_interfaces if ni.name == network_interface_name),
             None,
@@ -1484,7 +1484,7 @@ For more information, see [Assign a static external IP address to a new instance
                 network_interface=network_interface_name,
                 request_id=str(uuid.uuid4()),
             )
-            delete_operation = client.[delete_access_config](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_delete_access_config)(delete_request)
+            delete_operation = client.delete_access_config(delete_request)
             delete_operation.result()
     
         # Add a new access configuration with the new IP
@@ -1498,10 +1498,10 @@ For more information, see [Assign a static external IP address to a new instance
             ),
             request_id=str(uuid.uuid4()),
         )
-        add_operation = client.[add_access_config](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_add_access_config)(add_request)
+        add_operation = client.add_access_config(add_request)
         add_operation.result()
     
-        updated_instance = client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_get)(project=project_id, zone=zone, instance=instance_name)
+        updated_instance = client.get(project=project_id, zone=zone, instance=instance_name)
         return updated_instance
     
     
@@ -1983,11 +1983,11 @@ For example:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html);
-    import com.google.cloud.compute.v1.[AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html).Type;
-    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
-    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
-    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.AccessConfig;
+    import com.google.cloud.compute.v1.AccessConfig.Type;
+    import com.google.cloud.compute.v1.Instance;
+    import com.google.cloud.compute.v1.InstancesClient;
+    import com.google.cloud.compute.v1.NetworkInterface;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -2010,15 +2010,15 @@ For example:
         unassignStaticIpAddress(projectId, instanceId, zone, netInterfaceName);
       }
     
-      public static [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) unassignStaticIpAddress(String projectId, String instanceId,
+      public static Instance unassignStaticIpAddress(String projectId, String instanceId,
                                                      String zone, String netInterfaceName)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) client = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instance = client.get(projectId, zone, instanceId);
-          [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface = null;
-          for ([NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) netIterface : instance.[getNetworkInterfacesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html#com_google_cloud_compute_v1_Instance_getNetworkInterfacesList__)()) {
+        try (InstancesClient client = InstancesClient.create()) {
+          Instance instance = client.get(projectId, zone, instanceId);
+          NetworkInterface networkInterface = null;
+          for (NetworkInterface netIterface : instance.getNetworkInterfacesList()) {
             if (netIterface.getName().equals(netInterfaceName)) {
               networkInterface = netIterface;
               break;
@@ -2033,8 +2033,8 @@ For example:
             );
           }
     
-          [AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html) accessConfig = null;
-          for ([AccessConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html) config : networkInterface.[getAccessConfigsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html#com_google_cloud_compute_v1_NetworkInterface_getAccessConfigsList__)()) {
+          AccessConfig accessConfig = null;
+          for (AccessConfig config : networkInterface.getAccessConfigsList()) {
             if (config.getType().equals(Type.ONE_TO_ONE_NAT.name())) {
               accessConfig = config;
               break;
@@ -2043,8 +2043,8 @@ For example:
     
           if (accessConfig != null) {
             // Delete the existing access configuration first
-            client.[deleteAccessConfigAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html#com_google_cloud_compute_v1_InstancesClient_deleteAccessConfigAsync_com_google_cloud_compute_v1_DeleteAccessConfigInstanceRequest_)(projectId, zone, instanceId,
-                            accessConfig.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AccessConfig.html#com_google_cloud_compute_v1_AccessConfig_getName__)(), netInterfaceName).get(30, TimeUnit.SECONDS);
+            client.deleteAccessConfigAsync(projectId, zone, instanceId,
+                            accessConfig.getName(), netInterfaceName).get(30, TimeUnit.SECONDS);
           }
     
           // return updated instance
@@ -2058,8 +2058,8 @@ For example:
     
     import uuid
     
-    from google.cloud.compute_v1 import [InstancesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html)
-    from google.cloud.compute_v1.types import [DeleteAccessConfigInstanceRequest](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.DeleteAccessConfigInstanceRequest.html)
+    from google.cloud.compute_v1 import InstancesClient
+    from google.cloud.compute_v1.types import DeleteAccessConfigInstanceRequest
     
     
     def unassign_static_ip_from_existing_vm(
@@ -2079,7 +2079,7 @@ For example:
             network_interface_name (str): Name of the network interface to unassign.
         """
         client = InstancesClient()
-        instance = client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_get)(project=project_id, zone=zone, instance=instance_name)
+        instance = client.get(project=project_id, zone=zone, instance=instance_name)
         network_interface = next(
             (ni for ni in instance.network_interfaces if ni.name == network_interface_name),
             None,
@@ -2105,10 +2105,10 @@ For example:
                 network_interface=network_interface_name,
                 request_id=str(uuid.uuid4()),
             )
-            delete_operation = client.[delete_access_config](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_delete_access_config)(delete_request)
+            delete_operation = client.delete_access_config(delete_request)
             delete_operation.result()
     
-        updated_instance = client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_get)(project=project_id, zone=zone, instance=instance_name)
+        updated_instance = client.get(project=project_id, zone=zone, instance=instance_name)
         return updated_instance
     
     

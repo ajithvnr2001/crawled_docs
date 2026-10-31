@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/manually-set-up-continuous-deployment/
 title: Manual setup continuous deployment using Cloud Build \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:36.586021+00:00
+fetched_at: 2026-10-31T05:49:59.828658+00:00
 ---
 
 # Manual setup continuous deployment using Cloud Build  |  Cloud Run  |  Google Cloud Documentation
@@ -20,9 +20,13 @@ Send feedback
 
 #  Manual setup continuous deployment using Cloud Build Stay organized with collections  Save and categorize content based on your preferences. 
 
-The following instructions assume you have a git repository with a `Dockerfile` at its root. 
+Cloud Build lets you automate continuous deployment pipelines to build container images and deploy updates to Cloud Run whenever you push changes to your Git repository. You can manually configure build triggers to deploy your service. 
 
-To automate deployment from Git with Cloud Build:
+## Before you begin
+
+Ensure that you have a Git repository with a `Dockerfile` at its root.
+
+## Construct a Cloud Build configuration
 
   1. Construct a Cloud Build configuration that:
 
@@ -142,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

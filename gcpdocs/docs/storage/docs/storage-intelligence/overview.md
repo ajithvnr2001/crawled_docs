@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/storage-intelligence/overview/
 title: About Storage Intelligence \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:44.155373+00:00
+fetched_at: 2026-10-31T05:53:28.963549+00:00
 ---
 
 # About Storage Intelligence  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 **Note:** Google Cloud offers a 30-day introductory trial for Storage Intelligence. To evaluate recommendations and explore your storage usage before subscribing, see [30-day introductory trial for Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/30-day-introductory-trial/overview).[ ![What is Google Cloud Storage Intelligence?](https://docs.cloud.google.com/static/storage/docs/images/storage-intelligence-demo.png)](https://www.youtube.com/watch?v=r5Z_z1bgcw0) [What is Google Cloud Storage Intelligence?](https://www.youtube.com/watch?v=r5Z_z1bgcw0)
 
-Storage Intelligence provides centralized visibility and control over your Cloud Storage data at scale. Instead of managing individual buckets with custom scripts, you can govern storage across your entire resource hierarchy to identify cost savings, analyze usage trends, and automate bulk operations.
+Storage Intelligence provides centralized visibility and control over your Cloud Storage data at scale. Instead of managing individual buckets with custom scripts, you can govern storage across your entire resource hierarchy to identify cost savings, analyze usage trends, monitor security and compliance, and automate bulk operations.
 
 To get started, see [Configure and manage Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/configure-and-manage-storage-intelligence).
 
@@ -40,9 +40,9 @@ Storage Intelligence helps you accomplish two primary operational tasks:
 
 To evaluate your data distribution, track usage trends, and discover cost savings, you can do the following:
 
-  * **Track storage trends and recommendations** : Use [Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview) to monitor capacity growth, detect usage anomalies, and identify cost-saving opportunities, such as idle buckets and unoptimized storage classes, across your organization, folders, or projects.
-  * **Query metadata and activity using SQL** : Use [Storage Insights datasets](https://docs.cloud.google.com/storage/docs/insights/datasets) to generate queryable metadata and activity indexes provided as [BigQuery linked datasets](https://docs.cloud.google.com/bigquery/docs/analytics-hub-introduction#linked_datasets). You can analyze data distribution, audit access patterns, and evaluate storage costs across your entire resource hierarchy.
-  * **Ask questions using AI** : Use [data storage insights with Gemini Cloud Assist](https://docs.cloud.google.com/storage/docs/analyze-data-gemini-cloud-assist) to ask natural-language questions about your storage environment. When you configure Storage Insights datasets, you can prompt Gemini to identify your largest buckets without Autoclass enabled or list objects in the Standard storage storage class smaller than 50 MB.
+  * **Track storage trends, security and compliance, and recommendations** : Use [Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview) to monitor capacity growth, detect usage anomalies, and identify cost-saving opportunities across your organization, folders, or projects. You can also evaluate whether objects comply with your bucket encryption policies ([Preview](https://cloud.google.com/products#product-launch-stages)).
+  * **Query metadata and activity by using SQL** : Use [Storage Insights datasets](https://docs.cloud.google.com/storage/docs/insights/datasets) to generate queryable metadata and activity indexes provided as [BigQuery linked datasets](https://docs.cloud.google.com/bigquery/docs/analytics-hub-introduction#linked_datasets). You can analyze data distribution, audit access patterns, and evaluate storage costs across your entire resource hierarchy.
+  * **Ask questions by using AI** : Use [data storage insights with Gemini Cloud Assist](https://docs.cloud.google.com/storage/docs/analyze-data-gemini-cloud-assist) to ask natural-language questions about your storage environment. When you configure Storage Insights datasets, you can prompt Gemini to identify your largest buckets without Autoclass enabled or list objects in the Standard storage storage class smaller than 50 MB.
   * **Audit bucket inventory** : Use [inventory reports](https://docs.cloud.google.com/storage/docs/insights/inventory-reports) to generate per-bucket reports that catalog objects and metadata. A Storage Intelligence subscription includes inventory reports and covers all object scan fees.
 
 
@@ -53,7 +53,7 @@ To manage buckets across regions and run operations at scale without custom scri
 
   * **Relocate buckets across regions** : Use [bucket relocation](https://docs.cloud.google.com/storage/docs/bucket-relocation/overview) to move buckets between geographic locations with minimal downtime, preserving bucket names, object metadata, and storage classes.
 
-  * **Execute operations across billions of objects** : Use [Storage batch operations](https://docs.cloud.google.com/storage/docs/batch-operations/overview) to automate bulk tasks, such as updating metadata, transforming storage classes, or deleting expired objects—across large collections of objects without writing custom scripts.
+  * **Run operations across billions of objects** : Use [Storage batch operations](https://docs.cloud.google.com/storage/docs/batch-operations/overview) to automate bulk tasks, such as updating metadata, transforming storage classes, or deleting expired objects, without writing custom scripts.
 
 
 
@@ -114,17 +114,17 @@ Project E | `DISABLED` | Disabled | Disables Storage Intelligence for Project E,
   
 ## Pricing
 
-Pricing for Storage Intelligence depends on the capabilities you use and the volume of data you manage. For details, see [Storage Intelligence pricing](https://docs.cloud.google.com/storage/pricing#storage-intelligence).
+Pricing for Storage Intelligence depends on the capabilities you use and the volume of data you manage. For more information, see [Storage Intelligence pricing](https://docs.cloud.google.com/storage/pricing#storage-intelligence).
 
 ## What's next
 
-  * [Configure and manage Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/configure-and-manage-storage-intelligence).
-  * [Review storage trends and recommendations with Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview).
-  * [Analyze metadata and activity with Storage Insights datasets](https://docs.cloud.google.com/storage/docs/insights/datasets).
-  * [Generate inventory reports for your buckets](https://docs.cloud.google.com/storage/docs/insights/inventory-reports).
-  * [Relocate a bucket to another region](https://docs.cloud.google.com/storage/docs/bucket-relocation/overview).
-  * [Run batch operations on objects at scale](https://docs.cloud.google.com/storage/docs/batch-operations/overview).
-  * [Activate the 30-day introductory trial for Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/30-day-introductory-trial/overview).
+  * [Configure and manage Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/configure-and-manage-storage-intelligence)
+  * [Review storage trends and recommendations with Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview)
+  * [Analyze metadata and activity with Storage Insights datasets](https://docs.cloud.google.com/storage/docs/insights/datasets)
+  * [Generate inventory reports for your buckets](https://docs.cloud.google.com/storage/docs/insights/inventory-reports)
+  * [Relocate a bucket to another region](https://docs.cloud.google.com/storage/docs/bucket-relocation/overview)
+  * [Run batch operations on objects at scale](https://docs.cloud.google.com/storage/docs/batch-operations/overview)
+  * [Activate the 30-day introductory trial for Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/30-day-introductory-trial/overview)
 
 
 
@@ -132,6 +132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

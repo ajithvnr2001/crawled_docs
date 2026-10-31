@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/agentic-ai-interactive-learning/
 title: Agentic AI use case: Administer interactive learning \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:28.197881+00:00
+fetched_at: 2026-10-31T05:58:03.947543+00:00
 ---
 
 # Agentic AI use case: Administer interactive learning  |  Cloud Architecture Center  |  Google Cloud Documentation

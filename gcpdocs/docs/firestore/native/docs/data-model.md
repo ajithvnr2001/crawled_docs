@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/data-model/
 title: Data model \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:18.497511+00:00
+fetched_at: 2026-10-31T05:53:20.212043+00:00
 ---
 
 # Data model  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -170,7 +170,7 @@ Android
     
     a_lovelace_ref = db.collection("users").document("alovelace")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L280-L280)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L280-L280)
 
 ##### Python  
 (Async)
@@ -178,7 +178,7 @@ Android
     
     a_lovelace_ref = db.collection("users").document("alovelace")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L275-L275)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L275-L275)
 
 ##### C++
     
@@ -210,7 +210,7 @@ Android
     }
     
     
-    [retrieve_data_reference_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_document.go#L18-L29)
+    [retrieve_data_reference_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/retrieve_data_reference_document.go#L18-L29)
 
 ##### PHP
 
@@ -240,7 +240,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     document_ref = firestore.col("users").doc("alovelace")
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L22-L22)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/data_model.rb#L22-L22)
 
 A reference is a lightweight object that just points to a location in your database. You can create a reference whether or not data exists there, and creating a reference does not perform any network operations.
 
@@ -318,7 +318,7 @@ Android
     
     users_ref = db.collection("users")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L288-L288)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L288-L288)
 
 ##### Python  
 (Async)
@@ -326,7 +326,7 @@ Android
     
     users_ref = db.collection("users")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L283-L283)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L283-L283)
 
 ##### C++
     
@@ -356,7 +356,7 @@ Android
     }
     
     
-    [retrieve_data_reference_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_collection.go#L18-L28)
+    [retrieve_data_reference_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/retrieve_data_reference_collection.go#L18-L28)
 
 ##### PHP
 
@@ -386,7 +386,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     collection_ref = firestore.col "users"
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L31-L31)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/data_model.rb#L31-L31)
 
 **Note:** _Collection references_ and _document references_ are two distinct types of references and let you perform different operations. For example, you could use a collection reference for querying the documents in the collection, and you could use a document reference to read or write an individual document.
 
@@ -465,7 +465,7 @@ Android
     
     a_lovelace_ref = db.document("users/alovelace")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L296-L296)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L296-L296)
 
 ##### Python  
 (Async)
@@ -473,7 +473,7 @@ Android
     
     a_lovelace_ref = db.document("users/alovelace")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L291-L291)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L291-L291)
 
 ##### C++
     
@@ -504,7 +504,7 @@ Android
     }
     
     
-    [retrieve_data_reference_document_path.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_document_path.go#L18-L29)
+    [retrieve_data_reference_document_path.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/retrieve_data_reference_document_path.go#L18-L29)
 
 ##### PHP
 
@@ -534,7 +534,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     document_path_ref = firestore.doc "users/alovelace"
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L40-L40)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/data_model.rb#L40-L40)
 
 ## Hierarchical Data
 
@@ -684,7 +684,7 @@ Android
     room_a_ref = db.collection("rooms").document("roomA")
     message_ref = room_a_ref.collection("messages").document("message1")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L305-L306)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L305-L306)
 
 ##### Python  
 (Async)
@@ -693,7 +693,7 @@ Android
     room_a_ref = db.collection("rooms").document("roomA")
     message_ref = room_a_ref.collection("messages").document("message1")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L300-L301)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L300-L301)
 
 ##### C++
     
@@ -728,7 +728,7 @@ Android
     }
     
     
-    [retrieve_data_reference_subcollection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_subcollection.go#L18-L29)
+    [retrieve_data_reference_subcollection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/retrieve_data_reference_subcollection.go#L18-L29)
 
 ##### PHP
 
@@ -766,7 +766,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     message_ref = firestore.col("rooms").doc("roomA").col("messages").doc("message1")
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L49-L49)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/data_model.rb#L49-L49)
 
 Notice the alternating pattern of collections and documents. Your collections and documents must always follow this pattern. You cannot reference a collection in a collection or a document in a document.
 

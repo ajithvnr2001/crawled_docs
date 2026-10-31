@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning/
 title: Tuning API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:00.917086+00:00
+fetched_at: 2026-10-31T05:49:29.311299+00:00
 ---
 
 # Tuning API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -26,6 +26,8 @@ Model tuning is a crucial process in adapting Gemini to perform specific tasks w
 Use the Gemini tuning API for the following use cases:
 
   * [Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning)
+  * [Preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning)
+  * [Reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) (uses [`reinforcementTuningSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job) on the `v1beta1` endpoint)
 
 
 
@@ -45,6 +47,15 @@ You can use supervised fine-tuning on the following Gemini models:
 
 
 Translation LLM V2 (`translation-llm-002`) is also supported.
+
+You can use reinforcement learning fine-tuning on the following Gemini models:
+
+#### Click to expand supported models
+
+  * [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+  * [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+
+
 
 ## Example syntax
 
@@ -105,7 +116,7 @@ Parameters
 Parameters  
 ---  
 `trainingDatasetUri` | `string`Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#about-datasets).  
-`validationDatasetUri` | Optional: `string`Cloud Storage URI of your validation dataset. Your dataset must be formatted as a JSONL file. For the maximum number of validation examples, see [Limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning#limitations). If you provide this file, the data is used to generate validation metrics periodically during fine-tuning. For more information, see [ About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#about-datasets).  
+`validationDatasetUri` | Optional: `string`Cloud Storage URI of your validation dataset. Your dataset must be formatted as a JSONL file. For the maximum number of validation examples, see [Limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning#limitations). If you provide this file, the data is used to generate validation metrics periodically during fine-tuning. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#about-datasets).  
 `hyperParameters.epochCount` | Optional: `int`Number of complete passes the model makes over the entire training dataset during training. Gemini Enterprise Agent Platform automatically adjusts the default value to your training dataset size. This value is based on benchmarking results to optimize model output quality.  
 `hyperParameters.learningRateMultiplier` | Optional: `float`Multiplier for adjusting the default learning rate.  
 `hyperParameters.adapterSize` | Optional: `AdapterSize`Adapter size for tuning.  
@@ -124,6 +135,8 @@ Parameters
 `ADAPTER_SIZE_SIXTEEN` | Adapter size 16.  
   
 ## Examples
+
+The following examples show how to create and list model tuning jobs.
 
 ### Create a supervised tuning job
 
@@ -718,7 +731,7 @@ You can view a list of tuning jobs in your current project by using the Google G
 
 ### REST
 
-To list model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method. 
+To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -774,7 +787,7 @@ You should receive a JSON response similar to the following.
 
 ### REST
 
-To list model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method. 
+To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -855,7 +868,7 @@ You can get the details of a tuning job by using the Google Gen AI SDK or by sen
 
 ### REST
 
-To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID`. 
+To get details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID`. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -934,7 +947,7 @@ You should receive a JSON response similar to the following.
 
 ### REST
 
-To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID`. 
+To get details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID`. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -1146,6 +1159,7 @@ You should receive a JSON response similar to the following.
 For detailed documentation, see the following:
 
   * [Create a supervised fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job)
+  * [Reinforcement learning fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job)
   * [Generate content with the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference)
 
 
@@ -1154,6 +1168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

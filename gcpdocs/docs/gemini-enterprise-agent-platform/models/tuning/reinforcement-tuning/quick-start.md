@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start/
-title: Quick start: Reinforcement learning fine-tuning using the API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
+title: Quickstart: Reinforcement learning fine-tuning using the API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:07:43.204108+00:00
+fetched_at: 2026-10-31T05:54:34.209327+00:00
 ---
 
-# Quick start: Reinforcement learning fine-tuning using the API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
+# Quickstart: Reinforcement learning fine-tuning using the API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start/
 
@@ -19,13 +19,13 @@ fetched_at: 2026-10-29T11:07:43.204108+00:00
 
 Send feedback 
 
-#  Quick start: Reinforcement learning fine-tuning using the API Stay organized with collections  Save and categorize content based on your preferences. 
+#  Quickstart: Reinforcement learning fine-tuning using the API Stay organized with collections  Save and categorize content based on your preferences. 
 
 This product is a Pre-GA offering, subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1), the "Agentic AI Services" terms in the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA products and features may have limited support, and changes to pre-GA products and features may not be compatible with other pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products**. These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes. 
 
-This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models by using the Agent Platform API: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it. To complete these tasks in the Google Cloud console, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console).
+This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models by using the Agent Platform API: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it. To complete these tasks in the Google Cloud console, see the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console).
 
 Before you begin, see [About reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) for an overview of the feature, supported models, and supported regions.
 
@@ -71,7 +71,7 @@ The examples on this page use `us-central1` as the tuning region. The resulting 
 
 Replace the following:
 
-  * PROJECT_ID: Your Google Cloud project ID.
+  * `<var>PROJECT_ID</var>`: Your Google Cloud project ID.
 
 **Note:** Only the `v1beta1` API version is supported for reinforcement learning fine-tuning.
 
@@ -84,7 +84,7 @@ You can monitor the progress, performance, and quality of a running reinforcemen
 Training time is affected by the following factors:
 
   * **Training and validation dataset size.** For details, see the [Tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) page.
-  * **Hyperparameters** — including `samplesPerPrompt`, batch size, epoch count, and learning rate multiplier. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
+  * **Hyperparameters** , including `samplesPerPrompt`, batch size, epoch count, and learning rate multiplier. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
 
 
 
@@ -102,8 +102,8 @@ After the tuning job reaches `JOB_STATE_SUCCEEDED`, retrieve the deployed tuned-
 
 Replace the following:
 
-  * PROJECT_ID: Your Google Cloud project ID.
-  * TUNING_JOB_ID: The ID of the tuning job.
+  * `<var>PROJECT_ID</var>`: Your Google Cloud project ID.
+  * `<var>TUNING_JOB_ID</var>`: The ID of the tuning job.
 
 
 
@@ -148,8 +148,8 @@ The tuned model serves predictions through the standard `generateContent` API on
 
 Replace the following:
 
-  * PROJECT_ID: Your Google Cloud project ID.
-  * ENDPOINT_ID: The endpoint ID returned in the `tunedModel.endpoint` field of the `GetTuningJob` response.
+  * `<var>PROJECT_ID</var>`: Your Google Cloud project ID.
+  * `<var>ENDPOINT_ID</var>`: The endpoint ID returned in the `tunedModel.endpoint` field of the `GetTuningJob` response.
 
 
 
@@ -159,7 +159,7 @@ Replace the following:
   * Explore supported [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions).
   * Configure [hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) for reinforcement learning.
   * Learn how to track [metrics and monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring).
-  * Try the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) to create tuning jobs by using the Google Cloud console.
+  * Try the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) to create tuning jobs by using the Google Cloud console.
 
 
 
@@ -167,6 +167,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

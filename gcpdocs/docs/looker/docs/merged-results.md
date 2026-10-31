@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/merged-results/
 title: Joining data from multiple queries \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:22.279299+00:00
+fetched_at: 2026-10-31T05:48:24.547399+00:00
 ---
 
 # Joining data from multiple queries  |  Looker  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 Explores in Looker are designed by your Looker developers to combine the data from your database tables in the most effective way by using defined relationships between data fields and tables. For this reason, it's generally best practice to use a single Explore to examine your data.
 
-However, there might be times when your Looker developers haven't created the relationships that you need or have encountered technical limitations. In these cases, the **Join data** page lets you join (or merge) results from two or more queries from different Explores (even from different models or projects) and display the query results as if they were one query. You can use joined queries to create data tables on which to [Explore](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience) and [create visualizations](https://docs.cloud.google.com/looker/docs/editing-visualizations-new-explore-experience), and as a proof of concept to further develop and define your LookML projects and models.
+However, there might be times when your Looker developers haven't created the relationships that you need or have encountered technical limitations. In these cases, the **Join data** page lets you join (or merge) results from two or more queries from different Explores (even from different models or projects) and display the query results as if they were one query. You can use joined queries to create data tables on which to [Explore](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and [create visualizations](https://docs.cloud.google.com/looker/docs/creating-visualizations), and as a proof of concept to further develop and define your LookML projects and models.
 
-**Note:** If you're using the classic Explore, see the [Merging results from different Explores in the classic Explore](https://docs.cloud.google.com/looker/docs/merged-results) documentation page.
+**Note:** If you're using the classic Explore, see the [Merging results from different Explores in the classic Explore](https://docs.cloud.google.com/looker/docs/merged-results-classic-explore) documentation page.
 
 ## Understanding joined results
 
@@ -209,7 +209,7 @@ To join the results from multiple queries, start by preparing the _primary_ quer
 
 Now you can start merging results. However, you can also further refine your query in the following optional ways:
 
-  * Add [filters](https://docs.cloud.google.com/looker/docs/filtering-and-limiting-new-explore-experience) for the data.
+  * Add [filters](https://docs.cloud.google.com/looker/docs/filtering-and-limiting) for the data.
   * Include [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations) to create ad hoc metrics. Any table calculations from the source queries are displayed as standard dimensions in the joined results.
   * Click **Run** to see the results of your primary query and to test your filters and table calculations.
 
@@ -249,7 +249,7 @@ In the **Source queries and join rules** section, you can modify the join rules 
 
 To visualize your joined queries, click **Select chart** to choose a visualization type. Alternatively, use the **Auto-visualize** option to let Gemini select an appropriate visualization. Then select the **Chart style** to configure the chart options for that chart type.
 
-For a complete guide to all available visualization settings and supported chart types, see [Configuring and editing visualizations](https://docs.cloud.google.com/looker/docs/editing-visualizations-new-explore-experience).
+For a complete guide to all available visualization settings and supported chart types, see [Configuring and editing visualizations](https://docs.cloud.google.com/looker/docs/creating-visualizations).
 
 ### Saving or sharing the joined query
 
@@ -263,13 +263,13 @@ After you've created your joined query, you can click **Save or share** to perfo
 
 Once you've added your joined query to a dashboard, you can [add or apply dashboard filters](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards) to your joined query tile, [rearrange the tile](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#rearranging_and_resizing_tiles), edit the tile, or [add new tiles](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#adding_tiles_and_text_to_a_dashboard) to your dashboard. You can't download the data directly from a tile that's based on joined results, but you can [download the dashboard as a PDF](https://docs.cloud.google.com/looker/docs/downloading#downloading_a_dashboard_as_a_pdf) or [as a collection of CSV files](https://docs.cloud.google.com/looker/docs/downloading#downloading_a_dashboard_as_csvs).
 
-**Important:** When you apply a dashboard filter to a joined query, the filtered dimension must be included in the joined query (the dimension can be [hidden from the visualization](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#using-the-data-column-more-menu)). Any dashboard filters that are applied to a joined query tile are turned off if the joined query is changed in any way. You can reinstate the filters by turning them back on in the [filter configuration window](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#editing_dashboard_filters).
+**Important:** When you apply a dashboard filter to a joined query, the filtered dimension must be included in the joined query (the dimension can be [hidden from the visualization](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu)). Any dashboard filters that are applied to a joined query tile are turned off if the joined query is changed in any way. You can reinstate the filters by turning them back on in the [filter configuration window](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#editing_dashboard_filters).
 
 ### Modifying the joined query
 
 After you've created your joined query, you can interact with the results and modify the query in the following ways on the **Join data** page:
 
-  * Examine and sort the data, including [drilling into the data](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#drilling-into-data). However, if you drill into the dimension that's used to join the two Explores, Looker displays only drill fields from the primary Explore.
+  * Examine and sort the data, including [drilling into the data](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores#drilling-into-data). However, if you drill into the dimension that's used to join the two Explores, Looker displays only drill fields from the primary Explore.
   * In the **Configure joins** window, select **Edit query** next to the primary query to open the query's data table and make changes by using the field picker, such as adding or removing fields, adding table calculations, or changing the source query's filters (note that you can't add a filter directly to the joined results). You can also select **Options** next to the primary query to rename or delete the primary query.
   * In the **Configure joins** window, select **Edit query** next to the query that you want to modify in the join rule. For each additional source query, you can also select **Options** and rename or delete the query (if you want to add the query back into the joined results after you've deleted it, you can use the **Back** button in your browser), or make that source query the primary query for the joined queries.
   * In the **Joined fields** tab of the **Joined fields and chart style** window, pivot one or more of the joined query fields and add table calculations. Note that table calculations from the source queries are displayed as standard dimensions in the joined results.
@@ -322,6 +322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrate-amazon-eks-to-gke/
 title: Migrate from AWS to Google Cloud: Migrate from Amazon EKS to GKE \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:19:36.694665+00:00
+fetched_at: 2026-10-31T05:58:07.626399+00:00
 ---
 
 # Migrate from AWS to Google Cloud: Migrate from Amazon EKS to GKE  |  Cloud Architecture Center  |  Google Cloud Documentation

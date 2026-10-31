@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrate-aws-rds-to-sql-mysql/
 title: Migrate from AWS to Google Cloud: Migrate from Amazon RDS and Amazon Aurora for MySQL to Cloud SQL for MySQL \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:01:27.717246+00:00
+fetched_at: 2026-10-31T05:57:43.405129+00:00
 ---
 
 # Migrate from AWS to Google Cloud: Migrate from Amazon RDS and Amazon Aurora for MySQL to Cloud SQL for MySQL  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-manual-logging/
 title: Write structured logs \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:51:56.921734+00:00
+fetched_at: 2026-10-31T05:49:36.651160+00:00
 ---
 
 # Write structured logs  |  Cloud Run  |  Google Cloud Documentation

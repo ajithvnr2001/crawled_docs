@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/
 title: Well-Architected Framework: Sustainability pillar \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:47:08.381113+00:00
+fetched_at: 2026-10-31T05:57:46.006195+00:00
 ---
 
 # Well-Architected Framework: Sustainability pillar  |  Cloud Architecture Center  |  Google Cloud Documentation

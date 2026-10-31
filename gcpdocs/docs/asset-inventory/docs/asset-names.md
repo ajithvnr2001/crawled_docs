@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-names/
 title: Asset names \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:32:01.913151+00:00
+fetched_at: 2026-10-31T05:40:23.557389+00:00
 ---
 
 # Asset names  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -672,6 +672,13 @@ Resource type | Name format
 ` metastore.googleapis.com/Service ` |  `//metastore.googleapis.com/projects/PROJECT_ID/locations/LOCATION/services/SERVICE`  
 ` migrationcenter.googleapis.com/Asset ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/assets/ASSET`  
 ` migrationcenter.googleapis.com/CostAssessmentJob ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/costAssessmentJobs/COST_ASSESSMENT_JOB`  
+` migrationcenter.googleapis.com/DiscoveryClient ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/discoveryClients/DISCOVERY_CLIENT`  
+` migrationcenter.googleapis.com/Group ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/groups/GROUP`  
+` migrationcenter.googleapis.com/ImportJob ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/importJobs/IMPORT_JOB`  
+` migrationcenter.googleapis.com/PreferenceSet ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/preferenceSets/PREFERENCE_SET`  
+` migrationcenter.googleapis.com/ReportConfig ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/reportConfigs/REPORT_CONFIG`  
+` migrationcenter.googleapis.com/Settings ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/settings`  
+` migrationcenter.googleapis.com/Source ` |  `//migrationcenter.googleapis.com/projects/PROJECT_ID/locations/LOCATION/sources/SOURCE`  
 ` monitoring.googleapis.com/AlertPolicy ` |  `//monitoring.googleapis.com/projects/PROJECT_NUMBER/alertPolicies/POLICY_NUMBER`  
 ` monitoring.googleapis.com/Dashboard ` |  `//monitoring.googleapis.com/projects/PROJECT_NUMBER/dashboards/DASHBOARD_ID`  
 ` monitoring.googleapis.com/NotificationChannel ` |  `//monitoring.googleapis.com/projects/PROJECT_NUMBER/notificationChannels/CHANNEL_ID`  
@@ -701,7 +708,9 @@ Resource type | Name format
   
 `//container.googleapis.com/projects/PROJECT_ID/zones/ZONE/clusters/CLUSTER/k8s/namespaces/NAMESPACE/networking.k8s.io/networkpolicies/NETWORKPOLICY`  
 ` networkmanagement.googleapis.com/ConnectivityTest ` |  `//networkmanagement.googleapis.com/projects/PROJECT_ID/locations/global/connectivityTests/TEST`  
-` networkmanagement.googleapis.com/VpcFlowLogsConfig ` |  `//networkmanagement.googleapis.com/projects/PROJECT_ID/locations/LOCATION/vpcFlowLogsConfigs/VPC_FLOW_LOGS_CONFIG`  
+` networkmanagement.googleapis.com/VpcFlowLogsConfig ` |  `//networkmanagement.googleapis.com/organizations/ORGANIZATION_ID/locations/LOCATION/vpcFlowLogsConfigs/VPC_FLOW_LOGS_CONFIG`   
+  
+`//networkmanagement.googleapis.com/projects/PROJECT_ID/locations/LOCATION/vpcFlowLogsConfigs/VPC_FLOW_LOGS_CONFIG`  
 ` networksecurity.googleapis.com/AddressGroup ` |  `//networksecurity.googleapis.com/organizations/ORGANIZATION_ID/locations/LOCATION/addressGroups/ADDRESS_GROUP`   
   
 `//networksecurity.googleapis.com/projects/PROJECT_NUMBER/locations/LOCATION/addressGroups/ADDRESS_GROUP`  
@@ -963,6 +972,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

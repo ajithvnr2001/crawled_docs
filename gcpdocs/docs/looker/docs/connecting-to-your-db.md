@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/connecting-to-your-db/
 title: Connecting Looker to your database \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:29.699195+00:00
+fetched_at: 2026-10-31T05:48:05.826399+00:00
 ---
 
 # Connecting Looker to your database  |  Google Cloud Documentation
@@ -497,6 +497,7 @@ If your connection does not pass one or more tests, note the following:
   * If you are running Mongo version 3.6 or earlier on Atlas and you get a communications link failure, see [the Mongo Connector](https://docs.cloud.google.com/looker/docs/db-config-mongodb) documentation page.
   * To receive successful connection messages regarding the temp schema and PDTs, you must allow that functionality when you set up your Looker database. Instructions for doing so can be found on the [Database configuration instructions](https://docs.cloud.google.com/looker/docs/dialects) documentation page.
   * Database connections that use OAuth, such as [Snowflake](https://docs.cloud.google.com/looker/docs/db-config-snowflake#oauth), [Google BigQuery](https://docs.cloud.google.com/looker/docs/db-config-google-bigquery#oauth_for_bigquery_connections), [Trino](https://docs.cloud.google.com/looker/docs/db-config-prestodb-and-trino#configuring_oauth_for_trino_connections), and [Databricks](https://docs.cloud.google.com/looker/docs/db-config-databricks#oauth-db-configure), require a user login. If you aren't logged in to your OAuth user account when you test one of these connections, Looker displays a warning with a **Log In** link. Click the link, select **Authorize** in the **Authorize OAuth Connection** dialog if prompted, and enter your OAuth credentials to let Looker access your OAuth account information.
+  * If Looker can't connect to the database, the test results include network diagnostics that show whether Looker can look up the hostname and open a TCP connection to each IP address. For more information, and to test reachability without a connection, see the [Admin settings - Connections](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#network-diagnostics) page.
   * For [customer-hosted](https://docs.cloud.google.com/looker/docs/glossary#customer-hosted) Looker instances, see the [Testing database connectivity for customer-hosted instances](https://docs.cloud.google.com/looker/docs/testing-db-connectivity) documentation page for troubleshooting tips.
 
 
@@ -509,6 +510,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

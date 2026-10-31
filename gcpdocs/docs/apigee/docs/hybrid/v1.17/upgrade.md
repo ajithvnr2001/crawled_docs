@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/upgrade/
 title: Upgrading Apigee hybrid to version 1.17 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:02.055890+00:00
+fetched_at: 2026-10-31T06:00:26.955649+00:00
 ---
 
 # Upgrading Apigee hybrid to version 1.17  |  Google Cloud Documentation
@@ -49,11 +49,11 @@ Unsupported versions:
 
 
 
-This procedure covers upgrading from Apigee hybrid version 1.16.x to Apigee hybrid version 1.17.1 and from previous releases of hybrid 1.17.x to version 1.17.1. 
+This procedure covers upgrading from Apigee hybrid version 1.16.x to Apigee hybrid version 1.17.3 and from previous releases of hybrid 1.17.x to version 1.17.3. 
 
-Use the same procedures for minor version upgrades (for example version 1.16 to 1.17) and for patch release upgrades (for example 1.17.0 to 1.17.1). 
+Use the same procedures for minor version upgrades (for example version 1.16 to 1.17) and for patch release upgrades (for example 1.17.0 to 1.17.3). 
 
-If you are upgrading from Apigee hybrid version 1.15 or older, you must first upgrade to hybrid version 1.16 before upgrading to version 1.17.1. See the instructions for [Upgrading Apigee hybrid to version 1.16](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/upgrade). 
+If you are upgrading from Apigee hybrid version 1.15 or older, you must first upgrade to hybrid version 1.16 before upgrading to version 1.17.3. See the instructions for [Upgrading Apigee hybrid to version 1.16](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/upgrade). 
 
 ## Changes from Apigee hybrid v1.16
 
@@ -67,7 +67,7 @@ Please note the following changes:
 
 
 
-For additional information about features in Hybrid version 1.17, see the [Apigee hybrid v1.17.1 release notes](https://docs.cloud.google.com/apigee/docs/hybrid/release-notes#hybrid_v1171).
+For additional information about features in Hybrid version 1.17, see the [Apigee hybrid v1.17.3 release notes](https://docs.cloud.google.com/apigee/docs/hybrid/release-notes#hybrid_v1173).
 
 ## Prerequisites
 
@@ -80,11 +80,11 @@ Before upgrading to hybrid version 1.17, make sure your installation meets the f
 
 
 
-##  Before you upgrade to 1.17.1 - limitations and important notes 
+##  Before you upgrade to 1.17.3 - limitations and important notes 
 
   * Upgrading to Apigee hybrid version 1.17 may require downtime.
 
-When upgrading the Apigee controller to version 1.17.1, all Apigee deployments undergo a rolling restart. To minimize downtime in production hybrid environments during a rolling restart, make sure you are running at least two clusters (in the same or different region/data center). Divert all production traffic to a single cluster and take the cluster you are about to upgrade offline, and then proceed with the upgrade process. Repeat the process for each cluster.
+When upgrading the Apigee controller to version 1.17.3, all Apigee deployments undergo a rolling restart. To minimize downtime in production hybrid environments during a rolling restart, make sure you are running at least two clusters (in the same or different region/data center). Divert all production traffic to a single cluster and take the cluster you are about to upgrade offline, and then proceed with the upgrade process. Repeat the process for each cluster.
 
 Apigee recommends that once you begin the upgrade, you should upgrade all clusters as soon as possible to reduce the chances of production impact. There is no time limit on when all remaining clusters must be upgraded after the first one is upgraded. However, until all remaining clusters are upgraded Cassandra backup and restore cannot work with mixed versions. For example, a backup from Hybrid 1.16 cannot be used to restore a Hybrid 1.17 instance.
 
@@ -93,12 +93,12 @@ Apigee recommends that once you begin the upgrade, you should upgrade all cluste
 
 
 
-##  Upgrading to version 1.17.1 overview 
+##  Upgrading to version 1.17.3 overview 
 
 The procedures for upgrading Apigee hybrid are organized in the following sections: 
 
   1. Prepare to upgrade. 
-  2. Install hybrid runtime version 1.17.1.
+  2. Install hybrid runtime version 1.17.3.
 
 
 
@@ -653,7 +653,7 @@ Using the `pull` command, copy all of the Apigee hybrid Helm charts to your loca
     
     
     export **CHART_REPO** =oci://us-docker.pkg.dev/apigee-release/apigee-hybrid-helm-charts
-    export **CHART_VERSION** =1.17.1
+    export **CHART_VERSION** =1.17.3
     helm pull **$CHART_REPO** /apigee-operator --version **$CHART_VERSION** --untar
     helm pull **$CHART_REPO** /apigee-datastore --version **$CHART_VERSION** --untar
     helm pull **$CHART_REPO** /apigee-env --version **$CHART_VERSION** --untar
@@ -812,7 +812,7 @@ See:
 
 
 
-##  Install the hybrid 1.17.1 runtime 
+##  Install the hybrid 1.17.3 runtime 
 
 **Caution:** Do not create new environments during the upgrade process.This upgrade procedure assumes you are using the same namespace and service accounts for the upgraded installation. If you are making any configuration changes, be sure to reflect those changes in your overrides file before installing the Helm charts.**Note:** Before executing any of the Helm upgrade/install commands, use the Helm dry-run feature by adding `--dry-run` at the end of the command. See `helm -h` to list supported commands, options, and usage. 
 
@@ -842,7 +842,7 @@ Verify Apigee Operator installation:
          
          
          NAME       NAMESPACE       REVISION   UPDATED                                STATUS     CHART                   APP VERSION
-         operator   apigee   3          2024-08-21 00:42:44.492009 -0800 PST   deployed   apigee-operator-1.17.1   1.17.1
+         operator   apigee   3          2024-08-21 00:42:44.492009 -0800 PST   deployed   apigee-operator-1.17.3   1.17.3
          
 
 Verify it is up and running by checking its availability:
@@ -1009,7 +1009,7 @@ Dry run:
 
      * ENV_RELEASE_NAME is a name used to keep track of installation and upgrades of the `apigee-env` chart. This name must be unique from the other Helm release names in your installation. Usually this is the same as `ENV_NAME`. However, if your environment has the same name as your environment group, you must use different release names for the environment and environment group, for example `dev-env-release` and `dev-envgroup-release`. For more information on releases in Helm, see [Three big concepts](https://helm.sh/docs/intro/using_helm/#three-big-concepts) in the Helm documentation.
      * ENV_NAME is the name of the environment you are upgrading.
-     * OVERRIDES_FILE is your new overrides file for v.1.17.1
+     * OVERRIDES_FILE is your new overrides file for v.1.17.3
 
 Upgrade the chart:
     
@@ -1077,7 +1077,7 @@ Installing the `virtualhosts` creates ApigeeRouteConfig (ARC) which internally c
             apigee-org1-dev-egroup-123abc               running   2d
 
 
-**Congratulations!** You have upgraded to Apigee hybrid version 1.17.1. To test your upgrade, call a proxy against the new installation. For an example, see [Part 3, Step 2: Deploy an API proxy](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/install-deploy-proxy) in the Apigee hybrid 1.17 installation guide. 
+**Congratulations!** You have upgraded to Apigee hybrid version 1.17.3. To test your upgrade, call a proxy against the new installation. For an example, see [Part 3, Step 2: Deploy an API proxy](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/install-deploy-proxy) in the Apigee hybrid 1.17 installation guide. 
 
 ##  Rolling back to a previous version 
 
@@ -1175,6 +1175,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

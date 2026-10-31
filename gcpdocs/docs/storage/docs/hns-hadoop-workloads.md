@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/hns-hadoop-workloads/
 title: Use hierarchical namespace enabled buckets for Hadoop workloads \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:57.757855+00:00
+fetched_at: 2026-10-31T05:53:34.177294+00:00
 ---
 
 # Use hierarchical namespace enabled buckets for Hadoop workloads  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback
 
 #  Use hierarchical namespace enabled buckets for Hadoop workloads Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to use [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) enabled buckets for Hadoop workloads.
+This document describes how to configure the [Cloud Storage connector](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage) on a cluster to perform folder operations and explains compatibility considerations for earlier connector versions.
 
-## Overview
-
-When using a Cloud Storage bucket with hierarchical namespace, you can configure the [Cloud Storage connector](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage) to use the [rename folder](https://docs.cloud.google.com/storage/docs/rename-hns-folders) operation for workloads like Hadoop, Spark, Hive.
-
-In a bucket without hierarchical namespace, a rename operation in Hadoop, Spark, and Hive involves multiple object copy and delete jobs, impacting performance and consistency. Renaming a folder using the Cloud Storage connector optimizes performance and ensures consistency, when handling folders with a large number of objects.
+When you use the Cloud Storage connector on a cluster with a hierarchical namespace-enabled bucket, you enable [atomic folder renames](https://docs.cloud.google.com/storage/docs/rename-hns-folders) in your cluster configuration, which improves performance and consistency when handling large folders for Hadoop, Spark, and Hive workloads. In buckets without hierarchical namespace, a rename operation involves multiple object copy and delete jobs, which can impact performance and consistency.
 
 ## Before you begin
 
@@ -132,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

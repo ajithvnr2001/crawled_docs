@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/perform-time-series-forecasting/
 title: Perform time-series forecasting \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:39:18.299701+00:00
+fetched_at: 2026-10-31T05:52:11.263069+00:00
 ---
 
 # Perform time-series forecasting  |  AlloyDB Omni using the container orchestrator: 18.1.0  |  Google Cloud Documentation
@@ -170,7 +170,7 @@ You need this `model_request_url` in the `google_ml.create_model` call when you 
 
 To register the TimesFM model in AlloyDB Omni, follow these steps:
 
-  1. Verify that [the `google_ml_integration` extension is installed](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/configure-vertex-ai#verify-installed-extension) in the AlloyDB Omni database that contains the data that you want to run predictions on.
+  1. Verify that [the `google_ml_integration` extension is installed](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/install-with-alloydb-ai#verify-omni-ai-installation) in the AlloyDB Omni database that contains the data that you want to run predictions on.
 
   2. Confirm that you have version 1.4.5 or later of the `google_ml_integration` extension installed.
          
@@ -241,7 +241,7 @@ Replace `DATABASE_NAME` with the name of your database.
 
 After registering the TimesFM model and enabling the necessary flag, you can generate forecasts by passing either a source table or query with your time series data.
 
-The `ai.forecast` function is documented separately. For a complete list of parameters, including their descriptions and examples, see the [Model endpoint management reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/reference/model-endpoint#ai-forecast).
+The `ai.forecast` function is documented separately. For a complete list of parameters, including their descriptions and examples, see the [Model endpoint management reference](https://docs.cloud.google.com/alloydb/docs/reference/model-endpoint#ai-forecast).
 
 ### Generate forecasts from a source table
 
@@ -290,6 +290,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

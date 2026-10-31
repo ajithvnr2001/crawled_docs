@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/configuring-notifications/automate/
 title: Automating configuration for notifications \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:08.416153+00:00
+fetched_at: 2026-10-31T06:00:18.792527+00:00
 ---
 
 # Automating configuration for notifications  |  Cloud Build  |  Google Cloud Documentation
@@ -90,7 +90,7 @@ In the following example notifier configuration file, the `filter` field uses [C
               secretRef: webhook-url
           template:
             type: golang
-            uri: gs://example-gcs-bucket/slack.json
+            uri: gs://bucket-name/slack.json
         secrets:
         - name: webhook-url
           value: projects/project-id/secrets/secret-name/versions/latest
@@ -99,6 +99,7 @@ In the following example notifier configuration file, the `filter` field uses [C
 Where:
 
   * `webhook-url` is the configuration variable used in this example to reference the Slack webhook URL path stored in Secret Manager. The variable name you specify here should match the `name` field under `secrets`.
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your template file. If the bucket doesn't exist, the setup script creates it in your project and verifies bucket ownership before uploading files.
   * `project-id` is the ID of your Google Cloud project.
   * `secret-name` is the name of your secret that contains your Slack webhook URL.
   * The `uri` field references the `slack.json` file. This file contains a JSON template hosted on Cloud Storage and represents your notification message to your Slack space.
@@ -129,13 +130,14 @@ Where:
 
     
     
-        ./setup.sh slack config-path -t template-path -s secret-name
+        ./setup.sh slack config-path -b bucket-name -t template-path -s secret-name
     
 
 Where:
 
   * `config-path` is the path to your notifiers configuration file.
-  * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hoted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file. 
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your configuration and template files. If you omit `-b`, the script generates a bucket name with a random suffix (`notifiers-config-random-suffix`).
+  * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hosted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file. 
   * `secret-name` is the name of your secret stored in Secret Manager.
 
 
@@ -210,7 +212,7 @@ In the following example notifier configuration file, the `filter` field uses [C
              secretRef: smtp-password
           template:
             type: golang
-            uri: gs:example-gcs-bucket/smtp.html
+            uri: gs://bucket-name/smtp.html
        secrets:
        - name: smtp-password
          value: projects/project-id/secrets/secret-name/versions/latest
@@ -226,6 +228,7 @@ Where:
   * `smtp-password` is the configuration variable used in this example to reference the sender's email account password stored in Secret Manager. The variable name you specify here should match the `name` field under `secrets`.
   * `project-id` is the ID of your Google Cloud project.
   * `secret-name` is the name of your secret that contains the password to the sender's email account.
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your template file. If the bucket doesn't exist, the setup script creates it in your project and verifies bucket ownership before uploading files.
   * The `uri` field references the `smtp.html` file. This files refers to a html template hosted on Cloud Storage and represents your notification email.
 
 
@@ -254,13 +257,14 @@ Where:
 
     
     
-        ./setup.sh smtp config-path -t template-path -s secret-name
+        ./setup.sh smtp config-path -b bucket-name -t template-path -s secret-name
     
 
 Where:
 
   * `config-path` is the path to your notifiers configuration file.
-  * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hoted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file. 
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your configuration and template files. If you omit `-b`, the script generates a bucket name with a random suffix (`notifiers-config-random-suffix`).
+  * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hosted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file. 
   * `secret-name` is the name of your secret stored in Secret Manager.
 
 
@@ -341,7 +345,7 @@ In the following example notifier config file, the `filter` field uses [Common E
            table: projects/project-id/datasets/dataset-name/tables/table-name
          template:
            type: golang
-           uri: gs://example-gcs-bucket/bq.json
+           uri: gs://bucket-name/bq.json
     
 
 Where:
@@ -349,6 +353,8 @@ Where:
   * `project-id` is the ID of your Google Cloud project.
   * `dataset-name` is the name you want to give your dataset.
   * `table-name` is the name you want to give your table.
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your template file. If the bucket doesn't exist, the setup script creates it in your project and verifies bucket ownership before uploading files.
+  * The `uri` field references the `bq.json` file. This file refers to a JSON template hosted on Cloud Storage and represents the information to insert into your bigquery table.
 
 
 
@@ -359,8 +365,6 @@ The table-name in your notifier config file can refer to:
   * an existing table with a schema that matches the schema specifications in the BigQuery notifier
 
 **Note:** References to an existing table with a schema specification not matching the BigQuery notifier will result in an error.
-  * The `uri` field references the `bq.json` file. This file refers to a JSON template hosted on Cloud Storage and represents the information to insert into your bigquery table.
-
 
 
 
@@ -384,13 +388,14 @@ Where:
      * `region` is the [region](https://docs.cloud.google.com/build/docs/locations) to deploy the notifier.
   3. Run the following command in the root of the repository:
          
-         ./setup.sh bigquery -t config-path -t template-path
+         ./setup.sh bigquery config-path -b bucket-name -t template-path
          
 
 Where:
 
      * `config-path` is the path to your notifiers configuration file.
-     * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hoted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file.
+     * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your configuration and template files. If you omit `-b`, the script generates a bucket name with a random suffix (`notifiers-config-random-suffix`).
+     * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hosted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file.
 
 After running the script, you will see the following message:
     
@@ -437,13 +442,14 @@ In the following example notifier configuration file, the `filter` field uses [C
               url: url
             template:
               type: golang
-              uri: gs://example-gcs-bucket/http.json
+              uri: gs://bucket-name/http.json
     
 
 Where:
 
   * `url` is the configuration variable used in this example to specify the URL for your request.
   * url is the URL you want to specify as your recipient server.
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your template file. If the bucket doesn't exist, the setup script creates it in your project and verifies bucket ownership before uploading files.
   * The `uri` field references the `http.json` file. This file refers to a JSON template hosted on Cloud Storage and represents the json payload to the webhook endpoint.
 
 
@@ -468,12 +474,13 @@ Where:
      * `region` is the [region](https://docs.cloud.google.com/build/docs/locations) to deploy the notifier.
   3. Run the following command in the root of the repository:
          
-         ./setup.sh http -t config-path
+         ./setup.sh http config-path -b bucket-name
          
 
 Where:
 
      * `config-path` is the path to your notifiers configuration file.
+     * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your configuration file. If you omit `-b`, the script generates a bucket name with a random suffix (`notifiers-config-random-suffix`).
 
 
 
@@ -580,12 +587,13 @@ Where:
 
     
     
-    ./setup.sh googlechat config-path -s secret-name
+    ./setup.sh googlechat config-path -b bucket-name -s secret-name
     
 
 Where:
 
   * `config-path` is the path to your notifiers configuration file.
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your configuration file. If you omit `-b`, the script generates a bucket name with a random suffix (`notifiers-config-random-suffix`).
   * `secret-name` is the name of your secret stored in Secret Manager.
 
 
@@ -674,7 +682,7 @@ In the following example notifier configuration file, the `filter` field uses [C
         filter: build.status == Build.Status.FAILURE
         template: 
           type: golang
-          uri: gs://project-id-notifiers-config/template-file-name
+          uri: gs://bucket-name/template-file-name
         delivery:
           githubToken:
             secretRef: github-token
@@ -687,7 +695,7 @@ In the following example notifier configuration file, the `filter` field uses [C
 Where:
 
   * `githubToken` is the configuration variable used in this example to reference the GitHub token stored in Secret Manager. The variable name you specify here should match the `name` field under `secrets`.
-  * `project-id-notifiers-config` is the location where your template will be uploaded, and the bucket will be created if it doesn't already exist.
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your template file. If the bucket doesn't exist, the setup script creates it in your project and verifies bucket ownership before uploading files.
   * `template-file-name` is the name of your template file.
   * `myuser/myrepo` is the name of the repo that issues will be created against.
   * `project-id` is the ID of your Google Cloud project.
@@ -721,13 +729,14 @@ Where:
 
     
     
-        ./setup.sh githubissues config-path -t template-path -s secret-name
+        ./setup.sh githubissues config-path -b bucket-name -t template-path -s secret-name
     
 
 Where:
 
   * `config-path` is the path to your notifiers configuration file.
-  * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hoted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file. 
+  * `bucket-name` is the name of the Cloud Storage bucket where the setup script uploads your configuration and template files. If you omit `-b`, the script generates a bucket name with a random suffix (`notifiers-config-random-suffix`).
+  * `template-path` is the path to your notifiers template file. Your notifiers template file contains the JSON template hosted on Cloud Storage and represents your notification message. You can include your notifiers template file as a path using this variable or within the `uri` field of your notifiers configuration file. 
   * `secret-name` is the name of your secret stored in Secret Manager.
 
 
@@ -753,6 +762,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

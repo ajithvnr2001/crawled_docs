@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-new-bucket-parent-tag/
 title: Create an object in a Cloud Storage bucket \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:07.510924+00:00
+fetched_at: 2026-10-31T06:01:28.611538+00:00
 ---
 
 # Create an object in a Cloud Storage bucket  |  Google Cloud Documentation

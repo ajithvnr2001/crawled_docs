@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/set-up-usage-audit-logs/
 title: Access Gemini Enterprise usage audit logs with Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:58:42.873293+00:00
+fetched_at: 2026-10-31T05:47:38.647580+00:00
 ---
 
 # Access Gemini Enterprise usage audit logs with Cloud Logging  |  Google Cloud Documentation
@@ -355,6 +355,15 @@ Response:
   * No fields are logged
 
   
+`CoscientistService.CoscientistRunCompletion` |  Logged once when a Co-Scientist run completes successfully. Unlike the other rows, this entry isn't the log of an API request. `log_metadata.name` is the resource name of the Co-Scientist instance. A paused and resumed instance produces one entry, covering the whole instance. For how to query these entries, see [Monitor Co-Scientist runs](https://docs.cloud.google.com/gemini/enterprise/docs/co-scientist#monitor-runs). `coscientist_run_info`: 
+
+  * `starter_user_principal` (not sensitive): the user who started the run, as an email address or another principal identifier. For a forked run, the user who forked it.
+  * `start_time` (not sensitive): when the instance was created.
+  * `duration` (not sensitive): time from `start_time` until the run completed, including any time spent paused.
+  * `input_token_count` (not sensitive): input tokens the instance used across all of its runs. This is usage, not charges; reconcile spending with Cloud Billing.
+  * `output_token_count` (not sensitive): output tokens the instance used across all of its runs.
+
+  
   
 ## Access usage audit logs
 
@@ -418,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings/
 title: Configure AI developer tools settings \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:25.780154+00:00
+fetched_at: 2026-10-31T05:46:55.395903+00:00
 ---
 
 # Configure AI developer tools settings  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Configure AI developer tools settings Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** To use this feature, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** To use this feature, your project must be linked to a [Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). With a self-serve (online) billing account, you pay for usage above quota with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits). With an invoiced billing account, usage above quota is billed on your monthly invoice.
+
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
 
 Use the AI developer tools settings page in Gemini Enterprise to configure developer tools, enforce security and compliance controls, turn Google Antigravity features on or off, and manage model availability for your organization.
 
@@ -31,7 +33,7 @@ Use the AI developer tools settings page in Gemini Enterprise to configure devel
 
 Make sure you have the following:
 
-  * **Invoiced Cloud Billing account** : To use AI developer tools, your project must have Cloud Billing enabled. AI developer tools are available for invoiced accounts only. For more information, see [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types).
+  * **Cloud Billing account** : To use AI developer tools, your project must have Cloud Billing enabled. With a self-serve (online) billing account, you pay for Pay-as-you-go edition usage and usage above quota with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits). For more information, see [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types).
 
   * **Supported editions** : To access AI developer tools, users must have a subscription to the Gemini Enterprise Standard, Plus, Standard Emerging Market, or Pay-as-you-go edition.
 
@@ -276,7 +278,7 @@ Developers can use **Anthropic Claude Opus 5.5** and **Anthropic Claude Sonnet 5
 
 ### Enable or turn off third-party models
 
-Third-party models are billed as pay-as-you-go usage and require pay-as-you-go usage above quota. Before you enable a third-party model, [turn on pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota). If pay-as-you-go usage is turned off later, developers can't use third-party models until pay-as-you-go usage is turned back on. To control costs, you can [set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#set-spend-limit) for your project. The limit applies to all models, including third-party models.
+Third-party models are billed as pay-as-you-go usage. If you use a license-based edition, then [turn on pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota) before you enable a third-party model. If you turn pay-as-you-go usage above quota off later, developers can't use third-party models until you turn it back on. To control costs, you can [set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#set-spend-limit) for your project. The limit applies to all models, including third-party models.
 
 To enable or manage third-party models (such as **Anthropic Claude Opus 5.5** and **Anthropic Claude Sonnet 5.5**) in the Google Cloud console:
 
@@ -392,6 +394,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

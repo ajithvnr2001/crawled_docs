@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/getting-started/background-processing/
 title: Background processing with .NET \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:58.885373+00:00
+fetched_at: 2026-10-31T05:53:23.154135+00:00
 ---
 
 # Background processing with .NET  |  Google Cloud Documentation
@@ -379,7 +379,7 @@ The `TranslateUI` service renders a web page that displays recent translations, 
         using Microsoft.AspNetCore.Hosting;
         using Microsoft.AspNetCore.Mvc;
         using Microsoft.Extensions.Configuration;
-        using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceManagement.V1/latest/Microsoft.Extensions.DependencyInjection.html);
+        using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PrivateCA.V1/latest/Microsoft.Extensions.DependencyInjection.html);
         using System;
         using System.Net.Http;
         

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/use-natural-language-generate-sql-queries/
 title: Use AlloyDB AI natural language to generate SQL \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:01:50.950122+00:00
+fetched_at: 2026-10-31T05:50:29.600707+00:00
 ---
 
 # Use AlloyDB AI natural language to generate SQL  |  AlloyDB Omni using the container orchestrator: 18.1.0  |  Google Cloud Documentation
@@ -86,12 +86,7 @@ Make sure that you meet the following prerequisites.
 
 ### Enable and install the required extension
 
-To install and use the `alloydb_ai_nl` extension, first enable the extension by running the following PostgreSQL command:
-    
-    
-    ALTER SYSTEM SET alloydb_ai_nl.enabled=on;
-    SELECT pg_reload_conf();
-    
+To install and use the `alloydb_ai_nl` extension, first enable the extension by setting the `alloydb_ai_nl.enabled` database parameter to `on` in the `spec.primarySpec.parameters` section of your `DBCluster` manifest. For more information, see [Configure database parameters](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/configure-database-flags). 
 
 To install the `alloydb_ai_nl` extension, which is the AlloyDB AI natural language support API, run the following query:
     
@@ -796,6 +791,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

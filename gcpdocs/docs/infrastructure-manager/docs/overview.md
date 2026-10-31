@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/overview/
 title: Infrastructure Manager overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:05.743127+00:00
+fetched_at: 2026-10-31T05:47:42.133997+00:00
 ---
 
 # Infrastructure Manager overview  |  Google Cloud Documentation
@@ -54,6 +54,12 @@ Infra Manager lets you use IaC to manage the lifecycle of Google Cloud resources
 
 
 See [Infrastructure as Code on Google Cloud](https://docs.cloud.google.com/docs/terraform/iac-overview) for more information about IaC.
+
+## Customize deployments using input values
+
+You can parameterize your Terraform configurations with Terraform input variables, which Infra Manager refers to as _input values_. Input values let you customize a deployment while reusing the same configuration across multiple environments or deployments without modifying the Terraform configuration source code. You can provide values for required variables that don't have a default value, or override existing default values.
+
+You can pass input values when you [create](https://docs.cloud.google.com/infrastructure-manager/docs/deploy-resources), [update](https://docs.cloud.google.com/infrastructure-manager/docs/update-deployment), or [preview](https://docs.cloud.google.com/infrastructure-manager/docs/preview-deployment) a deployment. For more information about how to define and use input variables in Terraform, see HashiCorp's [input variables documentation](https://developer.hashicorp.com/terraform/language/values/variables).
 
 ## How Infra Manager works
 
@@ -110,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

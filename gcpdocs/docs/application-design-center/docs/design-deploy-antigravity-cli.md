@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/design-deploy-antigravity-cli/
 title: Design and deploy an application using Antigravity CLI \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:18.013984+00:00
+fetched_at: 2026-10-31T05:48:02.241750+00:00
 ---
 
 # Design and deploy an application using Antigravity CLI  |  Application Design Center  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
   
 Use of this Preview offering of Gemini Cloud Assist is subject to the Google Cloud Agreement, including the Pre-GA Offering Terms of the [Google Cloud Specific Service Terms](https://cloud.google.com/terms/services?e=48754805), as supplemented by the terms for the [Gemini for Google Cloud Trusted Tester Program](https://cloud.google.com/trusted-tester/gemini-for-google-cloud-preview?e=48754805).
 
-Use the Gemini Cloud Assist and Application Design Center Model Context Protocol (MCP) servers to design, deploy, and troubleshoot Google Cloud infrastructure directly in the [Antigravity CLI](https://antigravity.google/docs/cli/overview).
+The Gemini Cloud Assist and Application Design Center Model Context Protocol (MCP) servers let you design, deploy, and troubleshoot Google Cloud infrastructure directly in the [Antigravity CLI](https://antigravity.google/docs/cli/overview). After you connect the MCP servers and install agent skill files, you can generate infrastructure for your application code. You can also assess compliance with security standards and resolve deployment issues using natural language prompts.
 
 ## Objectives
 
@@ -355,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

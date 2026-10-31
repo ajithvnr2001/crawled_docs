@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/procedures/
 title: Work with SQL stored procedures \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:36.391325+00:00
+fetched_at: 2026-10-31T05:56:30.997307+00:00
 ---
 
 # Work with SQL stored procedures  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with SQL stored procedures
 
-A _stored procedure_ is a collection of statements that can be called from other queries or other stored procedures. A procedure can take input arguments and return values as output. You name and store a procedure in a BigQuery dataset. A stored procedure can access or modify data across multiple datasets by multiple users. It can also contain a [multi-statement query](https://docs.cloud.google.com/bigquery/docs/multi-statement-queries).
-
-Some stored procedures are built into BigQuery and don't need to be created. These are called _system procedures_ and you can learn more about them in the [System procedures reference](https://docs.cloud.google.com/bigquery/docs/reference/system-procedures).
-
-Stored procedures support _procedural language statements_ , which let you do things like define variables and implement control flow. You can learn more about procedural language statements in the [Procedural language reference](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
+You can use SQL stored procedures in BigQuery to encapsulate and reuse collections of statements across multiple queries. Building these routines in your datasets lets you accept input arguments, return values, and modify data across multiple datasets and users. Stored procedures can also contain a [multi-statement query](https://docs.cloud.google.com/bigquery/docs/multi-statement-queries). You can create your own procedures using [procedural language](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) to define variables and implement control flow, or use BigQuery built-in [system procedures](https://docs.cloud.google.com/bigquery/docs/reference/system-procedures).
 
 ## Create a stored procedure
 
@@ -230,6 +226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

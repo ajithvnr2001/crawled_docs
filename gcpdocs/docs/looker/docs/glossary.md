@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/glossary/
 title: Glossary \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:57.516214+00:00
+fetched_at: 2026-10-31T05:48:05.446080+00:00
 ---
 
 # Glossary  |  Looker  |  Google Cloud Documentation
@@ -79,6 +79,13 @@ Application Time Zone
 [Application Time Zone](https://docs.cloud.google.com/looker/docs/using-time-zone-settings#application_time_zone) is an admin setting for the default time zone in which scheduled Looks and queries run, where supported. When User Specific Time Zones are enabled, the Application Time Zone becomes the default time zone for users who don't have a time zone value set for their accounts.
 
 _see also_ **time zone settings**, **User Specific Time Zones**
+
+Assert Validator
+    
+
+In Continuous Integration (CI), the [Assert Validator](https://docs.cloud.google.com/looker/docs/ci-assert-validator) runs any LookML [data tests](https://docs.cloud.google.com/looker/docs/reference/param-model-test) that your Looker developers have created for your LookML project and returns any failures and errors.
+
+_see also_ **Continuous Integration**
 
 asynchronous query
     
@@ -166,10 +173,16 @@ Content Validator
 
 Looker's [Content Validator](https://docs.cloud.google.com/looker/docs/content-validation) searches your LookML for references to model, Explore, and field names. Developers can use the Content Validator after making changes to a project to check that their changes did not impact any of their users' saved Looks or query-based dashboard tiles. The Content Validator can also be used to find and replace LookML elements to fix errors due to changes.
 
+In Continuous Integration (CI), the [CI Content Validator](https://docs.cloud.google.com/looker/docs/ci-content-validator) runs [content validation](https://docs.cloud.google.com/looker/docs/content-validation) to test for errors in the Looks and dashboards in your LookML project, or scoped to specific content folders, models, and Explores.
+
+_see also_ **Continuous Integration**
+
 Continuous Integration
     
 
-The Looker [Continuous Integration (CI)](https://docs.cloud.google.com/looker/docs/continuous-integration) features let you run tests on your LookML project to deliver more reliable, efficient, and user-friendly data experiences. You can use the CI validators to catch issues with [SQL](https://docs.cloud.google.com/looker/docs/ci-sql-validator), [data tests](https://docs.cloud.google.com/looker/docs/ci-assert-validator), [content](https://docs.cloud.google.com/looker/docs/ci-content-validator), and [LookML](https://docs.cloud.google.com/looker/docs/ci-lookml-validator) before they hit production to verify your LookML and prevent query errors for your users. You can also configure the CI validators to [run automatically](https://docs.cloud.google.com/looker/docs/ci-create-suite#triggers) when a pull request is submitted to your LookML repository.
+The Looker [Continuous Integration (CI)](https://docs.cloud.google.com/looker/docs/continuous-integration) features let you run tests on your LookML project to deliver more reliable, efficient, and user-friendly data experiences. You can use the CI validators to catch issues with [SQL](https://docs.cloud.google.com/looker/docs/ci-sql-validator), [data tests](https://docs.cloud.google.com/looker/docs/ci-assert-validator), [content](https://docs.cloud.google.com/looker/docs/ci-content-validator), [LookML](https://docs.cloud.google.com/looker/docs/ci-lookml-validator), and [coding style](https://docs.cloud.google.com/looker/docs/ci-style-validator) before they hit production to verify your LookML and prevent query errors for your users. You can also configure the CI validators to [run automatically](https://docs.cloud.google.com/looker/docs/ci-create-suite#triggers) when a pull request is submitted to your LookML repository or to an imported LookML project, on a schedule, or when a dbt Cloud CI job finishes.
+
+_see also_ **Assert Validator**, **Content Validator**, **incremental validation**, **LookML Validator**, **run**, **SQL Validator**, **suite**
 
 cross-filtering
     
@@ -390,6 +403,11 @@ Users can be added to one or more [groups](https://docs.cloud.google.com/looker/
 
 ## H
 
+hub-and-spoke
+    
+
+A multi-project LookML architecture in which a central upstream project (the _hub_ project) defines shared LookML objects that are [imported](https://docs.cloud.google.com/looker/docs/importing-projects) into one or more downstream projects (the _spoke_ projects), where teams can customize or build on the shared LookML (for example, by using [LookML refinements](https://docs.cloud.google.com/looker/docs/lookml-refinements) or [extends](https://docs.cloud.google.com/looker/docs/reusing-code-with-extends)). In Continuous Integration (CI), you can configure a CI suite in a spoke project to [trigger validation runs automatically](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger) whenever a pull request is submitted to an imported hub project.
+
 hybrid networking
     
 
@@ -413,6 +431,13 @@ incremental persistent derived table
 An [incremental persistent derived table](https://docs.cloud.google.com/looker/docs/incremental-pdts) is a type of [persistent derived table (PDT)](https://docs.cloud.google.com/looker/docs/derived-tables#persistent_derived_table) that is built incrementally, meaning that Looker appends fresh data to the table in specified increments, instead of rebuilding the entire table. This can lead to faster build times for your PDTs and less strain on your database. The increment is defined using the [`increment_key`](https://docs.cloud.google.com/looker/docs/reference/param-view-increment-key) parameter. Incremental PDTs can be [LookML-based (native) derived tables](https://docs.cloud.google.com/looker/docs/derived-tables#native_derived_tables), [SQL-based derived tables](https://docs.cloud.google.com/looker/docs/derived-tables#sql-based_derived_tables), or [aggregate tables](https://docs.cloud.google.com/looker/docs/aggregate_awareness#adding_aggregate_tables_to_your_project).
 
 _see also_ **persistent derived table**
+
+incremental validation
+    
+
+In Continuous Integration (CI), incremental validation is an option for the [SQL Validator](https://docs.cloud.google.com/looker/docs/ci-sql-validator#incremental_validation), [Content Validator](https://docs.cloud.google.com/looker/docs/ci-content-validator#incremental_validation), and [Style Validator](https://docs.cloud.google.com/looker/docs/ci-style-validator#incremental_validation) that identifies errors that are unique to a development branch or pull request commit and that don't already exist in the production version of the LookML project. For the SQL Validator and Content Validator, incremental validation skips Explores whose compiled SQL hasn't changed between the development version and the production version, which can make validation runs faster.
+
+_see also_ **Continuous Integration**
 
 instance
     
@@ -551,6 +576,13 @@ LookML object
     
 
 LookML objects are the models, Explores, views, and fields that have been defined, in LookML, in a project, including [files imported from another project](https://docs.cloud.google.com/looker/docs/importing-projects). You can view LookML object relationships in the [object browser](https://docs.cloud.google.com/looker/docs/object-browser) or the [LookML Diagram extension.](https://docs.cloud.google.com/looker/docs/lookml-diagram-using)
+
+LookML Validator
+    
+
+The [LookML Validator](https://docs.cloud.google.com/looker/docs/lookml-validation) checks your LookML code for syntax errors and warnings in the [Looker IDE](https://docs.cloud.google.com/looker/docs/looker-ide). In Continuous Integration (CI), the [CI LookML Validator](https://docs.cloud.google.com/looker/docs/ci-lookml-validator) runs LookML validation to test for LookML syntax issues in your project.
+
+_see also_ **Continuous Integration**
 
 ## M
 
@@ -717,6 +749,13 @@ A [role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles) defi
 
 _see also_ **model set**, **permission set**
 
+run, CI run
+    
+
+In Continuous Integration (CI), a [run](https://docs.cloud.google.com/looker/docs/ci-run-suite) is an execution of the validation tests configured in a CI suite. A CI run can be triggered [automatically](https://docs.cloud.google.com/looker/docs/ci-create-suite#triggers) (on a recurring schedule, when a pull request is submitted to your LookML repository or to an imported LookML project, or when a dbt Cloud CI job finishes) or [manually](https://docs.cloud.google.com/looker/docs/ci-run-suite#manual-run) from the Looker IDE. You can view the status and validation results of a run on the [**Runs** page](https://docs.cloud.google.com/looker/docs/ci-view-results) in the Looker IDE.
+
+_see also_ **Continuous Integration**, **suite**
+
 ## S
 
 scratch schema
@@ -760,6 +799,13 @@ SQL Runner
 
 Accessible through the **Develop** menu or from an Explore (with the appropriate permissions), [SQL Runner](https://docs.cloud.google.com/looker/docs/sql-runner-basics) lets users run raw SQL against their allowed connections. SQL Runner can be used to perform database functions, create and add derived tables to projects, to leverage the `EXPLAIN` function, among other uses.
 
+SQL Validator
+    
+
+In Continuous Integration (CI), the [SQL Validator](https://docs.cloud.google.com/looker/docs/ci-sql-validator) runs Explore queries against your database to verify that the dimensions in the Explores in your LookML project run correctly on your database.
+
+_see also_ **Continuous Integration**
+
 Standard edition
     
 
@@ -784,6 +830,13 @@ substitution operator
     
 
 The dollar sign ([`$`](https://docs.cloud.google.com/looker/docs/sql-and-referring-to-lookml#substitution_operator_\($\))) is a substitution operator in Looker, and helps to make LookML code more reusable and modular. You can use this syntax to reference LookML objects that have already been defined.
+
+suite, CI suite
+    
+
+In Continuous Integration (CI), a [suite](https://docs.cloud.google.com/looker/docs/ci-create-suite) is a set of validation instructions associated with a LookML project. A CI suite defines which CI validators to run, the configuration options for each validator, how CI runs are triggered, and optional email alerting.
+
+_see also_ **Continuous Integration**, **run**
 
 symmetric aggregates
     
@@ -906,6 +959,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

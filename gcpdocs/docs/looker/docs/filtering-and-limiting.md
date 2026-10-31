@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/filtering-and-limiting/
 title: Filtering and limiting data \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:31.098650+00:00
+fetched_at: 2026-10-31T05:48:26.491357+00:00
 ---
 
 # Filtering and limiting data  |  Looker  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ You can use any combination of these filter types in your query:
 
 ### Viewing and editing filters
 
-To view or edit filters, open the filter pane by clicking the filter_alt **Filters** icon at the top of the Explore window or [next to the **Configure** panel](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#navigating-the-new-explore-experience).
+To view or edit filters, open the filter pane by clicking the filter_alt **Filters** icon at the top of the Explore window or [next to the **Configure** panel](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores#navigating-the-explore-interface).
 
 ![](https://docs.cloud.google.com/static/looker/docs/images/filter-pane-2620.png)
 
@@ -113,8 +113,8 @@ Basic filters consist of a straightforward set of filter conditions that are bas
 You can add a basic filter in a few different ways:
 
   * In the filter pane, click **\+ Filter** to add a basic filter. This action opens the **Add Filter** dialog, which lets you choose a field on which to create the new filter.
-  * In the **All fields** or **Fields in use** tab in the [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#navigating_the_configure_panel), select a field's filter_alt **Filter by field** icon.
-  * In the **Data** pane, select the filter_alt **Filter** option in a field's data column more_vert [**More options** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#using_the_data_column_more_menu).
+  * In the **All fields** or **Fields in use** tab in the [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#navigating-the-configure-panel), select a field's filter_alt **Filter by field** icon.
+  * In the **Data** pane, select the filter_alt **Filter** option in a field's data column more_vert [**More options** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu).
 
 
 
@@ -205,8 +205,8 @@ You may need to turn off Looker's [**dimension fill**](https://docs.cloud.google
 To remove a filter from the Explore, you can perform any of the following actions:
 
   * In the filter pane, select the close **Remove** icon next to the filter.
-  * In the **All fields** or **Fields in use** tab in the [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#navigating_the_configure_panel), select a field's filter_alt **Filter by field** icon.
-  * In the **Data** pane, select the filter_alt_off **Remove Filter** option in a field's data column more_vert [**More options** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#using_the_data_column_more_menu).
+  * In the **All fields** or **Fields in use** tab in the [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#navigating-the-configure-panel), select a field's filter_alt **Filter by field** icon.
+  * In the **Data** pane, select the filter_alt_off **Remove Filter** option in a field's data column more_vert [**More options** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu).
 
 
 
@@ -235,7 +235,7 @@ Looker warns you if you might be hiding data by setting a row limit that is too 
 
 For more information about row limits in other parts of Looker, see the [What are all the row limits in Looker?](https://docs.cloud.google.com/looker/docs/best-practices/row-limits-in-looker) Best Practices page.
 
-**Note:** If you reach a row limit, you cannot sort by [row totals](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#displaying_totals) or [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations#cannot-sort).
+**Note:** If you reach a row limit, you cannot sort by [row totals](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#displaying-totals) or [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations#cannot-sort).
 
 ### Column limits
 
@@ -251,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

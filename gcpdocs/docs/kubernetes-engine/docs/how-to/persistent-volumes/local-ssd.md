@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd/
 title: Provision and use Local SSD-backed ephemeral storage \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:02.354401+00:00
+fetched_at: 2026-10-31T05:47:40.364003+00:00
 ---
 
 # Provision and use Local SSD-backed ephemeral storage  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -28,6 +28,8 @@ This page explains how to provision Local SSD storage on Google Kubernetes Engin
 **Note:** Local SSD volumes require machine type `n1-standard-1` or larger; the default machine type, `e2-medium` is not supported. You can learn more about [machine types](https://docs.cloud.google.com/compute/docs/machine-types) in the Compute Engine documentation.
 
 To learn more about Local SSD support on GKE, see [About Local SSD storage](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/local-ssd#emptydir-volume).
+
+If you need to provision Local SSD capacity for both ephemeral storage and unformatted raw block devices on the same node, see [Provision mixed Local SSDs for raw block and ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd).
 
 ## Before you begin
 
@@ -71,7 +73,7 @@ To create a cluster running on GKE version 1.25.3-gke.1800 or later in which the
 Replace the following:
 
   * `CLUSTER_NAME`: the name of the cluster.
-  * `NUMBER_OF_DISKS`: the number of Local SSD volumes to provision on each node. These volumes are combined into a single logical volume during node setup. The maximum number of volumes [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks#local_ssd_machine_type_restrictions). Note that some Local SSD capacity is [reserved for system use](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#local_ephemeral_storage_reservation).
+  * `NUMBER_OF_DISKS`: the number of Local SSD volumes to provision on each node. These volumes are combined into a single logical volume during node setup. The maximum number of volumes [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds). Note that some Local SSD capacity is [reserved for system use](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#local_ephemeral_storage_reservation).
   * `MACHINE_TYPE`: the machine type to use. This field is required, as Local SSD cannot be used with the default `e2-medium` type.
   * `CHANNEL_NAME`: a [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels) that includes GKE versions later than 1.25.3-gke.1800. If you prefer not to use a release channel, you can also use the `--cluster-version` flag instead of `--release-channel`, specifying a valid version later than 1.25.3-gke.1800. To determine the valid versions, use the `gcloud container get-server-config` command.
 
@@ -114,7 +116,7 @@ Replace the following:
 
   * `POOL_NAME`: the name of your new node pool.
   * `CLUSTER_NAME`: the name of the cluster.
-  * `NUMBER_OF_DISKS`: the number of Local SSD volumes to provision on each node. These volumes are combined into a single logical volume during node setup. The maximum number of volumes [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks#local_ssd_machine_type_restrictions). Note that some Local SSD capacity is [reserved for system use](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#local_ephemeral_storage_reservation).
+  * `NUMBER_OF_DISKS`: the number of Local SSD volumes to provision on each node. These volumes are combined into a single logical volume during node setup. The maximum number of volumes [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds). Note that some Local SSD capacity is [reserved for system use](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-node-sizes#local_ephemeral_storage_reservation).
   * `MACHINE_TYPE`: the machine type to use. This field is required, as Local SSD cannot be used with the default `e2-medium` type.
 
 
@@ -152,7 +154,7 @@ Nodes in the node pool are created with a `cloud.google.com/gke-ephemeral-storag
 You can use Local SSDs for ephemeral storage when you configure your Pods in one of the following ways:
 
   * You explicitly select a machine series to run your Pods and specify either the `cloud.google.com/gke-ephemeral-storage-local-ssd: "true"` nodeSelector or a capacity reservation that has Local SSDs. To learn more about machine series selection on Autopilot, see [Optimize Autopilot Pod performance by choosing a machine series](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/performance-pods#choose-machine-series).
-  * You request a GPU type that supports Local SSDs and specify either the `cloud.google.com/gke-ephemeral-storage-local-ssd: "true"` nodeSelector or a capacity reservation that has Local SSDs. NVIDIA H100 (80GB) GPUs and NVIDIA A100 (80GB) GPUs always use Local SSDs for ephemeral storage, and you can't specify the node selector for those GPUs. To learn more about requesting GPUs on Autopilot, see [Request GPUs in your containers](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/autopilot-gpus#request-gpus).
+  * You request a GPU type that supports Local SSDs and specify either the `cloud.google.com/gke-ephemeral-storage-local-ssd: "true"` nodeSelector or a capacity reservation that has Local SSDs. NVIDIA H100 (80 GB) GPUs and NVIDIA A100 (80 GB) GPUs always use Local SSDs for ephemeral storage, and you can't specify the node selector for those GPUs. To learn more about requesting GPUs on Autopilot, see [Request GPUs in your containers](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/autopilot-gpus#request-gpus).
 
 
 
@@ -350,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

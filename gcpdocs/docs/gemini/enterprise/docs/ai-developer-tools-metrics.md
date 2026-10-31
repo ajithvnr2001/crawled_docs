@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-metrics/
 title: View AI developer tools metrics \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:27.354499+00:00
+fetched_at: 2026-10-31T05:47:04.504059+00:00
 ---
 
 # View AI developer tools metrics  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -27,7 +27,9 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-**Note:** To use this feature, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** To use this feature, your project must be linked to a [Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). With a self-serve (online) billing account, you pay for usage above quota with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits). With an invoiced billing account, usage above quota is billed on your monthly invoice.
+
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
 
 This document describes how to view usage metrics and telemetry for [AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview) in your organization, such as Google Antigravity and the Antigravity CLI. These metrics show user adoption, token consumption, API calls, and tool execution.
 
@@ -37,7 +39,7 @@ Before you view AI developer tools metrics, make sure you meet the following pre
 
   * **Turn on AI developer tools** : To view AI developer tools metrics, your organization must turn on AI developer tools for the project. See [Turn on AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-ai-developer-tools).
 
-  * **Invoiced Cloud Billing account** : Your project needs Cloud Billing enabled and an invoiced account. See [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types).
+  * **Cloud Billing account** : Your project needs Cloud Billing enabled. See [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types).
 
   * **Supported editions** : Users need a subscription to the Gemini Enterprise Standard, Plus, Standard Emerging Market, or Pay-as-you-go edition.
 
@@ -125,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

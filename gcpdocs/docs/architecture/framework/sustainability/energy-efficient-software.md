@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/energy-efficient-software/
 title: Develop energy-efficient software \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:47:09.858112+00:00
+fetched_at: 2026-10-31T05:57:36.065476+00:00
 ---
 
 # Develop energy-efficient software  |  Cloud Architecture Center  |  Google Cloud Documentation

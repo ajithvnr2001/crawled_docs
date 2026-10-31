@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/current/docs/ai/maintain-vector-indexes/
 title: Maintain vector indexes \u00a0|\u00a0 AlloyDB Omni using RPM: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:44:27.184706+00:00
+fetched_at: 2026-10-31T05:50:49.369365+00:00
 ---
 
 # Maintain vector indexes  |  AlloyDB Omni using RPM: Current (18.4.0)  |  Google Cloud Documentation
@@ -120,13 +120,13 @@ Replace the following variables:
 
 ### Increase automatic maintenance throughput
 
-To increase automatic maintenance throughput, configure the [`scann.max_background_workers`](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/reference/alloydb-flags#scann.max_background_workers) database flag. Increasing the number of background workers increases the number of indexes processed per unit of time. It doesn't reduce the processing time for individual indexes. This value must be less than the [`max_worker_processes`](https://www.postgresql.org/docs/18/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES) value set for your database cluster.
+To increase automatic maintenance throughput, configure the [`scann.max_background_workers`](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/reference/alloydb-flags) database flag. Increasing the number of background workers increases the number of indexes processed per unit of time. It doesn't reduce the processing time for individual indexes. This value must be less than the [`max_worker_processes`](https://www.postgresql.org/docs/18/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES) value set for your database cluster.
 
 For more information on configuring database flags, see [Configure database flags](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/configure-database-flags).
 
 ### Increase automatic maintenance delay
 
-To increase the delay between automatic maintenance runs, configure the [`scann.maintenance_background_naptime_s`](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/reference/alloydb-flags#scann.maintenance_background_naptime_s) database flag.
+To increase the delay between automatic maintenance runs, configure the [`scann.maintenance_background_naptime_s`](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/reference/alloydb-flags) database flag.
 
 For more information on configuring database flags, see [Configure database flags](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/configure-database-flags).
 
@@ -202,6 +202,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

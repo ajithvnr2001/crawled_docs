@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/enabling-gcs-cloud-run/
 title: Enable IAP for Cloud Storage buckets \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:37.582017+00:00
+fetched_at: 2026-10-31T05:52:29.060436+00:00
 ---
 
 # Enable IAP for Cloud Storage buckets  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ We recommend that you use a user-managed service account for your Cloud Run serv
   2. Grant the service account the Storage Object Viewer (`roles/storage.objectViewer`) role on the bucket:
          
          gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
-             --member="serviceAccount:RUN_SERVICE_ACCOUNT@PROJECiam.gserviceaccount.comT_ID." \
+             --member="serviceAccount:RUN_SERVICE_ACCOUNT@PROJECT_ID.iam.gserviceaccount.com" \
              --role="roles/storage.objectViewer"
          
 

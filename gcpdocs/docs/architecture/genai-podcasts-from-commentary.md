@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/architecture/genai-podcasts-from-commentary/
 title: Generative AI use case: Generate podcasts from audio files \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:18:46.136548+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-31T05:57:38.927395+00:00
 ---
 
 # Generative AI use case: Generate podcasts from audio files  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -45,7 +31,7 @@ The Deployment section of this document provides code samples for generative AI 
 
 The following diagram shows an architecture for a podcast producer application in Google Cloud. The application uses AI to generate podcasts from audio files, such as live commentary for a sports event.
 
-![Architecture for a generative AI application that generates podcasts from audio files.](https://docs.cloud.google.com/static/architecture/images/genai-podcasts-from-commentary-architecture.png) ![Architecture for a generative AI application that generates podcasts from audio files.](https://docs.cloud.google.com/static/architecture/images/genai-podcasts-from-commentary-architecture.png)
+![Architecture for a generative AI application that generates podcasts from audio files.](https://docs.cloud.google.com/static/architecture/images/genai-podcasts-from-commentary-architecture.png)![Architecture for a generative AI application that generates podcasts from audio files.](https://docs.cloud.google.com/static/architecture/images/genai-podcasts-from-commentary-architecture.png)
 
 The architecture shows the following flow:
 

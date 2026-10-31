@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust/
 title: Implement zero trust \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:43.085444+00:00
+fetched_at: 2026-10-31T05:57:47.314738+00:00
 ---
 
 # Implement zero trust  |  Cloud Architecture Center  |  Google Cloud Documentation

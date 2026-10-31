@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/logging/
 title: View instance logs \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:37.709453+00:00
+fetched_at: 2026-10-31T05:53:25.690662+00:00
 ---
 
 # View instance logs  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -24,13 +24,26 @@ Send feedback
 
 [MySQL](https://docs.cloud.google.com/sql/docs/mysql/logging "View this page for the MySQL database engine") | PostgreSQL | [SQL Server](https://docs.cloud.google.com/sql/docs/sqlserver/logging "View this page for the SQL Server database engine")
 
-This page describes how to find and use Cloud Logging to view and query logs for your Cloud SQL instance.
+This page describes how to use Cloud Logging to view and query logs for your Cloud SQL instance.
 
-Cloud SQL uses Cloud Logging. See the [cloud logging documentation](https://docs.cloud.google.com/logging/docs) for complete information and review the [Cloud SQL sample queries](https://docs.cloud.google.com/logging/docs/view/query-library-preview#sql-filters).
+Cloud Logging automatically collects log data from your Cloud SQL instances. You can use Logging to query, view, and analyze your log data to help you troubleshoot problems and improve observability. For more information, see the [Cloud Logging documentation](https://docs.cloud.google.com/logging/docs) and review the [Cloud SQL sample queries](https://docs.cloud.google.com/logging/docs/view/query-library-preview#sql-filters).
+
+## Before you begin
+
+To get the permissions that you need to use the Logs Explorer to view log entries, ask your administrator to grant you the following IAM roles: 
+
+  * To view log entries in the `_Required` bucket and those in the `_Default` view on the `_Default` bucket, or to select a log scope: [Logs Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) (`roles/logging.viewer`) on your project, folder, or organization. 
+  * To view all log entries in the `_Required` and `_Default` buckets: [Private Logs Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.privateLogViewer) (`roles/logging.privateLogViewer`) on your project, folder, or organization. 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 ## View logs
 
-To view logs for your Cloud SQL instance log entries:
+To view log entries for your Cloud SQL instance, do the following:
 
 ### Console
 
@@ -38,13 +51,13 @@ To view logs for your Cloud SQL instance log entries:
 
 [Go to Cloud Logging](https://console.cloud.google.com/logs/query)
 
-  2. Select an existing Cloud SQL project at the top of the page.
-  3. In the Query builder, add the following:
-     * Resource: select **Cloud SQL Database**. In the dialog, select a Cloud SQL instance.
-     * Log names: scroll to the Cloud SQL section and select appropriate log files for your instance. For example: 
-       * cloudsql.googleapis.com/postgres.log
-     * Severity: select a log level.
-     * Time range: select a preset or create a custom range.
+  2. Select a Cloud SQL project.
+  3. In the **Query** pane, make the following selections:
+     * All resources: select **Cloud SQL Database**. In the dialog, select a Cloud SQL instance.
+     * All log names: go to the Cloud SQL section and select appropriate log files for your instance. For example: 
+       * `cloudsql.googleapis.com/postgres.log`
+     * All severities: select a severity level. For example, select `Error` to view logs with a severity level of at least `Error`.
+     * Time-range selector: select a preset time option, specify a custom start and end time, or center the time range around a specific timestamp.
 
 
 
@@ -65,7 +78,7 @@ You can view the logs for an instance in the **Operations** pane. The **Operatio
   * The time the operation completed, reported in your local time zone.
   * The type of operation.
   * The status of the operation.
-  * A message describing the outcome the operation.
+  * A message describing the outcome of the operation.
 
 
 
@@ -78,9 +91,9 @@ If the operation fails, you can use the message to troubleshoot the problem.
 [Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
 
   2. To open the **Overview** page of an instance, click the instance name. 
-  3. Click **Operations** to change to the pane showing the operation log.
+  3. Go to the **Operations and logs** pane to view the operations log.
 
-**Note:** The operations log does not include operations performed using external management tools, such as the psql client. Only user management and password change operations performed using the Google Cloud console, `gcloud` command-line tool, or the Cloud SQL Admin API appear in the operations log. 
+**Note:** The operations log does not include operations performed by using external management tools, such as the psql client. Only user management and password change operations performed by using the Google Cloud console, `gcloud` command-line tool, or the Cloud SQL Admin API appear in the operations log. 
 
 ## View application logs
 
@@ -88,15 +101,20 @@ Applications that connect to Cloud SQL store their logs in different locations.
 
 ### App Engine (flexible environment)
 
-In **Compute > App Engine > Services**:
+To view logs for your App Engine services, do the following:
 
-  * In the list of services, find your service.
-  * Click on the **Tools** dropdown.
-  * Select **logs**
+  1. Go to the App Engine **Services** page in the Google Cloud console:
+
+[Go to Services](https://console.cloud.google.com/appengine/services)
+
+  2. Select a service from the table, and click **Logs** in the **Diagnose** column.
+
+You are redirected to the Logs Explorer with a query that retrieves the logs for your App Engine service.
 
 
 
-In the **Operations > Logging > Logs explorer** section of Google Cloud console, use the following query:
+
+To view App Engine logs in the **Logs Explorer** section of the Google Cloud console, use a query like the following:
     
     
     resource.type="gae_app"
@@ -105,7 +123,7 @@ In the **Operations > Logging > Logs explorer** section of Google Cloud console,
 
 ### Cloud Run
 
-View the logs in the Cloud Run **Logs Explorer** section of the Google Cloud console. Note that Cloud Run reports only error messages from the Cloud SQL Auth Proxy. Use a query like the following:
+To view Cloud Run logs in the **Logs Explorer** section of the Google Cloud console, use a query like the following:
     
     
     resource.type="cloud_run_revision"
@@ -113,9 +131,11 @@ View the logs in the Cloud Run **Logs Explorer** section of the Google Cloud con
     resource.labels.revision_name="$REVISION_NAME"
     
 
+Note that Cloud Run only reports error messages from the Cloud SQL Auth Proxy.
+
 ### Cloud SQL Auth Proxy
 
-In **Operations > Logging > Logs explorer**, use the following query:
+To view Cloud SQL Auth Proxy logs in the **Logs Explorer** section of the Google Cloud console, use a query like the following:
     
     
     log_id("appengine.googleapis.com/cloud-sql-proxy")
@@ -123,15 +143,15 @@ In **Operations > Logging > Logs explorer**, use the following query:
 
 ## View audit logs
 
-You can view the following types of audit logs for your Cloud SQL instances:
+Cloud SQL writes Cloud Audit Logs to record administrative activities and data access across your resources. You can view the following types of audit logs for your Cloud SQL instances:
 
-  * Admin Activity: include administrator operations that write metadata or configuration information. You can't deactivate these logs.
-  * Data Access: include administrator operations that read metadata or configuration information. These logs also include operations that read or write user-provided data. To receive Data Access audit logs, you must [enable them explicitly](https://docs.cloud.google.com/logging/docs/audit/configure-data-access#config-console-enable).
-  * System Event: identify automated actions in Google Cloud that modify the configuration of resources. You can't deactivate these logs.
+  * Admin Activity: log entries written by user-driven API calls or other actions that modify the configuration or metadata of resources. You can't deactivate these logs.
+  * Data Access: log entries written by API calls that read the configuration or metadata of resources.. These logs also include operations that read or write user-provided data. To write Data Access audit logs, you must [enable them](https://docs.cloud.google.com/logging/docs/audit/configure-data-access#config-console-enable).
+  * System Event: log entries written by Google Cloud systems and managed service agents that modify the configuration of resources. You can't deactivate these logs.
 
 
 
-For more information about viewing Admin Activity, Data Access, and System Event audit logs, see [View logs](https://docs.cloud.google.com/sql/docs/postgres/audit-logging#viewing_logs).
+For more information about viewing Cloud SQL audit logs, including a full list of audited methods, see [Cloud SQL for PostgreSQL audit logging](https://docs.cloud.google.com/sql/docs/postgres/audit-logging).
 
 ## Pricing
 
@@ -196,6 +216,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

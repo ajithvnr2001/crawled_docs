@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/overview/key-concepts/
 title: Managed Service for Apache Spark key concepts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:27.257693+00:00
+fetched_at: 2026-10-31T05:52:25.020327+00:00
 ---
 
 # Managed Service for Apache Spark key concepts  |  Google Cloud Documentation
@@ -30,8 +30,11 @@ This document explains the key concepts, fundamental building blocks, core featu
 [Managed Service for Apache Spark serverless](https://docs.cloud.google.com/managed-spark/docs/serverless-overview) is the modern, automated-execution Managed Service for Apache Spark model. It lets you run jobs without provisioning, managing, or scaling the underlying infrastructure: Managed Service for Apache Spark handles the details for you.
 
   * **Batches** : A batch (also called a _batch workload_) is the serverless equivalent of a Managed Service for Apache Spark job. You submit your code, such as a Spark job, to the service. Managed Service for Apache Spark provisions the necessary resources on-demand, runs the job, and then tears them down. You don't create or manage cluster or job resources; the service does the work for you.
+
   * **Interactive sessions** : Interactive sessions provide a live, on-demand environment for exploratory data analysis, typically within a Jupyter notebook. Interactive sessions provide the convenience of a temporary, serverless workspace that you can use to run queries and develop code without having to provision and manage cluster and notebook resources.
-  * **Session templates** : A session template is a reusable configuration you can use to define interactive sessions. The template contains session settings, such as Spark properties and library dependencies. You use the template to create interactive session environments for development, typically within a Jupyter notebook.
+
+  * **Runtime profiles (session templates)** : A runtime profile (called a _session template_ in the Google Cloud CLI and Dataproc API) is a reusable configuration that you can use to define interactive sessions. The profile contains session settings, such as compute tier, executor configuration, Spark properties, and library dependencies. You use the runtime profile to create interactive session environments for development, typically within a Jupyter notebook.
+
 
 
 
@@ -69,6 +72,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

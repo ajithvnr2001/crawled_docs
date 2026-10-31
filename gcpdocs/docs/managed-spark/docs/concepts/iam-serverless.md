@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/iam-serverless/
 title: Managed Service for Apache Spark serverless permissions and roles \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:18.921789+00:00
+fetched_at: 2026-10-31T05:52:24.156155+00:00
 ---
 
 # Managed Service for Apache Spark serverless permissions and roles  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Managed Service for Apache Spark permissions allow users and [service accounts](
 
 You don't directly give users permissions; instead, you grant them IAM roles, which have one or more permissions bundled within them. You can grant [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) that contain a list of permissions, or you can create and grant [custom roles](https://docs.cloud.google.com/iam/docs/roles-overview#custom) that contain one or more permissions that you include in the custom role.
 
-The following tables list the basic permissions necessary to call Dataproc APIs (methods) that create or access Managed Service for Apache Spark resources. The tables are organized according to the APIs associated with each Managed Service for Apache Spark resource, which include `batches`, `sessions`, `sessionTemplates`, and `operations`.
+The following tables list the basic permissions necessary to call Dataproc APIs (methods) that create or access Managed Service for Apache Spark resources. The tables are organized according to the APIs associated with each Managed Service for Apache Spark resource, which include `batches`, `sessions`, `sessionTemplates` (called _runtime profiles_ in the Google Cloud console), and `operations`.
 
 Examples:
 
@@ -63,7 +63,7 @@ projects.locations.sessions.terminate | dataproc.sessions.terminate
   
 1`dataproc.sessions.create` also requires `dataproc.sessions.get` and `dataproc.operations.get` permissions to allow it to get status updates from the `gcloud` command-line tool.
 
-### Session template permissions
+### Session template (runtime profile) permissions
 
 Method | Required Permission(s)  
 ---|---  
@@ -1070,6 +1070,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

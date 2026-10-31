@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner-omni/scale-kubernetes-deployment/
 title: Scale a Kubernetes deployment \u00a0|\u00a0 Spanner Omni \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:13.382300+00:00
+fetched_at: 2026-10-31T05:40:27.379314+00:00
 ---
 
 # Scale a Kubernetes deployment  |  Spanner Omni  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ To adjust the CPU or memory resources for your servers, update your configuratio
 Replace the following:
 
   * `HELM_CHART_PATH`: The path to your Helm chart, for example, `oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni`.
-  * `VERSION`: The version of the Helm chart, for example, `1.0.0`.
+  * `VERSION`: The version of the Helm chart, for example, `1.1.0`.
   * `CPU_CORES`: The number of vCPU cores to assign to each server pod, for example, `8`.
   * `MEMORY_LIMIT`: The RAM limit for each server pod, for example, `32Gi`.
   * `NAMESPACE`: The Kubernetes namespace of the deployment, for example, `spanner-ns`.
@@ -95,7 +95,7 @@ To scale each zone in the deployment to 15 servers, run the following command:
 Replace the following:
 
   * `HELM_CHART_PATH`: The path to your Helm chart—for example, `oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni`.
-  * `VERSION`: The version of the Helm chart—for example, `1.0.0`.
+  * `VERSION`: The version of the Helm chart—for example, `1.1.0`.
   * `REPLICAS`: The target number of server replicas per zone—for example, `15`.
   * `NAMESPACE`: The Kubernetes namespace—for example, `spanner-ns`.
 
@@ -286,7 +286,7 @@ Replace the following:
      * `NAMESPACE`: The Kubernetes namespace—for example, `spanner-ns`.
      * `STATEFULSET_NAME_1`, `STATEFULSET_NAME_2`, ...: The names of the [StatefulSets](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/statefulset) in your deployment, typically corresponding to the short names of your zones (for example, `spanner-east-b spanner-east-c`).
      * `HELM_CHART_PATH`: The path to your Helm chart—for example, `oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni`.
-     * `VERSION`: The version of the Helm chart—for example, `1.0.0`.
+     * `VERSION`: The version of the Helm chart—for example, `1.1.0`.
   2. Run the commands to patch the PVCs, delete the StatefulSets (leaving the backend pods intact), and upgrade the Helm deployment:
          
          # Patch all associated PVCs directly.
@@ -320,6 +320,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

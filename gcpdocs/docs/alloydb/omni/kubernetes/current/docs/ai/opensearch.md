@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/opensearch/
 title: Access OpenSearch data from AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:20.461519+00:00
+fetched_at: 2026-10-31T05:51:08.896864+00:00
 ---
 
 # Access OpenSearch data from AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation
@@ -25,6 +25,11 @@ Send feedback
 
 Select a documentation version: 18.4.0keyboard_arrow_down
 
+  * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/opensearch)
+  * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/ai/opensearch)
+  * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/opensearch)
+  * [ 17.10.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/ai/opensearch)
+  * [ 17.9.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/ai/opensearch)
 
 
 
@@ -50,7 +55,7 @@ Before you begin, complete the following:
 
 AlloyDB Omni stores and reads your OpenSearch credentials from Secret Manager. For Basic HTTP authentication, the value of the secret in Secret Manager must be a string formatted as `username:password`. For more information on how to use Secret Manager, see [Create and access a secret using Secret Manager](https://docs.cloud.google.com/secret-manager/docs/create-secret-quickstart).
 
-Make sure that the service account that AlloyDB Omni uses has the `secretmanager.secretAccessor` permission to read the secret from Secret Manager. For more information, see [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets).
+Make sure that the service account that AlloyDB Omni uses has the `secretmanager.secretAccessor` permission to read the secret from Secret Manager. For more information, see [Manage access to secrets](https://docs.cloud.google.com/secret-manager/docs/manage-access-to-secrets). To configure the service account key secret on your Kubernetes database cluster, see [Create a Kubernetes secret using the service account key](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/install-with-alloydb-ai#create-key) and [Create a database cluster with AlloyDB AI](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/install-with-alloydb-ai#enable-alloydb-ai). 
 
 ## Enable and configure the `external_search_fdw` extension
 
@@ -234,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -1,44 +1,13 @@
 ---
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/
 title: Use a private image repository with Apigee hybrid \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T18:02:41.715334+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-31T05:49:05.806523+00:00
 ---
 
 # Use a private image repository with Apigee hybrid  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/
-
-[ Skip to main content ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/)
-  * [Deutsch](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=de)
-  * [Español](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=es)
-  * [Español – América Latina](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=it)
-  * [Português](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=pt)
-  * [Português – Brasil](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/?hl=ko)
-
-
-[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fapigee%2Fdocs%2Fhybrid%2Fv1.16%2Fcontainer-images%2F&prompt=select_account)
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/apigee-color.svg) ](https://docs.cloud.google.com/apigee/docs)
-  * [ Apigee ](https://docs.cloud.google.com/apigee/docs)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [ Overview ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/#overview)
-  * [ Configuration steps ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/#configuration-steps)
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -47,22 +16,25 @@ fetched_at: 2026-10-27T18:02:41.715334+00:00
   * [ Guides ](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee)
 
 
-Was this helpful?
-Send feedback 
-#  Use a private image repository with Apigee hybrid Stay organized with collections  Save and categorize content based on your preferences.
-  * On this page
-  * [ Overview ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/#overview)
-  * [ Configuration steps ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images/#configuration-steps)
 
+Send feedback 
+
+#  Use a private image repository with Apigee hybrid Stay organized with collections  Save and categorize content based on your preferences. 
+
+You are currently viewing version 1.16 of the Apigee hybrid documentation. For more information, see [Supported versions](https://docs.cloud.google.com/apigee/docs/hybrid/supported-platforms#supported-versions).
 
 Version 1.16 keyboard_arrow_down
+
 Supported versions:
+
   * [ v1.17 (latest) ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/container-images.html)
   * [ v1.16 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/container-images.html)
   * [ v1.15 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.15/container-images.html)
   * [ v1.14 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.14/container-images.html)
   * [ List of supported versions ](https://docs.cloud.google.com/apigee/docs/hybrid/supported-platforms#supported-versions)
+
 Unsupported versions:
+
   * [ v1.13 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.13/container-images.html)
   * [ v1.12 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.12/container-images.html)
   * [ v1.11 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.11/container-images.html)
@@ -78,71 +50,76 @@ Unsupported versions:
   * [ v1.1 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.1/container-images.html)
 
 
-This document explains how to configure Apigee hybrid to use images from a private container image repository. 
-##  Overview 
-All Apigee hybrid runtime images are hosted in the [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs) (AR). If for any reason you wish to employ a private image container repository, you can download the images from AR, push them to your private repository. Instead of overriding each component, you can add hub details on the overrides:
-##  Configuration steps 
-Set the value of the [`hub` configuration property](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/config-prop-ref#hub) with path to your private repository. 
 
-```
-hub: PRIVATE_REPO
-```
+This document explains how to configure Apigee hybrid to use images from a private container image repository. 
+
+##  Overview 
+
+All Apigee hybrid runtime images are hosted in the [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs) (AR). If for any reason you wish to employ a private image container repository, you can download the images from AR, push them to your private repository. Instead of overriding each component, you can add hub details on the overrides:
+
+##  Configuration steps 
+
+Set the value of the [`hub` configuration property](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/config-prop-ref#hub) with path to your private repository. 
+    
+    
+    hub: PRIVATE_REPO
 
 For example, if the following hub is provided, it will automatically resolve the image path: 
-
-```
-hub: private-docker-host.example.com
-```
+    
+    
+    hub: private-docker-host.example.com
 
 as:
+    
+    
+    ## an example of internal component vs 3rd party
+    containers:
+    - name: apigee-redis
+      image: private-docker-host.example.com/apigee-redis:1.16.13
+      imagePullPolicy: IfNotPresent
+    
+    containers:
+    - name: apigee-ingressgateway
+      image: private-docker-host.example.com/apigee-asm-ingress:1.22.6-asm.2-distroless
+      imagePullPolicy: IfNotPresent
 
-```
-## an example of internal component vs 3rd party
-containers:
-- name: apigee-redis
-  image: private-docker-host.example.com/apigee-redis:1.16.11
-  imagePullPolicy: IfNotPresent
-
-containers:
-- name: apigee-ingressgateway
-  image: private-docker-host.example.com/apigee-asm-ingress:1.22.6-asm.2-distroless
-  imagePullPolicy: IfNotPresent
-```
-_Click to expand a list of Apigee images_ 
-```
-apigee:
-    gcr.io/apigee-release/hybrid/apigee-mart-server:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-synchronizer:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-runtime:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra-client:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-connect-agent:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-watcher:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-operators:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-redis:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-mint-task-scheduler:YOUR_HYBRID_VERSION_TAG
-third party:
-    gcr.io/apigee-release/hybrid/apigee-stackdriver-logging-agent:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-prom-prometheus:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-stackdriver-prometheus-sidecar:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-kube-rbac-proxy:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-envoy:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-prometheus-adapter:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-asm-ingress:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-asm-istiod:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-fluent-bit:YOUR_HYBRID_VERSION_TAG
-    gcr.io/apigee-release/hybrid/apigee-open-telemetry-collector:YOUR_HYBRID_VERSION_TAG
-```
+####  _Click to expand a list of Apigee images_
+    
+    
+    apigee:
+        gcr.io/apigee-release/hybrid/apigee-mart-server:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-synchronizer:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-runtime:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra-client:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-connect-agent:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-watcher:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-operators:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-redis:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-mint-task-scheduler:YOUR_HYBRID_VERSION_TAG
+    third party:
+        gcr.io/apigee-release/hybrid/apigee-stackdriver-logging-agent:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-prom-prometheus:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-stackdriver-prometheus-sidecar:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-kube-rbac-proxy:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-envoy:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-prometheus-adapter:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-asm-ingress:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-asm-istiod:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-fluent-bit:YOUR_HYBRID_VERSION_TAG
+        gcr.io/apigee-release/hybrid/apigee-open-telemetry-collector:YOUR_HYBRID_VERSION_TAG
 
 You can see the original version tag of third-party images as a label returned by the `docker history` or `docker inspect` commands. 
+
 To display a list of the Apigee images hosted in the Google Cloud repository use the [`apigee-pull-push`](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/apigee-pull-push) command:
+    
+    
+    ./apigee-operator/etc/tools/apigee-pull-push.sh --list
 
-```
-./apigee-operator/etc/tools/apigee-pull-push.sh --list
-```
-
-Was this helpful?
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-10-30 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

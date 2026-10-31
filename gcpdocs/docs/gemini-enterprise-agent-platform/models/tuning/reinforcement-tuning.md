@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/
 title: About reinforcement learning fine-tuning for Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:07:17.631145+00:00
+fetched_at: 2026-10-31T05:55:18.881929+00:00
 ---
 
 # About reinforcement learning fine-tuning for Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Reinforcement learning fine-tuning for Gemini lets you fine-tune Gemini by using
 
 ## How it works
 
-Reinforcement learning fine-tuning operates iteratively to refine the behavior of the LLM. During each iteration, the model generates responses to a set of prompts. These responses are then evaluated by a user-defined reward function, which quantifies the quality of the generated output based on your desired criteria. The service uses this reward signal to update the model's parameters through reinforcement learning algorithms, to encourage behaviors that lead to higher rewards. This iterative process of generation, evaluation, and update allows the model to learn and adapt to your specific use cases.
+Reinforcement learning fine-tuning operates iteratively to refine the behavior of the LLM. During each iteration, the model generates responses to a set of prompts. These responses are then evaluated by a user-defined reward function, which quantifies the quality of the generated output based on your target criteria. The service uses this reward signal to update the model's parameters through reinforcement learning algorithms, to encourage behaviors that lead to higher rewards. This iterative process of generation, evaluation, and parameter updates adapts the model to your specific use cases.
 
 The following diagram shows the overall reinforcement learning fine-tuning workflow:
 
@@ -39,11 +39,13 @@ The following diagram shows the overall reinforcement learning fine-tuning workf
 
 ## Key features
 
+Reinforcement learning fine-tuning includes the following key features:
+
   * **Customizable reward functions:** Define your own reward functions to precisely optimize for a wide range of custom use cases and align the model's behavior with specific objectives. For details on the supported reward types, see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
 
   * **Adapters for efficient tuning:** Reinforcement learning fine-tuning uses adapters, which enable effective adaptation while reusing the existing serving infrastructure.
 
-  * **Multiple thinking levels:** The service supports tuning at two thinking levels, `MINIMAL` and `HIGH` (dynamic thinking), so you can choose the approach that best suits your model's learning objectives and desired response generation patterns. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
+  * **Multiple thinking levels:** The service supports tuning at two thinking levels, `MINIMAL` and `HIGH` (dynamic thinking), so you can choose the approach that best suits your optimization objectives and target response generation patterns. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
 
   * **Continuous tuning:** Further refine a previously tuned model by incorporating additional training examples or epochs. Using an existing tuned model or checkpoint as the foundation enables a more efficient process for tuning experimentation. For details, see the [Continuous tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning) page.
 
@@ -58,11 +60,11 @@ Reinforcement learning fine-tuning is preferred for fine-tuning LLMs in situatio
 
 The following are some scenarios where reinforcement learning fine-tuning is preferred:
 
-  * **Complex instruction following:** When the model needs to follow intricate instructions where the "correct" output isn't a single answer but requires a set of checks. Reinforcement learning can help the model learn to navigate these complex instruction sets.
+  * **Complex instruction following:** When the model needs to follow intricate instructions where the "correct" output isn't a single answer but requires a set of checks. Reinforcement learning can adapt the model to navigate these complex instruction sets.
 
-  * **Creative content generation:** For tasks like generating creative writing, poetry, or highly specialized code, where objective metrics are difficult to define. Reinforcement learning, with a well-designed reward function (potentially involving human feedback or expert evaluation), can guide the model toward more desirable and innovative outputs.
+  * **Creative content generation:** For tasks like generating creative writing, poetry, or highly specialized code, where objective metrics are difficult to define. Reinforcement learning, with a well-designed reward function (potentially involving human feedback or expert evaluation), can guide the model toward more effective and innovative outputs.
 
-  * **Reasoning tasks:** For tasks that require heavy reasoning, such as solving word puzzles or mathematical problems, reinforcement learning can incentivize the model to explore different "thought" sequences to learn which patterns of reasoning are most effective at solving problems.
+  * **Reasoning tasks:** For tasks that require heavy reasoning, such as solving word puzzles or mathematical problems, reinforcement learning can incentivize the model to explore different reasoning sequences to identify which patterns are most effective at solving problems.
 
 
 
@@ -77,8 +79,8 @@ Specification | Value
 ---|---  
 Supported endpoints for model tuning | 
 
-  * `us-central1` — `us-central1-aiplatform.googleapis.com`
-  * `europe-west4` — `europe-west4-aiplatform.googleapis.com`
+  * `us-central1`: `us-central1-aiplatform.googleapis.com`
+  * `europe-west4`: `europe-west4-aiplatform.googleapis.com`
 
   
 Supported endpoints for tuned model serving | 
@@ -95,8 +97,8 @@ Specification | Value
 ---|---  
 Supported endpoints for model tuning | 
 
-  * `us-central1` — `us-central1-aiplatform.googleapis.com`
-  * `europe-west4` — `europe-west4-aiplatform.googleapis.com`
+  * `us-central1`: `us-central1-aiplatform.googleapis.com`
+  * `europe-west4`: `europe-west4-aiplatform.googleapis.com`
 
   
 Supported endpoints for tuned model serving | 
@@ -135,7 +137,7 @@ For configuration details, see the [Continuous tuning](https://docs.cloud.google
 
 After a successful reinforcement learning fine-tuning job on the base Gemini model, a tuned model based on the last checkpoint is deployed to an endpoint in your project. Tuned models use the same serving endpoint strategy as the base model. For example, if you run a tuning job in `us-central1`, the tuned model is deployed to a `us` multi-region endpoint (mREP).
 
-To retrieve the deployed tuned-model endpoint and run inference against it, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start).
+To retrieve the deployed tuned-model endpoint in the Google Cloud console or by using the API and run inference against it, see the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start).
 
 ## Pricing
 
@@ -145,13 +147,13 @@ Reinforcement learning fine-tuning for Gemini generates tokens in two phases: a 
 
 ### Inference pricing
 
-After tuning, inference (prediction request) costs for the tuned model still apply. For model inference starting from Gemini 3, the tuned-model endpoint prediction price is 1.5 times the price of the base model. For more information, see [Available Gemini stable model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available).
+After tuning, inference (prediction request) costs for the tuned model still apply. For Gemini 3 and later models, the tuned-model endpoint prediction price is 1.5 times the price of the base model. For more information, see [Available Gemini stable model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available).
 
-If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see the "Model Tuning" section of the [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) page.
+If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see the "Model Tuning" section of the [Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) page.
 
 ## What's next
 
-  * Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+  * Follow the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
   * Learn how to prepare a [tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) and configure [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions).
   * Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model).
 
@@ -161,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

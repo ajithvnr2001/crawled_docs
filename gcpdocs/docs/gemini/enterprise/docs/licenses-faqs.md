@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/licenses-faqs/
 title: Frequently asked questions about Gemini Enterprise subscriptions and licenses \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:22.742845+00:00
+fetched_at: 2026-10-31T05:46:55.937345+00:00
 ---
 
 # Frequently asked questions about Gemini Enterprise subscriptions and licenses  |  Google Cloud Documentation
@@ -73,9 +73,9 @@ To use a subscription for a different project or projects, you need to:
 
 ### Do free-trial licenses include the AI developer tools quota?
 
-Yes. If your project uses an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), a free-trial subscription for the Gemini Enterprise Standard or Plus edition includes access to [AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview) and its base pooled credit quota. For details on credit amounts and weekly pool calculations, see [Quotas for Standard and Plus editions](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#quotas-standard-plus).
+No. Free-trial subscriptions don't include access to [AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview) or [pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#pay-as-you-go-usage-above-quota). To use AI developer tools, you must have a paid subscription.
 
-Free-trial seats draw from the same project-level pooled quota allocation as paid seats. However, free-trial subscriptions aren't eligible for [pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#pay-as-you-go-usage-above-quota).
+For other Gemini Enterprise features, free-trial seats draw from the same project-level pooled quota allocation as paid seats. For details on weekly pool calculations, see [Quotas for Standard and Plus editions](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#quotas-standard-plus).
 
 ## Distribute and assign licenses
 
@@ -126,14 +126,9 @@ This error means you are trying to reclaim more licenses than what is available 
 
 ### What does the `The quantity exceeds the maximum limit of seats for this account` error mean?
 
-When you're purchasing or modifying licenses directly in the Google Cloud console, this error occurs if you try to buy more seats than allowed for your Cloud Billing account type.
+When you're purchasing or modifying licenses directly in the Google Cloud console, this error occurs if you try to buy more seats than the limit for your Cloud Billing account.
 
-  * **Self-serve (or Online) and resold billing accounts:** Up to **25 seats**.
-  * **Invoiced (or Offline) billing accounts:** Up to **1,000 seats**.
-
-
-
-If you attempt to increase your seat count beyond these thresholds from the Google Cloud console, or if you attempt to add seats to an account that was previously provisioned above these limits using an offline order form, the operation fails with a maximum seat limit error.
+If you attempt to increase your seat count beyond this limit from the Google Cloud console, or if you attempt to add seats to an account that was previously provisioned above this limit using an offline order form, the operation fails with a maximum seat limit error.
 
 To request seat counts above the online limits, contact your Google Cloud sales representative or account manager to update your order or apply an allowlist exception for your billing account.
 
@@ -155,6 +150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

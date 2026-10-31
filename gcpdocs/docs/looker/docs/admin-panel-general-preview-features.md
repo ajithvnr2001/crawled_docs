@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features/
 title: Admin settings - Preview Features \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:58:25.833412+00:00
+fetched_at: 2026-10-31T05:53:30.279801+00:00
 ---
 
 # Admin settings - Preview Features  |  Looker  |  Google Cloud Documentation
@@ -53,6 +53,14 @@ Looker supports the following preview features.
 This feature is disabled by default.
 
 [Looker Data Apps](https://docs.cloud.google.com/looker/docs/data-apps) are freeform canvas dashboards that are built by local AI coding agents, such as Gemini CLI, Claude Code, or Cursor, from natural-language prompts. Data Apps give you complete visual layout control (including absolute positioning, overlapping elements, and custom web components) while remaining bound to Looker's governed LookML semantic layer and user permissions.
+
+### Dashboard Tile Groups
+
+This preview feature is disabled by default.
+
+This feature enables users to group multiple dashboard tiles together for visual organization and collective manipulation. For more information, see the [Editing user-defined dashboards](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards) documentation page.
+
+If you disable the **Dashboard Tile Groups** preview feature after tile groups have been created, the groups are hidden and their tiles appear as individual, ungrouped tiles on the dashboard. Re-enabling the preview feature restores the tile groups, unless a user edits and saves the dashboard while the preview feature is disabled, which permanently removes the groups from that dashboard.
 
 ### End User Conversational Analytics (CA) Query Review
 
@@ -179,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

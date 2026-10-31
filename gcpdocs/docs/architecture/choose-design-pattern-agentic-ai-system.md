@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system/
 title: Choose a design pattern for your agentic AI system \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:13.248368+00:00
+fetched_at: 2026-10-31T05:58:03.129071+00:00
 ---
 
 # Choose a design pattern for your agentic AI system  |  Cloud Architecture Center  |  Google Cloud Documentation

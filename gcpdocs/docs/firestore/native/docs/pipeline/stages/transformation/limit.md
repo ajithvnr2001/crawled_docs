@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/limit/
 title: Limit (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:07.367793+00:00
+fetched_at: 2026-10-31T05:52:56.044697+00:00
 ---
 
 # Limit (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -130,7 +130,7 @@ Android
     	Sort(firestore.Orders(firestore.Ascending(firestore.FieldOf("name")))).
     	Limit(10)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L1709-L1713)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_general.go#L1709-L1713)
 
 ## Behavior
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/listen/
 title: Get real-time updates \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:11.634645+00:00
+fetched_at: 2026-10-31T05:53:14.951782+00:00
 ---
 
 # Get real-time updates  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -230,7 +230,7 @@ Often, you want your UI to react to changes in the contents of a Firestore docum
     # Watch the document
     doc_watch = doc_ref.on_snapshot(on_snapshot)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L676-L689)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L676-L689)
 
 ##### C++
     
@@ -311,7 +311,7 @@ Often, you want your UI to react to changes in the contents of a Firestore docum
     }
     
     
-    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/listen_document.go#L18-L61)
+    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_document.go#L18-L61)
 
 ##### PHP
     
@@ -364,7 +364,7 @@ Often, you want your UI to react to changes in the contents of a Firestore docum
       snapshots << snapshot
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/query_watch.rb#L24-L31)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/query_watch.rb#L24-L31)
 
 ### Events for local changes
 
@@ -1068,7 +1068,7 @@ Android
     query_watch = col_query.on_snapshot(on_snapshot)
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L712-L728)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L712-L728)
 
 ##### C++
     
@@ -1158,7 +1158,7 @@ Android
     }
     
     
-    [listen_multiple.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/listen_multiple.go#L18-L67)
+    [listen_multiple.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_multiple.go#L18-L67)
 
 ##### PHP
     
@@ -1212,7 +1212,7 @@ Android
       end
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/query_watch.rb#L146-L157)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/query_watch.rb#L146-L157)
 
 The snapshot handler will receive a new query snapshot every time the query results change (that is, when a document is added, removed, or modified).
 
@@ -1490,7 +1490,7 @@ Android
     query_watch = col_query.on_snapshot(on_snapshot)
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L747-L768)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L747-L768)
 
 ##### Node.js
     
@@ -1564,7 +1564,7 @@ Android
     }
     
     
-    [listen_changes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/listen_changes.go#L18-L65)
+    [listen_changes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_changes.go#L18-L65)
 
 ##### PHP
     
@@ -1648,7 +1648,7 @@ Android
       end
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/query_watch.rb#L59-L80)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/query_watch.rb#L59-L80)
 
 **Important:** The first query snapshot contains `added` events for all existing documents that match the query. This is because you're getting a set of changes that bring your query snapshot current with the initial state of the query. This allows you, for instance, to directly populate your UI from the changes you receive in the first query snapshot, without needing to add special logic for handling the initial state.
 
@@ -1793,7 +1793,7 @@ Android
     # Terminate watch on a document
     doc_watch.unsubscribe()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L704-L705)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L704-L705)
 
 ##### C++
     
@@ -1827,7 +1827,7 @@ Android
     ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
     defer cancel()
     
-    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/listen_document.go#L33-L35)
+    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_document.go#L33-L35)
 
 ##### PHP
     
@@ -1851,7 +1851,7 @@ Android
     
     listener.stop
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/query_watch.rb#L49-L49)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/query_watch.rb#L49-L49)
 
 ## Handle listen errors
 
@@ -2065,7 +2065,7 @@ Android
     }
     
     
-    [listen_errors.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/listen_errors.go#L18-L61)
+    [listen_errors.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_errors.go#L18-L61)
 
 ##### PHP
     
@@ -2113,7 +2113,7 @@ Android
       puts "Listen failed: #{error.message}"
     end
     
-    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/query_watch.rb#L125-L134)
+    [query_watch.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/query_watch.rb#L125-L134)
 
 ## Pricing
 

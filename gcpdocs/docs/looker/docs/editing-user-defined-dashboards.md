@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards/
 title: Editing user-defined dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:58:28.387459+00:00
+fetched_at: 2026-10-31T05:48:43.458220+00:00
 ---
 
 # Editing user-defined dashboards  |  Looker  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ When editing a dashboard, keep in mind best practices for dashboard construction
 
 To enter edit mode, select **Edit dashboard** from the three-dot **Dashboard actions** menu.
 
-In edit mode, you can add, [resize and reposition](https://docs.cloud.google.com/looker/docs/rearranging_and_resizing_tiles), edit, or delete tiles, filters, or [dashboard tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards). You can also edit the dashboard title.
+In edit mode, you can add, resize and reposition, edit, or delete tiles, tile groups, filters, or [dashboard tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards). You can also edit the dashboard title.
 
 **Important:** If you edit a [dashboard with tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards), every filter will appear on every tab in edit mode. Once you exit edit mode, a filter will only appear on a tab if it is applied to at least one tile on that tab.
 
@@ -98,7 +98,7 @@ To ensure that the grid arrangement is responsive, do not enter a number into th
 
 ## Adding tiles
 
-In edit mode, you can add tiles, tabs, or text to your dashboard. See the [Creating user-defined dashboards](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#adding_tiles_and_text_to_a_dashboard) documentation page for information about how to add text and tiles. See the [Adding tabs to dashboards](https://docs.cloud.google.com/looker/docs/tabbed-dashboards) documentation page for information about how to add tabs to dashboards.
+In edit mode, you can add tiles, tile groups, tabs, or text to your dashboard. See the [Creating user-defined dashboards](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#adding_tiles_and_text_to_a_dashboard) documentation page for information about how to add text and tiles. See the [Adding tabs to dashboards](https://docs.cloud.google.com/looker/docs/tabbed-dashboards) documentation page for information about how to add tabs to dashboards.
 
 ## Editing tiles
 
@@ -106,7 +106,7 @@ In edit mode, the three-dot **Tile actions** menu at the top right of each tile 
 
 These options differ slightly depending on whether or not you are viewing a [query tile](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#query_tiles) or a [Look-linked tile](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#look-linked_tiles).
 
-  * In both cases, Looker displays the options **Edit** , **Hide title** , **Add note** , **Add accessibility description**, and **Move tile**. If your dashboard has tabs, the [**Move to tab**](https://docs.cloud.google.com/looker/docs/tabbed-dashboards#move-tiles) option will appear. 
+  * In both cases, Looker displays the options **Edit** , **Hide title** , **Add note** , **Add accessibility description**, and **Move tile**. If your dashboard has tabs, the [**Move to tab**](https://docs.cloud.google.com/looker/docs/tabbed-dashboards#move-tiles) option appears. If the tile is inside a tile group, the **Ungroup tile** option also appears. 
     * For query tiles, Looker also displays the options **Duplicate tile** , **Delete** , and **View**.
     * For Look-linked tiles, Looker also displays the option **Remove Look**.
 
@@ -128,7 +128,7 @@ You can also edit tile titles for both query tiles and [Look-linked](https://doc
 
 In edit mode, you can edit a tile's underlying query or Look — including the title of the tile and the visualization — directly in the dashboard.
 
-Click **Edit** (or **Edit Merged Query** for a [merged query tile](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore)) in the tile's three-dot **Tile actions** menu.
+Click **Edit** (or **Edit Merged Query** for a [merged query tile](https://docs.cloud.google.com/looker/docs/merged-results)) in the tile's three-dot **Tile actions** menu.
 
 If you're editing a Look, the **Edit Look** toolbar displays the dashboards containing tiles that are linked to that Look. Those dashboards will be affected by your changes. If you're editing a query tile, you won't see a list of dashboards that are affected in the edit pane, because your edits affect only the tile and dashboard that you are in.
 
@@ -240,6 +240,61 @@ The tile will remain in the column or row it's located in. If the tile is alread
 In edit mode, you can delete a tile from a dashboard. Select **Delete** (for a query tile) or **Remove Look** (for a Look-linked tile) from the tile's three-dot **Tile actions** menu. This deletion cannot be undone.
 
 Deleting a Look-linked tile from a dashboard doesn't affect the underlying Look.
+
+## Organizing tiles into groups
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+**Note:** Use the [Looker Tile Groups - Preview Issues form](https://docs.google.com/forms/d/e/1FAIpQLSdqtRfbUyyIhZqKkyfsEJyVhJ83sGG58-t1sAssvZ3V_ruUrw/viewform) to provide feedback or report issues with this preview feature.
+
+If your Looker admin has enabled the [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups), you can organize multiple tiles into collapsible group containers on dashboards that use the default grid layout. Grouping tiles lets you visually organize related content and move, duplicate, or delete multiple tiles as a single unit.
+
+![](https://docs.cloud.google.com/static/looker/docs/images/tile-group-2620.png)
+
+### Creating a tile group
+
+To create a tile group on a dashboard, follow these steps:
+
+  1. Enter edit mode.
+  2. Click the **Add** button in the toolbar at the top of the dashboard (or in the center of the dashboard pane if the dashboard is blank), and then select **Group**. Looker adds a new full-width group container to the dashboard canvas with a default title (such as **My group 1**), an expand or collapse arrow, and group header controls.
+  3. To rename the group, click the group title in the group header and enter a new title.
+  4. Click **Save** in the toolbar to save your changes.
+
+
+
+### Adding tiles to a group
+
+In edit mode, you can add new tiles directly to a group or move existing ungrouped tiles from the dashboard canvas into a group:
+
+  * **Add a new tile to a group** : In the group header, click the add **Add Tile to Group** icon and select the type of tile that you want to create (**Visualization** , **Text** , **Markdown** , **Button** , or **Extension**). You can also [save a tile directly to a group from an Explore](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#adding_query_tiles_from_an_explore). By default, new tiles within a group are sized to one-third of the group's width and are placed from left to right as new tiles are added.
+  * **Add an existing tile to a group** : In the group header, click the **Add Existing Tile to Group** icon, and then click the ungrouped tile on the dashboard canvas that you want to move into the group.
+
+
+
+You can't move a tile directly from one tile group to another. To move a tile to a different group, first ungroup the tile to return it to the main dashboard canvas, and then click **Add Existing Tile to Group** in the destination group's header.
+
+### Rearranging, resizing, and managing tile groups
+
+In edit mode, you can rearrange and resize both the individual tiles inside a group and the group container itself:
+
+  * **Expand and collapsing a group** : Click the arrow next to the group title to collapse or expand the group container. Collapsing a group hides the tiles inside the group and reduces the container to its header.
+  * **Rearrange and resize tiles within a group** : Drag and resize individual tiles inside a group container just as you do on the main dashboard canvas. If moving or resizing a tile inside a group pushes tiles to a new row, the group container automatically expands in height.
+  * **Move a group container** : Drag the drag_indicator **Hold and drag to reorder** icon in the group header to reposition the group on the dashboard canvas. You can also click the more_vert **Group actions** menu in the group header, select **Move group** , and then select **Top** or **Bottom**. If your dashboard has tabs, you can move the entire group and its tiles to another tab by clicking the more_vert **Group actions** menu, selecting **Move to tab** , and then choosing the destination tab.
+  * **Resize a group container** : By default, tile groups take up the full width of the dashboard. Drag the resize handle on the group container's border to adjust its width and height. You can't resize a group container to be smaller than the area occupied by the tiles that it contains.
+  * **Duplicate a group** : Click the more_vert **Group actions** menu in the group header, and then select **Duplicate group** to create a copy of the group container and all of the tiles inside it.
+
+**Note:** Tile groups can't be nested inside other tile groups.
+
+### Ungrouping tiles and deleting tile groups
+
+You can remove individual tiles from a group and you can also delete an entire group and its tiles:
+
+  * **Ungroup a tile** : Ungrouping is performed on individual tiles rather than on the group container. To remove a tile from a group without deleting the tile, click the more_vert **Tile actions** menu on the individual tile inside the group and select **Ungroup tile**. Looker removes the tile from the group and places it on the main dashboard canvas. Dragging a tile out of a group is not supported.
+  * **Delete a tile group** : To delete a group container and all of the tiles inside it, click the more_vert **Group actions** menu in the group header, select **Delete** , and then confirm the deletion in the dialog.
+
+**Caution:** Deleting a tile group deletes both the group container and all tiles inside the group. If you want to keep any tiles that are in the group, select **Ungroup tile** from each tile's more_vert **Tile actions** menu before deleting the group.
 
 ## Editing dashboard settings
 
@@ -470,7 +525,7 @@ In edit mode, click **Quick layout** in the upper left of the blue toolbar to se
 
 
 
-Tile sizes change depending on the size of the dashboard. Quick layout affects all tiles including text tiles, visualization tiles, Markdown tiles, and [buttons](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#adding_buttons).
+Tile sizes change depending on the size of the dashboard. Quick layout affects all ungrouped tiles, including text tiles, visualization tiles, Markdown tiles, and [buttons](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#adding_buttons), but quick layout does not resize tile groups or tiles inside a group.
 
 ## Applying a theme to your dashboard
 
@@ -507,6 +562,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

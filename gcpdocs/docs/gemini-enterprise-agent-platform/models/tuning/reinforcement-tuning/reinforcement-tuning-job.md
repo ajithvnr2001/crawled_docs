@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/
 title: Reinforcement learning fine-tuning job \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:18.454911+00:00
+fetched_at: 2026-10-31T05:54:48.018544+00:00
 ---
 
 # Reinforcement learning fine-tuning job  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ These Pre-GA products are in various stages of internal testing and review. As s
 
 A reinforcement learning fine-tuning job for Gemini models is configured with three main building blocks: a [tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset), [hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) that control the training process, and one or more [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) that score each model response. The service also exposes [metrics and job status for monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring).
 
-For an end-to-end example of creating a tuning job, retrieving the tuned model, and running inference, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start).
+For an end-to-end example of creating a tuning job, retrieving the tuned model, and running inference, see the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start).
 
 ## Prepare the tuning dataset
 
@@ -49,14 +49,15 @@ A reward function numerically scores each model response during tuning. The rewa
 
 Reinforcement learning fine-tuning supports the following reward types:
 
-  * **String matching reward** — Compares the model response (or a parsed substring of it) against a ground-truth value supplied in `references`.
-  * **Gemini-based autorater reward** — Uses an LLM-as-a-judge to score each response, optionally with response parsing.
-  * **Cloud Run reward** — Calls a user-managed Cloud Run service that returns a scalar reward, for fully customizable scoring logic.
-  * **Composite reward** — Combines any of the above reward types with per-scorer weights.
+  * **String matching reward** : Compares the model response (or a parsed substring of it) against a ground-truth value supplied in `references`.
+  * **Gemini-based autorater reward** : Uses an LLM-as-a-judge to score each response, optionally with response parsing.
+  * **Code execution reward** : Runs custom Python evaluation code in a managed sandbox environment to return a scalar reward.
+  * **Cloud Run reward** : Calls a user-managed Cloud Run service that returns a scalar reward, for fully customizable scoring logic.
+  * **Composite reward** : Combines up to 16 of the preceding reward types with per-scorer weights.
 
 
 
-Before you launch a tuning job, we strongly recommend validating your reward configuration in the Google Cloud console or with the `ValidateReinforcementTuningReward` API method.
+Before you launch a tuning job, validate your reward configuration in the Google Cloud console or with the `ValidateReinforcementTuningReward` API method.
 
 For detailed configuration schemas, code samples, IAM setup, and reward-design best practices, see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
 
@@ -64,8 +65,8 @@ For detailed configuration schemas, code samples, IAM setup, and reward-design b
 
 Once a tuning job is launched, you can track its lifecycle state (such as `JOB_STATE_PENDING`, `JOB_STATE_RUNNING`, `JOB_STATE_SUCCEEDED`, `JOB_STATE_FAILED`, `JOB_STATE_CANCELLING`, `JOB_STATE_CANCELLED`) and inspect tuning progress in two ways:
 
-  * **Programmatically** — Issue a `GetTuningJob` request to retrieve the job's state, `tunedModel`, error details, and metadata. See the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start#get-the-tuned-model-endpoint) for an example `curl` command.
-  * **Visually** — Open the job's monitoring page in the Google Cloud console under [**Models > Tuning**](https://console.cloud.google.com/agent-platform/tuning), which shows the underlying tuning experiment with charts for the training and evaluation metrics emitted at each step (reward, generation length, reward latency, per-reward breakdowns for composite rewards, and so on).
+  * **Programmatically** : Issue a `GetTuningJob` request to retrieve the job's state, `tunedModel`, error details, and metadata. See the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start#get-the-tuned-model-endpoint) for an example `curl` command.
+  * **Visually** : Open the job's monitoring page in the Google Cloud console under [**Models > Tuning**](https://console.cloud.google.com/agent-platform/tuning), which shows the underlying tuning experiment with charts for the training and evaluation metrics emitted at each step (reward, generation length, reward latency, per-reward breakdowns for composite rewards, and so on).
 
 
 
@@ -86,6 +87,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-secure-services-parent-tag/
 title: Secure Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:54:09.480517+00:00
+fetched_at: 2026-10-31T05:49:45.227110+00:00
 ---
 
 # Secure Cloud Run services  |  Google Cloud Documentation

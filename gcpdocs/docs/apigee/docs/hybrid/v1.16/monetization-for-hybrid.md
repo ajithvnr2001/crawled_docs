@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/monetization-for-hybrid/
 title: Enabling monetization for Apigee hybrid \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:34:33.763884+00:00
+fetched_at: 2026-10-31T05:48:31.699575+00:00
 ---
 
 # Enabling monetization for Apigee hybrid  |  Google Cloud Documentation
@@ -66,12 +66,12 @@ This document describes the procedures to enable recurring, top-up, and setup fe
 
 Enabling recurring, top-up, and setup fees for Apigee hybrid monetization requires creating and setting up the `apigee-mint-task-scheduler` Google service account and granting it access to the Pub/Sub data pipeline. 
 
-  1. If you have not already downloaded version 1.16.11 of the Helm charts, Pull the Helm charts with the following commands: **Note:** If you are performing a fresh install, you will perform this step in [Step 2: Download the Apigee Helm charts: Pull Apigee Helm charts](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-download-charts#pull-apigee-helm-charts). 
+  1. If you have not already downloaded version 1.16.13 of the Helm charts, Pull the Helm charts with the following commands: **Note:** If you are performing a fresh install, you will perform this step in [Step 2: Download the Apigee Helm charts: Pull Apigee Helm charts](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-download-charts#pull-apigee-helm-charts). 
 
 In the $APIGEE_HELM_CHARTS_HOME directory, use the `pull` command to copy all of the Apigee hybrid Helm charts to your local storage:
          
          export **CHART_REPO** =oci://us-docker.pkg.dev/apigee-release/apigee-hybrid-helm-charts
-         export **CHART_VERSION** =1.16.11
+         export **CHART_VERSION** =1.16.13
          helm pull **$CHART_REPO** /apigee-operator --version **$CHART_VERSION** --untar
          helm pull **$CHART_REPO** /apigee-datastore --version **$CHART_VERSION** --untar
          helm pull **$CHART_REP** O/apigee-env --version **$CHART_VERSION** --untar
@@ -188,7 +188,7 @@ Add the following stanzas to your `overrides.yaml` file:
          runtime:
            image:
              url: "gcr.io/apigee-release/hybrid/apigee-runtime"
-             tag: "1.16.11" #must be 1.15.1 or higher.
+             tag: "1.16.13" #must be 1.15.1 or higher.
          
          mintTaskScheduler:
            # if using stored SA cert files:
@@ -324,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

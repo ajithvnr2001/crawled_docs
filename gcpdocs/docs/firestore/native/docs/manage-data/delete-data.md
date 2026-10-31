@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/delete-data/
 title: Delete documents and fields \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:55.702261+00:00
+fetched_at: 2026-10-31T05:53:03.142128+00:00
 ---
 
 # Delete documents and fields  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -152,7 +152,7 @@ Use the `delete()` method:
     
     db.collection("cities").document("DC").delete()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L826-L826)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L826-L826)
 
 ##### Python  
 (Async)
@@ -162,7 +162,7 @@ Use the `delete()` method:
     
     await db.collection("cities").document("DC").delete()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L680-L680)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L680-L680)
 
 ##### C++
 
@@ -213,7 +213,7 @@ Use the `Delete()` method:
     }
     
     
-    [save_data_delete_doc.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_delete_doc.go#L18-L35)
+    [save_data_delete_doc.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/save_data_delete_doc.go#L18-L35)
 
 ##### PHP
 
@@ -250,7 +250,7 @@ Use the `delete()` method:
     city_ref = firestore.doc "#{collection_path}/DC"
     city_ref.delete
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/delete_data.rb#L24-L25)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/delete_data.rb#L24-L25)
 
 **Warning:** Deleting a document does not delete its subcollections!
 
@@ -405,7 +405,7 @@ Use the `firestore.DELETE_FIELD` method:
     city_ref = db.collection("cities").document("BJ")
     city_ref.update({"capital": firestore.DELETE_FIELD})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L833-L834)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L833-L834)
 
 ##### Python  
 (Async)
@@ -416,7 +416,7 @@ Use the `firestore.DELETE_FIELD` method:
     city_ref = db.collection("cities").document("BJ")
     await city_ref.update({"capital": firestore.DELETE_FIELD})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L687-L688)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L687-L688)
 
 ##### C++
 
@@ -473,7 +473,7 @@ Use the `firestore.Delete` method:
     }
     
     
-    [save_data_delete_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_delete_field.go#L18-L47)
+    [save_data_delete_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/save_data_delete_field.go#L18-L47)
 
 ##### PHP
 
@@ -520,7 +520,7 @@ Use the `firestore.field_delete` method:
     city_ref = firestore.doc "#{collection_path}/BJ"
     city_ref.update({ capital: firestore.field_delete })
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/delete_data.rb#L36-L37)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/delete_data.rb#L36-L37)
 
 ## Delete collections
 
@@ -603,7 +603,7 @@ Deleting collections from the client is not recommended.
       }
     }
     
-    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/ec747d9de95b212e3e61cc367ccdc3eec8937ae0/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
+    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/b91df580e4fd993c77b1d49b16af53609ca4206a/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
 
 ##### Python
     
@@ -614,7 +614,7 @@ Deleting collections from the client is not recommended.
         db.recursive_delete(coll_ref)
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L842-L846)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L842-L846)
 
 ##### Python  
 (Async)
@@ -625,7 +625,7 @@ Deleting collections from the client is not recommended.
         await db.recursive_delete(coll_ref)
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L696-L699)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L696-L699)
 
 ##### C++
     
@@ -703,7 +703,7 @@ Deleting collections from the client is not recommended.
     }
     
     
-    [save_data_delete_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_delete_collection.go#L18-L73)
+    [save_data_delete_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/save_data_delete_collection.go#L18-L73)
 
 ##### PHP
     
@@ -766,7 +766,7 @@ Deleting collections from the client is not recommended.
       document_ref.delete
     end
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/delete_data.rb#L48-L55)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/delete_data.rb#L48-L55)
 
 ## Delete data with TTL policies
 

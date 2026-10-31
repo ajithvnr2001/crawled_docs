@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-types/
 title: Asset types \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:32:01.087044+00:00
+fetched_at: 2026-10-31T05:40:22.783916+00:00
 ---
 
 # Asset types  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -495,7 +495,7 @@ Service | Asset type
 **Cloud TPU** |  [API reference](https://tpu.googleapis.com/$discovery/rest?version=v1)
 
   * [ ` tpu.googleapis.com/Node ` ](https://docs.cloud.google.com/tpu/docs/reference/rest/v1/projects.locations.nodes)
-  * [ ` tpu.googleapis.com/QueuedResource ` ](https://docs.cloud.google.com/tpu/docs/reference/rest/v2/projects.locations.queuedResources) Effective tags aren't supported. Not available in the analysis and search APIs. 
+  * [ ` tpu.googleapis.com/QueuedResource ` ](https://docs.cloud.google.com/tpu/docs/reference/rest/v2/projects.locations.queuedResources) Effective tags aren't supported. Not available in the analysis APIs. 
 
   
 **Cloud Workstations** |  [API reference](https://workstations.googleapis.com/$discovery/rest?version=v1)
@@ -811,6 +811,13 @@ Supported [metadata](https://docs.cloud.google.com/compute/docs/metadata/overvie
 
   * [ ` migrationcenter.googleapis.com/Asset ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.assets) Not available in the analysis APIs. 
   * ` migrationcenter.googleapis.com/CostAssessmentJob ` Not available in the analysis APIs. 
+  * [ ` migrationcenter.googleapis.com/DiscoveryClient ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.discoveryClients) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` migrationcenter.googleapis.com/Group ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.groups) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` migrationcenter.googleapis.com/ImportJob ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.importJobs) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` migrationcenter.googleapis.com/PreferenceSet ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.preferenceSets) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` migrationcenter.googleapis.com/ReportConfig ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.reportConfigs) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` migrationcenter.googleapis.com/Settings ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/Settings) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` migrationcenter.googleapis.com/Source ` ](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.sources) Effective tags aren't supported. Not available in the analysis APIs. 
 
   
 **Google Cloud NetApp Volumes** |  [API reference](https://netapp.googleapis.com/$discovery/rest?version=v1)
@@ -1047,7 +1054,7 @@ Disabling or enabling a service account can take up to 48 hours to be reflected 
 **Network Management API** |  [API reference](https://networkmanagement.googleapis.com/$discovery/rest)
 
   * [ ` networkmanagement.googleapis.com/ConnectivityTest ` ](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/reference/networkmanagement/rest/v1/projects.locations.global.connectivityTests)
-  * [ ` networkmanagement.googleapis.com/VpcFlowLogsConfig ` ](https://docs.cloud.google.com/network-intelligence-center/docs/reference/networkmanagement/rest/v1/projects.locations.vpcFlowLogsConfigs) Effective tags aren't supported. Not available in the analysis and search APIs. 
+  * [ ` networkmanagement.googleapis.com/VpcFlowLogsConfig ` ](https://docs.cloud.google.com/network-intelligence-center/docs/reference/networkmanagement/rest/v1/projects.locations.vpcFlowLogsConfigs) Effective tags aren't supported. Not available in the analysis APIs. 
 
   
 **Network Security Integration** Network Security Integration asset change history might be incomplete. Data freshness is synchronized every 7 hours. If a sync fails, freshness is delayed until the next successful sync. |  [API reference](https://networksecurity.googleapis.com/$discovery/rest?version=v1)
@@ -1388,6 +1395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-concepts-requests/
 title: Send HTTP requests \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:58.567840+00:00
+fetched_at: 2026-10-31T05:53:21.253097+00:00
 ---
 
 # Send HTTP requests  |  Cloud Run functions  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ To authenticate to Cloud Run functions, set up Application Default Credentials. 
     using Google.Cloud.Functions.Hosting;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceManagement.V1/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PrivateCA.V1/latest/Microsoft.Extensions.DependencyInjection.html);
     using System.Net.Http;
     using System.Threading.Tasks;
     

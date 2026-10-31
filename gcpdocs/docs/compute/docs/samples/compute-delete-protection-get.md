@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-delete-protection-get/
 title: Get the deletion protection status of a VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:40.124145+00:00
+fetched_at: 2026-10-31T05:58:48.379815+00:00
 ---
 
 # Get the deletion protection status of a VM  |  Compute Engine  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// instanceName := "your_instance_name"
     
     	ctx := context.Background()
-    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
+    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -84,8 +84,8 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
-    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
+    import com.google.cloud.compute.v1.Instance;
+    import com.google.cloud.compute.v1.InstancesClient;
     import java.io.IOException;
     
     public class GetDeleteProtection {
@@ -105,9 +105,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       public static boolean getDeleteProtection(String projectId, String zone,
           String instanceName) throws IOException {
     
-        try (Inst[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html)tancesClient = Inst[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html)ate()) {
-          Inst[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html)tance = instancesClient.get(projectId, zone, instanceName);
-          boolean deleteProtection = instinstance.[getDeletionProtection](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html#com_google_cloud_compute_v1_Instance_getDeletionProtection__)()    System.out.printf("Retrieved Delete Protection setting for instance: %s : %s", instanceName,
+        try (InstancesClient instancesClient = InstancesClient.create()) {
+          Instance instance = instancesClient.get(projectId, zone, instanceName);
+          boolean deleteProtection = instance.getDeletionProtection();
+          System.out.printf("Retrieved Delete Protection setting for instance: %s : %s", instanceName,
               deleteProtection);
     
           return deleteProtection;
@@ -130,11 +131,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const zone = 'europe-central2-b';
     // const instanceName = 'YOUR_INSTANCE_NAME';
     
-    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+    const compute = require('@google-cloud/compute');
     
     // Print the state of delete protection flag of given instance.
     async function getDeleteProtection() {
-      const instancesClient = new compute.[InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const instancesClient = new compute.InstancesClient();
     
       const [instance] = await instancesClient.get({
         project: projectId,
@@ -156,7 +157,7 @@ Before trying this sample, follow the Python setup instructions in the [Compute 
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
+    from google.cloud import compute_v1
     
     
     def get_delete_protection(project_id: str, zone: str, instance_name: str) -> bool:
@@ -169,7 +170,9 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         Returns:
             The boolean value of the delete protection setting.
         """
-        instance_client = comp[compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)t[InstancesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html)   instance = instinstance_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_get)      project=project_id, zone=zone, instance=instance_name
+        instance_client = compute_v1.InstancesClient()
+        instance = instance_client.get(
+            project=project_id, zone=zone, instance=instance_name
         )
         return instance.deletion_protection
     

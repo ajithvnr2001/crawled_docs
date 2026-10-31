@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner-omni/download/
 title: Download Spanner Omni \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:40:58.106039+00:00
+fetched_at: 2026-10-31T05:46:55.121231+00:00
 ---
 
 # Download Spanner Omni  |  Google Cloud Documentation
@@ -48,12 +48,12 @@ The following table lists the available container image versions.
 
 Version tag | Release date  
 ---|---  
-`2026.r4-lts.1` | October 28, 2026  
+`2026.r5` | October 29, 2026  
   
-For example, to download the `spanner-omni` image for the 2026.r4-lts.1 release, run the following command:
+For example, to download the `spanner-omni` image for the 2026.r5 release, run the following command:
     
     
-    docker pull us-docker.pkg.dev/spanner-omni/images/spanner-omni:2026.r4-lts.1
+    docker pull us-docker.pkg.dev/spanner-omni/images/spanner-omni:2026.r5
     
 
 ## Helm charts
@@ -68,12 +68,12 @@ The following table lists the available Helm chart versions.
 
 Version tag | Release date  
 ---|---  
-`1.0.0` | September 30, 2026  
+`1.1.0` | October 29, 2026  
   
-For example, to download the Helm chart for version 1.0.0 from Artifact Registry, run the following command:
+For example, to download the Helm chart for version 1.1.0 from Artifact Registry, run the following command:
     
     
-    helm pull oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.0.0
+    helm pull oci://us-docker.pkg.dev/spanner-omni/charts/spanner-omni --version 1.1.0
     
 
 To clone the open-source Helm charts from GitHub, run the following command:
@@ -96,9 +96,9 @@ The following table lists the available Spanner Omni server and component packag
 
 Filename | Description  
 ---|---  
-`spanner-omni-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni server, Spanner Omni CLI, and Spanner Omni console for Linux (x86)  
-`spanner-omni-server-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni server and Spanner Omni CLI for Linux (x86)  
-`spanner-omni-ui-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni console for Linux (x86)  
+`spanner-omni-2026.r5-linux-x86_64.tar.gz` | Spanner Omni server, Spanner Omni CLI, and Spanner Omni console for Linux (x86)  
+`spanner-omni-server-2026.r5-linux-x86_64.tar.gz` | Spanner Omni server and Spanner Omni CLI for Linux (x86)  
+`spanner-omni-ui-2026.r5-linux-x86_64.tar.gz` | Spanner Omni console for Linux (x86)  
   
 ### Spanner Omni CLI binaries
 
@@ -106,22 +106,22 @@ The following table lists the available Spanner Omni CLI binaries.
 
 Filename | Description  
 ---|---  
-`spanner-omni-cli-2026.r4-lts.1-darwin-arm.tar.gz` | Spanner Omni CLI, Mac (M1, M2 and M3)  
-`spanner-omni-cli-2026.r4-lts.1-darwin-x86_64.tar.gz` | Spanner Omni CLI for Mac (x86)  
-`spanner-omni-cli-2026.r4-lts.1-linux-arm.tar.gz` | Spanner Omni CLI for Linux (ARM)  
-`spanner-omni-cli-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni CLI for Linux (x86)  
+`spanner-omni-cli-2026.r5-darwin-arm.tar.gz` | Spanner Omni CLI, Mac (M1, M2 and M3)  
+`spanner-omni-cli-2026.r5-darwin-x86_64.tar.gz` | Spanner Omni CLI for Mac (x86)  
+`spanner-omni-cli-2026.r5-linux-arm.tar.gz` | Spanner Omni CLI for Linux (ARM)  
+`spanner-omni-cli-2026.r5-linux-x86_64.tar.gz` | Spanner Omni CLI for Linux (x86)  
   
 For example, to download the current version of the Spanner Omni CLI for Linux (x86), run the following command:
     
     
     # Download CLI for Linux (x86)
-    curl -O https://storage.googleapis.com/spanner-omni/2026.r4-lts.1/spanner-omni-cli-2026.r4-lts.1-linux-x86_64.tar.gz
+    curl -O https://storage.googleapis.com/spanner-omni/2026.r5/spanner-omni-cli-2026.r5-linux-x86_64.tar.gz
     
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

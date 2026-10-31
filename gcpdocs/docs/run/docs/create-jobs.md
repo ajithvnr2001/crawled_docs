@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/create-jobs/
 title: Create jobs \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:20.931111+00:00
+fetched_at: 2026-10-31T05:49:17.161467+00:00
 ---
 
 # Create jobs  |  Cloud Run  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ You can structure a job as a single task or as multiple, independent tasks (up t
 
 You can set timeouts on tasks and specify the number of retries in case of task failure. If any task exceeds its maximum number of retries, that task is marked as _failed_. If any tasks failed, the job execution is marked as _failed_ after Cloud Run has tried all of the tasks.
 
-By default, each task runs for a maximum of 10 minutes. You can modify the default value by [changing the task timeout setting](https://docs.cloud.google.com/run/docs/configuring/task-timeout), up to 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 1 hour.
+By default, each task runs for a maximum of 10 minutes. You can modify the default value by [changing the task timeout setting](https://docs.cloud.google.com/run/docs/configuring/task-timeout), up to 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 12 hours.
 
 There is no explicit timeout for a job execution: after all tasks are complete, the job execution is complete.
 
@@ -100,7 +100,7 @@ To create a new job, follow these steps:
      * [VPC connectivity](https://docs.cloud.google.com/run/docs/configuring/connecting-vpc)
   9. In the **Task capacity** section, specify the following:
 
-     1. In the **Task timeout** field, specify the maximum amount of time in seconds that the task can run, up to 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 1 hour. Each task must complete within this time. The default is 10 minutes.
+     1. In the **Task timeout** field, specify the maximum amount of time in seconds that the task can run, up to 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 12 hours. Each task must complete within this time. The default is 10 minutes.
 
      2. In the **Number of retries per failed task** field, specify the number of retries in case of task failures. The default is 3 retries.
 
@@ -137,7 +137,7 @@ Option | Description
 ---|---  
 `--tasks` | Accepts integers greater or equal to 1. Defaults to 1; maximum is 10,000. Each task is provided the environment variables `CLOUD_RUN_TASK_INDEX` with a value between 0 and the number of tasks minus 1, along with `CLOUD_RUN_TASK_COUNT`, which is the number of tasks  
 `--max-retries` | The number of times a failed task is retried. Once any task fails beyond this limit, the entire job is marked as _failed_. For example, if set to 1, a failed task will be retried once, for a total of two attempts. The default is 3. Accepts integers from 0 to 10.  
-`--task-timeout` | Accepts a duration like "2s". Defaults to 10 minutes; maximum is 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 1 hour.  
+`--task-timeout` | Accepts a duration like "2s". Defaults to 10 minutes; maximum is 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 12 hours.  
 `--parallelism` | The maximum number of tasks that can execute in parallel. By default, tasks will be started as quickly as possible in parallel. Refer to [Parallelism](https://docs.cloud.google.com/run/docs/configuring/parallelism) for the range of values.  
 `--execute-now` | If set, immediately after the job is created, a [job execution](https://docs.cloud.google.com/run/docs/execute/jobs) is started. Equivalent to calling `gcloud run jobs create` followed by `gcloud run jobs execute`.  
   
@@ -348,7 +348,7 @@ To update an existing job, follow these steps:
      * [VPC connectivity](https://docs.cloud.google.com/run/docs/configuring/connecting-vpc)
   6. In the **Task capacity** section, specify the following:
 
-     1. In the **Task timeout** field, specify the maximum amount of time in seconds that the task can run, up to 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 1 hour. Each task must complete within this time. The default is 10 minutes.
+     1. In the **Task timeout** field, specify the maximum amount of time in seconds that the task can run, up to 168 hours (7 days). For tasks using GPUs, the maximum available timeout is 12 hours. Each task must complete within this time. The default is 10 minutes.
 
      2. In the **Number of retries per failed task** field, specify the number of retries in case of task failures. The default is 3 retries.
 
@@ -667,6 +667,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

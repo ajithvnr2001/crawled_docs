@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/office-365-messagetrace/
 title: Collect Office 365 Message Trace logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:16.805732+00:00
+fetched_at: 2026-10-31T06:00:04.543987+00:00
 ---
 
 # Collect Office 365 Message Trace logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -265,14 +265,14 @@ Launch PowerShell and run:
 
   * **Windows:**
         
-        Connect-ExchangeOnline -CertificateThumbprint "<CERTIFICATE_THUMBPRINT>" -AppId "<APPLICATION_ID>" -Organization "yourdomain.onmicrosoft.com"
+        Connect-ExchangeOnline -CertificateThumbprint &<quot;CERTIFICATE_THUMB>PRINT"<; -AppId ">;APPLICATION_ID" -Organization "yourdomain.onmicrosoft.com"
         Get-MessageTraceV2 -StartDate (Get-Date).AddHours(-1) -EndDate (Get-Date) -ResultSize 1
         Disconnect-ExchangeOnline -Confirm:$false
         
 
   * **macOS and Linux** (run `pwsh` first):
         
-        Connect-ExchangeOnline -CertificateFilePath "/opt/certs/messagetrace.pfx" -AppId "<APPLICATION_ID>" -Organization "yourdomain.onmicrosoft.com"
+        Connect-ExchangeOnline -CertificateFilePath "/opt/certs/messagetrace.pfx"<; -AppId ">;APPLICATION_ID" -Organization "yourdomain.onmicrosoft.com"
         Get-MessageTraceV2 -StartDate (Get-Date).AddHours(-1) -EndDate (Get-Date) -ResultSize 1
         Disconnect-ExchangeOnline -Confirm:$false
         
@@ -389,10 +389,10 @@ Create the following PowerShell script on the machine where you set up the expor
          
          # Configuration
          $endpointUrl = "https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import"
-         $apiKey = "<API_KEY>"
-         $secretKey = "<SECRET_KEY>"
-         $certThumbprint = "<CERTIFICATE_THUMBPRINT>"
-         $appId = "<APPLICATION_ID>"
+         $<apiKey<>/span> = "API_KEY&<quot;
+         $sec>retKey = "SECRET<_KEY"
+         $certThumbp>rint = "<;CERTIFICATE_T>HUMBPRINT"
+         $appId = "APPLICATION_ID"
          $organization = "yourdomain.onmicrosoft.com"
          
          # Log file
@@ -460,10 +460,10 @@ Create the following PowerShell script on the machine where you set up the expor
          
          # Configuration
          $endpointUrl = "https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import"
-         $apiKey = "<API_KEY>"
-         $secretKey = "<SECRET_KEY>"
-         $certFilePath = "/opt/certs/messagetrace.pfx"
-         $appId = "<APPLICATION_ID>"
+         $<apiKey<>/span> = "API_KEY&<quot;
+         $sec>retKey = "SECRET_KEY"
+         $certFilePath = "/opt</certs/message>trace.pfx"
+         $appId = "APPLICATION_ID"
          $organization = "yourdomain.onmicrosoft.com"
          
          # Log file
@@ -572,29 +572,29 @@ Configure the script to run automatically at regular intervals (for example, eve
 
   1. Create a launchd plist file at `~/Library/LaunchAgents/com.chronicle.messagetrace-webhook.plist`:
          
-         <?xml version="1.0" encoding="UTF-8"?>
-         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-         <plist version="1.0">
-         <dict>
-             <key>Label</key>
-             <string>com.chronicle.messagetrace-webhook</string>
-             <key>ProgramArguments</key>
-             <array>
-                 <string>/usr/local/bin/pwsh</string>
-                 <string>-NoProfile</string>
-                 <string>-File</string>
-                 <string>/opt/scripts/messagetrace-webhook.ps1</string>
-             </array>
-             <key>StartInterval</key>
-             <integer>3600</integer>
-             <key>StandardOutPath</key>
-             <string>/var/log/messagetrace/launchd-stdout.log</string>
-             <key>StandardErrorPath</key>
-             <string>/var/log/messagetrace/launchd-stderr.log</string>
-             <key>RunAtLoad</key>
-             <true/>
-         </dict>
-         </plist>
+         <?xml version="1.0" encodin>g<="UTF-8"?
+         !DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.a>p<ple.com/DTDs/Proper>t<yLis>t-1.0<.dt>d&quo<t;
+         p>list <versio>n="1.0"
+         dict
+             keyLabe<l/key
+          >   st>ringcom.chronicle.messa<getr>ace-w<ebhoo>k/string
+         <    keyProgramArguments/k<>ey
+             array
+         <>/span>string/usr/<>local/bin/pwsh/s<tring
+         >     <   string-NoProf<ile/st>ring
+                 string-File/string
+              <   string/op<t/scri>pts/m<ess>agetrace-webh<ook.>ps1/s<tring
+         <>span class="devsite-syntax-w">    <</span>/a>rray
+             keyStartInterval/key
+         <integ<er3600>/integer
+             keyStandardOutPath/key
+         string/>var/l<og/>messagetrace/laun<chd->stdou<t.log/>string
+             keyStandardErrorPath/key
+         string/>var/l<og/>messagetr<ace/>launc<hd-st>d<err.l>o<g/stri>ng
+             keyRunAtLoad/key
+             true/
+         /dict
+         /plist
          
 
 **Note:** If you use an Apple Silicon Mac (M1, M2, M3, M4), replace `/usr/local/bin/pwsh` with `/opt/homebrew/bin/pwsh`.
@@ -820,8 +820,8 @@ For unattended (scheduled) use, authenticate with a service account key. This se
   1. Create a file named `C:\Scripts\messagetrace-gcs.ps1` with the following content:
          
          # Configuration
-         $certThumbprint = "<CERTIFICATE_THUMBPRINT>"
-         $appId = "<APPLICATION_ID>"
+         $certThumbprint = &<quot;CERTIFICATE_THUMB>PRINT"
+         <$appId = ">;APPLICATION_ID"
          $organization = "yourdomain.onmicrosoft.com"
          $gcsBucket = "gs://office365-messagetrace-logs/messagetrace/"
          $localLogDir = "C:\Logs\MessageTrace"
@@ -884,7 +884,7 @@ For unattended (scheduled) use, authenticate with a service account key. This se
          
          # Configuration
          $certFilePath = "/opt/certs/messagetrace.pfx"
-         $appId = "<APPLICATION_ID>"
+         <$appId = ">;APPLICATION_ID"
          $organization = "yourdomain.onmicrosoft.com"
          $gcsBucket = "gs://office365-messagetrace-logs/messagetrace/"
          $localLogDir = "/var/log/messagetrace/export"
@@ -993,29 +993,29 @@ For unattended (scheduled) use, authenticate with a service account key. This se
 
   1. Create a launchd plist file at `~/Library/LaunchAgents/com.chronicle.messagetrace-gcs.plist`:
          
-         <?xml version="1.0" encoding="UTF-8"?>
-         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-         <plist version="1.0">
-         <dict>
-             <key>Label</key>
-             <string>com.chronicle.messagetrace-gcs</string>
-             <key>ProgramArguments</key>
-             <array>
-                 <string>/usr/local/bin/pwsh</string>
-                 <string>-NoProfile</string>
-                 <string>-File</string>
-                 <string>/opt/scripts/messagetrace-gcs.ps1</string>
-             </array>
-             <key>StartInterval</key>
-             <integer>3600</integer>
-             <key>StandardOutPath</key>
-             <string>/var/log/messagetrace/launchd-gcs-stdout.log</string>
-             <key>StandardErrorPath</key>
-             <string>/var/log/messagetrace/launchd-gcs-stderr.log</string>
-             <key>RunAtLoad</key>
-             <true/>
-         </dict>
-         </plist>
+         <?xml version="1.0" encodin>g<="UTF-8"?
+         !DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.a>p<ple.com/DTDs/Proper>t<yLis>t-1.0<.dt>d&quo<t;
+         p>list <versio>n="1.0"
+         dict
+             key<Label/k>ey
+           <  <>/span>stringcom.chronic<le.m>essag<etrac>e-gcs/str<ing
+           >  keyProgramArgumen<>ts/key
+             array<
+              >   string/<>usr/local/bin/pw<sh/str>ing
+          <       >string-No<Profil>e/string
+                 string-File/stri<ng
+             >    s<>;tring/opt/s<cri>pts/messagetr<ace->gcs.p<s1/stri>ng
+          <   /array
+            < keyStartInterval/<key
+         >    i<nteger>3600/integer
+             keyStandardOutPath/key
+             <string/>var/l<og/>messagetrace/laun<chd->gcs-s<tdout.>log/string
+             keyStandardErrorPath/key
+             <string/>var/l<og/>messagetr<ace/>launc<hd-gc>s<-stde>r<r.log/>string
+             keyRunAtLoad/key
+             true/
+         /dict
+         /plist
          
 
 **Note:** If you use an Apple Silicon Mac (M1, M2, M3, M4), replace `/usr/local/bin/pwsh` with `/opt/homebrew/bin/pwsh`.

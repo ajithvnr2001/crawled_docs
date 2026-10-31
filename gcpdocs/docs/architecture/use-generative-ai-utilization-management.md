@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/use-generative-ai-utilization-management/
 title: Automate utilization-review of health insurance claims using generative AI \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:43:29.357154+00:00
+fetched_at: 2026-10-31T05:57:50.658096+00:00
 ---
 
 # Automate utilization-review of health insurance claims using generative AI  |  Cloud Architecture Center  |  Google Cloud Documentation

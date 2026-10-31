@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/manage-skills/
 title: Manage skills \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:50.628112+00:00
+fetched_at: 2026-10-31T05:40:25.797943+00:00
 ---
 
 # Manage skills  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ User-created skills are reusable instructions that help the Gemini Enterprise as
 
 By default, Gemini Enterprise turns off the skills feature. As a Gemini Enterprise administrator, you can turn on skills, manage skill sharing, and require administrator approval for shared skills.
 
-**Note:** Skills don't have specific location restrictions. Their availability depends on the model selected in the chat conversation. For more information, see [Gemini Enterprise limitations](https://docs.cloud.google.com/gemini/enterprise/docs/locations#product-limitations).
+**Note:** Skill availability in a chat conversation depends on the selected model. For information about where skill data is stored, see Data residency.
 
 ## Supported editions
 
@@ -37,6 +37,17 @@ Whether users can create, upload, or use skills depends on their Gemini Enterpri
   * **Frontline** : Users can browse, install, and use Google-managed skills and user-created skills shared with them. They can't create or upload custom skills.
 
 
+
+## Data residency
+
+Gemini Enterprise stores skill data in your app's location:
+
+  * **User-created skills** : Skills that users create or upload on the **Skills** page are stored in Gemini Enterprise storage in your app's location.
+  * **Google-managed skills** : These skills are delivered as part of the service and aren't copied into your storage. Each user's settings for these skills, such as whether a skill is installed or turned on, are stored in your app's location.
+
+
+
+For more information, see [Gemini Enterprise limitations](https://docs.cloud.google.com/gemini/enterprise/docs/locations#product-limitations).
 
 ## Before you begin
 
@@ -241,6 +252,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

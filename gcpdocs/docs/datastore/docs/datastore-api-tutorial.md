@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/datastore-api-tutorial/
 title: Getting started with the Firestore in Datastore mode API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:13.053279+00:00
+fetched_at: 2026-10-31T05:58:23.249782+00:00
 ---
 
 # Getting started with the Firestore in Datastore mode API  |  Google Cloud Documentation
@@ -374,7 +374,7 @@ To authenticate to Cloud Datastore, set up Application Default Credentials. For 
     
     require "google/cloud/datastore"
     
-    datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore-admin-v1/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
+    datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
 
 ## Storing data
 
@@ -598,7 +598,7 @@ To authenticate to Cloud Datastore, set up Application Default Credentials. For 
     def add_task description
       require "google/cloud/datastore"
     
-      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore-admin-v1/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
+      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
     
       task = datastore.entity "Task" do |t|
         t["description"] = description
@@ -807,7 +807,7 @@ To authenticate to Cloud Datastore, set up Application Default Credentials. For 
     def mark_done task_id
       require "google/cloud/datastore"
     
-      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore-admin-v1/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
+      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
     
       task = datastore.find "Task", task_id
     
@@ -945,7 +945,7 @@ To authenticate to Cloud Datastore, set up Application Default Credentials. For 
     def delete_task task_id
       require "google/cloud/datastore"
     
-      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore-admin-v1/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
+      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
     
       task = datastore.find "Task", task_id
     
@@ -1120,7 +1120,7 @@ To authenticate to Cloud Datastore, set up Application Default Credentials. For 
     def list_tasks
       require "google/cloud/datastore"
     
-      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore-admin-v1/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
+      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
     
       query = datastore.query("Task").order("created")
       tasks = datastore.run query

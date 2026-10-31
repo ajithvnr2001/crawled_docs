@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/netapp/volumes/docs/release-notes/
 title: Google Cloud NetApp Volumes release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:39:51.322773+00:00
+fetched_at: 2026-10-31T06:00:23.201639+00:00
 ---
 
 # Google Cloud NetApp Volumes release notes  |  Google Cloud Documentation
@@ -80,7 +80,7 @@ For more information about available regions, see [Supported regions](https://do
 
 Feature
 
-The manual QoS feature is generally available for the Flex Unified service level. For more information, see [Manual QoS](https://docs.cloud.google.com/netapp/volumes/docs/performance/optimize-performance#manual_qos).
+The manual QoS feature is generally available for the Flex Unified service level. For more information, see [Manual QoS](https://docs.cloud.google.com/netapp/volumes/docs/performance/manual-qos).
 
 ## August 18, 2026
 
@@ -245,7 +245,7 @@ Google Cloud NetApp Volumes supports the block storage feature with iSCSI protoc
 
 Feature
 
-The manual QoS feature is now generally available for Google Cloud NetApp Volumes, supporting the Standard, Premium, and Extreme service levels. For more information, see [Manual QoS](https://docs.cloud.google.com/netapp/volumes/docs/performance/optimize-performance#manual_qos).
+The manual QoS feature is now generally available for Google Cloud NetApp Volumes, with support for the Standard, Premium, and Extreme service levels. For more information, see [Manual QoS](https://docs.cloud.google.com/netapp/volumes/docs/performance/manual-qos).
 
 ## September 26, 2025
 

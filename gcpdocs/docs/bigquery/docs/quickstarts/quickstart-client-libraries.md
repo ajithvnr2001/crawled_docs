@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries/
 title: Query a public dataset with the BigQuery client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:33.181890+00:00
+fetched_at: 2026-10-31T05:59:25.172863+00:00
 ---
 
 # Query a public dataset with the BigQuery client libraries  |  Google Cloud Documentation
@@ -896,7 +896,7 @@ The output is similar to the following. Several lines are omitted to simplify th
          
          # This uses Application Default Credentials to authenticate.
          # @see https://cloud.google.com/bigquery/docs/authentication/getting-started
-         bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer-v1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+         bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
          
          sql     = "SELECT " \
                    "CONCAT('https://stackoverflow.com/questions/', CAST(id as STRING)) as url, view_count " \

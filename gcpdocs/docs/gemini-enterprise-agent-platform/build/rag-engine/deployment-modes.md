@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/deployment-modes/
 title: Deployment modes in RAG Engine on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:39.373630+00:00
+fetched_at: 2026-10-31T05:54:11.951537+00:00
 ---
 
 # Deployment modes in RAG Engine on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -65,7 +65,12 @@ RAG Engine lets you switch your project's deployment mode as long as there are n
 
 As a helpful tool, you can imagine that your project behaves as if it has two completely separate backends. The resources you create (corpora, imported and uploaded files, and parsed embeddings) are permanently tied to the deployment mode that was active during their creation. Any retrieval requests either directly or through Gemini will also be limited to the corpora and files that are present under your current deployment mode. Switching between the two modes does not move your data over or delete data from the other mode.
 
-![/gemini-enterprise-agent-platform/images/rag-engine-deployment-modes.png](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/rag-engine-deployment-modes.png)
+![A flowchart showing how RAG Engine handles
+deployment modes. A unified API routes requests to either an active Serverless
+mode backend containing RagCorpus A and B, or an inactive Spanner mode
+backend containing RagCorpus C. It demonstrates that data is strictly isolated
+and hidden when its respective mode is
+inactive.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/rag-engine-deployment-modes.png)
 
 As illustrated in the diagram:
 
@@ -139,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

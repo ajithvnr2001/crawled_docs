@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-vm-from-public-image/
 title: Create an instance from a public image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:54.130281+00:00
+fetched_at: 2026-10-31T05:53:32.624194+00:00
 ---
 
 # Create an instance from a public image  |  Compute Engine  |  Google Cloud Documentation
@@ -1336,15 +1336,15 @@ Replace the following:
      * `MACHINE_TYPE`: machine type, [predefined](https://docs.cloud.google.com/compute/docs/machine-resource) or [custom](https://docs.cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types), for the new VM
      * `VM_NAME`: [name](https://docs.cloud.google.com/compute/docs/naming-resources#resource-name-format) of the new VM
      * `IMAGE_PROJECT`: [project](https://docs.cloud.google.com/compute/docs/images#os-compute-support) containing the image  
-For example, if you specify `debian-10` as the image family, specify `debian-cloud` as the image project.
+For example, if you specify `debian-12` as the image family, then specify `debian-cloud` as the image project.
      * `IMAGE`: specify one of the following: 
        * `IMAGE`: a specific version of a public image
 
-For example, `"sourceImage": "projects/debian-cloud/global/images/debian-10-buster-v20200309"`
+For example, `"sourceImage": "projects/debian-cloud/global/images/debian-12-bookworm-v20241112"`
 
        * `IMAGE_FAMILY`: an [image family](https://docs.cloud.google.com/compute/docs/images#image_families)
 
-This creates the VM from the most recent, non-deprecated OS image. For example, if you specify `"sourceImage": "projects/debian-cloud/global/images/family/debian-10"`, Compute Engine creates a VM from the latest version of the OS image in the `Debian 10` image family.
+Specifying an image family creates the VM from the most recent, non-deprecated OS image. For example, if you specify `"sourceImage": "projects/debian-cloud/global/images/family/debian-12"`, then Compute Engine creates a VM from the latest version of the OS image in the Debian 12 image family.
 
      * `NETWORK_NAME`: the VPC network that you want to use for the VM. You can specify `default` to use your default network.
      * `ENABLE_SECURE_BOOT`: Optional: If you chose an image that supports [Shielded VM](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm) features, Compute Engine, by default, enables the [virtual trusted platform module (vTPM)](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm#vtpm) and [integrity monitoring](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm#integrity-monitoring). Compute Engine does not enable [Secure Boot](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm#secure-boot) by default.
@@ -1515,6 +1515,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

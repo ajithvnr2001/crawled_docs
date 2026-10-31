@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/
 title: About supervised fine-tuning for Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:42.466485+00:00
+fetched_at: 2026-10-31T05:48:18.595405+00:00
 ---
 
 # About supervised fine-tuning for Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ The following Gemini models support supervised fine-tuning:
   * [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
   * [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-**Important:** For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking), set the thinking budget to `0` (for Gemini 2.5 models and lower) or the thinking level to `MINIMAL` (for Gemini 3 and higher). This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. As a result, the tuned model can perform tuned tasks effectively with little to no thinking budget.
+**Important:** For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking), set the thinking budget to `0` (for Gemini 2.5 models and lower) or the thinking level to `MINIMAL` (for Gemini 3 and higher). This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. As a result, the tuned model can perform tuned tasks effectively with little to no thinking budget. To tune multi-step reasoning capabilities with `HIGH` thinking level, use [reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning).
 
 ## Limitations
 
@@ -225,11 +225,12 @@ Pricing for Gemini supervised fine-tuning can be found here: [Gemini Enterprise 
 
 The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. After tuning, inference (prediction request) costs for the tuned model still apply. Inference pricing is the same for each stable version of Gemini. For more information, see [Available Gemini stable model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available).
 
-If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing).
+If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#prediction-prices).
 
 ## What's next
 
   * Learn how to [tune a Gemini model by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use).
+  * Learn about [reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning).
   * Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model).
 
 
@@ -238,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

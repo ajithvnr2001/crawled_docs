@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview/
 title: About Storage Intelligence advisor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:43.214352+00:00
+fetched_at: 2026-10-31T05:53:27.606241+00:00
 ---
 
 # About Storage Intelligence advisor  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 This page describes how Storage Intelligence advisor lets you monitor and manage your Cloud Storage environment at scale across organizations, folders, and projects.
 
-Storage Intelligence advisor displays trends and anomalies in your storage patterns, and provides built-in recommendations to optimize usage and resolve performance bottlenecks.
+Storage Intelligence advisor displays trends, anomalies, and security risk assessment findings in your storage patterns, and provides built-in recommendations to optimize usage, resolve performance bottlenecks, and align security configurations with recommended best practices.
 
 To view Storage Intelligence advisor, see [View Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/view-advisor).
 
@@ -30,7 +30,7 @@ To view Storage Intelligence advisor, see [View Storage Intelligence advisor](ht
 To help you manage your storage environment, Storage Intelligence advisor displays insights through a structured hierarchy of metrics, findings, and next steps:
 
   * **Metrics** : data points collected from your Cloud Storage environment, such as storage volume, object counts, and operation rates.
-  * **Findings** : anomalies detected from your metrics that require attention, such as a spike in errors or inefficient storage use.
+  * **Findings** : anomalies and security configuration gaps detected from your metrics and object metadata that require attention, such as a spike in errors, inefficient storage use, or objects that violate bucket encryption policies.
   * **Next steps** : recommendations provided with each finding to help you resolve the identified issue.
 
 
@@ -50,9 +50,9 @@ Metric | Description
   
 ### Top findings
 
-The **Top findings** section alerts you to changes in storage behavior that require attention. Depending on the selected resource scope, findings provide aggregated or granular insights:
+The **Top findings** section alerts you to changes in storage behavior and security configuration gaps that require attention. Depending on the selected resource scope, findings provide aggregated or granular insights:
 
-  * **Organization and folder scopes** : each finding card aggregates anomalies across contained projects and displays the number of affected projects. To view a panel listing all affected projects, click **View details**. You can then open finding details for any project in a new tab.
+  * **Organization and folder scopes** : each finding card aggregates findings across contained projects, displays the number of affected projects, and lets you view a list of affected projects to drill down into project-specific finding details.
   * **Project scope** : finding cards let you drill down into bucket-level and object-level details for that project.
 
 
@@ -63,6 +63,8 @@ Each finding is associated with one of the following categories to indicate its 
 
   * **Performance** : findings that affect speed, latency, and operational health.
 
+  * **Security and compliance** ([Preview](https://cloud.google.com/products#product-launch-stages)): findings that identify security and encryption configuration gaps, such as objects that don't comply with bucket encryption policies.
+
 
 
 
@@ -70,10 +72,12 @@ The following table describes the findings that are available in Storage Intelli
 
 Finding | Category | Description  
 ---|---|---  
-Spike in Class A or B operations on Coldline or Archive data | Usage optimization | Indicates frequent operations on data in Coldline storage and Archive storage. For example, you might see this finding if monthly reports stored in Archive storage are accessed daily by an analytics job, creating a high rate of operations for data that is better suited for Standard storage. To resolve this finding, move the data to a storage class suited for frequent access, or adjust the analytics job to use cached data. To learn more, see [Optimize usage for Coldline and Archive storage data](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/optimize-coldline-archive-class-costs).  
-Spike in 429 errors indicating rate limited requests | Performance | Indicates that Cloud Storage is rate-limiting your requests, which causes latency and timeouts. For example, you might see this finding if a batch processing job rapidly reads or writes many objects in the same bucket, exceeding request limits and causing `429 Too Many Requests` errors. To help resolve this finding, implement exponential backoff in your application or scale up request throughput gradually. To learn more, see [Improve performance by mitigating rate limited request errors](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/improve-performance-by-mitigating-429-errors).  
-Spike in cross-region egress | Usage optimization | Indicates an increase in data transfer between Cloud Storage buckets in one region and other Google Cloud services in another region. This activity can lead to unexpected egress costs. For example, you might see this finding if a Compute Engine instance in `us-central1` frequently accesses a bucket in `us-east1`. To resolve this finding, colocate your Google Cloud and storage resources in the same region using bucket relocation. To learn more, see [Manage cross-region egress](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/manage-egress).  
-Total bytes stored increased above trend over the last 30 days | Usage optimization | Indicates that storage consumption has increased beyond historical trends over the last 30 days. For example, you might see this finding if your bucket retains noncurrent object versions indefinitely after you upload new versions. Indefinite retention can lead to unnecessary storage costs. To resolve this finding, use Object Lifecycle Management to delete noncurrent versions or move them to colder storage, or enable Autoclass to automatically manage storage classes based on access patterns. To learn more, see [Identify above trend storage consumption](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/identify-storage-consumption).  
+Spike in Class A or B operations on Coldline or Archive data | Usage optimization | Indicates frequent operations on data in Coldline storage and Archive storage. For example, you might see this finding if an analytics job accesses monthly reports in Archive storage daily. This daily access results in a high operation rate for data better suited for Standard storage. To resolve this finding, move the data to a storage class suited for frequent access, or configure the analytics job to use cached data. For more information, see [Optimize usage for Coldline and Archive storage data](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/optimize-coldline-archive-class-costs).  
+Spike in 429 errors indicating rate limited requests | Performance | Indicates that Cloud Storage is rate-limiting requests, which causes latency and timeouts. For example, you might see this finding if a batch processing job rapidly reads or writes many objects in the same bucket. This burst of requests exceeds per-bucket limits and triggers `429 Too Many Requests` errors. To resolve this finding, implement exponential backoff in your application or scale up request throughput gradually. For more information, see [Improve performance by mitigating rate limited request errors](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/improve-performance-by-mitigating-429-errors).  
+Spike in cross-region egress | Usage optimization | Indicates an increase in data transfer between Cloud Storage buckets in one region and Compute Engine instances or other Google Cloud services in another region. This cross-region traffic can lead to unexpected egress costs. For example, you might see this finding if a Compute Engine instance in `us-central1` frequently accesses a bucket in `us-east1`. To resolve this finding, colocate your compute and storage resources in the same region by using bucket relocation. For more information, see [Manage cross-region egress](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/manage-egress).  
+Total bytes stored increased above trend over the last 30 days | Usage optimization | Indicates that storage consumption has increased beyond historical trends over the last 30 days. For example, you might see this finding if your bucket retains noncurrent object versions indefinitely after you upload new versions. Indefinite retention can lead to unnecessary storage costs. To resolve this finding, use Object Lifecycle Management to delete noncurrent versions or move them to colder storage, or enable Autoclass to automatically manage storage classes based on access patterns. For more information, see [Identify above trend storage consumption](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/identify-storage-consumption).  
+Objects violate default CMEK bucket policies ([Preview](https://cloud.google.com/products#product-launch-stages)) | Security and compliance | Indicates that a bucket with a default customer-managed encryption key (CMEK) contains objects that aren't encrypted with CMEK. For example, you might see this finding if you uploaded objects before setting the bucket's default Cloud Key Management Service (Cloud KMS) key. To resolve this finding, identify the non-compliant objects by using Storage Insights datasets and re-encrypt them with the bucket's default Cloud KMS key. For more information, see [Re-encrypt objects that violate default CMEK bucket policies](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-default-cmek-policies).  
+Objects violate enforced encryption rules ([Preview](https://cloud.google.com/products#product-launch-stages)) | Security and compliance | Indicates that a bucket contains objects that use an encryption method restricted by the bucket's encryption enforcement configuration. For example, you might see this finding if you uploaded objects encrypted with standard encryption (Google default encryption, or GMEK) or customer-supplied encryption keys (CSEK) before restricting those methods on the bucket. To resolve this finding, identify the non-compliant objects by using Storage Insights datasets and re-encrypt them with an allowed encryption method. For more information, see [Re-encrypt objects that violate enforced encryption rules](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-enforced-encryption-rules).  
   
 ### Key charts
 
@@ -100,15 +104,25 @@ To get started, see [View Storage Intelligence advisor](https://docs.cloud.googl
 
 ### Optimize storage usage
 
-Identify opportunities to optimize storage usage by aligning data with the appropriate storage class. For example, a `Spike in Class A or B operations on Coldline or Archive data` finding indicates that data in Coldline storage or Archive storage is being accessed frequently. This data might be better suited for a storage class intended for frequent access, such as Standard storage or Nearline storage.
+Identify opportunities to optimize storage usage by aligning data with the appropriate storage class. For example, a `Spike in Class A or B operations on Coldline or Archive data` finding indicates frequent access to data in Coldline storage or Archive storage. This data might be better suited for a storage class intended for frequent access, such as Standard storage or Nearline storage.
 
-To learn more, see [Optimize usage for Coldline and Archive storage data](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/optimize-coldline-archive-class-costs).
+For more information, see [Optimize usage for Coldline and Archive storage data](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/optimize-coldline-archive-class-costs).
 
 ### Resolve performance bottlenecks
 
 Identify performance issues, such as request throttling or unexpected operation spikes. Findings such as `Spike in 429 errors` help you optimize I/O patterns to improve application reliability.
 
-To learn more, see [Improve performance by mitigating rate limited request errors](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/improve-performance-by-mitigating-429-errors).
+For more information, see [Improve performance by mitigating rate limited request errors](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/improve-performance-by-mitigating-429-errors).
+
+### Monitor security and compliance
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+Continuously evaluate your Cloud Storage security and encryption compliance with automated object-level analysis. When you enable Storage Intelligence, Storage Intelligence advisor automatically runs security risk assessments in the background and refreshes findings every 24 hours. Storage Intelligence advisor aggregates object-level encryption violations at the bucket level, including the `Objects violate default CMEK bucket policies` and `Objects violate enforced encryption rules` findings. You can identify affected objects by querying Storage Insights datasets in BigQuery and re-encrypt them by using Storage batch operations or the Google Cloud CLI.
+
+For more information, see [Re-encrypt objects that violate default CMEK bucket policies](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-default-cmek-policies) and [Re-encrypt objects that violate enforced encryption rules](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-enforced-encryption-rules).
 
 ## VPC Service Controls support
 
@@ -116,18 +130,11 @@ Storage Intelligence advisor supports [VPC Service Controls](https://docs.cloud.
 
 ## What's next
 
-  * **Key tasks** : 
-    * [View Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/view-advisor)
-  * **Explore findings** : 
-    * [Review the findings reference catalog](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/findings-reference-catalog)
-    * [Optimize usage for Coldline and Archive storage data](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/optimize-coldline-archive-class-costs)
-    * [Improve performance by mitigating rate limited request errors](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/improve-performance-by-mitigating-429-errors)
-    * [Identify above trend storage consumption](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/identify-storage-consumption)
-    * [Manage cross-region egress](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/manage-egress)
-  * **Related concepts** : 
-    * [Storage classes](https://docs.cloud.google.com/storage/docs/storage-classes)
-    * [Object Lifecycle Management](https://docs.cloud.google.com/storage/docs/lifecycle)
-    * [Quotas and limits](https://docs.cloud.google.com/storage/quotas)
+  * [View Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/view-advisor)
+  * [Review the findings reference catalog](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/findings-reference-catalog)
+  * [Data encryption options](https://docs.cloud.google.com/storage/docs/encryption)
+  * [Storage classes](https://docs.cloud.google.com/storage/docs/storage-classes)
+  * [Object Lifecycle Management](https://docs.cloud.google.com/storage/docs/lifecycle)
 
 
 
@@ -135,6 +142,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

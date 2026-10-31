@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/secure-gateway/
 title: Secure a Gateway \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:42.647742+00:00
+fetched_at: 2026-10-31T05:40:15.179220+00:00
 ---
 
 # Secure a Gateway  |  GKE networking  |  Google Cloud Documentation
@@ -746,7 +746,7 @@ You can configure frontend mTLS in one of the following ways:
 
 ### Configure frontend mTLS using Gateway API configuration (recommended)
 
-**Note:** Configuring frontend mTLS by using the `tls.frontendValidation` field requires Gateway API version 1.5 or later.
+**Note:** Configuring frontend mTLS by using the `tls.frontend.default.validation` field requires Gateway API version 1.5 or later.
 
 Using Gateway API is the recommended way to configure client certificate validation. This method involves storing trust sources in a Kubernetes ConfigMap and referencing this ConfigMap in the Gateway specification.
 
@@ -785,7 +785,7 @@ Replace `ROOT_CERT_PATH` with the path to your certificate file. A ConfigMap can
 
   3. Configure the Gateway.
 
-Attach the ConfigMap to your Gateway by adding a `tls` section that contains the `frontendValidation` field to your Gateway specification. The `default` configuration is required and applies to all HTTPS listeners that use `Terminate` mode unless you specify a per-port configuration. The following example shows an end-to-end Gateway configuration that includes both a server certificate (by using the `certmap` annotation) and client certificate validation (by using the `tls.frontendValidation` field):
+Attach the ConfigMap to your Gateway by adding a `tls` section that contains the `frontend.default.validation` field to your Gateway specification. The `default` configuration is required and applies to all HTTPS listeners that use `Terminate` mode unless you specify a per-port configuration. The following example shows an end-to-end Gateway configuration that includes both a server certificate (by using the `certmap` annotation) and client certificate validation (by using the `tls.frontend.default.validation` field):
          
          apiVersion: gateway.networking.k8s.io/v1
          kind: Gateway
@@ -856,7 +856,7 @@ You can also specify unique trust sources for individual ports. A per-port confi
 
   5. Optional: configure the client validation mode.
 
-By default, GKE Gateways enforce strict client certificate validation (`AllowValidOnly`). To allow invalid or missing client certificates, in the `frontendValidation.default` configuration, set the value of the `mode` key to `AllowInsecureFallback`:
+By default, GKE Gateways enforce strict client certificate validation (`AllowValidOnly`). To allow invalid or missing client certificates, in the `frontend.default.validation` configuration, set the value of the `mode` key to `AllowInsecureFallback`:
          
          apiVersion: gateway.networking.k8s.io/v1
          kind: Gateway
@@ -867,13 +867,14 @@ By default, GKE Gateways enforce strict client certificate validation (`AllowVal
          spec:
            gatewayClassName: gke-l7-global-external-managed
            tls:
-             frontendValidation:
+             frontend:
                default:
-                 caCertificateRefs:
-                 - kind: ConfigMap
-                   group: ""
-                   name: my-config
-                 mode: AllowInsecureFallback
+                 validation:
+                   caCertificateRefs:
+                   - kind: ConfigMap
+                     group: ""
+                     name: my-config
+                   mode: AllowInsecureFallback
            listeners:
            - name: foo-https
              protocol: HTTPS
@@ -1379,6 +1380,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

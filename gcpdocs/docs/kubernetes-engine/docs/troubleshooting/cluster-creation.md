@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/cluster-creation/
 title: Troubleshoot cluster creation \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:13:51.658870+00:00
+fetched_at: 2026-10-31T05:50:28.406780+00:00
 ---
 
 # Troubleshoot cluster creation  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
 
-Failures during Google Kubernetes Engine (GKE) cluster creation can prevent you from provisioning necessary infrastructure. A common cause for failures is a violation of the `constraints/compute.vmExternalIpAccess` policy. Use this page to help you troubleshoot and resolve cluster creation failures caused by this organization policy.
+Failures during Google Kubernetes Engine (GKE) cluster creation can prevent you from provisioning necessary infrastructure. Common causes for failures are violations of the `constraints/compute.vmExternalIpAccess` or `constraints/compute.restrictVpcPeering` organization policies. Use this page to help you troubleshoot and resolve cluster creation failures caused by these organization policies.
 
 This information is important for Platform admins and operators or other users responsible for creating and managing GKE clusters within a Google Cloud organization. For more information about the common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
@@ -62,6 +62,25 @@ To resolve this issue, ensure that the effective policy for the constraint `cons
 
 After setting the constraint to `Allow All`, delete the failed cluster and create a new cluster. This is required because repairing the failed cluster is not possible.
 
+## Error: Constraint constraints/compute.restrictVpcPeering violated
+
+An error similar to the following can occur when you try to create a private GKE cluster that uses VPC Network Peering to connect your VPC network to the Google-managed control plane project:
+    
+    
+    Constraint constraints/compute.restrictVpcPeering violated for project
+    
+
+If you configure the [`constraints/compute.restrictVpcPeering`](https://docs.cloud.google.com/organization-policy/reference/org-policy-constraints#constraints/compute.restrictVpcPeering) organization policy constraint on the organization, folder, or project that owns the cluster's VPC network, the policy blocks GKE from peering the control plane VPC network with your VPC network unless the Google-managed producer hierarchy is allowed.
+
+To resolve this issue, use one of the following options:
+
+  * Create a cluster that uses [Private Service Connect](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/private-service-connect) for control plane connectivity instead of VPC Network Peering.
+  * Update the `constraints/compute.restrictVpcPeering` policy on the project, folder, or organization that owns the cluster's VPC network to add the Google service producer organization (`under:organizations/433637338589`) to the `allowedValues` field.
+
+
+
+After updating the organization policy, delete the failed cluster and create a new cluster.
+
 ## What's next
 
   * If you can't find a solution to your problem in the documentation, see [Get support](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further help, including advice on the following topics:
@@ -76,6 +95,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

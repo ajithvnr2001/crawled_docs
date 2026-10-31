@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner-omni/upgrade-deployment/
 title: Upgrade a Spanner Omni deployment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:40:53.933625+00:00
+fetched_at: 2026-10-31T05:46:55.811857+00:00
 ---
 
 # Upgrade a Spanner Omni deployment  |  Google Cloud Documentation
@@ -89,7 +89,7 @@ In VM deployments, download and extract the target release package, and then use
 
 Replace the following:
 
-     * `TARGET_VERSION`: The target version to upgrade to, for example, `2026.r4-lts.1`.
+     * `TARGET_VERSION`: The target version to upgrade to, for example, `2026.r5`.
      * `EXTRACT_DIR`: The directory where you extract the release package, for example, `/tmp/target_spanner/`.
   3. Initiate rollout preparation by running the `rollouts prepare` command from the extracted CLI:
          
@@ -126,7 +126,7 @@ Replace the following:
 
     * `POD_NAME`: The name of the server pod, for example, `spanner-a-0`.
     * `NAMESPACE`: The Kubernetes namespace of the deployment, for example, `spanner-ns`.
-    * `TARGET_VERSION`: The target version to upgrade to, for example, `2026.r4-lts.1`.
+    * `TARGET_VERSION`: The target version to upgrade to, for example, `2026.r5`.
 
 
 
@@ -175,7 +175,7 @@ If you deploy Spanner Omni on Kubernetes without Helm, run a standalone Kubernet
 Replace the following:
 
      * `NAMESPACE`: The Kubernetes namespace of the deployment, for example, `spanner-ns`.
-     * `TARGET_VERSION`: The target version to upgrade to, for example, `2026.r4-lts.1`.
+     * `TARGET_VERSION`: The target version to upgrade to, for example, `2026.r5`.
      * `ROOT_SERVER_ENDPOINT`: The endpoint of an active root server pod, for example, `spanner-a-0.pod.spanner-ns`.
   2. Apply the manifest to run the preparation job:
          
@@ -294,9 +294,9 @@ Explicitly pass `--set skipPrepareUpgrade=true` so Helm skips the pre-upgrade ho
 
 Replace the following:
 
-  * `CHART_VERSION`: The target Helm chart version, for example, `1.0.0`.
+  * `CHART_VERSION`: The target Helm chart version, for example, `1.1.0`.
   * `NAMESPACE`: The Kubernetes namespace of the deployment, for example, `spanner-ns`.
-  * `TARGET_VERSION`: The target container image tag, for example, `2026.r4-lts.1`.
+  * `TARGET_VERSION`: The target container image tag, for example, `2026.r5`.
 
 
 
@@ -469,7 +469,7 @@ In Helm deployments, update the container image tag back to the earlier version:
 
 Replace the following:
 
-  * `CHART_VERSION`: The Helm chart version, for example, `1.0.0`.
+  * `CHART_VERSION`: The Helm chart version, for example, `1.1.0`.
   * `NAMESPACE`: The Kubernetes namespace of the deployment, for example, `spanner-ns`.
   * `SOURCE_VERSION`: The earlier container image tag to revert to, for example, `2026.r2-beta.3`.
 
@@ -509,6 +509,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

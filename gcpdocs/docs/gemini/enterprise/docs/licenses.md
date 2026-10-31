@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/licenses/
 title: Get subscriptions and assign licenses for Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:20.687119+00:00
+fetched_at: 2026-10-31T05:47:04.066671+00:00
 ---
 
 # Get subscriptions and assign licenses for Gemini Enterprise  |  Google Cloud Documentation
@@ -54,12 +54,7 @@ You can purchase subscriptions for the Gemini Enterprise Standard, Gemini Enterp
 
 ### Subscription seat quantity limits
 
-When you purchase or modify a seat-based subscription directly through the Google Cloud console, automatic seat quantity caps apply based on your Cloud Billing account type:
-
-  * **Self-serve (or Online) and resold billing accounts:** Limited to a maximum of 25 seats per account when managing subscriptions using Google Cloud console.
-  * **Invoiced (or Offline) account billing accounts:** Limited to a maximum of 1,000 seats per account.
-
-
+When you purchase or modify a seat-based subscription directly through the Google Cloud console, an automatic seat quantity cap applies. The maximum number of seats depends on your Cloud Billing account.
 
 If your organization requires more seats or if you encounter the maximum seat limit error when trying to add licenses to an existing subscription, contact your Google Cloud sales representative or account manager to purchase additional licenses through an offline order or request an allowlist exemption.
 
@@ -84,7 +79,9 @@ Before starting the procedures on this page, make sure you meet the following pr
     * Granting at least the Gemini Enterprise User role to any users you'll license to use Gemini Enterprise.
   * Verify that billing is enabled for your Google Cloud project. For more information, see [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
 
-**Note:** To subscribe to the Gemini Enterprise Pay-as-you-go edition, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
+
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
 
   * Confirm that you have the required IAM roles and permissions:
 
@@ -161,7 +158,9 @@ To subscribe to the Gemini Enterprise Standard or Plus edition, do the following
 
 With a Pay-as-you-go subscription, you pay monthly for what you consume. For more information, see [Quotas and pricing for the Pay-as-you-go edition](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#quotas-pay-as-you-go). You can use the subscription with any project connected to your billing account.
 
-**Note:** To subscribe to the Gemini Enterprise Pay-as-you-go edition, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
+
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
 
 To subscribe to the Gemini Enterprise Pay-as-you-go edition, do the following:
 
@@ -182,6 +181,10 @@ To subscribe to the Gemini Enterprise Pay-as-you-go edition, do the following:
      1. In the **Select a project** drop-down, select your project.
      2. Choose a **Location type** for your subscription. If you don't have compliance or regulatory reasons to locate your data in the US or EU multi-regions, Google recommends that you choose the global multi-region for maximum availability and low latency.
   6. Click **Create > Confirm**.
+
+  7. If your project is linked to a self-serve (online) Cloud Billing account, the **Buy credits** window opens. Select an amount and a payment method, and then complete the purchase. Optionally, set up auto-reload.
+
+If prepaid credits aren't set up on the billing account yet, buying credits is required—if you cancel, the subscription isn't created and you aren't charged. For more information, see [Manage prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits).
 
 
 
@@ -263,9 +266,9 @@ The method for adding more licenses depends on how you originally purchased your
 
 
 
-**Note:** When updating your subscription seat count in the Google Cloud console, maximum seat limits apply based on your billing account type (up to **25 seats** for self-serve (or online) and resold billing accounts, and up to **1,000 seats** for invoiced (or offline) billing accounts). For more information, see Subscription seat quantity limits.
+**Note:** When updating your subscription seat count in the Google Cloud console, a maximum seat limit applies that depends on your Cloud Billing account. For more information, see Subscription seat quantity limits.
 
-If your existing subscription exceeds these thresholds (for example, if it was initially provisioned through a sales-led offline order), attempting to add more licenses directly through the Google Cloud console might result in a seat limit error. Contact your Google Cloud sales representative or account manager to adjust your license count or request an allowlist exception.
+If your existing subscription exceeds this limit (for example, if it was initially provisioned through a sales-led offline order), attempting to add more licenses directly through the Google Cloud console might result in a seat limit error. Contact your Google Cloud sales representative or account manager to adjust your license count or request an allowlist exception.
 
 Follow these steps to update the license count if you purchased through the Google Cloud console:
 
@@ -792,6 +795,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster/
 title: Create cluster \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:45.674478+00:00
+fetched_at: 2026-10-31T05:40:13.659457+00:00
 ---
 
 # Create cluster  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -541,7 +541,7 @@ The following parameters are used to define the node pools for both login and wo
   * BOOT_DISK_TYPE: The boot disk type for the login node (for example, `pd-standard`, `pd-ssd`). 
   * BOOT_DISK_SIZE_GB: The boot disk size in GB for the login node. 
   * LABELS: A set of key/value pairs to label the node pool. 
-  * NODE_IMAGE (corresponds to `node_image` inside a `node_pools` object): The VM image the node pool's nodes boot from, as a full image or image family resource path (for example, `projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY `). If you omit it, the node pool uses the current default image for its machine type, which advances over time. Set it to keep the node pool on a specific image. Changing a node pool's image recreates its nodes. 
+  * NODE_IMAGE (corresponds to `node_image` inside a `node_pools` object): The VM image the node pool's nodes boot from, as a full image or image family resource path (for example, `projects/IMAGE_PROJECT/global/images/IMAGE` or `projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY `). If you omit it, the node pool uses the current default image for its machine type, which advances over time. Set it to keep the node pool on a specific image. Changing a node pool's image recreates its nodes. 
 
 
 
@@ -639,6 +639,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

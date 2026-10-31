@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/onepassword-audit-events/
 title: Collect 1Password Audit Events logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:52:59.560634+00:00
+fetched_at: 2026-10-31T06:00:05.386470+00:00
 ---
 
 # Collect 1Password Audit Events logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -116,13 +116,13 @@ If your account is hosted on | Your Events API base URL is
   * Test your credentials before proceeding with the integration:
         
         # Replace with your actual bearer token and base URL
-        BEARER_TOKEN=&<quot;your-bearer->token"
+        BEARER_TOKEN="<your-bearer-token>"
         API_BASE="https://events.1password.com"
         
         # Test API access using the introspect endpoint
         curl -v \
             -H "Authorization: Bearer $BEARER_TOKEN" \
-            ";$API_BASE/api/v2/auth/introspect"
+            "$API_BASE/api/v2/auth/introspect"
         
 
 
@@ -306,11 +306,11 @@ Variable Name | Example Value | Description
                """Raised when the 1Password Events API call fails.
            
                State must never be written on a failed fetch. Saving a rejected cursor back
-               would wedge the collector>: every later run would fail on page 1, ingest
+               would wedge the collector: every later run would fail on page 1, ingest
                nothing, and still report success.
                """
            
-           def parse_datetime(value: str) - datetime:
+           def parse_datetime(value: str) -> datetime:
                """Parse a 1Password `timestamp` into an aware datetime.
            
                The API returns RFC 3339 with either a numeric offset and whole seconds
@@ -332,25 +332,25 @@ Variable Name | Example Value | Description
                """Fetch 1Password audit events and write them to Cloud Storage as NDJSON."""
                if not all([GCS_BUCKET, API_BASE, BEARER_TOKEN]):
                    # Raise rather than return: a bare return acks the Pub/Sub message and
-                   # repo[rts th](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)e run as successful, silently discarding the schedule tick.
+                   # reports the run as successful, silently discarding the schedule tick.
                    raise RuntimeError('Missing required environment variables '
-                                   '(G[CS_BU](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state)CKET, OP_API_BASE, OP_BEARER_TOKEN)')
+                                   '(GCS_BUCKET, OP_API_BASE, OP_BEARER_TOKEN)')
            
-               b[ucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state) = storage_client.bucket(GCS_BUCKET)
+               bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(GCS_BUCKET)
                state = load_state(bucket, STATE_KEY)
            
                now = datetime.now(timezone.utc)
            
                print('--- Processing endpoint: auditevents ---')
            
-               saved_cursor = state.get('cursor_auditevents')
-               [seen_](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state)uuids = set(state.get('seen_uuids', []))
+               saved_cursor = [state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('cursor_auditevents')
+               seen_uuids = set([state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('seen_uuids', []))
            
                # If the cursor is gone, resume from the last event actually written instead
                # of replaying a blind 24 hours. LOOKBACK_HOURS applies only on a cold start.
                if saved_cursor:
                    start_time = None
-               elif state.get('last_event_time'):
+               elif [state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('last_event_time'):
                    start_time = parse_datetime(state['last_event_time'])
                    print(f'No cursor found. Resuming from the last recorded event at {start_time.isoformat()}')
                else:
@@ -369,7 +369,7 @@ Variable Name | Example Value | Description
            
                # The cursor path can re-deliver events, so filter by uuid before writing.
                fresh = [r for r in records if str(r.get('uuid', '')) not in seen_uuids]
-               print(f'Fetched {len(records)} records, {len(f[resh](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string))} new after deduplication')
+               print(f'Fetched {len(records)} records, {len(fresh)} new after deduplication')
            
                if fresh:
                    timestamp = now.strftime('%Y%m%dT%H%M%SZ')
@@ -379,14 +379,14 @@ Variable Name | Example Value | Description
                    ndjson = '\n'.join(
                        json.dumps(r, ensure_ascii=False) for r in fresh
                    ) + '\n'
-                   blob.upload_from_string(
+                   blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
                        ndjson, content_type='application/x-ndjson'
                    )
            
                    print(f'Wrote {len(fresh)} auditevents records '
                        f'to gs://{GCS_BUCKET}/{object_key}')
            
-               # State is written only after any data is dur>ably uploaded.
+               # State is written only after any data is durably uploaded.
                new_state = dict(state)
                if last_cursor:
                    new_state['cursor_auditevents'] = last_cursor
@@ -400,7 +400,7 @@ Variable Name | Example Value | Description
                        parsed = parse_datetime(stamp)
                    except ValueError:
                        continue
-                   if newest is None or parsed  newest:
+                   if newest is None or parsed > newest:
                        newest = parsed
                if newest:
                    new_state['last_event_time'] = newest.isoformat()
@@ -410,7 +410,7 @@ Variable Name | Example Value | Description
                        {str(r.get('uuid', '')) for r in records if r.get('uuid')}
                    )
            
-               new_state['[;last_run'](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text)] = now.isoformat()
+               new_state['last_run'] = now.isoformat()
                save_state(bucket, STATE_KEY, new_state)
            
                print(f'Successfully processed {len(fresh)} records')
@@ -421,26 +421,26 @@ Variable Name | Example Value | Description
                Only a missing object is treated as a cold start. Any other error is raised:
                swallowing it would drop the cursor and replay the lookback window.
                """
-               blob [= bucket.blob(key)](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)
+               blob = bucket.blob(key)
                try:
-                   return json.loads(blob.download_as_text())
+                   return json.loads(blob.[download_as_text](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text)())
                except NotFound:
-                   print('No state file foun[d. St](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state)arting from the lookback window.')
+                   print('No state file found. Starting from the lookback window.')
                    return {}
            
-           d[ef](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state) save_state(bucket, key, state: dict):
+           def save_state(bucket, key, state: dict):
                """Write the collector state to Cloud Storage.
            
                Failures are raised, not logged. If the state write fails after the data was
                uploaded, the next run resumes from the stale cursor and duplicates it.
                """
                blob = bucket.blob(key)
-               blob.upload_from_string(
+               blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
                    json.dumps(state, indent=2),
                    content_type='application/json',
                )
-               print(f"Saved state: cursor={state.get('cursor_auditevents')!r} "
-                   f"last_event_time={state.get('last_event_time')}")
+               print(f"Saved state: cursor={[state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('cursor_auditevents')!r} "
+                   f"last_event_time={[state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('last_event_time')}")
            
            def fetch_endpoint(api_base, path, bearer_token, saved_cursor,
                            start_time, page_size, max_records):
@@ -461,7 +461,7 @@ Variable Name | Example Value | Description
                    max_records: Max total events per run
            
                Returns:
-                   Tuple of (r>ecords list, cursor to persist).
+                   Tuple of (records list, cursor to persist).
            
                Raises:
                    FetchError: on any API or transport failure, so that a rejected cursor is
@@ -485,13 +485,13 @@ Variable Name | Example Value | Description
                while True:
                    page_num += 1
            
-                   if len(records) = max_records:
+                   if len(records) >= max_records:
                        print(f'Reached max_records limit ({max_records})')
                        break
            
                    if cursor:
                        # Continuing cursor: resume from the last position.
-                       body = json.dumps({'cursor'>;: cursor})
+                       body = json.dumps({'cursor': cursor})
                    else:
                        # ResetCursor: first request, or the cursor was lost.
                        reset = {'limit': page_size}
@@ -509,7 +509,7 @@ Variable Name | Example Value | Description
                    # Documented limits are 600 requests per minute and 30,000 per hour.
                    if response.status == 429:
                        rate_limit_retries += 1
-                       if rate_limit_retries  MAX_RATE_LIMIT_RETRIES:
+                       if rate_limit_retries > MAX_RATE_LIMIT_RETRIES:
                            raise FetchError('Rate limited repeatedly; giving up without saving state')
                        raw_retry_after = response.headers.get('Retry-After')
                        try:

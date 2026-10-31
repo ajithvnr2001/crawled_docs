@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/release-notes/
 title: AlloyDB Omni (Container orchestrator) release notes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:52:27.347476+00:00
+fetched_at: 2026-10-31T05:47:38.267887+00:00
 ---
 
 # AlloyDB Omni (Container orchestrator) release notes  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation
@@ -29,6 +29,12 @@ This page contains release notes for features and updates to AlloyDB Omni.
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydbomni-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Issue
+
+In AlloyDB Omni Kubernetes operator versions earlier than 1.8.2, the operator doesn't reload its renewed `dbs-al-cert-l2-operator` mutual TLS (mTLS) client certificate into existing high availability (HA) health-check connections. Approximately 60 days after the certificate is issued, health checks might fail with a `tls: expired certificate` error and trigger an unplanned failover. To prevent this issue, upgrade to operator version 1.8.2 or later. Until you upgrade, rotate the `dbs-al-cert-l2-operator` Secret in the `alloydb-omni-system` namespace and restart the `local-controller-manager` Deployment at least 10 days before the certificate expires. For instructions, see [Mitigate operator client certificate expiration in operator versions earlier than 1.8.2](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manage-certificates-kubernetes-operator#mitigate-operator-client-certificate-expiration).
 
 ## October 21, 2026
 
@@ -153,7 +159,7 @@ Fixed a concurrent read-modify-write race condition on `pg_hba.conf` between con
 
 Fixed
 
-Fixed an issue where the health check prober could post a false failure status because it did not hot-reload cached client connections when a [certificate](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manually-rotate-certificates) expired or was revoked.
+Fixed an issue where the health check prober could post a false failure status because it did not hot-reload cached client connections when a [certificate](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manually-rotate-certificates) expired or was revoked. If you run an operator version earlier than 1.8.2, see [Mitigate operator client certificate expiration in operator versions earlier than 1.8.2](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manage-certificates-kubernetes-operator#mitigate-operator-client-certificate-expiration).
 
 Fixed
 

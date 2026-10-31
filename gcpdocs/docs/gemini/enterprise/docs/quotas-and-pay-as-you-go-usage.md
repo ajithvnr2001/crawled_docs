@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage/
 title: Quotas and pay-as-you-go usage \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:34.663878+00:00
+fetched_at: 2026-10-31T05:46:55.237309+00:00
 ---
 
 # Quotas and pay-as-you-go usage  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ Within an edition's quota pool, the following rules apply. For example, if you h
 
 ### Single-user quota limits
 
-By default, all users share the edition's quota pool without individual limits. To restrict consumption per user, turn on the **Limit any single-user's quota** setting on the **Usage & Spending > Usage** page in the Google Cloud console.
+By default, all users share the edition's quota pool without individual limits. To restrict consumption per user, turn on the **Limit any single-user's quota** setting on the **Usage & spend > Usage** page in the Google Cloud console.
 
 **Note:** The user quota multiplier doesn't apply to AI developer tools, including Google Antigravity.
 
@@ -130,7 +130,7 @@ AI developer tools2 |  Included Google Antigravity, Antigravity for IDEs, and An
   
 1 For information about Gemini Notebook Enterprise usage limits, see the [Gemini Notebook Enterprise documentation](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview#usage-limits).
 
-2 AI developer tools are available only for [invoiced Cloud Billing accounts](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), including accounts with a free-trial subscription.
+2 AI developer tools are available with self-serve (online) and invoiced [Cloud Billing accounts](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). Free-trial subscriptions don't include access to AI developer tools.
 
 3 Although quotas are listed as a monthly per-user amount, Gemini Enterprise enforces them on a rolling seven-day basis as a shared pool. Gemini Enterprise calculates your project's weekly quota by dividing the monthly per-user value by four and multiplying it by your project's total licensed seats, including free-trial seats. Any user in your edition can draw from this shared weekly pool. Unused quota doesn't roll over to the next week.
 
@@ -138,9 +138,11 @@ AI developer tools2 |  Included Google Antigravity, Antigravity for IDEs, and An
 
 ### Quotas and pricing for the Pay-as-you-go edition
 
-**Note:** To subscribe to the Gemini Enterprise Pay-as-you-go edition, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
 
-The Gemini Enterprise Pay-as-you-go edition has no feature quota limits, as you pay for what you use. To get started, you need to have an invoiced Cloud Billing account and purchase a subscription to the Pay-as-you-go edition. For more information, see [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) and [Get subscriptions and assign licenses](https://docs.cloud.google.com/gemini/enterprise/docs/licenses#about-subscriptions).
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
+
+The Gemini Enterprise Pay-as-you-go edition has no feature quota limits, as you pay for what you use. To get started, purchase a subscription to the Pay-as-you-go edition. If your project is linked to a self-serve Cloud Billing account, you pay for usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits). For more information, see [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) and [Get subscriptions and assign licenses](https://docs.cloud.google.com/gemini/enterprise/docs/licenses#about-subscriptions).
 
 The following table lists the rates and pricing for this edition:
 
@@ -162,7 +164,7 @@ General purpose agents made by Google | Deep Research | [Agent Platform prices](
 AI developer tools1 |  Gemini models  | [Agent Platform prices](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#cost-of-building-and-deploying-ai-models-in-agent-platform)  
 Claude models  | Claude pricing  
   
-1 AI developer tools are available only for [invoiced Cloud Billing accounts](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), including accounts with a free-trial subscription.
+1 AI developer tools are available with self-serve (online) and invoiced [Cloud Billing accounts](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). Free-trial subscriptions don't include access to AI developer tools.
 
 #### Claude pricing
 
@@ -348,7 +350,7 @@ Regional search requests per minute per project per location (Global, US, EU) | 
   
 ## Pay-as-you-go usage above quota
 
-Feature usage is restricted when you exceed the feature quotas of your Gemini Enterprise edition. To avoid interruptions, a Gemini Enterprise administrator can turn on the **Pay-as-you-go usage above quota** setting. Pay-as-you-go usage above quota (formerly referred to as overages) is available only if your project has an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) and at least one active, non-free-trial subscription. Free-trial subscriptions include the base pooled quotas for their edition, including AI developer tools credits, but aren't eligible for pay-as-you-go usage. To verify your account type, see [Find out your Cloud Billing account type and charging cycle](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle#view-your-charging-cycle).
+Feature usage is restricted when you exceed the feature quotas of your Gemini Enterprise edition. To avoid interruptions, a Gemini Enterprise administrator can turn on the **Pay-as-you-go usage above quota** setting. Pay-as-you-go usage above quota (formerly referred to as overages) is available only if your project has at least one active, non-free-trial subscription. If your project is linked to a self-serve Cloud Billing account, you pay for usage above quota with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits). If it's linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage above quota is billed on your monthly invoice. Free-trial subscriptions include the base pooled quotas for their edition, except for AI developer tools, and aren't eligible for pay-as-you-go usage. To verify your account type, see [Find out your Cloud Billing account type and charging cycle](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle#view-your-charging-cycle).
 
 **Note:** Claude models are available only with pay-as-you-go usage. Ensure that you have turned on **Pay-as-you-go usage above quota** for all editions where you turn on Claude models for your end users.
 
@@ -381,7 +383,7 @@ AI developer tools2 |  Gemini models  | Dollars per month3 in credits for Antigr
 Claude models  | n/a - only available through Pay-as-you-go above quota charges. | Claude pricing  
 1 For information about Gemini Notebook Enterprise usage limits, see the [Gemini Notebook Enterprise documentation](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview#usage-limits). 
 
-2 AI developer tools are available only for [invoiced Cloud Billing accounts](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), including accounts with a free-trial subscription.
+2 AI developer tools are available with self-serve (online) and invoiced [Cloud Billing accounts](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). Free-trial subscriptions don't include access to AI developer tools.
 
 3 Although quotas are listed as a monthly per-user amount, Gemini Enterprise enforces them on a rolling seven-day basis as a shared pool. Gemini Enterprise calculates your project's weekly quota by dividing the monthly per-user value by four and multiplying it by your project's total licensed seats, including free-trial seats. Any user in your edition can draw from this shared weekly pool. Unused quota doesn't roll over to the next week. 
 
@@ -446,6 +448,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

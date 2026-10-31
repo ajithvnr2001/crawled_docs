@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/quotas/
 title: Cloud Run Quotas and Limits \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:19.235329+00:00
+fetched_at: 2026-10-31T05:49:35.403155+00:00
 ---
 
 # Cloud Run Quotas and Limits  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Revision | Maximum number of revisions serving traffic | 4000 | per project and 
 Revision tag | Maximum number of [revision tags](https://docs.cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration#tags). When the revision tag limit is exceeded, Cloud Run executes tag cleanup on the service. For the service for which a new tag is being created, tags that don't have a specified traffic percentage are automatically deleted in historical order. | 2000 | per project and region | Yes  
 Job execution | Retention limit for completed job executions. When the number of completed executions for a job reaches this limit, executions are automatically deleted in historical order | 1,000 | per job | No  
 Job execution task1 | Maximum number of [tasks running in parallel](https://docs.cloud.google.com/run/docs/configuring/parallelism#limit) | Depends on selected region and [CPU](https://docs.cloud.google.com/run/docs/configuring/jobs/cpu) and [memory](https://docs.cloud.google.com/run/docs/configuring/jobs/memory-limits) configurations. This limit might be greater in high-capacity regions or lower in recently opened regions. You can view your quota in the [Quotas and system limits](https://console.cloud.google.com/iam-admin/quotas) console page. | per job execution | Yes  
-Job execution task | Maximum tasks timeout value | 168 hours (7 days), or 1 hour if using GPUs | per job execution | No  
+Job execution task | Maximum tasks timeout value | 168 hours (7 days), or 12 hours if using GPUs | per job execution | No  
 Job execution task | Maximum number of tasks in a single job | 10,000 | per job execution | No  
 Job execution task | Maximum number of task retries in a job | 10 | per job execution | No  
 Environment variables | Maximum number of environment variables for each container | 1000 | per job or per service | No  
@@ -184,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

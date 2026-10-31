@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/private-services-access/
 title: Private services access \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:01.434921+00:00
+fetched_at: 2026-10-31T05:47:37.966667+00:00
 ---
 
 # Private services access  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -168,14 +168,18 @@ For more information about the service producer side, see [Enable private servic
 
 ## Restrict private connections with organization policies
 
-You can use organization policy custom constraints to define restrictions for private connections. For example, configuring custom constraints with the resource type `servicenetworking.googleapis.com/Connection` lets you do the following:
+You can restrict private connections by using organization policies. You can use the following options to restrict private connections:
 
-  * Specify which VPC networks can connect with private connections
-  * Specify restrictions for the names of allocated ranges that you can use to create private connections
+  * You can use the [`constraints/compute.restrictVpcPeering`](https://docs.cloud.google.com/organization-policy/reference/org-policy-constraints#constraints/compute.restrictVpcPeering) organization policy constraint to restrict peering connections to your organization, folder, or project.
+
+If you use this constraint, creating a private connection to a Google service fails unless you add the Google service producer organization (`under:organizations/433637338589`) to the constraint's `allowedValues` list.
+
+  * You can use organization policy [custom constraints](https://docs.cloud.google.com/vpc/docs/custom-constraints) to define restrictions for private connections. For example, configuring custom constraints with the resource type `servicenetworking.googleapis.com/Connection` lets you do the following:
+
+    * Specify which VPC networks can connect with private connections
+    * Specify restrictions for the names of allocated ranges that you can use to create private connections
 
 
-
-For more information, see [Manage resources by using custom constraints](https://docs.cloud.google.com/vpc/docs/custom-constraints).
 
 ## Pricing
 
@@ -208,6 +212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

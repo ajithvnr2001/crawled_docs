@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-observability/
 title: Monitor models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:50:38.039990+00:00
+fetched_at: 2026-10-31T05:40:26.857789+00:00
 ---
 
 # Monitor models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -70,6 +70,18 @@ For descriptions of each metric, see the "`aiplatform`" section on the [Google C
 
 
 
+### View 1-second resolution
+
+The model observability dashboard adds 1-second resolution options to its existing charts when inference request metadata logging is on. The 1-second options read inference request metadata logs instead of one-minute aggregate metrics, so they show bursts that a one-minute average hides.
+
+The 1-second options need inference request metadata logging on the project and a `_Default` log bucket upgraded to Observability Analytics. To turn on logging, see [Enable inference request metadata logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging#enable).
+
+**Note:** Inference request metadata logging covers Gemini and Claude models, on Provisioned Throughput and every pay-as-you-go option that the logs support. Cloud Logging charges apply.
+
+To view them, click **Show all metrics** to open the model observability dashboard. Charts that support 1-second resolution have a drop-down in their header: Model requests per second (QPS), Token count by model, Model invocations by response code, Model invocations error rate (%), and the charts in the Tokens section. Each drop-down keeps the existing **1-minute resolution from metrics** option as the default and adds a **1-second resolution from logs** option. Select the 1-second option and set the time range to 200 seconds or less to see one point per second; at longer ranges, each point is the average per second in its bucket. Until logging is on, the 1-second options show "No inference request logs in this window. Turn on logging to see 1-second data." in the chart legend, and the 1-minute options work as before.
+
+![A model observability chart with the 1-second resolution option selected](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/model-observability-1-second-option.png) A model observability chart with its drop-down set to a 1-second resolution from logs option. 
+
 ## Monitor model endpoint traffic
 
 Use the following instructions to monitor traffic to your endpoint in the Metrics Explorer.
@@ -108,6 +120,7 @@ To view the metrics you add to your project using a dashboard, see [Dashboards o
 
 ## What's next
 
+  * To analyze individual requests, including second-level bursts and cache hit rate, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging).
   * To learn how to create alerts for your dashboard, see [Alerting overview](https://docs.cloud.google.com/monitoring/alerts).
   * To learn about metrics data retention, see the [Monitoring quotas and limits](https://docs.cloud.google.com/monitoring/quotas#data_retention_policy).
   * To learn about data at rest, see [Protecting data at rest](https://docs.cloud.google.com/monitoring/compliance/data-at-rest).
@@ -119,6 +132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

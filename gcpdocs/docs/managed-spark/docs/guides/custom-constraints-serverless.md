@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/custom-constraints-serverless/
 title: Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:14.711540+00:00
+fetched_at: 2026-10-31T05:52:23.871819+00:00
 ---
 
 # Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ Organization Policy provides [predefined constraints](https://docs.cloud.google.
 
 ## Benefits
 
-You can use a custom organization policy to allow or deny specific operations on Managed Service for Apache Spark batches, sessions, and session templates. For example, if a request to create a batch workload fails to satisfy custom constraint validation as set by your organization policy, the request will fail, and an error will be returned to the caller.
+You can use a custom organization policy to allow or deny specific operations on Managed Service for Apache Spark batches, sessions, and session templates (called _runtime profiles_ in the Google Cloud console). For example, if a request to create a batch workload fails to satisfy custom constraint validation as set by your organization policy, the request will fail, and an error will be returned to the caller.
 
 ## Policy inheritance
 
@@ -128,7 +128,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 ## Create a custom constraint
 
-A custom constraint is defined in a YAML file by the resources, methods, conditions, and actions it is applied to. Managed Service for Apache Spark supports custom constraints that are applied to the `CREATE` method of the batch and session resources.
+A custom constraint is defined in a YAML file by the resources, methods, conditions, and actions it is applied to. Managed Service for Apache Spark supports custom constraints that are applied to the `CREATE` method of the batch and session resources, and the `CREATE` and `UPDATE` methods of the session template (runtime profile) resource.
 
 For more information about how to create a custom constraint, see [Creating and managing custom organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints).
 
@@ -196,15 +196,15 @@ Replace the following:
   * `DESCRIPTION`: a human-friendly description of the constraint to display as an error message when the policy is violated. This field has a maximum length of 2000 characters. Sample description: "Only allow session creation if it sets an allowable TTL".
 
 
-**Note:** When you set up custom policies for sessions, you must include a constraint on the `sessionTemplate` field. This constraint must ensure that either the template ID matches an entry in the approved template IDs allow list, or that the `sessionTemplate` is left empty. This is essential to maintain organization policy restrictions and prevent users from overriding them using session templates.
+**Note:** When you set up custom policies for sessions, you must include a constraint on the `sessionTemplate` field. This constraint must ensure that either the template ID matches an entry in the approved template IDs allow list, or that the `sessionTemplate` is left empty. This requirement is essential to maintain organization policy restrictions and prevent users from overriding them using session templates (runtime profiles).
 
-### Create a custom constraint for a session template resource
+### Create a custom constraint for a session template (runtime profile) resource
 
 **Preview**
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-To create a YAML file for a Managed Service for Apache Spark custom constraint for a session template resource, use the following format:
+To create a YAML file for a Managed Service for Apache Spark custom constraint for a session template (runtime profile) resource, use the following format:
     
     
     name: organizations/ORGANIZATION_ID/customConstraints/CONSTRAINT_NAME
@@ -380,7 +380,7 @@ Replace `POLICY_PATH` with the full path to your organization policy YAML file. 
 
 ## Test the custom constraint
 
-This section describes how to test custom constraints for batch, session, and session template resources.
+This section describes how to test custom constraints for batch, session, and session template (runtime profile) resources.
 
 ### Test the custom constraint for a batch resource
 
@@ -424,7 +424,7 @@ Sample output:
     creation if its name does not start with 'orgName'"]
     
 
-### Test the custom constraint for a session template resource
+### Test the custom constraint for a session template (runtime profile) resource
 
 **Preview**
 
@@ -585,13 +585,13 @@ The following session attributes are available to use when you create custom con
 
 
 
-### Supported session template constraints
+### Supported session template (runtime profile) constraints
 
 **Preview**
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-The following session template attributes are available to use when you create custom constraints on serverless session templates:
+The following session template attributes are available to use when you create custom constraints on serverless session templates (runtime profiles):
 
 **General**
 
@@ -945,13 +945,13 @@ Session executor memory setting must end with a suffix `m` and be less than 2000
         description: Only allow session creation if the executor memory setting ends
         with a suffix 'm' and is less than 20000 m.  
   
-### Example custom constraints for a session template resource
+### Example custom constraints for a session template (runtime profile) resource
 
 **Preview**
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-The following table provides examples of Managed Service for Apache Spark session template custom constraints:
+The following table provides examples of Managed Service for Apache Spark session template (runtime profile) custom constraints:
 
 Description | Constraint syntax  
 ---|---  
@@ -1094,6 +1094,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

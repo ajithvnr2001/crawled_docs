@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/application-design-center/docs/agent-skills-overview/
 title: App Design Center agent skills \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:22:29.084401+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-31T05:48:02.484760+00:00
 ---
 
 # App Design Center agent skills  |  Application Design Center  |  Google Cloud Documentation
@@ -35,9 +21,7 @@ Send feedback
 
 #  App Design Center agent skills Stay organized with collections  Save and categorize content based on your preferences. 
 
-Application Design Center provides an agent skill, [`application-design-center-design-deploy`](https://github.com/google/skills/tree/main/skills/cloud/application-design-center-design-deploy), that can help your agent accomplish common tasks. The skill contains instructions for completing basic tasks in App Design Center, such as designing, validating, deploying, and troubleshooting infrastructure. Agents that use this skill can then accomplish these tasks with higher fidelity than an agent without the skill.
-
-Agent skills are a standardized way to give AI agents specific knowledge and instructions they can reuse. They contain resources like scripts, reference materials, and templates that help the agent complete tasks accurately and reliably. For more information about skills, see [Agent Skills Overview](https://agentskills.io/home).
+Application Design Center provides the [`application-design-center-design-deploy`](https://github.com/google/skills/tree/main/skills/cloud/application-design-center-design-deploy) agent skill to let AI agents complete tasks in App Design Center, such as designing, validating, deploying, and troubleshooting infrastructure. Agent skills give AI agents reusable instructions, scripts, templates, and reference materials to complete tasks with higher accuracy and reliability. For more information about agent skills, see [Agent Skills Overview](https://agentskills.io/home).
 
 ## Install skills
 
@@ -75,6 +59,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

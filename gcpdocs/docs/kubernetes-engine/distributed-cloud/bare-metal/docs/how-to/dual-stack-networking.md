@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/dual-stack-networking/
 title: IPv4/IPv6 dual-stack networking \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:35.337540+00:00
+fetched_at: 2026-10-31T05:40:25.163072+00:00
 ---
 
 # IPv4/IPv6 dual-stack networking  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -36,6 +36,8 @@ If your cluster nodes are running [RedHat Enterprise Linux](https://docs.cloud.g
 
 
 
+
+If your cluster nodes use Stateless Address Autoconfiguration (SLAAC) for IPv6 network configuration, see Node IPv6 configuration for dual-stack networking to configure the nodes to accept Router Advertisements (RAs).
 
 ## Overview of creating a dual-stack cluster
 
@@ -99,6 +101,39 @@ In the preceding example, each machine in the Layer 2 domain, including the clus
     
     
     inet fd12::/108 scope global eth0
+
+## Node IPv6 configuration for dual-stack networking
+
+When you enable dual-stack networking, Google Distributed Cloud automatically configures each node to enable IPv6 packet forwarding by setting the `net.ipv6.conf.all.forwarding` sysctl parameter to `1`. This kernel setting is required for the cluster networking layer to route IPv6 traffic for Pods and Services between nodes.
+
+### Router advertisement considerations
+
+Enabling `net.ipv6.conf.all.forwarding` has a standard Linux kernel side effect: network interfaces stop accepting IPv6 Router Advertisements (RAs) by default. The Linux kernel assumes that a system with packet forwarding enabled functions as a router, and routers don't process RAs from other routers by default.
+
+This change can disrupt nodes that rely on Stateless Address Autoconfiguration (SLAAC) to obtain IPv6 addresses, prefixes, or default routes from the network, which can lead to a loss of node-level IPv6 connectivity.
+
+### Required configuration for SLAAC-dependent nodes
+
+If your nodes use SLAAC for their IPv6 network configuration, you must manually configure the kernel to accept RAs when IPv6 packet forwarding is enabled.
+
+To accept RAs on an interface when IPv6 forwarding is enabled, persistently set the `net.ipv6.conf.INTERFACE_NAME.accept_ra` sysctl parameter to `2` on each affected node:
+
+  1. Add the sysctl setting to a configuration file in `/etc/sysctl.d/`, such as `/etc/sysctl.d/60-ipv6-ra.conf`:
+         
+         net.ipv6.conf.INTERFACE_NAME.accept_ra=2
+         
+
+Replace `INTERFACE_NAME` with the name of the network interface, such as `eth0`.
+
+  2. Apply the sysctl setting:
+         
+         sudo sysctl --system
+         
+
+
+
+
+Setting `net.ipv6.conf.INTERFACE_NAME.accept_ra` to `2` ensures that the node can route IPv6 packets for the cluster while continuing to receive its own network configuration through RAs.
 
 ## Example: Create a dual-stack cluster
 
@@ -601,6 +636,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

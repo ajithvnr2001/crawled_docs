@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/performance-optimization/plan-resource-allocation/
 title: Plan resource allocation \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:25.492552+00:00
+fetched_at: 2026-10-31T05:57:48.749384+00:00
 ---
 
 # Plan resource allocation  |  Cloud Architecture Center  |  Google Cloud Documentation

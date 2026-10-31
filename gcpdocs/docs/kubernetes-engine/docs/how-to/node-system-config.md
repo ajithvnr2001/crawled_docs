@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-system-config/
 title: Customizing node system configuration \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:04:08.955192+00:00
+fetched_at: 2026-10-31T05:52:33.163826+00:00
 ---
 
 # Customizing node system configuration  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -155,7 +155,7 @@ When you use a node system configuration file, you use a YAML file that contains
 To use a node system configuration file in GKE Standard mode, do the following:
 
   1. Create a configuration file. This file contains your `kubelet` and `sysctl` configurations.
-  2. Add the configuration when you create a cluster, or when you create or update a node pool.
+  2. Add the configuration when you create a cluster or a node pool, or update an existing node pool.
 
 
 
@@ -197,7 +197,7 @@ For a complete list of the fields that you can add to your node system configura
 
 #### Add the configuration to a Standard node pool
 
-After you create the node system configuration, add the [`--system-config-from-file`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/container/node-pools/create#--system-config-from-file) flag by using the Google Cloud CLI. You can add this flag when you create a cluster, or when you create or update a node pool. You can't add a node system configuration by using the Google Cloud console.
+After you create the node system configuration, add the [`--system-config-from-file`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/container/node-pools/create#--system-config-from-file) flag by using the Google Cloud CLI. You can add this flag when you create a cluster or a node pool, or when you update an existing node pool. You can't add a node system configuration by using the Google Cloud console.
 
 #### Create a cluster with the node system configuration
 
@@ -316,25 +316,159 @@ To create a node pool with a customized node system configuration by using Terra
 
 For more information about using Terraform, see [Terraform support for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/resources/use-terraform-gke).
 
-#### Update the node system configuration for an existing node pool
+## Update the node system configuration for an existing node pool
 
-You can set or update the node system configuration for an existing node pool. For more information specifically about updating an existing configuration, see Edit by updating an existing node pool.
+If you use a configuration file to manage the node system configuration, you can update an existing node pool in one of the following ways:
 
-Run the following command to update the existing node pool:
+  * **Non-disruptive live update**: applies updated `sysctl` and `kubelet` settings directly to running nodes without re-creating the VMs or evicting Pods. Use this method when you're changing only `sysctl` or `kubelet` settings and want to minimize disruption.
+  * **Standard upgrade strategy**: re-creates the nodes with the new configuration. Use this method when you're changing settings that don't support live updates, when your cluster or node pool runs a GKE version earlier than 1.37.1-gke.1954000, or when you want GKE to drain and reschedule your Pods onto new nodes.
+
+
+
+To change the configuration of nodes that use a ComputeClass, see Edit a node system configuration for ComputeClasses instead.
+
+**Caution:** With either method, including the `kubeletConfig` or `linuxConfig` section in your file replaces that entire section of the node pool's existing configuration. Any parameter that you omit from an included section is reset to its default value. During a live update, omitting a previously configured parameter that doesn't support live updates (such as `cpuManagerPolicy` or `cgroupMode`) causes GKE to reject the update. Before you update, get the existing node system configuration and include every setting that you want to keep.
+
+### Update by using a non-disruptive live update
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+You can apply updated `sysctl` and `kubelet` settings from your configuration file directly to running nodes. Because this process updates the parameters without re-creating or restarting the underlying VMs, it reduces disruption and speeds up the update. The following `linuxConfig` options still require the standard upgrade strategy:
+
+  * Linux cgroup mode
+  * Linux hugepages
+  * Linux accurate time synchronization
+  * Linux VFIO
+  * Linux disk I/O scheduler
+
+
+
+#### How live updates work
+
+Live updates work as follows for each supported configuration:
+
+  * **`sysctl` configurations**: GKE restarts the `sysctl` systemd service on each node to apply the kernel parameters in the `linuxConfig.sysctl` field. If you update a namespaced `sysctl` parameter, GKE also restarts the `kubelet` service to update the Pod-level `sysctl` configuration. For supported parameters, see Sysctl configuration options.
+  * **`kubelet` configurations**: GKE restarts the `kubelet` service on each node to apply the parameters in the `kubeletConfig` field. Most kubelet configuration options support live updates. However, the `cpuManagerPolicy`, `shutdownGracePeriodSeconds`, and `shutdownGracePeriodCriticalPodsSeconds` options require the standard upgrade strategy.
+
+
+
+In both cases, GKE applies the change in place on the running nodes without re-creating the VMs, evicting your Pods, or creating temporary surge VMs. GKE uses the sum of your node pool's `--max-surge-upgrade` and `--max-unavailable-upgrade` settings as the concurrency limit to determine how many existing nodes are updated in parallel.
+
+#### Prerequisites for live updates
+
+To use live updates, your cluster and node pool must meet the following prerequisites:
+
+  * Run GKE version 1.37.1-gke.1954000 or later.
+  * Enable the `NodeReadinessController` add-on on the cluster. During a live update, this controller temporarily applies the `readiness.k8s.io/gke-node-live-update-reconciling:NoSchedule` taint to each node being updated so that GKE doesn't schedule new Pods onto the node until the update completes: 
+    * For new clusters, include the `NodeReadinessController` add-on in the [`--addons`](https://docs.cloud.google.com/sdk/gcloud/reference/container/clusters/create#--addons) flag during cluster creation. This flag enables only the add-ons that you specify and disables all others, so also include any default add-ons that you want to keep.
+    * For existing clusters, pass the [`--update-addons=NodeReadinessController=ENABLED`](https://docs.cloud.google.com/sdk/gcloud/reference/container/clusters/update#--update-addons) flag during a cluster update.
+
+
+
+#### Apply a live update
+
+To apply a live update, do the following:
+
+  1. Create or modify your node system configuration YAML file so that contains the node pool's complete configuration, including the `kubelet` or `sysctl` settings that you want to change. To avoid resetting settings that you don't intend to change, start from the node pool's existing configuration.
+  2. Update the node pool with your configuration file and set the value of the `--node-config-update-mode` flag to `LIVE_UPDATE_WITHOUT_DRAIN`:
+         
+         gcloud container node-pools update POOL_NAME \
+             --cluster=CLUSTER_NAME \
+             --location=LOCATION \
+             --system-config-from-file=SYSTEM_CONFIG_PATH \
+             --node-config-update-mode=LIVE_UPDATE_WITHOUT_DRAIN
+         
+
+Replace the following:
+
+     * `POOL_NAME`: the name of the node pool that you want to update
+     * `CLUSTER_NAME`: the name of the cluster that contains the node pool
+     * `LOCATION`: the compute zone or region of the cluster
+     * `SYSTEM_CONFIG_PATH`: the path to the YAML file that contains your node system configuration
+  3. Verify that GKE applied the updated settings to your node pool:
+         
+         gcloud container node-pools describe POOL_NAME \
+             --cluster=CLUSTER_NAME \
+             --location=LOCATION \
+             --format="yaml(config.kubeletConfig, config.linuxNodeConfig)"
+         
+
+The command output displays the active settings on the node pool in the `config.kubeletConfig` and `config.linuxNodeConfig` fields.
+
+  4. Optional: restart your existing Pods. The live update doesn't interrupt running Pods, so GKE applies the updated settings only to Pods that start after the update completes. To apply the settings to a workload that is already running, restart its Pods, for example by running `kubectl rollout restart` on the Deployment.
+
+
+
+
+If a live update doesn't go as expected, the recovery path depends on whether the update operation finished:
+
+  * If the live update operation fails, see Recover from a failed live update.
+  * If the live update operation succeeds but the new settings cause unintended workload behavior, see Revert a completed live update.
+
+
+
+#### Recover from a failed live update
+
+If a live update fails on a node, GKE stops the rollout immediately and leaves the node pool in a partially updated state. To inspect the failure details, do either of the following:
+
+  * Run the [`gcloud container operations describe`](https://docs.cloud.google.com/sdk/gcloud/reference/container/operations/describe) command. In the output, the `statusMessage` field identifies the node where the live update failed and the error that the node reported, for example:
+        
+        statusMessage: 'Failed precondition: live update failed on node gke-my-cluster-default-pool-ae3770ee-2kk0:
+          Live update fails with error: failed to write new kubelet config: ...'
+        
+
+  * In the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface), check for errors from the `gke-node-live-update-reconciler` component on the affected nodes.
+
+
+
+
+Because a failed live update doesn't change the node pool's stored configuration, re-applying your previous configuration with the `gcloud container node-pools update` command doesn't trigger an update. After you inspect the failure, choose one of the following recovery options:
+
+  * **Fix the issue and complete the live update** (recommended): resolve the issue that caused the failure, and then re-run the `gcloud container node-pools update` command from the previous procedure with your target configuration.
+  * **Revert to the previous configuration** : if you can't resolve the issue, run the [`gcloud container node-pools rollback`](https://docs.cloud.google.com/sdk/gcloud/reference/container/node-pools/rollback) command to return the node pool to its previous configuration. Unlike a live update, this command re-creates all nodes in the node pool, which disrupts the workloads running on them.
+
+
+
+#### Revert a completed live update
+
+If a live update operation succeeds but a newly applied setting causes unintended workload behavior, revert the change in place by applying another live update with your previous configuration. This live update restores the previous configuration without evicting Pods or restarting nodes. The `gcloud container node-pools rollback` command isn't available after a successful operation; it works only when the operation fails.
+
+To revert a completed live update, do the following:
+
+  1. Update your node system configuration YAML file so that it contains the node pool's complete previous configuration. If a setting wasn't previously configured, set it explicitly to its default value rather than omitting it or leaving the section empty. For the default values, see Kubelet configuration options and Sysctl configuration options.
+  2. Apply the previous configuration to your node pool:
+         
+         gcloud container node-pools update POOL_NAME \
+             --cluster=CLUSTER_NAME \
+             --location=LOCATION \
+             --system-config-from-file=SYSTEM_CONFIG_PATH \
+             --node-config-update-mode=LIVE_UPDATE_WITHOUT_DRAIN
+         
+
+
+
+
+### Update by using the standard upgrade strategy
+
+Use the standard upgrade strategy if you're updating configuration options that don't support live updates, if your cluster or node pool runs a GKE version earlier than 1.37.1-gke.1954000, or if you want GKE to automatically drain and reschedule your Pods onto newly created nodes.
+
+To update an existing node pool by using the standard upgrade strategy, run the following command:
     
     
-       gcloud container node-pools update POOL_NAME \
-          --cluster=CLUSTER_NAME \
-          --location=LOCATION \
-          --system-config-from-file=SYSTEM_CONFIG_PATH
+    gcloud container node-pools update POOL_NAME \
+        --cluster=CLUSTER_NAME \
+        --location=LOCATION \
+        --system-config-from-file=SYSTEM_CONFIG_PATH
     
 
 Replace the following:
 
   * `POOL_NAME`: the name of the node pool that you want to update
-  * `CLUSTER_NAME`: the name of the cluster that you want to update
+  * `CLUSTER_NAME`: the name of the cluster that contains the node pool
   * `LOCATION`: the compute zone or region of the cluster
-  * `SYSTEM_CONFIG_PATH`: the path to the file that contains your `kubelet` and `sysctl` configurations
+  * `SYSTEM_CONFIG_PATH`: the path to the YAML file that contains your node system configuration
 
 
 
@@ -397,7 +531,7 @@ To edit a node system configuration by creating a node pool, do the following:
 
 #### Edit by updating an existing node pool
 
-To edit the existing node system configuration of an existing node pool, follow the instructions in the _Update node pool_ tab for adding the configuration to a node pool. When you update a node system configuration and the new configuration overrides the node pool's existing system configuration, the nodes must be re-created. If you omit any parameters during an update, the parameters are set to their respective defaults.
+To change the node system configuration of an existing node pool in place, see Update the node system configuration for an existing node pool.
 
 #### Get the existing node system configuration
 
@@ -431,9 +565,11 @@ If you haven't already set a node system configuration, the output doesn't list 
 If you want to reset the node system configuration back to the defaults, update your configuration file with empty values for the `kubelet` and `sysctl` fields, for example:
     
     
+    ```yaml
     kubeletConfig: {}
     linuxConfig:
       sysctl: {}
+    ```
     
 
 ## Delete a node system configuration
@@ -1002,6 +1138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

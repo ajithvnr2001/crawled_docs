@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/folders-overview/
 title: About folders in buckets with hierarchical namespace enabled \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:24.314286+00:00
+fetched_at: 2026-10-31T05:53:34.270124+00:00
 ---
 
 # About folders in buckets with hierarchical namespace enabled  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  About folders in buckets with hierarchical namespace enabled Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides information about folders in buckets with [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) enabled.
-
-## Overview
-
-When you create a bucket with hierarchical namespace enabled, the bucket uses a true file system structure as opposed to a standard flat namespace. Folders exist as a resource in buckets with hierarchical namespace enabled. Using folders, you can organize your objects more effectively and gain access to true directory capabilities, such as atomic folder renames and efficient metadata operations.
+When you create a bucket with hierarchical namespace enabled, the bucket stores data in a true file system structure as opposed to a standard flat namespace. Folders in buckets with [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) enabled let you organize objects by using directories, including capabilities such as atomic folder renames. This document describes folder metadata, folder operations, how folders interact with managed folders, and considerations for using folders.
 
 Folders in buckets with hierarchical namespace enabled are different from simulated folders and managed folders. Simulated folders exist in flat namespace buckets and managed folders can be applied in both flat namespace buckets and buckets with hierarchical namespace enabled. Managed folders are primarily used to grant IAM permissions to groups of objects. For more information about these other folder types, see [Folder types](https://docs.cloud.google.com/storage/docs/folder-types).
 
@@ -143,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/python3/reference/services/bundled/google/appengine/api/dispatchinfo/DispatchEntry/
 title: google.appengine.api.dispatchinfo.DispatchEntry \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T14:01:54.847214+00:00
+fetched_at: 2026-10-31T06:00:15.802458+00:00
 ---
 
 # google.appengine.api.dispatchinfo.DispatchEntry  |  App Engine standard environment  |  Google Cloud Documentation
@@ -254,9 +254,9 @@ ATTRIBUTES |
     
     
     {
-     'module': <google.appengine.api.validation.Deprecated object>,
-     'service': <google.appengine.api.validation.Preferred object>,
-     'url': <google.appengine.api.dispatchinfo.DispatchEntryURLValidator object>
+     'modul<e': google.appengine.api.validation.Deprecate>d object,
+     <9;service': google.appengine.api.validation.>Preferred <object,
+     'url': google.appengine.api.dispatchinfo.Dispatch>EntryURLValidator object
     }
       
   

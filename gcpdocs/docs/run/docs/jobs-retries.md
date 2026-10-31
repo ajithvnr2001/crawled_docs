@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/jobs-retries/
 title: Jobs retries and checkpoints best practices \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:51:57.742780+00:00
+fetched_at: 2026-10-31T05:50:07.726958+00:00
 ---
 
 # Jobs retries and checkpoints best practices  |  Cloud Run  |  Google Cloud Documentation
@@ -39,11 +39,20 @@ Avoid duplicating output data by reusing the same unique identifier or checking 
 
 ## Use checkpointing
 
-Where possible, checkpoint your jobs so that if a task restarts after a failure, it can pick up where it left off, instead of restarting work at the beginning. Doing this will speed up your jobs as well as minimize unnecessary costs.
+Where possible, use checkpointing when designing your jobs. If a task fails and restarts, checkpointing allows it to resume from its last saved state rather than starting over—speeding up your runtimes and minimizing unnecessary costs.
 
-Periodically write partial results and an indication of progress made to a persistent storage location such as Cloud Storage or a database. When your task starts, look for partial results upon startup. If partial results are found, begin processing where they left off.
+To implement checkpointing:
 
-If your job does not lend itself to checkpointing, consider breaking it up into smaller chunks and run a larger number of tasks.
+  * Save progress: Periodically write partial results and progress markers to a persistent store, such as Cloud Storage or a database.
+
+  * Check on startup: Configure your tasks to look for and resume from these partial results when starting up.
+
+  * Enable retries: Configure multiple retries to safeguard your job against preemption events.
+
+
+
+
+If your job cannot be checkpointed, divide the workload into smaller chunks and run a larger number of tasks instead.
 
 ### Checkpointing example 1: calculating Pi
 
@@ -69,6 +78,14 @@ If you have a job processing 10,000 records in a relational database such as Clo
 
 Using all these pieces together, the final query might look like this: `SELECT * FROM example_table WHERE processed = 0 LIMIT 100 OFFSET $CLOUD_RUN_TASK_INDEX*100`
 
+### Checkpointing example 3: Application-level checkpointing and task retries
+
+GPU-enabled jobs can be configured with a task timeout of up to 12 hours, but that timeout is a maximum rather than a guarantee of uninterrupted execution. Infrastructure maintenance restarts these tasks regularly, so a task that runs for several hours should be expected to be restarted at least once. To handle this without losing progress, use application-level checkpointing paired with task retries (`--max-retries`).
+
+When a task restarts, it starts in a brand new container (which completely resets memory and VRAM, preventing any memory leaks). On startup, the script auto-detects existing checkpoints inside a Cloud Storage-mounted directory and automatically resumes from the last step.
+
+To learn more, see this [example](https://github.com/GoogleCloudPlatform/devrel-demos/blob/main/ai-ml/finetune_gemma/README.md) as well as the tutorial [Design resilient long-running GPU jobs](https://docs.cloud.google.com/run/docs/tutorials/long-running-gpu-jobs).
+
 ## What's next
 
   * To create a Cloud Run job, see [Create jobs](https://docs.cloud.google.com/run/docs/create-jobs).
@@ -81,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

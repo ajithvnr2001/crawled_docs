@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/release-notes/
 title: Agent Registry release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:14.218697+00:00
+fetched_at: 2026-10-31T05:58:34.343876+00:00
 ---
 
 # Agent Registry release notes  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page documents production updates to Agent Registry. Check this page for an
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/agent-registry-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Feature
+
+Agent Registry supports cross-project [management boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) ([Preview](https://cloud.google.com/products#product-launch-stages)), letting you centrally discover, search, and govern AI agents, Model Context Protocol (MCP) servers, and tools across multiple Google Cloud projects from a central [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project). For more information, see [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) and [Configure a management boundary for multiple projects](https://docs.cloud.google.com/agent-registry/setup#configure-boundary).
 
 ## July 23, 2026
 

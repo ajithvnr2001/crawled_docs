@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-optimize/use-app-optimize-mcp/
 title: Use the App Optimize API remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:30.507566+00:00
+fetched_at: 2026-10-31T06:00:23.506279+00:00
 ---
 
 # Use the App Optimize API remote MCP server  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ For information about other MCP servers and information about security and gover
 
 ## Before you begin
 
-  1. Identify projects with active Google Cloud resources to analyze. App Optimize APIneeds billing and utilization data to produce meaningful results. Reports run against new or empty projects will be empty.
+  1. Identify projects with active Google Cloud resources to analyze. App Optimize API needs billing and utilization data to produce meaningful results. Reports run against new or empty projects will be empty.
 
 You can use the MCP server in one project that analyzes data from another project or from applications in [single-project or folder-level boundaries](https://docs.cloud.google.com/app-hub/docs/set-up-app-hub). To get data for App Hub application, which can be made up of multiple projects, you must have the required monitoring and billing permissions on all of the application's associated projects to create the report.
 
@@ -122,7 +122,7 @@ To get the permissions that you need to use the App Optimize API MCP server, ask
 
   * Make MCP tool calls: [MCP Tool User ](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) (`roles/mcp.toolUser`) on the project where you want to use the App Optimize API MCP server. 
   * Use the App Optimize API MCP server: [App Optimize Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/appoptimize#appoptimize.admin) (`roles/appoptimize.admin`) on the project where you are using the MCP server. 
-  * Get cost data: A role with the `billing.resourceCosts.get` permission, such as Cloud Hub Operator (`roles/cloudhub.operator`), Viewer (`roles/viewer`), or a custom role. on the projects that contain your Google Cloud resources. 
+  * Get cost data: A role with the `billing.resourceCosts.get` permission, such as Cloud Hub Operator (`roles/cloudhub.operator`), Viewer (`roles/viewer`), or a custom role on the projects that contain your Google Cloud resources. 
   * Get utilization data: [Monitoring Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.viewer) (`roles/monitoring.viewer`) on the projects that contain your Google Cloud resources. 
   * Get data for App Hub applications: [App Hub Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.viewer) (`roles/apphub.viewer`) on the project with your application data. For an app-enabled folder, this is the management project. 
 
@@ -225,7 +225,7 @@ Replace the following:
 
 ## Example use cases
 
-When you connect am AI application or agent to the App Optimize API MCP server, you can use prompts to answer questions about costs and resource utilization.
+When you connect an AI application or agent to the App Optimize API MCP server, you can use prompts to answer questions about costs and resource utilization.
 
 ### Sample prompts
 
@@ -365,6 +365,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

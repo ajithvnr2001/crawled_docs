@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview/
 title: Generate speech with Gemini TTS \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:27.951131+00:00
+fetched_at: 2026-10-31T05:48:07.822115+00:00
 ---
 
 # Generate speech with Gemini TTS  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -37,6 +37,10 @@ This page shows you how to generate speech with the following models using the `
 The TTS models are tailored for exact text recitation with fine-grained control over style and sound, such as narration, audiobooks, and voice agent responses. For interactive, real-time conversations with audio input and output, use the [Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) instead.
 
 If you use an earlier Gemini TTS model, such as `gemini-3.1-flash-tts-preview`, see the [migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/migration-guide).
+
+To try single-speaker speech generation without writing code, open Gemini 3.8 Flash TTS in Agent Studio:
+
+[Try Gemini 3.8 TTS in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts)
 
 ## Supported models
 
@@ -144,6 +148,14 @@ To direct requests to a regional endpoint, set `location="us"` (or `location="eu
 To convert text to single-speaker audio, pass the verbatim transcript in `parts[].text`, add optional turn-level styling in `parts[].speech_metadata`, and set the voice in `speechConfig.voiceConfig.voice`. The `voice` field accepts a prebuilt voice name, an Extended Voice Library voice ID, or the ID (`voice_...`) of a [designed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) or [replicated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) voice (or an optional stateless `voicekey_...` key).
 
 By default, unary requests return a complete WAV file (16-bit PCM, 24 kHz, mono), so you can write the audio bytes directly to a `.wav` file. Streaming requests return raw PCM chunks instead. For details and other encodings, see Audio output formats.
+
+### Console
+
+  1. Open [Gemini 3.8 Flash TTS](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts) or [Gemini 3.8 Flash-Lite TTS](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-lite-tts) in Agent Studio.
+  2. In the settings panel, choose a prebuilt **Voice** , a **Language** (or keep **Auto-detect**), and an optional **Style** description (for example, `cheerful and friendly`).
+  3. Enter the transcript to speak in the prompt box and submit it to generate, play, or download the WAV audio. Click **Get code** to export the request as Python, JavaScript, or curl.
+
+**Note:** Multi-speaker dialogue, streaming audio chunks, and custom voices (`voice_...` and `voicekey_...`) are configured through the API or SDK.
 
 ### Python
     
@@ -807,6 +819,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

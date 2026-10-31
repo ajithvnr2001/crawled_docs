@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/gemini-quick-starts/
 title: Generate Quick Start analyses for an Explore using Gemini \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:33.739328+00:00
+fetched_at: 2026-10-31T05:48:42.675014+00:00
 ---
 
 # Generate Quick Start analyses for an Explore using Gemini  |  Looker  |  Google Cloud Documentation
@@ -68,9 +68,9 @@ When you're editing an Explore, you can also generate new Quick Start analyses b
 
 ### Generating Quick Start analyses from the new Explore experience
 
-If you're using the [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), when you select an Explore from the **Explore** menu, click the [**Browse quick starts** card](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#choosing_a_quick_start_option_from_a_blank_explore_in_the_new_explore_experience). If the Explore doesn't already have Quick Start analyses defined, Gemini in Looker will analyze the Explore and generate Quick Start analyses.
+If you're using the [new Explore experience](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data), when you select an Explore from the **Explore** menu, click the [**Browse quick starts** card](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#choosing-a-starter-question-from-a-blank-explore). If the Explore doesn't already have Quick Start analyses defined, Gemini in Looker will analyze the Explore and generate Quick Start analyses.
 
-You can also generate Quick Start analyses any time by clicking the dynamic_form [**Quick Start** button](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#choosing-a-quick-start-option-once-an-explore-has-run).
+You can also generate Quick Start analyses any time by clicking the dynamic_form [**Quick Start** button](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#choosing-a-starter-question-once-an-explore-has-run).
 
 ## Running a Quick Start analysis
 
@@ -82,6 +82,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/sources-mysql/
 title: Stream data from MySQL databases \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:04.562887+00:00
+fetched_at: 2026-10-31T05:47:40.939807+00:00
 ---
 
 # Stream data from MySQL databases  |  Datastream  |  Google Cloud Documentation
@@ -172,6 +172,7 @@ Known limitations for using MySQL database as a source include:
   * You might experience connectivity issues when replicating `FEDERATED` tables. If that happens, remove all `FEDERATED` tables from the source database configuration and increase the values for `connect_timeout`, `net_read_timeout` and `max_allowed_packet` parameters to mitigate timeout issues during backfill.
   * Cloud SQL Enterprise Plus instances must use GTID-based replication because they are subject to [near-zero downtime maintenance](https://docs.cloud.google.com/sql/docs/mysql/maintenance#nearzero). Binary log-based replication breaks on failovers, hence we recommend using GTID-based replication for high availability use cases.
   * For MySQL versions 8.0 and later, the `binlog_row_value_options` variable must be set to an empty value. This is the default for most versions, but for some, for example MySQL sources on Oracle Cloud Infrastructure (OCI), you must set it explicitly. For more information, see [Configure a self-managed MySQL database](https://docs.cloud.google.com/datastream/docs/configure-self-managed-mysql).
+  * Datastream doesn't support distributed (XA) transactions. MySQL writes XA transaction events to the binary log when the `XA PREPARE` statement executes. Therefore, changes from prepared XA transactions are replicated to the destination even if the transaction is later rolled back with an `XA ROLLBACK` statement.
   * **MariaDB limitations:**
     * GTID-based replication is **not** supported for MariaDB. You must configure MariaDB streams to use binlog-based replication.
     * For MariaDB versions 11.4 to 12.2, you must enable the `binlog_legacy_event_pos` system variable on the source database to ensure compatibility with Datastream.
@@ -198,6 +199,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/release-notes/dev/
 title: Container-Optimized OS Release Notes: DEV \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:23.964323+00:00
+fetched_at: 2026-10-31T05:47:34.540331+00:00
 ---
 
 # Container-Optimized OS Release Notes: DEV  |  Google Cloud Documentation
@@ -115,6 +115,10 @@ Fixed CVE-2026-82474 in app-admin/sudo.
 Security
 
 Fixed CVE-2026-84445, CVE-2026-24051, CVE-2026-84304, CVE-2026-39831, CVE-2026-39829, CVE-2026-39834, CVE-2026-34986, CVE-2026-39835, CVE-2026-39832, CVE-2026-39827, CVE-2026-81870, CVE-2026-46598, CVE-2026-29181, CVE-2026-39830, CVE-2026-46595, CVE-2026-39828, CVE-2026-25680, CVE-2026-39833, CVE-2026-39883, CVE-2026-84303, CVE-2026-46597, CVE-2026-42508 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-98432 in the Linux kernel.
 
 Security
 

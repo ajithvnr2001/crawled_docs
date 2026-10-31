@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/release-notes/
 title: Cloud SQL for SQL Server release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:49:54.214708+00:00
+fetched_at: 2026-10-31T05:48:03.496193+00:00
 ---
 
 # Cloud SQL for SQL Server release notes  |  Google Cloud Documentation
@@ -27,6 +27,32 @@ This page documents production updates to Cloud SQL for SQL Server. You can chec
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-server-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Announcement
+
+Starting November 1, 2026, at 02:00 a.m. local time, Cloud SQL for SQL Server instances that evaluate certain local Canadian time zones (across Alberta, British Columbia, Manitoba, and Northwest Territories) will lag by one hour because the instances still follow the autumn fall back schedule. Stored timestamp data isn't modified.
+
+**What should I do?**
+
+For SQL Server, Microsoft has [published guidance](https://devblogs.microsoft.com/azure-sql/canadas-2026-time-zone-updates-guidance-for-microsoft-sql/), recommending updating each applicable instance's time zone to the Windows time zone with the matching fixed offset.
+
+Update each instance's time zone to the Windows time zone with the matching fixed offset:
+
+Jurisdiction | Current time zone | Recommended time zone | Fixed offset  
+---|---|---|---  
+British Columbia | Pacific Standard Time | Yukon Standard Time | UTC-07:00  
+Alberta / Inuvik, NWT | Mountain Standard Time | Canada Central Standard Time | UTC-06:00  
+Manitoba | Central Standard Time | Eastern Standard Time (Mexico) | UTC-05:00  
+  
+You can make the change in the Google Cloud console (**Edit instance** > **Flags and parameters** > **Time zone**) or with gcloud:
+    
+    
+    gcloud sql instances patch INSTANCE_NAME \
+      --project=PROJECT_ID \
+      --time-zone="Yukon Standard Time"
+    
 
 ## October 23, 2026
 

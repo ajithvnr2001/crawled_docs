@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/overview/
 title: Cloud Logging overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:19.377517+00:00
+fetched_at: 2026-10-31T05:59:26.167895+00:00
 ---
 
 # Cloud Logging overview  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ You can collect log data from applications that you write by using a [client lib
 
 You can also collect log data from your third-party applications, like `nginx`, by installing the Ops Agent and then configuring it to write log data from that application to your Google Cloud project.
 
-See [Which should you use: Logging agent or client library?](https://docs.cloud.google.com/logging/docs/agent-or-library) for information that can help you decide which approach best suits your requirements.
+For more information, see [Choose an instrumentation approach](https://docs.cloud.google.com/stackdriver/docs/instrumentation/choose-approach).
 
 ## Query, view, and analyze log data
 
@@ -139,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

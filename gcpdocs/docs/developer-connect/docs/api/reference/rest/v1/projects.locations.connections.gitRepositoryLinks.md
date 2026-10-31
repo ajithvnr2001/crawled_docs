@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks
 title: REST Resource: projects.locations.connections.gitRepositoryLinks \u00a0|\u00a0 Developer Connect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:37:07.488126+00:00
+fetched_at: 2026-10-31T06:00:24.967169+00:00
 ---
 
 # REST Resource: projects.locations.connections.gitRepositoryLinks  |  Developer Connect  |  Google Cloud Documentation
@@ -75,6 +75,14 @@ Fields
   
 ---  
   
+### `[addPullRequestComment](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/addPullRequestComment)`
+
+|  Add a comment to a Pull Request.  
+  
+### `[addPullRequestReviewComment](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/addPullRequestReviewComment)`
+
+|  Add a review comment (inline on diff) to a Pull Request.  
+  
 ### `[create](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/create)`
 
 |  Creates a GitRepositoryLink.  
@@ -83,9 +91,33 @@ Fields
 
 |  Deletes a single GitRepositoryLink.  
   
+### `[diffCommit](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/diffCommit)`
+
+|  Diff commits for a GitRepositoryLink.  
+  
+### `[fetchCommit](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchCommit)`
+
+|  Fetch Commit details from a Git repository link.  
+  
+### `[fetchCommitList](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchCommitList)`
+
+|  Fetch a list of Commits from a Git repository link.  
+  
+### `[fetchFileBlame](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchFileBlame)`
+
+|  Fetches blame information for a file or line range in a file.  
+  
 ### `[fetchGitRefs](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchGitRefs)`
 
 |  Fetch the list of branches or tags for a given repository.  
+  
+### `[fetchPullRequest](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchPullRequest)`
+
+|  Fetch Pull Request details from a Git repository link.  
+  
+### `[fetchPullRequestList](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchPullRequestList)`
+
+|  Fetches a list of Pull Requests from the remote repository.  
   
 ### `[fetchReadToken](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/fetchReadToken)`
 
@@ -102,6 +134,14 @@ Fields
 ### `[list](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/list)`
 
 |  Lists GitRepositoryLinks in a given project, location, and connection.  
+  
+### `[modifyPullRequest](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/modifyPullRequest)`
+
+|  Modifies a Pull Request in the remote SCM repository associated with a GitRepositoryLink.  
+  
+### `[openPullRequest](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/openPullRequest)`
+
+|  Opens a Pull Request in the remote SCM repository associated with a GitRepositoryLink.  
   
 ### `[processBitbucketCloudWebhook](https://docs.cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks/processBitbucketCloudWebhook)`
 
@@ -123,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-10-22 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

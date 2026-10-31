@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap/
 title: Troubleshoot IAM Unified Access Policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:26:08.512730+00:00
+fetched_at: 2026-10-31T05:48:00.369438+00:00
 ---
 
 # Troubleshoot IAM Unified Access Policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -114,6 +114,12 @@ Replace `PROJECT_ID` with your project ID.
      * **Per-resource** : Grants access to a specific registered MCP server, endpoint, or agent.
      * **Unregistered endpoints** : Grants access to destinations outside Agent Registry.
      * _Note_ : When describing policy bindings for a target resource, if the returned output contains an `"etag"` field but no bindings, no IAM policy exists for that target.
+  5. **Verify CEL condition attribute values** : Compare the request attribute values logged in Cloud Audit Logs with the literal values in your UAP condition expressions:
+
+     * **Case-sensitive string matching** : String comparisons in CEL conditions are case-sensitive. Verify that copied or typed values—such as MCP tool names (`destination.agent_registry.mcp_server.tool.name`), MCP server or agent resource names (`destination.agent_registry.mcp_server.name`, `destination.agent_registry.agent.name`), or HTTP methods (`destination.unregistered.method`)—match the exact casing and spelling in the request.
+     * **Host and path variations for unregistered destinations** : If an egress destination includes a port (for example, `destination.unregistered.host` with `example.com:443`), subdomains, or variable URL paths (`destination.unregistered.path`), an exact equality check (`==`) fails unless the full string matches. For `destination.unregistered.host` and `destination.unregistered.path`, you can use `.startsWith()`, `.endsWith()`, or `.contains()` instead of exact equality (`==`): 
+       * Use `.startsWith()` to filter URL paths by prefix (for example, `destination.unregistered.path.startsWith('/v2/process')`).
+       * Use `.endsWith()` to grant or deny access to all subdomains that share a specified suffix (for example, `destination.unregistered.host.endsWith('.example.com')`).
 
 
 
@@ -210,6 +216,40 @@ This section describes error messages and how to resolve them.
 
 **Solution** : This message is an informational notification. Your custom CEL condition is valid and preserved. Continue making any edits directly inside the **Condition editor** tab.
 
+### Function cannot be called on target attribute
+
+**Error message** :
+
+  * **API / gcloud** : `Function '<var>FUNCTION_NAME</var>' cannot be called on the target '<var>ATTRIBUTE_NAME</var>' in namespace 'iap.googleapis.com'.` (Error code `3` / `INVALID_ARGUMENT`)
+
+
+
+**Cause** : A policy rule condition uses a CEL function (such as `.startsWith()`, `.endsWith()`, or `.contains()`) on an attribute that does not support that function, or attempts to call string functions on boolean attributes or unsupported fields. In UAPs, string-matching functions are supported only on `destination.unregistered.host` and `destination.unregistered.path`.
+
+**Solution** : Update your CEL condition expression to use only the supported operations for the target attribute:
+
+  * **Unregistered host and path attributes** (`destination.unregistered.host`, `destination.unregistered.path`): use `==`, `!=`, `in`, `.startsWith()`, `.endsWith()`, or `.contains()`.
+  * **Other string attributes** (`destination.unregistered.method` and `destination.agent_registry.*` string attributes): use `==`, `!=`, or `in`.
+  * **Boolean attributes** (for example, `destination.is_registered`, tool annotations): use logical comparisons (`==`, `!=`).
+
+
+
+For the complete list of attributes and supported operations, see [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap).
+
+### Users named in policy do not belong to a permitted customer
+
+**Error message** :
+
+  * **API / gcloud** : `One or more users named in the policy do not belong to a permitted customer.` (Error code `3` / `INVALID_ARGUMENT`)
+
+
+
+**Cause** : IAM UAPs enforce built-in, non-configurable Domain Restricted Sharing (DRS) by default on principals added to `ALLOW` rules. One or more principal identities specified in the `principals` array of an `ALLOW` rule (such as an agent identity, workload identity, user identity, or service account) does not belong to the same Google Cloud organization as the project where the policy is being created or updated. This built-in check does not depend on organization policy constraints (such as `constraints/iam.allowedPolicyMemberDomains` or `constraints/iam.managed.allowedPolicyMembers`) and cannot be disabled.
+
+**Why the error references "users":** Although the error message says "users", in the context of Agent Gateway egress and UAPs, the message applies to all principal identities in the policy rules, including AI agents, workload identities, user identities, and service accounts. The message originates from a shared, foundational IAM error catalog.
+
+**Solution** : Inspect the `principals` array in the `ALLOW` rules of your policy configuration file (such as the JSON or YAML file specified with the `--details-rules` flag in `gcloud iam access-policies create` or `update`). Remove any external principals and ensure that all specified principal identities belong to the same Google Cloud organization as your project.
+
 ## What's next
 
   * [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
@@ -222,6 +262,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

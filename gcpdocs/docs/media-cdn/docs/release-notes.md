@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/media-cdn/docs/release-notes/
 title: Media CDN release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:15:14.972520+00:00
+fetched_at: 2026-10-31T05:49:19.762885+00:00
 ---
 
 # Media CDN release notes  |  Google Cloud Documentation
@@ -31,11 +31,11 @@ To get the latest product updates delivered to you, add the URL of this page to 
 
 Feature
 
-Media CDN supports EU data residency (Private GA), along with a new Europe flexible origin shielding region.
+Media CDN supports flexible origin shielding in Frankfurt (`europe-west3`). This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [Flexible shielding](https://docs.cloud.google.com/media-cdn/docs/origins#flex-shielding).
 
-Media CDN supports EU Data Residency in Private GA. This feature ensures that customer content and end-user data are processed within the EU. This feature is available via support allowlist.
+Feature
 
-Media CDN supports flexible origin shielding in Frankfurt (`europe-west3`). This feature is **Generally Available**. For more information, see [Flexible shielding](https://docs.cloud.google.com/media-cdn/docs/origins#flex-shielding).
+Media CDN supports EU data residency in **Private GA**. This feature helps ensure that your content and end-user data are processed within the EU. To enable this feature, contact [Google Cloud sales](https://cloud.google.com/contact).
 
 ## June 12, 2026
 

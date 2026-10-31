@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/building-a-vision-analytics-solution/
 title: Build an ML vision analytics solution with Dataflow and Cloud Vision API \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:17.306866+00:00
+fetched_at: 2026-10-31T05:57:41.256303+00:00
 ---
 
 # Build an ML vision analytics solution with Dataflow and Cloud Vision API  |  Cloud Architecture Center  |  Google Cloud Documentation

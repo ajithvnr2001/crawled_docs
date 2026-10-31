@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/audit-logging/
 title: Artifact Registry audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:22:04.147255+00:00
+fetched_at: 2026-10-31T05:47:31.170262+00:00
 ---
 
 # Artifact Registry audit logging  |  Google Cloud Documentation
@@ -146,6 +146,12 @@ API methods in the following list that are marked with (LRO) are long-running op
 `Apt-ViewArchIndexFile`  
 `Apt-ViewIndexFile`  
 `Apt-ViewPackageFile`  
+`Conda-GetChannelData`  
+`Conda-GetPackage`  
+`Conda-GetRepoData`  
+`Conda-HeadChannelData`  
+`Conda-HeadPackage`  
+`Conda-HeadRepoData`  
 `Docker-Catalog`  
 `Docker-GetManifest`  
 `Docker-GetTags`  
@@ -295,6 +301,108 @@ The following audit logs are associated with methods belonging to `Data plane AP
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="Apt-ViewPackageFile" `  
+
+
+
+
+#### `Conda-GetChannelData`
+
+  * **Method** : `Conda-GetChannelData`  
+
+  * **Method description** : Download the repository metadata file.  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `artifactregistry.repositories.downloadArtifacts - DATA_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="Conda-GetChannelData" `  
+
+
+
+
+#### `Conda-GetPackage`
+
+  * **Method** : `Conda-GetPackage`  
+
+  * **Method description** : Download a Conda package.  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `artifactregistry.repositories.downloadArtifacts - DATA_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="Conda-GetPackage" `  
+
+
+
+
+#### `Conda-GetRepoData`
+
+  * **Method** : `Conda-GetRepoData`  
+
+  * **Method description** : Download the index file for a specific platform sub-directory.  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `artifactregistry.repositories.downloadArtifacts - DATA_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="Conda-GetRepoData" `  
+
+
+
+
+#### `Conda-HeadChannelData`
+
+  * **Method** : `Conda-HeadChannelData`  
+
+  * **Method description** : Check if the repository metadata file exists.  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `artifactregistry.repositories.downloadArtifacts - DATA_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="Conda-HeadChannelData" `  
+
+
+
+
+#### `Conda-HeadPackage`
+
+  * **Method** : `Conda-HeadPackage`  
+
+  * **Method description** : Check if a Conda package exists.  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `artifactregistry.repositories.downloadArtifacts - DATA_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="Conda-HeadPackage" `  
+
+
+
+
+#### `Conda-HeadRepoData`
+
+  * **Method** : `Conda-HeadRepoData`  
+
+  * **Method description** : Check if the index file for a specific platform sub-directory exists.  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `artifactregistry.repositories.downloadArtifacts - DATA_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="Conda-HeadRepoData" `  
 
 
 
@@ -2781,6 +2889,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

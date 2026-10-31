@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/netapp/volumes/docs/configure-and-use/volumes/cache-ontap-volumes/plan-flexcache-volumes/
 title: Plan the FlexCache volumes \u00a0|\u00a0 NetApp Volumes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:22:02.972088+00:00
+fetched_at: 2026-10-31T06:00:23.947197+00:00
 ---
 
 # Plan the FlexCache volumes  |  NetApp Volumes  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ Use the following formulas to calculate the maximum throughput for a FlexCache v
 
     * **Extreme service level** : Provisioned volume capacity (GiB) × 128 KiBps
 
-If the FlexCache volume's size provides insufficient throughput, you can use the [Manual QoS](https://docs.cloud.google.com/netapp/volumes/docs/performance/optimize-performance#manual_qos) feature to allocate throughput from other volumes in the same pool to the FlexCache volume.
+If the FlexCache volume's size provides insufficient throughput, you can use the [Manual QoS](https://docs.cloud.google.com/netapp/volumes/docs/performance/manual-qos) feature to allocate throughput from other volumes in the same pool to the FlexCache volume.
 
 For example, to achieve a throughput of 500 MiBps, provision either a 7.8 TiB Premium volume or a 3.9 TiB Extreme volume.
 
@@ -69,6 +69,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

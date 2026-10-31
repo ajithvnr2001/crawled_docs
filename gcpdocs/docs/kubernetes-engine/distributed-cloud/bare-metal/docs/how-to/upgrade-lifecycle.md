@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade-lifecycle/
 title: Lifecycle and stages of cluster upgrades \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:07.894167+00:00
+fetched_at: 2026-10-31T05:50:34.328992+00:00
 ---
 
 # Lifecycle and stages of cluster upgrades  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Lifecycle and stages of cluster upgrades Stay organized with collections  Save and categorize content based on your preferences. 
 
-When you upgrade Google Distributed Cloud, the upgrade process involves multiple steps and components. To help monitor the upgrade status or diagnose and troubleshoot problems, it's helpful to know what happens when you run the `bmctl upgrade cluster` command. This documents details the components and stages of a cluster upgrade.
+Tracking the stages of a Google Distributed Cloud upgrade lets you monitor progress and troubleshoot issues when you run the `bmctl upgrade cluster` command. As the upgrade proceeds, the command coordinates sequential stages and parallel component updates across your cluster to complete the process safely. This document details the components and stages of a cluster upgrade.
 
 ## Overview
 
@@ -1905,6 +1905,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

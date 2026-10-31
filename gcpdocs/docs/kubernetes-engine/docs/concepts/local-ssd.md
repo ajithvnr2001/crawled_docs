@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/local-ssd/
 title: About Local SSD for GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:32:30.585764+00:00
+fetched_at: 2026-10-31T05:47:41.104305+00:00
 ---
 
 # About Local SSD for GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ In version 1.25.3-gke.1800 and later, you can configure a GKE node pool to use L
 
 If you are using GKE with Standard clusters, you can attach Local SSD volumes to nodes when you create node pools. This improves the performance of ephemeral storage for your workloads that use [emptyDir Volumes](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) or [local PersistentVolumes](https://kubernetes.io/docs/concepts/storage/volumes/#local). You can create node pools with Local SSD within your cluster's [machine type limits](https://docs.cloud.google.com/compute/docs/machine-types) and your project's [quotas](https://docs.cloud.google.com/kubernetes-engine/quotas).
 
-A Local SSD disk is attached to only one [node](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#nodes). Nodes themselves are ephemeral, meaning a workload can be scheduled onto a different node. To ensure that workloads requiring Local SSDs are scheduled to appropriate nodes, use [node affinity](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/). For example, use the node label `cloud.google.com/gke-ephemeral-storage-local-ssd: "true"`.
+A Local SSD disk is attached to only one [node](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#nodes). Nodes themselves are ephemeral, meaning a workload can be scheduled onto a different node. To help ensure that workloads requiring Local SSDs are scheduled to appropriate nodes, use [node affinity](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/). For example, use the node label `cloud.google.com/gke-ephemeral-storage-local-ssd: "true"`.
 
 When you configure Local SSDs, GKE automatically mounts the following directories onto the Local SSD volume for improved performance: `/var/lib/kubelet`, `/var/log/pods`, and `/var/lib/containerd`. This approach helps ensure faster access to critical kubelet data, Pod logs, and container runtime files.
 
@@ -66,7 +66,20 @@ Common scenarios for using block device storage include the following:
 
 In GKE version v1.25.3-gke.1800 and later, you can create clusters and node pools with raw block local NVMe SSDs attached, by using the `--local-nvme-ssd-block` option. You can then customize block storage by formatting a filesystem of choice (such as ZFS or HDFS) and configuring RAID. This option is suitable if you need additional control to run workloads that specifically requires access to block storage backed by Local SSD.
 
-You can also use the block access approach with Local SSD if you want a unified data cache to share data across Pods, and the data is tied to a node lifecycle. To do so, install a DaemonSet with a RAID configuration, format a filesystem, and use a local PersistentVolume to share data across Pods.
+You can also use the block access approach with Local SSD if you want a unified data cache to share data across Pods, and the data is tied to a node lifecycle. To do so, install a DaemonSet with a RAID configuration, format a file system, and use a local PersistentVolume to share data across Pods.
+
+### Mixed storage
+
+On nodes running version 1.37.0-gke.3570000 or later, you can partition Local SSD disks on the same node to provide both ephemeral storage and raw block storage. The ephemeral storage is used for `emptyDir` volumes and container runtime directories. To set the size of the ephemeral storage partition, use the `capacity` setting of the `--ephemeral-storage-local-ssd` flag.
+
+When combining both storage types on a single node, you can use the node labels associated with both ephemeral and raw block storage to help ensure your workloads are scheduled appropriately:
+
+  * `cloud.google.com/gke-ephemeral-storage-local-ssd: "true"`
+  * `cloud.google.com/gke-local-nvme-ssd-partition: "true"`
+
+
+
+To learn how to configure and use the mixed Local SSD capacity, see [Provision mixed Local SSDs for raw block and ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd).
 
 ## Machine requirements
 
@@ -204,6 +217,7 @@ If you need persistent storage, we recommend you use a durable storage option (s
 
   * Learn how to [provision and use Local SSD-backed ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd).
   * Learn how to [provision and use Local SSD-backed raw block storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd-raw).
+  * Learn how to [provision and use mixed Local SSDs for raw block and ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd).
   * Learn how to [use dedicated Persistent Disks as ephemeral volumes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/generic-ephemeral-volumes).
   * Learn how to [create Volumes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/volumes).
   * Learn how to [use the Compute Engine persistent disk CSI Driver](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/gce-pd-csi-driver).
@@ -214,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

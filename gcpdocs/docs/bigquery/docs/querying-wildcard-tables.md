@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/querying-wildcard-tables/
 title: Query multiple tables using a wildcard table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:58.398758+00:00
+fetched_at: 2026-10-31T05:58:17.697399+00:00
 ---
 
 # Query multiple tables using a wildcard table  |  BigQuery  |  Google Cloud Documentation
@@ -23,25 +23,17 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 **Note:** Wildcard tables have many limitations and are less performant than regular BigQuery tables that take advantage of [partitioning](https://docs.cloud.google.com/bigquery/docs/partitioned-tables) and [clustering](https://docs.cloud.google.com/bigquery/docs/clustered-tables). As a best practice, use partitioned or clustered tables when possible.
 
-Wildcard tables enable you to query multiple tables using concise SQL statements. Wildcard tables are available only in GoogleSQL. For equivalent functionality in legacy SQL, see [Table wildcard functions](https://docs.cloud.google.com/bigquery/query-reference#tablewildcardfunctions).
-
-A wildcard table represents a union of all the tables that match the wildcard expression. For example, the following `FROM` clause uses the wildcard expression `gsod*` to match all tables in the `noaa_gsod` dataset that begin with the string `gsod`.
-    
-    
-    FROM
-      `bigquery-public-data.noaa_gsod.gsod*`
-    
-
-Each row in the wildcard table contains a special column, `_TABLE_SUFFIX`, which contains the value matched by the wildcard character.
+Wildcard tables in BigQuery let you query multiple, similarly named tables that share compatible schemas. A wildcard table represents a union of all the tables that match the wildcard expression. As a result, you can analyze fragmented datasets without writing long, complex queries that contain `UNION ALL` statements.
 
 ## Limitations
 
 Wildcard table queries are subject to the following limitations.
 
+  * Wildcard tables are available only in GoogleSQL. For equivalent functionality in legacy SQL, see [Table wildcard functions](https://docs.cloud.google.com/bigquery/query-reference#tablewildcardfunctions).
   * The wildcard table functionality doesn't support views. If the wildcard table matches any view in the dataset, the query returns an error even if your query contains a `WHERE` clause on the `_TABLE_SUFFIX` pseudocolumn to filter out the view.
   * Cached results are not supported for queries against multiple tables using a wildcard even if the **Use Cached Results** option is checked. If you run the same wildcard query multiple times, you are billed for each query.
   * Wildcard tables support built-in BigQuery storage only. You cannot use wildcards to query an [external table](https://docs.cloud.google.com/bigquery/external-data-sources) or a [view](https://docs.cloud.google.com/bigquery/docs/views).
-  * You cannot use wildcard queries over tables with incompatible partitioning or a mix of partitioned and non-partitioned tables. The queried tables also need to have identical clustering specifications.
+  * You can't use wildcard queries over tables with incompatible partitioning or a mix of partitioned and non-partitioned tables. The queried tables also need to have identical clustering specifications.
   * You can use wildcard tables with partitioned tables, and both partition pruning and cluster pruning are supported. However, tables that are clustered but not partitioned don't get the full cluster pruning benefit from wildcard usage.
   * Queries that contain [data manipulation language](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language) (DML) statements cannot use a wildcard table as the target of the query. For example, a wildcard table may be used in the `FROM` clause of an `UPDATE` query, but a wildcard table cannot be used as the target of the `UPDATE` operation.
   * Filters on the `_TABLE_SUFFIX` or `_PARTITIONTIME` pseudocolumns that include JavaScript user-defined functions don't limit the number of tables scanned in a wildcard table.
@@ -451,6 +443,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

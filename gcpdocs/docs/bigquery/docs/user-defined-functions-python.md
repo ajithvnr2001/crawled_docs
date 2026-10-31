@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python/
 title: Work with user-defined functions in Python \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:18.853751+00:00
+fetched_at: 2026-10-31T05:58:33.887901+00:00
 ---
 
 # Work with user-defined functions in Python  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with user-defined functions in Python
 
-A Python user-defined function (UDF) lets you implement a scalar function in Python and use it in a SQL query. Python UDFs are similar to [SQL and Javascript UDFs](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions), but with additional capabilities. Python UDFs let you install third-party libraries from the [Python Package Index (PyPI)](https://pypi.org/) and let you access external services using a [Cloud resource connection](https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection).
+Python [user-defined functions (UDFs)](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions) let you extend your BigQuery SQL queries with custom scalar functions written in Python. Python UDFs are similar to SQL and JavaScript UDFs, but with additional capabilities. Creating these functions lets you use the [Python Package Index (PyPI)](https://pypi.org/) ecosystem and access external services through [Cloud resource connections](https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection) without leaving BigQuery.
 
 Python UDFs are built and run on BigQuery managed resources.
 
@@ -1665,6 +1665,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

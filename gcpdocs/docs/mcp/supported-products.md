@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/mcp/supported-products/
 title: Supported products \u00a0|\u00a0 Google Cloud MCP servers \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:42:09.174987+00:00
+fetched_at: 2026-10-31T05:58:34.898243+00:00
 ---
 
 # Supported products  |  Google Cloud MCP servers  |  Google Cloud Documentation
@@ -167,6 +167,7 @@ Knowledge Catalog | Knowledge Catalog offers different endpoints for different [
 
 | [Knowledge Catalog MCP reference](https://docs.cloud.google.com/dataplex/docs/reference/mcp) | [Use the Knowledge Catalog remote MCP server](https://docs.cloud.google.com/dataplex/docs/use-remote-mcp)  
 Dataform | `https://dataform.googleapis.com/mcp` | [Dataform MCP reference](https://docs.cloud.google.com/dataform/docs/reference/mcp) | [Use the Dataform MCP server](https://docs.cloud.google.com/dataform/docs/use-dataform-mcp)  
+Developer Connect (Preview) | `https://developerconnect.googleapis.com/mcp` | [Developer Connect MCP reference](https://docs.cloud.google.com/developer-connect/docs/api/reference/mcp) |   
 Error Reporting | `https://clouderrorreporting.googleapis.com/mcp` | [Error Reporting MCP reference](https://docs.cloud.google.com/error-reporting/reference_mcp/mcp) |   
 Firebase SQL Connect (Preview) | `https://firebasedataconnect.googleapis.com/mcp` | [Firebase SQL Connect MCP reference](https://firebase.google.com/docs/reference/sql-connect/mcp) |   
 Firestore | `https://firestore.googleapis.com/mcp` | [Firestore MCP reference](https://docs.cloud.google.com/firestore/docs/reference/mcp) | [Use the Firestore MCP server](https://docs.cloud.google.com/firestore/native/docs/use-firestore-mcp)  
@@ -784,6 +785,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

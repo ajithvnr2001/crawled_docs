@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-download/
 title: Download the gdcloud CLI \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:20.013192+00:00
+fetched_at: 2026-10-31T05:48:02.784978+00:00
 ---
 
 # Download the gdcloud CLI  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -26,7 +26,10 @@ This document explains how to download the gdcloud CLI in your Google Distribute
 
   * **Platform** : Select the operating system (OS) and architecture that correspond with your local environment.
   * **GDC version** : Select the binary version of the gdcloud CLI, which corresponds with GDC patch versions. We recommend using the latest version available, but you can download archived versions for specific use cases.
-  * **Type** : Select the binary type based on your needs. The `Full` bundle type is the comprehensive gdcloud CLI command bundle that includes all supported commands for the chosen platform. The `Lite` bundle type includes a subset of the gdcloud CLI commands from the `Full` bundle to provide a smaller bundle download size.
+  * **Type** : Select the bundle type based on your needs. The `Full` bundle type includes all supported gdcloud CLI commands for your selected platform. The `Lite` bundle type includes a subset of the gdcloud CLI commands from the `Full` bundle to provide a smaller download size.
+
+Both `Full` and `Lite` bundle archives include the `bin/component_bundles/` directory for installing components such as `storage-cli-dependencies`. A standalone gdcloud CLI binary copied outside the extracted bundle directory doesn't include component bundles and can't run `gdcloud components install`.
+
 
 
 
@@ -68,7 +71,7 @@ Download the gdcloud CLI bundle to your system from the GDC console:
 
 ## Extract the gdcloud CLI bundle
 
-Extract the contents of the downloaded gdcloud CLI bundle to any location on your file system.
+Extract the contents of the downloaded gdcloud CLI bundle to any location on your file system. Keep the extracted `google-distributed-cloud-hosted-cli` directory intact so that `bin/gdcloud` can locate component archives in `bin/component_bundles/`.
 
 To replace an existing installation, remove the existing `google-distributed-cloud-hosted-cli` directory and extract the archive to the same location.
 
@@ -96,6 +99,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

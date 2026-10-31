@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/release-notes/
 title: IAM release notes \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:36:40.822019+00:00
+fetched_at: 2026-10-31T05:52:28.744855+00:00
 ---
 
 # IAM release notes  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -28,6 +28,14 @@ This page documents production updates to Identity and Access Management. Check 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/iam-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Feature
+
+The Admin (`roles/admin`), Writer (`roles/writer`), and Reader (`roles/reader`) basic roles are generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Basic roles](https://docs.cloud.google.com/iam/docs/roles-overview#basic).
+
+The legacy basic roles—Owner (`roles/owner`), Editor (`roles/editor`), and Viewer (`roles/viewer`)—are still available for use and are being actively maintained. However, if you need to grant a basic role, we recommend granting the Admin, Writer, or Reader role instead of a legacy basic role. This is because the newer roles support additional features, such as the use of [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview).
 
 ## October 06, 2026
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console/
-title: Quick start: Reinforcement learning fine-tuning using the Google Cloud console \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
+title: Quickstart: Reinforcement learning fine-tuning using the Google Cloud console \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:20.077733+00:00
+fetched_at: 2026-10-31T05:56:10.241347+00:00
 ---
 
-# Quick start: Reinforcement learning fine-tuning using the Google Cloud console  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
+# Quickstart: Reinforcement learning fine-tuning using the Google Cloud console  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console/
 
@@ -19,13 +19,13 @@ fetched_at: 2026-10-29T11:06:20.077733+00:00
 
 Send feedback 
 
-#  Quick start: Reinforcement learning fine-tuning using the Google Cloud console Stay organized with collections  Save and categorize content based on your preferences. 
+#  Quickstart: Reinforcement learning fine-tuning using the Google Cloud console Stay organized with collections  Save and categorize content based on your preferences. 
 
 This product is a Pre-GA offering, subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1), the "Agentic AI Services" terms in the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA products and features may have limited support, and changes to pre-GA products and features may not be compatible with other pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products**. These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes. 
 
-This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models in the Google Cloud console: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it. To complete these tasks by using the Agent Platform API, see the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start).
+This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models in the Google Cloud console: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it. To complete these tasks by using the Agent Platform API, see the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start).
 
 Before you begin, see [About reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) for an overview of the feature, supported models, and supported regions.
 
@@ -45,7 +45,7 @@ To create a reinforcement learning fine-tuning job by using the Google Cloud con
      2. In the **Tuned model name** field, enter a name for your tuned model (for example, `my-rl-tuned-model`).
      3. Under **Base model** , select **Tune a foundation model**.
      4. In the **Base model** drop-down list, select the model to tune (for example, `gemini-3.5-flash`).
-     5. In the **Region** drop-down list, select the region where the tuning job runs (for example, `us-central1 (Iowa)`). The resulting tuned model is served from the `us` multi-region endpoint. For the full list of supported tuning and serving regions, see the [Supported models and regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning#supported_models_and_regions) section.
+     5. In the **Region** drop-down list, select the region where the tuning job runs (for example, `us-central1 (Iowa)`). The resulting tuned model is served from the `us` multi-region endpoint. For the full list of supported tuning and serving regions, see the [Supported models and regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning#supported-models-and-regions) section.
      6. Optional: Expand **Advanced options** to customize hyperparameters: 
         * **Number of epochs** : The number of training epochs (for example, `15`).
         * **Learning rate multiplier** : The multiplier to scale the learning rate (for example, `1.0`).
@@ -91,7 +91,7 @@ Alternatively, for a string match reward:
      1. In the **Training Example** field, enter a sample JSON object containing `contents` and `references`.
      2. In the **Sample model response** field, enter a candidate response, or click **Generate from Training Example** to generate a sample response by using the base model.
      3. Click **Test**.
-     4. Verify that the evaluation succeeds and check the computed score. If using composite rewards, click **See individual reward information** to inspect the per-reward score breakdown.
+     4. Verify the test status (**Success** , **Partial success** if an individual subtask in a composite reward fails, or **Error: Subtask**) and check the computed score. Click **See individual reward information** (or **See debug info** when a subtask reports an error) to open the side drawer and inspect per-reward scores, error messages, and debug logs.
      5. Click **Continue**.
   6. Under **Tuning dataset** , specify your dataset files stored in Cloud Storage:
 
@@ -154,7 +154,7 @@ If the tuning job ran in `us-central1`, the tuned model is served from the `us` 
 
 ## Run inference on the tuned model
 
-You can test and run inference on the tuned model directly in the Google Cloud console, do the following:
+To test and run inference on the tuned model directly in the Google Cloud console, do the following:
 
   1. In the header of the tuning job details page, click **Test**.
 
@@ -164,7 +164,7 @@ Agent Studio opens with your tuned model pre-selected.
 
   3. Click **Run** (or **Send**) to generate a response.
 
-  4. Review the generated output to evaluate how well the model adheres to your desired reasoning style, formatting, and reward objectives.
+  4. Review the generated output to evaluate how well the model adheres to your target reasoning style, formatting, and reward objectives.
 
 
 
@@ -175,7 +175,7 @@ Agent Studio opens with your tuned model pre-selected.
   * Explore supported [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions).
   * Configure [hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) for reinforcement learning.
   * Learn how to track [metrics and monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring).
-  * Try the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create tuning jobs programmatically.
+  * Try the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create tuning jobs programmatically.
 
 
 
@@ -183,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

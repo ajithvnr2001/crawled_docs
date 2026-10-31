@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources/
 title: Compute resources \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:13:29.883531+00:00
+fetched_at: 2026-10-31T05:40:24.166883+00:00
 ---
 
 # Compute resources  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -44,9 +44,18 @@ Machine type | GPU | GPUs per node
 
 Machine type | Description  
 ---|---  
-N2 family: `n2-standard-*`, `n2-highmem-*`, `n2-highcpu-*` | General-purpose nodes for data preprocessing, job orchestration, and other work that doesn't require an accelerator. N2 is also the machine family used for Slurm login nodes.  
+N2 family: `n2-standard-*`, `n2-highmem-*`, `n2-highcpu-*` | General-purpose nodes for data preprocessing, job orchestration, and other work that doesn't require an accelerator. N2 is also supported for Slurm login nodes.  
+C4A family: `c4a-standard-*`, `c4a-highmem-*`, `c4a-highcpu-*` | Arm-based (Axion) nodes, supported for Slurm login nodes only, and only in clusters whose compute node pools are also Arm-based. The `-lssd` and `-metal` variants aren't supported.  
 H4D family: `h4d-standard-*`, `h4d-highmem-*` | HPC-optimized nodes with RDMA networking, for tightly coupled simulation and preprocessing workloads.  
   
+### C4A login nodes
+
+C4A login nodes are Arm-based and are supported only in clusters where every compute node pool is also Arm-based, such as A4X. A cluster that pairs a C4A login node with an x86 compute node pool, such as N2 or A3, is rejected when you create it.
+
+Because the login node and the compute nodes share the same architecture, binaries and container images you build on the login node run on the compute nodes you submit them to.
+
+C4A only supports a `hyperdisk-balanced` boot disk, which is the default.
+
 ## A4X machine type
 
 Gemini Enterprise Agent Platform training clusters support the [A4X accelerator-optimized machine type](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-machine-type) (a4x-highgpu-4g), an exascale platform based on the [NVIDIA GB200 NVL72](https://www.nvidia.com/en-us/data-center/gb200-nvl72/) rack-scale architecture.
@@ -126,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

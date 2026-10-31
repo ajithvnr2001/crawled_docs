@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security/
 title: Implement shift-left security \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:43.695207+00:00
+fetched_at: 2026-10-31T05:57:35.529814+00:00
 ---
 
 # Implement shift-left security  |  Cloud Architecture Center  |  Google Cloud Documentation

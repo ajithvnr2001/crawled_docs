@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances/
 title: Create a VM that uses a user-managed service account \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:40.944906+00:00
+fetched_at: 2026-10-31T05:53:31.188580+00:00
 ---
 
 # Create a VM that uses a user-managed service account  |  Compute Engine  |  Google Cloud Documentation
@@ -363,15 +363,15 @@ Replace the following:
   * `MACHINE_TYPE`: machine type, [predefined](https://docs.cloud.google.com/compute/docs/machine-resource) or [custom](https://docs.cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types), for the new VM
   * `VM_NAME`: [name](https://docs.cloud.google.com/compute/docs/naming-resources#resource-name-format) of the new VM
   * `IMAGE_PROJECT`: [project](https://docs.cloud.google.com/compute/docs/images#os-compute-support) containing the image  
-For example, if you specify `debian-10` as the image family, specify `debian-cloud` as the image project.
+For example, if you specify `debian-12` as the image family, then specify `debian-cloud` as the image project.
   * `IMAGE`: specify one of the following: 
     * `IMAGE`: a specific version of a public image
 
-For example, `"sourceImage": "projects/debian-cloud/global/images/debian-10-buster-v20200309"`
+For example, `"sourceImage": "projects/debian-cloud/global/images/debian-12-bookworm-v20241112"`
 
     * `IMAGE_FAMILY`: an [image family](https://docs.cloud.google.com/compute/docs/images#image_families)
 
-This creates the VM from the most recent, non-deprecated OS image. For example, if you specify `"sourceImage": "projects/debian-cloud/global/images/family/debian-10"`, Compute Engine creates a VM from the latest version of the OS image in the `Debian 10` image family.
+Specifying an image family creates the VM from the most recent, non-deprecated OS image. For example, if you specify `"sourceImage": "projects/debian-cloud/global/images/family/debian-12"`, then Compute Engine creates a VM from the latest version of the OS image in the Debian 12 image family.
 
   * `NETWORK_NAME`: the VPC network that you want to use for the VM. You can specify `default` to use your default network.
   * `SERVICE_ACCOUNT_EMAIL`: the email address for the service account that you created. For example: `my-sa-123@my-project-123.iam.gserviceaccount.com`. To view the email address, see [obtain a service account email](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#serviceaccountname). 
@@ -416,6 +416,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

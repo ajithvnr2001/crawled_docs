@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-connect-cloud-sql-parent-tag/
 title: Create a Cloud Run service with Cloud SQL connectivity via Secret Manager secrets \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:22.767395+00:00
+fetched_at: 2026-10-31T05:50:15.211256+00:00
 ---
 
 # Create a Cloud Run service with Cloud SQL connectivity via Secret Manager secrets  |  Google Cloud Documentation

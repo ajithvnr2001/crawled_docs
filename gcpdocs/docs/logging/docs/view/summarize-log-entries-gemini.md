@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/view/summarize-log-entries-gemini/
 title: Summarize log entries with Gemini assistance \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:39.671385+00:00
+fetched_at: 2026-10-31T05:59:27.669990+00:00
 ---
 
 # Summarize log entries with Gemini assistance  |  Cloud Logging  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This document describes how you can use [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview), a key product in the Gemini for Google Cloud portfolio, to summarize a log entry in Cloud Logging. When you are investigating an issue, log entry summaries can help you to interpret activity in a log.
 
-This documentation assumes that your Google Cloud project already [collects the log data](https://docs.cloud.google.com/logging/docs/agent-or-library) that you want to explore.
+This documentation assumes that your Google Cloud project already collects the log data that you want to explore.
 
 **Note:** Gemini Cloud Assist can store data in any Google Cloud data center globally. Don't enable the [Gemini Cloud Assist API](https://docs.cloud.google.com/gemini/docs/discover/certifications#cloud-assist-security) for projects that have a data residency or [customer-managed encryption key](https://docs.cloud.google.com/kms/docs/cmek) requirement.
 
@@ -84,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

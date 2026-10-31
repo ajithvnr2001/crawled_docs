@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd/
 title: Integrate with CI/CD \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:21.939108+00:00
+fetched_at: 2026-10-31T05:54:27.615425+00:00
 ---
 
 # Integrate with CI/CD  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -751,7 +751,6 @@ Flag | Default | Description
 ---|---|---  
 `--diff[=REF]` | Off |  Scans the changes compared with `REF`, such as `origin/main`. Without `REF`, scans uncommitted changes to tracked files (compared against `HEAD`). Can't be used with `--deep` or `--quick`.   
 `--staged` | Off | With `--diff`, scans only staged changes.  
-`--diff-depth DEPTH` | `1` | Traversal depth for impact analysis (1 to 3, default: 1-hop).  
 `--diff-workers COUNT` | `4` | The number of files to scan at the same time, from 1 to 16.  
 `--diff-max-neighbors COUNT` | `10` | The maximum number of dependent files to scan.  
 `--fail-on SEVERITIES` | `CRITICAL,HIGH` |  With `--diff`, the severities that make `cm find` exit with status 1. With an empty value, findings don't affect the exit status.   
@@ -874,6 +873,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

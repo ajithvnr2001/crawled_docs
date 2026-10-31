@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/usage-reports-with-system-activity-explores/
 title: Monitoring Looker usage with System Activity Explores \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:01.719261+00:00
+fetched_at: 2026-10-31T05:48:47.756901+00:00
 ---
 
 # Monitoring Looker usage with System Activity Explores  |  Google Cloud Documentation
@@ -445,7 +445,7 @@ You can use the **Event Attribute** Explore to list all the events that are mapp
   5. Click **Run** to return all event IDs for a specific request.
   6. Copy all the event IDs by clicking on the more_vert**More** menu and then the **Copy values** option for the **Event ID** field in the results.
 
-**Note:** The **Copy values** option isn't available in the [new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience).
+**Note:** The **Copy values** option isn't available in the [new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores).
   7. Remove all the existing filters.
 
   8. Add a filter on **ID** in the **Event** view and set the values to the copied event ID values.
@@ -1441,6 +1441,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

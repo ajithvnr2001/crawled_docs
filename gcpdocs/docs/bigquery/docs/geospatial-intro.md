@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/geospatial-intro/
 title: Introduction to geospatial analytics \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:50.081507+00:00
+fetched_at: 2026-10-31T05:58:34.579481+00:00
 ---
 
 # Introduction to geospatial analytics  |  BigQuery  |  Google Cloud Documentation
@@ -21,15 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to geospatial analytics
 
-In a data warehouse like BigQuery, location information is common and can influence critical business decisions. You can use geospatial analytics to analyze and visualize geospatial data in BigQuery by using the [`GEOGRAPHY` data type](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#geography_type) and [GoogleSQL geography functions](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/geography_functions).
-
-For example, you might record the latitude and longitude of your delivery vehicles or packages over time. You might also record customer transactions and join the data to another table with store location data. You can use this type of location data to do the following:
-
-  * Estimate when a package is likely to arrive.
-  * Determine which customers should receive a mailer for a particular store location.
-  * Combine your data with percent tree cover from satellite imagery to decide if delivery by aerial drone is feasible.
-
-
+Geospatial analytics in BigQuery lets you analyze and visualize location information to influence critical business decisions. You can use the [`GEOGRAPHY` data type](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#geography_type) and [GoogleSQL geography functions](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/geography_functions) to track delivery vehicles, map customer transactions, and extract actionable insights from your spatial data.
 
 ## Limitations
 
@@ -57,8 +49,8 @@ For more information on all quotas and limits, see [Quotas and limits](https://d
 
 When you use geospatial analytics, your charges are based on the following factors:
 
-  * How much data is stored in the tables that contain geospatial data
-  * The queries you run against the data
+  * How much data is stored in the tables that contain geospatial data.
+  * The queries you run against the data.
 
 
 
@@ -85,6 +77,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

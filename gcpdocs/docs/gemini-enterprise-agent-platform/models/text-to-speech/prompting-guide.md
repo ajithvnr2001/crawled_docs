@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/prompting-guide/
 title: Gemini TTS prompting guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:42.830249+00:00
+fetched_at: 2026-10-31T05:48:16.259465+00:00
 ---
 
 # Gemini TTS prompting guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-29T11:06:42.830249+00:00
 Send feedback 
 
 #  Gemini TTS prompting guide Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [ Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms). For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [ Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum), subject to the obligations and restrictions described in the agreement under which you access Google Cloud. 
 
 This page describes best practices for writing prompts when using [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts).
 
@@ -122,7 +118,7 @@ Follow these guidelines to keep vocal identity stable across turns:
 
   1. **Build the character once** : Create your character in [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) or select a regional voice from the [Extended Voice Library](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#voice-library) that matches your target language and persona.
   2. **Write natural spoken transcripts with disfluencies** : For maximum naturalness, write the `text` as a real spoken transcript, including natural conversational disfluencies and hesitations (for example, `"Oh uh yeah I think... hm, so that's interesting"`).
-  3. **Test plain TTS first** : Synthesize your transcript with an empty `style` field first. Most requests need no `style` instruction at all.
+  3. **Test plain TTS first** : Synthesize your transcript (for example, in [Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-tts)) with an empty `style` field first. Most requests need no `style` instruction at all.
   4. **Add short`style` prompts only for tweaks**: Add a concise `style` string (such as `"casual, friendly"` or `"muttering, then reassuring"`) only for turns that need a specific delivery adjustment, and reuse that exact short string across turns when you want a consistent baseline.
 
 
@@ -149,6 +145,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

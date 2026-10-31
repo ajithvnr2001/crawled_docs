@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/feature-usage/
 title: View feature usage \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:51.715827+00:00
+fetched_at: 2026-10-31T05:40:26.534859+00:00
 ---
 
 # View feature usage  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -51,7 +51,9 @@ For example, if a user in your project sends the first prompt using Antigravity 
 
 For the Gemini Enterprise Pay-as-you-go edition, Gemini Enterprise does not pool usage based on user licenses. Instead, when you view feature usage in the dashboard, you see the actual usage amount consumed by your project.
 
-**Note:** To subscribe to the Gemini Enterprise Pay-as-you-go edition, your project must be linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) that receives an active monthly invoice.
+**Note:** If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
+
+Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
 
 ## Before you begin
 
@@ -64,7 +66,7 @@ You can view the usage dashboard only if the following are true:
 
 
 
-To view quota usage on the **Usage** tab of the **Usage & Spending** page, you need the following IAM permissions:
+To view quota usage on the **Usage** tab of the **Usage & spend** page, you need the following IAM permissions:
 
   * `monitoring.timeSeries.list`
     * Included by default in the [Gemini Enterprise Administrator](https://docs.cloud.google.com/gemini/enterprise/docs/access-control#discoveryengine.agentspaceAdmin) (`roles/discoveryengine.agentspaceAdmin`) role.
@@ -88,7 +90,7 @@ The dashboard shows the quotas of your Agentspace subscription or the combined q
 
 
 
-To view quota usage on the **Usage** tab of the **Usage & Spending** page, you need the following IAM permissions:
+To view quota usage on the **Usage** tab of the **Usage & spend** page, you need the following IAM permissions:
 
   * `monitoring.timeSeries.list`
     * Included by default in the [Gemini Enterprise Administrator](https://docs.cloud.google.com/gemini/enterprise/docs/access-control#discoveryengine.agentspaceAdmin) (`roles/discoveryengine.agentspaceAdmin`) role.
@@ -104,9 +106,9 @@ If you use user roles that don't include these permissions, you must [add the re
 
 To view feature usage and quota details in your project, follow these steps:
 
-  1. In the Google Cloud console, go to the **Gemini Enterprise > Usage & Spending** page.
+  1. In the Google Cloud console, go to the **Gemini Enterprise > Usage & spend** page.
 
-[Go to Usage & Spending](https://console.cloud.google.com/gemini-enterprise/usage-and-spending)
+[Go to Usage & spend](https://console.cloud.google.com/gemini-enterprise/usage-and-spending)
 
   2. Select the **location** of the licenses or subscription.
 
@@ -129,9 +131,9 @@ For more information about how single-user quota limits work and which features 
 
 To enable, update, or turn off a single-user quota limit for an edition and location, follow these steps:
 
-  1. In the Google Cloud console, go to the **Gemini Enterprise > Usage & Spending** page.
+  1. In the Google Cloud console, go to the **Gemini Enterprise > Usage & spend** page.
 
-[Go to Usage & Spending](https://console.cloud.google.com/gemini-enterprise/usage-and-spending)
+[Go to Usage & spend](https://console.cloud.google.com/gemini-enterprise/usage-and-spending)
 
   2. Select the **Usage** tab.
 
@@ -160,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

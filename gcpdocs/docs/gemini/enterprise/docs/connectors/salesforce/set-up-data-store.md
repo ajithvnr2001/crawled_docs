@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store/
 title: Set up a Salesforce data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:19.791392+00:00
+fetched_at: 2026-10-31T05:51:23.886648+00:00
 ---
 
 # Set up a Salesforce data store  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -37,7 +37,12 @@ Before you set up your Salesforce connection, do the following:
 
      2. Locate the user account and click edit **Edit**.
      3. Grant the `Discovery Engine Editor` role to the user. For more information, see [IAM roles and permissions](https://cloud.google.com/gemini/enterprise/docs/access-control).
-  2. Have your Salesforce administrator install the [Gemini Enterprise - Salesforce Connector](https://appexchange.salesforce.com/appxListingDetail?listingId=ee18ab11-351b-4178-b6af-3573d35e2d29) managed package from Salesforce AppExchange into the Salesforce organization you are connecting, and enable the **SObject All** MCP server in that organization. Until the package is installed, users can't authorize the connector; until that server is active, no actions are available. See [Salesforce configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration).
+  2. Have your Salesforce administrator enable the **SObject All** MCP server in the Salesforce organization you're connecting, and configure your chosen authentication method:
+
+     * **OAuth 2.0 (Google Managed)** (default): Install the [Gemini Enterprise - Salesforce Connector](https://appexchange.salesforce.com/appxListingDetail?listingId=ee18ab11-351b-4178-b6af-3573d35e2d29) managed package from Salesforce AppExchange into that organization. You don't need a client ID or client secret.
+     * **OAuth 2.0 (Bring Your Own App)** : Create an external client app in that organization and obtain its consumer key (**Client ID**) and consumer secret (**Client Secret**).
+
+Until the OAuth app is configured, users can't authorize the connector; until the **SObject All** MCP server is active, no actions are available. See [Salesforce configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration).
 
   3. Note your organization's My Domain URL, for example `https://example.my.salesforce.com`. You enter this as the **Instance URI**. For a sandbox organization, use the sandbox My Domain, for example `https://example--sandbox.sandbox.my.salesforce.com`.
 
@@ -55,8 +60,6 @@ To find the My Domain URL to enter as the **Instance URI** :
 
 
 For a sandbox organization, do this in the sandbox. Its My Domain URL looks like `https://example--sandbox.sandbox.my.salesforce.com`.
-
-**Note:** Salesforce uses Google-managed OAuth. You don't need to create your own OAuth application or provide a client ID and client secret. You authorize the connector with your Salesforce account when you enable connector in app.
 
 ## Create the Salesforce data store
 
@@ -76,9 +79,16 @@ To create the Salesforce data store, follow these steps:
 
   6. In the **Data** section:
 
-     1. For **Instance URI** , enter the My Domain URL of your Salesforce site, for example `https://example.my.salesforce.com`. For a sandbox organization, enter your sandbox My Domain, for example `https://example--sandbox.sandbox.my.salesforce.com`.
+     1. Under **Authentication settings** , for **Select your authentication method** , choose one of the following options:
 
-     2. If you are connecting a sandbox organization, select **Use Sandbox**. Actions are then served from your sandbox organization.
+        * **OAuth 2.0 (Google Managed)** (default): 
+          1. For **Instance URI** , enter the My Domain URL of your Salesforce site, for example `https://example.my.salesforce.com`. For a sandbox organization, enter your sandbox My Domain, for example `https://example--sandbox.sandbox.my.salesforce.com`.
+        * **OAuth 2.0 (Bring Your Own App)** : 
+          1. For **Instance URI** , enter the My Domain URL of your Salesforce site, for example `https://example.my.salesforce.com`. For a sandbox organization, enter your sandbox My Domain, for example `https://example--sandbox.sandbox.my.salesforce.com`.
+          2. For **Client ID** , enter the consumer key of your Salesforce external client app.
+          3. For **Client Secret** , enter the consumer secret of your Salesforce external client app.
+          4. Click **Verify Auth** and complete the Salesforce sign-in to verify your OAuth credentials.
+     2. Under **Advanced options** , if you're connecting a sandbox organization, select **Use Sandbox**. Salesforce then serves actions from your sandbox organization.
 
      3. Click **Continue**.
 
@@ -114,7 +124,7 @@ On the **Data Stores** page, click your data store name to see the status. After
 
 After creating the data store, connect the data store you just created to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) it to the new app, and [authorize](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store#user_authorization) Gemini Enterprise to access Salesforce before executing any queries.
 
-**Note:** The **Authorize** step sends each user to your organization's Salesforce sign-in page to grant the Gemini Enterprise app the `mcp_api` and `refresh_token` scopes. This step fails if the managed package isn't installed in that organization, or if the user's profile doesn't have access to the app. Per-data-store static IP configuration isn't supported; IP validation for authentication and token refresh calls is enforced within the Google-managed AppExchange app, and data calls are authorized using the user's valid access token. See [Set the login IP policy for the app](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration#ip-policy).
+**Note:** The **Authorize** step sends each user to your organization's Salesforce sign-in page to grant the OAuth app the `mcp_api` and `refresh_token` scopes. This step fails if the Gemini Enterprise managed package (for **OAuth 2.0 (Google Managed)**) or your custom OAuth app (for **OAuth 2.0 (Bring Your Own App)**) isn't configured in that organization, or if the user's profile doesn't have access to the app. Per-data-store static IP configuration isn't supported; login IP policy for authentication and token refresh calls is configured on the app in Salesforce, and data calls are authorized using the user's valid access token. See [Set the login IP policy for the app](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration#ip-policy).
 
 ## Enable actions
 
@@ -171,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

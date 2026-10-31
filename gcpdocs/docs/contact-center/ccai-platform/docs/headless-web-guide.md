@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-web-guide/
 title: Headless web SDK guide \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:29.183669+00:00
+fetched_at: 2026-10-31T06:00:18.457242+00:00
 ---
 
 # Headless web SDK guide  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -29,11 +29,13 @@ In the context of software development, "headless" refers to a decoupled archite
 
 An example is custom workflow automation. When an end-user initiates a chat, the `on("chat.message")` event is triggered. You can define custom automation triggers based on specific chat messages you've received. For example, if an end-user types "Escalate" in the chat, the event handler can automatically escalate the chat session to a higher-level support team, providing prompt attention to critical issues.
 
-This guide walks you through the SDK's installation process, integration capabilities, and usage. For details about using the API, see the [Headless web SDK API documentation](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-web-api). A list of available events can be found on the [events page](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-web-events).
+This guide walks you through the SDK's installation process, integration capabilities, and usage. For details about using the API, see the [Headless web SDK API documentation](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-web-api). A list of available events can be found on the [Events page](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-web-events).
 
 **Note:** Google only supports the latest three minor versions of the headless web SDK. To receive support, your website must be using one of these versions of the headless web SDK.
 
 ## Install the headless web SDK
+
+To install the headless web SDK client, use the following code snippet in your project.
 
 You can install the package with npm:
     
@@ -96,6 +98,7 @@ The Client class accepts several options (you can customize according to your re
         registration?: boolean;
         redactedViews?: string[];
         unredactedViews?: string[];
+        template?: string;
       };
     }
     
@@ -129,7 +132,8 @@ The following code sample show the options for Screen Share:
     
     
     interface CobrowseOption {
-      enabled: boolean
+      enabled?: boolean
+      // Widget-only - the following template + root options have no effect in the Headless SDK:
       template?: string
       confirmSessionTemplate?: string
       confirmRemoteControlTemplate?: string
@@ -154,6 +158,17 @@ The following code sample show the options for Screen Share:
       registration?: boolean
       redactedViews?: string[]
       unredactedViews?: string[]
+      // Headless consent callbacks
+      confirmSession?: () => Promise<boolean>
+      confirmRemoteControl?: () => Promise<boolean>
+      confirmFullDevice?: () => Promise<boolean>
+    
+      // Headless session-control callbacks
+      showSessionControls?: () => void
+      hideSessionControls?: () => void
+    
+      // Existing CobrowseIO instance
+      instance?: any
     }
     
 
@@ -245,7 +260,19 @@ The following example shows the default English variable values:
     }
     
 
-### Properties
+## Headless client API
+    
+    
+    import { Client } from "@ujet/websdk-headless"
+    
+
+**Note:** Error handling - Most `Client` methods propagate HTTP errors as thrown exceptions. Wrap calls in `try/catch` unless the method's documentation notes otherwise.
+
+## Events
+
+For a list of all emitted events, refer to the [Events](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-web-events#all-available-events) page.
+
+## Properties
 
 Name | Description  
 ---|---  
@@ -254,7 +281,9 @@ Name | Description
 `chat` | Only has a value when there is an ongoing chat.  
 `cobrowse` | The underlying CobrowseIO client, available after cobrowse has been initialized  
   
-### Events
+## Events
+
+For a list of all emitted events, refer to the [All available events](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-web-events) page.
 
 Name | Description  
 ---|---  
@@ -262,13 +291,13 @@ Name | Description
 `on` | Adds event handler for provided event.  
 `off` | Removes event handler for provided event.  
   
-Use `.destroy` method to remove iframe and all event listeners
+Use the `.destroy` method to remove iframe and all event listeners:
     
     
     client.destroy()
     
 
-Use the `.on` method to track the events.
+Use the `.on` method to track the events:
     
     
     client.on('chat.updated', someFunc)
@@ -278,140 +307,6 @@ Remove the event handler with `.off`:
     
     
     client.off('chat.updated', someFunc)
-    
-
-## Custom data configuration
-
-The custom_data option lets you pass arbitrary key-value pair data to the web SDK.
-
-**Usage**
-
-You can provide custom data as either an object (unsigned) or a string (signed) when creating a chat:
-    
-    
-    interface ChatRequest {
-      lang?: string;
-      trigger_id?: string;
-      ticket_id?: string;
-      email?: string;
-      greeting?: string;
-      cobrowsable?: boolean;
-      custom_data?: {
-        signed?: string;
-        unsigned?: Record<string, any>;
-      };
-    }
-    
-
-See the following example:
-    
-    
-    const custom_data = {
-      unsigned: {
-        version: {
-          label: 'Version',
-          value: '1.0.0'
-        }
-      },
-      signed: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // JWT or other signed payload
-    }
-    
-    try {
-      const chat: Chat = await client.createChat(123, { custom_data })
-    } catch (error) {
-      // handle error
-    }
-    
-
-**Note:** Custom data is typically sent with session-creation requests for backend processing.
-
-## External chatbot transfer
-
-There are some cases where you might want to maintain history and interactions from other chat providers. You can do this by using the `custom_data object`.
-
-See the following example:
-    
-    
-    const custom_data = {
-      unsigned: {
-        external_chat_transfer: {
-          greeting_override: "Please hold while we connect you with a human agent.",
-          agent: {
-            name: "Agent Name",
-            avatar: "https://ujet.s3.amazonaws.com/default-virtual-agent-avatar-1.png"
-          },
-          transcript: [
-            {
-              sender: "agent",
-              timestamp: "2021-03-15 12:00:00Z",
-              content: [
-                {
-                  type: "text",
-                  text: "Hello! How can I help you today?"
-                },
-                {
-                  type: "buttons",
-                  buttons: [
-                    {
-                      label: "Create New Order",
-                      selected: false
-                    },
-                    {
-                      label: "Check Order Status",
-                      selected: true
-                    },
-                    {
-                      label: "Check Account Balance",
-                      selected: false
-                    },
-                  ]
-                }
-              ]
-            },
-            {
-              sender: "end_user",
-              timestamp: "2021-03-15 12:00:15Z",
-              content: [
-                {
-                  type: "text",
-                  text: "Check Order Status"
-                }
-              ]
-            },
-            {
-              sender: "agent",
-              timestamp: "2021-03-15 12:00:16Z",
-              content: [
-                {
-                  type: "text",
-                  text: "I can help you with that, what's your order number?"
-                }
-              ]
-            },
-            {
-              sender: "end_user",
-              timestamp: "2021-03-15 12:00:20Z",
-              content: [
-                {
-                  type: "media",
-                  media: {
-                    type: "image",
-                    url: "https://ujet.s3.amazonaws.com/default-virtual-agent-avatar-1.png"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      },
-      signed: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // JWT or other signed payload
-    }
-    
-    try {
-      const chat: Chat = await client.createChat(123, { custom_data })
-    } catch (error) {
-      // handle error
-    }
     
 
 ## Reference implementation
@@ -424,6 +319,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/release-notes-1161/
 title: Google Distributed Cloud air-gapped 1.16.1 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:49.035436+00:00
+fetched_at: 2026-10-31T05:48:04.148718+00:00
 ---
 
 # Google Distributed Cloud air-gapped 1.16.1 release notes  |  Google Cloud Documentation
@@ -543,7 +543,18 @@ b/534561687 #}
 
   * The `kms-mz-global-cm` subcomponent upgrade fails in organization clusters. 
 
-  * Unable to SSH to Thales HSM devices from IO Shell. **Monitoring**
+  * Unable to SSH to Thales HSM devices from IO Shell. 
+
+
+
+
+**Logging**
+
+  * Alert `AL-E0935` (`log_query_api_list_logs_error_rate_high`) fires false-positively when log queries exceed Loki's 30-day time range limit. 
+
+
+
+**Monitoring**
 
   * The `mon-system` StatefulSet Helm upgrade fails with forbidden Pod spec. 
 
@@ -659,6 +670,8 @@ b/534561687 #}
 
   * The monthly `dbsadmin` password rotation of the VM metadata server database fails because Database Service no longer deletes the `db-pw-metadata-dbcluster` secret after applying the password. After the next restart of the `metadata-server-controller-manager` pods or the database, the metadata server can't connect to its database. 
 
+  * GPU VMs fail to start with an `Unknown PCI header type '127'` error if a GPU fails link recovery and drops off the PCIe bus when waking from the `D3hot` low-power state. 
+
 
 
 
@@ -741,6 +754,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

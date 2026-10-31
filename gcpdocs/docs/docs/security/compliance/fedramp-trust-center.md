@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/docs/security/compliance/fedramp-trust-center/
-title: Google Cloud trust center for FedRAMP 20x \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
+title: FedRAMP overview \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:07.091478+00:00
+fetched_at: 2026-10-31T05:48:29.378561+00:00
 ---
 
-# Google Cloud trust center for FedRAMP 20x  |  Security  |  Google Cloud Documentation
+# FedRAMP overview  |  Security  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/docs/security/compliance/fedramp-trust-center/
 
@@ -18,38 +18,132 @@ fetched_at: 2026-10-30T08:45:07.091478+00:00
 
 Send feedback 
 
-#  Google Cloud trust center for FedRAMP 20x Stay organized with collections  Save and categorize content based on your preferences. 
+#  FedRAMP overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-06-18 UTC
+Last reviewed 2026-10-20 UTC
 
-The Google Cloud trust center for FedRAMP 20x is a centralized repository controlled by Google that provides information about Google Cloud's FedRAMP certifications, security posture, and compliance offerings to US federal customers and reviewers. This trust center aligns with the modernization goals for FedRAMP 20x, and provides information to support agencies in meeting FedRAMP requirements. The trust center contains publicly accessible metadata for service discovery, as well as information on how you can request access to restricted certification packages.
+FedRAMP is a US government program that provides a standardized approach to security assessment and authorization of cloud services so that they can be used by US federal agencies. This overview for FedRAMP provides information about Google's FedRAMP certifications, security posture, and compliance offerings to US federal customers and reviewers. 
 
-To view the Google Cloud listing page for FedRAMP 20x in the FedRAMP Marketplace, see [Gemini for Government](https://www.fedramp.gov/marketplace/products/FR2604952026/).
+You can find publicly available metadata for FedRAMP certification, including the following:
 
-## Core offering metadata
-
-The FedRAMP authorization for Gemini for Government contains the following metadata:
-
-  * **Unique Entity Identifier (UEI):** NQV3T7DDKNT6
-  * **Business category:** Large business
-  * **Service model:** PaaS, SaaS
-  * **Deployment model:** Public Cloud
-  * **Status:** Certified
-  * **Package ID:** FR2604952026
-  * **Certification class:** Class B (Low)
-  * **Certification type:** 20x
-  * **Authorizations (total ATO letters):** 1
-  * **Next assessment date for the Ongoing Authorization Report (OAR):** January 21, 2027
+  * Detailed service inventory
+  * Security policies
+  * Configuration guidance
+  * Ongoing reporting schedules
 
 
 
-## Service overview
+## Certified cloud service offerings
 
-Gemini for Government is Google's public cloud offering that uses a multi-tenant artificial intelligence (AI) and machine learning (ML) cloud computing environment, spanning platform-as-a-service (PaaS) and software-as-a-service (SaaS) models. Gemini for Government is available to federal, state, local, and tribal governments, as well as research institutions, federal contractors, and government contractors. Gemini for Government is intended to enable the secure and responsible application of generative AI for public-sector missions.
+The following products are assessed as part of the FedRAMP High baseline:
 
+  * **Google Cloud services:** includes compute, storage, networking, AI, and Assured Workloads
+  * **Google Cloud infrastructure:** includes the underlying infrastructure that supports Google Cloud and Google Workspace
+  * **Google Workspace:** includes multi-tenant public and hybrid cloud productivity and collaboration suite that uses Google services
+
+
+
+The following table describes the specifications for Google Cloud, Google Cloud infrastructure, and Google Workspace.
+
+Specification | Google Cloud and Google Cloud infrastructure | Google Workspace  
+---|---|---  
+Provider name | Google | Google  
+Cloud service offering | Google Cloud services and Google Cloud infrastructure | Google Workspace  
+FedRAMP package ID | [FR1805751477](https://www.fedramp.gov/marketplace/products/FR1805751477/) | [F1206081364](https://www.fedramp.gov/marketplace/products/F1206081364/)  
+Unique Entity Identifier (UEI) | NQV3T7DDKNT6 | NQV3T7DDKNT6  
+Status or phase | FedRAMP Certified (Ongoing Certification) | FedRAMP Certified (Ongoing Certification)  
+Certification profile | 
+
+  * **Type:** Rev5
+  * **Path:** JAB
+  * **Class:** Class D (High)
+
+| 
+
+  * **Type:** Rev5
+  * **Path:** JAB
+  * **Class:** Class D (High)
+
+  
+Certified since | December 4, 2019 | October 28, 2021  
+Service model | IaaS, PaaS, and SaaS | SaaS  
+Deployment model | Public cloud | Hybrid cloud  
+Business categories | 
+
+  * Analytics
+  * Cybersecurity & Risk Management
+  * Data Management
+  * Development Tools
+  * Fleet Management
+  * Network Management
+  * Operations Management
+  * Storage
+  * System Administration
+  * Virtual Private Network (VPN)
+
+| 
+
+  * Collaboration
+  * Communication
+
+  
+Official website | [cloud.google.com](https://cloud.google.com) | [workspace.google.com](https://workspace.google.com)  
+Independent assessor | Coalfire Systems, Inc. | Coalfire Systems, Inc.  
+Contact | [fedramp+services@google.com](mailto:fedramp+services@google.com) | [fedramp+workspace@google.com](mailto:fedramp+workspace@google.com)  
+  
 ## Detailed service inventory
 
-Google maintains a list of all services and features that are inside the FedRAMP certification bundle in [Configure Gemini for Government for FedRAMP 20x Class B (Low)](https://docs.cloud.google.com/docs/security/compliance/config-fedramp20x-gemini-gov). The configuration page provides the commercial marketing names for the services and features, as well as the previous names.
+Google maintains a list of all services and features that are part of the FedRAMP certification bundle.
+
+For more information, see [FedRAMP and DoD compliance scope for Google Cloud and Google Workspace](https://docs.cloud.google.com/docs/security/compliance/fedramp-dod-compliance-scope).
+
+## Gemini for Government
+
+Gemini for Government is authorized at two levels:
+
+  * **FedRAMP High (Rev 5):** the specific package is FR1805751477, as part of the Google Cloud services boundary
+  * **FedRAMP 20x Class B (Low):** the specific package is FR2604952026
+
+
+
+For information about the FedRAMP High specification, see Certified cloud service offerings.
+
+The following table describes the specifications for Gemini for Government at the FedRAMP 20x Class B (Low) baseline.
+
+Specification | Gemini for Government  
+---|---  
+FedRAMP package ID | [FR2604952026](https://www.fedramp.gov/marketplace/products/FR2604952026/)  
+Unique Entity Identifier (UEI) | NQV3T7DDKNT6  
+Status or phase | FedRAMP Certified (Ongoing Certification)  
+Certification profile | 
+
+  * **Type:** 20x
+  * **Path:** Program
+  * **Class:** Class B (Low)
+
+  
+Certified since | January 21, 2026  
+Service model | PaaS, SaaS  
+Deployment model | Hybrid cloud  
+Business categories | 
+
+  * Analytics
+  * Collaboration
+  * Communication
+  * Customer Service
+  * Data Management
+  * Design & Multimedia
+  * Education & Training
+  * Legal & Policy
+  * Operations Management
+  * Research
+
+  
+Official website | [Introducing Gemini for Government](https://cloud.google.com/blog/topics/public-sector/introducing-gemini-for-government-supporting-the-us-governments-transformation-with-ai/)  
+Independent assessor | Federal Risk and Authorization Management Program  
+Contact | [fedramp+gemini@google.com](mailto:fedramp+gemini@google.com)  
+  
+For more information, see [Configure Gemini for Government for FedRAMP 20x Class B (Low)](https://docs.cloud.google.com/docs/security/compliance/config-fedramp20x-gemini-gov) and [Deployment guidance for Gemini for Government](https://docs.cloud.google.com/docs/security/compliance/deploy-gemini-gov). The configuration page provides the commercial marketing names for the services and features, as well as the previous names.
 
 ## Support and access request policies
 
@@ -67,7 +161,8 @@ If you require technical support, open a support case using the Google Cloud con
 
 ## What's next
 
-  * Review [Configure Gemini for Government for FedRAMP 20x Class B (Low)](https://docs.cloud.google.com/docs/security/compliance/config-fedramp20x-gemini-gov).
+  * Review [FedRAMP and DoD compliance scope for Google Cloud and Google Workspace](https://docs.cloud.google.com/docs/security/compliance/fedramp-dod-compliance-scope).
+  * Learn how to [implement FedRAMP on Google Cloud](https://docs.cloud.google.com/docs/security/compliance/fedramp-implementation-guide).
 
 
 
@@ -75,6 +170,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-18 UTC.
+Last updated 2026-10-20 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 

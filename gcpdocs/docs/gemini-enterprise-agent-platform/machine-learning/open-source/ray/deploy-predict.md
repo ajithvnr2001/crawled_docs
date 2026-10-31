@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/deploy-predict/
 title: Deploy a model on Gemini Enterprise Agent Platform to get inferences \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:11:23.000251+00:00
+fetched_at: 2026-10-31T05:56:16.161177+00:00
 ---
 
 # Deploy a model on Gemini Enterprise Agent Platform to get inferences  |  Google Cloud Documentation
@@ -60,13 +60,13 @@ If you're already connected to your Ray cluster on Gemini Enterprise Agent Platf
     
     
     import ray
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     
     # The CLUSTER_RESOURCE_NAME is the one returned from vertex_ray.create_ray_cluster.
     address = 'vertex_ray://{}'.format(CLUSTER_RESOURCE_NAME)
     
     # Initialize Agent Platform to retrieve projects for downstream operations.
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(staging_bucket=BUCKET_URI)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(staging_bucket=BUCKET_URI)
     
     # Shutdown cluster and reconnect with required dependencies in the runtime_env.
     ray.shutdown()
@@ -282,6 +282,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

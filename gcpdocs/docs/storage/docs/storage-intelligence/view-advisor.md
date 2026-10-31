@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/storage-intelligence/view-advisor/
 title: View Storage Intelligence advisor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:44.470446+00:00
+fetched_at: 2026-10-31T05:53:29.544751+00:00
 ---
 
 # View Storage Intelligence advisor  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 This document explains how to view Storage Intelligence advisor.
 
-Storage Intelligence advisor helps you monitor the health of your Cloud Storage resources, optimize storage usage, and resolve performance bottlenecks. The advisor provides environment metrics, highlights anomalies that require attention, and suggests remediation steps. For more information, see [About Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview).
+Storage Intelligence advisor helps you monitor the health of your Cloud Storage resources, optimize storage usage, resolve performance bottlenecks, and monitor security and compliance. The advisor provides environment metrics, highlights anomalies and security configuration gaps that require attention, and suggests remediation steps. For more information, see [About Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview).
 
 ## Before you begin
 
@@ -29,17 +29,26 @@ To view Storage Intelligence advisor, complete the steps in the following sectio
 
 ### Configure Storage Intelligence
 
-Before you can view Storage Intelligence advisor, [configure Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/configure-and-manage-storage-intelligence).
+Before you can view Storage Intelligence advisor, [configure Storage Intelligence](https://docs.cloud.google.com/storage/docs/storage-intelligence/configure-and-manage-storage-intelligence). To query object-level metadata when investigating findings, also configure a [Storage Insights linked dataset](https://docs.cloud.google.com/storage/docs/insights/datasets) in BigQuery.
 
 ### Required roles
 
-To get the permissions that you need to view Storage Intelligence advisor, ask your administrator to grant you the [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) IAM role on the project, folder, or organization. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To get the permissions that you need to view Storage Intelligence advisor and query Storage Insights datasets, ask your administrator to grant you the following IAM roles: 
 
-This predefined role contains the permissions required to view Storage Intelligence advisor. To see the exact permissions that are required, expand the **Required permissions** section: 
+  * View Storage Intelligence advisor: [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) on the project, folder, or organization 
+  * Query Storage Insights dataset views: 
+    * [BigQuery User ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.user) (`roles/bigquery.user`) on the project that contains your Storage Insights linked dataset
+    * [BigQuery Data Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.dataViewer) (`roles/bigquery.dataViewer`) on the project that contains your Storage Insights linked dataset
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+These predefined roles contain the permissions required to view Storage Intelligence advisor and query Storage Insights datasets. To see the exact permissions that are required, expand the **Required permissions** section: 
 
 #### Required permissions
 
-The following permissions are required to view Storage Intelligence advisor:
+The following permissions are required to view Storage Intelligence advisor and query Storage Insights datasets:
 
   * View Storage Intelligence advisor, findings, finding details, findings summary, and bucket drill-down: `storage.buckets.viewIntelligenceDetails`
   * View dashboards from Cloud Monitoring: 
@@ -116,9 +125,9 @@ The **View projects with ' FINDING_NAME'** side panel opens.
 
   4. In the **Projects with finding** table, review the list of projects where the finding is active:
 
-     * **Project ID / Name** : The identifier for each affected project.
-     * **Finding** : The metric change or percentage increase detected in that project.
-     * **Last updated** : The timestamp when the finding was last refreshed.
+     * **Project ID / Name** : the identifier for each affected project.
+     * **Finding** : the metric change or percentage increase detected in that project.
+     * **Last updated** : the timestamp when the finding was last refreshed.
      * **Permission indicators** : If you lack permissions to view a specific project within the organization or folder, a warning indicator displays the message `You've insufficient permission to access this project`.
   5. Click a **Project ID** to open the finding details and charts for that project in a new tab.
 
@@ -142,19 +151,20 @@ To view project finding details, do the following:
 
   4. On the **Finding details** page, review the following details:
 
-     * **Findings category** : the type of finding (for example, Usage optimization or Performance).
+     * **Findings category** : the type of finding (for example, Usage optimization, Performance, or Security and compliance).
      * **Last updated** : the time when the finding was last refreshed.
      * **Common factors** : general causes contributing to the finding.
-     * **Overall project-wide increase** : the total impact across your project.
-  5. To identify which specific buckets are causing an increase in the metric that triggers the finding, view the **Buckets with largest increases** table.
+     * **Overall project-wide increase** or **Impacted buckets** : the total impact across your project.
+  5. To identify the affected buckets, review the buckets table for that finding, such as **Buckets with largest increases** , **Default CMEK buckets with non-CMEK encrypted objects** , or **Buckets with objects violating enforced encryption rules**.
 
   6. To view detailed information for a bucket, select the bucket.
 
-  7. On the bucket's **View details** page, analyze the bucket's activity to identify the root cause of the anomaly:
+  7. In the bucket details side panel, review the details for your finding type:
 
-     * **Bucket activity** : Review the specific metrics related to the finding.
-     * **Prefixes with largest increases** : Identify the specific object prefixes or directory paths where activity increased.
-     * **Service accounts with largest increases** : Identify the principals or service accounts that sent the increased API requests.
+     * **Bucket overview** : For activity spikes, review the usage or error metrics. For security and compliance findings, review the bucket's encryption configuration and the count and percentage of affected objects.
+     * **Prefixes with largest increases** : For activity spikes, identify the specific object prefixes or directory paths where activity increased.
+     * **Service accounts with largest increases** : For activity spikes, identify the principals or service accounts that sent the increased API requests.
+     * **Affected objects** : For security and compliance findings, review the reference SQL query to list affected objects from Storage Insights datasets in BigQuery.
 
 
 
@@ -198,18 +208,31 @@ To respond to the **Total bytes stored increased above trend over the last 30 da
 
 
 
+### Respond to the 'Objects violate default CMEK bucket policies' finding
+
+To respond to the **Objects violate default CMEK bucket policies** finding ([Preview](https://cloud.google.com/products#product-launch-stages)), do the following:
+
+  1. Complete the steps in View finding details.
+  2. On the bucket's **Finding details** panel, analyze the bucket's encryption details by reviewing **Number of objects not encrypted with CMEK** and **Default KMS key**.
+  3. For guidance on selecting the recommended next step, see [Re-encrypt objects that violate default CMEK bucket policies](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-default-cmek-policies#respond-to-a-finding).
+
+
+
+### Respond to the 'Objects violate enforced encryption rules' finding
+
+To respond to the **Objects violate enforced encryption rules** finding ([Preview](https://cloud.google.com/products#product-launch-stages)), do the following:
+
+  1. Complete the steps in View finding details.
+  2. On the bucket's **Finding details** panel, analyze the bucket's encryption details by reviewing **Total affected objects** and **Enforced encryption (allowed types)**.
+  3. For guidance on selecting the recommended next step, see [Re-encrypt objects that violate enforced encryption rules](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/re-encrypt-objects-enforced-encryption-rules#respond-to-a-finding).
+
+
+
 ## What's next
 
-  * **Respond to findings** : 
-    * [Improve performance by mitigating rate limited request errors](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/improve-performance-by-mitigating-429-errors)
-    * [Optimize usage for Coldline and Archive storage data](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/optimize-coldline-archive-class-costs)
-    * [Identify above trend storage consumption](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/identify-storage-consumption)
-    * [Manage cross-region egress](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/manage-egress)
-    * [Review the findings reference catalog](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/findings-reference-catalog)
-  * **Related concepts** : 
-    * [Storage Intelligence advisor overview](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview)
-  * **Troubleshooting** : 
-    * [Troubleshoot Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/troubleshooting#advisor-issues)
+  * [Review the findings reference catalog](https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/findings-reference-catalog)
+  * [About Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/advisor-overview)
+  * [Troubleshoot Storage Intelligence advisor](https://docs.cloud.google.com/storage/docs/storage-intelligence/troubleshooting#advisor-issues)
 
 
 
@@ -217,6 +240,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

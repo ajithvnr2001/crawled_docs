@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/migration-guide/
 title: Migrate to Gemini 3.8 TTS \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:54.107956+00:00
+fetched_at: 2026-10-31T05:49:05.426097+00:00
 ---
 
 # Migrate to Gemini 3.8 TTS  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,10 +21,6 @@ Send feedback
 
 #  Migrate to Gemini 3.8 TTS Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [ Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms). For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [ Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum), subject to the obligations and restrictions described in the agreement under which you access Google Cloud. 
-
 This page describes how to move from earlier Gemini TTS models, such as `gemini-3.1-flash-tts-preview`, `gemini-2.5-flash-tts`, `gemini-2.5-pro-tts`, and `gemini-2.5-flash-lite-preview-tts`, to [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) (`gemini-3.8-flash-tts`) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) (`gemini-3.8-flash-lite-tts`). The earlier models are documented in [Gemini-TTS](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts) in the Google Cloud Text-to-Speech documentation.
 
 ## Choose a replacement model
@@ -41,7 +37,7 @@ Both models use the same request schema, so you can switch between them by chang
 Area | Earlier Gemini TTS models | Gemini 3.8 TTS models  
 ---|---|---  
 API | Cloud Text-to-Speech API or Gemini Enterprise API | Gemini Enterprise API only (`generateContent` and `streamGenerateContent`)  
-Location | `global` and regional endpoints | `global` only  
+Location | `global` and regional endpoints | `global`, `us`, and `eu` (custom voices: `global` only)  
 Style direction | Written into the text (`"Say the following in a curious way: ..."`) or the Cloud Text-to-Speech `prompt` field | `speech_metadata.style` on each part  
 Multi-speaker dialogue | Speaker prefixes in one text block, or Cloud Text-to-Speech `multiSpeakerMarkup` | One part per turn with `speech_metadata.speaker`  
 Inline vocal tags | Square brackets, such as `[sigh]` | Angle brackets, such as `<sigh>`  
@@ -151,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

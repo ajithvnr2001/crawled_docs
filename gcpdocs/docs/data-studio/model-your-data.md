@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/model-your-data/
 title: Model your data \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:09.114436+00:00
+fetched_at: 2026-10-31T05:58:28.562544+00:00
 ---
 
 # Model your data  |  Data Studio  |  Google Cloud Documentation

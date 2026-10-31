@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/install-with-alloydb-ai/
 title: Install AlloyDB AI in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:55.190888+00:00
+fetched_at: 2026-10-31T05:50:44.067616+00:00
 ---
 
 # Install AlloyDB AI in AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ AlloyDB Omni with AlloyDB AI lets you query remote ML models using the `google_m
 
 ## Set up Google Cloud to query remote models
 
-If you want to query Vertex AI models, then you must configure an AlloyDB Omni service account with Vertex AI before installing AlloyDB Omni.
+If you want to query Vertex AI models, then you must configure an AlloyDB Omni service account with Vertex AI, create a Kubernetes secret using the key, and set the Kubernetes secret in the database cluster manifest.
 
 To set up a service account to query remote models, follow these steps:
 
@@ -141,8 +141,8 @@ When you set `enabled` to `true` under the `googleMLExtension` field, it lets yo
          metadata:
            name: DB_CLUSTER_NAME
          spec:
-         databaseVersion: "18.4.0"
-         primarySpec:
+           databaseVersion: "18.4.0"
+           primarySpec:
              adminUser:
                passwordRef:
                  name: db-pw-DB_CLUSTER_NAME
@@ -227,10 +227,10 @@ In the previous query, the `embedding()` call generates embeddings for the input
 
 ## What's next
 
-  * [Run and connect to AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/run-connect)
-  * [Manage AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manage)
-  * [Build generative AI applications using AlloyDB AI](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/overview-ai)
-  * [Register and call remote AI models](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/register-model-endpoint)
+  * [Run and connect to AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/run-connect).
+  * [Manage AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manage).
+  * [Build generative AI applications using AlloyDB AI](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/overview-ai).
+  * [Register and call remote AI models](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/register-model-endpoint).
 
 
 
@@ -238,6 +238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

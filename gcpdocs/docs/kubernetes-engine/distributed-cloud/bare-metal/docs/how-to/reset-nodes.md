@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/reset-nodes/
 title: Reset nodes and delete clusters \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:57.961632+00:00
+fetched_at: 2026-10-31T05:50:34.995052+00:00
 ---
 
 # Reset nodes and delete clusters  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,13 +22,9 @@ Send feedback
 
 #  Reset nodes and delete clusters Stay organized with collections  Save and categorize content based on your preferences. 
 
-When a Google Distributed Cloud cluster is in the process of being installed, binaries and [systemd](https://www.freedesktop.org/wiki/Software/systemd/) services are installed on the nodes hosting that cluster, and services begin to listen to ports on the nodes.
+Resetting nodes and deleting clusters in Google Distributed Cloud removes residual binaries, [systemd](https://www.freedesktop.org/wiki/Software/systemd/) services, and listening ports from host machines. Wiping these nodes clean prepares your environment for redeployment or decommissioning.
 
-However, if a cluster installation fails, all these binaries and services need to be deleted. In other words, the nodes need to be **reset** or wiped clean to prepare them for a reattempt at installing the cluster. If nodes aren't reset in this way, the next attempt to install a cluster on them fails.
-
-This page describes how do this clean up operation of specific nodes and how to delete a cluster.
-
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+During cluster installation, binaries and `systemd` services are installed on the host nodes, and services begin listening on ports. If an installation fails, you must **reset** (wipe clean) the nodes to remove these binaries and services and to prepare the nodes for a reattempt at installing the cluster. If you don't reset the nodes, subsequent attempts to install a cluster on them fail.
 
 ## Choose a deletion method
 
@@ -339,6 +335,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

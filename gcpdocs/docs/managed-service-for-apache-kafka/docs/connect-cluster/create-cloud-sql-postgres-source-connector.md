@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-cloud-sql-postgres-source-connector/
 title: Create a Cloud SQL for PostgreSQL Source connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:54:40.208778+00:00
+fetched_at: 2026-10-31T05:48:07.134888+00:00
 ---
 
 # Create a Cloud SQL for PostgreSQL Source connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -298,31 +298,26 @@ You might need to override the defaults for the following properties:
 
 ###  gcloud 
 
-  1. In the Google Cloud console, activate Cloud Shell.
-
-[Activate Cloud Shell](https://console.cloud.google.com/?cloudshell=true)
-
-At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize. 
-
-  2. Run the [`gcloud managed-kafka connectors create`](https://docs.cloud.google.com/sdk/gcloud/reference/managed-kafka/connectors/create) command:
-         
-         gcloud managed-kafka connectors create CONNECTOR_ID \
-             --location=LOCATION \
-             --connect-cluster=CONNECT_CLUSTER_ID \
-             --config-file=CONFIG_FILE
-         
+Run the [`gcloud managed-kafka connectors create`](https://docs.cloud.google.com/sdk/gcloud/reference/managed-kafka/connectors/create) command:
+    
+    
+    gcloud managed-kafka connectors create CONNECTOR_ID \
+        --connect-cluster=CONNECT_CLUSTER_ID \
+        --location=LOCATION \
+        --config-file=CONFIG_FILE
+    
 
 Replace the following:
 
-     * `CONNECTOR_ID`: The ID or name of the connector. For guidelines on how to name a connector, see [Guidelines to name a Managed Service for Apache Kafka resource](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/guidelines-resource). The name of a connector is immutable.
+  * `CONNECTOR_ID`: The ID or name of the connector.
+  * `CONNECT_CLUSTER_ID`: The ID of the Connect cluster where the connector is created.
+  * `LOCATION`: The location of the Connect cluster.
+  * `CONFIG_FILE`: The path to a local YAML or JSON configuration file.
 
-     * `LOCATION`: The location where you create the connector. This must be the same location where you created the [Connect cluster](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-connect-cluster).
 
-     * `CONNECT_CLUSTER_ID`: The ID of the Connect cluster where the connector is created.
-
-     * `CONFIG_FILE`: The path to the YAML configuration file for the connector.
 
 Here is an example of a configuration file for the Cloud SQL for PostgreSQL Source connector:
+    
     
     connector.class: io.debezium.connector.postgresql.PostgresConnector
     database.dbname: DATABASE_NAME
@@ -342,20 +337,20 @@ Here is an example of a configuration file for the Cloud SQL for PostgreSQL Sour
 
 Replace the following:
 
-     * `INSTANCE_ID`: The ID of the Cloud SQL instance that contains the database, formatted as follows:
-           
-           PROJECT_ID:REGION:INSTANCE_NAME
-           
+  * `INSTANCE_ID`: The ID of the Cloud SQL instance that contains the database, formatted as follows:
+        
+        PROJECT_ID:REGION:INSTANCE_NAME
+        
 
-     * `DATABASE_NAME`: The name of the Cloud SQL database to read from.
+  * `DATABASE_NAME`: The name of the Cloud SQL database to read from.
 
-     * `IP_TYPES`: A comma-separated list of IP address types
+  * `IP_TYPES`: A comma-separated list of IP address types
 
-     * `SLOT_NAME`: The name of the replication slot to create.
+  * `SLOT_NAME`: The name of the replication slot to create.
 
-     * `TABLE_LIST`: A comma-separated list of tables to read change data from, in the format `"schema_name"."table_name"`.
+  * `TABLE_LIST`: A comma-separated list of tables to read change data from, in the format `"schema_name"."table_name"`.
 
-     * `TOPIC_PREFIX`: A prefix to use for the Kafka topic names.
+  * `TOPIC_PREFIX`: A prefix to use for the Kafka topic names.
 
 
 
@@ -425,6 +420,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

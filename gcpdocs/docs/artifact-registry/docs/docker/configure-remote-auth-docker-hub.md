@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/docker/configure-remote-auth-docker-hub/
 title: Authenticate remote repositories to upstream Docker Hub sources \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:49:44.600029+00:00
+fetched_at: 2026-10-31T05:59:42.787550+00:00
 ---
 
 # Authenticate remote repositories to upstream Docker Hub sources  |  Artifact Registry  |  Google Cloud Documentation
@@ -387,7 +387,7 @@ To authenticate to Artifact Registry, set up Application Default Credentials. Fo
     require "google/cloud/secret_manager"
     
     # Create a Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
     # Build the resource name of the secret.
     name = client.secret_path project: project_id, secret: secret_id

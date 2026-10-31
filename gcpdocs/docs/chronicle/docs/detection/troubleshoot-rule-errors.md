@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/troubleshoot-rule-errors/
 title: Troubleshoot detection rules \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:59:26.806217+00:00
+fetched_at: 2026-10-31T05:53:43.951335+00:00
 ---
 
 # Troubleshoot detection rules  |  Google Security Operations  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ Error message  | Underlying cause  | Resolution  | `Too many `OR` and `AND` oper
 `Invalid regular expression` | The regular expression used in functions like `re.regex()` is malformed.  | Correct the regular expression syntax.  
 `Invalid re.replace()` | Incorrect usage of `re.regex()`, often due to a mismatch between parenthesized subexpressions and references in the replacement string.  | Ensure the rewrite schema in `re.regex()` matches the parenthesized subexpressions in the regular expression.   
 `Integer overflow in sum() aggregation` | The sum of values exceeds the maximum limit for standard integers.  | Cast the field to a floating-point type before summing (for example, use `sum(0.0 + $e.field)`).   
-`Cannot complete [arithmetic/mod] operation between unsigned and signed integer` | Caused by attempting arithmetic operations (`+`, `-`, `*`, `/`, `MOD`) between different integer types.  | Use `cast.as_int()` or `cast.as_uint()` to convert one field to match the other.   
+`Cannot complete [arithmetic/mod] operation between unsigned and signed integer` | The rule attempts arithmetic (`+`, `-`, `*`) or modulo (`%`) operations between different integer types.  | Use `cast.as_int()` or `cast.as_uint()` to convert one operand to match the other. Explicit casting is required for the modulo (`%`) operator, which only accepts integers. For `+`, `-`, or `*` operations, you can also force the integer constant to behave as a float using a floating-point literal, such as `2.0` or `100.0`, or division coercion, such as `(2/1)`, in expressions without other `/` operators on the same line. This typing constraint occurs when an expression combines signed integer (`INT64`) literals with unsigned integer (`UINT64`) Unified Data Model (UDM) fields, such as `network.received_bytes`, `network.sent_bytes`, and `principal.file.size`. The constraint applies to both the `events` and `outcome` sections, including inside `sum()` or `max()` aggregations. A rule with mixed signed and unsigned integer arithmetic might save without a syntax error and fail only at runtime or when you test the rule. For more information, see [Arithmetic with unsigned event fields](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-issues#arithmetic_with_unsigned_event_fields).  
   
 ## Resource limits and performance errors
 
@@ -81,6 +81,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

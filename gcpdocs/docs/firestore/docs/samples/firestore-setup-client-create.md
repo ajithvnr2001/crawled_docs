@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-setup-client-create/
 title: Creating a Firestore client \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:00.024928+00:00
+fetched_at: 2026-10-31T05:53:19.915855+00:00
 ---
 
 # Creating a Firestore client  |  Google Cloud Documentation
@@ -145,7 +145,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     # The `project_id` parameter is optional and represents which project the
     # client will act on behalf of. If not supplied, the client falls back to the
     # default project inferred from the environment.
-    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
+    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin-v1/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
     
     puts "Created Cloud Firestore client with given project ID."
 

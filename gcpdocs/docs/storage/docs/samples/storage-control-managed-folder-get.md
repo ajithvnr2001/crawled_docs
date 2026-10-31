@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-managed-folder-get/
 title: storage control get a managed folder \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:29.381304+00:00
+fetched_at: 2026-10-31T06:01:00.002979+00:00
 ---
 
 # storage control get a managed folder  |  Cloud Storage  |  Google Cloud Documentation

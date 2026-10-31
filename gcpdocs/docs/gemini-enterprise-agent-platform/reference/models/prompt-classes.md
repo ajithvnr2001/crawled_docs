@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/prompt-classes/
 title: Prompt management \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:44.826183+00:00
+fetched_at: 2026-10-31T05:56:59.385302+00:00
 ---
 
 # Prompt management  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -40,12 +40,12 @@ To use any of the generative AI capabilities from the Agent Platform SDK, do the
 
   2. Create a generative AI client using the following Python code sample:
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-             from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+             from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
          
              # Instantiate GenAI client from Agent Platform
              # Replace with your project ID and location
-             client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(project='my-project', location='my-location')
+             client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(project='my-project', location='my-location')
          
 
 
@@ -89,16 +89,16 @@ Attribute
 This code sample demonstrates how to define a `types.Prompt` variable.
     
     
-      import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-      from vertexai import [generative_models](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.html)
-      from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
+      import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+      from vertexai import [generative_models](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.html)
+      from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
     
-      prompt = [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).[Prompt](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.Prompt.html)(
-          prompt_data=[types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).PromptData(
-            contents=[[generative_models](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.html).[Content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Content.html)(parts=[[generative_models](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.html).[Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html)(text="Hello, {name}! How are you?")])],
+      prompt = [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).[Prompt](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.Prompt.html)(
+          prompt_data=[types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).PromptData(
+            contents=[[generative_models](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.html).[Content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Content.html)(parts=[[generative_models](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.html).[Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html)(text="Hello, {name}! How are you?")])],
             variables=[
-              {"name": [generative_models](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.html).[Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html)(text="Alice")},
-              {"name": [generative_models](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.html).[Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html)(text="Bob")},
+              {"name": [generative_models](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.html).[Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html)(text="Alice")},
+              {"name": [generative_models](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.html).[Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html)(text="Bob")},
             ],
             model="your-model",
           ),
@@ -188,13 +188,13 @@ The following code sample shows you how to get a version of a prompt.
 The following code demonstrates how to use the retrieved prompt to generate content:
     
     
-      import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-      from vertexai import [generative_models](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.html)
+      import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+      from vertexai import [generative_models](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.html)
     
-      model = [generative_models](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.html).[GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html)(retrieved_prompt.[prompt_data](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.PromptDict.html#vertexai__genai_types_PromptDict_prompt_data).model)
+      model = [generative_models](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.html).[GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html)(retrieved_prompt.[prompt_data](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.PromptDict.html#vertexai__genai_types_PromptDict_prompt_data).model)
     
-      response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
-          contents=retrieved_prompt.[assemble_contents](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.Prompt.html#vertexai__genai_types_Prompt_assemble_contents)(),
+      response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
+          contents=retrieved_prompt.[assemble_contents](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.Prompt.html#vertexai__genai_types_Prompt_assemble_contents)(),
       )
     
 
@@ -318,6 +318,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

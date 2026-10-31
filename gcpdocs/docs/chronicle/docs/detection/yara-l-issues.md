@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/yara-l-issues/
 title: YARA-L 2.0 known issues \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:11:01.833042+00:00
+fetched_at: 2026-10-31T05:53:43.605604+00:00
 ---
 
 # YARA-L 2.0 known issues  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/goog
 
 This document is for detection engineers who want to debug rule logic and optimize YARA-L 2.0 execution. It explains how to handle non-standard engine behaviors, such as field unnesting, Cartesian product expansion in aggregations, and enrichment eventual consistency. By following these methods, you can prevent logic errors that lead to inflated outcome values or missed detections.
 
-YARA-L 2.0 uses a specific execution model where repeated fields are expanded into individual event rows during evaluation. Because this transformation happens at the engine level, referencing multiple repeated fields or performing arithmetic on unsigned UDM types requires specific syntax workarounds to avoid compiler errors or incorrect result sets. This document outlines those technical constraints and the required logic patterns to resolve them.
+YARA-L 2.0 uses an execution model that expands repeated fields into individual event rows during evaluation. Because this transformation happens at the engine level, referencing multiple repeated fields or performing arithmetic on unsigned Unified Data Model (UDM) types requires syntax workarounds to avoid compiler errors, runtime errors, or incorrect result sets. This document outlines these technical constraints and the logic patterns that resolve them.
 
 ## Before you begin
 
@@ -331,23 +331,81 @@ Separate the non-existence checks into individual blocks for each variable to ma
 
 ## Arithmetic with unsigned event fields
 
-If you try to use an integer constant in an arithmetic operation with a UDM field whose type is an unsigned integer, you will get an error. For example:
+If you use an integer literal in an arithmetic (`+`, `-`, `*`) or modulo (`%`) operation with an unsigned integer UDM field, you get an error. Standard integer literals default to signed 64-bit integers (`INT64`), which are incompatible with UDM fields defined as unsigned 64-bit integers (`UINT64`), such as `network.received_bytes`, `network.sent_bytes`, and `principal.file.size`.
+
+This strict typing constraint applies to both the `events` and `outcome` sections, including inside `sum()` or `max()` aggregations and divisor expressions. The YARA-L syntax checker treats both signed and unsigned integers as a generic `int` type. As a result, a rule that mixes `UINT64` UDM fields and `INT64` integer literals might pass save-time syntax validation but fail during rule execution or when you click **Run Test**. When the rule fails, it generates a generic "Rule Error" (`cannot complete [arithmetic/mod] operation between unsigned and signed integer`).
+
+For example, the following `events` comparison passes syntax validation when saved but fails during execution because `$e.network.received_bytes` (`UINT64`) is multiplied by the signed integer literal `2` (`INT64`):
     
     
     events:
+      $total_bytes = $e.network.total_bytes
       $total_bytes = $e.network.received_bytes * 2
     
 
-Standard integer constants default to signed integers, which are incompatible with UDM fields defined as unsigned integers, like `network.received_bytes`.
+### Workarounds
 
-#### Workaround
+You can resolve this type mismatch using either of the following methods:
 
-You can bypass this error by forcing the integer constant to behave as a float through a division operation.
+  * **Explicit integer casting (`cast.as_int()` or `cast.as_uint()`)**: Convert the unsigned UDM field to a signed integer using `cast.as_int()`, or convert the integer literal to an unsigned integer using `cast.as_uint()`. Use this method when you need an integer result or when using the modulo (`%`) operator, which only accepts integer operands.
+  * **Floating-point coercion** : Force the integer constant to behave as a `float` using a floating-point literal, such as `2.0` or `100.0`. In simple expressions without other division operators on the same line, you can also use a division operation, such as `(2/1)`. In expressions that already contain division operators (`/`), use floating-point literals or `cast.as_int()` instead of `(N/1)` division coercion. Multiple `/` characters on the same line can be interpreted as a regular expression literal, causing a parsing error during compilation or breaking syntax highlighting in the Rules Editor.
+
+
+
+#### Workaround in the `events` section
+
+Use `cast.as_int()`, a floating-point literal, or division coercion to fix the error in the `events` section:
+
+  * Use `cast.as_int()`:
+        
+        events:
+          $total_bytes = $e.network.total_bytes
+          $total_bytes = cast.as_int($e.network.received_bytes) * 2
+        
+
+  * Use a floating-point literal:
+        
+        events:
+          $total_bytes = $e.network.total_bytes
+          $total_bytes = $e.network.received_bytes * 2.0
+        
+
+  * Use division coercion:
+        
+        events:
+          $total_bytes = $e.network.total_bytes
+          $total_bytes = $e.network.received_bytes * (2/1)
+        
+
+
+
+
+#### Workaround in the `outcome` section
+
+The following `outcome` expression saves without a syntax error but fails at runtime because `sum($e.network.sent_bytes)` and `sum($e.network.received_bytes)` return `UINT64` values that are combined with the signed `INT64` literals `100` and `1`:
     
     
-    events:
-      $total_bytes = $e.network.received_bytes * (2/1)
+    outcome:
+      // Saves, but fails at runtime:
+      $upload_ratio_pct = sum($e.network.sent_bytes) * 100 / (sum($e.network.received_bytes) + 1)
     
+
+Rewrite the expression using floating-point literals or `cast.as_int()` so that it saves and executes without error:
+
+  * Use floating-point literals:
+        
+        outcome:
+          $upload_ratio_pct = sum($e.network.sent_bytes) * 100.0 / (sum($e.network.received_bytes) + 1.0)
+        
+
+  * Use `cast.as_int()`:
+        
+        outcome:
+          $upload_ratio_pct = sum(cast.as_int($e.network.sent_bytes)) * 100 / (sum(cast.as_int($e.network.received_bytes)) + 1)
+        
+
+
+
 
 ## GeoIP enrichment and eventual consistency
 
@@ -452,6 +510,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/build-data-products-data-mesh/
 title: Build data products in a data mesh \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:46:20.842186+00:00
+fetched_at: 2026-10-31T05:57:55.679295+00:00
 ---
 
 # Build data products in a data mesh  |  Cloud Architecture Center  |  Google Cloud Documentation

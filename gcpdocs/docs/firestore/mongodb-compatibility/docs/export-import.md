@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/export-import/
 title: Import and export data \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:25:48.836764+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-31T05:47:29.438822+00:00
 ---
 
 # Import and export data  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation
@@ -325,6 +311,7 @@ The PITR export operation supports all filters, including exporting all document
 
 Note the following points before exporting PITR data:
 
+  * [Enable PITR](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/use-pitr#enable) on your database. If PITR is disabled, exporting at a snapshot timestamp fails, even for timestamps within the past hour after `earliestVersionTime`. The export operation returns the `Point-in-Time Recovery must be enabled in order to execute exports at a snapshot timestamp` error.
   * Specify the timestamp in [RFC 3339 format](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Timestamp). For example, `2020-09-01T23:59:30.234233Z`.
   * Make sure that the timestamp you specify is a whole minute timestamp within the past seven days, but not earlier than the `earliestVersionTime`. If data no longer exists at the specified timestamp, an error is generated.
   * You are not charged for a failed PITR export.
@@ -526,6 +513,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

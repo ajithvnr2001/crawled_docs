@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/import-logs-from-storage-to-logging/deployment/
 title: Deploy a job to import logs from Cloud Storage to Cloud Logging \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:15.306980+00:00
+fetched_at: 2026-10-31T05:57:57.107228+00:00
 ---
 
 # Deploy a job to import logs from Cloud Storage to Cloud Logging  |  Cloud Architecture Center  |  Google Cloud Documentation

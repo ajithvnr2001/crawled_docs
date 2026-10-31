@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/visualize-dataframes-notebooks/
 title: Visualize Spark DataFrames in notebooks \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:05:08.657561+00:00
+fetched_at: 2026-10-31T05:52:25.142163+00:00
 ---
 
 # Visualize Spark DataFrames in notebooks  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ Follow these instructions to create a notebook in Visual Studio Code (VS Code) w
   2. Create a notebook: 
      1. In the VS Code activity bar, click **Data Agent Kit** , expand **Apache Spark** , and select **\+ New Spark Notebook**.
      2. To **Select kernel type** , click **Local Kernel**.
-     3. To **Select a Serverless Runtime template** , click the name of a listed runtime template. To create a new runtime to select for your notebook, under **Apache Spark** > **Serverless** , click **New runtime** , and then fill in the **Create Serverless Runtime** form.
+     3. To **Select a Serverless Runtime template** , click the name of a listed runtime template (called a _runtime profile_ on the [Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles) page in the Google Cloud console). To create a new runtime to select for your notebook, in VS Code under **Apache Spark** > **Serverless** , click **New runtime** , and then fill in the **Create Serverless Runtime** form. Alternatively, in the Google Cloud console, go to the [**Runtime Profiles**](https://console.cloud.google.com/dataproc/runtimeProfiles) page and click **Create**.
      4. In the notebook toolbar, click **Select Kernel** , click **Python Environments...** , and then choose your local Python environment.
   3. To install the required [Spark Connect](https://spark.apache.org/docs/latest/spark-connect-overview.html) and [`google-colabsqlviz`](https://pypi.org/project/google-colabsqlviz/) Python packages in your local environment, run the following command in a notebook cell or local terminal:
 
@@ -163,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

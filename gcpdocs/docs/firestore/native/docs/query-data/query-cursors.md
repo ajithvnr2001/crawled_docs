@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/query-cursors/
 title: Paginate data with query cursors \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:07.785510+00:00
+fetched_at: 2026-10-31T05:53:19.195515+00:00
 ---
 
 # Paginate data with query cursors  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -124,7 +124,7 @@ Android
     cities_ref = db.collection("cities")
     query_start_at = cities_ref.order_by("population").start_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L617-L618)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L617-L618)
 
 ##### Python  
 (Async)
@@ -133,7 +133,7 @@ Android
     cities_ref = db.collection("cities")
     query_start_at = cities_ref.order_by("population").start_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L597-L598)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L597-L598)
 
 ##### C++
     
@@ -160,7 +160,7 @@ Android
     
     query := client.Collection("cities").OrderBy("population", firestore.Asc).StartAt(1000000)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L208-L208)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/query.go#L208-L208)
 
 ##### PHP
 
@@ -190,7 +190,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("population").start_at(1_000_000)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L25-L25)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/paginate_data.rb#L25-L25)
 
 Similarly, use the `endAt()` or `endBefore()` methods to define an end point for your query results.
 
@@ -278,7 +278,7 @@ Android
     cities_ref = db.collection("cities")
     query_end_at = cities_ref.order_by("population").end_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L627-L628)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L627-L628)
 
 ##### Python  
 (Async)
@@ -287,7 +287,7 @@ Android
     cities_ref = db.collection("cities")
     query_end_at = cities_ref.order_by("population").end_at({"population": 1000000})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L607-L608)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L607-L608)
 
 ##### C++
     
@@ -314,7 +314,7 @@ Android
     
     query := client.Collection("cities").OrderBy("population", firestore.Asc).EndAt(1000000)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L215-L215)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/query.go#L215-L215)
 
 ##### PHP
 
@@ -344,7 +344,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("population").end_at(1_000_000)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L40-L40)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/paginate_data.rb#L40-L40)
 
 ## Use a document snapshot to define the query cursor
 
@@ -500,7 +500,7 @@ Android
         db.collection("cities").order_by("population").start_at(snapshot)
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L637-L642)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L637-L642)
 
 ##### Python  
 (Async)
@@ -513,7 +513,7 @@ Android
         db.collection("cities").order_by("population").start_at(snapshot)
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L617-L622)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L617-L622)
 
 ##### C++
     
@@ -554,7 +554,7 @@ Android
     }
     query := cities.OrderBy("population", firestore.Asc).StartAt(dsnap.Data()["population"]).Documents(ctx)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L303-L308)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/query.go#L303-L308)
 
 ##### PHP
 
@@ -598,7 +598,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     snapshot = doc_ref.get
     query = cities_ref.order("population").start_at(snapshot)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L102-L104)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/paginate_data.rb#L102-L104)
 
 ## Paginate a query
 
@@ -840,7 +840,7 @@ Android
     # Use the query for pagination
     # ...
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L651-L667)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L651-L667)
 
 ##### Python  
 (Async)
@@ -864,7 +864,7 @@ Android
     # Use the query for pagination
     # ...
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L634-L650)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L634-L650)
 
 ##### C++
     
@@ -943,7 +943,7 @@ Android
     
     // ...
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L222-L239)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/query.go#L222-L239)
 
 ##### PHP
 
@@ -1027,7 +1027,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts "Document #{city.document_id} returned by paginated query cursor."
     end
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L54-L68)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/paginate_data.rb#L54-L68)
 
 ## Set cursor based on multiple fields
 
@@ -1199,7 +1199,7 @@ Android
         .start_at({"name": "Springfield", "state": "Missouri"})
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L808-L817)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L808-L817)
 
 ##### Python  
 (Async)
@@ -1219,7 +1219,7 @@ Android
         .start_at({"name": "Springfield", "state": "Missouri"})
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L659-L671)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-async-client/snippets.py#L659-L671)
 
 ##### C++
     
@@ -1260,7 +1260,7 @@ Android
     	OrderBy("state", firestore.Asc).
     	StartAt("Springfield", "Wisconsin")
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L247-L257)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/query.go#L247-L257)
 
 ##### PHP
 
@@ -1306,7 +1306,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     # Will return "Springfield, Missouri" and "Springfield, Wisconsin"
     query2 = firestore.col(collection_path).order("name").order("state").start_at(["Springfield", "Missouri"])
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L80-L84)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bd2bf19a6bf7ddae48face73c6503e8751d216f7/google-cloud-firestore/samples/paginate_data.rb#L80-L84)
 
 Send feedback 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/remove-node-issues/
 title: Remove nodes blocked by PodDisruptionBudgets \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:00.109532+00:00
+fetched_at: 2026-10-31T05:50:35.270839+00:00
 ---
 
 # Remove nodes blocked by PodDisruptionBudgets  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,7 @@ Send feedback
 
 #  Remove nodes blocked by PodDisruptionBudgets Stay organized with collections  Save and categorize content based on your preferences. 
 
-Under certain conditions, [PodDisruptionBudgets (PDB)](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) policies can prevent nodes from being removed successfully from nodepools. Under these conditions, the node status reports `Ready,SchedulingDisabled` despite being removed. This document shows how to remove nodes from your Google Distributed Cloud clusters that are currently blocked by PDB issues.
-
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure, and respond to alerts and pages when service level objectives (SLOs) aren't met or applications fail. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+Resolving [PodDisruptionBudget (PDB)](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) conflicts lets you complete node removals from Google Distributed Cloud clusters when deletions are blocked. When a PDB prevents pods from being evicted, the node cannot drain and remains in the cluster with status `Ready,SchedulingDisabled` even though you removed it from the node pool configuration. To finish removing the node, you can identify and temporarily disable the conflicting policy.
 
 ## PDB conflicts with the number of Pods available
 
@@ -177,6 +175,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

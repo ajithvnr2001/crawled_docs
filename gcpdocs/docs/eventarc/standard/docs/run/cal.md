@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/cal/
 title: Receive a Cloud Audit Logs event \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:24:32.652953+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-31T05:49:17.326632+00:00
 ---
 
 # Receive a Cloud Audit Logs event  |  Eventarc Standard  |  Google Cloud Documentation
@@ -284,7 +270,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
             
             gcloud projects get-iam-policy PROJECT_ID > /tmp/policy.yaml
 
-     2. Edit your policy in `/tmp/policy.yaml`, adding or changing _only_ the Data Access audit logs configuration.  **Caution:** You must preserve the `bindings:` and `etag:` sections without changes. Failure to do so might cause your project to become unusable. 
+     2. Edit your policy in `/tmp/policy.yaml`, adding or changing _only_ the Data Access audit logs configuration. **Caution:** You must preserve the `bindings:` and `etag:` sections without changes. Failure to do so might cause your project to become unusable. 
             
             auditConfigs:
             - auditLogConfigs:
@@ -332,7 +318,7 @@ For testing purposes, this grants the Cloud Run Invoker role on all Cloud Run se
 Note that if you create a trigger for an authenticated Cloud Run service without granting the Cloud Run Invoker role, the trigger is created successfully and is active. However, the trigger won't work as expected and a message similar to the following appears in the logs:
 
 `The request was not authenticated. Either allow public access or set the proper Authorization header.`
-**Note:** If you enabled the Pub/Sub service account on or before April 8, 2021, grant the [ `iam.serviceAccountTokenCreator`](https://docs.cloud.google.com/pubsub/docs/push#setting_up_for_push_authentication) role to the Pub/Sub service account.  
+**Note:** If you enabled the Pub/Sub service account on or before April 8, 2021, grant the [ `iam.serviceAccountTokenCreator`](https://docs.cloud.google.com/pubsub/docs/push#setting_up_for_push_authentication) role to the Pub/Sub service account. 
 
 
 ## Create an Artifact Registry standard repository
@@ -448,7 +434,7 @@ Changes to your GitHub repository are automatically built into container images 
 
   5. Click **Set up with Cloud Build** to open the **Set up with Cloud Build** form.
      1. If prompted, enable the **Cloud Build API** and **Artifact Analysis API**.
-     2. Select **GitHub** as the **Repository Provider**.  **Note:** If you are not yet authenticated, click **Authenticate** and follow the instructions to connect to your repository using the Cloud Build GitHub app. 
+     2. Select **GitHub** as the **Repository Provider**. **Note:** If you are not yet authenticated, click **Authenticate** and follow the instructions to connect to your repository using the Cloud Build GitHub app. 
      3. If prompted, click **Install Google Cloud Build**.
      4. Select the GitHub repository you forked as the **Repository**.
      5. Click **Next**.
@@ -620,7 +606,7 @@ where `BUCKET_NAME` is the name of the Cloud Storage bucket.
             
             Detected change in Cloud Storage bucket: storage.googleapis.com/projects/_/buckets/BUCKET_NAME/objects/random.txt
 
-where `BUCKET_NAME` is the name of the Cloud Storage bucket.  **Note:** If you don't see a log entry, wait a few minutes and retry the `gcloud logging read` command. The trigger can take up to two minutes after creation to start filtering events. 
+where `BUCKET_NAME` is the name of the Cloud Storage bucket. **Note:** If you don't see a log entry, wait a few minutes and retry the `gcloud logging read` command. The trigger can take up to two minutes after creation to start filtering events. 
 
 
 
@@ -669,6 +655,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

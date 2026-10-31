@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd-raw/
 title: Provision and use Local SSD-backed raw block storage \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:35:04.613896+00:00
+fetched_at: 2026-10-31T05:47:40.574697+00:00
 ---
 
 # Provision and use Local SSD-backed raw block storage  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -27,9 +27,11 @@ This page explains how to provision Local SSD storage on Google Kubernetes Engin
 
 Using this Local SSD option gives you more control over the underlying storage and lets you build your own node-level cache for Pods to deliver better performance for your applications. You can also customize this option by installing a file system on Local SSD disks by running a DaemonSet to configure RAID and format disks as needed.
 
+If your workload requires unformatted raw block storage but the node also requires standard ephemeral file storage, use [mixed Local SSD mode](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd).
+
 **Note:** Local SSD volumes require machine type `n1-standard-1` or larger; the default machine type, `e2-medium` is not supported. To learn more, see [machine types](https://docs.cloud.google.com/compute/docs/machine-resource) in the Compute Engine documentation.**Warning:** Don't use the Local SSD as raw block storage for your storage-optimized [Z3 VMs](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series), [Z4D VMs](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_series), or [Z4M VMs](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4m_series). Data in the Local SSD in Z3, Z4D, or Z4M nodes might not be available during [maintenance events](https://docs.cloud.google.com/compute/docs/instances/live-migration-process#limitations), and [data recovery isn't assured](https://docs.cloud.google.com/compute/docs/disks/local-ssd#data_persistence) after maintenance. Instead, use the [Local SSD as ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd) for your workloads running on Z3, Z4D, or Z4M VMs.
 
-To learn more about Local SSD support for raw block access on GKE, see [About local SSDs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/local-ssd#block-access).
+To learn more about Local SSD support for raw block access on GKE, see [About Local SSDs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/local-ssd#block-access).
 
 ## Before you begin
 
@@ -53,7 +55,7 @@ The gcloud CLI command you run to create the cluster or node pool depends on whi
 
 ### 1st or 2nd Generation
 
-If you use a machine type from a first or second generation machine series, you create your cluster by specifying the `--local-nvme-ssd-block count=NUMBER_OF_DISKS` option. The option specifies the number of [Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd) to attach to each node. The maximum number [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks#local_ssd_machine_type_restrictions).
+If you use a machine type from a first or second generation machine series, you create your cluster by specifying the `--local-nvme-ssd-block count=NUMBER_OF_DISKS` option. The option specifies the number of [Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd) to attach to each node. The maximum number [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds).
 
 To create a cluster:
     
@@ -67,7 +69,7 @@ To create a cluster:
 Replace the following:
 
   * `CLUSTER_NAME`: the name of the cluster.
-  * `NUMBER_OF_DISKS`: the number of Local SSD disks to provision on each node. The maximum number of disks [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks#local_ssd_machine_type_restrictions).
+  * `NUMBER_OF_DISKS`: the number of Local SSD disks to provision on each node. The maximum number of disks [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds).
   * `MACHINE_TYPE`: the first or second generation machine type to use. Specifying this field is required, because you can't use Local SSDs with the default `e2-medium` type.
   * `CHANNEL_NAME`: a [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels) that includes GKE versions later than 1.25.3-gke.1800.
 
@@ -75,7 +77,7 @@ Replace the following:
 
 ### 3rd or 4th Generation
 
-If you use a machine type from a third or fourth generation machine series, use the `--local-nvme-ssd-block` option, without a count field, to create a cluster. GKE automatically provisions Local SSD capacity for your cluster based on the VM shape. The maximum number [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks#local_ssd_machine_type_restrictions).
+If you use a machine type from a third or fourth generation machine series, use the `--local-nvme-ssd-block` option, without a count field, to create a cluster. GKE automatically provisions Local SSD capacity for your cluster based on the VM shape. The maximum number [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds).
     
     
     gcloud container clusters create CLUSTER_NAME \
@@ -110,7 +112,7 @@ Replace the following:
   * `POOL_NAME`: the name of your new node pool.
   * `CLUSTER_NAME`: the name of the cluster.
   * `MACHINE_TYPE`: the first or second generation machine type to use. Specifying this field is required, as Local SSD cannot be used with the default `e2-medium` type.
-  * `NUMBER_OF_DISKS`: the number of Local SSD disks to provision on each node. The maximum number of disks [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks#local_ssd_machine_type_restrictions).
+  * `NUMBER_OF_DISKS`: the number of Local SSD disks to provision on each node. The maximum number of disks [varies by machine type and region](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds).
 
 
 
@@ -141,7 +143,7 @@ Nodes in the node pool are created with a `cloud.google.com/gke-local-nvme-ssd=t
     kubectl describe node NODE_NAME
     
 
-For each Local SSD attached to the node pool, the host OS creates a symbolic link (symlink) to access the disk under an ordinal folder, and a symlink with a universally unique identifier (UUID). For example, if you create a node pool with three local SSDs using the `--local-nvme-ssd-block` option, the host OS creates the following symlinks for the disks:
+For each Local SSD attached to the node pool, the host OS creates a symbolic link (symlink) to access the disk under an ordinal folder, and a symlink with a universally unique identifier (UUID). For example, if you create a node pool with three Local SSDs using the `--local-nvme-ssd-block` option, the host OS creates the following symlinks for the disks:
 
   * `/dev/disk/by-id/google-local-ssd-block0`
   * `/dev/disk/by-id/google-local-ssd-block1`
@@ -300,7 +302,7 @@ Replace `PVC_NAME` with the name of your PersistentVolumeClaim.
          spec:
            containers:
            - name: "shell"
-             image: "ubuntu:14.04"
+             image: "ubuntu:22.04"
              command: ["/bin/sh", "-c"]
              args: ["echo 'hello world' > /cache/test.txt && sleep 1 && cat /cache/test.txt && sleep 3600"]
              volumeMounts:
@@ -326,7 +328,7 @@ Replace `POD_NAME` with the name of your Pod.
 
 **Note:** If you followed the instructions to run the local volume static provisioner, its manifest provides an appropriate StorageClass definition. **If you use the local volume static provisioner, you do not need to perform the steps in this section.**
 
-For improved scheduling, we recommend that you also create a StorageClass with `volumeBindingMode: WaitForFirstConsumer`. This delays PersistentVolumeClaim binding until Pod scheduling, so that a Local SSD is chosen from an appropriate node that can run the Pod. This enhanced scheduling behavior considers Pod CPU and memory requests, node affinity, Pod affinity and anti-affinity, and multiple PersistentVolumeClaim requests, along with which nodes have available local SSDs, when selecting a node for a runnable Pod.
+For improved scheduling, we recommend that you also create a StorageClass with `volumeBindingMode: WaitForFirstConsumer`. This delays PersistentVolumeClaim binding until Pod scheduling, so that a Local SSD is chosen from an appropriate node that can run the Pod. This enhanced scheduling behavior considers Pod CPU and memory requests, node affinity, Pod affinity and anti-affinity, and multiple PersistentVolumeClaim requests, along with which nodes have available Local SSDs, when selecting a node for a runnable Pod.
 
 This example uses delayed volume binding mode:
     
@@ -359,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

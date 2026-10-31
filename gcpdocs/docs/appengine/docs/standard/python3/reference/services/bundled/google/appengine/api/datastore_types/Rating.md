@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/python3/reference/services/bundled/google/appengine/api/datastore_types/Rating/
 title: google.appengine.api.datastore_types.Rating \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T12:12:50.308306+00:00
+fetched_at: 2026-10-31T06:00:16.090175+00:00
 ---
 
 # google.appengine.api.datastore_types.Rating  |  App Engine standard environment  |  Google Cloud Documentation
@@ -86,8 +86,8 @@ Also known as the population count.
     
     
     >>> bin(13)
-    '0b1101'
-    >>> (13).bit_count()
+    '0b11>>>01'
+     (13).bit_count()
     3
     
 
@@ -101,8 +101,8 @@ Number of bits necessary to represent self in binary.
     
     
     >>> bin(37)
-    '0b100101'
-    >>> (37).bit_length()
+    '0b1001>>>01'
+     (37).bit_length()
     6
     
 

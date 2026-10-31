@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring/
 title: Metrics and monitoring for reinforcement learning fine-tuning \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:13:30.202140+00:00
+fetched_at: 2026-10-31T05:57:24.031037+00:00
 ---
 
 # Metrics and monitoring for reinforcement learning fine-tuning  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -33,62 +33,72 @@ The following metrics are emitted at every training step (on the current trainin
 
 ### Reward metrics
 
-  * **`/train_mean_reward`** — The mean reward on the batch of samples in the current training step.
-  * **`/eval_mean_reward`** — The mean reward on the entire validation dataset.
+The following reward metrics are emitted:
+
+  * **`/train_mean_reward`** : The mean reward on the batch of samples in the current training step.
+  * **`/eval_mean_reward`** : The mean reward on the entire validation dataset.
 
 
 
 ### Generation length metrics
 
-  * **`/train_generation_length`** — The mean generation length, in number of tokens (including thinking tokens and non-thinking tokens), on the batch of samples in the current training step.
-  * **`/eval_generation_length`** — The mean generation length, in number of tokens (including thinking tokens and non-thinking tokens), on the entire validation dataset.
-  * **`/train_thinking_token_length`** — The mean thinking token length on the batch of samples in the current training step.
-  * **`/eval_thinking_token_length`** — The mean thinking token length on the entire validation dataset.
+The following generation length metrics are emitted:
+
+  * **`/train_generation_length`** : The mean generation length, in number of tokens (including thinking tokens and non-thinking tokens), on the batch of samples in the current training step.
+  * **`/eval_generation_length`** : The mean generation length, in number of tokens (including thinking tokens and non-thinking tokens), on the entire validation dataset.
+  * **`/train_thinking_token_length`** : The mean thinking token length on the batch of samples in the current training step.
+  * **`/eval_thinking_token_length`** : The mean thinking token length on the entire validation dataset.
 
 
 
 ### Reward latency metrics
 
-  * **`/train_mean_reward_latency`** — The mean latency for computing rewards on the batch of samples in the current training step.
-  * **`/eval_mean_reward_latency`** — The mean latency for computing rewards on the entire validation dataset.
-  * **`/train_p95_reward_latency`** — The P95 latency for computing rewards on the batch of samples in the current training step.
-  * **`/eval_p95_reward_latency`** — The P95 latency for computing rewards on the entire validation dataset.
+The following reward latency metrics are emitted:
+
+  * **`/train_mean_reward_latency`** : The mean latency for computing rewards on the batch of samples in the current training step.
+  * **`/eval_mean_reward_latency`** : The mean latency for computing rewards on the entire validation dataset.
+  * **`/train_p95_reward_latency`** : The P95 latency for computing rewards on the batch of samples in the current training step.
+  * **`/eval_p95_reward_latency`** : The P95 latency for computing rewards on the entire validation dataset.
 
 
 
 ### Sampling latency metrics
 
-  * **`/train_mean_sampling_latency`** — The mean latency for sampling on the batch of samples in the current training step.
-  * **`/eval_mean_sampling_latency`** — The mean latency for sampling on the entire validation dataset.
-  * **`/train_p95_sampling_latency`** — The P95 latency for sampling on the batch of samples in the current training step.
-  * **`/eval_p95_sampling_latency`** — The P95 latency for sampling on the entire validation dataset.
+The following sampling latency metrics are emitted:
+
+  * **`/train_mean_sampling_latency`** : The mean latency for sampling on the batch of samples in the current training step.
+  * **`/eval_mean_sampling_latency`** : The mean latency for sampling on the entire validation dataset.
+  * **`/train_p95_sampling_latency`** : The P95 latency for sampling on the batch of samples in the current training step.
+  * **`/eval_p95_sampling_latency`** : The P95 latency for sampling on the entire validation dataset.
 
 
 
 ### Batch composition metrics
 
-  * **`/learnable_prompt_ratio`** — The actual batch size divided by all samples (including samples filtered out) for the current training step. Training metric only.
+The following batch composition metric is emitted:
+
+  * **`/learnable_prompt_ratio`** : The actual batch size divided by all samples (including samples filtered out) for the current training step. Training metric only.
 
 
 
 ### Per-reward metrics (for composite rewards)
 
-For composite rewards, each individual reward emits its own group of metrics prefixed with `${reward_name}`. Metrics with the same reward name are grouped together in the monitoring UI, where you can fold and unfold them.
+For composite rewards, each individual reward emits its own group of metrics prefixed with `${reward_name}`. Metrics with the same reward name are grouped together in the monitoring UI, where you can fold and unfold them:
 
-  * **`${reward_name}/train_mean_reward`** — The mean reward for `${reward_name}` on the batch of samples in the current training step.
-  * **`${reward_name}/eval_mean_reward`** — The mean reward for `${reward_name}` on the entire validation dataset.
-  * **`${reward_name}/train_processing_time`** — The mean latency for computing the rewards for `${reward_name}` on the batch of samples in the current training step.
-  * **`${reward_name}/eval_processing_time`** — The mean latency for computing the rewards for `${reward_name}` on the entire validation dataset.
-  * **`${reward_name}/train_p95_processing_time`** — The P95 latency for computing rewards for `${reward_name}` on the batch of samples in the current training step.
-  * **`${reward_name}/eval_p95_processing_time`** — The P95 latency for computing rewards for `${reward_name}` on the entire validation dataset.
-  * **`${reward_name}/train_executing_code_failure_ratio`** — The mean failure ratio for computing Code Execution rewards named `${reward_name}` on the batch of samples in the current training step. Code execution rewards only.
-  * **`${reward_name}/eval_executing_code_failure_ratio`** — The mean failure ratio for computing Code Execution rewards named `${reward_name}` on the entire validation dataset. Code execution rewards only.
-  * **`${reward_name}/train_rpc_error_ratio`** — The mean RPC failure ratio for computing rewards named `${reward_name}` on the batch of samples in the current training step. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
-  * **`${reward_name}/eval_rpc_error_ratio`** — The mean RPC failure ratio for computing rewards named `${reward_name}` on the entire validation dataset. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
-  * **`${reward_name}/train_invalid_rpc_response_ratio`** — The mean ratio of invalid RPC responses for rewards named `${reward_name}` on the batch of samples in the current training step. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
-  * **`${reward_name}/eval_invalid_rpc_response_ratio`** — The mean ratio of invalid RPC responses for rewards named `${reward_name}` on the entire validation dataset. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
-  * **`${reward_name}/train_clipping_rewards_ratio`** — The mean clipping ratio for `${reward_name}` on the batch of samples in the current training step. Rewards are clipped to the range `[-1, 1]`.
-  * **`${reward_name}/eval_clipping_rewards_ratio`** — The mean clipping ratio for `${reward_name}` on the entire validation dataset. Rewards are clipped to the range `[-1, 1]`.
+  * **`${reward_name}/train_mean_reward`** : The mean reward for `${reward_name}` on the batch of samples in the current training step.
+  * **`${reward_name}/eval_mean_reward`** : The mean reward for `${reward_name}` on the entire validation dataset.
+  * **`${reward_name}/train_processing_time`** : The mean latency for computing the rewards for `${reward_name}` on the batch of samples in the current training step.
+  * **`${reward_name}/eval_processing_time`** : The mean latency for computing the rewards for `${reward_name}` on the entire validation dataset.
+  * **`${reward_name}/train_p95_processing_time`** : The P95 latency for computing rewards for `${reward_name}` on the batch of samples in the current training step.
+  * **`${reward_name}/eval_p95_processing_time`** : The P95 latency for computing rewards for `${reward_name}` on the entire validation dataset.
+  * **`${reward_name}/train_executing_code_failure_ratio`** : The mean failure ratio for computing Code Execution rewards named `${reward_name}` on the batch of samples in the current training step. Code execution rewards only.
+  * **`${reward_name}/eval_executing_code_failure_ratio`** : The mean failure ratio for computing Code Execution rewards named `${reward_name}` on the entire validation dataset. Code execution rewards only.
+  * **`${reward_name}/train_rpc_error_ratio`** : The mean RPC failure ratio for computing rewards named `${reward_name}` on the batch of samples in the current training step. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
+  * **`${reward_name}/eval_rpc_error_ratio`** : The mean RPC failure ratio for computing rewards named `${reward_name}` on the entire validation dataset. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
+  * **`${reward_name}/train_invalid_rpc_response_ratio`** : The mean ratio of invalid RPC responses for rewards named `${reward_name}` on the batch of samples in the current training step. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
+  * **`${reward_name}/eval_invalid_rpc_response_ratio`** : The mean ratio of invalid RPC responses for rewards named `${reward_name}` on the entire validation dataset. Applies to Code execution, Autorater, and Cloud Run rewards; does not apply to string matching.
+  * **`${reward_name}/train_clipping_rewards_ratio`** : The mean clipping ratio for `${reward_name}` on the batch of samples in the current training step. Rewards are clipped to the range `[-1, 1]`.
+  * **`${reward_name}/eval_clipping_rewards_ratio`** : The mean clipping ratio for `${reward_name}` on the entire validation dataset. Rewards are clipped to the range `[-1, 1]`.
 
 
 
@@ -125,7 +135,7 @@ Replace the following:
   * `TUNING_JOB_ID`: the ID of the tuning job.
   * `LOCATION_ID`: the ID of the location.
 
-Only the `v1beta1` API version is supported for reinforcement learning fine-tuning. Using the `v1` API will return a response with insufficient fields populated.
+Only the `v1beta1` API version is supported for reinforcement learning fine-tuning. Using the `v1` API returns a response with insufficient fields populated.
 
 ## Intermediate checkpoints
 
@@ -133,7 +143,7 @@ Reinforcement learning fine-tuning produces intermediate checkpoints at the freq
 
 ## What's next
 
-  * Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+  * Follow the [Google Cloud console quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
   * [Define reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions).
   * [Configure hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters).
 
@@ -143,6 +153,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

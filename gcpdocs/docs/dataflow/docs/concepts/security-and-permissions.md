@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/concepts/security-and-permissions/
 title: Dataflow security and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:00:00.424681+00:00
+fetched_at: 2026-10-31T05:49:05.114358+00:00
 ---
 
 # Dataflow security and permissions  |  Google Cloud Documentation
@@ -221,6 +221,160 @@ Use the `--service_account_email` option and specify your service account when y
 
 
 The user-managed service account can be in the same project as your job, or in a different project. If the service account and the job are in different projects, you must [configure the service account](https://docs.cloud.google.com/iam/docs/attach-service-accounts#attaching-different-project) before you run the job.
+
+#### View the worker service account for a job
+
+For an existing job, the worker service account email is stored in the `environment.serviceAccountEmail` field (`environment.service_account_email` in RPC and client libraries) of the [`Job`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs#Job) resource.
+
+To retrieve the `environment` object and `serviceAccountEmail`, you must request the [`JOB_VIEW_DESCRIPTION`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/JobView) or `JOB_VIEW_ALL` job view when getting a job. Requests that use `JOB_VIEW_SUMMARY`, including [`projects.locations.jobs.list`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs/list) and default summary queries, omit `environment.serviceAccountEmail`.
+
+Read-only API calls to inspect job metadata, such as [`projects.locations.jobs.get`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs/get), don't incur per-request charges. API calls are subject to standard [monitoring and API quotas](https://docs.cloud.google.com/dataflow/quotas), whereas Dataflow charges apply to pipeline compute, storage, and data processing resources. For more information, see [Pricing](https://cloud.google.com/dataflow/pricing).
+
+### Console
+
+  1. In the Google Cloud console, go to the **Dataflow** > **Jobs** page.
+
+[Go to Jobs](https://console.cloud.google.com/dataflow/jobs)
+
+  2. Click the name of the job that you want to inspect.
+
+  3. On the **Job details** page, in the **Job info** side panel, click **REST** next to **Equivalent** at the bottom of the panel.
+
+  4. In the **Equivalent REST response** dialog, find the `serviceAccountEmail` field in the `environment` object.
+
+If you specified a user-managed service account when launching the job, you can also find the service account email in the `service_account_email` field in the **Pipeline options** section of the **Job info** panel.
+
+
+
+
+### gcloud CLI
+
+To retrieve the worker service account email for a job, run the [`gcloud dataflow jobs describe`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/describe) command with the `--full` flag:
+    
+    
+    gcloud dataflow jobs describe JOB_ID \
+        --region=REGION \
+        --project=PROJECT_ID \
+        --full \
+        --format="value(environment.serviceAccountEmail)"
+    
+
+Replace the following:
+
+  * `JOB_ID`: the ID of the Dataflow job
+  * `REGION`: the region where the job runs, such as `us-central1`
+  * `PROJECT_ID`: the ID of the project that contains the job
+
+
+
+### REST
+
+To retrieve a job's execution environment metadata and worker service account email, send a `GET` request to the [`projects.locations.jobs.get`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs/get) method and set the `view` query parameter to `JOB_VIEW_DESCRIPTION` or `JOB_VIEW_ALL`:
+    
+    
+    curl -X GET \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        "https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/REGION/jobs/JOB_ID?view=JOB_VIEW_DESCRIPTION"
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that contains the job
+  * `REGION`: the region where the job runs, such as `us-central1`
+  * `JOB_ID`: the ID of the Dataflow job
+
+
+
+The response is a [`Job`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs#Job) resource that includes the worker service account email in `environment.serviceAccountEmail`:
+    
+    
+    {
+      "id": "JOB_ID",
+      "projectId": "PROJECT_ID",
+      "name": "JOB_NAME",
+      "environment": {
+        "serviceAccountEmail": "SERVICE_ACCOUNT_EMAIL"
+      }
+    }
+    
+
+### Python
+
+Use the [Dataflow client library for Python](https://docs.cloud.google.com/python/docs/reference/dataflow/latest) to call [`get_job`](https://docs.cloud.google.com/python/docs/reference/dataflow/latest/google.cloud.dataflow_v1beta3.services.jobs_v1_beta3.JobsV1Beta3Client#google_cloud_dataflow_v1beta3_services_jobs_v1_beta3_JobsV1Beta3Client_get_job) with `JobView.JOB_VIEW_DESCRIPTION` and read `job.environment.service_account_email`:
+    
+    
+    from google.cloud import [dataflow_v1beta3](https://docs.cloud.google.com/python/docs/reference/dataflow/latest)
+    
+    client = [dataflow_v1beta3](https://docs.cloud.google.com/python/docs/reference/dataflow/latest).[JobsV1Beta3Client](https://docs.cloud.google.com/python/docs/reference/dataflow/latest/google.cloud.dataflow_v1beta3.services.jobs_v1_beta3.JobsV1Beta3Client.html)()
+    request = [dataflow_v1beta3](https://docs.cloud.google.com/python/docs/reference/dataflow/latest).[GetJobRequest](https://docs.cloud.google.com/python/docs/reference/dataflow/latest/google.cloud.dataflow_v1beta3.types.GetJobRequest.html)(
+        project_id="PROJECT_ID",
+        location="REGION",
+        job_id="JOB_ID",
+        view=[dataflow_v1beta3](https://docs.cloud.google.com/python/docs/reference/dataflow/latest).[JobView](https://docs.cloud.google.com/python/docs/reference/dataflow/latest/google.cloud.dataflow_v1beta3.types.JobView.html).JOB_VIEW_DESCRIPTION,
+    )
+    job = client.[get_job](https://docs.cloud.google.com/python/docs/reference/dataflow/latest/google.cloud.dataflow_v1beta3.services.jobs_v1_beta3.JobsV1Beta3Client.html#google_cloud_dataflow_v1beta3_services_jobs_v1_beta3_JobsV1Beta3Client_get_job)(request=request)
+    print(job.environment.service_account_email)
+    
+
+To inspect all jobs in a region, call [`list_jobs`](https://docs.cloud.google.com/python/docs/reference/dataflow/latest/google.cloud.dataflow_v1beta3.services.jobs_v1_beta3.JobsV1Beta3Client#google_cloud_dataflow_v1beta3_services_jobs_v1_beta3_JobsV1Beta3Client_list_jobs) to list the job IDs, and then call `get_job` with `JobView.JOB_VIEW_DESCRIPTION` for each job.
+
+### Java
+
+Use the [Dataflow client library for Java](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataflow/latest/overview) to call [`getJob`](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataflow/latest/com.google.dataflow.v1beta3.JobsV1Beta3Client#com_google_dataflow_v1beta3_JobsV1Beta3Client_getJob_com_google_dataflow_v1beta3_GetJobRequest_) with `JobView.JOB_VIEW_DESCRIPTION` and read `job.getEnvironment().getServiceAccountEmail()`:
+    
+    
+    import com.google.dataflow.v1beta3.GetJobRequest;
+    import com.google.dataflow.v1beta3.Job;
+    import com.google.dataflow.v1beta3.JobView;
+    import com.google.dataflow.v1beta3.JobsV1Beta3Client;
+    
+    try (JobsV1Beta3Client jobsClient = JobsV1Beta3Client.create()) {
+      GetJobRequest request =
+          GetJobRequest.newBuilder()
+              .setProjectId("PROJECT_ID")
+              .setLocation("REGION")
+              .setJobId("JOB_ID")
+              .setView(JobView.JOB_VIEW_DESCRIPTION)
+              .build();
+      Job job = jobsClient.getJob(request);
+      System.out.println(job.getEnvironment().getServiceAccountEmail());
+    }
+    
+
+### Go
+
+Use the [Dataflow client library for Go](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dataflow/latest/apiv1beta3) to call [`GetJob`](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dataflow/latest/apiv1beta3#cloud_google_com_go_dataflow_apiv1beta3_JobsV1Beta3Client_GetJob) with `JobView_JOB_VIEW_DESCRIPTION` and read `job.GetEnvironment().GetServiceAccountEmail()`:
+    
+    
+    import (
+            "context"
+    
+            dataflow "cloud.google.com/go/dataflow/apiv1beta3"
+            dataflowpb "cloud.google.com/go/dataflow/apiv1beta3/dataflowpb"
+    )
+    
+    ctx := context.Background()
+    client, err := dataflow.NewJobsV1Beta3Client(ctx)
+    if err != nil {
+            // Handle error.
+    }
+    defer client.Close()
+    
+    req := &dataflowpb.GetJobRequest{
+            ProjectId: "PROJECT_ID",
+            Location:  "REGION",
+            JobId:     "JOB_ID",
+            View:      dataflowpb.[JobView_JOB_VIEW_DESCRIPTION](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dataflow/latest/apiv1beta3/dataflowpb.html#cloud_google_com_go_dataflow_apiv1beta3_dataflowpb_JobView_JOB_VIEW_UNKNOWN_JobView_JOB_VIEW_SUMMARY_JobView_JOB_VIEW_ALL_JobView_JOB_VIEW_DESCRIPTION),
+    }
+    job, err := client.GetJob(ctx, req)
+    if err != nil {
+            // Handle error.
+    }
+    serviceAccountEmail := job.GetEnvironment().GetServiceAccountEmail()
+    _ = serviceAccountEmail
+    
+
+For complete client library examples in additional languages, see the [`GetJob` code samples](https://docs.cloud.google.com/dataflow/docs/samples/dataflow-v1beta3-generated-JobsV1Beta3-GetJob-sync).
 
 ### Add roles
 
@@ -542,6 +696,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

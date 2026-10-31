@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores/
 title: Viewing and interacting with Explores \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:50.590983+00:00
+fetched_at: 2026-10-31T05:48:22.694252+00:00
 ---
 
 # Viewing and interacting with Explores  |  Looker  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ In Looker, an Explore is your starting point for querying and analyzing data. In
 
 
 
-Visit the [Creating and editing Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience) page to learn more about creating or editing an Explore query.
+Visit the [Creating and editing Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) page to learn more about creating or editing an Explore query.
 
 **Note:** This page is part of the [Retrieve and chart data](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data) learning series.
 
@@ -49,7 +49,7 @@ You can find prebuilt Explore queries in Looker in several ways, including the f
   * Click the **Explore from Here** link while editing [Looks](https://docs.cloud.google.com/looker/docs/saving-and-editing-looks#editing_a_looks_source_query) or [dashboard tiles](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_tiles).
   * Click the **Explore from Here** link on [Alerts](https://docs.cloud.google.com/looker/docs/alerts-overview) and [scheduled deliveries](https://docs.cloud.google.com/looker/docs/scheduling).
   * Follow links that are [shared by other users](https://docs.cloud.google.com/looker/docs/sharing-urls).
-  * Use [Quick Start analyses](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#quick_start) or [Insight Assistant](https://docs.cloud.google.com/looker/docs/gemini-insight-asst) as a starting point in a blank Explore.
+  * Use [Quick Start analyses](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-starter-questions) or [Insight Assistant](https://docs.cloud.google.com/looker/docs/gemini-insight-asst) as a starting point in a blank Explore.
   * [Upload a CSV, an XLS, or an XLSX file](https://docs.cloud.google.com/looker/docs/exploring-self-service#uploading_data_to_create_a_self-service_explore).
 
 
@@ -63,7 +63,7 @@ The Explore interface consists of the following elements:
 ![](https://docs.cloud.google.com/static/looker/docs/images/looker-explore-anatomy-2618.png)
 
   1. The name of the Explore.
-  2. The dynamic_form **Show starter questions** button: Opens the **Starter Questions** panel that displays starter questions, when available. Learn more about using [Starter questions](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#using-quick-start-analyses).
+  2. The dynamic_form **Show starter questions** button: Opens the **Starter Questions** panel that displays starter questions, when available. Learn more about using [Starter questions](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-starter-questions).
   3. The tips_and_updates **Insight Assistant** button: Opens the **Insight Assistant** panel, which lets you ask questions to discover insights and answers by using data from the Explore. Learn more about [using the Insight Assistant](https://docs.cloud.google.com/looker/docs/gemini-insight-asst) in Explores.
   4. The add_chart **Change chart** button: Opens the **All chart types** menu, which let you choose how to visualize the Explore data. You can also click **Auto visualize** to let Looker choose the best chart option for displaying the results. Learn more about [selecting an effective data visualization](https://docs.cloud.google.com/looker/docs/visualization-guide) and [editing visualizations in Explores](https://docs.cloud.google.com/looker/docs/editing-visualizations).
   5. The **Run** button: Runs the query with the fields that are selected from the **Configure** panel. When a query is running, the button becomes the **Stop** button. You can stop a query when it is running by clicking the **Stop** button.
@@ -73,19 +73,19 @@ The Explore interface consists of the following elements:
   9. The **Visualization** pane: Displays the results of the Explore query that are visualized in a chart.
   10. The drag_indicator **Drag indicator** : Lets you resize the height of the **Visualization** pane and the **Data** pane, and the width of the **Configure** panel when you click and hold your cursor on the **Drag indicator**.
   11. The **Data** pane: Displays the results of the Explore query in a data table, or the underlying SQL query when the **SQL Query** button is clicked.
-  12. The data column more_vert **More** menu: Displays the options for editing the Explore query around a specific column. Learn more about [using the data column **More** menu to edit Explore queries](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#using-the-data-column-more-menu).
-  13. The **Sort Order** indicator: Indicates the field or fields, the direction (ascending or descending), and the order that an Explore query is sorted by. Learn more about [sorting queries](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#sorting-data).
+  12. The data column more_vert **More** menu: Displays the options for editing the Explore query around a specific column. Learn more about [using the data column **More** menu to edit Explore queries](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu).
+  13. The **Sort Order** indicator: Indicates the field or fields, the direction (ascending or descending), and the order that an Explore query is sorted by. Learn more about [sorting queries](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#sorting-data).
   14. The table_chart **Data Table** button: Lets you display or hide the **Data** panel.
   15. The **Results** button: When clicked, displays the Explore results in a data table.
   16. The **SQL Query** button: When clicked, displays the SQL query that's generated to fetch the Explore results instead of the results data table.
   17. The Explore **Performance** panel: Displays the number of rows that are returned, the time it took to run the query, how old the data is, and a link to view the [Explore **Performance** panel](https://docs.cloud.google.com/looker/docs/query-tracker#explore_performance_panel). When your browser window is too small to display the text, you can click the speed **Performance details** icon to display the details.
   18. The viewer time zone: Displays the time zone that is used by the viewer to interpret the time-based data, if your admin has enabled [user-specific time zones](https://docs.cloud.google.com/looker/docs/admin-panel-general-settings#user_specific_time_zones). You can change the viewer time zone by clicking the **Viewer time zone** text. If your browser window is too small to display the time zone, you can click the sunny **Viewer time zone** icon to display the time zone.
-  19. The **Limit** field: Lets you input a number to limit the displayed results. Learn more about [limiting data](https://docs.cloud.google.com/looker/docs/filtering-and-limiting-new-explore-experience#limiting-data).
-  20. The **Totals** and, when available, **Subtotals** switch: When enabled, displays the row or column totals and subtotals in the Explore results. Learn more about [displaying totals](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#displaying-totals).
-  21. The [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#navigating-the-configure-panel): Displays the [**All Fields**](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#using-the-all-fields-tab), [**Fields in use**](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#using-the-fields-in-use-tab), and visualization [**Style**](https://docs.cloud.google.com/looker/docs/editing-visualizations-new-explore-experience) tabs, which let you select fields to create and edit the Explore results and the Explore visualization. Learn more about [creating and editing Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience) and about [editing visualizations](https://docs.cloud.google.com/looker/docs/editing-visualizations-new-explore-experience).
+  19. The **Limit** field: Lets you input a number to limit the displayed results. Learn more about [limiting data](https://docs.cloud.google.com/looker/docs/filtering-and-limiting#limiting-data).
+  20. The **Totals** and, when available, **Subtotals** switch: When enabled, displays the row or column totals and subtotals in the Explore results. Learn more about [displaying totals](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#displaying-totals).
+  21. The [**Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#navigating-the-configure-panel): Displays the [**All Fields**](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-all-fields-tab), [**Fields in use**](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-fields-in-use-tab), and visualization [**Style**](https://docs.cloud.google.com/looker/docs/creating-visualizations) tabs, which let you select fields to create and edit the Explore results and the Explore visualization. Learn more about [creating and editing Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and about [editing visualizations](https://docs.cloud.google.com/looker/docs/creating-visualizations).
   22. The name of the Explore. Click the info **Explore Summary** button to view a description of the Explore that was either added by a developer, or [generated by Gemini in Looker](https://docs.cloud.google.com/looker/docs/explore-summary-gemini). If your Explore is [certified](https://docs.cloud.google.com/looker/docs/content-certification), a ![](https://docs.cloud.google.com/static/looker/docs/images/certified-content-badge-2604.png)**Certified** badge is displayed next to the Explore name.
   23. The **Clear all** and **Clear fields keep filters** options: When clicked, **Clear all** clears all of the Explore fields, and **Clear fields keep filters** clears the Explore fields but keeps any filters that are applied.
-  24. The join_left **Merge queries (join data)** button: Opens the **Join data** page. Learn more about [joining data](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore).
+  24. The join_left **Merge queries (join data)** button: Opens the **Join data** page. Learn more about [joining data](https://docs.cloud.google.com/looker/docs/merged-results).
   25. The Explore summary: Displays the total number of fields in an Explore (including custom fields and table calculations when [permissions](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#create_table_calculations) allow), and the **Go to LookML** link. The **Go to LookML** link directs users to the `explore` definition in its LookML project. This link is visible only to users with the [`see_lookml`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#see_lookml) permission.
   26. The build **Configure** button: Lets you display or hide the **Configure** panel. Alternatively, click the close **Close** button to close the **Configure** panel.
   27. The filter_alt **Filter** button: Lets you display or hide the **Filter** pane.
@@ -116,7 +116,7 @@ The **Save or share** menu lets users save and share an Explore in several ways,
 The **More options** menu lets users use or customize their Explore in several ways, depending on their [permissions](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#permissions_list) in Looker. Depending on user permissions and instance integrations, the options can include the following:
 
   * **Get LookML** : Select this option to get the Explore's query and visualization LookML elements to [add to a LookML dashboard](https://docs.cloud.google.com/looker/docs/building-lookml-dashboards#adding_a_visualization_to_an_existing_lookml_dashboard), [an aggregate table](https://docs.cloud.google.com/looker/docs/aggregate_awareness#adding_aggregate_tables_to_your_project), or [a native derived table](https://docs.cloud.google.com/looker/docs/creating-ndts#using_an_explore_to_begin_defining_your_native_derived_tables).
-  * **Remove fields and filters** : Removes all fields and filters from the Explore, giving you a [blank Explore](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#starting_with_a_blank_explore).
+  * **Remove fields and filters** : Removes all fields and filters from the Explore, giving you a [blank Explore](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#starting-with-a-blank-explore).
   * **Clear cache and refresh** : Force new query results to be retrieved from the database.
   * **Certify** or **Remove certification** : If [content certification](https://docs.cloud.google.com/looker/docs/content-certification) is enabled on your instance, users with the proper permission will see the option to certify the Explore; or, if the Explore is already certified, users with the proper permission will see the option to revoke certification of the Explore.
   * **Edit data fields** : If you are using a self-service Explore, the **Edit data fields** option lets you [modify the data fields](https://docs.cloud.google.com/looker/docs/exploring-self-service#modify_data_fields) in the Explore.
@@ -176,8 +176,8 @@ In this example, the **Percent Flights Delayed** field has a link to email a del
 
 Now that you know how powerful the Explore experience is for learning more about data and discovering insights through iterative searches, you might want to learn how to do the following:
 
-  * Learn how to [create or edit Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience).
-  * Learn how to [edit visualizations](https://docs.cloud.google.com/looker/docs/editing-visualizations-new-explore-experience).
+  * Learn how to [create or edit Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores).
+  * Learn how to [edit visualizations](https://docs.cloud.google.com/looker/docs/creating-visualizations).
   * Learn how to [save Explore queries as Looks](https://docs.cloud.google.com/looker/docs/saving-and-editing-looks).
   * Learn how to [add Explore queries to dashboards](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#creating_a_dashboard_from_a_look_or_an_explore).
   * Learn how to [share data](https://docs.cloud.google.com/looker/docs/sharing-data) with other users.
@@ -188,6 +188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

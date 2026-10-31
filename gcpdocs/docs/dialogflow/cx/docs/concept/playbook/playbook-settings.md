@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/playbook-settings/
-title: Playbook Settings \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
+title: Playbook settings \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:43:43.024905+00:00
+fetched_at: 2026-10-31T05:47:39.416581+00:00
 ---
 
-# Playbook Settings  |  Dialogflow CX  |  Google Cloud Documentation
+# Playbook settings  |  Dialogflow CX  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/playbook-settings/
 
@@ -21,25 +21,25 @@ Some products and features are in the process of being renamed. Generative playb
 
 Send feedback 
 
-#  Playbook Settings Stay organized with collections  Save and categorize content based on your preferences. 
+#  Playbook settings Stay organized with collections  Save and categorize content based on your preferences. 
 
 In addition to [agent-level settings](https://docs.cloud.google.com/dialogflow/cx/docs/concept/agent-settings), you can apply playbook-specific settings:
 
   * **Enable data store RAG acceleration** link
 
-Reduces latency by calling data stores directly upon receiving a user utterance at each turn, bypassing metadata personalization and data store filters. Once enabled, choose options to decide if you want the playbook to wait for the next user utterance after receiving data store responses.
+Reduces latency by calling data stores directly upon receiving a user utterance at each turn, bypassing metadata personalization and data store filters. After you turn on this feature, select options to specify whether the playbook waits for the next user utterance after receiving data store responses.
 
-  * **Advanced speech settings** link
+  * **Advanced speech settings:** link
 
-For details about advanced speech options, see the [Advanced speech settings](https://docs.cloud.google.com/dialogflow/cx/docs/concept/advanced-speech) guide.
+For more information about advanced speech options, see [Advanced speech settings](https://docs.cloud.google.com/dialogflow/cx/docs/concept/advanced-speech).
 
-  * **Manual speech adaptation** link
+  * **Manual speech adaptation:** link
 
-See [manual speech adaptation](https://docs.cloud.google.com/dialogflow/cx/docs/concept/speech-adaptation#manual-adaptation).
+For more information about manual speech adaptation, see [Manual speech adaptation](https://docs.cloud.google.com/dialogflow/cx/docs/concept/speech-adaptation#manual-adaptation).
 
-  * **DTMF settings** link
+  * **DTMF settings:** link
 
-See [DTMF for telephony integrations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/dtmf) for more information.
+For more information about DTMF settings, see [DTMF for telephony integrations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/dtmf).
 
 
 
@@ -52,6 +52,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

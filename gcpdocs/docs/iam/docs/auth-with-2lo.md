@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/auth-with-2lo/
 title: Authenticate using 2-legged OAuth with auth manager \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:32:23.502240+00:00
+fetched_at: 2026-10-31T05:52:26.186573+00:00
 ---
 
 # Authenticate using 2-legged OAuth with auth manager  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -258,7 +258,7 @@ Reference the auth provider in your agent's code using an authenticated function
             return "Error: No authentication token available."
     
         async with httpx.AsyncClient() as client:
-            response = await client.[get](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
+            response = await client.[get](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.agent_engines.html)(
                 "https://api.spotify.com/v1/search",
                 headers={"Authorization": f"Bearer {token}"},
                 params={"q": query, "type": "track", "limit": 1},
@@ -355,12 +355,12 @@ When you deploy your agent to Google Cloud, make sure that Agent Identity is ena
 If you're deploying to Agent Runtime on Gemini Enterprise Agent Platform , use the `identity_type=AGENT_IDENTITY` flag:
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
-    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
-    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.AdkApp.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
+    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.reasoning_engines.AdkApp.html)
     
     # Initialize the Vertex AI client with v1beta1 API for Agent Identity support
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(
         project="PROJECT_ID",
         location="LOCATION",
         http_options=dict(api_version="v1beta1")
@@ -370,10 +370,10 @@ If you're deploying to Agent Runtime on Gemini Enterprise Agent Platform , use t
     app = AdkApp(agent=agent)
     
     # Deploy the agent with Agent Identity enabled
-    remote_app = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(
+    remote_app = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).create(
         agent=app,
         config={
-            "identity_type": [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
+            "identity_type": [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
             "requirements": ["google-cloud-aiplatform[agent_engines,adk]", "google-adk[agent-identity]"],
         },
     )

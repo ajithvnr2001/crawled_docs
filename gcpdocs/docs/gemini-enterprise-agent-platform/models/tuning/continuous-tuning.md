@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning/
 title: Use continuous tuning for Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:22.063630+00:00
+fetched_at: 2026-10-31T05:48:28.635803+00:00
 ---
 
 # Use continuous tuning for Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ Send feedback
 #  Use continuous tuning for Gemini models Stay organized with collections  Save and categorize content based on your preferences. 
 
 Continuous tuning lets you continue tuning an already tuned model or [model checkpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) by adding more epochs or training examples. Using an already tuned model or checkpoint as a base model allows for more efficient tuning experimentation.
+
+**Note:** This page describes continuous tuning with supervised fine-tuning (`SFT -> SFT`). To apply reinforcement learning fine-tuning on top of a supervised fine-tuned checkpoint (`SFT -> RLFT`) or a previous reinforcement learning checkpoint (`RLFT -> RLFT`), see [Continuous tuning with reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning).
 
 You can use continuous tuning for the following purposes:
 
@@ -45,7 +47,7 @@ The following Gemini models support continuous tuning:
 
 For detailed information about Gemini model versions, see [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) and [Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions).
 
-### Configure continuous tuning
+## Configure continuous tuning
 
 When creating a continuous tuning job, note the following:
 
@@ -66,7 +68,7 @@ When creating a continuous tuning job, note the following:
     1. Go to the Model Registry page.
     2. Click the **Model Name** for the model.
     3. Click **View all versions**.
-    4. Click the desired version to view a list of checkpoints. The default checkpoint is indicated by the word `default` next to the checkpoint ID.
+    4. Click the target version to view a list of checkpoints. The default checkpoint is indicated by the word `default` next to the checkpoint ID.
   * By default, a new model version is created under the same parent model as the pre-tuned model. If you supply a new tuned model display name, a new model is created.
 
   * Only supervised tuning base models that are tuned on or after July 11, 2025 can be used as base models for continuous tuning.
@@ -80,7 +82,7 @@ When creating a continuous tuning job, note the following:
 
 To configure continuous tuning for a pre-tuned model by using the Google Cloud console, perform the following steps:
 
-  1. In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Tuning** page.
+  1. In the Agent Platform section of the Google Cloud console, go to the **Tuning** page.
 
 [Go to **Tuning**](https://console.cloud.google.com/agent-platform/generative/language/tuning)
 
@@ -90,7 +92,7 @@ To configure continuous tuning for a pre-tuned model by using the Google Cloud c
 
      1. Choose **Tune a pre-tuned model**.
      2. In the **Pre-tuned model** field, choose the name of your pre-tuned model.
-     3. If the model has at least one checkpoint, the **Checkpoint** drop-down field appears. Choose the desired checkpoint.
+     3. If the model has at least one checkpoint, the **Checkpoint** drop-down field appears. Choose the target checkpoint.
   4. Click **Continue**.
 
 
@@ -98,7 +100,7 @@ To configure continuous tuning for a pre-tuned model by using the Google Cloud c
 
 ###  REST 
 
-To to configure continuous tuning, send a POST request by using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method. Some of the parameters are not supported by all of the models. Ensure that you include only the applicable parameters for the model that you're tuning.
+To configure continuous tuning, send a POST request by using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method. Some of the parameters are not supported by all of the models. Ensure that you include only the applicable parameters for the model that you're tuning.
 
 Before using any of the request data, make the following replacements: 
 
@@ -299,6 +301,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/pgaudit/enable-audit/
 title: Enable pgAudit \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:29.349369+00:00
+fetched_at: 2026-10-31T05:40:19.340787+00:00
 ---
 
 # Enable pgAudit  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ Enable pgAudit on an instance by setting that instance's `alloydb.enable_pgaudit
 
 Note that AlloyDB automatically restarts the instance after you update this flag.
 
-**Note:** The default value for the `pgaudit.log` flag is `none`. To use the pgAudit extension, you must [set values for this flag](https://docs.cloud.google.com/alloydb/docs/pgaudit/configure-log-behavior). 
+**Note:** The default value for the `pgaudit.log` flag is `none`. To use the pgAudit extension, you must [set values for this flag](https://docs.cloud.google.com/alloydb/docs/pgaudit/configure-log-behavior). You don't need to configure the `shared_preload_libraries` database flag, because pgAudit is preloaded automatically in AlloyDB and `shared_preload_libraries` is a system-managed flag that can't be modified directly. 
   2. Connect to the primary instance and create the extension in each database. You must perform the following steps on the primary instance even if you are enabling auditing on a read pool instance: 
      1. Connect a `psql` client to the cluster's primary instance, as described in [Connect a psql client to an instance](https://docs.cloud.google.com/alloydb/docs/connect-psql). 
      2. At the `psql` command prompt, connect to the database and create the extension: 
@@ -67,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

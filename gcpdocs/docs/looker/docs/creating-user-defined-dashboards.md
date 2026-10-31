@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards/
 title: Creating user-defined dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:21.016843+00:00
+fetched_at: 2026-10-31T05:48:41.593516+00:00
 ---
 
 # Creating user-defined dashboards  |  Looker  |  Google Cloud Documentation
@@ -93,9 +93,9 @@ The Look or Explore will be saved as a query tile on the dashboard.
 
 ## Adding tiles and text to a dashboard
 
-Once you've created a dashboard, the next step is to add tiles and text to the dashboard. You can also add tabs to dashboards to help organize content. Learn more about [adding tabs to dashboards](https://docs.cloud.google.com/looker/docs/tabbed-dashboards#add-tabs).
+Once you've created a dashboard, the next step is to add tiles and text to the dashboard. You can also organize dashboard content by [adding tabs to dashboards](https://docs.cloud.google.com/looker/docs/tabbed-dashboards#add-tabs) or, if the [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups) is enabled, by adding tile groups.
 
-The first tile that you add to a dashboard takes up the entire width of the dashboard. Additional tiles that you add are sized to one-third of the dashboard's width and are added horizontally under the first tile. Looker adds additional rows of tiles as necessary. You can [move and resize](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#rearranging_and_resizing_tiles) tiles however you like. You can also [edit tiles](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_tiles) once you've created them to adjust the names of the tiles, the visualizations, or the underlying queries or Looks.
+The first tile that you add to a dashboard takes up the entire width of the dashboard. Additional tiles that you add are sized to one-third of the dashboard's width and are added horizontally under the first tile. Looker adds additional rows of tiles as necessary. Tile groups always take up the entire width of the dashboard, and new tiles that you add within a tile group are sized to one-third of the group's width. You can [move and resize tiles](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#rearranging_and_resizing_tiles) and [tile groups](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#managing_tile_groups) however you like. You can also [edit tiles](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_tiles) once you've created them to adjust the names of the tiles, the visualizations, or the underlying queries or Looks.
 
 For any new tiles that are added to a dashboard, if they were created from the same Explore as a dashboard filter, the dashboard filter is automatically applied to that tile.
 
@@ -114,7 +114,7 @@ You can add four kinds of tiles to a dashboard:
 
 #### Query tiles
 
-**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), see the [Viewing and interacting with Explores in the new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#save-or-share-menu) documentation page.
+**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data), see the [Viewing and interacting with Explores](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores#save-or-share-menu) documentation page.
 
 Query tiles can be built directly within a dashboard or added to a dashboard from a Look or from an Explore.
 
@@ -151,10 +151,11 @@ Extension tiles are custom applications called [extensions](https://docs.cloud.g
 
 If you're in a dashboard, you can build a query tile from inside the dashboard.
 
-Once you're in the dashboard's edit mode, you can add a query tile in one of two ways:
+Once you're in the dashboard's edit mode, you can add a query tile in one of the following ways:
 
-  * You can click the **Add** button from the top left of the dashboard pane, and then choose the **Visualization** option.
-  * However, if the dashboard is blank, you can instead select the **Add** button in the center of the dashboard pane, and then choose the **Visualization** option.
+  * Click the **Add** button in the top toolbar of the dashboard, and then select **Visualization**.
+  * If the dashboard is blank, select the **Add** button in the center of the dashboard pane, and then select **Visualization**.
+  * If the dashboard contains a tile group, click the add **Add Tile to Group** icon in the group header, and then select **Visualization**.
 
 
 
@@ -258,7 +259,7 @@ For any new tile that is added to a dashboard, if the Look it was based on was c
 
 ### Adding text
 
-Once a dashboard is in edit mode, you can add text tiles to it by clicking the **Add** button from the top left of the dashboard pane.
+Once a dashboard is in edit mode, you can add text tiles to it by clicking the **Add** button in the top toolbar of the dashboard, or by clicking the add **Add Tile to Group** icon in a tile group header.
 
 There are two types of text tiles, each of which offers a different editing experience but results in the same kind of tile:
 
@@ -267,7 +268,7 @@ There are two types of text tiles, each of which offers a different editing expe
 
 
 
-Once you save your **Text** or **Markdown** tile, you will see it at the bottom of the dashboard. You can then [move and resize](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#rearranging_and_resizing_tiles) your text tile just as you would move and resize other tiles. If your dashboard has tabs, you can also [move the tile to a different dashboard tab](https://docs.cloud.google.com/looker/docs/tabbed-dashboards#move-tiles).
+Once you save your **Text** or **Markdown** tile, you will see it at the bottom of the dashboard (or inside the tile group). You can then [move and resize](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#rearranging_and_resizing_tiles) your text tile just as you would move and resize other tiles. If your dashboard has tabs, you can also [move the tile to a different dashboard tab](https://docs.cloud.google.com/looker/docs/tabbed-dashboards#move-tiles).
 
 ![A Business Overview dashboard displays a text tile at the top of the page that provides context and information about the dashboard to users.](https://docs.cloud.google.com/static/looker/docs/images/add-text-results-2218.png)
 
@@ -306,9 +307,9 @@ The **Button** option in the **Add** menu lets you add custom buttons to your da
 To add a button to your dashboard, follow these steps:
 
   1. Make sure the dashboard is in [edit mode](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#entering_edit_mode_in_dashboards).
-  2. From the **Add** button menu at the top left of the dashboard pane, select the **Button** option.
+  2. From the **Add** button menu in the top toolbar of the dashboard (or the add **Add Tile to Group** menu in a tile group header), select **Button**.
 
-A new button appears at the top of the dashboard with an open button edit window.
+A new button appears on the dashboard (or inside the tile group) with an open button edit window.
 
   3. In the **Content** tab of the button edit window, complete the following fields:
 
@@ -350,20 +351,44 @@ Resizing a button's tile box may affect the placement of other dashboard element
 
 ### Adding extensions
 
-If you have the [Looker Admin role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_permission_sets) or the [`develop` permission](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#develop), or if you have been granted access to one or more extensions, you will see the the **Extension** option in the **Add** menu. The **Extension** option lets you add a custom [extension](https://docs.cloud.google.com/looker/docs/intro-to-extension-framework) as a tile to your dashboard.
+If you have the [Looker Admin role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_permission_sets) or the [`develop` permission](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#develop), or if you have been granted access to one or more extensions, you will see the **Extension** option in the **Add** menu. The **Extension** option lets you add a custom [extension](https://docs.cloud.google.com/looker/docs/intro-to-extension-framework) as a tile to your dashboard.
 
 To add an extension as a tile, follow these steps:
 
   1. Make sure that the dashboard is in [edit mode](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#entering_edit_mode_in_dashboards).
 
-  2. From the **Add** button menu at the top left of the dashboard pane, select the **Extension** option. The Extensions panel will appear, listing all available extensions that can be installed as a tile on your dashboard.
+  2. From the **Add** button menu in the top toolbar of the dashboard (or the add **Add Tile to Group** menu in a tile group header), select **Extension**. The Extensions panel appears, listing all available extensions that can be installed as a tile on your dashboard.
 
 ![](https://docs.cloud.google.com/static/looker/docs/images/dashboard-extension-panel-2400.png)
 
-  3. In the **Extensions** panel, in the section of the extension that you want to install, click **Add to tile**. The selected extension will be installed in the new tile on your dashboard.
+  3. In the **Extensions** panel, in the section of the extension that you want to install, click **Add to tile**. The selected extension is installed in the new tile on your dashboard (or inside the tile group).
 
 
 
+
+### Adding tile groups
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+**Note:** Use the [Looker Tile Groups - Preview Issues form](https://docs.google.com/forms/d/e/1FAIpQLSdqtRfbUyyIhZqKkyfsEJyVhJ83sGG58-t1sAssvZ3V_ruUrw/viewform) to provide feedback or report issues with this preview feature.
+
+If the [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups) is enabled, you can add [collapsible group containers](https://docs.cloud.google.com/looker/docs/viewing-dashboards#tile_groups) to dashboards that use the default grid layout. Grouping tiles lets you visually organize related content and move, duplicate, or delete multiple tiles as a single unit.
+
+To add a tile group to your dashboard, follow these steps:
+
+  1. Make sure that the dashboard is in edit mode.
+  2. Click the **Add** button in the toolbar at the top of the dashboard (or in the center of the dashboard pane if the dashboard is blank), and then select **Group**. A new full-width group container appears on the dashboard canvas with a default title (such as **My group 1**).
+  3. Optional: Click the group title in the group header and enter a new title for the group.
+  4. Add tiles to the group in either of the following ways: 
+     * **Create a new tile inside the group** : In the group header, click the add **Add Tile to Group** icon, and then select **Visualization** , **Text** , **Markdown** , **Button** , or **Extension**. By default, new tiles within a group are sized to one-third of the group's width and are placed from left to right as new tiles are added.
+     * **Move an existing tile into the group** : In the group header, click the **Add Existing Tile to Group** icon, and then click the ungrouped tile on the dashboard canvas that you want to move into the group.
+  5. Click **Save** in the blue toolbar to save your changes.
+
+
+
+For more information about rearranging, resizing, duplicating, ungrouping, or deleting tile groups, see the [Organizing tiles into groups](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#organizing_tiles_into_groups) section on the **Editing user-defined dashboards** documentation page.
 
 ### Adding data actions to tiles
 
@@ -427,6 +452,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

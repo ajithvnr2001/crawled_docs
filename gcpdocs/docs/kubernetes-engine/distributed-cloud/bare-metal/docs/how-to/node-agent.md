@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/node-agent/
 title: Migrate clusters to use Node Agent \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:03.285694+00:00
+fetched_at: 2026-10-31T05:50:36.000525+00:00
 ---
 
 # Migrate clusters to use Node Agent  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Migrate clusters to use Node Agent Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to install and migrate clusters to Node Agent to provide more secure cluster operations. Node Agent is a more secure, agent-based model than Ansible over SSH for cluster operations, available for versions 1.33 and later. When you manage cluster operations with Node Agent, you can access customer nodes in sensitive environments without SSH.
+Node Agent lets you perform secure cluster operations on Google Distributed Cloud nodes without relying on Ansible over SSH. Available for versions 1.33 and later, this agent runs on each node and manages node configurations over an authenticated, encrypted [gRPC](https://grpc.io/) channel.
 
-The Node Agent binary runs on each node. Node Agent communicates with clients, such as controllers, through a secure [gRPC](https://grpc.io/) channel to manage all node configuration activities. Google Distributed Cloud enforces mutual Transport Layer Security (mTLS) between the cluster controller and Node Agent and between `bmctl` and Node Agent for the authentication and encryption of the gRPC connections.
-
-Use [`bmctl nodeagent`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/bmctl#nodeagent) commands to reduce manual effort, improve consistency across nodes, and automate certificate creation and rotation. The `bmctl` commands operate primarily over SSH so you can deploy agents even when the cluster controller is unhealthy or its standard communication channels are impaired.
+You can migrate existing clusters to Node Agent or deploy the agent when you create new clusters. To manage the agent lifecycle, [`bmctl nodeagent`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/bmctl#nodeagent) commands automate certificate creation and credential rotation across nodes, operating over SSH so that you can deploy agents even when cluster controllers are unhealthy.
 
 ## Before you begin
 
@@ -689,6 +687,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

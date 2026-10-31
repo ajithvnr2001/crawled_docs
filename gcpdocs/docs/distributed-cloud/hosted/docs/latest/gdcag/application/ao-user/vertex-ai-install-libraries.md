@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-install-libraries/
 title: Install Vertex AI client libraries \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:11.122094+00:00
+fetched_at: 2026-10-31T05:53:25.193528+00:00
 ---
 
 # Install Vertex AI client libraries  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,19 +22,9 @@ Send feedback
 
 #  Install Vertex AI client libraries Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page guides you through installing Vertex AI client libraries for Google Distributed Cloud (GDC) air-gapped, which let you interact with various Vertex AI services from your application and development environment. You can learn about the types of client libraries available for Vertex AI APIs and the steps for installing them from the tar file. 
+Vertex AI client libraries in Google Distributed Cloud (GDC) air-gapped let you programmatically access Optical Character Recognition (OCR), Speech-to-Text, Vertex AI Translation, and Vertex AI Platform APIs without writing raw server requests. Extract and install a client library directly from its tar file, or import the library in a JupyterLab notebook. For more information about notebook environments, see [Manage notebooks](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-workbench).
 
-This page is for application developers within application operator groups responsible for setting up their application and development environments to enable AI features. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
-
-Each Vertex AI service provides an API. While you can interact directly with these APIs through raw server requests, client libraries simplify programmatic access from supported languages on Distributed Cloud. They reduce the necessary code required, especially when working in environments like a JupyterLab notebook.
-
-You can install a Vertex AI client library using these methods:
-
-  * Extract the library file directly from the tar file.
-  * Use a JupyterLab notebook to import the library.
-  * Import a client library from a notebook. For information, see [Manage notebooks](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-workbench).
-
-
+This document is for application developers in application operator groups who configure application and development environments to enable AI features. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
 
 ## Vertex AI client libraries
 
@@ -175,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
