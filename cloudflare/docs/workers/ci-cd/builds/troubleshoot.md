@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/
 title: Troubleshooting builds \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:01.225043+00:00
+fetched_at: 2026-10-31T08:10:18.759033+00:00
 ---
 
 # Troubleshooting builds · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-29T08:14:01.225043+00:00
 
 # Troubleshooting builds
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewKnown issues or limitations Workers name requirement Missing Wrangler configuration file Incorrect account_id Stale API token Build timed out Build succeeds but the site returns a 404 or blank page npm ci reports that package.json and package-lock.json are out of sync Git integration issuesFor additional support
+OverviewKnown issues or limitations Workers name requirement Missing Wrangler configuration file Incorrect account_id Stale API token Build timed out Build succeeds but the site returns a 404 or blank page npm ci reports that package.json and package-lock.json are out of sync Git integration issuesBuilds API errors "Resource not found" error "Invalid request body" (12002) when updating branch patternsFor additional support
 
 This guide explains how to identify and resolve build errors, as well as troubleshoot common issues in the Workers Builds deployment process.
 
@@ -93,6 +93,27 @@ If this error appears in Workers Builds but `npm ci` works on your machine, your
 ### Git integration issues
 
 If you are running into errors associated with your Git integration, you can try removing access to your [GitHub](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/#removing-access) or [GitLab](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/gitlab-integration/#removing-access) integration from Cloudflare, then reinstalling the [GitHub](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/#reinstall-a-git-integration) or [GitLab](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/gitlab-integration/#reinstall-a-git-integration) integration.
+
+## Builds API errors
+
+These errors are returned by the [Builds API](https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/).
+
+### "Resource not found" error
+
+You are likely using the Worker name instead of the Worker tag. The Builds API requires the `tag` (a UUID like `1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d`), not the Worker name. Refer to [Get your Worker tag](https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/#get-your-worker-tag).
+
+### "Invalid request body" (12002) when updating branch patterns
+
+The [`PATCH /builds/triggers/{trigger_uuid}`](https://developers.cloudflare.com/api/resources/workers_builds/subresources/triggers/methods/update/) endpoint returns this error when the trigger's resulting `branch_includes` and `branch_excludes` are not one of these combinations:
+
+Trigger | `branch_includes` | `branch_excludes`  
+---|---|---  
+Production | One branch name without wildcards (for example, `["main"]`) | Empty (`[]`)  
+Legacy branch builds (non-production) | `["*"]` | One or more branch names without wildcards  
+  
+The error is also returned if the update would change a production trigger into a non-production trigger, or the other way around. Branch patterns such as `feature/*` are not supported.
+
+To change your production branch, [update `git_repository.branch`](https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/#update-build-settings) instead.
 
 ## For additional support
 

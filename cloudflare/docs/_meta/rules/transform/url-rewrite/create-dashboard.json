@@ -3,8 +3,5 @@
   "file": "rules/transform/url-rewrite/create-dashboard.md",
   "title": "Create a URL rewrite rule in the dashboard \u00b7 Cloudflare Rules docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:14:58.463333+00:00",
-  "html_len": 141765,
-  "md_len": 6925,
-  "depth": 0
+  "fetched_at": "2026-10-31T08:10:24.201794+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/auto-router/
 title: Auto Router \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:29.391577+00:00
+fetched_at: 2026-10-31T08:10:22.489732+00:00
 ---
 
 # Auto Router · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:29.391577+00:00
 
 # Auto Router
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/features/auto-router/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksGet startedSession affinityHeaders Routing reasonsModels Default models Additional modelsUse with OpenCode Install the AI Gateway plugin
 
@@ -55,7 +55,7 @@ Auto Router supports the Chat Completions and Responses API formats. The [WebSoc
 The response headers show which model Auto Router selected:
     
     
-    cf-aig-routed-model: openai/gpt-5.6-luna
+    cf-aig-routed-model: openai/gpt-6-luna
     cf-aig-routing-reason: cost_optimal_within_pool
     cf-aig-routing-decision-id: 91e0b970-33f0-4921-b8dc-127412e7b103
 
@@ -135,7 +135,7 @@ The response includes headers that describe the routing decision. These headers 
 
 Header | Description  
 ---|---  
-`cf-aig-routed-model` | The model that served the request, for example `anthropic/claude-sonnet-5`.  
+`cf-aig-routed-model` | The model that served the request, for example `anthropic/claude-sonnet-5.5`.  
 `cf-aig-routing-reason` | Why that model was selected. Refer to Routing reasons.  
 `cf-aig-routing-decision-id` | The routing decision identifier.  
 `cf-aig-request-id` | The request identifier.  
@@ -165,13 +165,14 @@ By default, Auto Router selects from the following models. To provide your own s
 
 Model | Provider  
 ---|---  
-`anthropic/claude-fable-5` | `anthropic`  
-`anthropic/claude-opus-5` | `anthropic`  
-`anthropic/claude-sonnet-5` | `anthropic`  
-`openai/gpt-5.6-luna` | `openai`  
-`openai/gpt-5.6-sol` | `openai`  
-`openai/gpt-5.6-terra` | `openai`  
-`xai/grok-4.5` | `xai`  
+`@cf/deepseek-ai/deepseek-v4-flash-0731` | `workers-ai`  
+`anthropic/claude-haiku-5.5` | `anthropic`  
+`anthropic/claude-opus-5.5` | `anthropic`  
+`anthropic/claude-sonnet-5.5` | `anthropic`  
+`moonshotai/kimi-k3` | `workers-ai`  
+`openai/gpt-6-luna` | `openai`  
+`openai/gpt-6.1-sol` | `openai`  
+`xai/grok-4.7` | `xai`  
   
 ### Additional models
 
@@ -181,7 +182,6 @@ Additional models
 
 Model | Provider  
 ---|---  
-`@cf/deepseek-ai/deepseek-v4-flash-0731` | `workers-ai`  
 `@cf/deepseek-ai/deepseek-v4-pro-0813` | `workers-ai`  
 `@cf/google/gemma-4-26b-a4b-it` | `workers-ai`  
 `@cf/moonshotai/kimi-k2.7-code` | `workers-ai`  
@@ -189,17 +189,23 @@ Model | Provider
 `@cf/qwen/qwen3.8-27b` | `workers-ai`  
 `@cf/zai-org/glm-5.2` | `workers-ai`  
 `alibaba/qwen3.8-max` | `alibaba`  
+`anthropic/claude-fable-5` | `anthropic`  
 `anthropic/claude-fable-5.1` | `anthropic`  
 `anthropic/claude-opus-4.8` | `anthropic`  
-`anthropic/claude-opus-5.5` | `anthropic`  
+`anthropic/claude-opus-5` | `anthropic`  
 `anthropic/claude-sonnet-4.6` | `anthropic`  
+`anthropic/claude-sonnet-5` | `anthropic`  
 `fireworks/glm-5.3` | `fireworks`  
 `fireworks/glm-5.3-flash` | `fireworks`  
+`google/gemini-3.8-flash` | `google-vertex-ai`  
 `minimax/m3` | `minimax`  
 `openai/gpt-5.5` | `openai`  
+`openai/gpt-5.6-luna` | `openai`  
+`openai/gpt-5.6-sol` | `openai`  
+`openai/gpt-5.6-terra` | `openai`  
 `openai/gpt-6-astra` | `openai`  
-`openai/gpt-6-luna` | `openai`  
 `openai/gpt-6-sol` | `openai`  
+`xai/grok-4.5` | `xai`  
 `xai/grok-4.6` | `xai`  
   
 The Provider column uses the values that `cf-aig-allowed-providers` accepts.

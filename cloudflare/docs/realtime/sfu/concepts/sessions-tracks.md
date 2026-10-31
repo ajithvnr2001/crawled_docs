@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/
 title: Sessions and tracks \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:34.640804+00:00
+fetched_at: 2026-10-31T08:10:19.710508+00:00
 ---
 
 # Sessions and tracks · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:14:34.640804+00:00
 
 # Sessions and tracks
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewApplicationsSessions Session setupMedia tracksDiscovery and subscriptionsDataChannelsResource lifetimeLearn with an example
 
@@ -44,9 +44,7 @@ A participant does not have to correspond to exactly one session. The [video-roo
 
 Calling `POST /sessions/new` with no request body returns a `sessionId`, but does not establish the WebRTC connection. Follow a [connection recipe](https://developers.cloudflare.com/realtime/sfu/get-started/connection-patterns/) to complete the offer/answer exchange, then wait for the endpoint's connection state to become `connected`.
 
-Create each session when ready to begin negotiation. An unconnected session can expire before its first track or DataChannel operation. Activity on another session does not keep it alive.
-
-If setup expires, later operations can return HTTP `410` with `session_error`. Create a new session and repeat connection setup.
+Create each session when the endpoint is ready to negotiate. If setup fails or the PeerConnection closes, create a new session and repeat connection setup.
 
 Follow [per-session mutation ordering](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/#serialize-mutations-per-session) during setup and later updates.
 

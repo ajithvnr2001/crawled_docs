@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/observability/
 title: Observability \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:36.689566+00:00
+fetched_at: 2026-10-31T08:10:19.818290+00:00
 ---
 
 # Observability · Cloudflare Realtime docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:36.689566+00:00
 
 # Observability
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/observability/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRecord useful contextCheck the failing layerInspect browser media statisticsHandle lifecycle failuresLearn with an example
 
@@ -28,7 +28,7 @@ For a returned API error, use the [Error codes reference](https://developers.clo
 
 ## Record useful context
 
-Record the operation, time, application resource ID, SFU session or adapter ID, HTTP status, and per-item error codes. On the endpoint, record signaling, connection, and DataChannel state transitions.
+Record the operation, UTC timestamp, App ID, target SFU session or adapter ID, HTTP status, `cf-ray` response header, and per-item error codes. On the endpoint, record signaling, connection, and DataChannel state transitions.
 
 Keep App Secrets, endpoint tokens, SDP, ICE credentials, and media payloads out of logs. Sanitize errors before returning them to untrusted clients.
 

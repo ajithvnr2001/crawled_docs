@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
 title: REST API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:07.540877+00:00
+fetched_at: 2026-10-31T08:10:23.194845+00:00
 ---
 
 # REST API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # REST API
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAuthenticationRequest exampleAttachmentsCustom headersResponseError responsesRelated resources
 
@@ -57,7 +57,7 @@ For multiple recipients, CC/BCC, and named addresses, refer to [Specify recipien
 
 ## Attachments
 
-Send files by including base64-encoded content in the `attachments` array. The total message size must not exceed **5 MiB** (including attachments).
+Send files by including base64-encoded content in the `attachments` array. The total message size must not exceed **25 MiB** (including attachments).
     
     
     curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/email/sending/send" \

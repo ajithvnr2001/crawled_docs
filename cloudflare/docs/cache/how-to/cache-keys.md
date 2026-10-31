@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/how-to/cache-keys/
 title: Cache Keys \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:01.755623+00:00
+fetched_at: 2026-10-31T08:10:25.341507+00:00
 ---
 
 # Cache Keys · Cloudflare Cache (CDN) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:01.755623+00:00
 
 # Cache keys
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/how-to/cache-keys/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate custom cache keysCache Key Template Impact of SSL settings on Cache behavior Cache Level: Ignore Query StringCache Key Settings Query String Headers Host Cookie User featuresAvailabilityTroubleshootingLimitations
 
@@ -214,7 +214,7 @@ User features | No | No | No | Yes
   
 ## Troubleshooting
 
-You can use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) to find which Cache Key settings were applied to your request. When you send a request through the Trace tool, if the request was served from cache, it will show a cache hit in the **Cache Parameters** section. Then select **View parameter detail** to see exactly which Cache Key properties were used.
+You can use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to find which Cache Key settings were applied to your request. When you send a request through Rules simulator, if the request was served from cache, it will show a cache hit in the **Cache Parameters** section. Then select **View parameter detail** to see exactly which Cache Key properties were used.
 
 ## Limitations
 

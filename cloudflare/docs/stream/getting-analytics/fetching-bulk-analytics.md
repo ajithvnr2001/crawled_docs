@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/getting-analytics/fetching-bulk-analytics/
 title: GraphQL Analytics API \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T07:00:54.024728+00:00
+fetched_at: 2026-10-31T08:10:23.433571+00:00
 ---
 
 # GraphQL Analytics API · Cloudflare Stream docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-24T07:00:54.024728+00:00
 
 # GraphQL Analytics API
 
-Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGetting startedVideo delivered via HLS/DASH and WebRTC Filters and dimensions Metrics ExampleRTMP and SRT input metrics Event fields Filters and dimensions MetricsHLS/DASH quality of experience metrics Filters and dimensions MetricsWebRTC WHIP/WHEP metrics Raw fields Filters and dimensions MetricsPaginationLimitations
 
@@ -68,8 +68,6 @@ Field | Description
 `clientCountryName` | ISO 3166-1 alpha-2 country code for the viewer  
 `creator` | [Creator ID](https://developers.cloudflare.com/stream/manage-video-library/creator-id/) associated with the video, if set  
   
-@TODO: NOTE -- INPUT ID LINKS FOR WHEP
-
 Some filters, like `date`, can be used with operators, such as `gt` (greater than) and `lt` (less than), as shown in the example query below. For more advanced filtering options, refer to [filtering](https://developers.cloudflare.com/analytics/graphql-api/features/filtering/).
 
 ### Metrics

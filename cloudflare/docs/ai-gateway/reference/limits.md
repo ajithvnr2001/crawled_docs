@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/reference/limits/
 title: Limits \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:32.497631+00:00
+fetched_at: 2026-10-31T08:10:19.990176+00:00
 ---
 
 # Limits · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:32.497631+00:00
 
 # Limits
 
-Last updated Sep 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/reference/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGateway limitsLog limits New AI Gateway customers Existing AI Gateway customersLogpush limitsDLP limits
 

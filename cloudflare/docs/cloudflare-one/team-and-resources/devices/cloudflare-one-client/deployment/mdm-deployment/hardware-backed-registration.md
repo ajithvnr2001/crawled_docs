@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/hardware-backed-registration/
 title: Hardware-backed registration \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:58.382152+00:00
+fetched_at: 2026-10-31T08:10:21.639815+00:00
 ---
 
 # Hardware-backed registration · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Hardware-backed registration
 
-Last updated Sep 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/hardware-backed-registration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksHardware requirementsTurn on hardware-backed registrationLimitations
 
@@ -35,7 +35,7 @@ All modes | All plans
 System | Availability | Minimum WARP version  
 ---|---|---  
 Windows | ✅ | 2026.6.0  
-macOS | ✅ | 2026.6.0  
+macOS | ✅ (Apple silicon only) | 2026.6.0  
 Linux | ✅ | 2026.6.0  
 iOS | ❌ | N/A  
 Android | ❌ | N/A  
@@ -75,7 +75,7 @@ Hardware-backed registration uses the security hardware available on each deskto
 Operating system | Hardware  
 ---|---  
 Windows | TPM 2.0  
-macOS | Secure Enclave (T2 or Apple silicon)  
+macOS | Secure Enclave (Apple silicon)  
 Linux | TPM 2.0  
   
 Devices without a supported security module cannot complete a hardware-backed registration.
@@ -109,7 +109,7 @@ The following example turns on hardware-backed registration for the `example-tea
 
 ## Limitations
 
-Hardware-backed registration is available on Windows, macOS, and Linux only. Mobile platforms (iOS, Android, and ChromeOS) are not supported. The feature applies only to Zero Trust registrations that use an [identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/) or a [service token](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/). Consumer registrations are not supported.
+Hardware-backed registration is available on Windows, macOS on Apple silicon, and Linux only. Intel-based Macs are not supported. Mobile platforms (iOS, Android, and ChromeOS) are not supported. The feature applies only to Zero Trust registrations that use an [identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/) or a [service token](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/). Consumer registrations are not supported.
 
 [PreviousClient version assignments](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/client-version-assignments/)[NextManual deployment](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/manual-deployment/)
 

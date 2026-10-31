@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/scim/
 title: SCIM provisioning \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:05.966029+00:00
+fetched_at: 2026-10-31T08:10:21.501434+00:00
 ---
 
 # SCIM provisioning · Cloudflare One docs
@@ -22,9 +22,9 @@ Team and resources
 
 # SCIM provisioning
 
-Last updated Aug 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/scim/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSupported identity providersSync users and groups in Zero Trust policiesCommon provider-specific issues
+OverviewSupported identity providersSync users and groups in Zero Trust policiesView provisioned users and groupsCommon provider-specific issues
 
 System for Cross-domain Identity Management (SCIM) is an open standard protocol that allows identity providers to synchronize user identity information with cloud applications and services. After configuring SCIM, user identities that you create, edit, or delete in the identity provider are automatically updated across all supported applications. This makes it easier for IT admins to onboard new users, update their groups and permissions, and revoke access in the event of an employee termination or security breach.
 
@@ -38,6 +38,8 @@ Users provisioned via the Zero Trust SCIM integration will not have access to yo
 
 Cloudflare One supports SCIM provisioning for all SAML and OIDC identity providers that use SCIM version `2.0`.
 
+For Google's built-in SCIM provisioning, you must use a [Google Workspace (SAML/SCIM) integration](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google-workspace-saml/), not the dedicated Google Workspace integration. Google's custom SCIM profiles are in beta and provision users; configure [SAML group membership mapping](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google-workspace-saml/#1-create-a-custom-saml-app-in-google-workspace) separately to send groups during authentication.
+
 ## Sync users and groups in Zero Trust policies
 
 Cloudflare Access can automatically deprovision users from Zero Trust after they are deactivated in the identity provider and display synchronized group names in the Access and Gateway policy builders. Cloudflare does not provision new users in Zero Trust when they are added to the identity provider -- users must first register a device with the Cloudflare One Client or authenticate to an Access application.
@@ -50,6 +52,10 @@ Gateway evaluates identity-based policies against the [User Registry identity](h
 
 To set up SCIM for Zero Trust, refer to our [SSO integration](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/) guides.
 
+## View provisioned users and groups
+
+Use the [SCIM population viewer](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/scim-population-viewer/) to inspect users and groups provisioned through each identity provider. You can search for resources, inspect their attributes and group membership, and compare resource IDs with SCIM provisioning logs.
+
 ## Common provider-specific issues
 
 SCIM behavior depends on the identity provider configuration as well as Cloudflare.
@@ -58,12 +64,13 @@ Common issues include:
 
   * **Okta** : User sync and group sync are separate. Make sure **Push Groups** is configured if you expect groups to appear in Zero Trust policies.
   * **Microsoft Entra ID** : Group sync only occurs for groups included in the provisioning scope. The `userName` attribute should match the user's email address in Cloudflare One.
+  * **Google Workspace** : SCIM requires a generic SAML integration. Selecting Google groups as a provisioning scope limits which users are provisioned; it does not send group membership. Configure the SAML app to send a `groups` attribute for group-based policies.
 
 
 
 If users appear but groups do not, verify the IdP-side SCIM app first before troubleshooting Cloudflare policy behavior.
 
-[PreviousSeat management](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/seat-management/)[NextUser logs](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/users/)
+[PreviousSeat management](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/seat-management/)[NextView SCIM users and groups](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/scim-population-viewer/)
 
 Was this helpful?
 

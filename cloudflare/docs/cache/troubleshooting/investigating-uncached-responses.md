@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/troubleshooting/investigating-uncached-responses/
 title: Investigate uncached responses \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:46.468252+00:00
+fetched_at: 2026-10-31T08:10:24.966320+00:00
 ---
 
 # Investigate uncached responses · Cloudflare Cache (CDN) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:46.468252+00:00
 
 # Investigate uncached responses
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/troubleshooting/investigating-uncached-responses/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startDYNAMIC — request not eligible for cacheBYPASS — origin response is not cacheableRepeated MISS — cacheable but not in cache Cache key variance Eviction and low-traffic assetsConfirm the response reaches cacheRelated resourcesRelated resources
 
@@ -45,7 +45,7 @@ A recent [Purge Everything](https://developers.cloudflare.com/cache/how-to/purge
 Cloudflare made the "do not cache" decision at request time, before looking in the cache. Common causes:
 
   * **The file extension is not in the[default cached file extensions](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#default-cached-file-extensions) list** — for example, `.html` or a JSON API response — and no rule enables caching for it. Add a [Cache Rule](https://developers.cloudflare.com/cache/how-to/cache-rules/) with **Eligible for cache** set to _Yes_.
-  * **A rule instructs Cloudflare to bypass cache.** Check whether a Cache Rule with the [Bypass cache](https://developers.cloudflare.com/cache/how-to/cache-rules/settings/#bypass-cache) setting, or a legacy `Cache Level: Bypass` [Configuration Rule](https://developers.cloudflare.com/rules/configuration-rules/) or [Page Rule](https://developers.cloudflare.com/rules/page-rules/), matches the URL. Use [Rule Trace](https://developers.cloudflare.com/rules/trace-request/) to confirm which rules apply.
+  * **A rule instructs Cloudflare to bypass cache.** Check whether a Cache Rule with the [Bypass cache](https://developers.cloudflare.com/cache/how-to/cache-rules/settings/#bypass-cache) setting, or a legacy `Cache Level: Bypass` [Configuration Rule](https://developers.cloudflare.com/rules/configuration-rules/) or [Page Rule](https://developers.cloudflare.com/rules/page-rules/), matches the URL. Use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to confirm which rules apply.
   * **The request method is not`GET` or `HEAD`.** Cloudflare only caches these two methods.
   * **[Development Mode](https://developers.cloudflare.com/cache/reference/development-mode/) is enabled on the zone.** Development Mode suspends cache for three hours and returns `DYNAMIC` for every response.
 
@@ -104,7 +104,7 @@ If each real client request produces a different key, the cache never sees a rep
 
 
 
-Two identical requests produce the same cache key and cannot reveal variance. To diagnose, use [Rule Trace](https://developers.cloudflare.com/rules/trace-request/) to see the applied cache-key configuration and Vary action for the URL, then compare that against the request attributes (query string, cookies, headers, device type) that differ between real client requests.
+Two identical requests produce the same cache key and cannot reveal variance. To diagnose, use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to see the applied cache-key configuration and Vary action for the URL, then compare that against the request attributes (query string, cookies, headers, device type) that differ between real client requests.
 
 ### Eviction and low-traffic assets
 

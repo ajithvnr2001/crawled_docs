@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/url-forwarding/single-redirects/
 title: Single Redirects \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:00.355175+00:00
+fetched_at: 2026-10-31T08:10:24.028106+00:00
 ---
 
 # Single Redirects · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:00.355175+00:00
 
 # Single Redirects
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRelated resources
 
@@ -32,7 +32,7 @@ For more complex and customized redirect logic, consider using [Snippets](https:
 
   * [Availability](https://developers.cloudflare.com/rules/url-forwarding/#availability): Information on the Single Redirects quotas and features per Cloudflare plan.
   * [Execution order](https://developers.cloudflare.com/rules/url-forwarding/#execution-order): Execution order of the different Rules products.
-  * [Trace a request](https://developers.cloudflare.com/rules/trace-request/): Use Cloudflare Trace to determine if a redirect rule is triggering for a specific URL.
+  * [Simulate a request](https://developers.cloudflare.com/rules/simulator/): Use Rules simulator to determine if a redirect rule is triggering for a specific URL.
 
 
 

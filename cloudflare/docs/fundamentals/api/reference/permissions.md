@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/api/reference/permissions/
 title: API token permissions \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:37.470018+00:00
+fetched_at: 2026-10-31T08:10:25.174552+00:00
 ---
 
 # API token permissions · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Cloudflare's API
 
 # API token permissions
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUser permissionsAccount permissionsZone permissions
 
@@ -466,6 +466,8 @@ Logs Read | Grants read access to logs using [Logpull](https://developers.cloudf
 Logs Edit | Grants write access to [Logpull and Logpush](https://developers.cloudflare.com/logs/).  
 Managed Headers Read | Grants read access to [Managed Headers](https://developers.cloudflare.com/rules/transform/managed-transforms/).  
 Managed Headers Edit | Grants write access to [Managed Headers](https://developers.cloudflare.com/rules/transform/managed-transforms/).  
+Zone Observability Read | Grants read access to [Cloudflare Traces](https://developers.cloudflare.com/observability/traces/).  
+Zone Observability Edit | Grants write access to [Cloudflare Traces](https://developers.cloudflare.com/observability/traces/).  
 Origin Rules Read | Grants read access to [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/).  
 Origin Rules Edit | Grants write access to [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/).  
 Page Rules Read | Grants read access to [Page Rules](https://developers.cloudflare.com/rules/page-rules/).  
@@ -543,6 +545,8 @@ Logs Read | Grants read access to logs using [Logpull](https://developers.cloudf
 Logs Write | Grants write access to [Logpull and Logpush](https://developers.cloudflare.com/logs/).  
 Managed headers Read | Grants read access to [Managed Headers](https://developers.cloudflare.com/rules/transform/managed-transforms/).  
 Managed headers Write | Grants write access to [Managed Headers](https://developers.cloudflare.com/rules/transform/managed-transforms/).  
+Zone Observability Read | Grants read access to [Cloudflare Traces](https://developers.cloudflare.com/observability/traces/).  
+Zone Observability Write | Grants write access to [Cloudflare Traces](https://developers.cloudflare.com/observability/traces/).  
 Origin Read | Grants read access to [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/).  
 Origin Write | Grants write access to [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/).  
 Page Rules Read | Grants read access to [Page Rules](https://developers.cloudflare.com/rules/page-rules/).  

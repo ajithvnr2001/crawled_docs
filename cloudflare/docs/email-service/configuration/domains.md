@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/configuration/domains/
 title: Domain configuration \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.145328+00:00
+fetched_at: 2026-10-31T08:10:26.387492+00:00
 ---
 
 # Domain configuration · Cloudflare Email Service docs
@@ -20,9 +20,9 @@ fetched_at: 2026-10-16T06:38:30.145328+00:00
 
 Configure domains for Cloudflare Email Service, manage DNS records, and verify domain setup for both email sending and routing.
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAutomatic DNS configurationDNS record configuration details Sending records Routing recordsDomain verification Verify Email Sending records Verify Email Routing records If records are not configured Locked DNS records _dc-mx DNS responses Verification troubleshootingDomain management Remove a domain from Email Sending Remove a domain from Email Routing Transfer domain ownershipDrop suppressed recipientsEmail previewNext steps
+OverviewAutomatic DNS configurationDNS record configuration details Sending records Routing recordsDomain verification Verify Email Sending records Verify Email Routing records If records are not configured Locked DNS records _dc-mx DNS responses Verification troubleshootingDomain management Remove a domain from Email Sending Remove a domain from Email Routing Move to Email Routing from another provider Transfer domain ownershipDrop suppressed recipientsEmail previewNext steps
 
 Configure your domains to work with Cloudflare Email Service. This includes DNS record management, domain verification, and advanced domain settings.
 
@@ -364,6 +364,26 @@ Disabling Email Routing on a domain stops processing incoming emails and removes
 Note
 
 Unlocking an Email Service-created record and editing it to point to another provider does not remove its association with Email Service. The record will still be treated as managed by Email Service and will be deleted when you disable Email Routing.
+
+### Move to Email Routing from another provider
+
+If your domain has `MX` records from another provider, Email Routing onboarding fails with error 2008, "Non-Cloudflare MX records exist". Follow these steps to switch.
+
+  1. Add and verify your destination addresses. Destination addresses belong to the account and can be added before onboarding. Refer to [Route emails](https://developers.cloudflare.com/email-service/get-started/route-emails/) for details.
+
+[ Go to **Email Routing** ↗ ](https://dash.cloudflare.com/?to=/:account/email-service/routing)
+  2. In the Cloudflare dashboard, go to **DNS** > **Records** and delete your provider's `MX` records. Complete step 3 immediately after — there is a brief window where no MX records exist. Most senders retry delivery and succeed once Cloudflare's records propagate, typically within minutes. Resolvers that cached the absence of MX records may take up to 30 minutes to retry.
+
+If you no longer send through your current provider, you can also remove its SPF `include:` entry and DKIM records at this point. If you continue to send through it, keep its SPF `include:` and leave its DKIM records in place. DKIM selectors use different names and do not conflict.
+
+  3. Enable Email Routing for your domain. Cloudflare adds the required `MX` records and a DKIM record at `cf2024-1._domainkey.<yourdomain>`. If no SPF record exists, Cloudflare also adds one. If you already have an SPF record, add the Cloudflare `include:` manually — refer to Routing records for the correct value.
+
+  4. Create your routing rules immediately. When the `MX` records point to Cloudflare, mail to an address with no matching rule is rejected with "Address does not exist", and the sender does not retry.
+
+
+
+
+Until Email Routing is active, keep the old provider account open. Messages sent to cached old `MX` records arrive in your previous mailbox rather than being lost.
 
 ### Transfer domain ownership
 

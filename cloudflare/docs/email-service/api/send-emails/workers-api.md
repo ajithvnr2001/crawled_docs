@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/workers-api/
 title: Email Sending Workers API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:06.960676+00:00
+fetched_at: 2026-10-31T08:10:23.523826+00:00
 ---
 
 # Email Sending Workers API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # Email Sending Workers API
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEmail bindingsend() method Interface Basic usage AttachmentsError handlingError codesLegacy EmailMessage APINext steps
 
@@ -110,7 +110,7 @@ For multiple recipients, CC/BCC, and named addresses, refer to [Specify recipien
 
 ### Attachments
 
-Send files by including base64-encoded content in the `attachments` array. The total message size must not exceed 5 MiB (including attachments).
+Send files by including base64-encoded content in the `attachments` array. The total message size must not exceed 25 MiB (including attachments).
     
     
     const response = await env.EMAIL.send({

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/playwright/
 title: Playwright \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:10.287292+00:00
+fetched_at: 2026-10-31T08:10:21.215684+00:00
 ---
 
 # Playwright · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-15T14:53:10.287292+00:00
 
 # Playwright
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse Playwright in a Worker Take a screenshot Trace Assertions Storage state Keep Alive Session Reuse Set a custom user agentLocal debugging with headful mode (experimental)Session management List open sessions List recent sessions Active limitsPlaywright API
 
@@ -67,7 +67,7 @@ To use the latest version of `@cloudflare/playwright`, your Worker configuration
     	"workers_dev": true,
     	"compatibility_flags": ["nodejs_compat"],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-15",
+    	"compatibility_date": "2026-10-31",
     	"upload_source_maps": true,
     	"browser": {
     		"binding": "MYBROWSER",
@@ -81,7 +81,7 @@ To use the latest version of `@cloudflare/playwright`, your Worker configuration
     workers_dev = true
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-15"
+    compatibility_date = "2026-10-31"
     upload_source_maps = true
     
     [browser]
@@ -243,7 +243,7 @@ Then, add the KV namespace to your Wrangler configuration file:
     	"upload_source_maps": true,
     	"compatibility_flags": ["nodejs_compat"],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-15",
+    	"compatibility_date": "2026-10-31",
     	"browser": {
     		"binding": "MYBROWSER",
     	},
@@ -261,7 +261,7 @@ Then, add the KV namespace to your Wrangler configuration file:
     upload_source_maps = true
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-15"
+    compatibility_date = "2026-10-31"
     
     [browser]
     binding = "MYBROWSER"
@@ -340,7 +340,7 @@ To specify a custom user agent in Playwright, set it in the options when creatin
     
     const context = await browser.newContext({
     	userAgent:
-    		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+    		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
     });
 
 Note

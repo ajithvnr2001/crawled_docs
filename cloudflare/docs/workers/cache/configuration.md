@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/configuration/
 title: Configuration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:29.173589+00:00
+fetched_at: 2026-10-31T08:10:19.437377+00:00
 ---
 
 # Configuration · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-13T08:48:29.173589+00:00
 
 # Configuration
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEnable cachingDisable cachingPer-entrypoint cachingVersioned deploymentsCross-version cachingEnvironment-specific configurationCache-Control semantics Set the freshness window with max-age Use stale-while-revalidate for low-latency refreshes Choose TTL and stale-while-revalidate values Serve stale on error with stale-if-error Header precedence Override Cache-Control from the calling WorkerResponse headers Cf-Cache-Status Cache-Tag Automatic bypass conditions Status codes that are never cached Range requests Vary Accept-Encoding and Content-Encoding
+OverviewEnable cachingDisable cachingPer-entrypoint cachingBypass cache for a requestVersioned deploymentsCross-version cachingEnvironment-specific configurationCache-Control semantics Set the freshness window with max-age Use stale-while-revalidate for low-latency refreshes Choose TTL and stale-while-revalidate values Serve stale on error with stale-if-error Header precedence Override Cache-Control from the calling WorkerResponse headers Cf-Cache-Status Cache-Tag Automatic bypass conditions Status codes that are never cached Range requests Vary Accept-Encoding and Content-Encoding
 
 Workers Caching is configured per Worker, in your Wrangler configuration file. When enabled, caching applies to every `fetch()` invocation — eyeball requests, service binding `fetch()` calls, and loopback `fetch()` calls between entrypoints via [`ctx.exports`](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/rpc/) — unless you disable it for a specific entrypoint. Custom [RPC methods](https://developers.cloudflare.com/workers/runtime-apis/rpc/) bypass the cache.
 
@@ -48,7 +48,7 @@ Add a `cache` block to your Wrangler configuration:
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-31",
     	"cache": {
     		"enabled": true,
     	},
@@ -59,7 +59,7 @@ Add a `cache` block to your Wrangler configuration:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-31"
     
     [cache]
     enabled = true
@@ -78,7 +78,7 @@ To turn caching off, set `cache.enabled` to `false` (or remove the `cache` block
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-31",
     	"cache": {
     		"enabled": false,
     	},
@@ -89,7 +89,7 @@ To turn caching off, set `cache.enabled` to `false` (or remove the `cache` block
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-31"
     
     [cache]
     enabled = false
@@ -110,7 +110,7 @@ Requires Wrangler 4.107.0 or above.
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-31",
     	"cache": {
     		"enabled": true,
     	},
@@ -127,7 +127,7 @@ Requires Wrangler 4.107.0 or above.
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-31"
     
     [cache]
     enabled = true
@@ -157,6 +157,24 @@ For lowest latency, disable cache for an entrypoint instead of returning `Cache-
 
 Do not enable caching on a gateway entrypoint and then return `Cache-Control: no-store` on every response to keep it running. With caching enabled, each request to that entrypoint still consults the lower and upper cache tiers first — incurring the [tiered-cache](https://developers.cloudflare.com/workers/cache/#tiered-cache) round trip — only to run the Worker and discard an uncacheable response. That adds latency for no benefit. Disable caching on the entrypoint in the `exports` map instead, so requests skip the cache lookup and go straight to your gateway logic.
 
+## Bypass cache for a request
+
+For calls between Workers in the same account, set [`cache: "no-store"`](https://developers.cloudflare.com/workers/runtime-apis/fetch/#parameters) in the calling Worker's `fetch()` options. This skips the cache lookup and invokes the callee directly, without storing its response.
+
+For example, with a [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/http/) named `OTHER_WORKER`:
+    
+    
+    const response = await env.OTHER_WORKER.fetch(request, {
+    	cache: "no-store",
+    });
+    
+    
+    const response = await env.OTHER_WORKER.fetch(request, {
+    	cache: "no-store",
+    });
+
+The same option applies to loopback calls through [`ctx.exports`](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/rpc/), such as `ctx.exports.Backend.fetch(request, { cache: "no-store" })`.
+
 ## Versioned deployments
 
 The `cache` configuration is part of your Worker version:
@@ -185,7 +203,7 @@ If you want to maximize cache hit rate and are willing to accept slower rollouts
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-31",
     	"cache": {
     		"enabled": true,
     		"cross_version_cache": true,
@@ -197,7 +215,7 @@ If you want to maximize cache hit rate and are willing to accept slower rollouts
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-31"
     
     [cache]
     enabled = true
@@ -217,7 +235,7 @@ The `cache` block can be set at the top level and overridden per [environment](h
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-31",
     	"cache": {
     		"enabled": false,
     	},
@@ -235,7 +253,7 @@ The `cache` block can be set at the top level and overridden per [environment](h
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-31"
     
     [cache]
     enabled = false

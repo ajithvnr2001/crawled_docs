@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/parameters/
 title: Parameters \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:05.678818+00:00
+fetched_at: 2026-10-31T08:10:21.944924+00:00
 ---
 
 # Parameters · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Parameters
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/parameters/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequired for full Cloudflare Zero Trust features organizationRequired for DNS-only policy enforcement gateway_unique_idOrganization parameters allow_managed_deployments allow_updates auth_client_id auth_client_secret auto_connect display_name enable_netbt enable_pmtud enable_post_quantum environment external_emergency_signal_fingerprint external_emergency_signal_interval external_emergency_signal_url hardware_backed_registration local_emergency_signal_enabled managed_network_probe_count managed_network_probe_interval_secs mdm_file_debounce_secs mdm_file_unavailable_debounce_secs onboarding override_api_endpoint override_doh_endpoint override_warp_endpoint service_mode support_url switch_locked unique_client_id use_in_app_webview warp_tunnel_protocolTop-level parameters configs multi_user organization_configs pre_loginPer-app VPN parameters (Android) app_identifier is_browser
 
@@ -353,7 +353,7 @@ All modes | All plans
 System | Availability | Minimum WARP version  
 ---|---|---  
 Windows | ✅ | 2026.6.0  
-macOS | ✅ | 2026.6.0  
+macOS | ✅ (Apple silicon only) | 2026.6.0  
 Linux | ✅ | 2026.6.0  
 iOS | ❌ | N/A  
 Android | ❌ | N/A  

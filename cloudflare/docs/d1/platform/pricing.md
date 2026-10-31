@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/platform/pricing/
 title: Pricing \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:38.430120+00:00
+fetched_at: 2026-10-31T08:10:20.569658+00:00
 ---
 
 # Pricing · Cloudflare D1 docs
@@ -18,15 +18,16 @@ fetched_at: 2026-10-08T07:10:38.430120+00:00
 
 # Pricing
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/platform/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBilling metrics DefinitionsFrequently Asked Questions Will D1 always have a Free plan? What happens if I exceed the daily limits on reads and writes, or the total storage limit, on the Free plan? What happens if I exceed the monthly included reads, writes and/or storage on the paid tier? How can I estimate my (eventual) bill? Does D1 charge for data transfer / egress? Does D1 charge additional for additional compute? Do queries I run from the dashboard or Wrangler (the CLI) count as billable usage? Can I use an index to reduce the number of rows read by a query? Does a freshly created database, and/or an empty table with no rows, contribute to my storage?
+OverviewBilling metrics DefinitionsFrequently Asked Questions Will D1 always have a Free plan? What happens if I exceed the daily limits on reads and writes, or the total storage limit, on the Free plan? What happens if I exceed the monthly included reads, writes and/or storage on the paid tier? How can I estimate my (eventual) bill? Does D1 charge for data transfer / egress? Does D1 charge additional for additional compute? Do queries I run from the dashboard or Wrangler (the CLI) count as billable usage? Can I use an index to reduce the number of rows read by a query? Does a freshly created database, and/or an empty table with no rows, contribute to my storage? How much do additional databases cost?
 
 D1 bills based on:
 
   * **Usage** : Queries you run against D1 will count as rows read, rows written, or both (for transactions or batches).
   * **Scale-to-zero** : You are not billed for hours or capacity units. If you are not running queries against your database, you are not billed for compute.
   * **Storage** : You are only billed for storage above the included [limits](https://developers.cloudflare.com/d1/platform/limits/) of your plan.
+  * **Databases** : The Workers Paid plan includes 100,000 databases per account. Each additional database costs $0.10 per month.
 
 
 
@@ -37,7 +38,12 @@ D1 bills based on:
 Rows read | 5 million / day | First 25 billion / month included + $0.001 / million rows  
 Rows written | 100,000 / day | First 50 million / month included + $1.00 / million rows  
 Storage (per GB stored) | 5 GB (total) | First 5 GB included + $0.75 / GB-mo  
+Databases | 10 | First 100,000 included + $0.10 per additional database per month.  
   
+You pay $0.10 per month for each D1 database above the included amount, even when it is empty or receives no traffic. Usage and storage are billed separately.
+
+Refer to [D1 limits](https://developers.cloudflare.com/d1/platform/limits/) for database creation and storage limits.
+
 Track your D1 usage
 
 To accurately track your usage, use the [meta object](https://developers.cloudflare.com/d1/worker-api/return-object/), [GraphQL Analytics API](https://developers.cloudflare.com/d1/observability/metrics-analytics/#query-via-the-graphql-api), or the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/?to=/:account/workers/d1/). Select your D1 database, then view: Metrics > Row Metrics.
@@ -51,7 +57,7 @@ To accurately track your usage, use the [meta object](https://developers.cloudfl
   5. Defining [indexes](https://developers.cloudflare.com/d1/best-practices/use-indexes/) on your table(s) reduces the number of rows read by a query when filtering on that indexed field. For example, if the `users` table has an index on a timestamp column `created_at`, the query `SELECT * FROM users WHERE created_at > ?1` would only need to read a subset of the table.
   6. Indexes will add an additional written row when writes include the indexed column, as there are two rows written: one to the table itself, and one to the index. The performance benefit of an index and reduction in rows read will, in nearly all cases, offset this additional write.
   7. Storage is based on gigabytes stored per month, and is based on the sum of all databases in your account. Tables and indexes both count towards storage consumed.
-  8. Free limits reset daily at 00:00 UTC. Monthly included limits reset based on your monthly subscription renewal date, which is determined by the day you first subscribed.
+  8. Free daily usage limits reset at 00:00 UTC. Monthly included usage resets based on your monthly subscription renewal date, which is determined by the day you first subscribed.
   9. There are no data transfer (egress) or throughput (bandwidth) charges for data accessed from D1.
   10. [Read replication](https://developers.cloudflare.com/d1/best-practices/read-replication/) does not charge extra for read replicas. You incur the same usage billing based on `rows_read` and `rows_written` by your queries.
 
@@ -108,6 +114,12 @@ Yes, you can use an index to reduce the number of rows read by a query. [Creatin
 ### Does a freshly created database, and/or an empty table with no rows, contribute to my storage?
 
 Yes, although minimal. An empty table consumes at least a few kilobytes, based on the number of columns (table width) in the table. An empty database consumes approximately 12 KB of storage.
+
+### How much do additional databases cost?
+
+The Workers Paid plan includes 100,000 databases per account. Each additional database costs $0.10 per month. Query and storage charges apply separately.
+
+For example, 100,020 databases existing for a full billing month cost `(100,020 - 100,000) × $0.10 = $2.00` for the 20 additional databases.
 
 [PreviousDemos and architectures](https://developers.cloudflare.com/d1/demos/)[NextLimits](https://developers.cloudflare.com/d1/platform/limits/)
 

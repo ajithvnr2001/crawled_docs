@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/vectorize/platform/pricing/
 title: Pricing \u00b7 Cloudflare Vectorize docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:13.920302+00:00
+fetched_at: 2026-10-31T08:10:20.033742+00:00
 ---
 
 # Pricing · Cloudflare Vectorize docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:13.920302+00:00
 
 # Pricing
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/vectorize/platform/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBilling metrics Calculating vector dimensions Usage examplesFrequently Asked Questions
 
@@ -30,10 +30,11 @@ Vectorize bills are based on:
 
   * **Queried Vector Dimensions** : The total number of vector dimensions queried. If you have 10,000 vectors with 384-dimensions in an index, and make 100 queries against that index, your total queried vector dimensions would sum to 3.878 million (`(10000 + 100) * 384`).
   * **Stored Vector Dimensions** : The total number of vector dimensions stored. If you have 1,000 vectors with 1536-dimensions in an index, your stored vector dimensions would sum to 1.536 million (`1000 * 1536`).
+  * **Indexes** : The Workers Paid plan includes 50,000 indexes per account. Each additional index costs $0.10 per month.
 
 
 
-You are not billed for CPU, memory, "active index hours", or the number of indexes you create. If you are not issuing queries against your indexes, you are not billed for queried vector dimensions.
+You are not billed for CPU, memory, or "active index hours". If you are not issuing queries against your indexes, you are not billed for queried vector dimensions.
 
 ## Billing metrics
 
@@ -41,6 +42,7 @@ You are not billed for CPU, memory, "active index hours", or the number of index
 ---|---|---  
 **Total queried vector dimensions** | 30 million queried vector dimensions / month | First 50 million queried vector dimensions / month included + $0.01 per million  
 **Total stored vector dimensions** | 5 million stored vector dimensions | First 10 million stored vector dimensions + $0.05 per 100 million  
+Indexes | 100 | Unlimited, with a default limit of 50,000. First 50,000 included + $0.10 per additional index per month.  
   
 ### Calculating vector dimensions
 
@@ -100,6 +102,8 @@ Yes: any queries you issue against your index, including from the Workers API, H
 
 
 No. Empty indexes do not count as stored vector dimensions.
+
+Empty indexes still count toward your account's index allocation. Each index above the Workers Paid allocation costs $0.10 per month.
 
 [PreviousArchitectures](https://developers.cloudflare.com/vectorize/demos/)[NextLimits](https://developers.cloudflare.com/vectorize/platform/limits/)
 

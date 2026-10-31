@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/faq/
 title: Bulk Redirects FAQ \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:59.184954+00:00
+fetched_at: 2026-10-31T08:10:24.086016+00:00
 ---
 
 # Bulk Redirects FAQ · Cloudflare Rules docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:14:59.184954+00:00
 
 # Bulk Redirects FAQ
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat happens if the same source URL appears in two different Bulk Redirect Lists?How can I solve the following error: "This account has reached the limit on the number of URL matching items on the same hostname/path"?How many URL redirects can I have in a single Bulk Redirect List?How can I redirect based on the non-normalized version of a URL?Do Bulk Redirects take precedence over Page Rules?Can I purge an entire Bulk Redirect List in one API call?
 
@@ -31,7 +31,7 @@ Below you will find answers to the most commonly asked questions regarding Bulk 
 To troubleshoot errors related to Bulk Redirects:
 
   * Refer to [Troubleshooting Cloudflare 10XXX Errors](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-10xxx-errors/) for more information on runtime errors.
-  * Use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) to determine if a rule is triggering for a specific URL.
+  * Use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to determine if a rule is triggering for a specific URL.
 
 
 

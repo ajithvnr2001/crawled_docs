@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/platform/limits/
 title: Limits \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:29.499438+00:00
+fetched_at: 2026-10-31T08:10:20.380152+00:00
 ---
 
 # Limits · Cloudflare Workers KV docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:29.499438+00:00
 
 # Limits
 
-Last updated Oct 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkers KVWorkers KV InstantAdditional limits
 
@@ -30,7 +30,7 @@ Reads | 100,000 reads per day | Unlimited
 Writes to different keys | 1,000 writes per day | Unlimited  
 Writes to same key | 1 per second | 1 per second  
 Operations/Worker invocation 1 | 1000 | 1000  
-Namespaces per account | 1,000 | 1,000  
+Namespaces per account | 1,000 | Unlimited, with a default limit of 1,000. Each namespace above 1,000 costs [$0.10 per month](https://developers.cloudflare.com/kv/platform/pricing/).  
 Storage/account | 1 GB | Unlimited  
 Storage/namespace | 1 GB | Unlimited  
 Keys/namespace | Unlimited | Unlimited  

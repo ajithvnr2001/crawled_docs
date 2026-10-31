@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/speed/troubleshooting/slow-website/
 title: Troubleshooting a slow website \u00b7 Cloudflare Speed docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:04.916883+00:00
+fetched_at: 2026-10-31T08:10:24.380556+00:00
 ---
 
 # Troubleshooting a slow website · Cloudflare Speed docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:04:04.916883+00:00
 
 # Troubleshooting a slow website
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start: Verify traffic goes through Cloudflare Check for the cf-ray header Verify DNS is pointing to CloudflareGather information about the slow requestsStep 1: Use Observatory to analyze performance Run a speed test Understand the results Enable recommended optimizationsStep 2: Identify slow resources Use browser developer toolsStep 3: Analyze origin performance Check origin response times Check for slow WorkersStep 4: Measure performance from the command line Basic performance test Understand the metrics Test from different locationsStep 5: Investigate caching Check if assets are cached Use Cache Analytics Investigate why static content is not cached Cache additional static content Use Cloudflare Trace to debug cache rulesStep 6: Diagnose network issues Test your Internet connection Run MTR from your location to Cloudflare Run MTR from your origin to CloudflareStep 7: Understand network routing Identify which data center serves your requests Why routing matters Troubleshoot unexpected routing Solutions for origin distance Enable Argo Smart RoutingContact Support if the problem persistsRelated resources
 
@@ -329,7 +329,7 @@ Be careful when caching HTML or API responses. These often contain personalized 
 
 ### Use Cloudflare Trace to debug cache rules
 
-If your cache rules are not applying as expected, use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) to simulate a request and see exactly which rules match. Trace shows you how your Cloudflare configurations (including cache rules, page rules, and other settings) would affect a specific URL.
+If your cache rules are not applying as expected, use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to simulate a request and see exactly which rules match. Trace shows you how your Cloudflare configurations (including cache rules, page rules, and other settings) would affect a specific URL.
 
 This is particularly useful when:
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/
 title: Logpush \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:05.088077+00:00
+fetched_at: 2026-10-31T08:10:20.672779+00:00
 ---
 
 # Logpush · Cloudflare Logs docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-23T16:40:05.088077+00:00
 
 # Logpush
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/logs/logpush/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEstimating log volume Quick sizing for HTTP RequestsLimitsAvailability
 
@@ -58,7 +58,16 @@ For precise estimates, you can [sample your logs via Logpull](https://developers
 
 ## Limits
 
-There is currently a max limit of **4 Logpush jobs per zone**. Trying to create a job once the limit has been reached will result in an error message: `creating a new job is not allowed: exceeded max jobs allowed`.
+Logpush job limits depend on your plan, dataset, and job scope:
+
+Scope | Free, Pro, and Business | Enterprise  
+---|---|---  
+All jobs in an account | 1,000 | No account-level limit  
+Each entitled dataset in an account or zone | Generally 1,000 | Generally 1,000 for new customers  
+  
+Existing Enterprise customers may retain a default limit of four jobs per dataset. Cloudflare can adjust this limit manually. Dataset-specific entitlements may also set different limits. Instant Logs supports two jobs per zone.
+
+If you reach a limit, the API returns `creating a new job is not allowed: exceeded max jobs allowed`.
 
 ## Availability
 

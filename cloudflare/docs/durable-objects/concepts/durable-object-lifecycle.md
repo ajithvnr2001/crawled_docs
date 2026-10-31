@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/concepts/durable-object-lifecycle/
 title: Lifecycle of a Durable Object \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:06.071117+00:00
+fetched_at: 2026-10-31T08:10:22.287020+00:00
 ---
 
 # Lifecycle of a Durable Object · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-15T14:53:06.071117+00:00
 
 # Lifecycle of a Durable Object
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDurable Object Lifecycle state transitionsShutdown behavior Code updates Working without shutdown hooks
 
@@ -100,7 +100,7 @@ A Durable Object incurs charges only when it is **actively running in-memory** ,
 
 Durable Objects will occasionally shut down and objects are restarted, which will run your Durable Object class constructor. This can happen for various reasons, including:
 
-  * New Worker [deployments](https://developers.cloudflare.com/workers/versions-and-deployments/) with code updates
+  * Worker code updates that use an `immediate` code update strategy, or a `deferred` strategy that reaches its `max_delay`
   * Lack of requests to an object following the state transitions documented above
   * Cloudflare updates to the Workers runtime system
   * Workers runtime decisions on where to host objects
@@ -110,7 +110,7 @@ Durable Objects will occasionally shut down and objects are restarted, which wil
 When a Durable Object is shut down, the object instance is automatically restarted and new requests are routed to the new instance. In-flight requests are handled as follows:
 
   * **HTTP & RPC requests**: In-flight requests are allowed to finish if they do not access a Durable Object's storage. If a request attempts to access a Durable Object's storage, it will be stopped immediately and return an error to maintain Durable Objects global uniqueness property. When the Worker runtime system is being updated, in-flight requests have up to 30 seconds to complete.
-  * **WebSocket connections** : WebSocket requests are terminated automatically during shutdown. This is so that the new instance can take over the connection as soon as possible.
+  * **WebSocket connections** : When a Durable Object shuts down, WebSocket connections are terminated automatically. This allows the new instance to take over the connection as soon as possible.
   * **Other invocations (email, cron)** : Other invocations are treated similarly to HTTP requests.
 
 
@@ -119,11 +119,15 @@ It is important to ensure that any services using Durable Objects are designed t
 
 ### Code updates
 
-When your Durable Object code is updated, your Worker and Durable Objects are released globally in an eventually consistent manner. This will cause a Durable Object to shut down, with the behavior described above. Updates can also create a situation where a request reaches a new version of your Worker in one location, and calls to a Durable Object still running a previous version elsewhere. Refer to [Code updates](https://developers.cloudflare.com/durable-objects/platform/known-issues/#code-updates) for more information about handling this scenario.
+[Deploying a new Worker version](https://developers.cloudflare.com/workers/versions-and-deployments/) is not delayed by a code update strategy — the deployment itself completes immediately. What a code update strategy controls is when each already-active Durable Object adopts that new version.
+
+A `deferred` code update strategy gives an active Durable Object time to hibernate before it adopts new code. The object can continue serving requests, storage operations, and Hibernation API WebSockets on its current code. If the object is still active when `max_delay` is reached, it resets and adopts the new code. Deferral is best effort: it does not guarantee that every operation finishes, and the object can reset earlier.
+
+Refer to [Durable Objects code updates](https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/) to configure a code update strategy and understand how it interacts with gradual deployments.
 
 ### Working without shutdown hooks
 
-Durable Objects may shut down at any time due to deployments, inactivity, or runtime decisions. Rather than relying on shutdown hooks (which are not provided), design your application to write state incrementally.
+A Durable Object shuts down when it becomes inactive, when a [code update strategy](https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/) applies new code, or when Cloudflare deploys a new version of the Workers runtime. An `immediate` strategy applies the update right away. A `deferred` strategy gives the object time to hibernate, up to `max_delay`, but is best effort: the object can reset earlier. This is similar to other compute environments, where compute instances do not live forever and applications must persist state back to a database or storage system. Rather than relying on shutdown hooks (which are not provided), design your application to write state incrementally.
 
 Shutdown hooks or lifecycle callbacks that run before shutdown are not provided because Cloudflare cannot guarantee these hooks would execute in all cases, and external software may rely too heavily on these (unreliable) hooks.
 

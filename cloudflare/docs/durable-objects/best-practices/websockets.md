@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/websockets/
 title: Use WebSockets \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:06.589212+00:00
+fetched_at: 2026-10-31T08:10:22.736605+00:00
 ---
 
 # Use WebSockets · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:06.589212+00:00
 
 # Use WebSockets
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/best-practices/websockets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat are WebSockets? Why use Hibernation?Durable Objects Hibernation WebSocket API How hibernation works Hibernation example Automatic ping/pong handling Batch messages to reduce overhead Extended methods
 
@@ -769,9 +769,13 @@ Configure your Wrangler file with a Durable Object [binding](https://developers.
 
 A full example is available in [Build a WebSocket server](https://developers.cloudflare.com/durable-objects/examples/websocket-server/).
 
-WebSocket disconnection on deploy
+WebSocket disconnection during code updates
 
-Code updates disconnect all WebSockets. Deploying a new version restarts every Durable Object, which disconnects any existing connections.
+Connections accepted with the WebSocket Hibernation API remain connected when a Durable Object adopts new code after hibernating.
+
+A forced code update disconnects WebSockets attached to the running instance. This happens when a `deferred` code update's `max_delay` is reached before hibernation, or when the code update strategy is set to `immediate`. The Web Standard WebSocket API prevents hibernation, so its connections are disconnected when the code update is applied.
+
+Refer to [Durable Objects code updates](https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/) for more information.
 
 ## Related resources
 

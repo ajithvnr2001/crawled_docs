@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/smtp/
 title: SMTP \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.300431+00:00
+fetched_at: 2026-10-31T08:10:23.331093+00:00
 ---
 
 # SMTP · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # SMTP
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpointPrerequisitesQuickstartAuthentication Construct an AUTH PLAIN payload Raw SMTP transcriptExamplesLimitsResponse codesSuppressed recipientsTroubleshooting 535 5.7.8 Authentication failed 550 5.7.1 Sender denied 552 5.3.4 Message too big TLS handshake failuresRelated resources
 
@@ -144,7 +144,7 @@ The following per-session limits apply to SMTP submission:
 Limit | Value  
 ---|---  
 `RCPT TO` recipients | 50 per session  
-`SIZE` advertised in `EHLO` | 5 MiB  
+`SIZE` advertised in `EHLO` | 25 MiB  
 `AUTH` command timeout | 30 seconds  
 `DATA` command timeout | 300 seconds  
   
@@ -168,7 +168,7 @@ Code | Meaning
 `530 5.7.0` | Authentication required.  
 `535 5.7.8` | Authentication failed. Refer to Troubleshooting.  
 `550 5.7.1` | Sender or relay denied — usually the `MAIL FROM` domain is not onboarded.  
-`552 5.3.4` | Message exceeds the 5 MiB `SIZE` limit.  
+`552 5.3.4` | Message exceeds the 25 MiB `SIZE` limit.  
 `554` | Transaction failed — content rejected by policy.  
   
 ## Suppressed recipients
@@ -204,7 +204,7 @@ The address in `MAIL FROM` is on a domain that is not onboarded for Email Sendin
 
 ### `552 5.3.4 Message too big`
 
-The message body (including attachments after MIME encoding) is larger than 5 MiB. Reduce the attachment size or split the message.
+The message body (including attachments after MIME encoding) is larger than 25 MiB. Reduce the attachment size or split the message.
 
 ### TLS handshake failures
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/platform/limits/
 title: Limits \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T07:24:53.692351+00:00
+fetched_at: 2026-10-31T08:10:20.625050+00:00
 ---
 
 # Limits · Cloudflare D1 docs
@@ -18,15 +18,15 @@ fetched_at: 2026-10-25T07:24:53.692351+00:00
 
 # Limits
 
-Last updated Oct 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFrequently Asked Questions How much work can a D1 database do? How many simultaneous connections can a Worker open to D1?
 
 Feature | Limit  
 ---|---  
-Databases per account | 50,000 (Workers Paid) 1 / 10 (Free)  
+Databases per account | Workers Paid: 1,000,000. The first 100,000 databases are included. Each database above 100,000 costs [$0.10 per month](https://developers.cloudflare.com/d1/platform/pricing/#billing-metrics). Free: 10.  
 Maximum database size | 10 GB (Workers Paid) / 500 MB (Free)  
-Maximum storage per account | 1 TB (Workers Paid) 2 / 5 GB (Free)  
+Maximum storage per account | 1 TB (Workers Paid) 1 / 5 GB (Free)  
 [Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/) duration (point-in-time recovery) | 30 days (Workers Paid) / 7 days (Free)  
 Maximum Time Travel restore operations | 10 restores per 10 minutes (per database)  
 Queries per Worker invocation (read [subrequest limits](https://developers.cloudflare.com/workers/platform/limits/#subrequests)) | 1000 (Workers Paid) / 50 (Free)  
@@ -37,9 +37,10 @@ Maximum SQL statement length | 100,000 bytes (100 KB)
 Maximum bound parameters per query | 100  
 Maximum arguments per SQL function | 32  
 Maximum characters (bytes) in a `LIKE` or `GLOB` pattern | 50 bytes  
-Maximum bindings per Workers script | Approximately 5,000 3  
-Maximum SQL query duration | 30 seconds 4  
-Maximum file import (`d1 execute`) size | 5 GB 5  
+Maximum bindings per Workers script | Approximately 5,000 2  
+Maximum SQL query duration | 30 seconds 3  
+Maximum file import (`d1 execute`) size | 5 GB 4  
+Maximum query result size | 50 MB 5  
   
 Batch limits
 
@@ -59,7 +60,7 @@ Frequently asked questions related to D1 limits:
 
 ### How much work can a D1 database do?
 
-D1 is designed for horizontal scale out across multiple, smaller (10 GB) databases, such as per-user, per-tenant or per-entity databases. D1 allows you to build applications with thousands of databases at no extra cost, as the pricing is based only on query and storage costs.
+D1 is designed for horizontal scale out across multiple, smaller (10 GB) databases, such as per-user, per-tenant or per-entity databases. The Workers Paid plan includes 100,000 databases per account. You pay [$0.10 per D1 database per month](https://developers.cloudflare.com/d1/platform/pricing/#billing-metrics) above the included amount. Query and storage charges apply separately.
 
 #### Storage
 
@@ -114,15 +115,15 @@ For more information on a Worker's simultaneous connections, refer to [Simultane
 
 ## Footnotes
 
-  1. The maximum number of databases per account can be increased by request on Workers Paid and Enterprise plans, with support for millions to tens-of-millions of databases (or more) per account. Refer to the guidance on limit increases on this page to request an increase. ↩
+  1. The maximum storage per account can be increased by request on Workers Paid and Enterprise plans. Refer to the guidance on limit increases on this page to request an increase. ↩
 
-  2. The maximum storage per account can be increased by request on Workers Paid and Enterprise plans. Refer to the guidance on limit increases on this page to request an increase. ↩
+  2. A single Worker script can have up to 1 MB of script metadata. A binding is defined as a binding to a resource, such as a D1 database, KV namespace, [environmental variable](https://developers.cloudflare.com/workers/configuration/environment-variables/), or secret. Each resource binding is approximately 150-bytes, however environmental variables and secrets are controlled by the size of the value you provide. Excluding environmental variables, you can bind up to ~5,000 D1 databases to a single Worker script. ↩
 
-  3. A single Worker script can have up to 1 MB of script metadata. A binding is defined as a binding to a resource, such as a D1 database, KV namespace, [environmental variable](https://developers.cloudflare.com/workers/configuration/environment-variables/), or secret. Each resource binding is approximately 150-bytes, however environmental variables and secrets are controlled by the size of the value you provide. Excluding environmental variables, you can bind up to ~5,000 D1 databases to a single Worker script. ↩
+  3. Requests to Cloudflare API must resolve in 30 seconds. Therefore, this duration limit also applies to the entire batch call. ↩
 
-  4. Requests to Cloudflare API must resolve in 30 seconds. Therefore, this duration limit also applies to the entire batch call. ↩
+  4. The imported file is uploaded to R2. Refer to [R2 upload limit](https://developers.cloudflare.com/r2/platform/limits). ↩
 
-  5. The imported file is uploaded to R2. Refer to [R2 upload limit](https://developers.cloudflare.com/r2/platform/limits). ↩
+  5. This limit takes effect on 2026-11-04. Queries that return a result larger than 50 MB will fail and return an error. Import and export operations via the [REST API](https://developers.cloudflare.com/api/resources/d1/subresources/database/methods/export/) are not subject to this limit. For more information, refer to the [query result size limit changelog entry](https://developers.cloudflare.com/changelog/post/2026-10-30-query-result-size-limit/). ↩
 
 
 

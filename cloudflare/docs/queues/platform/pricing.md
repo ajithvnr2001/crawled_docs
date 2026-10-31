@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/queues/platform/pricing/
 title: Cloudflare Queues - Pricing \u00b7 Cloudflare Queues docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:41.475125+00:00
+fetched_at: 2026-10-31T08:10:20.182553+00:00
 ---
 
 # Cloudflare Queues - Pricing · Cloudflare Queues docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:12:41.475125+00:00
 
 # Pricing
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/queues/platform/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExamples
 
-Cloudflare Queues charges for the total number of operations against each of your queues during a given month.
+Cloudflare Queues charges for operations and for queues above the included amount on the Workers Paid plan.
 
   * An operation is counted for each 64 KB of data that is written, read, or deleted.
   * Messages larger than 64 KB are charged as if they were multiple messages: for example, a 65 KB message and a 127 KB message would both incur two operation charges when written, read, or deleted.
@@ -35,9 +35,12 @@ Cloudflare Queues charges for the total number of operations against each of you
 | Workers Free | Workers Paid  
 ---|---|---  
 Standard operations | 10,000 operations/day included | 1,000,000 operations/month included + $0.40/million operations  
+Queues per account | 10,000 | Unlimited, with a default limit of 10,000. First 10,000 included + $0.10 per additional queue per month.  
 Message retention | 24 hours (non-configurable) | 4 days default, configurable up to 14 days  
   
-In most cases, it takes 3 operations to deliver a message: 1 write, 1 read, and 1 delete. Therefore, you can use the following formula to estimate your monthly bill:
+Refer to [Queues limits](https://developers.cloudflare.com/queues/platform/limits/) for queue creation limits and how to request a limit increase.
+
+In most cases, it takes 3 operations to deliver a message: 1 write, 1 read, and 1 delete. Therefore, you can use the following formula to estimate your monthly operations charges, excluding charges for additional queues:
     
     
     ((Number of Messages * 3) - 1,000,000) / 1,000,000  * $0.40

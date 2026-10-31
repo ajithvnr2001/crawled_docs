@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/traces/configuration/
 title: Configuration \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:24.249887+00:00
+fetched_at: 2026-10-31T08:10:24.819778+00:00
 ---
 
 # Configuration · Cloudflare Observability docs
@@ -18,13 +18,24 @@ fetched_at: 2026-10-10T14:39:24.249887+00:00
 
 # Configuration
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHead samplingTrace rulesPersist tracesExport tracesPropagate trace context Incoming trace context Forward context to your origin
+OverviewAPI accessHead samplingTrace rulesPersist tracesExport tracesPropagate trace context Incoming trace context Forward context to your origin
 
 Configure [Cloudflare Traces](https://developers.cloudflare.com/observability/traces/) separately for each domain. Choose how many requests to trace, where to save or send traces, and whether to connect them to traces from other systems.
 
 ![Trace settings for sampling, persistence, export destinations, trace rules, and trace context propagation.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1500,height=892,format=webp/_astro/trace-configuration.K-zGxXIJ.png)
+
+## API access
+
+To manage trace rules and settings via the API, create an [API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with the **Zone Observability** permission scoped to the relevant zone:
+
+  * **Zone Observability Read** — read trace rules and settings
+  * **Zone Observability Edit** — update or delete trace rules and settings
+
+
+
+Refer to the [API reference](https://developers.cloudflare.com/api/resources/zones/subresources/observability/subresources/tracing/subresources/rules/) for full endpoint documentation.
 
 ## Head sampling
 

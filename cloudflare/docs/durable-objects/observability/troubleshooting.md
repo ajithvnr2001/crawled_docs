@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/observability/troubleshooting/
 title: Troubleshooting \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:28.368171+00:00
+fetched_at: 2026-10-31T08:10:22.005387+00:00
 ---
 
 # Troubleshooting · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:28.368171+00:00
 
 # Troubleshooting
 
-Last updated Oct 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDebuggingCommon errors No event handlers were registered. This script does nothing. Cannot apply --delete-class migration to class. Durable Object is overloaded. Your account is generating too much load on Durable Objects. Please back off and try again later. Durable Object reset because its code was updated. Durable Object storage operation exceeded timeout which caused object to be reset. Your account is doing too many concurrent storage operations. Please back off and try again later.
 
@@ -59,9 +59,11 @@ There is a limit on how quickly you can create new [stubs](https://developers.cl
 
 ### Durable Object reset because its code was updated.
 
-Reset in error messages refers to in-memory state. Any durable state that has already been successfully persisted via `state.storage` is not affected.
+This error occurs when a code update is applied before a Durable Object reaches hibernation. This includes an `immediate` code update strategy and `deferred` deployments whose `max_delay` is reached before the object hibernates.
 
-Refer to [Global Uniqueness](https://developers.cloudflare.com/durable-objects/platform/known-issues/#global-uniqueness).
+Reset in error messages refers to in-memory state. Any durable state already persisted with `ctx.storage` is not affected. Make operations retryable and persist important state so a forced update can safely restart the object.
+
+Refer to [Durable Objects code updates](https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/) and [Global uniqueness](https://developers.cloudflare.com/durable-objects/platform/known-issues/#global-uniqueness).
 
 ### Durable Object storage operation exceeded timeout which caused object to be reset.
 

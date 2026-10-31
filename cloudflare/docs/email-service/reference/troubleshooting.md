@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/reference/troubleshooting/
 title: Troubleshooting \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:33.229932+00:00
+fetched_at: 2026-10-31T08:10:25.267912+00:00
 ---
 
 # Troubleshooting · Cloudflare Email Service docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-27T07:31:33.229932+00:00
 
 # Troubleshooting
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSPF (Sender Policy Framework) issues Multiple SPF records Missing SPF record SPF record syntax errors Checking SPF recordsDKIM (DomainKeys Identified Mail) issues Missing DKIM records DKIM key rotation Checking DKIM records DKIM signature validation failuresDMARC (Domain-based Message Authentication, Reporting & Conformance) issues Missing DMARC policy DMARC policy too strict DMARC alignment issues Checking DMARC recordsLocal development issues "Cannot serialize value: [object ArrayBuffer]"Common delivery issues Transactional email going to spam or junk High bounce rates Suppressed recipient Recipient blocked after expiration or deletion Bounces before suppression enforcement Complaint suppression does not appear Missing suppression after a bounceTesting toolsGetting help
+OverviewSPF (Sender Policy Framework) issues Multiple SPF records Missing SPF record SPF record syntax errors Checking SPF recordsDKIM (DomainKeys Identified Mail) issues Missing DKIM records DKIM key rotation Checking DKIM records DKIM signature validation failuresDMARC (Domain-based Message Authentication, Reporting & Conformance) issues Missing DMARC policy DMARC policy too strict DMARC alignment issues Checking DMARC recordsLocal development issues "Cannot serialize value: [object ArrayBuffer]"Common delivery issues Transactional email going to spam or junk High bounce rates Suppressed recipient Recipient blocked after expiration or deletion Bounces before suppression enforcement Complaint suppression does not appear Missing suppression after a bounceConflicts with external mail providers Onboarding fails with "Non-Cloudflare MX records exist"Testing toolsGetting help
 
 Email authentication is critical for successful email delivery. This guide helps you troubleshoot common authentication, delivery, and inbox placement issues with Email Service.
 
@@ -335,6 +335,14 @@ Complaint suppressions appear after Cloudflare receives and validates the provid
 ### Missing suppression after a bounce
 
 Not every failure results in a suppression. Email Service creates automatic entries only for eligible recipient-side failures. Sender authentication, sender reputation, and unrelated infrastructure failures do not suppress the recipient. Check [Email sending logs](https://developers.cloudflare.com/email-service/observability/logs/) for the specific failure.
+
+## Conflicts with external mail providers
+
+### Onboarding fails with "Non-Cloudflare MX records exist"
+
+When you enable Email Routing on a domain that already has `MX` records from another provider (such as Google Workspace, Microsoft 365, or Zoho Mail), onboarding fails with error 2008, "Non-Cloudflare MX records exist". Email Routing requires exclusive control of the root domain `MX` records.
+
+To switch your domain to Email Routing, refer to [Move to Email Routing from another provider](https://developers.cloudflare.com/email-service/configuration/domains/#move-to-email-routing-from-another-provider).
 
 ## Testing tools
 

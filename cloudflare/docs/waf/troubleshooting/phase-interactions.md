@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/troubleshooting/phase-interactions/
 title: Rule phase interactions \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:49.464564+00:00
+fetched_at: 2026-10-31T08:10:23.903617+00:00
 ---
 
 # Rule phase interactions · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:49.464564+00:00
 
 # Rule phase interactions
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/troubleshooting/phase-interactions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCustom rules are evaluated against the rewritten URL ResolutionIP Access rules can bypass custom rules What this means ResolutionSkip and Allow do not behave the same way ResolutionPage Rules do not use the same request view as modern rules ResolutionRecommended troubleshooting workflow
 
@@ -39,7 +39,7 @@ This means that:
 
 ### Resolution
 
-When troubleshooting a custom rule, check whether a rewrite rule already changed the URL before WAF evaluation. You can use [Trace](https://developers.cloudflare.com/rules/trace-request/) to check the evaluation order of your rules based on an example request.
+When troubleshooting a custom rule, check whether a rewrite rule already changed the URL before WAF evaluation. You can use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to check the evaluation order of your rules based on an example request.
 
 For more information, refer to the request execution order in [Phases list](https://developers.cloudflare.com/ruleset-engine/reference/phases-list/#application-layer).
 
@@ -99,7 +99,7 @@ When a WAF decision looks incorrect:
   2. Check for matching IP Access rules.
   3. Confirm whether the request was expected to stop in the custom rules phase or skip later phases.
   4. Review whether a managed rule still ran after a custom rule match.
-  5. Use [Trace](https://developers.cloudflare.com/rules/trace-request/) when available to confirm the actual phase-by-phase result.
+  5. Use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) when available to confirm the actual phase-by-phase result.
 
 
 

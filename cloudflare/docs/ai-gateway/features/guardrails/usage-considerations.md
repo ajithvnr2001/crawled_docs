@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/guardrails/usage-considerations/
 title: Usage considerations \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:30.036194+00:00
+fetched_at: 2026-10-31T08:10:22.540942+00:00
 ---
 
 # Usage considerations · Cloudflare AI Gateway docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:30.036194+00:00
 
 # Usage considerations
 
-Last updated Aug 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/features/guardrails/usage-considerations/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHazard categoriesAdditional considerations Streaming behavior
 
@@ -34,7 +34,7 @@ Since Guardrails runs on Workers AI, enabling it incurs usage on Workers AI. You
 
 Guardrails evaluate content against the following hazard categories. Each category is identified by a code that appears in your Guardrail configuration and in AI Gateway Logs. You can independently set each category to **Flag** , **Ignore** , or **Block** for prompts and responses.
 
-Guardrails evaluate categories `S1` through `S13`, a subset of the [Llama Guard 3 ↗ ↗︎](https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/) hazard categories, using the [`@cf/meta/llama-guard-3-8b`](https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/) model on Workers AI. The Llama Guard 3 category `S14` (Code interpreter abuse) is not evaluated by Guardrails. Category `P1` is prompt injection, evaluated separately by the `@cf/meta/prompt-guard-2-86m` model.
+Guardrails evaluate categories `S1` through `S14`, the [Llama Guard 3 ↗ ↗︎](https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/) hazard categories, using the [`@cf/meta/llama-guard-3-8b`](https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/) model on Workers AI. Category `P1` is prompt injection, evaluated separately by the `@cf/meta/prompt-guard-2-86m` model.
 
 These codes also appear in the `guardrails` property of the AI Gateway REST API, where you configure each category's action programmatically. See the [`create`](https://developers.cloudflare.com/api/resources/ai_gateway/methods/create/) and [`update`](https://developers.cloudflare.com/api/resources/ai_gateway/methods/update/) methods.
 
@@ -53,6 +53,7 @@ Code | Category
 `S11` | Suicide & Self-Harm  
 `S12` | Sexual Content  
 `S13` | Elections  
+`S14` | Code Interpreter Abuse  
 `P1` | Prompt Injection  
   
 ## Additional considerations

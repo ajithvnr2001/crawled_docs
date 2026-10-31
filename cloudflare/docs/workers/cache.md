@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/
 title: Workers Cache \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:29.250989+00:00
+fetched_at: 2026-10-31T08:10:18.943978+00:00
 ---
 
 # Workers Cache · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-13T08:48:29.250989+00:00
 
 # Workers Cache
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewYour Worker's cache The Worker is the configuration surfaceWhen caching helpsHow it worksTiered cacheRequest collapsingQuickstart 1\. Enable caching in your Wrangler configuration 2\. Return a cacheable response from your Worker 3\. Deploy and observe the cacheWhat gets cachedContent negotiation with VaryCaching between WorkersCache Durable Object responsesSmart placement and the cachePurging the cachePricingNext steps
 
@@ -150,7 +150,7 @@ This quickstart walks you through enabling caching, deploying, and observing the
      "main": "src/index.ts",
      "upload_source_maps": true,
      // Set this to today's date
-     "compatibility_date": "2026-10-13",
+     "compatibility_date": "2026-10-31",
      "cache": {
       "enabled": true,
      },
@@ -161,7 +161,7 @@ This quickstart walks you through enabling caching, deploying, and observing the
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-31"
     
     [cache]
     enabled = true
@@ -334,6 +334,8 @@ The cache key for service binding calls includes the caller's [`ctx.props`](http
 
 For same-account calls, the calling Worker can also tailor the callee's caching for an individual request by setting [`cf.cacheKey`](https://developers.cloudflare.com/workers/cache/cache-keys/#custom-cache-keys) to override the cache key or [`cf.cacheControl`](https://developers.cloudflare.com/workers/cache/configuration/#override-cache-control-from-the-calling-worker) to supply a `Cache-Control` directive.
 
+To [bypass the callee's cache for a request](https://developers.cloudflare.com/workers/cache/configuration/#bypass-cache-for-a-request), set `cache: "no-store"` in the calling Worker's `fetch()` options.
+
 ## Cache Durable Object responses
 
 [Durable Objects](https://developers.cloudflare.com/durable-objects/) are never cached directly by Workers Caching. However, since Workers Caching runs in front of any Worker entrypoint, you can cache a Durable Object's HTTP responses by wrapping the Durable Object behind a [named Worker entrypoint](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/rpc/#named-entrypoints) and caching the entrypoint.
@@ -348,7 +350,7 @@ The default entrypoint here is a gateway that should run on every request, so di
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-31",
     	"cache": { "enabled": true },
     	"exports": {
     		"default": { "type": "worker", "cache": { "enabled": false } },
@@ -361,7 +363,7 @@ The default entrypoint here is a gateway that should run on every request, so di
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-31"
     
     [cache]
     enabled = true

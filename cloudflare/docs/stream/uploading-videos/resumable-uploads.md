@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/uploading-videos/resumable-uploads/
 title: Resumable and large files (tus) \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:50.134905+00:00
+fetched_at: 2026-10-31T08:10:23.746993+00:00
 ---
 
 # Resumable and large files (tus) · Cloudflare Stream docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:50.134905+00:00
 
 # Resumable and large files (tus)
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/stream/uploading-videos/resumable-uploads/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequirementsPrerequisitesUpload a video using tus Golang example Node.js exampleSpecify upload options Supported options in Upload-MetadataSet creator propertyGet the video ID when using tus
 
@@ -32,7 +32,7 @@ If your video is under 200 MB and your connection is reliable, you can use a bas
 
   * Resumable uploads require a minimum chunk size of 5,242,880 bytes unless the entire file is less than this amount. For better performance when the client connection is expected to be reliable, increase the chunk size to 52,428,800 bytes.
   * Maximum chunk size is 209,715,200 bytes.
-  * Chunk size must be divisible by 256 KiB (256x1024 bytes). Round your chunk size to the nearest multiple of 256 KiB. Note that the final chunk of an upload that fits within a single chunk is exempt from this requirement.
+  * Chunk sizes must be be consistent across the entire upload and divisible by 256 KiB (256x1024 bytes). Only the final chunk of an upload that fits within a single chunk is exempt from this requirement.
 
 
 

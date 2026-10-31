@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/vectorize/platform/limits/
 title: Limits \u00b7 Cloudflare Vectorize docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:13.860968+00:00
+fetched_at: 2026-10-31T08:10:20.071223+00:00
 ---
 
 # Limits Â· Cloudflare Vectorize docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:13.860968+00:00
 
 # Limits
 
-Last updated Aug 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/vectorize/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 The following limits apply to accounts, indexes, and vectors:
 
@@ -28,7 +28,7 @@ To request an adjustment to a limit, complete the [Limit Increase Request Form â
 
 Feature | Current Limit  
 ---|---  
-Indexes per account | 50,000 (Workers Paid) / 100 (Free)  
+Indexes per account | Workers Paid: Unlimited, with a default limit of 50,000. Each index above 50,000 costs [$0.10 per month](https://developers.cloudflare.com/vectorize/platform/pricing/#billing-metrics). Free: 100.  
 Maximum dimensions per vector | 1536 dimensions, 32 bits precision  
 Precision per vector dimension | 32 bits (float32)  
 Maximum vector ID length | 64 bytes  

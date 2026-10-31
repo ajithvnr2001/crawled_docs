@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/queues/platform/limits/
 title: Limits \u00b7 Cloudflare Queues docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:41.417500+00:00
+fetched_at: 2026-10-31T08:10:20.436100+00:00
 ---
 
 # Limits · Cloudflare Queues docs
@@ -18,17 +18,17 @@ fetched_at: 2026-10-08T07:12:41.417500+00:00
 
 # Limits
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/queues/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Increasing Queue Consumer Worker CPU LimitsWall time limits by invocation type
 
 Caution
 
-The following limits apply to both Workers Paid and Workers Free plans with the exception of **Message Retention** , which is non-configurable at 24 hours for the Workers Free plan.
+The following limits apply to both Workers Paid and Workers Free plans except for queue counts and **Message Retention** , which is non-configurable at 24 hours for the Workers Free plan.
 
 Feature | Limit  
 ---|---  
-Queues | 10,000 per account  
+Queues | Workers Paid: Unlimited, with a default limit of 10,000 per account. Each queue above 10,000 costs [$0.10 per month](https://developers.cloudflare.com/queues/platform/pricing/). Workers Free: 10,000 per account.  
 Message size | 128 KB 1  
 Message retries | 100  
 Maximum consumer batch size | 100 messages  
@@ -86,7 +86,7 @@ The following table summarizes the wall time limits for different types of Worke
 
 Invocation type | Wall time limit | Details  
 ---|---|---  
-Incoming HTTP request | Unlimited | No hard limit while the client remains connected. A Worker that is still streaming a response body remains active. [`waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil) extends execution for up to 30 seconds after the response or disconnect.  
+Incoming HTTP request | Unlimited | No hard limit while the client remains connected. Workers requests are subject to the [grace period for runtime updates](https://developers.cloudflare.com/workers/platform/limits/#runtime-updates). A Worker that is still streaming a response body remains active. [`waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil) extends execution for up to 30 seconds after the response or disconnect.  
 [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/) | 15 minutes | Scheduled Workers have a maximum wall time of 15 minutes per invocation.  
 [Queue consumers](https://developers.cloudflare.com/queues/configuration/javascript-apis/#consumer) | 15 minutes | Each consumer invocation has a maximum wall time of 15 minutes.  
 [Durable Object alarm handlers](https://developers.cloudflare.com/durable-objects/api/alarms/) | 15 minutes | Alarm handler invocations have a maximum wall time of 15 minutes.  

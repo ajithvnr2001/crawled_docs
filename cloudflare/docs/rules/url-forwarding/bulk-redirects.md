@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/
 title: Bulk Redirects \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:58.740867+00:00
+fetched_at: 2026-10-31T08:10:24.137294+00:00
 ---
 
 # Bulk Redirects · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:58.740867+00:00
 
 # Bulk Redirects
 
-Last updated Jun 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBulk Redirects and the WAFRelated resources
 
@@ -47,7 +47,7 @@ For the complete request processing order, refer to [Rules execution order](http
 
   * [Availability](https://developers.cloudflare.com/rules/url-forwarding/#availability): Information on the Bulk Redirects quotas and features per Cloudflare plan.
   * [Execution order](https://developers.cloudflare.com/rules/url-forwarding/#execution-order): Execution order of the different Rules products.
-  * [Trace a request](https://developers.cloudflare.com/rules/trace-request/): Use Cloudflare Trace to determine if a bulk redirect rule is triggering for a specific URL.
+  * [Simulate a request](https://developers.cloudflare.com/rules/simulator/): Use Rules simulator to determine if a bulk redirect rule is triggering for a specific URL.
 
 
 

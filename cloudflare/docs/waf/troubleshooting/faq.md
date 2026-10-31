@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/troubleshooting/faq/
 title: FAQ \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:49.413698+00:00
+fetched_at: 2026-10-31T08:10:23.841757+00:00
 ---
 
 # FAQ · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:49.413698+00:00
 
 # FAQ
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/troubleshooting/faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGeneral questions Why does a security event display a Cloudflare IP address even though other fields match the client details? Do I need to escape certain characters in expressions? Why is my regular expression pattern not working? Why are some rules bypassed when I did not create an exception? Why have I been blocked?Bots How does the WAF handle traffic from known bots?
 
@@ -49,7 +49,7 @@ If you are using a regular expression, it is recommended that you test it with a
 
 If you have [SSL/TLS certificates](https://developers.cloudflare.com/ssl/) managed by Cloudflare, every time a certificate is issued or renewed, a [domain control validation (DCV)](https://developers.cloudflare.com/ssl/edge-certificates/changing-dcv-method/dcv-flow/) must happen. When a certificate is in `pending_validation` state and there are valid DCV tokens in place, some Cloudflare security features such as [custom rules](https://developers.cloudflare.com/waf/custom-rules/) and [Managed Rules](https://developers.cloudflare.com/waf/managed-rules/) will be automatically disabled on specific DCV paths (for example, `/.well-known/pki-validation/` and `/.well-known/acme-challenge/`).
 
-These automatic bypasses do not appear in [Trace](https://developers.cloudflare.com/rules/trace-request/) results.
+These automatic bypasses do not appear in [Rules simulator](https://developers.cloudflare.com/rules/simulator/) results.
 
 ### Why have I been blocked?
 

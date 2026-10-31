@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/
 title: Access Durable Objects Storage \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:06.814533+00:00
+fetched_at: 2026-10-31T08:10:22.401250+00:00
 ---
 
 # Access Durable Objects Storage · Cloudflare Durable Objects docs
@@ -18,13 +18,19 @@ fetched_at: 2026-10-08T07:11:06.814533+00:00
 
 # Access Durable Objects Storage
 
-Last updated Jul 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess storage Create SQLite-backed Durable Object class Initialize instance variables from storage Remove a Durable Object's storageSQL API ExamplesTypeScript and query resultsIndexes in SQLiteSQL in Durable Objects vs D1Related resources
 
 Durable Objects are a powerful compute API that provides a compute with storage building block. Each Durable Object has its own private, transactional, and strongly consistent storage. Durable Objects Storage API provides access to a Durable Object's attached storage.
 
-A Durable Object's [in-memory state](https://developers.cloudflare.com/durable-objects/reference/in-memory-state/) is preserved as long as the Durable Object is not evicted from memory. Inactive Durable Objects with no incoming request traffic can be evicted. There are normal operations like [code deployments](https://developers.cloudflare.com/workers/versions-and-deployments/) that trigger Durable Objects to restart and lose their in-memory state. For these reasons, you should use Storage API to persist state durably on disk that needs to survive eviction or restart of Durable Objects.
+A Durable Object's [in-memory state](https://developers.cloudflare.com/durable-objects/reference/in-memory-state/) is preserved as long as the Durable Object remains in memory. Inactive Durable Objects with no incoming request traffic can be evicted.
+
+When you deploy a code change to Durable Objects, the default [code update strategy](https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/) is `deferred`, with a `max_delay` of 300 seconds (5 minutes). Active objects can continue running their current code until they hibernate or reach this delay. When an object starts on the new version, Cloudflare creates a fresh isolate and discards any in-memory state.
+
+Deferral gives your application time to finish in-flight work or persist in-memory state to [SQLite](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/) or external storage. It is best effort, not a guarantee that every operation finishes. Cloudflare can reset an object before `max_delay` is reached.
+
+Just like other compute environments where compute instances do not live forever, you should persist any state that must be durable across code deployments to Durable Storage. Durable Objects makes this simple — each individual Durable Object has its own SQLite database that you can read from and write to synchronously.
 
 ## Access storage
 
@@ -38,7 +44,7 @@ Creating new namespaces with the [key-value storage backend](https://developers.
 
 Storage billing on SQLite-backed Durable Objects
 
-Storage billing for SQLite-backed Durable Objects will be enabled in January 2026, with a target date of January 7, 2026 (no earlier). Only SQLite storage usage on and after the billing target date will incur charges. For more information, refer to [Billing for SQLite Storage](https://developers.cloudflare.com/changelog/2025-12-12-durable-objects-sqlite-storage-billing/).
+Storage billing for SQLite-backed Durable Objects will be enabled in January 2026, with a target date of January 7, 2026 (no earlier). Only SQLite storage usage on and after the billing target date will incur charges. For more information, refer to [Billing for SQLite Storage](https://developers.cloudflare.com/changelog/post/2025-12-12-durable-objects-sqlite-storage-billing/).
 
 [Storage API methods](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/) are available on `ctx.storage` parameter passed to the Durable Object constructor. Storage API has several methods, including SQL, point-in-time recovery (PITR), key-value (KV), and alarm APIs.
 

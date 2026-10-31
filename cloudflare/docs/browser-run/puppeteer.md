@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/puppeteer/
 title: Puppeteer \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:10.458532+00:00
+fetched_at: 2026-10-31T08:10:20.956882+00:00
 ---
 
 # Puppeteer · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-15T14:53:10.458532+00:00
 
 # Puppeteer
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse Puppeteer in a Worker Keep Alive Set a custom user agentLocal debugging with headful mode (experimental)Element selectionSession management List open sessions List recent sessions Active limitsPuppeteer API
 
@@ -104,7 +104,7 @@ To specify a custom user agent in Puppeteer, use the `page.setUserAgent()` metho
     
     
     await page.setUserAgent(
-    	"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+    	"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
     );
 
 Note

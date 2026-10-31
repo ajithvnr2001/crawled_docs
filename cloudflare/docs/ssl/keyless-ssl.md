@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ssl/keyless-ssl/
 title: Keyless SSL \u00b7 Cloudflare SSL/TLS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:41.496114+00:00
+fetched_at: 2026-10-31T08:10:20.830751+00:00
 ---
 
 # Keyless SSL · Cloudflare SSL/TLS docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:15:41.496114+00:00
 
 # Keyless SSL
 
-Last updated Aug 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ssl/keyless-ssl/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityLimitations
 
@@ -44,7 +44,7 @@ Keyless SSL is only available to Enterprise customers that maintain their own SS
 
 ## Limitations
 
-TLS 1.3 is not supported for Keyless SSL.
+TLS 1.3 is supported for Keyless SSL with ECDSA certificates. Keyless SSL connections that use RSA certificates negotiate up to TLS 1.2.
 
 [PreviousCloudflare for SaaS ↗︎](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/)[NextCloudflare Tunnel](https://developers.cloudflare.com/ssl/keyless-ssl/configuration/cloudflare-tunnel/)
 

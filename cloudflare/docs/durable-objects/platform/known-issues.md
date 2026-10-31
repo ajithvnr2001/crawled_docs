@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/platform/known-issues/
 title: Known issues \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:09.645341+00:00
+fetched_at: 2026-10-31T08:10:22.157033+00:00
 ---
 
 # Known issues · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:09.645341+00:00
 
 # Known issues
 
-Last updated Jul 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/platform/known-issues/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGlobal uniquenessCode updatesDevelopment toolsAlarms in local development
 
@@ -36,9 +36,11 @@ A Durable Object may be replaced in the event of a network partition or a softwa
 
 ## Code updates
 
-Code changes for Workers and Durable Objects are released globally in an eventually consistent manner. Because each Durable Object is globally unique, the situation can arise that a request arrives to the latest version of your Worker (running in one part of the world), which then calls to a unique Durable Object running the previous version of your code for a short period of time (typically seconds to minutes). If you create a [gradual deployment](https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/), this period of time is determined by how long your live deployment is configured to use more than one version.
+Code changes for Workers and Durable Objects are released globally in an eventually consistent manner. A request can reach the latest version of your Worker, which then calls a unique Durable Object running a previous version of your code.
 
-For this reason, it is best practice to ensure that API changes between your Workers and Durable Objects are forward and backward compatible across code updates.
+With a `deferred` [code update strategy](https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/), an active Durable Object can continue running a previous version until it hibernates or its `max_delay` is reached. Gradual deployments can extend this window while your deployment uses more than one version. If you deploy multiple versions before an object hibernates, it might skip intermediate versions and use the latest version when it wakes.
+
+Ensure that API changes between your Workers and Durable Objects are forward and backward compatible across code updates.
 
 ## Development tools
 

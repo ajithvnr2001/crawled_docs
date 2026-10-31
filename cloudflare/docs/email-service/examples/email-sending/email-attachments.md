@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/examples/email-sending/email-attachments/
 title: Email attachments \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:14.045132+00:00
+fetched_at: 2026-10-31T08:10:23.649984+00:00
 ---
 
 # Email attachments · Cloudflare Email Service docs
@@ -24,7 +24,7 @@ Examples
 
 Send emails with various types of attachments including PDFs, images, and file uploads with proper validation.
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/examples/email-sending/email-attachments/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPDF attachmentsInline imagesFile uploadsNext steps
 
@@ -342,10 +342,10 @@ Handle file uploads and send them as email attachments with validation:
     }
     
     function validateFile(file: File): { valid: boolean; error?: string } {
-    	// 5 MiB matches the general outbound message size limit. Messages up to
-    	// 25 MiB are accepted only when sent to verified destination addresses.
+    	// The total message size limit is 25 MiB, including attachments.
+    	// Base64 encoding adds about 33% overhead, so cap the raw file at 18 MiB.
     	// Refer to /email-service/platform/limits/ for details.
-    	const maxSize = 5 * 1024 * 1024;
+    	const maxSize = 18 * 1024 * 1024;
     	const allowedTypes = [
     		"image/jpeg",
     		"image/png",
@@ -419,7 +419,7 @@ Handle file uploads and send them as email attachments with validation:
 
 
 
-[PreviousMagic link authentication](https://developers.cloudflare.com/email-service/examples/email-sending/magic-link/)[NextSend email over SMTP](https://developers.cloudflare.com/email-service/examples/email-sending/smtp/)
+[PreviousEmail a login link](https://developers.cloudflare.com/email-service/examples/email-sending/magic-link/)[NextSend email over SMTP](https://developers.cloudflare.com/email-service/examples/email-sending/smtp/)
 
 Was this helpful?
 

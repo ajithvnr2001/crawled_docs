@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/reference/pricing/
 title: Pricing \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:29.576914+00:00
+fetched_at: 2026-10-31T08:10:19.867624+00:00
 ---
 
 # Pricing · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:29.576914+00:00
 
 # Pricing
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLogs Workers Logs Legacy LogsData Loss Prevention (DLP)GuardrailsUnified BillingLogpushPricing notes
 

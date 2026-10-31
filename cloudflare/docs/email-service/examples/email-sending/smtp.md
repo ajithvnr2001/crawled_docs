@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/examples/email-sending/smtp/
 title: Send email over SMTP \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:14.670413+00:00
+fetched_at: 2026-10-31T08:10:23.116995+00:00
 ---
 
 # Send email over SMTP · Cloudflare Email Service docs
@@ -24,7 +24,7 @@ Examples
 
 Send transactional emails over Cloudflare Email Service SMTP using curl, Nodemailer, Python smtplib, or PHPMailer.
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/examples/email-sending/smtp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites Send an email Send an email Send with an attachment Error handling Send an email Send to multiple recipients Send with an attachment Error handling Send an emailNext steps
 
@@ -101,7 +101,7 @@ Install [Nodemailer ↗︎](https://nodemailer.com/) with `npm install nodemaile
     	],
     });
 
-Total message size (including base64-encoded attachments) must not exceed 5 MiB. See [Limits](https://developers.cloudflare.com/email-service/platform/limits/).
+Total message size (including base64-encoded attachments) must not exceed 25 MiB. See [Limits](https://developers.cloudflare.com/email-service/platform/limits/).
 
 ### Error handling
 

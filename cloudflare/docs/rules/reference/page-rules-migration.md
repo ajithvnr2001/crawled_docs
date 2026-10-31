@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/reference/page-rules-migration/
 title: Page Rules migration guide \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:51.949695+00:00
+fetched_at: 2026-10-31T08:10:24.769055+00:00
 ---
 
 # Page Rules migration guide · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:51.949695+00:00
 
 # Page Rules migration guide
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/reference/page-rules-migration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPage Rules migrationWhy transition?Key differencesConvert Page Rules URLs to filter expressions Important considerationsFeature correspondence table Migrate Always Use HTTPS Migrate Automatic HTTPS Rewrites Migrate Browser Cache TTL Migrate Browser Integrity Check Migrate Bypass Cache on Cookie Migrate Cache By Device Type Migrate Cache Deception Armor Migrate Cache Level (Cache Everything) Migrate Cache on Cookie Migrate Cache TTL by status code Migrate Custom Cache Key Migrate Disable Apps Replace Disable Performance Replace Disable Security Migrate Disable Zaraz Migrate Edge Cache TTL Migrate Email Obfuscation Migrate Forwarding URL Migrate Host Header Override Migrate IP Geolocation Header Migrate Opportunistic Encryption Migrate Origin Cache Control Migrate Origin Error Page Pass-thru Migrate Polish Migrate Query String Sort Migrate Resolve Override Migrate Respect Strong ETags Migrate Rocket Loader Migrate Security Level Migrate True Client IP Header Migrate SSLSettings that will not be migratedMore resources
 
@@ -49,7 +49,7 @@ Improvements in modern Rules features include:
 
   * **New engine** : New Rules features are powered by the [Ruleset Engine](https://developers.cloudflare.com/ruleset-engine/), which offers versatile configuration with a robust language that supports many HTTP request and response fields.
   * **Improved scalability** : Thanks to the improved scalability, Cloudflare plans now have increased quotas.
-  * **Easier troubleshooting** : Rule execution is more predictable, since each rule operates independently, simplifying troubleshooting. Additionally, [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) helps understand rule interactions.
+  * **Easier troubleshooting** : Rule execution is more predictable, since each rule operates independently, simplifying troubleshooting. Additionally, [Rules simulator](https://developers.cloudflare.com/rules/simulator/) helps understand rule interactions.
   * **Improved consistency** : New Rules features also ensure consistency, with common fields and capabilities shared across products, offering a seamless experience and predictable Terraform configurations.
 
 

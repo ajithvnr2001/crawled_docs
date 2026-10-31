@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/transform/url-rewrite/create-dashboard/
 title: Create a URL rewrite rule in the dashboard \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:58.462502+00:00
+fetched_at: 2026-10-31T08:10:24.201426+00:00
 ---
 
 # Create a URL rewrite rule in the dashboard · Cloudflare Rules docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:14:58.462502+00:00
 
 # Create a URL rewrite rule in the dashboard
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/transform/url-rewrite/create-dashboard/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWildcard pattern parameters
 
@@ -92,7 +92,7 @@ Notes
 
 The **Request URL** value is only used to match the incoming request with a rule. It will not be used for capturing URL patterns for rewrites. If you are matching the URL path or query string in **Target path** or **Target query** , respectively, make sure that the **Request URL** pattern also matches the incoming request, or else the rule will not trigger.
 
-To validate URL rewrite rule matches, use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/). To validate rewritten URLs, check your origin server.
+To validate URL rewrite rule matches, use [Rules simulator](https://developers.cloudflare.com/rules/simulator/). To validate rewritten URLs, check your origin server.
 
 [PreviousOverview](https://developers.cloudflare.com/rules/transform/url-rewrite/)[NextCreate a rule via API](https://developers.cloudflare.com/rules/transform/url-rewrite/create-api/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/platform/limits-pricing/
 title: Limits & pricing \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:43.062089+00:00
+fetched_at: 2026-10-31T08:10:20.497736+00:00
 ---
 
 # Limits & pricing · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:43.062089+00:00
 
 # Limits & pricing
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/platform/limits-pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLimitsPricing How ingestion tokens are countedHistorical billing
 
@@ -28,7 +28,7 @@ The following limits apply based on your [Workers plan](https://developers.cloud
 
 Limit | Workers Free | Workers Paid  
 ---|---|---  
-AI Search instances per account | 100 | 5,000  
+AI Search instances per account | 100 | Unlimited, with a default limit of 5,000. Each instance above 5,000 costs $0.10 per month.  
 Namespaces per account | 100 | 100  
 Files per instance | 100,000 | 1M or 500K for hybrid search  
 Pages per crawl, `discover` parse type | 100,000 | 100,000  
@@ -63,6 +63,12 @@ Every account receives the following included usage each month:
   * 1,000 full-text queries
 
 
+
+Resource | Workers Free | Workers Paid  
+---|---|---  
+AI Search instances per account | 100 | Unlimited, with a default limit of 5,000. First 5,000 included + $0.10 per additional instance per month.  
+  
+The instance allowance counts instances across all namespaces in your account. Namespaces group instances and do not incur an additional resource charge. To create more than the default limit, complete the [Limit Increase Request Form ↗︎](https://forms.gle/wnizxrEUW33Y15CT8).
 
 Usage beyond the included amounts is billed at these rates:
 

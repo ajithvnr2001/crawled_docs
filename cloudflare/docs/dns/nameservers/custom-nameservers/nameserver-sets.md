@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/
 title: Nameserver sets \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:04.143866+00:00
+fetched_at: 2026-10-31T08:10:23.035106+00:00
 ---
 
 # Nameserver sets · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-29T08:14:04.143866+00:00
 
 # Nameserver sets
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityHow nameserver sets workIP setsLimits Set namesCreate a nameserver set Standard nameserver set Advanced Custom Nameserver setRename a nameserver setPrepare nameserver address recordsAssign a nameserver set to a zoneUpdate the nameserversActivation requirementsDelete a nameserver set
 
@@ -32,7 +32,7 @@ Nameserver sets are a separate configuration from [zone](https://developers.clou
 
 ## Availability
 
-Nameserver sets are in beta and available to Enterprise customers through the API only.
+Nameserver sets are in beta and available to Enterprise customers via API or on the dashboard.
 
 To use a nameserver set, a zone must be in the same account as the set.
 
@@ -80,7 +80,11 @@ Set names must be unique within an account.
 
 ## Create a nameserver set
 
-To create a set, use the [Create Custom Nameserver Set](https://developers.cloudflare.com/api/resources/dns/subresources/settings/subresources/account/subresources/nameserver_sets/methods/create/) endpoint.
+In the Cloudflare dashboard, create and manage sets under **Nameserver sets** on the account **DNS Settings** page.
+
+[ Go to **DNS Settings** ↗ ](https://dash.cloudflare.com/?to=/:account/configurations/dns-settings)
+
+To create a set via API, use the [Create Custom Nameserver Set](https://developers.cloudflare.com/api/resources/dns/subresources/settings/subresources/account/subresources/nameserver_sets/methods/create/) endpoint.
 
 Include a top-level `name` to identify the set. Each nameserver name in `nameservers` must be unique within the set and lowercase. Internationalized domain names must use Punycode.
 
@@ -252,7 +256,11 @@ Cloudflare does not create these records for you, even if the nameserver names b
 
 ## Assign a nameserver set to a zone
 
-To assign a set to a zone, use the [Update DNS Settings for a Zone](https://developers.cloudflare.com/api/resources/dns/subresources/settings/subresources/zone/methods/edit/) endpoint:
+In the Cloudflare dashboard, assign a set under **Nameserver sets** on the zone **DNS Settings** page.
+
+[ Go to **Settings** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/dns/settings)
+
+To assign a set via API, use the [Update DNS Settings for a Zone](https://developers.cloudflare.com/api/resources/dns/subresources/settings/subresources/zone/methods/edit/) endpoint:
 
 Required API token permissions
 

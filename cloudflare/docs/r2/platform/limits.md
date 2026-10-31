@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/platform/limits/
 title: Limits \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:48.093258+00:00
+fetched_at: 2026-10-31T08:10:19.922377+00:00
 ---
 
 # Limits · Cloudflare R2 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:48.093258+00:00
 
 # Limits
 
-Last updated Jun 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRate limiting on managed public buckets through r2.devCloudflare REST API
 
@@ -26,7 +26,7 @@ Feature | Limit
 ---|---  
 Data storage per bucket | Unlimited  
 Number of objects per bucket | Unlimited  
-Maximum number of buckets per account | 1,000,000  
+Maximum number of buckets per account | Unlimited, with a default limit of 100,000. Each bucket above 100,000 costs [$0.10 per month](https://developers.cloudflare.com/r2/pricing/#r2-pricing).  
 Maximum rate of bucket management operations per bucket 1 | 50 per second  
 Number of custom domains per bucket | 100  
 Object key length | 1,024 bytes  

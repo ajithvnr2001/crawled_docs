@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/platform/limits/
 title: Limits \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:15.221798+00:00
+fetched_at: 2026-10-31T08:10:22.937360+00:00
 ---
 
 # Limits · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-08T07:11:15.221798+00:00
 
 Email sending quotas, rate limits, and how to request higher limits for production use
 
-Last updated Sep 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDaily sending limitsVerified destination addressesEmail content limitsSuppression list limitsZone limitsEmail Routing limits Routing to Workers on the Workers Free plan Emails sent from WorkersCompliance
 
@@ -44,8 +44,7 @@ Component | Limit | Notes
 ---|---|---  
 **Recipients (to, cc, bcc)** | 50 per email | Combined across all recipient fields  
 **Subject line** | 998 characters | RFC 5322 compliant  
-**Total message size** | 5 MiB | Including attachments  
-**Total message size** | 25 MiB | For [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/#destination-addresses) only  
+**Total message size** | 25 MiB | Including attachments  
 **Header size** | 16 KB | All custom headers combined  
   
 ## Suppression list limits
@@ -105,7 +104,7 @@ Need a higher limit?
 
 To request an adjustment to a limit, complete the [Limit Increase Request Form ↗︎](https://forms.gle/eX6pXvit1wBv77Yw5). If the limit can be increased, Cloudflare will contact you with next steps.
 
-[PreviousFAQ](https://developers.cloudflare.com/email-service/reference/faq/)[NextPricing](https://developers.cloudflare.com/email-service/platform/pricing/)
+[PreviousTest email routing locally](https://developers.cloudflare.com/email-service/observability/local-development/routing/)[NextPricing](https://developers.cloudflare.com/email-service/platform/pricing/)
 
 Was this helpful?
 

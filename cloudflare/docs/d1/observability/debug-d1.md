@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/observability/debug-d1/
 title: Debug D1 \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:07.830218+00:00
+fetched_at: 2026-10-31T08:10:22.223322+00:00
 ---
 
 # Debug D1 · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:07.830218+00:00
 
 # Debug D1
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/observability/debug-d1/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewError listAutomatic retriesView logsReport issuesRelated resourcesD1 binding timeout behavior
 
@@ -96,6 +96,7 @@ Before retrying any failed operation:
 `D1 DB is overloaded. Too many requests queued.` | The request queue to the D1 database is too long, either because there are too many requests, or the queued requests are taking too long. | App action: Optimize the queries (so that each query takes less time), send fewer requests by spreading the load over time, or shard the queries.  
 `D1 DB's isolate exceeded its memory limit and was reset.` | A query loaded too much into memory, causing the D1 database to crash. | App action: Optimize the queries (so that each query takes less time), send fewer requests by spreading the load over time, or shard the queries.  
 `D1 DB exceeded its CPU time limit and was reset.` | A query is taking up a lot of CPU time (e.g. scanning over 9 GB table, or attempting a large import/export). | App action: Split the query into smaller shards.  
+`D1 query result exceeded the maximum response size limit of 50 MB` | The query returned a result larger than the [maximum query result size](https://developers.cloudflare.com/d1/platform/limits/) of 50 MB. This limit is enforced from 2026-11-04. | App action: Select only the columns you need instead of using `SELECT *`, or paginate large result sets with `LIMIT` and `OFFSET`.  
   
 ## Automatic retries
 

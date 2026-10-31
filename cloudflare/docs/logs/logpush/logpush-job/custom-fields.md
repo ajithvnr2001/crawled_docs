@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/logpush-job/custom-fields/
 title: Custom fields \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:55.973653+00:00
+fetched_at: 2026-10-31T08:10:26.489609+00:00
 ---
 
 # Custom fields · Cloudflare Logs docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:03:55.973653+00:00
 
 # Custom fields
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable custom rules via API 1\. Create a rule to configure the list of custom fields 2\. Include the custom fields in your Logpush jobEnable custom fields via dashboardUse case: Logging mTLS certificate headersLimitations
 
@@ -315,16 +315,18 @@ If you are a Cloudflare Access user, as of March 2022 you have to manually add t
 
 ## Enable custom fields via dashboard
 
-  1. In the Cloudflare dashboard, go to the **Logpush** page.
+  1. In the Cloudflare dashboard, select your account and zone. Then go to **Observability** > **Export** > **Logpush**.
 
-[ Go to **Logpush** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/analytics/logs)
-  2. In the **Custom log fields** section, select **Edit Custom Fields**.
+[ Go to **Logpush configuration** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/analytics/logs/configuration)
+  2. Select the **Configuration** tab.
 
-  3. Select **Set new Custom Field**.
+  3. In the **Custom log fields** section, select **Edit Custom Fields**.
 
-  4. From the **Field Type** dropdown, select _Request Header_ , _Response Header_ or _Cookies_ and type the **Field Name**.
+  4. Select **Set new Custom Field**.
 
-  5. When you are done, select **Save**.
+  5. From the **Field Type** dropdown, select _Request Header_ , _Response Header_ , or _Cookies_ and type the **Field Name**.
+
+  6. When you are done, select **Save**.
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/traces/
 title: Traces \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:24.686326+00:00
+fetched_at: 2026-10-31T08:10:24.520207+00:00
 ---
 
 # Traces · Cloudflare Observability docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-10T14:39:24.686326+00:00
 
 # Traces
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable tracingInspect a traceFrequently asked questions Does tracing add latency to my requests Why is there a gap in my trace Why is there no outbound connection span How do I capture the trace for a specific request Can I sample only slow requests or errors Are request header values captured in spans Are span names a stable interface
 
@@ -47,9 +47,9 @@ Open a trace to see the full request path as a hierarchy of spans. Each row repr
 
 Select a span to open its details. The detail panel shows the span status, service, trigger, span and trace IDs, duration compared to similar spans, and recorded attributes. You can search or copy the attributes while investigating the operation.
 
-Cloudflare Trace
+Rules simulator
 
-[Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) simulates how Cloudflare configurations would handle a request. It does not show actual production traffic.
+[Rules simulator](https://developers.cloudflare.com/rules/simulator/) simulates how Cloudflare configurations would handle a request. It does not show actual production traffic.
 
 ## Frequently asked questions
 
@@ -81,7 +81,7 @@ Header names and the operations performed on them are captured. Header values ar
 
 No. Span names and structure may change as the product evolves. Do not build hard dependencies on the exact shape of Cloudflare-emitted spans.
 
-[PreviousDatasets](https://developers.cloudflare.com/observability/logs/datasets/)[NextConfiguration](https://developers.cloudflare.com/observability/traces/configuration/)
+[PreviousChangelog](https://developers.cloudflare.com/observability/logs/log-explorer/changelog/)[NextConfiguration](https://developers.cloudflare.com/observability/traces/configuration/)
 
 Was this helpful?
 

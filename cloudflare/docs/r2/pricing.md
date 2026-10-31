@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/pricing/
 title: Pricing \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:32.169118+00:00
+fetched_at: 2026-10-31T08:10:20.254098+00:00
 ---
 
 # Pricing · Cloudflare R2 docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-27T07:31:32.169118+00:00
 
 # Pricing
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewR2 pricing Free tier Storage usage Class A operations Class B operations Free operations Data retrieval Minimum storage durationBasin Catalog pricingData migration pricing Super Slurper SippyPricing calculatorR2 billing examples Standard storage example Infrequent access example Asset hostingCloudflare billing policyFrequently asked questions Will I be charged for failed requests to my R2 bucket?
 
@@ -45,7 +45,10 @@ Class A Operations | $4.50 / million requests | $9.00 / million requests
 Class B Operations | $0.36 / million requests | $0.90 / million requests  
 Data Retrieval (processing) | None | $0.01 / GB  
 Egress (data transfer to Internet) | Free 1 | Free 1  
+Buckets per account | First 100,000 included + $0.10 per additional bucket per month | First 100,000 included + $0.10 per additional bucket per month  
   
+The bucket allowance is shared across all storage classes and applies regardless of your Workers plan. Refer to [R2 limits](https://developers.cloudflare.com/r2/platform/limits/) for bucket creation limits and how to request a limit increase.
+
 Billable unit rounding
 
 Cloudflare rounds up your usage to the next billing unit.

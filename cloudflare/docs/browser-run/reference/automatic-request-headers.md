@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/reference/automatic-request-headers/
 title: Automatic request headers \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:38.873131+00:00
+fetched_at: 2026-10-31T08:10:21.017109+00:00
 ---
 
 # Automatic request headers · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:38.873131+00:00
 
 # Automatic request headers
 
-Last updated Jun 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/reference/automatic-request-headers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUser-AgentNon-configurable headers About Web Bot Auth Bot detection
 
@@ -30,7 +30,7 @@ The default User-Agent depends on how you access Browser Run:
 
 Method | Default User-Agent | Customizable  
 ---|---|---  
-[Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/) | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36` | Yes, using the `userAgent` parameter  
+[Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/) | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36` | Yes, using the `userAgent` parameter  
 [Crawl endpoint](https://developers.cloudflare.com/browser-run/quick-actions/crawl-endpoint/) | `CloudflareBrowserRenderingCrawler/1.0` | No  
 [CDP](https://developers.cloudflare.com/browser-run/cdp/) ([Puppeteer](https://developers.cloudflare.com/browser-run/puppeteer/), [Playwright](https://developers.cloudflare.com/browser-run/playwright/)) | The default User-Agent of the underlying Chrome version | Yes, via Puppeteer/Playwright configuration  
   

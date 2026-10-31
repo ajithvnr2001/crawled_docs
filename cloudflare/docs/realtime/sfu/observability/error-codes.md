@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/sfu/observability/error-codes/
 title: Error codes \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:36.944120+00:00
+fetched_at: 2026-10-31T08:10:19.235469+00:00
 ---
 
 # Error codes · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:14:36.944120+00:00
 
 # Error codes
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/sfu/observability/error-codes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRead the responseRequest errors DataChannel transport setup errorsSession and negotiation errorsTrack and DataChannel errors Interpret close resultsAdapter errorsService errors and retries
 
@@ -60,7 +60,7 @@ Use the [complete message recipe](https://developers.cloudflare.com/realtime/sfu
 
 Code | Meaning and next action  
 ---|---  
-`session_error` | With top-level HTTP `425`, finish setup and wait for connection before later operations. With `410`, check the session ID and endpoint state. Replace an [expired session](https://developers.cloudflare.com/realtime/sfu/concepts/sessions-tracks/#session-setup) or closed connection and rebuild any publications and subscriptions. Retrying the old session does not reconnect it.  
+`session_error` | With HTTP `425`, complete connection setup. If the PeerConnection has failed or closed, create a new session instead. With HTTP `410`, create a new session and reconnect.  
 `invalid_session_description` | SDP cannot be accepted, or the offer/answer order is wrong. Check the generated SDP, transceivers, `mid` values, codec support, and which session expects the answer. Complete the outstanding exchange and serialize later mutations. Do not replay an answer after its exchange has finished.  
   
 HTTP `406` alone does not establish that requests overlapped. Inspect the public error and endpoint state. [Negotiation and session lifecycle](https://developers.cloudflare.com/realtime/sfu/concepts/negotiation/) explains the full exchange boundary and concurrent handlers.

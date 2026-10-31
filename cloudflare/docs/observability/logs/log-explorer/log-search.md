@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/logs/log-explorer/log-search/
 title: Log Search \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:37:10.378848+00:00
+fetched_at: 2026-10-31T08:10:24.446570+00:00
 ---
 
 # Log Search · Cloudflare Observability docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-16T06:37:10.378848+00:00
 
 # Log Search
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen to use Log ExplorerUse Log Explorer Headers and cookies Save queriesIntegration with Security AnalyticsOptimize your queries Additional query optimization tips
 
@@ -44,7 +44,7 @@ Use Log Explorer when you need to investigate what actually happened with real p
 
 
 
-Use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/), shown as **Rule simulator** in the dashboard, when you need to test what would happen with a simulated request:
+Use [Rules simulator](https://developers.cloudflare.com/rules/simulator/), shown as **Rule simulator** in the dashboard, when you need to test what would happen with a simulated request:
 
   * Understanding why a rule did not trigger as expected
   * Testing how your rules handle different request scenarios
