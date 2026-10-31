@@ -3,8 +3,5 @@
   "file": "teams/langgraph-fastapi/deploy-and-operate.md",
   "title": "Microsoft Teams + LangGraph (FastAPI): Deploy and operate",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:11.465929+00:00",
-  "html_len": 164551,
-  "md_len": 9735,
-  "depth": 0
+  "fetched_at": "2026-10-31T09:31:09.182467+00:00"
 }

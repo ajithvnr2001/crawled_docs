@@ -3,8 +3,5 @@
   "file": "teams/langgraph-fastapi/tools.md",
   "title": "Microsoft Teams + LangGraph (FastAPI): Tools and context",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:14.626770+00:00",
-  "html_len": 236963,
-  "md_len": 9031,
-  "depth": 0
+  "fetched_at": "2026-10-31T09:31:07.756381+00:00"
 }

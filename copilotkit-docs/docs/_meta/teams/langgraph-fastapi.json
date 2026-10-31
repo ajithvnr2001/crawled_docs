@@ -3,8 +3,5 @@
   "file": "teams/langgraph-fastapi.md",
   "title": "Microsoft Teams: Channels",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:07.073351+00:00",
-  "html_len": 117611,
-  "md_len": 7337,
-  "depth": 0
+  "fetched_at": "2026-10-31T09:31:09.135528+00:00"
 }

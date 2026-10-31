@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/rich-messages/
 title: Microsoft Teams + Google ADK: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:03.341421+00:00
+fetched_at: 2026-10-31T09:31:10.767496+00:00
 ---
 
 # Microsoft Teams + Google ADK: Rich messages and components
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/google-adk/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/google-adk/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/google-adk/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/google-adk/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/google-adk/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/google-adk/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/google-adk/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/google-adk/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/google-adk/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/google-adk/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/google-adk/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/google-adk/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/google-adk/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/google-adk/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/google-adk/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/google-adk/threads-and-state)
 
 Production
 
@@ -142,6 +142,8 @@ Channels component| Slack| Microsoft Teams
 `Chart`| Omitted by the Slack renderer| Teams chart extension where the client supports it  
   
 Unknown or unsupported nodes are omitted instead of failing the whole message. That makes portable rendering resilient, but it also means the text around an optional visual must still carry the important result.
+
+To post your own React component as an image, see [Posting JSX as images](https://docs.copilotkit.ai/teams/google-adk/posting-jsx-as-images). To mix native text with React snapshots in one message, see [Render and carousel](https://docs.copilotkit.ai/teams/google-adk/render-and-carousel).
 
 `Select` and `Input` have different interaction behavior by provider. Managed Slack dispatches those controls directly. Managed Teams renders Adaptive Card fields and submits them with a `Button`'s `Action.Submit`; that Button callback receives the other named fields in `ctx.values`. Teams does not dispatch `Select.onSelect` or `Input.onSubmit` independently.
 

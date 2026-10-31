@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/interactive/
 title: Microsoft Teams + LangGraph (TypeScript): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:25.536547+00:00
+fetched_at: 2026-10-31T09:31:03.576809+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Interactive messages and approvals
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/langgraph-typescript/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-typescript/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-typescript/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-typescript/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-typescript/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-typescript/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-typescript/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/langgraph-typescript/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-typescript/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-typescript/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/langgraph-typescript/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/langgraph-typescript/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-typescript/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-typescript/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-typescript/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-typescript/threads-and-state)
 
 Production
 

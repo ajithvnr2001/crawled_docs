@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/llamaindex/tools/
 title: Microsoft Teams + LlamaIndex: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:35.561380+00:00
+fetched_at: 2026-10-31T09:30:59.775399+00:00
 ---
 
 # Microsoft Teams + LlamaIndex: Tools and context
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/llamaindex/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/llamaindex/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/llamaindex/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/llamaindex/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/llamaindex/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/llamaindex/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/llamaindex/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/llamaindex/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/llamaindex/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/llamaindex/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/llamaindex/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/llamaindex/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/llamaindex/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/llamaindex/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/llamaindex/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/llamaindex/threads-and-state)
 
 Production
 
@@ -110,6 +110,8 @@ Return information the model can act on:
   * Do not manually `JSON.stringify` successful data.
 
 
+
+Want the agent to turn data into an image? Post your own presentational React markup through [Posting JSX as images](https://docs.copilotkit.ai/teams/llamaindex/posting-jsx-as-images).
 
 ## Add stable context#
 

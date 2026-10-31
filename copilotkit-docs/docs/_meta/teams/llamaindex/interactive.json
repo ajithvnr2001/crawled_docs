@@ -3,8 +3,5 @@
   "file": "teams/llamaindex/interactive.md",
   "title": "Microsoft Teams + LlamaIndex: Interactive messages and approvals",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:32.045039+00:00",
-  "html_len": 220284,
-  "md_len": 10066,
-  "depth": 0
+  "fetched_at": "2026-10-31T09:30:59.614186+00:00"
 }

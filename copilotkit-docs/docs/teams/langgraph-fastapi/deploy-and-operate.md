@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-fastapi/deploy-and-operate/
 title: Microsoft Teams + LangGraph (FastAPI): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:11.465669+00:00
+fetched_at: 2026-10-31T09:31:09.182118+00:00
 ---
 
 # Microsoft Teams + LangGraph (FastAPI): Deploy and operate
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/langgraph-fastapi/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-fastapi/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-fastapi/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-fastapi/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-fastapi/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-fastapi/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-fastapi/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/langgraph-fastapi/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-fastapi/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-fastapi/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/langgraph-fastapi/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/langgraph-fastapi/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-fastapi/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-fastapi/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-fastapi/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-fastapi/threads-and-state)
 
 Production
 

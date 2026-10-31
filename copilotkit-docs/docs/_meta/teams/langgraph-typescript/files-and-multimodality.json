@@ -3,8 +3,5 @@
   "file": "teams/langgraph-typescript/files-and-multimodality.md",
   "title": "Microsoft Teams + LangGraph (TypeScript): Files and multimodal input",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:22.921890+00:00",
-  "html_len": 152355,
-  "md_len": 9229,
-  "depth": 0
+  "fetched_at": "2026-10-31T09:31:03.650595+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/google-adk/threads-and-state/
 title: Microsoft Teams + Google ADK: Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:03.202956+00:00
+fetched_at: 2026-10-31T09:31:10.817070+00:00
 ---
 
 # Microsoft Teams + Google ADK: Threads and state
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/google-adk/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/google-adk/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/google-adk/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/google-adk/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/google-adk/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/google-adk/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/google-adk/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/google-adk/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/google-adk/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/google-adk/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/google-adk/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/google-adk/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/google-adk/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/google-adk/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/google-adk/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/google-adk/threads-and-state)
 
 Production
 

@@ -3,8 +3,5 @@
   "file": "teams/langgraph-fastapi/commands-and-reactions.md",
   "title": "Microsoft Teams + LangGraph (FastAPI): Commands and reactions",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:07.141485+00:00",
-  "html_len": 169808,
-  "md_len": 7100,
-  "depth": 0
+  "fetched_at": "2026-10-31T09:31:09.390761+00:00"
 }

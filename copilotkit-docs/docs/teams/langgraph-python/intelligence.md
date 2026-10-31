@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-python/intelligence/
 title: Microsoft Teams + LangGraph (Python): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:20.742278+00:00
+fetched_at: 2026-10-31T09:31:05.973075+00:00
 ---
 
 # Microsoft Teams + LangGraph (Python): Configure the Channel in Intelligence
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/langgraph-python/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-python/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-python/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-python/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-python/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-python/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-python/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/langgraph-python/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-python/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-python/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/langgraph-python/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/langgraph-python/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-python/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-python/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-python/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-python/threads-and-state)
 
 Production
 

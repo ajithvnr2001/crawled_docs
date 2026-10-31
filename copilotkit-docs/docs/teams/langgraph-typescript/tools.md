@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/langgraph-typescript/tools/
 title: Microsoft Teams + LangGraph (TypeScript): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:27.955590+00:00
+fetched_at: 2026-10-31T09:31:02.058693+00:00
 ---
 
 # Microsoft Teams + LangGraph (TypeScript): Tools and context
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/langgraph-typescript/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-typescript/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-typescript/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-typescript/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-typescript/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-typescript/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-typescript/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/langgraph-typescript/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/langgraph-typescript/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/langgraph-typescript/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/langgraph-typescript/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/langgraph-typescript/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/langgraph-typescript/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/langgraph-typescript/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/langgraph-typescript/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/langgraph-typescript/threads-and-state)
 
 Production
 
@@ -110,6 +110,8 @@ Return information the model can act on:
   * Do not manually `JSON.stringify` successful data.
 
 
+
+Want the agent to turn data into an image? Post your own presentational React markup through [Posting JSX as images](https://docs.copilotkit.ai/teams/langgraph-typescript/posting-jsx-as-images).
 
 ## Add stable context#
 

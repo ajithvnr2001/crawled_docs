@@ -3,8 +3,5 @@
   "file": "teams/langgraph-fastapi/identity-and-memory.md",
   "title": "Microsoft Teams + LangGraph (FastAPI): Identity and Memory",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:11.568292+00:00",
-  "html_len": 175175,
-  "md_len": 9732,
-  "depth": 0
+  "fetched_at": "2026-10-31T09:31:09.267190+00:00"
 }
