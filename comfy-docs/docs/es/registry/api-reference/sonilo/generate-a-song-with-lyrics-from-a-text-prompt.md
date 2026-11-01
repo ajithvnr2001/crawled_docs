@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-a-song-with-lyrics-from-a-text-prompt/
 title: Generate a song with lyrics from a text prompt - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:43.477209+00:00
+fetched_at: 2026-11-01T14:09:01.868681+00:00
 ---
 
 # Generate a song with lyrics from a text prompt - ComfyUI

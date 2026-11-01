@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/price-a-model-call-before-running-it-without-running-it/
 title: Price a model call before running it, without running it. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:37.954057+00:00
+fetched_at: 2026-11-01T14:08:59.976270+00:00
 ---
 
 # Price a model call before running it, without running it. - ComfyUI
@@ -647,9 +647,9 @@ A partner model's native JSON input document, forwarded to the provider as-is. I
 
 application/json
 
-The quote. Read `source` before reading any amount: only `exact` carries `amount`, and an `unknown` quote carries a `reason` instead of a figure.
+The quote. Read `source` before reading any amount: only `exact` and `free` carry `amount` (`free` as "0"), and an `unknown` quote carries a `reason` instead of a figure.
 
-A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against (or, for a model billed the cost its vendor reports, estimated from the vendor's published price list). It is not the final charge: the settled charge in your workspace's usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`.
+A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against (or, for a model billed the cost its vendor reports, estimated from the vendor's published price list). It is not the final charge: the settled charge in your workspace's usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` "0" (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`.
 
 ​
 
@@ -659,7 +659,7 @@ string
 
 required
 
-`exact` | `estimated` | `unknown`; read any other value as `unknown`. `exact` and `estimated` both label an estimate; neither is the final charge. `unknown` carries no figure.
+`exact` | `estimated` | `free` | `unknown`; read any other value as `unknown`. `exact` and `estimated` both label an estimate; neither is the final charge. `free` means the rate card prices this request at zero, so `amount` is "0". `unknown` carries no figure.
 
 ​
 
@@ -707,7 +707,7 @@ string<date-time>
 
 required
 
-When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor's published price list (a model billed the cost the vendor reports) carries the date that list was read instead; one whose billed quantity is predicted from that list and then priced from the rate card (a model billed the credits its vendor reports) carries the older of the two dates. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.
+When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor's published price list (a model billed the cost the vendor reports) carries the date that list was read instead. A quote whose billed quantity is predicted from a published vendor schedule and then priced from the rate card carries the older of that schedule's read date and the card's fetch time, for an `exact` answer and an `estimated` one alike (a model billed the credits its vendor reports is the `estimated` case). Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.
 
 ​
 
@@ -715,7 +715,7 @@ amount
 
 string
 
-The estimated cost in dollars as a decimal string, e.g. "0.04", with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as "0". Present only when `source` is `exact`. Not the final charge: the settled charge in your workspace's usage and billing records is.
+The estimated cost in dollars as a decimal string, e.g. "0.04", with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as "0"; only a `free` quote reads "0". Present only when `source` is `exact` or `free`. Not the final charge: the settled charge in your workspace's usage and billing records is.
 
 ​
 

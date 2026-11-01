@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-video/
 title: Generate music from video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T13:55:17.215488+00:00
+fetched_at: 2026-11-01T14:09:02.016125+00:00
 ---
 
 # Generate music from video - ComfyUI
@@ -573,4 +573,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/registry/api-reference/sonilo/generate-music-from-video.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/registry/api-reference/sonilo/generate-music-from-video)
 
-[Generate music from text prompt](https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-text-prompt)[Post proxyviduextend](https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyviduextend)
+[Generate a song with lyrics from a text prompt](https://docs.comfy.org/es/registry/api-reference/sonilo/generate-a-song-with-lyrics-from-a-text-prompt)[Post proxyviduextend](https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyviduextend)

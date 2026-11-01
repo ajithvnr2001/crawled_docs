@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/submit-a-partner-model-run-to-the-queue-and-return-immediately/
 title: Submit a partner model run to the queue and return immediately. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:37.818761+00:00
+fetched_at: 2026-11-01T14:09:00.238432+00:00
 ---
 
 # Submit a partner model run to the queue and return immediately. - ComfyUI

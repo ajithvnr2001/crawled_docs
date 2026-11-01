@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/get-a-sonilo-task/
 title: Get a Sonilo task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:43.171012+00:00
+fetched_at: 2026-11-01T14:09:01.796869+00:00
 ---
 
 # Get a Sonilo task - ComfyUI

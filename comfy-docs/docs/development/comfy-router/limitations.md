@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:42.487776+00:00
+fetched_at: 2026-11-01T14:08:52.771949+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -127,13 +127,11 @@ Models without a pre-flight estimate
 Router cannot yet reliably price a call to the models below before it runs, so expect `/estimate` and a queued submit’s `estimate` to answer `source: unknown` for them, though some may return a figure for a particular body. `unknown` means no figure was given, not that the run is free. The Comfy charges and usage rules still apply: a run on your own provider key is not billed by Comfy, and `X-Comfy-Credits-Used` is optional, so a missing header means the cost was not reported. A model not listed here can still answer `unknown` for a particular body, so read `source` on every estimate. This list shrinks as estimate coverage grows. It is generated from Router’s own pricing code, and models that are not publicly available are never listed.
 
   * **bfl** : `bfl/erase-v1`, `bfl/video-edit-v1`, `bfl/video-upscale-v1`, `bfl/vto-v1`
-  * **fal** : `fal/crystal-upscaler`, `fal/crystal-video-upscaler`, `fal/fal-gpt-image-2`, `fal/fal-gpt-image-2.5-flare`, `fal/fal-gpt-image-2.5-sunburst`, `fal/fal-nano-banana-2`, `fal/fal-nano-banana-pro`, `fal/fal-seedance-2.0`, `fal/fal-seedance-2.5`, `fal/flux-3-max`, `fal/patina`
+  * **fal** : `fal/crystal-upscaler`, `fal/crystal-video-upscaler`, `fal/fal-seedance-2.0`, `fal/fal-seedance-2.5`, `fal/patina`
   * **freepik** : `freepik/ai-image-upscaler-precision-v2`, `freepik/ai-skin-enhancer-creative`, `freepik/ai-skin-enhancer-faithful`, `freepik/ai-skin-enhancer-flexible`
   * **heygen** : `heygen/starfish`
   * **ideogram** : `ideogram/ideogram-v3`, `ideogram/ideogram-v4`, `ideogram/p-image-ideogram`
-  * **kling** : `kling/kling-3.0-turbo`, `kling/kling-image-o1`, `kling/kling-v2-5-turbo`, `kling/kling-v2-6`, `kling/kling-v3`, `kling/kling-v3-omni`, `kling/kling-video-o1`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`, `kling/videos-video-extend`
-  * **luma** : `luma/photon-1`, `luma/photon-flash-1`
-  * **meshy** : `meshy/animations`, `meshy/meshy-6`, `meshy/meshy-7`, `meshy/meshy-7.1`, `meshy/remesh`, `meshy/rigging`
+  * **kling** : `kling/kling-image-o1`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`, `kling/videos-video-extend`
   * **moonvalley** : `moonvalley/image-to-video`, `moonvalley/text-to-video`, `moonvalley/video-to-video`
   * **openai** : `openai/gpt-image-1.5`
   * **openrouter** : `openrouter/chat-completions`

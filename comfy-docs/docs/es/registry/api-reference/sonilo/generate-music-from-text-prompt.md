@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-text-prompt/
 title: Generate music from text prompt - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T13:55:17.137141+00:00
+fetched_at: 2026-11-01T14:09:02.160597+00:00
 ---
 
 # Generate music from text prompt - ComfyUI
@@ -572,4 +572,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/registry/api-reference/sonilo/generate-music-from-text-prompt.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/registry/api-reference/sonilo/generate-music-from-text-prompt)
 
-[Get the status of one skin enhancer task](https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-one-skin-enhancer-task)[Generate music from video](https://docs.comfy.org/es/registry/api-reference/sonilo/generate-music-from-video)
+[Get the status of one skin enhancer task](https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-one-skin-enhancer-task)[Get a Sonilo task](https://docs.comfy.org/es/registry/api-reference/sonilo/get-a-sonilo-task)
