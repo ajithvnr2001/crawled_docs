@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/download/
 title: Batch - Download Results | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:23.518682+00:00
+fetched_at: 2026-11-01T06:38:47.659553+00:00
 ---
 
 # Batch - Download Results | Sarvam API Docs

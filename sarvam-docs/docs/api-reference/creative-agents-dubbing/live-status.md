@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/creative-agents-dubbing/live-status/
 title: Live Status | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:31.868889+00:00
+fetched_at: 2026-11-01T06:38:54.067170+00:00
 ---
 
 # Live Status | Sarvam API Docs

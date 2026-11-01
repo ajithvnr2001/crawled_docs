@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/parse/
 title: Parse Document | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:30.399855+00:00
+fetched_at: 2026-11-01T06:38:52.863617+00:00
 ---
 
 # Parse Document | Sarvam API Docs

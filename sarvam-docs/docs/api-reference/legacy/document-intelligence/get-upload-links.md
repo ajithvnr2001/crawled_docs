@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/legacy/document-intelligence/get-upload-links/
 title: Get Upload Links | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:28.299207+00:00
+fetched_at: 2026-11-01T06:38:51.094415+00:00
 ---
 
 # Get Upload Links | Sarvam API Docs

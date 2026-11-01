@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/models-v2/
 title: List Models V2 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:32.156574+00:00
+fetched_at: 2026-11-01T06:38:54.531926+00:00
 ---
 
 # List Models V2 | Sarvam API Docs

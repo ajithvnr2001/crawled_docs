@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/clone-ws/
 title: WebSocket | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:19.133278+00:00
+fetched_at: 2026-11-01T06:38:43.373446+00:00
 ---
 
 # WebSocket | Sarvam API Docs
@@ -36,7 +36,7 @@ Try it
 
 Messages
 
-### { "type": "config", "data": { "target_language_code": "as-IN" } }Voice Cloning Configure Connection
+### { "type": "config", "data": {} }Voice Cloning Configure Connection
 
 ### { "type": "audio", "data": { "content_type": "content_type", "audio": "audio" } }Voice Cloning Audio Output
 

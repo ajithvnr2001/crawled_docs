@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:24.597811+00:00
+fetched_at: 2026-11-01T06:38:48.330475+00:00
 ---
 
 # Create Response | Sarvam API Docs
@@ -88,7 +88,7 @@ Model IDs accepted by `POST /v2/responses` (case-sensitive; unknown ids return `
   * **`glm5.3`** — 1,048,576-token context; reasoning in `output` as a `reasoning` item; flat function tools; max request size 10,485,760 bytes.
   * **`glm5.3-flash`** — long context, vision (inline base64 images), tools, and reasoning; `reasoning.effort` accepts `low` or `high` only, as on `glm5.3`.
   * **`gemma4`** — 262,144-token context, vision (inline base64 images), tools, and optional reasoning (`reasoning.effort` `low` or `high`).
-  * **`deepseekv4.1-flash-1017`** (beta) — long context, tools, and reasoning.
+  * **`deepseekv4.1-flash-1017`** — long context, tools, and reasoning.
   * **`deepseekv4-pro`** (beta) — long context, text input, tools, and reasoning (default `high`).
   * **`kimi-k3`** (beta) — long context, image input (inline base64; no video on this route), tools, and reasoning (always on).
   * **`mimo-v2.6-flash`** (beta) — long context, image and audio input (inline base64; no video on this route), tools, and reasoning (on by default).

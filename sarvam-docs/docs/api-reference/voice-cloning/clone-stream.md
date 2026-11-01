@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/clone-stream/
 title: REST Stream | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:19.010354+00:00
+fetched_at: 2026-11-01T06:38:44.001990+00:00
 ---
 
 # REST Stream | Sarvam API Docs
@@ -46,8 +46,6 @@ Python
     
         text="\u0928\u092e\u0938\u094d\u0924\u0947\u0964 \u092f\u0939 \u090f\u0915 \u0938\u094d\u091f\u094d\u0930\u0940\u092e\u093f\u0902\u0917 \u091f\u0947\u0938\u094d\u091f \u0939\u0948\u0964",
     
-        language_code="hi-IN",
-    
         output_audio_codec="mp3",
     
     )
@@ -71,7 +69,7 @@ Provide **exactly one** of:
 
 
 
-Sending both returns `400`. The response is a binary audio stream (not JSON), so you can begin playback as soon as the first sentence is ready.
+Sending both returns `400`. `language_code` is optional — omit it to detect the language from `text`, or pass it when pronunciation has to be exact. The response is a binary audio stream (not JSON), so you can begin playback as soon as the first sentence is ready.
 
 Accepts `multipart/form-data`.
 
@@ -111,9 +109,9 @@ textstringRequired`1-1000 characters`
 
 Text to synthesize in the cloned voice. Native scripts and code-mixed text are supported. Maximum 1000 characters; longer text is rejected with a 400. Split longer input client-side and synthesize it in parts.
 
-language_codeenumRequired
+language_codeenumOptional
 
-BCP-47 language code for the synthesized output. The cloned voice can speak any supported language, regardless of the reference clip’s language (cross-lingual cloning).
+BCP-47 language code for the synthesized output. The cloned voice can speak any supported language, regardless of the reference clip’s language (cross-lingual cloning). Omit it to detect the language from `text`. Detection can be wrong on short or code-mixed text — pass this when pronunciation has to be exact. Romanized Indic and Urdu return 400; short Assamese without ৰ or ৱ is often detected as Bengali, so pass `as-IN`.
 
 **Available Options:**
 

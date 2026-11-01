@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/migrations/from-elevenlabs/voice-cloning/
 title: Migrating Instant Voice Cloning from ElevenLabs to Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:40.768943+00:00
+fetched_at: 2026-11-01T06:38:42.172921+00:00
 ---
 
 # Migrating Instant Voice Cloning from ElevenLabs to Sarvam | Sarvam API Docs
@@ -130,7 +130,7 @@ SDK equivalents: `client.voices.ivc.create(...)` on ElevenLabs, `client.voiceClo
     
       }' --output speech.mp3
 
-Two response-handling changes: Sarvam returns JSON, so decode `response.audio` from base64, and `language_code` is required on every synthesis call. Sample rates above 24000 Hz are neural-upsampled; see [Choose Audio Formats](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/choose-audio-formats).
+Two response-handling changes: Sarvam returns JSON, so decode `response.audio` from base64. `language_code` is optional — omit it to detect the language from `text`, or pass it when pronunciation has to be exact. Sample rates above 24000 Hz are neural-upsampled; see [Choose Audio Formats](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/choose-audio-formats).
 
 SDK equivalent: `client.voiceCloning.textToSpeech({ voiceId, text, language_code })` on Sarvam’s `sarvamai` SDK.
 
@@ -138,7 +138,7 @@ SDK equivalent: `client.voiceCloning.textToSpeech({ voiceId, text, language_code
 
   * **Built-in quality control.** `enable_qc` (on by default) transcribes the generation back with ASR, scores the character error rate against your text, and retries failing generations before returning anything.
   * **Cross-lingual cloning in one call.** Clone a voice once and synthesize across the supported languages by changing `language_code` \- see [Clone Across Languages](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/clone-across-languages).
-  * **Explicit language targeting.** Every request carries a required `language_code` across 13 Indian languages, so pronunciation and prosody are correct by design rather than auto-detected.
+  * **Explicit language targeting.** Pass `language_code` across 12 Indian languages when pronunciation has to be exact. You can also omit it and let the service detect the language from `text`.
   * **Duration control.** `max_audio_duration` targets a fixed output length (use it or `pace`, not both - sending both returns a 400).
 
 
@@ -244,6 +244,7 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -273,7 +274,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)

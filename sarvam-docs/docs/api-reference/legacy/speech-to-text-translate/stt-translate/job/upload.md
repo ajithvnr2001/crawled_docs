@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/legacy/speech-to-text-translate/stt-translate/job/upload/
 title: Batch - Upload Files | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:26.513302+00:00
+fetched_at: 2026-11-01T06:38:49.911762+00:00
 ---
 
 # Batch - Upload Files | Sarvam API Docs

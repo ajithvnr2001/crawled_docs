@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/legacy/document-intelligence/start/
 title: Start Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:27.527292+00:00
+fetched_at: 2026-11-01T06:38:50.523930+00:00
 ---
 
 # Start Job | Sarvam API Docs

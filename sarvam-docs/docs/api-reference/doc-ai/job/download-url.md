@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/download-url/
 title: Get Download URL | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:30.274086+00:00
+fetched_at: 2026-11-01T06:38:52.600850+00:00
 ---
 
 # Get Download URL | Sarvam API Docs

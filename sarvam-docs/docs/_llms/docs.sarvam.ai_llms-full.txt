@@ -246,19 +246,19 @@ Clone a support agent once, then reply to WhatsApp text and voice notes in that 
 
 [Full changelog →](/changelog)
 
-[July 2026 Auto Speaker Count for Enterprise](/creative-dubbing-create)
+[October 2026 Custom APIs](/cowork/build/connectors)
 
-On the Enterprise plan, choose Auto (detect speakers) under Number of speakers and Content Studio detects the number of speakers for you.
+Store the keys for your own HTTPS APIs in Cowork and use them in your personal chats and on agents you own, so an agent can call a service you already pay for without anyone re-entering credentials.
 
 Read the changelog →
 
-[October 2026 Optional language on Instant Voice Cloning](/api/api-guides-tutorials/voice-cloning/supported-languages)
+[October 2026 Larger Knowledge Base Files](/cowork/build/knowledge-bases)
 
-Omit `language_code` on clone, stream, and WebSocket to detect the language from the text. Pass the code when pronunciation has to be exact.
+Add files up to 5 GB to a knowledge base. Files that are too large or the wrong type are now flagged with a clear message instead of disappearing without explanation.
 
-[October 2026 Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics API](/voice-agents/api/analytics/overview)
+[October 2026 Agent Session History](/cowork/build/chat)
 
-Download the recording of a transferred call's forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider's records with the new provider details.
+Agent pages now have a Mine / Team toggle, so you can see your own recent sessions or those of your teammates. Any session opens as a read-only transcript you can review after the run finishes.
 
 [October 2026 Bulbul V3 End of Life for Voice Agents](/voice-agents/build/voice-language)
 
@@ -341,8 +341,8 @@ Community
   - [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt.md)
   - [Introduction](https://docs.sarvam.ai/api-reference/conversations.md)
 - [Changelog](https://docs.sarvam.ai/changelog/llms.txt): Track API and product updates
+  - [October 31, 2026](https://docs.sarvam.ai/changelog/2026/10/31.md)
   - [October 30, 2026](https://docs.sarvam.ai/changelog/2026/10/30.md)
   - [October 29, 2026](https://docs.sarvam.ai/changelog/2026/10/29.md)
   - [October 28, 2026](https://docs.sarvam.ai/changelog/2026/10/28.md)
-  - [October 22, 2026](https://docs.sarvam.ai/changelog/2026/10/22.md)
-  - [October 20, 2026](https://docs.sarvam.ai/changelog/2026/10/20.md)
+  - [October 26, 2026](https://docs.sarvam.ai/changelog/2026/10/26.md)

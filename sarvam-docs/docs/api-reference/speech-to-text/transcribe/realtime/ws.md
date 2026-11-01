@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/speech-to-text/transcribe/realtime/ws/
 title: Realtime Streaming | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:22.323852+00:00
+fetched_at: 2026-11-01T06:38:46.368274+00:00
 ---
 
 # Realtime Streaming | Sarvam API Docs

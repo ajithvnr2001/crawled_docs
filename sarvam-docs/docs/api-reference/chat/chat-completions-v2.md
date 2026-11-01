@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/chat-completions-v2/
 title: Chat Completion V2 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:33.189867+00:00
+fetched_at: 2026-11-01T06:38:55.176948+00:00
 ---
 
 # Chat Completion V2 | Sarvam API Docs
@@ -173,7 +173,7 @@ Model IDs accepted by `POST /v2/chat/completions` (case-sensitive; unknown ids r
   * **`glm5.3`** — 1,048,576-token context window; visible reasoning in `reasoning_content` (billed as completion tokens); tool calling; max request size 10,485,760 bytes; `n` must be `1`.
   * **`glm5.3-flash`** — 1,048,576-token context window, image input (inline base64), tool calling, and reasoning (on by default).
   * **`gemma4`** — 262,144-token context window, image input (inline base64), tool calling, and optional reasoning (`reasoning_effort`).
-  * **`deepseekv4.1-flash-1017`** (beta) — 1,048,576-token context window, tool calling, and reasoning.
+  * **`deepseekv4.1-flash-1017`** — 1,048,576-token context window, tool calling, and reasoning.
   * **`deepseekv4-pro`** (beta) — 1,000,000-token context window; text input only; tool calling; reasoning (default `high`; `none` turns it off).
   * **`kimi-k3`** (beta) — 1,048,576-token context window; image input and short video clips (inline base64); tool calling; reasoning is always on (default `max`).
   * **`mimo-v2.6-flash`** (beta) — 1,048,576-token context window; image, audio, and video input (inline base64); tool calling; reasoning on by default (`none` turns it off).

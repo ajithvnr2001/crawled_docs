@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/get-voice/
 title: Get Voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:17.608135+00:00
+fetched_at: 2026-11-01T06:38:42.548464+00:00
 ---
 
 # Get Voice | Sarvam API Docs

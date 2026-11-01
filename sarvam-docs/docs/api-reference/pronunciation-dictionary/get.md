@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/pronunciation-dictionary/get/
 title: Get | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:25.061567+00:00
+fetched_at: 2026-11-01T06:38:48.843164+00:00
 ---
 
 # Get | Sarvam API Docs

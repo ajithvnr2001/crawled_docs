@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/clone/
 title: Generate Speech | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:19.285811+00:00
+fetched_at: 2026-11-01T06:38:43.531480+00:00
 ---
 
 # Generate Speech | Sarvam API Docs
@@ -48,8 +48,6 @@ Python
     
         text="\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0948\u0902 \u0906\u092a\u0915\u0940 \u0915\u0948\u0938\u0947 \u092e\u0926\u0926 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901?",
     
-        language_code="hi-IN",
-    
     )
     
     with open("output.wav", "wb") as f:
@@ -86,7 +84,7 @@ Accepts `multipart/form-data`.
 
 **Base URL:** `https://api.sarvam.ai`. **Auth:** send your key in the `api-subscription-key` header (recommended); `Authorization: Bearer <key>` is also accepted.
 
-The cloned voice is cross-lingual: the reference clip’s language does not need to match `language_code`.
+`language_code` is optional — omit it to detect the language from `text`, or pass it when pronunciation has to be exact. The cloned voice is cross-lingual: the reference clip’s language does not need to match `language_code`.
 
 **Billing:** charged per character of `text` against the `text_to_speech_voice_cloning` API. See the [pricing page](https://docs.sarvam.ai/api/getting-started/pricing).
 
@@ -118,9 +116,9 @@ textstringRequired`1-1000 characters`
 
 Text to synthesize in the cloned voice. Native scripts and code-mixed text are supported. Maximum 1000 characters; longer text is rejected with a 400. Split longer input client-side and synthesize it in parts.
 
-language_codeenumRequired
+language_codeenumOptional
 
-BCP-47 language code for the synthesized output. The cloned voice can speak any supported language, regardless of the reference clip’s language (cross-lingual cloning).
+BCP-47 language code for the synthesized output. The cloned voice can speak any supported language, regardless of the reference clip’s language (cross-lingual cloning). Omit it to detect the language from `text`. Detection can be wrong on short or code-mixed text — pass this when pronunciation has to be exact. Romanized Indic and Urdu return 400; short Assamese without ৰ or ৱ is often detected as Bengali, so pass `as-IN`.
 
 **Available Options:**
 
