@@ -1,10 +1,7 @@
 {
   "url": "https://docs.copilotkit.ai/teams/deepagents/interactive/",
   "file": "teams/deepagents/interactive.md",
-  "title": "Microsoft Teams + Deep Agents: Interactive messages and approvals",
+  "title": "Microsoft Teams + Langchain DeepAgents: Interactive messages and approvals",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:32:54.781589+00:00",
-  "html_len": 217816,
-  "md_len": 10068,
-  "depth": 0
+  "fetched_at": "2026-11-01T10:20:35.138168+00:00"
 }

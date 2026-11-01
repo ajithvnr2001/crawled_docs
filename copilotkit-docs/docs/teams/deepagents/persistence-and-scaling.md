@@ -1,11 +1,11 @@
 ---
 url: https://docs.copilotkit.ai/teams/deepagents/persistence-and-scaling/
-title: Microsoft Teams + Deep Agents: Persistence and scaling
+title: Microsoft Teams + Langchain DeepAgents: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:32:54.453485+00:00
+fetched_at: 2026-11-01T10:20:35.060422+00:00
 ---
 
-# Microsoft Teams + Deep Agents: Persistence and scaling
+# Microsoft Teams + Langchain DeepAgents: Persistence and scaling
 
 > Source: https://docs.copilotkit.ai/teams/deepagents/persistence-and-scaling/
 
@@ -15,7 +15,7 @@ fetched_at: 2026-10-08T09:32:54.453485+00:00
 
 [](https://docs.copilotkit.ai/)
 
-ChannelTeamsAgent backendDeep Agents
+ChannelTeamsAgent backendLangchain DeepAgents
 
 [Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/deepagents/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/deepagents/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/deepagents/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/deepagents/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/deepagents/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/deepagents/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/deepagents/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/deepagents/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/deepagents/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/deepagents/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/deepagents/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/deepagents/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/deepagents/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/deepagents/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/deepagents/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/deepagents/threads-and-state)
 
 Production
 

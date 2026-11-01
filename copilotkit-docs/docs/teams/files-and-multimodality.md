@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/files-and-multimodality/
 title: Microsoft Teams: Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:32:56.398009+00:00
+fetched_at: 2026-11-01T10:20:34.500680+00:00
 ---
 
 # Microsoft Teams: Files and multimodal input
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/threads-and-state)
 
 Production
 

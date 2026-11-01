@@ -1,10 +1,7 @@
 {
   "url": "https://docs.copilotkit.ai/teams/deepagents/identity-and-memory/",
   "file": "teams/deepagents/identity-and-memory.md",
-  "title": "Microsoft Teams + Deep Agents: Identity and Memory",
+  "title": "Microsoft Teams + Langchain DeepAgents: Identity and Memory",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:32:54.632753+00:00",
-  "html_len": 174164,
-  "md_len": 9597,
-  "depth": 0
+  "fetched_at": "2026-11-01T10:20:36.648733+00:00"
 }

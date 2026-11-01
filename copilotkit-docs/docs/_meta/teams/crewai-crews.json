@@ -3,8 +3,5 @@
   "file": "teams/crewai-crews.md",
   "title": "Microsoft Teams: Channels",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:32:44.694552+00:00",
-  "html_len": 119975,
-  "md_len": 7245,
-  "depth": 0
+  "fetched_at": "2026-11-01T10:20:39.156046+00:00"
 }

@@ -1,11 +1,11 @@
 ---
 url: https://docs.copilotkit.ai/teams/deepagents/rich-messages/
-title: Microsoft Teams + Deep Agents: Rich messages and components
+title: Microsoft Teams + Langchain DeepAgents: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:32:56.318826+00:00
+fetched_at: 2026-11-01T10:20:34.629097+00:00
 ---
 
-# Microsoft Teams + Deep Agents: Rich messages and components
+# Microsoft Teams + Langchain DeepAgents: Rich messages and components
 
 > Source: https://docs.copilotkit.ai/teams/deepagents/rich-messages/
 
@@ -15,7 +15,7 @@ fetched_at: 2026-10-08T09:32:56.318826+00:00
 
 [](https://docs.copilotkit.ai/)
 
-ChannelTeamsAgent backendDeep Agents
+ChannelTeamsAgent backendLangchain DeepAgents
 
 [Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/deepagents/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/deepagents/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/deepagents/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/deepagents/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/deepagents/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/deepagents/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/deepagents/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/deepagents/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/deepagents/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/deepagents/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/deepagents/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/deepagents/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/deepagents/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/deepagents/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/deepagents/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/deepagents/threads-and-state)
 
 Production
 
@@ -142,6 +142,8 @@ Channels component| Slack| Microsoft Teams
 `Chart`| Omitted by the Slack renderer| Teams chart extension where the client supports it  
   
 Unknown or unsupported nodes are omitted instead of failing the whole message. That makes portable rendering resilient, but it also means the text around an optional visual must still carry the important result.
+
+To post your own React component as an image, see [Posting JSX as images](https://docs.copilotkit.ai/teams/deepagents/posting-jsx-as-images). To mix native text with React snapshots in one message, see [Render and carousel](https://docs.copilotkit.ai/teams/deepagents/render-and-carousel).
 
 `Select` and `Input` have different interaction behavior by provider. Managed Slack dispatches those controls directly. Managed Teams renders Adaptive Card fields and submits them with a `Button`'s `Action.Submit`; that Button callback receives the other named fields in `ctx.values`. Teams does not dispatch `Select.onSelect` or `Input.onSubmit` independently.
 

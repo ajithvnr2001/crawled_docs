@@ -1,10 +1,7 @@
 {
   "url": "https://docs.copilotkit.ai/teams/deepagents/deploy-and-operate/",
   "file": "teams/deepagents/deploy-and-operate.md",
-  "title": "Microsoft Teams + Deep Agents: Deploy and operate",
+  "title": "Microsoft Teams + Langchain DeepAgents: Deploy and operate",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:32:51.826412+00:00",
-  "html_len": 163554,
-  "md_len": 9607,
-  "depth": 0
+  "fetched_at": "2026-11-01T10:20:36.771495+00:00"
 }

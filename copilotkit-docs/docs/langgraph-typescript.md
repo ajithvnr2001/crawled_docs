@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/langgraph-typescript/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T09:30:54.375196+00:00
+fetched_at: 2026-11-01T10:20:28.675199+00:00
 ---
 
 # Introduction

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/crewai-crews/identity-and-memory/
 title: Microsoft Teams + CrewAI Flows: Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:32:48.977914+00:00
+fetched_at: 2026-11-01T10:20:38.822169+00:00
 ---
 
 # Microsoft Teams + CrewAI Flows: Identity and Memory
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/crewai-crews/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/crewai-crews/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/crewai-crews/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/crewai-crews/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/crewai-crews/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/crewai-crews/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/crewai-crews/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/crewai-crews/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/crewai-crews/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/crewai-crews/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/crewai-crews/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/crewai-crews/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/crewai-crews/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/crewai-crews/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/crewai-crews/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/crewai-crews/threads-and-state)
 
 Production
 
