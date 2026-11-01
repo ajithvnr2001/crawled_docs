@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/agents/
 title: Gemini Agents API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:48.643247+00:00
+fetched_at: 2026-11-01T11:01:07.418830+00:00
 ---
 
 # Gemini Agents API

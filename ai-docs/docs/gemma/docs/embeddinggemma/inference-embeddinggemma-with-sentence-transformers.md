@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/embeddinggemma/inference-embeddinggemma-with-sentence-transformers/
 title: Generating Embeddings with EmbeddingGemma 2 and Sentence Transformers
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:42.423922+00:00
+fetched_at: 2026-11-01T11:01:04.905636+00:00
 ---
 
 # Generating Embeddings with EmbeddingGemma 2 and Sentence Transformers
