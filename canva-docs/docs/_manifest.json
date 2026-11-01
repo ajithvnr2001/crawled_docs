@@ -21,7 +21,7 @@
     "scrapegraph-ai (cleanup_html/convert_to_md)",
     "httpx (last resort)"
   ],
-  "generated_at": "2026-10-31T15:32:49.952526+00:00",
-  "last_verified": "2026-10-31",
+  "generated_at": "2026-11-01T16:28:42.531091+00:00",
+  "last_verified": "2026-11-01",
   "build_manifest_count": 1141
 }
