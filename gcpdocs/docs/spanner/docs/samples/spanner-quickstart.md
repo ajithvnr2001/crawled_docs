@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-quickstart/
 title: Quickstart \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:33.283447+00:00
+fetched_at: 2026-11-01T05:40:04.787909+00:00
 ---
 
 # Quickstart  |  Spanner  |  Google Cloud Documentation
@@ -346,7 +346,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     project_id = "YOUR_PROJECT_ID"
     
     # Instantiates a client
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     
     # Your Cloud Spanner instance ID
     instance_id = "my-instance"

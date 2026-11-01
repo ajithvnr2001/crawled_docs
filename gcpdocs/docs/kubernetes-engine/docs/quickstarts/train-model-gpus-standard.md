@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/quickstarts/train-model-gpus-standard/
 title: Quickstart: Train a model with GPUs on GKE Standard mode \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:44.483309+00:00
+fetched_at: 2026-11-01T05:43:45.884419+00:00
 ---
 
 # Quickstart: Train a model with GPUs on GKE Standard mode  |  GKE AI/ML  |  Google Cloud Documentation

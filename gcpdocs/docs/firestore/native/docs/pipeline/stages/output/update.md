@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/output/update/
 title: Update (Output Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:02.133343+00:00
+fetched_at: 2026-11-01T05:37:48.259188+00:00
 ---
 
 # Update (Output Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -59,7 +59,7 @@ For example, the following operation backfills a data model change to all docume
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L3166-L3176)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L3166-L3176)
 
 ##### Java
     

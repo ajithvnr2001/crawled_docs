@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/transparency-and-control-center/audit-logging/
 title: Audit logging in Transparency and Control Center \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:52.502146+00:00
+fetched_at: 2026-11-01T05:40:46.060080+00:00
 ---
 
 # Audit logging in Transparency and Control Center  |  Recommender  |  Google Cloud Documentation

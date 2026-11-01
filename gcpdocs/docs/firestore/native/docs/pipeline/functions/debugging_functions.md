@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/debugging_functions/
 title: Debugging Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:53.356148+00:00
+fetched_at: 2026-11-01T05:36:31.128280+00:00
 ---
 
 # Debugging Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -83,7 +83,7 @@ Returns `TRUE` if `value` is not the absent value.
       .select([Field("rating").exists().as("hasRating")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L869-L872)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L901-L904)
 
 ##### Kotlin  
 Android
@@ -123,7 +123,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L1126-L1133)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1126-L1133)
 
 ##### Java
     

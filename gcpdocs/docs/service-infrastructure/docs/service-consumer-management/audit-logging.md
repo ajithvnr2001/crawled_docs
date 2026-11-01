@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-infrastructure/docs/service-consumer-management/audit-logging/
 title: Service Consumer Management audit logging \u00a0|\u00a0 Service Infrastructure \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:53.260285+00:00
+fetched_at: 2026-11-01T05:40:23.719594+00:00
 ---
 
 # Service Consumer Management audit logging  |  Service Infrastructure  |  Google Cloud Documentation

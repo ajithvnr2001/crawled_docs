@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights/
 title: Improve query performance using advanced query insights features for AlloyDB \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:54:10.886208+00:00
+fetched_at: 2026-11-01T05:45:20.153299+00:00
 ---
 
 # Improve query performance using advanced query insights features for AlloyDB  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -71,8 +71,9 @@ This entails the following configuration changes by default:
 
      * Turns on the **Wait event analysis** and **Active query analysis** checkboxes.
      * Increases the query length from 4500B to 100000B.
-  6. Save your changes. This restarts your AlloyDB for PostgreSQL instance.
+  6. Save your changes. For clusters compatible with PostgreSQL 17 or earlier, saving your changes restarts your AlloyDB for PostgreSQL instance.
 
+**Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
 
 **Note:** The increased data storage may incur additional charges.
 
@@ -178,8 +179,11 @@ To edit the advanced query insights configuration for an AlloyDB instance, follo
      * **Store client IP addresses** Enable to track client IP addresses and analyze that data.
      * **Store application tags** Enable to learn which APIs and model-view-controller routes are making requests, and group that data to run metrics against it.
      * **Query plan sampling** Query plans visualize the operations used to complete a sample of a query. The sampling rate determines how many query samples can be captured per minute across your databases. Higher rates require more memory.
-     * In the **Query lengths** field, you can change the default limit on query lengths, from 256 bytes up to 100 KB. Higher query lengths require more memory. Changing query length requires instance restart.
-  5. Save your changes.
+
+       * In the **Query lengths** field, you can change the default limit on query lengths, from 256 bytes up to 100 KB. Higher query lengths require more memory. For clusters compatible with PostgreSQL 17 or earlier, changing query length requires an instance restart.
+
+**Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
+     * Save your changes.
 
 
 
@@ -222,10 +226,11 @@ Replace the following:
   * `CLUSTER`: the ID of the instance's cluster.
   * `PROJECT`: the ID of the cluster's project.
   * `REGION`: the cluster's region—for example, `us-central1`.
-  * `QUERY_LENGTH`: the length of the query that ranges from 1024 to 100000 bytes. The default query length is 10240 bytes. Higher query lengths are more useful for analytical queries, but they also require more memory. Changing the query length requires you to [restart the instance](https://docs.cloud.google.com/alloydb/docs/instance-restart). You can still add tags to queries that exceed the length limit.
-  * `QUERY_PLANS`: the number of query plans to configure per minute. By default, a maximum of 20 executed query plan samples are captured per minute across all databases on the instance. Change this value to a number from 1 to 200. To disable sampling, enter 0. Increasing the sampling rate is likely to give you more data points but might negatively affect performance.
+  * `QUERY_LENGTH`: the length of the query that ranges from 1024 to 100000 bytes. The default query length is 10240 bytes. Higher query lengths are more useful for analytical queries, but they also require more memory. For clusters compatible with PostgreSQL 17 or earlier, changing the query length requires you to [restart the instance](https://docs.cloud.google.com/alloydb/docs/instance-restart).
 
+**Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
 
+You can still add tags to queries that exceed the length limit. * `QUERY_PLANS`: the number of query plans to configure per minute. By default, a maximum of 20 executed query plan samples are captured per minute across all databases on the instance. Change this value to a number from 1 to 200. To disable sampling, enter 0. Increasing the sampling rate is likely to give you more data points but might negatively affect performance.
 
 Use the following optional observability flags if needed:
 
@@ -237,9 +242,9 @@ Use the following optional observability flags if needed:
   * `--observability-config-preserve-comments`: keeps comments in query strings recorded by query insights. If you don't want to keep comments, use `--no-observability-config-preserve-comments`.
   * `--observability-config-track-wait-events`: enables tracking of wait events during query execution. If you don't want to track wait events, use `--no-observability-config-track-wait-events`.
   * `--observability-config-query-plans-per-minute=QUERY_PLANS`: the number of query plans to sample per minute. By default, a maximum of 20 executed query plan samples are captured per minute across all databases on the instance. Change this value to a number from 1 to 200. To disable sampling, enter 0. Increasing the sampling rate is likely to give you more data points but might negatively affect performance.
-  * `--observability-config-max-query-string-length=QUERY_LENGTH`: the query string length in bytes to store. The default value is 10240 bytes. Any value from 1024 to 100000 is allowed. Changing the query length requires you to restart the instance.
+  * `--observability-config-max-query-string-length=QUERY_LENGTH`: the query string length in bytes to store. The default value is 10240 bytes. Any value from 1024 to 100000 is allowed. For clusters compatible with PostgreSQL 17 or earlier, changing the query length requires you to [restart the instance](https://docs.cloud.google.com/alloydb/docs/instance-restart).
 
-
+**Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
 
 ### Terraform
 
@@ -612,6 +617,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

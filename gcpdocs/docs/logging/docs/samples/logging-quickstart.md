@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-quickstart/
 title: Logging quickstart \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:38.146520+00:00
+fetched_at: 2026-11-01T05:36:13.081516+00:00
 ---
 
 # Logging quickstart  |  Google Cloud Documentation
@@ -273,7 +273,7 @@ To authenticate to Logging, set up Application Default Credentials. For more inf
     require "google/cloud/logging"
     
     # Instantiates a client
-    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
+    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_control-v1/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
     
     # Prepares a log entry
     entry = logging.[entry](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging-Project.html)

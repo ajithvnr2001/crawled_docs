@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/application-security/
 title: Overview of app security \u00a0|\u00a0 App Engine flexible environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:28:33.948215+00:00
+fetched_at: 2026-11-01T05:45:24.043124+00:00
 ---
 
 # Overview of app security  |  App Engine flexible environment  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ OK
 
 Security is a core feature of the Google Cloud, but there are still steps you should take to protect your App Engine app and identify vulnerabilities.
 
-Use the following features to ensure that your App Engine app is secure. To learn more about the Google Security Model and the available steps that you can take to secure your Google Cloud projects, see [Google Cloud Platform Security](https://docs.cloud.google.com/security).
+Use the following features to ensure that your App Engine app is secure. To learn more about the Google Security Model and the available steps that you can take to secure your Google Cloud projects, see [Google Cloud Security](https://cloud.google.com/security).
 
 ## HTTPS requests
 
@@ -83,6 +83,21 @@ For details about creating rules and configuring your firewall, see [Controlling
 
 You can use Ingress controls to restrict inbound traffic to your App Engine app. By default, your App Engine app accepts traffic from all network origins. To modify the default settings, and edit and view the available settings, see [Specify ingress settings](https://docs.cloud.google.com/appengine/docs/flexible/ingress-settings).
 
+## Egress controls
+
+By default, flexible environment instances receive an ephemeral external IP address to send outbound requests to resources on the internet. To prevent instances from using default ephemeral external IP addresses, set `instance_ip_mode: internal` in your `app.yaml` file and route outbound internet traffic through Cloud NAT with reserved static IP addresses. For configuration steps, see [Send external requests without an external IP address](https://docs.cloud.google.com/appengine/docs/flexible/disable-external-ip#send-to-external). 
+
+### Shared internet egress risks and acceptable use
+
+By default, outbound traffic to the public internet uses ephemeral external IP addresses from a shared Google Cloud pool. Keep the following risks and responsibilities in mind: 
+* Prior or noisy traffic on the shared IP address pool can degrade the reputation of ephemeral external IP addresses. External firewalls and third-party web application firewalls (WAFs) might throttle or block requests from these IP addresses, causing connection timeouts or `HTTP 403` errors.
+
+* Don't use default ephemeral external IP addresses for reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs behind WAFs. Instead, set `instance_ip_mode: internal` and use Cloud NAT with dedicated static external IP addresses as described in [Send external requests without an external IP address](https://docs.cloud.google.com/appengine/docs/flexible/disable-external-ip#send-to-external).
+
+* Don't run network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing over default ephemeral external IP addresses. Unisolated scanning activity degrades IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+
+* If you run authorized security scanning, host fingerprinting, or load testing workloads, you must isolate your outbound traffic. Configure instances with `instance_ip_mode: internal` and route outbound requests through [Cloud NAT](https://docs.cloud.google.com/appengine/docs/flexible/disable-external-ip#send-to-external) using your own static external IP addresses. 
+
 ## Security scanner
 
 The Google Cloud [Web Security Scanner](https://docs.cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview) discovers vulnerabilities by crawling your App Engine app, following all that links within the scope of your starting URLs, and attempting to exercise as many user inputs and event handlers as possible.
@@ -99,6 +114,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

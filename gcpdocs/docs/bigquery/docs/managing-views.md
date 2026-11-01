@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-views/
 title: Manage logical views \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:11.581954+00:00
+fetched_at: 2026-11-01T05:36:50.491372+00:00
 ---
 
 # Manage logical views  |  BigQuery  |  Google Cloud Documentation
@@ -111,13 +111,9 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
   3. Click **Overview > Tables**, and then select a view.
 
-  4. Click the **Details** tab.
+  4. In the details pane, click **Edit > Edit query**. This opens the query in the query editor.
 
-  5. Above the **Query** box, click **Edit query**. This opens the query in the query editor.
-
-![Edit query](https://docs.cloud.google.com/static/bigquery/images/edit-query-button.png)
-
-  6. Edit the SQL query and then click **Save view > Save view**:
+  5. Edit the SQL query and then click **Save view > Save view**:
 
 ![Save a view in editor](https://docs.cloud.google.com/static/bigquery/images/save-view-button.png)
 
@@ -380,9 +376,9 @@ To update a view's expiration time:
 
   3. Click **Overview > Tables**, and then select the view.
 
-  4. Click the **Details** tab and then click **Edit details**.
+  4. In the details pane, click **Edit > Edit details**.
 
-  5. In the **Edit detail** dialog, in the **Expiration time** menu, select **Specify date**.
+  5. In the **Edit details** pane, in the **Expiration time** menu, select **Specify date**.
 
   6. In the **Expiration time** field, select a date and time using the date picker tool.
 
@@ -601,13 +597,11 @@ You cannot add a description when you create a view using the Google Cloud conso
 
   3. Click **Overview > Tables**, and then select the view.
 
-  4. Click the **Details** tab.
+  4. In the details pane, click **Edit > Edit details**.
 
-  5. Click **Edit details** in the **View info** section.
+  5. In the **Edit details** pane, in the **Description** field, enter a new description or edit an existing description.
 
-  6. In the **Edit detail** dialog, in the **Description** field, enter a new description or edit an existing description.
-
-  7. To save the new description, click **Save**.
+  6. To save the new description, click **Save**.
 
 
 
@@ -834,7 +828,7 @@ To copy a view, follow these steps:
 
   3. Click **Overview > Tables**, and then select the view.
 
-  4. In the details pane, click **Copy**.
+  4. In the details pane, click **More > Make a copy of view**.
 
   5. In the **Copy view** dialog, do the following:
 
@@ -924,7 +918,7 @@ To delete a view:
 
   4. Click **Overview > Tables**, and then click the view.
 
-  5. In the details pane, click **Delete**.
+  5. In the details pane, click **More > Delete**.
 
   6. Type `"delete"` in the dialog, and click **Delete** to confirm.
 
@@ -1161,7 +1155,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def delete_table dataset_id = "my_dataset_id", table_id = "my_table_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table    = dataset.table table_id
     
@@ -1195,6 +1189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

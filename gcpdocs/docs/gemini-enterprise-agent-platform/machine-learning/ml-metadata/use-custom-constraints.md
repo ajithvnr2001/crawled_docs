@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/use-custom-constraints/
 title: Use custom constraints with metadata stores \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:09.391998+00:00
+fetched_at: 2026-11-01T05:37:30.547009+00:00
 ---
 
 # Use custom constraints with metadata stores  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

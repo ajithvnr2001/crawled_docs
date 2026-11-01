@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-partitions/
 title: Create and manage instance partitions \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:13:52.738549+00:00
+fetched_at: 2026-11-01T05:40:05.708834+00:00
 ---
 
 # Create and manage instance partitions  |  Spanner  |  Google Cloud Documentation

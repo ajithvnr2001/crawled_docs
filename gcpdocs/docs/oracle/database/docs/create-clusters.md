@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/create-clusters/
 title: Create Exadata VM Cluster \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:46.463618+00:00
+fetched_at: 2026-11-01T05:42:06.919486+00:00
 ---
 
 # Create Exadata VM Cluster  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -481,29 +481,18 @@ Replace the following:
      *                                                             cluster resource is created, in the following format:
      *                                                             projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
      *                                                             Please see {@see OracleDatabaseClient::cloudExadataInfrastructureName()} for help formatting this field.
-     * @param string $cloudVmClusterCidr                           Network settings. CIDR to use for cluster IP allocation.
-     * @param string $cloudVmClusterBackupSubnetCidr               CIDR range of the backup subnet.
-     * @param string $formattedCloudVmClusterNetwork               The name of the VPC network.
-     *                                                             Format: projects/{project}/global/networks/{network}
-     *                                                             Please see {@see OracleDatabaseClient::networkName()} for help formatting this field.
      */
     function create_cloud_vm_cluster_sample(
         string $formattedParent,
         string $cloudVmClusterId,
-        string $formattedCloudVmClusterExadataInfrastructure,
-        string $cloudVmClusterCidr,
-        string $cloudVmClusterBackupSubnetCidr,
-        string $formattedCloudVmClusterNetwork
+        string $formattedCloudVmClusterExadataInfrastructure
     ): void {
         // Create a client.
         $oracleDatabaseClient = new OracleDatabaseClient();
     
         // Prepare the request message.
         $cloudVmCluster = (new CloudVmCluster())
-            ->setExadataInfrastructure($formattedCloudVmClusterExadataInfrastructure)
-            ->setCidr($cloudVmClusterCidr)
-            ->setBackupSubnetCidr($cloudVmClusterBackupSubnetCidr)
-            ->setNetwork($formattedCloudVmClusterNetwork);
+            ->setExadataInfrastructure($formattedCloudVmClusterExadataInfrastructure);
         $request = (new CreateCloudVmClusterRequest())
             ->setParent($formattedParent)
             ->setCloudVmClusterId($cloudVmClusterId)
@@ -547,17 +536,11 @@ Replace the following:
             '[LOCATION]',
             '[CLOUD_EXADATA_INFRASTRUCTURE]'
         );
-        $cloudVmClusterCidr = '[CIDR]';
-        $cloudVmClusterBackupSubnetCidr = '[BACKUP_SUBNET_CIDR]';
-        $formattedCloudVmClusterNetwork = OracleDatabaseClient::networkName('[PROJECT]', '[NETWORK]');
     
         create_cloud_vm_cluster_sample(
             $formattedParent,
             $cloudVmClusterId,
-            $formattedCloudVmClusterExadataInfrastructure,
-            $cloudVmClusterCidr,
-            $cloudVmClusterBackupSubnetCidr,
-            $formattedCloudVmClusterNetwork
+            $formattedCloudVmClusterExadataInfrastructure
         );
     }
 

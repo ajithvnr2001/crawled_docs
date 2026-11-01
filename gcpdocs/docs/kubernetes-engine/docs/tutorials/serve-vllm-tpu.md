@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-vllm-tpu/
 title: Serve an LLM using TPU Trillium on GKE with vLLM \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:45.233746+00:00
+fetched_at: 2026-11-01T05:42:30.288673+00:00
 ---
 
 # Serve an LLM using TPU Trillium on GKE with vLLM  |  GKE AI/ML  |  Google Cloud Documentation

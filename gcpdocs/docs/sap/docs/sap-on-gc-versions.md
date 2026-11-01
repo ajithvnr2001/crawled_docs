@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-on-gc-versions/
 title: Google Cloud tools and SDKs for SAP \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:55:55.259107+00:00
+fetched_at: 2026-11-01T05:40:33.343581+00:00
 ---
 
 # Google Cloud tools and SDKs for SAP  |  SAP on Google Cloud  |  Google Cloud Documentation

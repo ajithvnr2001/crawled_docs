@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/object-enrichments/models/
 title: Supported models and schemas \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:09.935080+00:00
+fetched_at: 2026-11-01T05:39:55.448034+00:00
 ---
 
 # Supported models and schemas  |  Cloud Storage  |  Google Cloud Documentation

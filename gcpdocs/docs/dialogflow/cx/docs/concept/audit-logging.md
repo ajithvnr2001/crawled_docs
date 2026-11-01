@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/audit-logging/
 title: Dialogflow CX audit logging information \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:39.181691+00:00
+fetched_at: 2026-11-01T05:38:21.579690+00:00
 ---
 
 # Dialogflow CX audit logging information  |  Google Cloud Documentation

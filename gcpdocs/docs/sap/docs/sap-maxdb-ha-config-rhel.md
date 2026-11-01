@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-maxdb-ha-config-rhel/
 title: Manual HA cluster configuration guide for SAP MaxDB on RHEL \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:57:07.897991+00:00
+fetched_at: 2026-11-01T05:40:33.522435+00:00
 ---
 
 # Manual HA cluster configuration guide for SAP MaxDB on RHEL  |  SAP on Google Cloud  |  Google Cloud Documentation

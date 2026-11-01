@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/manage-users/
 title: Managing users programmatically \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:26.623080+00:00
+fetched_at: 2026-11-01T05:38:03.699413+00:00
 ---
 
 # Managing users programmatically  |  Identity Platform  |  Google Cloud Documentation
@@ -268,7 +268,7 @@ You can also retrieve a list of users based on identifiers that you provide. You
       System.out.println(uid);
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/snippets-java/blob/7051da2745f8f95b176c9c6347e0bb0db3de1112/admin/src/main/java/com/google/firebase/example/FirebaseAuthSnippets.java#L36-L50)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/snippets-java/blob/38d6deeeb782759fb0a878148db027433bcc67b8/admin/src/main/java/com/google/firebase/example/FirebaseAuthSnippets.java#L36-L50)
 
 ### Python
     
@@ -804,7 +804,7 @@ You can also delete multiple users at once:
       System.out.println("error #" + error.getIndex() + ", reason: " + error.getReason());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/snippets-java/blob/7051da2745f8f95b176c9c6347e0bb0db3de1112/admin/src/main/java/com/google/firebase/example/FirebaseAuthSnippets.java#L56-L63)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/snippets-java/blob/38d6deeeb782759fb0a878148db027433bcc67b8/admin/src/main/java/com/google/firebase/example/FirebaseAuthSnippets.java#L56-L63)
 
 ### Python
     

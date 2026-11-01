@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/connect-to-vm/ip-addresses/
 title: Enable IP addresses \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:13.207481+00:00
+fetched_at: 2026-11-01T05:45:28.078182+00:00
 ---
 
 # Enable IP addresses  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -81,6 +81,29 @@ You can enable and disable the external access of a VM by specifying `true` or `
 
 To enable external access of a VM by creating a new VMEA, complete the following:
 
+###  gdcloud 
+
+Use the `gdcloud compute` command with the `--enable-external-access` flag to enable external access on a VM instance:
+    
+    
+    gdcloud compute instances create VM_NAME \
+      --project PROJECT \
+      --machine-type MACHINE_TYPE \
+      --image IMAGE \
+      --image-project IMAGE_PROJECT \
+      --enable-external-access
+    
+
+Replace the following:
+
+  * `VM_NAME`: the name of the VM.
+  * `PROJECT`: the Distributed Cloud project where the VM resides.
+  * `MACHINE_TYPE`: the name of the predefined machine type for the virtual machine instance.
+  * `IMAGE`: the boot image name for the instance.
+  * `IMAGE_PROJECT`: the project of the boot image for the instance.
+
+
+
 ###  API 
 
 Run the following command:
@@ -101,13 +124,14 @@ Run the following command:
     EOF
     
 
-Replace the following variables:
+Replace the following:
 
-  * MANAGEMENT_API_SERVER: the kubeconfig file to the Management API server
-  * VM_NAME: the name of your VM
-  * PORT_NAME: the port name
-  * PROTOCOL: the protocol you want the ingress service to use. The protocol name must be capitalized and a Kubernetes supported protocol, such as `TCP`, `UDP`, or `SCTP`
-  * PORT_NUMBER: the port number
+  * `MANAGEMENT_API_SERVER`: the kubeconfig file for the Management API server.
+  * `PROJECT`: the Distributed Cloud project where the VM resides.
+  * `VM_NAME`: the name of your VM.
+  * `PORT_NAME`: the port name.
+  * `PROTOCOL`: the protocol that you want the ingress service to use. The protocol name must be capitalized and a Kubernetes-supported protocol, such as `TCP`, `UDP`, or `SCTP`.
+  * `PORT_NUMBER`: the port number.
 
 **Note:** Update `enabled` field to `true`.
 
@@ -118,29 +142,6 @@ To enable external access of a VM by editing an existing VMEA through the VMM AP
       -n PROJECT \
       edit virtualmachineexternalaccesses.virtualmachine.gdc.goog VM_NAME
     
-
-###  gdcloud 
-
-Use the `gdcloud compute` command with the `--enable-external-access` flag to enable external access on a VM instance:
-    
-    
-    gdcloud compute instances create VM_NAME \
-      --project PROJECT \
-      --machine-type MACHINE_TYPE \
-      --image IMAGE \
-      --image-project IMAGE_PROJECT \
-      --enable-external-access
-    
-
-Replace the following variables:
-
-  * VM_NAME: the name of the VM
-  * PROJECT: the Distributed Cloud project where the VM resides
-  * MACHINE_TYPE: the name of the predefined machine type for the virtual machine instance
-  * IMAGE: the boot image name for the instance
-  * IMAGE_PROJECT: the project of the boot image for the instance
-
-
 
 ### Disable external access
 
@@ -294,6 +295,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

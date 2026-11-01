@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/sync-bigquery-data-to-alloydb/
 title: Sync BigQuery data to AlloyDB \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:11.069466+00:00
+fetched_at: 2026-11-01T05:38:19.382148+00:00
 ---
 
 # Sync BigQuery data to AlloyDB  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ AlloyDB provides the following ways to move BigQuery data into your instance:
 
   * **One-time sync:** creates a writable, independent copy of your BigQuery table.
 
-  * **Periodic sync (mirroring):** creates a read-only local table that automatically refreshes on a schedule—for example, every 6 hours or daily.
+  * **Periodic sync or mirroring:** creates a read-only local table that automatically refreshes on a schedule—for example, every 6 hours or daily.
 
 
 
@@ -159,7 +159,7 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
   4. Click **Overview** > **Tables** , and then select a table.
 
-  5. In the details pane, click upload **Export / sync** > **AlloyDB (Export once or sync)**.
+  5. In the details pane, click **More > Export or sync to AlloyDB**.
 
   6. Under **Choose a project** , select the project for your AlloyDB cluster. If you have the required permissions, you can select a project other than your current BigQuery project.
 
@@ -288,7 +288,7 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
   4. Click **Overview** > **Tables** , and then select a table.
 
-  5. In the details pane, click upload **Export / sync** > **AlloyDB (Export once or sync)**.
+  5. In the details pane, click **More > Export or sync to AlloyDB**.
 
   6. Under **Choose a project** , select the project for your AlloyDB cluster. If you have the required permissions, you can select a project other than your current BigQuery project.
 
@@ -304,7 +304,7 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
        4. Specify a name for your destination AlloyDB table.
 
-       5. For **Sync frequency** , select a timeframe to create a periodic sync of the BigQuery table.—for example, **Every hour** , **Every six hours**.
+       5. For **Sync frequency** , select a timeframe to create a periodic sync of the BigQuery table—for example, **Every hour** , **Every six hours**.
 
        6. Click **Setup export**.
 
@@ -468,6 +468,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

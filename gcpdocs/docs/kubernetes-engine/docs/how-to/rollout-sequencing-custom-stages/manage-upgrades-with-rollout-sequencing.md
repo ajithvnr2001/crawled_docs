@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing-custom-stages/manage-upgrades-with-rollout-sequencing/
 title: Sequence the rollout of cluster upgrades with custom stages \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:40.860562+00:00
+fetched_at: 2026-11-01T05:38:27.783554+00:00
 ---
 
 # Sequence the rollout of cluster upgrades with custom stages  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -188,7 +188,7 @@ This section shows you how to create a rollout sequence with custom stages using
   1. Add the following block to your Terraform configuration to create a rollout sequence resource:
          
          resource "google_gke_hub_rollout_sequence" "rollout_sequence" {
-           rollout_sequence_id = "ROLLOUT_SEQUENCE_NAME"
+           rollout_sequence_id = &quot;ROLLOUT_SEQUENCE_NAME&quot;
            display_name        = "DISPLAY_NAME"
            stages {
              fleet_projects = ["projects/dev"]
@@ -199,7 +199,7 @@ This section shows you how to create a rollout sequence with custom stages using
              cluster_selector {
                label_selector = "resource.labels.canary=='true'"
              }
-             soak_duration  = "7d"
+             soak_duration  = &quot;7d"
            }
            stages {
              fleet_projects = ["projects/prod"]
@@ -236,7 +236,7 @@ Run the following command:
     
     
     gcloud container fleet rolloutsequences upgrade ROLLOUT_SEQUENCE_NAME \
-        --control-plane-version="CONTROL_PLANE_VERSION"
+        --control-plane-version=&quot;CONTROL_PLANE_VERSION"
     
 
 Replace the following:
@@ -253,7 +253,7 @@ If you use Terraform to manage your rollout sequence, you can roll out a specifi
 Add the following field to the block. You can add the field anywhere except between the `stages` blocks, which need to be consecutive:
     
     
-    min_control_plane_version = "CONTROL_PLANE_VERSION"
+    min_control_plane_version = &quot;CONTROL_PLANE_VERSION"
     
 
 Replace `CONTROL_PLANE_VERSION` with the version to roll out. You can choose a specific version, such as `1.34.7-gke.1055000`, or use a version alias. For more information, see [Specifying cluster version](https://docs.cloud.google.com/kubernetes-engine/versioning#specifying_cluster_version).
@@ -268,7 +268,7 @@ Run the following command:
     
     
     gcloud container fleet rolloutsequences upgrade ROLLOUT_SEQUENCE_NAME \
-        --node-version="NODE_VERSION"
+        --node-version=&quot;NODE_VERSION"
     
 
 Replace the following:
@@ -285,7 +285,7 @@ If you use Terraform to manage your rollout sequence, you can roll out a specifi
 Add the following field to the block. You can add the field anywhere except between the `stages` blocks, which need to be consecutive:
     
     
-    min_node_version = "NODE_VERSION"
+    min_node_version = &quot;NODE_VERSION"
     
 
 Replace `NODE_VERSION` with the version to roll out, for example, `1.34.7-gke.1055000`. If you've already used this field to roll out a node version, the field remains in the block. Replace the previous version rolled out with the `NODE_VERSION` you want to roll out this time.
@@ -822,6 +822,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

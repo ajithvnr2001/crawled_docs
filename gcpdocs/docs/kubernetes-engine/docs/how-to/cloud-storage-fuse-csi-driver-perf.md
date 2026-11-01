@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cloud-storage-fuse-csi-driver-perf/
 title: Manually optimize Cloud Storage FUSE CSI driver for performance \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:49.240344+00:00
+fetched_at: 2026-11-01T05:42:52.028949+00:00
 ---
 
 # Manually optimize Cloud Storage FUSE CSI driver for performance  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

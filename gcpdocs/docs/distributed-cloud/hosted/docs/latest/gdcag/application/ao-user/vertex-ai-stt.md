@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-stt/
 title: Learn about speech recognition features \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:41.609182+00:00
+fetched_at: 2026-11-01T05:45:22.883652+00:00
 ---
 
 # Learn about speech recognition features  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -297,7 +297,7 @@ The following is an example of an operation response:
     {
       "name": "OPERATION_NAME",
       "metadata": {
-        "@type": "type.googleapis.com/google.cloud.speech_v1p1beta1.LongRunningRecognizeMetadata"
+        "@type": "type.googleapis.com/google.cloud.speech.v1p1beta1.LongRunningRecognizeMetadata",
         "progressPercent": 34,
         "startTime": "2016-08-30T23:26:29.579144Z",
         "lastUpdateTime": "2016-08-30T23:26:29.826903Z"
@@ -317,7 +317,7 @@ The following is an example of a full response after completion of the request:
         "@type": "type.googleapis.com/google.cloud.speech_v1p1beta1.LongRunningRecognizeMetadata",
         "startTime": "2016-08-31T00:16:29.539820Z",
         "progressPercent": 100
-      }
+      },
       "response": {
         "@type": "type.googleapis.com/google.cloud.speech_v1p1beta1.LongRunningRecognizeResponse",
         "results": [{
@@ -345,11 +345,11 @@ The following is an example of a full response after completion of the request:
               ]
           }]}]
       },
-      "done": True
+      "done": true
     }
     
 
-Note that `done` is set to `True` and that the operation's `response` contains a set of results of type [`SpeechRecognitionResult`](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/speech-to-text/rpc/google.cloud.speech.v1#speechrecognitionresult), the same type returned by a synchronous recognition request.
+Note that `done` is set to `true` and that the operation's `response` contains a set of results of type [`SpeechRecognitionResult`](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/speech-to-text/rpc/google.cloud.speech.v1#speechrecognitionresult), the same type returned by a synchronous recognition request.
 
 ## Streaming requests and responses
 
@@ -377,6 +377,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

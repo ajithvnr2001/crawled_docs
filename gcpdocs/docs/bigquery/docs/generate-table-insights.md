@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-table-insights/
 title: Generate table insights \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:05.125104+00:00
+fetched_at: 2026-11-01T05:35:29.127670+00:00
 ---
 
 # Generate table insights  |  BigQuery  |  Google Cloud Documentation
@@ -424,13 +424,13 @@ To generate table and column descriptions, follow these steps:
      * Generate insights for a BigQuery table
      * Generate insights for a BigQuery external table
      * Generate insights for a BigLake table
-  2. Click the **Schema** tab.
+  2. Click the **Details** tab.
 
-  3. Click **View column descriptions**.
+  3. Next to **Table info** , click **View descriptions**.
 
-**Note:** If you don't see the **View column descriptions** button, click **Describe data**. You might need to scroll to see this button.
+**Note:** If you don't see the **View descriptions** button, click **Describe data**.
 
-The table description and column descriptions that were generated are displayed.
+The generated table description and column descriptions are displayed.
 
   4. To edit and save the generated table description, do the following:
 

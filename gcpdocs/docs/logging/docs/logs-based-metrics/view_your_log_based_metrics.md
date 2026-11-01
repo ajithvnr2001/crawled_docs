@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/logs-based-metrics/view_your_log_based_metrics/
 title: List and chart log-based metrics \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:37.256893+00:00
+fetched_at: 2026-11-01T05:42:13.442922+00:00
 ---
 
 # List and chart log-based metrics  |  Cloud Logging  |  Google Cloud Documentation

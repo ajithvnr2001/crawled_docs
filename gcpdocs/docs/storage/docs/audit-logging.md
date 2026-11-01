@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/audit-logging/
 title: Cloud Audit Logs with Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:58.180035+00:00
+fetched_at: 2026-11-01T05:40:00.463182+00:00
 ---
 
 # Cloud Audit Logs with Cloud Storage  |  Google Cloud Documentation

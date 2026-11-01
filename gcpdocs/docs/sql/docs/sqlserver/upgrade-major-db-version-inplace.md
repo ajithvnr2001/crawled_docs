@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-major-db-version-inplace/
 title: Upgrade the database major version in-place \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:04.182574+00:00
+fetched_at: 2026-11-01T05:38:06.909816+00:00
 ---
 
 # Upgrade the database major version in-place  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -440,7 +440,7 @@ with the name of the database on your SQL Server instance.
          USE DATABASE_NAME
          GO
          SELECT compatibility_level
-         FROM sys.databases WHERE name = 'DATABASE_NAME'
+         FROM sys.databases WHERE name = &#39;DATABASE_NAME'
 
   2. Determine the target compatibility level.
 
@@ -511,7 +511,7 @@ For more information on query filters, see [Advanced queries](https://docs.cloud
 with the project ID followed by the instance name in this format: `project_id:instance_name`.
     
     resource.type="cloudsql_database"
-    resource.labels.database_id="DATABASE_ID"
+    resource.labels.database_id=&quot;DATABASE_ID"
     logName : "projects/PROJECT_ID/logs/cloudsql.googleapis.com%2Fsqlserver.err"
 
 For example, to filter the upgrade error logs by an instance named `shopping-db` running in the project `buylots`, use the following query filter:

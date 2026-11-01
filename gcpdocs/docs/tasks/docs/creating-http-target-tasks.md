@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tasks/docs/creating-http-target-tasks/
 title: Create HTTP target tasks programmatically \u00a0|\u00a0 Cloud Tasks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:22.354748+00:00
+fetched_at: 2026-11-01T05:38:05.230137+00:00
 ---
 
 # Create HTTP target tasks programmatically  |  Cloud Tasks  |  Google Cloud Documentation
@@ -493,7 +493,7 @@ Note the `requirements.txt` file:
     # @param [Integer] seconds The delay, in seconds, to process your task.
     def create_http_task project_id, location_id, queue_id, url, payload: nil, seconds: nil
       # Instantiates a client.
-      client = Google::Cloud::[Tasks](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2beta3/latest/Google-Cloud-Tasks.html).[cloud_tasks](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-tasks/latest/Google-Cloud-Tasks.html)
+      client = Google::Cloud::[Tasks](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2/latest/Google-Cloud-Tasks.html).[cloud_tasks](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-tasks/latest/Google-Cloud-Tasks.html)
     
       # Construct the fully qualified queue name.
       parent = client.queue_path project: project_id, location: location_id, queue: queue_id
@@ -511,8 +511,8 @@ Note the `requirements.txt` file:
     
       # Add scheduled time to task.
       if seconds
-        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-iot-v1/latest/Google-Protobuf-Timestamp.html).new
-        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-iot-v1/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
+        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision_ai-v1/latest/Google-Protobuf-Timestamp.html).new
+        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision_ai-v1/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
         task[:schedule_time] = timestamp
       end
     

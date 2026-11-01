@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/view-audit-logs/
 title: View audit logs \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:00:08.920378+00:00
+fetched_at: 2026-11-01T05:45:05.434542+00:00
 ---
 
 # View audit logs  |  Lakehouse  |  Google Cloud Documentation

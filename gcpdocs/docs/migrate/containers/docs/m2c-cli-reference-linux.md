@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/containers/docs/m2c-cli-reference-linux/
 title: Migrate to Containers CLI reference for Linux \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:04:26.731697+00:00
+fetched_at: 2026-11-01T05:44:55.951812+00:00
 ---
 
 # Migrate to Containers CLI reference for Linux  |  Google Cloud Documentation
@@ -233,7 +233,7 @@ If shell completion is not already enabled in your environment you will need
 to enable it. You can execute the following once:
     
     
-        echo "autoload -U compinit; compi>>nit"  ~/.zshrc
+        echo "autoload -U compinit; compinit" >> ~/.zshrc
     
 
 To load completions in your current shell session:

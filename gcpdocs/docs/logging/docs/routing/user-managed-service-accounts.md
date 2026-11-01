@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/routing/user-managed-service-accounts/
 title: Configure log sinks with user-managed service accounts \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:40.687780+00:00
+fetched_at: 2026-11-01T05:42:10.512318+00:00
 ---
 
 # Configure log sinks with user-managed service accounts  |  Cloud Logging  |  Google Cloud Documentation

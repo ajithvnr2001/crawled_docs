@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/configure-disaster-recovery/
 title: Configure disaster recovery for a cluster \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:33.320219+00:00
+fetched_at: 2026-11-01T05:41:57.983666+00:00
 ---
 
 # Configure disaster recovery for a cluster  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -53,7 +53,6 @@ Replace the following:
 
      * `SOURCE_SITE`: the identifier of the source site as chosen by the customer. For example, `us-west`.
      * `CLUSTER_NAME`: the cluster name for the cluster such as `root-admin`.
-     * `BUCKET_CONFIG_FILE`: the path of saved bucket configuration file.
   2. Store the bucket configuration locally in JSON format:
          
          gdcloud dr buckets describe --cluster=CLUSTER_NAME \
@@ -61,6 +60,9 @@ Replace the following:
          --output-path=BUCKET_CONFIG_FILE
          
 
+Replace the following:
+
+     * `BUCKET_CONFIG_FILE`: the path of saved bucket configuration file.
   3. Modify the endpoint field in the configuration for the remote backup use case. Append port `:8082` to the URL: For example, `https://objectstorage.zone1.google.gdch.test` becomes `https://objectstorage.zone1.google.gdch.test:8082`.
 
 
@@ -151,6 +153,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

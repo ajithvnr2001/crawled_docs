@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/logs-based-metrics/distribution-metrics/
 title: Configure distribution metrics \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:37.544947+00:00
+fetched_at: 2026-11-01T05:42:10.622388+00:00
 ---
 
 # Configure distribution metrics  |  Cloud Logging  |  Google Cloud Documentation

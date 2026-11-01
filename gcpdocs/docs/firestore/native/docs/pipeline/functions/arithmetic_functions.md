@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/arithmetic_functions/
 title: Arithmetic Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:41.798500+00:00
+fetched_at: 2026-11-01T05:36:35.707186+00:00
 ---
 
 # Arithmetic Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -134,7 +134,7 @@ INT64.MIN | -1 | `[error]`
       .select([Field("soldBooks").add(Field("unsoldBooks")).as("totalBooks")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L552-L555)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L584-L587)
 
 ##### Kotlin  
 Android
@@ -173,7 +173,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L683-L690)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L683-L690)
 
 ##### Java
     
@@ -253,7 +253,7 @@ INT64.MIN | 1 | `[error]`
       .select([Field("price").subtract(Constant(storeCredit)).as("totalCost")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L563-L567)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L595-L599)
 
 ##### Kotlin  
 Android
@@ -295,7 +295,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L698-L706)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L698-L706)
 
 ##### Java
     
@@ -375,7 +375,7 @@ FLOAT64.MAX | FLOAT64.MAX | `+inf`
       .select([Field("price").multiply(Field("soldBooks")).as("revenue")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L575-L578)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L607-L610)
 
 ##### Kotlin  
 Android
@@ -414,7 +414,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L714-L721)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L714-L721)
 
 ##### Java
     
@@ -494,7 +494,7 @@ x | y | `divide(x, y)`
       .select([Field("ratings").divide(Field("soldBooks")).as("reviewRate")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L586-L589)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L618-L621)
 
 ##### Kotlin  
 Android
@@ -533,7 +533,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L729-L736)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L729-L736)
 
 ##### Java
     
@@ -621,7 +621,7 @@ x | y | `mod(x, y)`
       .select([Field("unsoldBooks").mod(Constant(displayCapacity)).as("warehousedBooks")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L597-L601)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L629-L633)
 
 ##### Kotlin  
 Android
@@ -663,7 +663,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L744-L752)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L744-L752)
 
 ##### Java
     
@@ -756,7 +756,7 @@ number | `ceil(number)`
       ])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L609-L615)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L641-L647)
 
 ##### Kotlin  
 Android
@@ -807,7 +807,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L760-L773)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L760-L773)
 
 ##### Java
     
@@ -897,7 +897,7 @@ number | `floor(number)`
       ])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L623-L628)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L655-L660)
 
 ##### Kotlin  
 Android
@@ -942,7 +942,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L781-L790)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L781-L790)
 
 ##### Java
     
@@ -1033,7 +1033,7 @@ number | places | `round(number, places)`
       .aggregate([Field("partialRevenue").sum().as("totalRevenue")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L636-L640)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L668-L672)
 
 ##### Kotlin  
 Android
@@ -1080,7 +1080,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L798-L811)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L798-L811)
 
 ##### Java
     
@@ -1251,7 +1251,7 @@ base | exponent | `pow(base, exponent)`
       ])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L648-L666)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L680-L698)
 
 ##### Kotlin  
 Android
@@ -1340,7 +1340,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L819-L846)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L819-L846)
 
 ##### Java
     
@@ -1486,7 +1486,7 @@ number | `sqrt(number)`
       ])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L674-L692)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L706-L724)
 
 ##### Kotlin  
 Android
@@ -1575,7 +1575,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L854-L881)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L854-L881)
 
 ##### Java
     
@@ -1670,7 +1670,7 @@ exponent | `exp(exponent)`
       .select([Field("rating").exp().as("expRating")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L700-L703)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L732-L735)
 
 ##### Kotlin  
 Android
@@ -1709,7 +1709,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L889-L896)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L889-L896)
 
 ##### Java
     
@@ -1789,7 +1789,7 @@ number | `ln(number)`
       .select([Field("rating").ln().as("lnRating")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L711-L714)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L743-L746)
 
 ##### Kotlin  
 Android
@@ -1828,7 +1828,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L904-L911)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L904-L911)
 
 ##### Java
     

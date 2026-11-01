@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/using-public-access-prevention/
 title: Use public access prevention \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:06.417014+00:00
+fetched_at: 2026-11-01T05:35:48.100713+00:00
 ---
 
 # Use public access prevention  |  Cloud Storage  |  Google Cloud Documentation

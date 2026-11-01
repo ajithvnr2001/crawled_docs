@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/apple-privacy-details/
 title: Apple privacy details \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:26.585882+00:00
+fetched_at: 2026-11-01T05:40:46.897237+00:00
 ---
 
 # Apple privacy details  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

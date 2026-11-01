@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/order-limit-data/
 title: Order and limit data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:13.065287+00:00
+fetched_at: 2026-11-01T05:38:18.965927+00:00
 ---
 
 # Order and limit data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ For example, you could query for the first 3 cities alphabetically with:
     
     citiesRef.order(by: "name").limit(to: 3)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1021-L1021)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1021-L1021)
 
 ##### Objective-C
 
@@ -69,7 +69,7 @@ For example, you could query for the first 3 cities alphabetically with:
     
     [[citiesRef queryOrderedByField:@"name"] queryLimitedTo:3];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L933-L933)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L933-L933)
 
 ##### Kotlin  
 Android
@@ -199,7 +199,7 @@ You could also sort in descending order to get the _last_ 3 cities:
     
     citiesRef.order(by: "name", descending: true).limit(to: 3)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1029-L1029)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1029-L1029)
 
 ##### Objective-C
 
@@ -208,7 +208,7 @@ You could also sort in descending order to get the _last_ 3 cities:
     
     [[citiesRef queryOrderedByField:@"name" descending:YES] queryLimitedTo:3];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L940-L940)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L940-L940)
 
 ##### Kotlin  
 Android
@@ -338,7 +338,7 @@ You can also order by multiple fields. For example, if you wanted to order by st
       .order(by: "state")
       .order(by: "population", descending: true)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1037-L1039)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1037-L1039)
 
 ##### Objective-C
 
@@ -347,7 +347,7 @@ You can also order by multiple fields. For example, if you wanted to order by st
     
     [[citiesRef queryOrderedByField:@"state"] queryOrderedByField:@"population" descending:YES];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L947-L947)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L947-L947)
 
 ##### Kotlin  
 Android
@@ -480,7 +480,7 @@ You can combine `where()` filters with `orderBy()` and `limit()`. In the followi
       .order(by: "population")
       .limit(to: 2)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1047-L1050)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1047-L1050)
 
 ##### Objective-C
 
@@ -491,7 +491,7 @@ You can combine `where()` filters with `orderBy()` and `limit()`. In the followi
         queryOrderedByField:@"population"]
         queryLimitedTo:2];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L954-L956)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L954-L956)
 
 ##### Kotlin  
 Android

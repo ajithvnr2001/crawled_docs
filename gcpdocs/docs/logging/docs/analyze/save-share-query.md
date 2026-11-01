@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/analyze/save-share-query/
 title: Save and share SQL queries \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:54.611202+00:00
+fetched_at: 2026-11-01T05:44:04.834129+00:00
 ---
 
 # Save and share SQL queries  |  Cloud Logging  |  Google Cloud Documentation

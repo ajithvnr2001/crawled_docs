@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/data-model/
 title: Data model \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:20.212043+00:00
+fetched_at: 2026-11-01T05:36:40.839914+00:00
 ---
 
 # Data model  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -122,7 +122,7 @@ Every document in Firestore is uniquely identified by its location within the da
     
     let alovelaceDocumentRef = db.collection("users").document("alovelace")
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L241-L241)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L241-L241)
 
 ##### Objective-C
 
@@ -132,7 +132,7 @@ Every document in Firestore is uniquely identified by its location within the da
     FIRDocumentReference *alovelaceDocumentRef =
         [[self.db collectionWithPath:@"users"] documentWithPath:@"alovelace"];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L170-L171)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L170-L171)
 
 ##### Kotlin  
 Android
@@ -271,7 +271,7 @@ You can also create references to _collections_ :
     
     let usersCollectionRef = db.collection("users")
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L246-L246)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L246-L246)
 
 ##### Objective-C
 
@@ -280,7 +280,7 @@ You can also create references to _collections_ :
     
     FIRCollectionReference *usersCollectionRef = [self.db collectionWithPath:@"users"];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L175-L175)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L175-L175)
 
 ##### Kotlin  
 Android
@@ -417,7 +417,7 @@ For convenience, you can also create references by specifying the path to a docu
     
     let aLovelaceDocumentReference = db.document("users/alovelace")
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L258-L258)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L258-L258)
 
 ##### Objective-C
 
@@ -427,7 +427,7 @@ For convenience, you can also create references by specifying the path to a docu
     FIRDocumentReference *aLovelaceDocumentReference =
         [self.db documentWithPath:@"users/alovelace"];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L186-L187)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L186-L187)
 
 ##### Kotlin  
 Android
@@ -625,7 +625,7 @@ In this example, you would create a reference to a message in the subcollection 
       .collection("rooms").document("roomA")
       .collection("messages").document("message1")
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L251-L253)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L251-L253)
 
 ##### Objective-C
 
@@ -636,7 +636,7 @@ In this example, you would create a reference to a message in the subcollection 
         [[[[self.db collectionWithPath:@"rooms"] documentWithPath:@"roomA"]
         collectionWithPath:@"messages"] documentWithPath:@"message1"];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L179-L181)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L179-L181)
 
 ##### Kotlin  
 Android

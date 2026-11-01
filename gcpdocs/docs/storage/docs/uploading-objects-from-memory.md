@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/uploading-objects-from-memory/
 title: Upload objects from memory \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:49.523850+00:00
+fetched_at: 2026-11-01T05:35:48.478349+00:00
 ---
 
 # Upload objects from memory  |  Cloud Storage  |  Google Cloud Documentation

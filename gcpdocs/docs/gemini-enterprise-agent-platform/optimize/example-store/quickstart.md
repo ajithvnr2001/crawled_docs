@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/quickstart/
 title: Example Store with Gemini quickstart \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:42.035054+00:00
+fetched_at: 2026-11-01T05:37:31.527830+00:00
 ---
 
 # Example Store with Gemini quickstart  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -118,10 +118,10 @@ For more information, see [ Set up ADC for a local development environment](http
 
   2. Use the following code sample to import and initialize the SDK for Example Store.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai.preview import example_stores
          
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
            project="PROJECT_ID",
            location="LOCATION"
          )

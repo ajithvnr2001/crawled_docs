@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/get-data/
 title: Getting data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:04.240315+00:00
+fetched_at: 2026-11-01T05:38:08.972363+00:00
 ---
 
 # Getting data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -104,7 +104,7 @@ To persist data when the device loses its connection, see the [Enable Offline Da
     
     let db = Firestore.firestore()
     
-    [AppDelegate.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/AppDelegate.swift#L31-L33)
+    [AppDelegate.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/AppDelegate.swift#L31-L33)
 
 ##### Objective-C
 
@@ -121,7 +121,7 @@ To persist data when the device loses its connection, see the [Enable Offline Da
     
     FIRFirestore *defaultFirestore = [FIRFirestore firestore];
     
-    [AppDelegate.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/AppDelegate.m#L32-L32)
+    [AppDelegate.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/AppDelegate.m#L32-L32)
 
 ##### Kotlin  
 Android
@@ -413,7 +413,7 @@ To get started, write some data about cities so we can look at different ways to
       "regions": ["jingjinji", "hebei"]
     ])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L642-L680)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L642-L680)
 
 ##### Objective-C
 
@@ -459,7 +459,7 @@ To get started, write some data about cities so we can look at different ways to
       @"regions": @[@"jingjinji", @"hebei"]
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L566-L603)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L566-L603)
 
 ##### Kotlin  
 Android
@@ -1129,7 +1129,7 @@ The following example shows how to retrieve the contents of a single document us
       print("Error getting document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L722-L734)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L722-L734)
 
 ##### Objective-C
 
@@ -1147,7 +1147,7 @@ The following example shows how to retrieve the contents of a single document us
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L645-L654)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L645-L654)
 
 ##### Kotlin  
 Android
@@ -1449,7 +1449,7 @@ You can specify the `source` option in a `get()` call to change the default beha
       print("Error getting document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L740-L754)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L740-L754)
 
 ##### Objective-C
 
@@ -1472,7 +1472,7 @@ You can specify the `source` option in a `get()` call to change the default beha
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L660-L674)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L660-L674)
 
 ##### Kotlin  
 Android
@@ -1724,7 +1724,7 @@ To support automatic type serialization in Swift, your type must conform to the 
       print("Error decoding city: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L760-L767)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L760-L767)
 
 ##### Objective-C
 
@@ -1744,7 +1744,7 @@ In Objective-C you must do this manually.
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L680-L689)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L680-L689)
 
 ##### Kotlin  
 Android
@@ -2040,7 +2040,7 @@ You can also retrieve multiple documents with one request by querying documents 
       print("Error getting documents: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L814-L822)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L814-L822)
 
 ##### Objective-C
 
@@ -2058,7 +2058,7 @@ You can also retrieve multiple documents with one request by querying documents 
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L733-L742)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L733-L742)
 
 ##### Kotlin  
 Android
@@ -2341,7 +2341,7 @@ In addition, you can retrieve _all_ documents in a collection by omitting the `w
       print("Error getting documents: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L828-L835)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L828-L835)
 
 ##### Objective-C
 
@@ -2359,7 +2359,7 @@ In addition, you can retrieve _all_ documents in a collection by omitting the `w
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L748-L757)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L748-L757)
 
 ##### Kotlin  
 Android
@@ -2612,7 +2612,7 @@ To retrieve all the documents from a subcollection, create a reference with the 
       print("Error getting documents: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L841-L848)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L841-L848)
 
 ##### Objective-C
     
@@ -2628,7 +2628,7 @@ To retrieve all the documents from a subcollection, create a reference with the 
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L763-L772)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L763-L772)
 
 ##### Kotlin  
 Android

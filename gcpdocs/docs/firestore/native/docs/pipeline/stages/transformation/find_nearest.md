@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/find_nearest/
 title: Find Nearest (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:01.766863+00:00
+fetched_at: 2026-11-01T05:37:49.054819+00:00
 ---
 
 # Find Nearest (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ Performs a nearest neighbor vector search on the given `embedding` field using t
       )
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a9512e6e882ad3f5aa32d9d929b77893bc1f1d1e/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1787-L1794)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/d4a3d855f9af880ca8329188d7c0863b3bff2476/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1787-L1794)
 
 ##### Kotlin  
 Android
@@ -115,7 +115,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L2351-L2363)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L2351-L2363)
 
 ##### Java
     

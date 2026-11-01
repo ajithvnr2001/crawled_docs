@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-ibm-db2-deployment-guide-tf/
 title: Automated VM deployment for IBM Db2 on Linux for SAP \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:57:07.697872+00:00
+fetched_at: 2026-11-01T05:40:34.721212+00:00
 ---
 
 # Automated VM deployment for IBM Db2 on Linux for SAP  |  SAP on Google Cloud  |  Google Cloud Documentation

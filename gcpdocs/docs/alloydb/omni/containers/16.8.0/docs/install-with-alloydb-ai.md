@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/install-with-alloydb-ai/
 title: Install AlloyDB AI in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:17.540173+00:00
+fetched_at: 2026-11-01T05:38:41.250896+00:00
 ---
 
 # Install AlloyDB AI in AlloyDB Omni  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation
@@ -313,7 +313,7 @@ To verify your installation is successful and uses model prediction, enter the f
     
     CREATE EXTENSION IF NOT EXISTS google_ml_integration CASCADE;
     
-    SELECT array_dims(embedding('text-embedding-005', 'AlloyDB AI')::real[]);
+    SELECT array_dims(embedding('text-embedding-005', 'AlloyDB AI&#39;)::real[]);
     
 
 The output looks similar to the following:

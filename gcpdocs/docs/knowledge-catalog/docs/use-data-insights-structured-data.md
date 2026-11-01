@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-data-insights-structured-data/
 title: Use data insights for structured data \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:04.826407+00:00
+fetched_at: 2026-11-01T05:42:23.504633+00:00
 ---
 
 # Use data insights for structured data  |  Knowledge Catalog  |  Google Cloud Documentation

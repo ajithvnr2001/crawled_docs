@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/test-publish-integrations/
 title: Test and publish integrations \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:45:24.997469+00:00
+fetched_at: 2026-11-01T05:45:17.351507+00:00
 ---
 
 # Test and publish integrations  |  Application Integration  |  Google Cloud Documentation
@@ -23,11 +23,33 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 You can test or publish an integration from the [integration editor](https://docs.cloud.google.com/application-integration/docs/integrations-ui-layout) after you have added and configured the integration with the necessary [triggers](https://docs.cloud.google.com/application-integration/docs/trigger-overview), [tasks](https://docs.cloud.google.com/application-integration/docs/task-overview), and [edge](https://docs.cloud.google.com/application-integration/docs/edge-overview) connections. When you test an integration using the Google Cloud console, the integration is executed in the [synchronous mode](https://docs.cloud.google.com/application-integration/docs/triggers#execution-modes). 
 
-## Required role
+## Required roles
 
-To get the permissions that you need to test or publish an integration, ask your administrator to grant you the [Application Integration Service Agent ](https://docs.cloud.google.com/iam/docs/roles-permissions/integrations#integrations.serviceAgent) (`roles/integrations.serviceAgent`) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To get the permissions that you need to test or publish an integration, ask your administrator to grant you the following IAM roles on the project: 
 
-You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+  * Test an integration: [Application Integration Invoker ](https://docs.cloud.google.com/iam/docs/roles-permissions/integrations#integrations.integrationInvoker) (`roles/integrations.integrationInvoker`) 
+  * Publish an integration: [Application Integration Deployer ](https://docs.cloud.google.com/iam/docs/roles-permissions/integrations#integrations.integrationDeployer) (`roles/integrations.integrationDeployer`) 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+These predefined roles contain the permissions required to test or publish an integration. To see the exact permissions that are required, expand the **Required permissions** section: 
+
+#### Required permissions
+
+The following permissions are required to test or publish an integration:
+
+  * Test an integration: `integrations.integrations.invoke`
+  * Publish an integration: `integrations.integrationVersions.deploy`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+The Application Integration Editor (`roles/integrations.integrationEditor`) role contains both permissions.
+
+If the integration uses a run-as service account, you also need the Service Account User (`roles/iam.serviceAccountUser`) role on that service account to test or publish it. See [Grant Service Account User](https://docs.cloud.google.com/application-integration/docs/authorization-changes-grant-access).
 
 ## Test an integration
 
@@ -66,6 +88,8 @@ Application Integration test runs the integration and displays the execution res
 ### API
 
 Call the [`projects.locations.integrations.test`](https://docs.cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations/test) method. 
+
+The `clientId` field in the request body is required. Set it to your Google Cloud project number, not the project ID.
 
 To set the timeout of the flow, set the `X-Server-Timeout` field in the header. By default, the timeout is 120 seconds. For a list of pre-defined set of request parameters, see [System parameters](https://docs.cloud.google.com/apis/docs/system-parameters).
 
@@ -144,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

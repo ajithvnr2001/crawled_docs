@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cloud-storage-fuse-csi-driver/
 title: About Cloud Storage FUSE CSI driver for GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:50.335401+00:00
+fetched_at: 2026-11-01T05:43:15.856865+00:00
 ---
 
 # About Cloud Storage FUSE CSI driver for GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/use-cmek/
 title: Secure a database with customer-managed encryption keys (CMEK) \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:24.741798+00:00
+fetched_at: 2026-11-01T05:36:16.598301+00:00
 ---
 
 # Secure a database with customer-managed encryption keys (CMEK)  |  Spanner  |  Google Cloud Documentation
@@ -490,7 +490,7 @@ To create a CMEK-enabled database in a regional instance configuration:
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.ImmutableList;
     import com.google.spanner.admin.database.v1.[CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html);
-    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html);
+    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html);
     import com.google.spanner.admin.database.v1.[EncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.EncryptionConfig.html);
     import com.google.spanner.admin.database.v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.InstanceName.html);
     import java.util.concurrent.ExecutionException;
@@ -544,7 +544,7 @@ To create a CMEK-enabled database in a regional instance configuration:
             .build();
         try {
           System.out.println("Waiting for operation to complete...");
-          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html) createdDatabase =
+          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html) createdDatabase =
               adminClient.[createDatabaseAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html#com_google_cloud_spanner_admin_database_v1_DatabaseAdminClient_createDatabaseAsync__org_jspecify_annotations_Nullable_com_google_spanner_admin_database_v1_InstanceName_java_lang_String_)(request).get(120, TimeUnit.SECONDS);
     
           System.out.printf(
@@ -575,7 +575,7 @@ To create a CMEK-enabled database in a multi-region instance configuration:
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.ImmutableList;
     import com.google.spanner.admin.database.v1.[CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html);
-    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html);
+    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html);
     import com.google.spanner.admin.database.v1.[EncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.EncryptionConfig.html);
     import com.google.spanner.admin.database.v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.InstanceName.html);
     import java.util.concurrent.ExecutionException;
@@ -635,7 +635,7 @@ To create a CMEK-enabled database in a multi-region instance configuration:
                 .build();
         try {
           System.out.println("Waiting for operation to complete...");
-          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html) createdDatabase =
+          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Database.html) createdDatabase =
               adminClient.[createDatabaseAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html#com_google_cloud_spanner_admin_database_v1_DatabaseAdminClient_createDatabaseAsync__org_jspecify_annotations_Nullable_com_google_spanner_admin_database_v1_InstanceName_java_lang_String_)(request).get(120, TimeUnit.SECONDS);
     
           System.out.printf(
@@ -1581,7 +1581,7 @@ To create a CMEK-enabled backup in a regional instance configuration:
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.protobuf.[Timestamp](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Timestamp.html);
-    import com.google.spanner.admin.database.v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Backup.html);
+    import com.google.spanner.admin.database.v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html);
     import com.google.spanner.admin.database.v1.[BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html);
     import com.google.spanner.admin.database.v1.[CreateBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateBackupEncryptionConfig.html);
     import com.google.spanner.admin.database.v1.[CreateBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateBackupEncryptionConfig.html).EncryptionType;
@@ -1625,7 +1625,7 @@ To create a CMEK-enabled backup in a regional instance configuration:
             [Timestamp](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Timestamp.html).newBuilder().setSeconds(TimeUnit.MILLISECONDS.toSeconds((
                 System.currentTimeMillis() + TimeUnit.DAYS.toMillis(14)))).build();
         final [BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html) backupName = [BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html).of(projectId, instanceId, backupId);
-        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Backup.html) backup = [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Backup.html).newBuilder()
+        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html) backup = [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html).newBuilder()
             .setName(backupName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html#com_google_spanner_admin_database_v1_BackupName_toString__)())
             .setDatabase([DatabaseName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.DatabaseName.html).of(projectId, instanceId, databaseId).toString())
             .setExpireTime(expireTime).build();
@@ -1641,7 +1641,7 @@ To create a CMEK-enabled backup in a regional instance configuration:
                         .setKmsKeyName(kmsKeyName).build()).build();
         try {
           System.out.println("Waiting for operation to complete...");
-          backup = adminClient.[createBackupAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html#com_google_cloud_spanner_admin_database_v1_DatabaseAdminClient_createBackupAsync__org_jspecify_annotations_Nullable_com_google_spanner_admin_database_v1_InstanceName_com_google_spanner_admin_database_v1_Backup_java_lang_String_)(request).get(1200, TimeUnit.SECONDS);
+          backup = adminClient.[createBackupAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html#com_google_cloud_spanner_admin_database_v1_DatabaseAdminClient_createBackupAsync__org_jspecify_annotations_Nullable_com_google_spanner_admin_database_v1_InstanceName_com_google_spanner_admin_database_v1_Backup_java_lang_String_)(request).get(3600, TimeUnit.SECONDS);
         } catch (ExecutionException e) {
           // If the operation failed during execution, expose the cause.
           throw [SpannerExceptionFactory](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerExceptionFactory.html).[asSpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerExceptionFactory.html#com_google_cloud_spanner_SpannerExceptionFactory_asSpannerException_java_lang_Throwable_)(e.getCause());
@@ -1677,7 +1677,7 @@ To create a CMEK-enabled backup in a multi-region instance configuration:
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.ImmutableList;
     import com.google.protobuf.[Timestamp](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Timestamp.html);
-    import com.google.spanner.admin.database.v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Backup.html);
+    import com.google.spanner.admin.database.v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html);
     import com.google.spanner.admin.database.v1.[BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html);
     import com.google.spanner.admin.database.v1.[CreateBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateBackupEncryptionConfig.html);
     import com.google.spanner.admin.database.v1.[CreateBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateBackupEncryptionConfig.html).EncryptionType;
@@ -1728,8 +1728,8 @@ To create a CMEK-enabled backup in a multi-region instance configuration:
                         (System.currentTimeMillis() + TimeUnit.DAYS.toMillis(14))))
                 .build();
         final [BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html) backupName = [BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html).of(projectId, instanceId, backupId);
-        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Backup.html) backup =
-            [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Backup.html).newBuilder()
+        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html) backup =
+            [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html).newBuilder()
                 .setName(backupName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.BackupName.html#com_google_spanner_admin_database_v1_BackupName_toString__)())
                 .setDatabase([DatabaseName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.DatabaseName.html).of(projectId, instanceId, databaseId).toString())
                 .setExpireTime(expireTime)
@@ -1748,7 +1748,7 @@ To create a CMEK-enabled backup in a multi-region instance configuration:
                 .build();
         try {
           System.out.println("Waiting for operation to complete...");
-          backup = adminClient.[createBackupAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html#com_google_cloud_spanner_admin_database_v1_DatabaseAdminClient_createBackupAsync__org_jspecify_annotations_Nullable_com_google_spanner_admin_database_v1_InstanceName_com_google_spanner_admin_database_v1_Backup_java_lang_String_)(request).get(1200, TimeUnit.SECONDS);
+          backup = adminClient.[createBackupAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html#com_google_cloud_spanner_admin_database_v1_DatabaseAdminClient_createBackupAsync__org_jspecify_annotations_Nullable_com_google_spanner_admin_database_v1_InstanceName_com_google_spanner_admin_database_v1_Backup_java_lang_String_)(request).get(3600, TimeUnit.SECONDS);
         } catch (ExecutionException e) {
           // If the operation failed during execution, expose the cause.
           throw [SpannerExceptionFactory](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerExceptionFactory.html).[asSpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerExceptionFactory.html#com_google_cloud_spanner_SpannerExceptionFactory_asSpannerException_java_lang_Throwable_)(e.getCause());
@@ -2585,7 +2585,7 @@ To copy a CMEK-enabled backup in a multi-region instance configuration:
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.ImmutableList;
-    import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.Backup.html);
+    import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.BackupName.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[CopyBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[CopyBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.html).[EncryptionType](https://docs.cloud.google.com/java/docs/reference/google-cloud-netapp/latest/com.google.cloud.netapp.v1.EncryptionType.html);
@@ -2652,7 +2652,7 @@ To copy a CMEK-enabled backup in a multi-region instance configuration:
                         .addAllKmsKeyNames(ImmutableList.copyOf(kmsKeyNames))
                         .build())
                 .build();
-        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.Backup.html) destinationBackup;
+        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html) destinationBackup;
         try {
           // Creates a copy of an existing backup.
           // Wait for the backup operation to complete.
@@ -3917,6 +3917,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

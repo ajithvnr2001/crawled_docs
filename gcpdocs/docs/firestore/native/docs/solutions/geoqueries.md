@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/geoqueries/
 title: Geo queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:04.612824+00:00
+fetched_at: 2026-11-01T05:38:10.601940+00:00
 ---
 
 # Geo queries  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -148,7 +148,7 @@ For each document you want to index by location, you will need to store a Geohas
       // ...
     }
     
-    [SolutionGeoPointViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionGeoPointViewController.swift#L35-L53)
+    [SolutionGeoPointViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionGeoPointViewController.swift#L35-L53)
 
 ###  Kotlin  
 Android
@@ -363,7 +363,7 @@ Geohashes allow us to approximate area queries by joining a set of queries on th
       print("Unable to fetch snapshot data. \(error)")
     }
     
-    [SolutionGeoPointViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionGeoPointViewController.swift#L59-L112)
+    [SolutionGeoPointViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionGeoPointViewController.swift#L59-L112)
 
 ###  Kotlin  
 Android

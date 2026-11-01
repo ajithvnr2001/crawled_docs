@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/release-notes/
 title: Service Extensions release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:59:38.938050+00:00
+fetched_at: 2026-11-01T05:40:26.817910+00:00
 ---
 
 # Service Extensions release notes  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Service Extensions. Check this page fo
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/service-extensions-release-notes.xml) directly. 
+
+## October 23, 2026
+
+Feature
+
+You can use edge extensions (`CdnEdgeExtension`) to attach plugins directly to Media CDN Edge Cache services (`EdgeCacheService`). These extensions let you inspect and modify HTTP request and response headers in the Media CDN processing path. This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+For more information, see [Media CDN extensions overview](https://docs.cloud.google.com/service-extensions/docs/media-cdn-extensions-overview) and [Configure a Media CDN edge extension](https://docs.cloud.google.com/service-extensions/docs/configure-media-cdn-edge-extensions).
 
 ## September 23, 2026
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/automatic-discovery/
 title: Discover and catalog Cloud Storage data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:25.624308+00:00
+fetched_at: 2026-11-01T05:35:21.639055+00:00
 ---
 
 # Discover and catalog Cloud Storage data  |  BigQuery  |  Google Cloud Documentation
@@ -420,11 +420,13 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
   5. Click **Overview > Tables**, and then select the table.
 
-  6. In the **Details** tab, in the **Labels** section, make sure that the **metadata-managed-mode** label is set to **user_managed**. If it is set to a different value, follow these steps:
+  6. In the **Details** tab, in the **Labels** section, check whether the **metadata-managed-mode** label is set to `user_managed`. If it's set to a different value, follow these steps:
 
-     1. Click edit **Edit details**.
+     1. Click **Edit > Edit details**.
 
-     2. Next to the **metadata-managed-mode** key, in the **value** field, enter `user_managed`.
+     2. In the **Labels** section, next to the **metadata-managed-mode** key, in the **Value** field, enter `user_managed`.
+
+     3. Click **Save**.
 
 
 **Note:** A table with an updated schema becomes available for SQL and Spark queries. When the next discovery scans run, the table metadata remains unchanged.
@@ -447,11 +449,13 @@ To delete a published BigLake table, follow these steps:
 
   5. Click **Overview > Tables**, and then select the table.
 
-  6. In the **Details** pane, in the **Labels** section, make sure the **metadata-managed-mode** label isn't set to `user_managed`. If it's set to `user_managed`, follow these steps:
+  6. In the **Details** tab, in the **Labels** section, make sure the **metadata-managed-mode** label isn't set to `user_managed`. If it's set to `user_managed`, follow these steps:
 
-     1. Click **Edit details** edit.
+     1. Click **Edit > Edit details**.
 
-     2. Next to the **metadata-managed-mode** key, in the **value** field, enter `discovery-managed`.
+     2. In the **Labels** section, next to the **metadata-managed-mode** key, in the **Value** field, enter `discovery_managed`.
+
+     3. Click **Save**.
 
 **Note:** If the **metadata-managed-mode** label is set to `user_managed`, the discovery scan doesn't override the table metadata, which causes your table not to be deleted.
   7. Click **Run**. The discovery scan runs on demand.
@@ -692,6 +696,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

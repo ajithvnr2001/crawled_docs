@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-clone-cluster/
 title: Clone a database cluster \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:05:44.843735+00:00
+fetched_at: 2026-11-01T05:45:27.906597+00:00
 ---
 
 # Clone a database cluster  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ After the recovery window is available for the source database cluster, you can 
 
 ## Clone database cluster
 
-You can clone a database cluster with the GDC console or with the gdcloud CLI tool:
+You can clone a database cluster by using the GDC console, the gdcloud CLI, or the API:
 
 ### Console
 
@@ -44,7 +44,7 @@ You can clone a database cluster with the GDC console or with the gdcloud CLI to
 
 
 
-###  gdcloud CLI 
+###  gdcloud 
 
 Use the following command to clone a database cluster:
     
@@ -55,9 +55,9 @@ Use the following command to clone a database cluster:
 
 Replace the following:
 
-  * SOURCE with the name of the database cluster to create a clone from.
-  * DESTINATION with the name of the new database cluster to create.
-  * POINT_IN_TIME with the timestamp of the point in time to use as the basis of the clone. Use the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format (`yyyy-MM-dd'T'HH:mm:ss'Z'`). The timestamp must be within the recovery window of the source database cluster, otherwise the clone request gets rejected.
+  * `<var>SOURCE</var>`: the name of the database cluster to create a clone from.
+  * `<var>DESTINATION</var>`: the name of the new database cluster to create.
+  * `<var>POINT_IN_TIME</var>`: the timestamp of the point in time to use as the basis of the clone. Use the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format (`yyyy-MM-dd'T'HH:mm:ss'Z'`). The timestamp must be within the recovery window of the source database cluster; otherwise, the clone request is rejected.
 
 
 
@@ -90,6 +90,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

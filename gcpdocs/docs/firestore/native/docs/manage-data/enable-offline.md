@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/enable-offline/
 title: Enable offline data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:26.891854+00:00
+fetched_at: 2026-11-01T05:37:37.664087+00:00
 ---
 
 # Enable offline data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -113,7 +113,7 @@ When you initialize Firestore, you can enable or disable offline persistence:
     let db = Firestore.firestore()
     db.settings = settings
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1103-L1117)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1103-L1117)
 
 ##### Objective-C
 
@@ -138,7 +138,7 @@ When you initialize Firestore, you can enable or disable offline persistence:
     FIRFirestore *db = [FIRFirestore firestore];
     db.settings = settings;
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1005-L1021)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1005-L1021)
 
 ##### Kotlin  
 Android
@@ -221,7 +221,7 @@ When persistence is enabled, Firestore caches every document received from the b
     settings.cacheSettings = PersistentCacheSettings(sizeBytes: 100 * 1024 * 1024 as NSNumber)
     Firestore.firestore().settings = settings
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L159-L162)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L159-L162)
 
 ##### Objective-C
 
@@ -237,7 +237,7 @@ When persistence is enabled, Firestore caches every document received from the b
         [[FIRPersistentCacheSettings alloc] initWithSizeBytes:@(100 * 1024 * 1024)];
     [FIRFirestore firestore].settings = settings;
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L82-L86)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L82-L86)
     
     
       
@@ -346,7 +346,7 @@ By default, no event is raised if _only_ the `SnapshotMetadata` changed. If you 
         print("Metadata: Data fetched from \(source)")
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1124-L1141)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1124-L1141)
 
 ##### Objective-C
 
@@ -372,7 +372,7 @@ By default, no event is raised if _only_ the `SnapshotMetadata` changed. If you 
           NSLog(@"Metadata: Data fetched from %@", source);
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1028-L1045)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1028-L1045)
 
 ##### Kotlin  
 Android
@@ -559,7 +559,7 @@ You can use the method below to disable network access for your Firestore client
       // ...
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1147-L1150)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1147-L1150)
 
 ##### Objective-C
 
@@ -571,7 +571,7 @@ You can use the method below to disable network access for your Firestore client
       // ...
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1051-L1054)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1051-L1054)
 
 ##### Kotlin  
 Android
@@ -644,7 +644,7 @@ Use the following method to re-enable network access:
       // ...
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1154-L1157)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1154-L1157)
 
 ##### Objective-C
 
@@ -656,7 +656,7 @@ Use the following method to re-enable network access:
       // ...
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1058-L1061)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1058-L1061)
 
 ##### Kotlin  
 Android

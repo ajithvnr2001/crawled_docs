@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/cors-policy/
 title: CORS policy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:54:03.743102+00:00
+fetched_at: 2026-11-01T05:38:23.105477+00:00
 ---
 
 # CORS policy  |  Apigee  |  Google Cloud Documentation
@@ -70,34 +70,39 @@ The `<CORS>` element uses the following syntax:
 The `<CORS>` element uses the following syntax:
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <DisplayName>DISPLAY_NAME</DisplayName>
-      <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>
-      <AllowMethods>[GET, PUT, POST, DELETE, ...|*]</AllowMethods>
-      <AllowHeaders>[origin, x-requested-with, accept, content-type, ...]</AllowHeaders>
-      <ExposeHeaders>[X-CUSTOM-HEADER-A, X-CUSTOM-HEADER-B, ... | *]</ExposeHeaders>
-      <MaxAge>[integer|-1]</MaxAge>
-      <AllowCredentials>[false|true]</AllowCredentials>
-      <GeneratePreflightResponse>[false|true]</GeneratePreflightResponse>
-      <IgnoreUnresolvedVariables>[false|true]</IgnoreUnresolvedVariables>
-    </CORS>
+    <!--
+      This file uses region tags to define areas of the syntax.
+      Specify these region tags as part of an include statement to repeat the content
+      between the START and END region tags.
+    -<->
+    CORS continueOnError="[false|true]" enabled=";[false|true]&qu<ot; name=&quot;POLICY_NA<ME">
+      D<isplayName>DISPLAY_NAME/DisplayName>
+      AllowOrigins>[{message template}|URL|URL<, URL, ...|{conte<xt-variable}|{flow-variable}|*]/AllowOrigins<>
+      AllowMetho<ds>[GET, PUT, POST, DELETE, ...|*]/AllowMethods>
+      AllowHead<ers>[origin, x<-requested-with, accept, content-type, ...]/AllowHeaders>
+    <  ExposeHeaders><;[X-CUSTOM-HEADER-A<, X-CUSTOM-<HEADER-B, ... | *]/ExposeHead<ers>
+      MaxAge>[<integer|-1]/MaxAge>
+      AllowCredenti<als>[false|true]/AllowCrede<ntials>
+      GeneratePreflightResponse<>[false|true]/GeneratePre<flightResponse>
+      IgnoreUnresolvedVariables>[false|true]/IgnoreUnresolvedVariables>
+    /CORS>
 
 ### Default policy
 
 The following example shows the default settings when you add the CORS policy to your flow in the Edge UI:
     
     
-    <CORS continueOnError="false" enabled="true" name="add-cors">
-        <DisplayName>Add CORS</DisplayName>
-        <AllowOrigins>{request.header.origin}</AllowOrigins>
-        <AllowMethods>GET, PUT, POST, DELETE</AllowMethods>
-        <AllowHeaders>origin, x-requested-with, accept, content-type</AllowHeaders>
-        <ExposeHeaders>*</ExposeHeaders>
-        <MaxAge>3628800</MaxAge>
-        <AllowCredentials>false</AllowCredentials>
-        <GeneratePreflightResponse>true</GeneratePreflightResponse>
-        <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    </CORS>
+    <CORS continueOnError="false" enabled="true" n<ame="add-cors&q<uot;>
+        Displ<ayName>Add CORS/DisplayName>
+     <   AllowOrigins><{request.header.origin}/AllowOrigin<s>
+        AllowMeth<ods>GET, PUT, POST, DELETE/AllowMethods>
+        AllowHea<ders>origin, x-r<equested-with, <accept, content-type</AllowHeaders&<gt;
+        Expos<eHeaders>*/ExposeHe<aders>
+        MaxAge><;3628800/MaxAge>
+        AllowC<redentials>false/AllowCredent<ials>
+        GeneratePreflight<Response>true/GeneratePre<flightResponse>
+        IgnoreUnresolvedVariables>true/IgnoreUnresolvedVariables>
+    /CORS>
 
 When you insert a new `CORS` policy in the Apigee UI, the template contains stubs for all possible operations. Typically, you select which operations you want to perform with this policy and remove the rest of the child elements. For example, if you want to specify the HTTP methods allowed to access the resource, use the [`<AllowMethods>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/cors-policy#allow-methods) element and remove the other child elements from the policy to make it more readable. 
 
@@ -141,10 +146,10 @@ The `<AllowCredentials>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>
-    ** <AllowCredentials>[false|true]</AllowCredentials>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; na<me="POLICY_NAME">
+      AllowOrigins>[{message template}|URL|URL, URL, ...|{<context-variabl**e**}<|{flow-variable}|*]/AllowOrig<ins>
+      AllowCred<entials>[false|true]/AllowCredentials>
+    /CORS>
           
 
 ### Example
@@ -176,10 +181,10 @@ The `<AllowHeaders>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>
-    ** <AllowHeaders>[origin, x-requested-with, accept, content-type, ...]</AllowHeaders>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; na<me="POLICY_NAME">
+      AllowOrigins>[{message template}|URL|URL, URL, ...|{<context-variabl**e**}<|{flow-variable}|*]/AllowOrigins>
+      AllowHeaders>[origin, x-<requested-with,< accept, content-type, ...]/AllowHeaders>
+    /CORS>
 
 ### Example
 
@@ -211,10 +216,10 @@ The `<AllowMethods>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>
-    ** <AllowMethods>[GET, PUT, POST, DELETE, ...|*]</AllowMethods>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; na<me="POLICY_NAME">
+      AllowOrigins>[{message template}|URL|URL, URL, ...|{<context-variabl**e**}<|{flow-variable}|*]/AllowOrigins>
+      Allow<Methods>[GET<, PUT, POST, DELETE, ...|*]/AllowMethods>
+    /CORS>
 
 ### Example:  
 List
@@ -257,9 +262,9 @@ The `<AllowOrigins>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-    ** <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; **na <me="POLICY_NAME">
+      AllowOrigins>[{message template}|URL|URL, URL, ...|{<context-variab**l<e}|{flow-variable}|*]/AllowOrigins>
+    /CORS>
 
 ### Example:  
 Single URL
@@ -364,10 +369,10 @@ The `<ExposeHeaders>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>
-    ** <ExposeHeaders>[X-CUSTOM-HEADER-A, X-CUSTOM-HEADER-B, ... | *]</ExposeHeaders>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; na<me="POLICY_NAME">
+      AllowOrigins>[{message template}|URL|URL, URL, ...|{<context-variabl**e**}<|{flow-variable}|*]/AllowOrigins>
+      ExposeHeaders>[X-CU<STOM-HEADER-A, X<-CUSTOM-HEADER-B, ... | *]/ExposeHeaders>
+    /CORS>
 
 ### Example
 
@@ -408,10 +413,10 @@ The `<GeneratePreflightResponse>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <GeneratePreflightResponse>[false|true]</GeneratePreflightResponse>
-    ** <GeneratePreflightResponse>[false|true]</GeneratePreflightResponse>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; na<me="POLICY_NAME">
+      Gener<atePreflightResponse>[fal**se <|true]/GeneratePreflightResponse>
+     < GeneratePreflightResponse&**g<t;[false|true]/GeneratePreflightResponse>
+    /CORS>
 
 ### Example
 
@@ -439,10 +444,10 @@ The `<IgnoreUnresolvedVariables>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>
-    ** <IgnoreUnresolvedVariables>[false|true]</IgnoreUnresolvedVariables>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; na<me="POLICY_NAME">
+      AllowOrigins>[{message template}|URL|URL, URL, ...|{<context-variabl**e**}<|{flow-variable}|*]/AllowOrigins>
+     < IgnoreUnresolvedVariables&g<t;[false|true]/IgnoreUnresolvedVariables>
+    /CORS>
 
 ### Example
 
@@ -470,10 +475,10 @@ The `<MaxAge>` element uses the following syntax:
 ### Syntax
     
     
-    <CORS continueOnError="[false|true]" enabled="[false|true]" name="POLICY_NAME">
-      <AllowOrigins>[{message template}|URL|URL, URL, ...|{context-variable}|{flow-variable}|*]</AllowOrigins>
-    ** <MaxAge>[integer|-1]</MaxAge>**
-    </CORS>
+    <CORS continueOnError="[false|true]" enabled="[false|true]&quot; na<me="POLICY_NAME">
+      AllowOrigins>[{message template}|URL|URL, URL, ...|{<context-variabl**e**}<|{flow-variable}|*]</AllowOri<gins>
+      MaxAge>[integer|-1]/MaxAge>
+    /CORS>
 
 ### Example:  
 Cache

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/region-support/
 title: Locations \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:39.769844+00:00
+fetched_at: 2026-11-01T05:44:04.028494+00:00
 ---
 
 # Locations  |  Cloud Logging  |  Google Cloud Documentation

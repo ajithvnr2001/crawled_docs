@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/audit-logging/
 title: GKE audit logging information \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:56.302453+00:00
+fetched_at: 2026-11-01T05:43:22.299019+00:00
 ---
 
 # GKE audit logging information  |  GKE security  |  Google Cloud Documentation

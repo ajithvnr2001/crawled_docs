@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model/
 title: Train a forecast model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:05.425650+00:00
+fetched_at: 2026-11-01T05:36:55.429850+00:00
 ---
 
 # Train a forecast model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -392,7 +392,7 @@ DATA_SPLIT_COLUMN is the column containing the data split values (`TRAIN`, `VALI
     
     
     "predefinedSplit": {
-      "key": DATA_SPLIT_COLUMN
+      "key";: DATA_SPLIT_COLUMN
     },
     
 
@@ -405,7 +405,7 @@ Provide a `windowConfig` object to configure a rolling window strategy for forec
   * To use the `maxCount` option, add the following to `trainingTaskInputs` of the JSON request. MAX_COUNT_VALUE refers to the maximum number of windows.
         
         "windowConfig": {
-            "maxCount": MAX_COUNT_VALUE
+            &quot;maxCount&quot;: MAX_COUNT_VALUE
           },
           ```
         
@@ -421,7 +421,7 @@ Provide a `windowConfig` object to configure a rolling window strategy for forec
   * To use the `column` option, add the following to `trainingTaskInputs` of the JSON request. COLUMN_NAME refers to the name of the column with `True` or `False` values.
         
         "windowConfig": {
-            "column": "COLUMN_NAME"
+            &quot;column": ";COLUMN_NAME"
           },
           ```
         

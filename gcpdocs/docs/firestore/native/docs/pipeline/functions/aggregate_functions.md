@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/aggregate_functions/
 title: Aggregate Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:55.923962+00:00
+fetched_at: 2026-11-01T05:36:37.201224+00:00
 ---
 
 # Aggregate Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -101,7 +101,7 @@ Returns the count of documents from the previous stage where `expression` evalua
       .aggregate([Field("ratings").count().as("count")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L465-L475)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L487-L497)
 
 ##### Kotlin  
 Android
@@ -157,7 +157,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L570-L583)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L570-L583)
 
 ##### Java
     
@@ -240,14 +240,19 @@ Returns the number of documents from the previous stage where `expression` evalu
 ##### Swift
     
     
-    let result = try await db.pipeline()
-      .collection("books")
-      .aggregate([
-        AggregateFunction("count_if", [Field("rating").greaterThan(4)]).as("filteredCount")
-      ])
-      .execute()
+        let result = try await db.pipeline()
+          .collection("books")
+    <<<<<<< HEAD
+          .aggregate([
+            AggregateFunction(functionName: "count_if",
+                              args: [Field("rating").greaterThan(4)]).as("filteredCount")
+          ])
+    =======
+          .aggregate([Field("rating").greaterThan(4).countIf().as("filteredCount")])
+    >>>>>>> master
+          .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L484-L489)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L506-L516)
 
 ##### Kotlin  
 Android
@@ -287,7 +292,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L593-L600)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L593-L600)
 
 ##### Java
     
@@ -349,12 +354,17 @@ Returns the number of unique non-`NULL`, non-`ABSENT` values of `expression`.
 ##### Swift
     
     
-    let result = try await db.pipeline()
-      .collection("books")
-      .aggregate([AggregateFunction("count_distinct", [Field("author")]).as("unique_authors")])
-      .execute()
+        let result = try await db.pipeline()
+          .collection("books")
+    <<<<<<< HEAD
+          .aggregate([AggregateFunction(functionName: "count_distinct",
+                                        args: [Field("author")]).as("unique_authors")])
+    =======
+          .aggregate([Field("author").countDistinct().as("unique_authors")])
+    >>>>>>> master
+          .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L497-L500)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L524-L532)
 
 ##### Kotlin  
 Android
@@ -390,7 +400,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L608-L615)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L608-L615)
 
 ##### Java
     
@@ -463,7 +473,7 @@ The output will have the same type as the widest input type except in these case
       .aggregate([Field("population").sum().as("totalPopulation")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L508-L511)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L540-L543)
 
 ##### Kotlin  
 Android
@@ -499,7 +509,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L623-L630)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L623-L630)
 
 ##### Java
     
@@ -572,7 +582,7 @@ The output will have the same type as the input type except in these cases:
       .aggregate([Field("population").average().as("averagePopulation")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L519-L522)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L551-L554)
 
 ##### Kotlin  
 Android
@@ -608,7 +618,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L638-L645)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L638-L645)
 
 ##### Java
     
@@ -679,7 +689,7 @@ If there are multiple minimum equivalent values, any one of those values can be 
       .aggregate([Field("price").minimum().as("minimumPrice")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L530-L533)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L562-L565)
 
 ##### Kotlin  
 Android
@@ -715,7 +725,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L653-L660)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L653-L660)
 
 ##### Java
     
@@ -786,7 +796,7 @@ If there are multiple maximum equivalent values, any one of those values can be 
       .aggregate([Field("price").maximum().as("maximumPrice")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L541-L544)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L573-L576)
 
 ##### Kotlin  
 Android
@@ -822,7 +832,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L668-L675)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L668-L675)
 
 ##### Java
     

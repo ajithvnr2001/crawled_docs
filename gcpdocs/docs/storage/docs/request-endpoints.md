@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/request-endpoints/
 title: Request endpoints \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:37.829247+00:00
+fetched_at: 2026-11-01T05:35:34.615661+00:00
 ---
 
 # Request endpoints  |  Cloud Storage  |  Google Cloud Documentation

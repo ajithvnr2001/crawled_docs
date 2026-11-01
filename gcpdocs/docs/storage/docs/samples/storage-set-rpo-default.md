@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-rpo-default/
 title: Set the rpo setting of bucket metadata to DEFAULT \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:40.815250+00:00
+fetched_at: 2026-11-01T05:36:05.487305+00:00
 ---
 
 # Set the rpo setting of bucket metadata to DEFAULT  |  Cloud Storage  |  Google Cloud Documentation

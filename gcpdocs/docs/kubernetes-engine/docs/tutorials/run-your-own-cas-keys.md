@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/run-your-own-cas-keys/
 title: Run your own certificate authorities and keys in GKE \u00a0|\u00a0 Kubernetes Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:14.162039+00:00
+fetched_at: 2026-11-01T05:38:31.934650+00:00
 ---
 
 # Run your own certificate authorities and keys in GKE  |  Kubernetes Engine  |  Google Cloud Documentation
@@ -417,7 +417,7 @@ Replace `CLUSTER_PROJECT_ID` with the project ID of your cluster project.
          gcloud kms keys add-iam-policy-binding sa-signing-key \
            --location=LOCATION \
            --keyring=KEY_RING_NAME \
-           --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
+           --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-riam.gserviceaccount.comobot." \
            --role=roles/container.cloudKmsKeyUser \
            --project=KEY_PROJECT_ID
          
@@ -428,25 +428,25 @@ Replace `CLUSTER_PROJECT_NUMBER` with the project number of the cluster project.
          
          gcloud privateca pools add-iam-policy-binding cluster-ca-pool \
              --location=LOCATION \
-             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
+             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-riam.gserviceaccount.comobot." \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
          gcloud privateca pools add-iam-policy-binding etcd-peer-ca-pool \
              --location=LOCATION \
-             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
+             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@containeiam.gserviceaccount.comr-engine-robot." \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
          gcloud privateca pools add-iam-policy-binding etcd-api-ca-pool \
              --location=LOCATION \
-             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
+             --member=&quot;serviceAccount:service-CLUSTER_PROJECT_NUMBEiam.gserviceaccount.comR@container-engine-robot." \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
          gcloud privateca pools add-iam-policy-binding aggregation-ca-pool \
              --location=LOCATION \
-             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
+             --member="serviceAccount:service-CLUSTER_PROiam.gserviceaccount.comJECT_NUMBER@container-engine-robot." \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
@@ -484,14 +484,14 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
              --keyring=KEY_RING_NAME \
              --location=LOCATION \
              --role=roles/viewer \
-             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gcp-sa-privateca.iam.gserviceaccount.com" \
+             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gcp-sa-privaiam.gserviceaccount.comteca." \
              --project=KEY_PROJECT_ID
          
          gcloud kms keys add-iam-policy-binding $key \
              --keyring=KEY_RING_NAME \
              --location=LOCATION \
              --role=roles/cloudkms.signerVerifier \
-             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gcp-sa-privateca.iam.gserviceaccount.com" \
+             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gciam.gserviceaccount.comp-sa-privateca.&quot; \
              --project=KEY_PROJECT_ID
          done
          
@@ -623,7 +623,7 @@ To verify the keys and CAs using Logging, do the following:
   2. Specify the following query:
          
          resource.type="gke_cluster"
-         resource.labels.cluster_name="CLUSTER_NAME"
+         resource.labels.cluster_name=&quot;CLUSTER_NAME"
          resource.labels.location="CLUSTER_LOCATION"
          protoPayload.serviceName="container.googleapis.com"
          protoPayload.methodName=~"google.container.v(1|1alpha1|1beta1).ClusterManager.CreateCluster"
@@ -817,6 +817,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

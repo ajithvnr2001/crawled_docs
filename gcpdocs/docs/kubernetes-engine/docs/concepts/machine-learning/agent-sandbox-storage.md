@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox-storage/
 title: Choose storage for AI agentic workloads \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:40.363503+00:00
+fetched_at: 2026-11-01T05:42:29.579210+00:00
 ---
 
 # Choose storage for AI agentic workloads  |  GKE AI/ML  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/transactions/
 title: Transactions and batched writes \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:54.400926+00:00
+fetched_at: 2026-11-01T05:37:40.040544+00:00
 ---
 
 # Transactions and batched writes  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -140,7 +140,7 @@ The following example shows how to create and run a transaction:
       print("Transaction failed: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L524-L556)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L524-L556)
 
 ##### Objective-C
 
@@ -174,7 +174,7 @@ The following example shows how to create and run a transaction:
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L463-L488)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L463-L488)
 
 ##### Kotlin  
 Android
@@ -581,7 +581,7 @@ Do not modify application state inside of your transaction functions. Doing so w
       print("Error updating population: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L562-L605)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L562-L605)
 
 ##### Objective-C
 
@@ -621,7 +621,7 @@ Do not modify application state inside of your transaction functions. Doing so w
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L494-L525)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L494-L525)
 
 ##### Kotlin  
 Android
@@ -1063,7 +1063,7 @@ If you do not need to read any documents in your operation set, you can execute 
       print("Error writing batch: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L611-L632)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L611-L632)
 
 ##### Objective-C
 
@@ -1097,7 +1097,7 @@ If you do not need to read any documents in your operation set, you can execute 
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L531-L556)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L531-L556)
 
 ##### Kotlin  
 Android

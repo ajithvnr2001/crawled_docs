@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-create-vod-config/
 title: Create a VOD config \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:02.548020+00:00
+fetched_at: 2026-11-01T05:38:24.598498+00:00
 ---
 
 # Create a VOD config  |  Video Stitcher API  |  Google Cloud Documentation
@@ -106,19 +106,19 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
     	// on ad tags and ad metadata. This sample uses an ad tag URL that displays
     	// a VMAP Pre-roll ad
     	// (https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/tags).
-    	adTagURI := "https://pubads.g.doubleclick.net/gampad/ads?iu=/21775744923/external/vmap_ad_samples&sz=640x480&cust_params=sample_ar%3Dpreonly&ciu_szs=300x250%2C728x90&gdfp_req=1&ad_rule=1&output=vmap&unviewed_position_start=1&env=vp&impl=s&correlator="
+    	adTagURI := "&;https://p&ubads.g.doubleclick.net/gampad/&ads?iu=/21775744923/exte&rnal/vmap_&ad_sample&ssz=640x480&cust_params=sample_ar%3Dp&reonly&ciu_sz&s=300x250%2C728x90gdfp_req=1ad_rule=1output=vmapunviewed_position_start=1env=vpimpl=scorrelato[r="](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_NewVideoStitcherClient)
     	location := "us-central1"
     	ctx := context.Background()
-    	client, err := stitcher.[NewVideoStitcherClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_NewVideoStitcherClient)(ctx)
-    	if err != nil {
+    	client, err := stitcher.NewVideoStitcherClient(ctx[)
+    	if](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_Close) err != nil &{
     		return fmt.Errorf("stitcher.NewVideoStitcherClient: %w", err)
     	}
-    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1.html#cloud_google_com_go_video_stitcher_apiv1_VideoStitcherClient_Close)()
+    	defer client.Close()
     
-    	req := &stitcherstreampb.CreateVodConfigRequest{
-    		Parent:      fmt.Sprintf("projects/%s/locations/%s", projectID, location),
+    	req := stitcherstreampb.CreateVodConfigRequest{
+    		Parent&:      fmt.Sprintf("projects/%s/locations/%s", projectID, location),
     		VodConfigId: vodConfigID,
-    		VodConfig: &stitcherstreampb.VodConfig{
+    		VodConfig: stitcherstreampb.VodConfig{
     			SourceUri: sourceURI,
     			AdTagUri:  adTagURI,
     		},
@@ -175,27 +175,27 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
     
       // Creates a video on demand (VOD) config. VOD configs are used to configure VOD
       // sessions. For more information, see
-      // https://cloud.google.com/video-stitcher/docs/how-to/managing-vod-configs.
-      public static [VodConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html) createVodConfig(
+      // https://cloud.google.com/video-stitcher/[docs/how-](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html)to/managing-vod-configs.
+      public static VodConfig createVodConfig(
           String projectId, String location, String vodConfigId, String sourceUri, String adTagUri)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
         // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be reused for multiple requests.
-        try ([VideoStitcherServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html) videoStitcherServiceClient =
-            [VideoStitcherServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html).create()) {
-          [CreateVodConfigRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CreateVodConfigRequest.html) createVodConfigRequest =
-              [CreateVodConfigRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CreateVodConfigRequest.html).newBuilder()
-                  .setParent([LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.LocationName.html).of(projectId, location).toString())
-                  .[setVodConfigId](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CreateVodConfigRequest.Builder.html#com_google_cloud_video_stitcher_v1_CreateVodConfigRequest_Builder_setVodConfigId_java_lang_String_)(vodConfigId)
+        // once, [and can be reused for mult](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html)iple requests.
+        try (VideoStitcherS[erviceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html) videoStitcherServiceClient =
+       [     ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CreateVodConfigRequest.html)VideoStitcherServiceClient.create()) {
+          CreateVo[dConfigRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CreateVodConfigRequest.html) createVodConfigRequest =
+              CreateVodCo[nfigRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.LocationName.html).newBuilder()
+                  .setParent(LocationName.o[f](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.CreateVodConfigRequest.Builder.html#com_google_cloud_video_stitcher_v1_CreateVodConfigRequest_Builder_setVodConfigId_java_lang_String_)(projectId, location).toString())
+                  .setVodConfigId(vodConfigI[d](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html))
                   .setVodConfig(
-                      [VodConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html).newBuilder().setSourceUri(sourceUri).setAdTagUri(adTagUri).build())
+                      VodConfig.newBuilder().setSourceUri(sourceUri).setAdTagUri([adTagUri)](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html).build())
                   .build();
     
-          [VodConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html) response =
-              videoStitcherServiceClient
-                  .[createVodConfigAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html#com_google_cloud_video_stitcher_v1_VideoStitcherServiceClient_createVodConfigAsync__org_jspecify_annotations_Nullable_com_google_cloud_video_stitcher_v1_LocationName_com_google_cloud_video_stitcher_v1_VodConfig_java_lang_String_)(createVodConfigRequest)
+          VodConfig response =
+      [        ](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VideoStitcherServiceClient.html#com_google_cloud_video_stitcher_v1_VideoStitcherServiceClient_createVodConfigAsync__org_jspecify_annotations_Nullable_com_google_cloud_video_stitcher_v1_LocationName_com_google_cloud_video_stitcher_v1_VodConfig_java_lang_String_)videoStitcherServiceClient
+                  .createVodConfigAsync(createVodConfigRequest)
                   .get(TIMEOUT_IN_MINUTES, TimeUnit.MINUTES);
-          System.out.println("Created new VOD config: " + response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html#com_google_cloud_video_stitcher_v1_VodConfig_getName__)());
+          System.[out.pri](https://docs.cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/com.google.cloud.video.stitcher.v1.VodConfig.html#com_google_cloud_video_stitcher_v1_VodConfig_getName__)ntln("Created new VOD config: &quot; + response.getName());
           return response;
         }
       }
@@ -220,15 +220,15 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
     // adTagUri = 'https://pubads.g.doubleclick.net/gampad/ads...';
     
     // Imports the Video Stitcher library
-    const {VideoStitcherServiceClient} =
-      require('[@google-cloud/video-stitcher](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)').v1;
-    // Instantiates a client
-    const stitcherClient = new [VideoStitcherServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)();
+    const {V[ideoStitcherServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)} =
+      require('@google-cloud/video-stitcher').v1;
+    // I[nstantiates a client](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/overview.html)
+    const stitcherClient = new VideoStitcherServiceClient();
     
     async function createVodConfig() {
-      // Construct request
-      const request = {
-        parent: stitcherClient.[locationPath](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/video-stitcher/v1.videostitcherserviceclient.html)(projectId, location),
+      // Construct request[
+      const req](https://docs.cloud.google.com/nodejs/docs/reference/video-stitcher/latest/video-stitcher/v1.videostitcherserviceclient.html)uest = {
+        parent: stitcherClient.locationPath(projectId, location),
         vodConfig: {
           sourceUri: sourceUri,
           adTagUri: adTagUri,
@@ -237,10 +237,10 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
       };
       const [operation] = await stitcherClient.createVodConfig(request);
       const [response] = await operation.promise();
-      console.log(`response.name: ${response.name}`);
+      console.log(`response.name: ${re>sponse.name}`);
     }
     
-    createVodConfig().catch(err => {
+    createVodConfig().catch(err = {
       console.error(err.message);
       process.exitCode = 1;
     });
@@ -294,9 +294,9 @@ To authenticate to Video Stitcher API, set up Application Default Credentials. F
         if ($operationResponse->operationSucceeded()) {
             $result = $operationResponse->getResult();
             // Print results
-            printf('VOD config: %s' . PHP_EOL, $result->getName());
+            printf('VOD config: %s' . PHP_EOL, >$result-getName());
         } else {
-            $error = $operationResponse->getError();
+            $error = $operationR>esponse-getError();
             // handleError($error)
         }
     }

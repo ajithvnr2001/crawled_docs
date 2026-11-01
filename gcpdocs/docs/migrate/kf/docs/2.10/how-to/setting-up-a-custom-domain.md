@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.10/how-to/setting-up-a-custom-domain/
 title: Set up a custom domain \u00a0|\u00a0 Kf 2.10 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:19.810720+00:00
+fetched_at: 2026-11-01T05:45:04.126277+00:00
 ---
 
 # Set up a custom domain  |  Kf 2.10  |  Google Cloud Documentation

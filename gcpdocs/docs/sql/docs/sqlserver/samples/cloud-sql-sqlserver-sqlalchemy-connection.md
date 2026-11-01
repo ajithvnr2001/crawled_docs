@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-sqlalchemy-connection/
 title: Open and close connections using Python with SQLAlchemy \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:26.516814+00:00
+fetched_at: 2026-11-01T05:38:10.790394+00:00
 ---
 
 # Open and close connections using Python with SQLAlchemy  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

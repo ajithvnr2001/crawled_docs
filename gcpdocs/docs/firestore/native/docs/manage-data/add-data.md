@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/add-data/
 title: Add and update data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:12.205469+00:00
+fetched_at: 2026-11-01T05:36:28.756344+00:00
 ---
 
 # Add and update data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -108,7 +108,7 @@ To persist data when the device loses its connection, see the [Enable Offline Da
     
     let db = Firestore.firestore()
     
-    [AppDelegate.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/AppDelegate.swift#L31-L33)
+    [AppDelegate.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/AppDelegate.swift#L31-L33)
 
 ##### Objective-C
 
@@ -125,7 +125,7 @@ To persist data when the device loses its connection, see the [Enable Offline Da
     
     FIRFirestore *defaultFirestore = [FIRFirestore firestore];
     
-    [AppDelegate.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/AppDelegate.m#L32-L32)
+    [AppDelegate.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/AppDelegate.m#L32-L32)
 
 ##### Kotlin  
 Android
@@ -367,7 +367,7 @@ Use the `setData()` method:
       print("Error writing document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L269-L279)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L269-L279)
 
 ##### Objective-C
 
@@ -389,7 +389,7 @@ Use the `setData:` method:
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L198-L209)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L198-L209)
 
 ##### Kotlin  
 Android
@@ -666,7 +666,7 @@ If the document does not exist, it will be created. If the document does exist, 
     // Update one field, creating the document if it does not exist.
     db.collection("cities").document("BJ").setData([ "capital": true ], merge: true)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L406-L407)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L406-L407)
 
 ##### Objective-C
 
@@ -682,7 +682,7 @@ If the document does not exist, it will be created. If the document does exist, 
            // ...
          }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L323-L330)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L323-L330)
 
 ##### Kotlin  
 Android
@@ -919,7 +919,7 @@ Firestore lets you write a variety of data types inside a document, including st
       print("Error writing document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L301-L320)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L301-L320)
 
 ##### Objective-C
 
@@ -950,7 +950,7 @@ Firestore lets you write a variety of data types inside a document, including st
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L215-L237)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L215-L237)
 
 ##### Kotlin  
 Android
@@ -1366,7 +1366,7 @@ Using custom classes, you can rewrite the initial example in the following way:
     
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1463-L1479)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1463-L1479)
 
 ##### Objective-C
 
@@ -1768,7 +1768,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       print("Error writing city to Firestore: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L285-L295)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L285-L295)
 
 ##### Objective-C
 
@@ -1960,7 +1960,7 @@ When you use `set()` to create a document, you must specify an ID for the docume
     
     db.collection("cities").document("new-city-id").setData(data)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L328-L328)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L328-L328)
 
 ##### Objective-C
 
@@ -1970,7 +1970,7 @@ When you use `set()` to create a document, you must specify an ID for the docume
     [[[self.db collectionWithPath:@"cities"] documentWithPath:@"new-city-id"]
         setData:data];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L244-L245)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L244-L245)
 
 ##### Kotlin  
 Android
@@ -2140,7 +2140,7 @@ Use the `addDocument()` method:
       print("Error adding document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L334-L343)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L334-L343)
 
 ##### Objective-C
 
@@ -2162,7 +2162,7 @@ Use the `addDocumentWithData:` method:
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L251-L262)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L251-L262)
 
 ##### Kotlin  
 Android
@@ -2423,7 +2423,7 @@ In some cases, it can be useful to create a document reference with an auto-gene
       // ...
     ])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L349-L356)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L349-L356)
 
 ##### Objective-C
 
@@ -2434,7 +2434,7 @@ In some cases, it can be useful to create a document reference with an auto-gene
     // later...
     [newCityRef setData:@{ /* ... */ }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L268-L270)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L268-L270)
 
 ##### Kotlin  
 Android
@@ -2671,7 +2671,7 @@ Use the `updateData()` method:
       print("Error updating document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L362-L372)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L362-L372)
 
 ##### Objective-C
 
@@ -2693,7 +2693,7 @@ Use the `updateData:` method:
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L276-L287)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L276-L287)
 
 ##### Kotlin  
 Android
@@ -2949,7 +2949,7 @@ You can set a field in your document to a server timestamp which tracks when the
       print("Error updating document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L495-L502)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L495-L502)
 
 ##### Objective-C
 
@@ -2966,7 +2966,7 @@ You can set a field in your document to a server timestamp which tracks when the
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L428-L436)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L428-L436)
 
 ##### Kotlin  
 Android
@@ -3211,7 +3211,7 @@ If your document contains nested objects, you can use the _dot notation_ to refe
       print("Error updating document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L413-L430)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L413-L430)
 
 ##### Objective-C
 
@@ -3242,7 +3242,7 @@ If your document contains nested objects, you can use the _dot notation_ to refe
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L336-L358)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L336-L358)
 
 ##### Kotlin  
 Android
@@ -3658,7 +3658,7 @@ If your document contains an array field, you can use `arrayUnion()` and `arrayR
       "regions": FieldValue.arrayRemove(["east_coast"])
     ])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L378-L388)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L378-L388)
 
 ##### Objective-C
 
@@ -3678,7 +3678,7 @@ If your document contains an array field, you can use `arrayUnion()` and `arrayR
       @"regions": [FIRFieldValue fieldValueForArrayRemove:@[@"east_coast"]]
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L293-L304)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L293-L304)
 
 ##### Kotlin  
 Android
@@ -3894,7 +3894,7 @@ You can increment or decrement a numeric field value as shown in the following e
       "population": FieldValue.increment(Int64(50))
     ])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L394-L400)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L394-L400)
 
 ##### Objective-C
 
@@ -3910,7 +3910,7 @@ You can increment or decrement a numeric field value as shown in the following e
       @"population": [FIRFieldValue fieldValueForIntegerIncrement:50]
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L310-L317)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L310-L317)
 
 ##### Kotlin  
 Android

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-move-object/
 title: Rename objects atomically \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:27.673954+00:00
+fetched_at: 2026-11-01T05:35:48.619249+00:00
 ---
 
 # Rename objects atomically  |  Cloud Storage  |  Google Cloud Documentation

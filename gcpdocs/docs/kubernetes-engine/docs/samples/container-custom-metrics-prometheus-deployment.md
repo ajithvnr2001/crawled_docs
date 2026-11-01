@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-custom-metrics-prometheus-deployment/
 title: Custom metrics prometheus exporter deployment \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:27.871750+00:00
+fetched_at: 2026-11-01T05:44:30.018937+00:00
 ---
 
 # Custom metrics prometheus exporter deployment  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

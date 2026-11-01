@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/aws/how-to/audit-logging-api/
 title: Cloud Audit Logs API \u00a0|\u00a0 GKE on AWS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:47.948309+00:00
+fetched_at: 2026-11-01T05:44:28.212819+00:00
 ---
 
 # Cloud Audit Logs API  |  GKE on AWS  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/structured-logging/
 title: Structured logging \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:47.121468+00:00
+fetched_at: 2026-11-01T05:42:22.398694+00:00
 ---
 
 # Structured logging  |  Cloud Logging  |  Google Cloud Documentation
@@ -21,61 +21,66 @@ Send feedback
 
 #  Structured logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document discusses the concept of structured logging and the methods for adding structure to log entry payload fields. When the log payload is formatted as a JSON object and that object is stored in the `jsonPayload` field, the log entry is called a _structured log_. For these logs, you can construct queries that search specific JSON paths and you can index specific fields in the log payload. In contrast, when the log payload is formatted as a string and stored in the `textPayload` field, the log entry is _unstructured_. You can search the text field, but you can't index its content.
+In Cloud Logging, a [`LogEntry`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry) object can store a log payload as either structured data or unstructured text. A _structured_ log entry stores its payload as a JSON object in the `jsonPayload` field, whereas an _unstructured_ log entry stores its payload as a string in the `textPayload` field.
 
-To create structured log entries, do any of the following:
+Formatting your log payload as a JSON object lets you query by JSON paths in the Logs Explorer, query individual fields on the [Observability Analytics](https://docs.cloud.google.com/logging/docs/log-analytics) page, and [index specific fields](https://docs.cloud.google.com/logging/docs/analyze/custom-index) to speed up queries. With unstructured logs, you can search the text string, but you can't query or index individual keys.
 
-  * Call the [`entries.write`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/entries/write) API method and supply a fully formatted [`LogEntry`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry).
-  * Use the `gcloud logging write` command.
+## How structured logs are written
 
+How structured log entries are written to Logging depends on your environment and how your logs are collected:
 
-  * Use a Cloud Logging client library which writes structured logs.
-
-
-  * Use the BindPlane service.
+  * **[OpenTelemetry](https://docs.cloud.google.com/stackdriver/docs/instrumentation/choose-approach) and the Telemetry (OTLP) API**: When you send OpenTelemetry Protocol (OTLP) log records to Logging, Google Cloud Observability converts structured log data into the `jsonPayload` field. See [OTLP log record to log entry mapping](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/otlp-log-record-to-log-entry).
 
 
-  * Use an agent to write logs:
-
-**Note:** We recommend that you use an agent to write logs, when that option is available. To write structured logs, configure your application to write serialized JSON objects. For a list of logging frameworks, see [Recommended logging frameworks](https://docs.cloud.google.com/stackdriver/docs/instrumentation/choose-approach#logging-frameworks)
-    * Some Google Cloud services contain an integrated logging agent that sends the data written to `stdout` or `stderr` as logs to Cloud Logging. You can use this approach for Google Cloud services such as Google Kubernetes Engine, App Engine flexible environment, and Cloud Run functions.
-    * For Compute Engine virtual machines (VMs), we recommend that you install and configure the Ops Agent to send structured logs to Cloud Logging. If your existing VMs use the legacy Logging agent, note that the agent has reached its end of support. For information about migration alternatives from the legacy Logging agent, see the [migration guide](https://docs.cloud.google.com/logging/docs/agent/logging/migrating-to-fluentd), or see [Structured logging with the legacy Logging agent](https://docs.cloud.google.com/logging/docs/agent/logging/structured-logging) for information about using the legacy Logging agent to write structured logs.
+  * **Built-in logging agents** : In managed compute environments (such as Google Kubernetes Engine and Cloud Run), built-in agents parse single-line JSON written to `stdout` or `stderr` into the `jsonPayload` field. See [Choose a logging framework](https://docs.cloud.google.com/stackdriver/docs/instrumentation/choose-approach#logging-frameworks).
+  * **[Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent)** : On Compute Engine VMs, the agent writes structured logs when it collects JSON logs or parses text logs. See [Configure the Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent/configuration).
 
 
+  * **[Logging client libraries](https://docs.cloud.google.com/logging/docs/reference/libraries)** : These libraries write structured logs when you pass a JSON object or map as the payload, or when they output single-line JSON to `stdout` or `stderr`. See [Writing structured logs](https://docs.cloud.google.com/logging/docs/samples/logging-write-log-entry).
 
-For code examples, see [Writing structured logs](https://docs.cloud.google.com/logging/docs/samples/logging-write-log-entry).
 
-## Write logs by using the gcloud CLI
+  * **Google Cloud CLI or the Logging API**: You can run [`gcloud logging write`](https://docs.cloud.google.com/sdk/gcloud/reference/logging/write) with the `--payload-type=json` flag ([example](https://docs.cloud.google.com/logging/docs/write-query-log-entries-gcloud)), or call the [`entries.write`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/entries/write) API method with a `jsonPayload` object.
 
-You can write log data by using the gcloud CLI. The interface supports unstructured logs and structured logs. When you want to write a structured log, provide the command a serialized JSON object.
 
-For a quickstart, see [Write and query log entries with the Google Cloud CLI](https://docs.cloud.google.com/logging/docs/write-query-log-entries-gcloud).
+  * **BindPlane** : This service sends logs with JSON payloads from on-premises or hybrid sources to Logging. See the [BindPlane quickstart guide](https://bindplane.com/docs/getting-started/quickstart-guide).
 
-For code examples, see the [`gcloud logging write`](https://docs.cloud.google.com/sdk/gcloud/reference/logging/write) reference.
 
-## Write logs by using BindPlane
 
-You can use the BindPlane service to send logs to Logging. For these logs, the payloads are in JSON format and are structured according to the source system. For information on finding and viewing logs ingested by using BindPlane, see the BindPlane [Quickstart Guide](https://bindplane.com/docs/getting-started/quickstart-guide).
+## Special JSON fields in structured payloads
 
-## Write logs by using the Ops Agent
+When logging agents ingest structured logs, they can map specific fields in your log data to top-level fields in the [`LogEntry`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry) object instead of leaving them in `jsonPayload`:
 
-**Note:** The content of this section only applies to Compute Engine VM. This section doesn't apply if you are using other services such as Google Kubernetes Engine, App Engine flexible environment, and Cloud Run functions.
+  * **Ops Agent** : For the JSON fields that the Ops Agent maps automatically when you use the `parse_json` processor or the `tcp` and `fluent_forward` receivers, see [Special fields in structured payloads](https://docs.cloud.google.com/logging/docs/agent/ops-agent/configuration#special-fields).
 
-To get logs from your Compute Engine instances, you can use the [Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent). The Ops Agent combines logging and metrics into a single agent, provides a YAML-based configuration, and features high-throughput logging.
+  * **OpenTelemetry (OTLP)** : For information about how Google Cloud Observability maps OTLP log records to `LogEntry` fields, see [OTLP log record to log entry mapping](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/otlp-log-record-to-log-entry).
 
-For information about how to configure the Ops Agent to support structured logging or to customize the form of a structured log, see [Configure the Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent/configuration).
+  * **Built-in logging agents (`stdout` and `stderr`)**: On managed compute platforms such as Google Kubernetes Engine, Cloud Run, Cloud Run functions, and App Engine, the built-in logging agent recognizes the following top-level JSON keys and moves their values into the corresponding `LogEntry` fields:
 
-## Troubleshoot issues
+    * `severity`: Sets the [`LogEntry.severity`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#FIELDS.severity) field.
+    * `message`: Sets the main log message displayed in the Logs Explorer.
+    * `httpRequest`: Sets the [`LogEntry.httpRequest`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#HttpRequest) field.
+    * `time` or `timestamp` (or `timestampSeconds` and `timestampNanos`): Sets the [`LogEntry.timestamp`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#FIELDS.timestamp) field.
+    * `logging.googleapis.com/insertId`: Sets the `LogEntry.insertId` field.
+    * `logging.googleapis.com/labels`: Sets user-defined `LogEntry.labels` key-value pairs.
+    * `logging.googleapis.com/operation`: Sets the [`LogEntry.operation`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#LogEntryOperation) field.
+    * `logging.googleapis.com/sourceLocation`: Sets the `LogEntry.sourceLocation` field.
+    * `logging.googleapis.com/trace`, `logging.googleapis.com/spanId`, and `logging.googleapis.com/trace_sampled`: Set the `trace`, `spanId`, and `traceSampled` fields for [linking logs with traces](https://docs.cloud.google.com/trace/docs/trace-log-integration).
 
-To troubleshoot common issues found with installing or interacting with the Ops Agent, see [Troubleshooting the agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent/troubleshooting).
+Any remaining fields in the JSON record stay in the `LogEntry.jsonPayload` field.
+
+
+
 
 ## What's next
 
+  * To choose an instrumentation strategy for your compute platform, see [Choose an instrumentation approach](https://docs.cloud.google.com/stackdriver/docs/instrumentation/choose-approach).
+
+
   * To query and view log entries, see [View logs by using the Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface).
 
-  * To read log entries using the Google Cloud CLI, see [Reading log entries](https://docs.cloud.google.com/logging/docs/api/gcloud-logging#reading_log_entries).
+  * To read log entries by using the gcloud CLI, see [Reading log entries](https://docs.cloud.google.com/logging/docs/api/gcloud-logging#reading_log_entries).
 
-  * To read log entries using the Logging API, see the [`entries.list`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/entries/list) method.
+  * To read log entries by using the Logging API, see the [`entries.list`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/entries/list) method.
 
 
 

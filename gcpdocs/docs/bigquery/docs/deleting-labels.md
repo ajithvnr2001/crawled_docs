@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/deleting-labels/
 title: Deleting labels \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:07.320591+00:00
+fetched_at: 2026-11-01T05:35:30.559222+00:00
 ---
 
 # Deleting labels  |  BigQuery  |  Google Cloud Documentation
@@ -67,14 +67,12 @@ To delete a label from a dataset, choose one of the following options:
 
   1. In the Google Cloud console, select the dataset.
 
-  2. On the dataset details page, click the pencil icon to the right of **Labels**.
+  2. Click the **Details** tab, and then click mode_edit **Edit details**.
 
-![Label pencil](https://docs.cloud.google.com/static/bigquery/images/label-pencil.png)
+  3. In the **Labels** section, next to each label that you want to delete, click delete **Delete label**.
 
-  3. In the **Edit labels** dialog:
+  4. Click **Save**.
 
-     * For each label you want to delete, click delete (X).
-     * To save your changes, click **Update**.
 
 
 
@@ -332,19 +330,13 @@ To delete a label from a table or view, choose one of the following options:
 
 ###  Console 
 
-  1. In the Google Cloud console, select the dataset.
+  1. In the Google Cloud console, select the table or view.
 
-  2. Click the **Details** tab, and then click the pencil icon to the right of **Labels**.
+  2. In the details pane, click **Edit > Edit details**.
 
-![Label pencil](https://docs.cloud.google.com/static/bigquery/images/label-pencil.png)
+  3. In the **Labels** section, next to each label that you want to delete, click delete **Delete label**.
 
-  3. In the **Edit labels** dialog:
-
-     * For each label you want to delete, click delete (X).
-
-![Label delete](https://docs.cloud.google.com/static/bigquery/images/label-delete.png)
-
-     * To save your changes, click **Update**.
+  4. Click **Save**.
 
 
 
@@ -639,6 +631,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/create-hns-bucket/
 title: Create buckets with hierarchical namespace enabled \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:33.747612+00:00
+fetched_at: 2026-11-01T05:35:53.995652+00:00
 ---
 
 # Create buckets with hierarchical namespace enabled  |  Cloud Storage  |  Google Cloud Documentation

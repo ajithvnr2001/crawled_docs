@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/audit/configure-data-access/
 title: Enable Data Access audit logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:42.066532+00:00
+fetched_at: 2026-11-01T05:43:24.712085+00:00
 ---
 
 # Enable Data Access audit logs  |  Cloud Logging  |  Google Cloud Documentation

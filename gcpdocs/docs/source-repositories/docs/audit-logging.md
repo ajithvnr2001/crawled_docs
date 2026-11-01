@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/source-repositories/docs/audit-logging/
 title: Cloud Source Repositories audit logging information \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:02.130830+00:00
+fetched_at: 2026-11-01T05:40:14.109453+00:00
 ---
 
 # Cloud Source Repositories audit logging information  |  Google Cloud Documentation

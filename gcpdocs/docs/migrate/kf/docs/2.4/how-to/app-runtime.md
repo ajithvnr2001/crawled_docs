@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.4/how-to/app-runtime/
 title: App Runtime \u00a0|\u00a0 Kf 2.4 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:21:31.858668+00:00
+fetched_at: 2026-11-01T05:44:09.056345+00:00
 ---
 
 # App Runtime  |  Kf 2.4  |  Google Cloud Documentation

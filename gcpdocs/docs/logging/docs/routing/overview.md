@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/routing/overview/
 title: Route log entries \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:06.678671+00:00
+fetched_at: 2026-11-01T05:42:11.059262+00:00
 ---
 
 # Route log entries  |  Cloud Logging  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview/
 title: Tags overview \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:15.821582+00:00
+fetched_at: 2026-11-01T05:45:15.262724+00:00
 ---
 
 # Tags overview  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Tags overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Google Cloud [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) is a way to organize your resources into a tree structure. This hierarchy helps you manage resources at scale, but it models only a few business dimensions, including organization structure, regions, workload types, and cost centers. The hierarchy lacks the flexibility to layer multiple business dimensions together.
+Tags are key-value pairs that you can attach to your Google Cloud resources to annotate them and conditionally enforce policies. This conditional enforcement gives you fine-grained control over resources across your Google Cloud resource hierarchy.
 
-Tags provide a way to create annotations for resources, and in some cases conditionally allow or deny policies based on whether a resource has a specific tag. You can use tags and conditional enforcement of policies for fine-grained control across your resource hierarchy.
+The Google Cloud [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) organizes resources into a tree structure to help you manage them at scale. However, this hierarchy models only a few business dimensions, including organization structure, regions, workload types, and cost centers. Tags provide the flexibility to layer multiple business dimensions together across your hierarchy.
 
 ## Tags and labels
 
@@ -219,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

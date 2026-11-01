@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/pod-snapshots/
 title: About GKE Pod snapshots \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:20.391843+00:00
+fetched_at: 2026-11-01T05:42:46.639121+00:00
 ---
 
 # About GKE Pod snapshots  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

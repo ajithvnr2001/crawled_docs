@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-verify-asymmetric-signature-ec/
 title: Verify an asymmetric signature of an EC key \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:01:42.652011+00:00
+fetched_at: 2026-11-01T05:37:30.193565+00:00
 ---
 
 # Verify an asymmetric signature of an EC key  |  Cloud Key Management Service  |  Google Cloud Documentation

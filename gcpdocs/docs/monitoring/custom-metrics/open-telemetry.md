@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/custom-metrics/open-telemetry/
 title: Add custom traces and metrics to your app with OpenTelemetry \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:04:35.239794+00:00
+fetched_at: 2026-11-01T05:38:13.400495+00:00
 ---
 
 # Add custom traces and metrics to your app with OpenTelemetry  |  Cloud Monitoring  |  Google Cloud Documentation

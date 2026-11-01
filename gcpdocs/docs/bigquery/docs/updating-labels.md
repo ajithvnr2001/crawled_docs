@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/updating-labels/
 title: Updating labels \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:13.406871+00:00
+fetched_at: 2026-11-01T05:36:36.787612+00:00
 ---
 
 # Updating labels  |  BigQuery  |  Google Cloud Documentation
@@ -62,15 +62,12 @@ To update labels on a dataset, select one of the following options:
 
   1. In the Google Cloud console, select the dataset.
 
-  2. On the dataset details page, click the pencil icon to the right of **Labels**.
+  2. Click the **Details** tab, and then click mode_edit **Edit details**.
 
-![Label pencil](https://docs.cloud.google.com/static/bigquery/images/label-pencil.png)
+  3. In the **Labels** section, modify the existing **Key** or **Value** fields to update a label. To apply additional labels, click **Add labels**. Each key can be used only once per dataset, but you can use the same key in different datasets in the same project.
 
-  3. In the **Edit labels** dialog:
+  4. Click **Save**.
 
-     * To apply additional labels, click **Add label**. Each key can be used only once per dataset, but you can use the same key in different datasets in the same project.
-     * Modify the existing keys or values to update a label.
-     * Click **Update** to save your changes.
 
 
 
@@ -308,13 +305,12 @@ To update a table or view label:
 
   1. In the Google Cloud console, select the table or view.
 
-  2. Click the **Details** tab, and then click the pencil icon to the right of **Labels**.
+  2. In the details pane, click **Edit > Edit details**.
 
-  3. In the **Edit labels** dialog:
+  3. In the **Labels** section, modify the existing **Key** or **Value** fields to update a label. To apply additional labels, click **Add labels**. Each key can be used only once per table or view, but you can use the same key in tables or views in different datasets.
 
-     * To apply additional labels, click **Add label**. Each key can be used only once per table or view, but you can use the same key in tables or views in different datasets.
-     * Modify the existing keys or values to update a label.
-     * Click **Update** to save your changes.
+  4. Click **Save**.
+
 
 
 
@@ -649,18 +645,14 @@ To convert a label to a tag:
 
   1. In the Google Cloud console, select the dataset, table, or view.
 
-  2. For datasets, the dataset details page is automatically opened. For tables and views, click **Details** to open the details page.
+  2. Open the **Edit details** pane:
 
-![Table details](https://docs.cloud.google.com/static/bigquery/images/table-details.png)
+     * For a dataset, click the **Details** tab, and then click mode_edit **Edit details**.
+     * For a table or view, in the details pane, click **Edit > Edit details**.
+  3. In the **Labels** section, delete the value in the **Value** field for the label that you want to update.
 
-  3. On the details page, click the pencil icon to the right of **Labels**.
+  4. Click **Save**.
 
-![Label pencil](https://docs.cloud.google.com/static/bigquery/images/label-pencil.png)
-
-  4. In the **Edit labels** dialog:
-
-     * Delete the value for an existing label.
-     * Click **Update**.
 
 
 
@@ -714,6 +706,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-logo-detection-gcs/
 title: Detect logos in a Cloud Storage image file \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:52.313616+00:00
+fetched_at: 2026-11-01T05:37:31.781897+00:00
 ---
 
 # Detect logos in a Cloud Storage image file  |  Cloud Vision API  |  Google Cloud Documentation

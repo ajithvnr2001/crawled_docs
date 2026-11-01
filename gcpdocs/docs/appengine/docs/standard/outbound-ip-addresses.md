@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/outbound-ip-addresses/
 title: Outbound IP addresses for App Engine services \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:42:47.483296+00:00
+fetched_at: 2026-11-01T05:45:24.181137+00:00
 ---
 
 # Outbound IP addresses for App Engine services  |  App Engine standard environment  |  Google Cloud Documentation
@@ -22,9 +22,17 @@ Send feedback
 
 #  Outbound IP addresses for App Engine services Stay organized with collections  Save and categorize content based on your preferences. 
 
-The outbound services in the App Engine standard environment, such as the URL Fetch, Sockets, and Mail APIs, make use of a large pool of IP addresses. The IP address ranges in this pool are subject to routine changes. In fact, two sequential API calls from the same application may appear to originate from two different IP addresses.
+By default, outbound services in the App Engine standard environment, such as the URL Fetch, Sockets, and Mail APIs, use a regional pool of dynamic IP addresses shared across all serverless workloads. The IP address ranges in this pool change routinely, so two sequential calls from the same application can originate from different IP addresses.
 
-If you need to know the IP addresses associated with outbound traffic from your service, you can either find the current IP address ranges that include the App Engine IP addresses, or set up a static IP address for your service.
+Because other serverless workloads share this default IP address pool, don't rely on it when you need a predictable origin IP address or isolated IP reputation. Instead, set up a static outbound IP address for your service in the following situations:
+
+  * You connect to an external database or API that uses an IP address allowlist or firewall.
+  * You connect to reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs protected by third-party web application firewalls (WAFs). Noisy traffic from another tenant on the default shared IP pool can degrade IP reputation and cause external WAFs to block or throttle your requests.
+  * You run authorized network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing workloads.
+
+**Warning:** Don't run network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing over the default shared IP address pool. This traffic degrades shared IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+
+If you only need to look up the IP address ranges associated with default outbound traffic from your service, you can find the current IP address ranges that include App Engine IP addresses.
 
 ## IP addresses for App Engine services
 
@@ -100,11 +108,13 @@ For information about running this script, see [How to run](https://github.com/G
 
 ## Set up a static outbound IP address
 
-To set up a static IP address for your App Engine standard environment service, use [Serverless VPC Access](https://docs.cloud.google.com/vpc/docs/serverless-vpc-access) with Cloud Router and [Cloud NAT](https://docs.cloud.google.com/nat/docs). By using Serverless VPC Access, you can send egress traffic to your Virtual Private Cloud (VPC) network. By using a network address translation (NAT) gateway on your VPC, you can route the App Engine traffic through a dedicated IP address.
+To set up a static IP address for your App Engine standard environment service, route your outbound traffic to a Virtual Private Cloud (VPC) network using either [Direct VPC egress](https://docs.cloud.google.com/appengine/docs/standard/vpc-direct-vpc) ([Preview](https://cloud.google.com/products#product-launch-stages)) or [Serverless VPC Access](https://docs.cloud.google.com/vpc/docs/serverless-vpc-access) with Cloud Router and [Cloud NAT](https://docs.cloud.google.com/nat/docs). Adding a Cloud NAT gateway to your VPC network routes your App Engine outbound traffic through your reserved static IP address.
 
-Routing your traffic through Cloud NAT does not cause an additional hop in your networking stack since the Cloud NAT gateway and the Cloud Router provide only a control plane and the packets do not pass through the Cloud NAT gateway or the Cloud Router.
+If your service scales to many instances or opens many concurrent connections, such as during authorized network scanning, assign multiple static IP addresses to Cloud NAT. You can also increase the minimum ports per instance or enable dynamic port allocation to prevent port exhaustion. Learn more about how Cloud NAT gateways use [IP addresses and ports](https://docs.cloud.google.com/nat/docs/ports-and-addresses).
 
-**Note:** Serverless VPC Access and Cloud NAT can both incur costs. Review [Serverless VPC Access pricing](https://cloud.google.com/vpc/pricing#serverless-vpc-pricing) and [Cloud NAT pricing](https://docs.cloud.google.com/vpc/network-pricing#nat-pricing).
+Routing your traffic through Cloud NAT doesn't add an extra hop in your networking stack because the Cloud NAT gateway and the Cloud Router provide only a control plane, and packets don't pass through the Cloud NAT gateway or the Cloud Router.
+
+**Note:** Serverless VPC Access and Cloud NAT can both incur costs. Review [Serverless VPC Access pricing](https://cloud.google.com/vpc/pricing#serverless-vpc-pricing) and [Cloud NAT pricing](https://docs.cloud.google.com/vpc/network-pricing#nat-pricing). To route outbound requests through Cloud NAT in the App Engine flexible environment, see [Send external requests without an external IP address](https://docs.cloud.google.com/appengine/docs/flexible/disable-external-ip#send-to-external).
 
 The following steps show how to set up a static outbound IP address for your App Engine standard environment service.
 
@@ -198,6 +208,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

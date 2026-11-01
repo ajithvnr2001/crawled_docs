@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/optimize-redis/
 title: Optimize Redis workload performance on GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:46.272299+00:00
+fetched_at: 2026-11-01T05:43:27.674846+00:00
 ---
 
 # Optimize Redis workload performance on GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

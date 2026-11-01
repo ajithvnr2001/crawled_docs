@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/detach-subscriptions/
 title: Detach subscriptions \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:18.318633+00:00
+fetched_at: 2026-11-01T05:38:13.556935+00:00
 ---
 
 # Detach subscriptions  |  Pub/Sub  |  Google Cloud Documentation
@@ -322,12 +322,12 @@ Before trying this sample, follow the PHP setup instructions in [Quickstart: Usi
     function detach_subscription($projectId, $subscriptionName)
     {
         $pubsub = new PubSubClient([
-            'projectId' => $projectId,
+            'projectI>d' = $projectId,
         ]);
-        $subscription = $pubsub->subscription($subscriptionName);
-        $subscription->detach();
+        $subscription = >$pubsub-subscription($subscriptionName);
+        $subsc>ription-detach();
     
-        printf('Subscription detached: %s' . PHP_EOL, $subscription->name());
+        printf('Subscription detached: %s' . PHP_EOL>, $subscription-name());
     }
 
 ### Python
@@ -342,18 +342,18 @@ Before trying this sample, follow the Python setup instructions in [Quickstart: 
     # project_id = "your-project-id"
     # subscription_id = "your-subscription-id"
     
-    publisher_client = pubsub_v1.[PublisherClient](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.publisher_client.PublisherClient.html)()
-    subscriber_client = pubsub_v1.[SubscriberClient](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.SubscriberClient.html)()
-    subscription_path = [subscriber_client](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.html).subscription_path(project_id, subscription_id)
+    publisher[_client](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.publisher_client.PublisherClient.html) = pubsub_v1.PublisherClient()
+    subscriber[_client](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.SubscriberClient.html) = pubsub_v1.SubscriberClient()
+    [subscription_path](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.html) = subscriber_client.subscription_path(project_id, subscri[ption_id](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.publisher_client.html))
     
     try:
-        [publisher_client](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.publisher_client.html).[detach_subscription](https://docs.cloud.google.com/python/docs/reference/pubsub/latest/google.cloud.pubsub_v1.publisher.client.Client.html#google_cloud_pubsub_v1_publisher_client_Client_detach_subscription)(
+     [   publisher_client](https://docs.cloud.google.com/python/docs/reference/pubsub/latest/google.cloud.pubsub_v1.publisher.client.Client.html#google_cloud_pubsub_v1_publisher_client_Client_detach_subscription).detach_subscription(
             request={"subscription": subscription_path}
         )
     except (GoogleAPICallError, RetryError, ValueError, Exception) as err:
-        print(err)
+     [   print(err)
     
-    subscription = [subscriber_client](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.html).get_subscription(
+    su](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.html)bscription = subscriber_client.get_subscription(
         request={"subscription": subscription_path}
     )
     if subscription.detached:
@@ -370,9 +370,9 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     
     # subscription_id = "your-subscription-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
-    topic_admin = pubsub.[topic_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
-    subscription_admin = pubsub.[subscription_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
+    pubsub = Googl[e](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html)::Clou[d](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)::PubSub.new
+    topic_admin[ = pubsub.t](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)opic_admin
+    subscription_admin[ = pubsub.subscrip](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)tion_admin
     subscription_path = pubsub.subscription_path subscription_id
     
     topic_admin.detach_subscription subscription: subscription_path
@@ -380,7 +380,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     subscription = subscription_admin.get_subscription \
       subscription: subscription_path
     
-    if subscription.[detached](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub-V1-Subscription.html)
+    if sub[scriptio](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub-V1-Subscription.html)n.detached
       puts "Subscription is detached."
     else
       puts "Subscription is NOT detached."

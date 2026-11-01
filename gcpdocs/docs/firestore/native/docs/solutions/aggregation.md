@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/aggregation/
 title: Write-time aggregations \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:59.974279+00:00
+fetched_at: 2026-11-01T05:38:20.580675+00:00
 ---
 
 # Write-time aggregations  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ Consider a local recommendations app that helps users find great restaurants. Th
       print(error)
     }
     
-    [SolutionAggregationViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionAggregationViewController.swift#L46-L54)
+    [SolutionAggregationViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionAggregationViewController.swift#L46-L54)
 
 ### Objective-C
 
@@ -82,7 +82,7 @@ Consider a local recommendations app that helps users find great restaurants. Th
       // ...
     }];
     
-    [FIRSolutionAggregationViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/FIRSolutionAggregationViewController.m#L64-L69)
+    [FIRSolutionAggregationViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/FIRSolutionAggregationViewController.m#L64-L69)
 
 ###  Kotlin  
 Android
@@ -134,7 +134,7 @@ Rather than fetching all ratings and then computing aggregate information, we ca
     
     let arinell = Restaurant(name: "Arinell Pizza", avgRating: 4.65, numRatings: 683)
     
-    [SolutionAggregationViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionAggregationViewController.swift#L29-L37)
+    [SolutionAggregationViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionAggregationViewController.swift#L29-L37)
 
 ### Objective-C
 
@@ -169,7 +169,7 @@ Rather than fetching all ratings and then computing aggregate information, we ca
     
     @end
     
-    [FIRSolutionAggregationViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/FIRSolutionAggregationViewController.m#L22-L48)
+    [FIRSolutionAggregationViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/FIRSolutionAggregationViewController.m#L22-L48)
 
 ###  Kotlin  
 Android
@@ -285,7 +285,7 @@ In order to keep these aggregations consistent, they must be updated each time a
       }
     }
     
-    [SolutionAggregationViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionAggregationViewController.swift#L59-L94)
+    [SolutionAggregationViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionAggregationViewController.swift#L59-L94)
 
 ### Objective-C
 
@@ -333,7 +333,7 @@ In order to keep these aggregations consistent, they must be updated each time a
       }];
     }
     
-    [FIRSolutionAggregationViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/FIRSolutionAggregationViewController.m#L74-L113)
+    [FIRSolutionAggregationViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/FIRSolutionAggregationViewController.m#L74-L113)
 
 ###  Kotlin  
 Android

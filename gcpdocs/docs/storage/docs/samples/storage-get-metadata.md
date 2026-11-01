@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-metadata/
 title: Get an object's metadata \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:43.469998+00:00
+fetched_at: 2026-11-01T05:35:44.920118+00:00
 ---
 
 # Get an object's metadata  |  Cloud Storage  |  Google Cloud Documentation

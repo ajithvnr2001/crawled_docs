@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents/
 title: Evaluate your agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:27.904211+00:00
+fetched_at: 2026-11-01T05:37:32.830539+00:00
 ---
 
 # Evaluate your agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ The agent improvement workflow is built on the **Quality Flywheel** , a continuo
 
   2. Initialize the **Agent Platform SDK** client:
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai import Client
          
          client = Client(project="YOUR_PROJECT_ID", location="YOUR_LOCATION")

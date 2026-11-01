@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/multi-party-compute/release-notes/
 title: Multi-party Compute release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:20:35.839030+00:00
+fetched_at: 2026-11-01T05:45:09.677399+00:00
 ---
 
 # Multi-party Compute release notes  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 This page documents production updates to Multi-party Compute. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## October 27, 2026
+
+Feature
+
+**`v1beta` API and Documentation Update**: Released the `v1beta` API, the stable, GA-intended API that will graduate to `v1`, and updated the Multi-party Compute documentation to reflect `v1beta`. If you use the `v1alpha1` API, migrate to `v1beta`. If needed, refer to the deprecated `v1alpha1` [User Guide](https://docs.cloud.google.com/multi-party-compute/user-guide-v1alpha), [Security and authorization](https://docs.cloud.google.com/multi-party-compute/authorization-v1alpha), [Writing Cedar rules](https://docs.cloud.google.com/multi-party-compute/writing-rules-v1alpha), and [Policy evaluation with Cedar](https://docs.cloud.google.com/multi-party-compute/policy-evaluation-v1alpha) pages, which will be removed in December 2026.
 
 ## October 15, 2026
 

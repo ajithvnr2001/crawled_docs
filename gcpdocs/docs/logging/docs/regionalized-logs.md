@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/regionalized-logs/
 title: Regionalize your logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:39.965412+00:00
+fetched_at: 2026-11-01T05:44:06.862884+00:00
 ---
 
 # Regionalize your logs  |  Cloud Logging  |  Google Cloud Documentation

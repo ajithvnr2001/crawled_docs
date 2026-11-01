@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/encrypt-metrics/
 title: Encrypt metrics from your applications \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:29:44.423579+00:00
+fetched_at: 2026-11-01T05:42:01.550014+00:00
 ---
 
 # Encrypt metrics from your applications  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -57,7 +57,7 @@ After obtaining the necessary permissions, complete these steps before enabling 
          
          apiVersion: monitoring.gdc.goog/v1
          kind: MonitoringTarget
-         [...]
+         # [...]
          status:
            conditions:
            - lastTransitionTime: "2023-10-27T15:27:51Z"
@@ -96,7 +96,7 @@ Your workload needs to use a certificate that is automatically generated when yo
           - name: "MONITORING_TARGET_NAME-cert"
             secret:
               secretName: "MONITORING_TARGET_NAME-cert"
-      [...]
+      # [...]
     
 
 Replace the following:
@@ -135,7 +135,7 @@ The custom resource must look like the following example:
         labels:
           monitoring.gdc.goog/enable-mtls: "true" # Enable mTLS metrics collection
       spec:
-        [...]
+        # [...]
     
 
 To verify that you enabled mTLS authentication, check that your `MonitoringTarget` custom resource shows a `Ready` status for the certificate and the certificate secret, like in the following example:
@@ -143,7 +143,7 @@ To verify that you enabled mTLS authentication, check that your `MonitoringTarge
     
     apiVersion: monitoring.gdc.goog/v1
     kind: MonitoringTarget
-    [...]
+    # [...]
     status:
       conditions:
       - lastTransitionTime: "2023-11-09T11:15:10Z"
@@ -172,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/deploy-a2a-agents/
 title: Deploy A2A agents to Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:01.021611+00:00
+fetched_at: 2026-11-01T05:38:28.198375+00:00
 ---
 
 # Deploy A2A agents to Cloud Run  |  Google Cloud Documentation
@@ -101,8 +101,8 @@ To grant the required IAM roles to your account on your project:
     
     
          gcloud projects add-iam-policy-binding PROJECT_ID \
-             --member="serviceAccount:A2A_SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com" \
-             --role="ROLE"
+             --member="serviceAccount:A2A_SERVICE_ACCOUNT_NAME@PROJECiam.gserviceaccount.comT_ID." \
+             span>--role="ROLE"
          
 
 Replace:
@@ -257,12 +257,12 @@ To deploy your A2A agent with an in-memory `TaskStore` configuration, run the fo
         --port=8080 \
         --source="." \
         --no-allow-unauthenticated \
-        --region=REGION \
+        n>--region=REGION \
         --project=PROJECT_ID \
         --memory=1Gi \
         --functional-type=agent \
         --identity-type=agent-identity \
-        --set-env-vars=GOOGLE_GENAI_USE_VERTEXAI=true,GOOGLE_CLOUD_PROJECT="PROJECT_ID",GOOGLE_CLOUD_LOCATION="REGION",APP_URL="https://sample-a2a-agent-PROJECT_NUMBER.REGION.run.app"
+        --set-env-vars=GOOGLE_GENAI_USE_VERTEXAI=true,GOOGLE_CLOUD_PROJECT=&quot;PROJECT_ID",GOO>GLE_CLOUD_LOCATION="REGION",APP_URL="https://samprun.apple-a2a-agent-PROJECT_NUMBER.REGION."
     
 
 Replace the following:
@@ -282,13 +282,13 @@ To persist A2A tasks, use AlloyDB for PostgreSQL. To deploy your A2A agent with 
         --port=8080 \
         --source="." \
         --no-allow-unauthenticated \
-        --region=REGION \
+        n>--region=REGION \
         --project=PROJECT_ID \
         --memory=1Gi \
         --update-secrets=DB_USER=alloy_db_user:latest,DB_PASS=alloy_db_pass:latest \
         --functional-type=agent \
         --identity-type=agent-identity \
-        --set-env-vars=GOOGLE_GENAI_USE_VERTEXAI=true,GOOGLE_CLOUD_PROJECT="PROJECT_ID",GOOGLE_CLOUD_LOCATION="REGION",APP_URL="https://sample-a2a-agent-PROJECT_NUMBER.REGION.run.app",USE_ALLOY_DB="True",DB_INSTANCE="projects/PROJECT_ID/locations/REGION/clusters/CLUSTER_NAME/instances/primary-instance",DB_NAME="postgres"
+        --set-env-vars=GOOGLE_GENAI_USE_VERTEXAI=true,GOOGLE_CLOUD_PROJECT=&quot;PROJECT_ID",GOO>GLE_CLOUD_LOCATION="REGION",APP_URL="https://samprun.apple-a2a-agent-PROJECT_NUMBER.REGION.",USE_ALLOY_DB="True",DB_INSTANCE="projects/PROJECT_ID/locations/REGION/clusters/CLUSTER_NAME/instances/primary-instance",DB_NAME="postgres"
     
 
 Replace the following:
@@ -310,9 +310,9 @@ If you encounter errors or Cloud Run deployment failures, consider the following
     1. Use the following command to update the `APP_URL` environment variable:
            
            gcloud run services update SERVICE_NAME \
-               --project="PROJECT_ID" \
+               --project=&quot;PROJECT_ID" \
                --region="REGION" \
-               --update-env-vars=APP_URL="CLOUD_RUN_SERVICE_URL"
+               --update-env-vars=APP_URL=&quot;CLOUD_RUN_SERVICE_URL"
            
 
 Replace the following:
@@ -324,7 +324,7 @@ Replace the following:
     2. Verify that the `APP_URL` is updated correctly by describing the service:
            
            gcloud run services describe SERVICE_NAME \
-               --project="PROJECT_ID" \
+               --project=&quot;PROJECT_ID" \
                --region="REGION"
            
 

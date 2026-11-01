@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/audit-logging-aoss/
 title: Assured OSS audit logging \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:52.345792+00:00
+fetched_at: 2026-11-01T05:40:21.893752+00:00
 ---
 
 # Assured OSS audit logging  |  Security Command Center  |  Google Cloud Documentation

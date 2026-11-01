@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/third_party/
 title: Route logs to third-party destinations \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:46.966337+00:00
+fetched_at: 2026-11-01T05:42:10.921315+00:00
 ---
 
 # Route logs to third-party destinations  |  Cloud Logging  |  Google Cloud Documentation

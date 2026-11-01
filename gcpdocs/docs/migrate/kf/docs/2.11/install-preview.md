@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.11/install-preview/
 title: Install Kf on Google Cloud (Preview) \u00a0|\u00a0 Kf 2.11 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:16.792189+00:00
+fetched_at: 2026-11-01T05:43:28.506161+00:00
 ---
 
 # Install Kf on Google Cloud (Preview)  |  Kf 2.11  |  Google Cloud Documentation

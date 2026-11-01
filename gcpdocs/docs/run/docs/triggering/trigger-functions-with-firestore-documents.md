@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/trigger-functions-with-firestore-documents/
 title: Trigger functions with Firestore documents \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:10.302045+00:00
+fetched_at: 2026-11-01T05:38:19.242173+00:00
 ---
 
 # Trigger functions with Firestore documents  |  Cloud Run  |  Google Cloud Documentation
@@ -645,7 +645,7 @@ Use [protobufjs](https://www.npmjs.com/package/protobufjs) to decode the event d
     using Google.Cloud.Functions.Hosting;
     using Google.Events.Protobuf.Cloud.Firestore.V1;
     using Microsoft.AspNetCore.Hosting;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PrivateCA.V1/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Functions.V2/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Logging;
     using System.Collections.Generic;
     using System.Threading;

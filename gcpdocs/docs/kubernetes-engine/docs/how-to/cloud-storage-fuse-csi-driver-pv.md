@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cloud-storage-fuse-csi-driver-pv/
 title: Mount Cloud Storage buckets as persistent volumes \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:49.618407+00:00
+fetched_at: 2026-11-01T05:43:05.630836+00:00
 ---
 
 # Mount Cloud Storage buckets as persistent volumes  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

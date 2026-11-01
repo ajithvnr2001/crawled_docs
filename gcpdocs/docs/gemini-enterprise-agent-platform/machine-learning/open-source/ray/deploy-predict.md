@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/deploy-predict/
 title: Deploy a model on Gemini Enterprise Agent Platform to get inferences \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:16.161177+00:00
+fetched_at: 2026-11-01T05:38:35.782892+00:00
 ---
 
 # Deploy a model on Gemini Enterprise Agent Platform to get inferences  |  Google Cloud Documentation
@@ -60,13 +60,13 @@ If you're already connected to your Ray cluster on Gemini Enterprise Agent Platf
     
     
     import ray
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     # The CLUSTER_RESOURCE_NAME is the one returned from vertex_ray.create_ray_cluster.
     address = 'vertex_ray://{}'.format(CLUSTER_RESOURCE_NAME)
     
     # Initialize Agent Platform to retrieve projects for downstream operations.
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(staging_bucket=BUCKET_URI)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(staging_bucket=BUCKET_URI)
     
     # Shutdown cluster and reconnect with required dependencies in the runtime_env.
     ray.shutdown()

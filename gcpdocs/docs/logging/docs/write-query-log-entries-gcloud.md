@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/write-query-log-entries-gcloud/
 title: Quickstart: Write and query log entries with the gcloud CLI \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:55.004549+00:00
+fetched_at: 2026-11-01T05:43:32.627375+00:00
 ---
 
 # Quickstart: Write and query log entries with the gcloud CLI  |  Cloud Logging  |  Google Cloud Documentation

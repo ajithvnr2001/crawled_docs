@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/troubleshooting/ssh/
 title: Troubleshoot Cloud Run with SSH \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:13.922049+00:00
+fetched_at: 2026-11-01T05:40:44.171552+00:00
 ---
 
 # Troubleshoot Cloud Run with SSH  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ SSH for Cloud Run uses the following services to secure connections:
 
 
 
-SSH for Cloud Run automatically adds the required Google-managed binaries, including `sshd` and the binaries that validate your certificate, to your container's file system. These binaries are only accessible for the duration of the SSH session and are removed once the session ends. Existing SSH configurations, including `/etc/passwd` entries, are ignored by Cloud Run SSH in favor of Google-managed configurations.
+SSH for Cloud Run automatically adds the required Google-managed binaries—including `sshd`, certificate validation binaries, and the MirBSD Korn Shell (`mksh`)—to your container's file system. Auto-provisioning `mksh` ensures that a shell program is available during your session even if your container image doesn't include one (for example, in distroless or minimal images). These binaries are only auto-provisioned and accessible for as long as SSH connections are open, and are removed once the session ends. Existing SSH configurations, including `/etc/passwd` entries, are ignored by Cloud Run SSH in favor of Google-managed configurations.
 
 Third-party open source copyright notices for Google-managed SSH dependencies are mounted inside your container when an SSH session is established at the following path: `/usr/share/licenses/google_ssh/THIRD_PARTY_NOTICES`.
 
@@ -44,6 +44,7 @@ When you connect to a service using SSH, note the following:
 
   * If no instance of the service is running, Cloud Run starts a new instance for the SSH session.
   * Cloud Run aims to keep the service instance active for the duration of the SSH session. You are billed for the instance as usual while it is active.
+  * Required binaries (`sshd`, certificate validation tools, and `mksh`) are auto-provisioned only while SSH connections remain open. When the session ends, these binaries are removed from the container.
 
 
 
@@ -55,7 +56,8 @@ The following limitations apply to SSH:
   * IAP disconnects SSH sessions after one hour of inactivity. For more information, see [IAP TCP forwarding known limitations](https://docs.cloud.google.com/iap/docs/using-tcp-forwarding#known_limitations).
   * SSH is only available for services that run on Cloud Run's [second generation environment](https://docs.cloud.google.com/run/docs/configuring/execution-environments) and [Cloud Run instances](https://docs.cloud.google.com/run/docs/instances/create-and-manage-instances).
   * When using SSH, host keys in the image are overwritten. The keys remain overwritten after the SSH session ends, until the service instance is restarted.
-  * **Windows** : PuTTY is not supported. Use the OpenSSH client.
+  * PuTTY is not supported on Windows. Use the OpenSSH client.
+  * You don't need a shell (such as `bash` or `sh`) or an SSH server in your container image. Cloud Run automatically provisions `sshd` and `mksh` while SSH connections are open. However, other debugging utilities (such as `curl` or package managers) aren't provisioned automatically.
   * Extra care should be taken to secure your container when using SSH. Consider security best practices such as running application code as a non-root user.
   * When an SSH connection cold-starts a multi-container service with [container startup order](https://docs.cloud.google.com/run/docs/configuring/services/containers#container-ordering) (`container-dependencies`), the request is routed before the container environment is ready. Cloud Run returns an HTTP `500` error and immediately stops the new instance. If you connect using the Google Cloud CLI, the command fails. To work around this issue, connect using SSH only when an instance is already running. For example, send a request to the service first to start an instance, or configure [minimum instances](https://docs.cloud.google.com/run/docs/configuring/min-instances).
 
@@ -326,7 +328,7 @@ To connect to a service by using SSH, use the gcloud CLI:
          Image: IMAGE
          
 
-  7. To end your SSH session, type `exit`. Any changes you made on the container persist for as long as the container is kept alive. Exiting the session does not restart or kill the container.
+  7. To end your SSH session, type `exit`. When the session ends, the auto-provisioned SSH and `mksh` binaries are removed from the container's file system. Any changes you made on the container persist for as long as the container is kept alive. Exiting the session does not restart or kill the container.
 
 
 
@@ -361,7 +363,7 @@ When the SSH session is successfully completed, Cloud Run displays the following
     Image: IMAGE
     
 
-To end your SSH session, type `exit`. Any changes you made on the container persist for as long as the container is kept alive. Exiting the session does not restart or kill the container.
+To end your SSH session, type `exit`. When the session ends, the auto-provisioned SSH and `mksh` binaries are removed from the container's file system. Any changes you made on the container persist for as long as the container is kept alive. Exiting the session does not restart or kill the container.
 
 ### Specify a service instance
 
@@ -587,7 +589,7 @@ When the SSH session is successfully completed, Cloud Run displays the following
       Image: IMAGE
     
 
-To end your SSH session, type `exit`.
+To end your SSH session, type `exit`. When the session ends, the auto-provisioned SSH and `mksh` binaries are removed from the container's file system.
 
 ## Use the OpenSSH client to connect
 
@@ -668,6 +670,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

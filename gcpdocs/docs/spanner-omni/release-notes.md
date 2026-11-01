@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner-omni/release-notes/
 title: Spanner Omni release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:29.695703+00:00
+fetched_at: 2026-11-01T05:40:05.763014+00:00
 ---
 
 # Spanner Omni release notes  |  Google Cloud Documentation
@@ -24,6 +24,18 @@ Send feedback
 This page documents production updates to Spanner Omni. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## October 29, 2026
+
+Feature
+
+Spanner Omni release `2026.r5` is available.
+
+  * Release version `2026.r5` includes all updates in the cloud-based, managed Spanner service up to the [October 27, 2026 release](https://docs.cloud.google.com/spanner/docs/release-notes#October_27_2026).
+
+
+
+For more information, see [Differences between Spanner and Spanner Omni](https://docs.cloud.google.com/spanner-omni/differences) and [Container image versions](https://docs.cloud.google.com/spanner-omni/download#container_image_versions).
 
 ## October 28, 2026
 

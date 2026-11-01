@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/queries/
 title: Query and filter data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:17.649430+00:00
+fetched_at: 2026-11-01T05:37:54.766279+00:00
 ---
 
 # Query and filter data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -134,7 +134,7 @@ To get started, write some data about cities so we can look at different ways to
       "regions": ["jingjinji", "hebei"]
     ])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L642-L680)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L642-L680)
 
 ##### Objective-C
 
@@ -180,7 +180,7 @@ To get started, write some data about cities so we can look at different ways to
       @"regions": @[@"jingjinji", @"hebei"]
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L566-L603)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L566-L603)
 
 ##### Kotlin  
 Android
@@ -903,7 +903,7 @@ The following query returns all cities with state `CA`:
     // Create a query against the collection.
     let query = citiesRef.whereField("state", isEqualTo: "CA")
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L941-L945)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L941-L945)
 
 ##### Objective-C
 
@@ -915,7 +915,7 @@ The following query returns all cities with state `CA`:
     // Create a query against the collection.
     FIRQuery *query = [citiesRef queryWhereField:@"state" isEqualTo:@"CA"];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L867-L870)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L867-L870)
 
 ##### Kotlin  
 Android
@@ -1100,7 +1100,7 @@ The following query returns all the capital cities:
     
     let capitalCities = db.collection("cities").whereField("capital", isEqualTo: true)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L967-L967)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L967-L967)
 
 ##### Objective-C
 
@@ -1110,7 +1110,7 @@ The following query returns all the capital cities:
     FIRQuery *capitalCities =
         [[self.db collectionWithPath:@"cities"] queryWhereField:@"capital" isEqualTo:@YES];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L889-L890)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L889-L890)
 
 ##### Kotlin  
 Android
@@ -1301,7 +1301,7 @@ After creating a query object, use the `get()` function to retrieve the results:
       print("Error getting documents: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L814-L822)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L814-L822)
 
 ##### Objective-C
 
@@ -1319,7 +1319,7 @@ After creating a query object, use the `get()` function to retrieve the results:
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L733-L742)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L733-L742)
 
 ##### Kotlin  
 Android
@@ -1605,7 +1605,7 @@ For example:
     let populationQuery = citiesRef.whereField("population", isLessThan: 100000)
     let nameQuery = citiesRef.whereField("name", isGreaterThanOrEqualTo: "San Francisco")
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L959-L961)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L959-L961)
 
 ##### Objective-C
 
@@ -1616,7 +1616,7 @@ For example:
     FIRQuery *populationQuery = [citiesRef queryWhereField:@"population" isLessThan:@100000];
     FIRQuery *nameQuery = [citiesRef queryWhereField:@"name" isGreaterThanOrEqualTo:@"San Francisco"];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L881-L883)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L881-L883)
 
 ##### Kotlin  
 Android
@@ -1770,7 +1770,7 @@ Use the not equal (`!=`) operator to return documents where the given field exis
     
     let notEqualQuery = citiesRef.whereField("capital", isNotEqualTo: false)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L949-L949)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L949-L949)
 
 ##### Objective-C
 
@@ -1779,7 +1779,7 @@ Use the not equal (`!=`) operator to return documents where the given field exis
     
     query = [citiesRef queryWhereField:@"capital" isNotEqualTo:@NO];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L873-L873)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L873-L873)
 
 ##### Kotlin  
 Android
@@ -1908,7 +1908,7 @@ You can use the `array-contains` operator to filter based on array values. For e
     citiesRef
       .whereField("regions", arrayContains: "west_coast")
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L976-L977)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L976-L977)
 
 ##### Objective-C
 
@@ -1917,7 +1917,7 @@ You can use the `array-contains` operator to filter based on array values. For e
     
     [citiesRef queryWhereField:@"state" arrayContains:@"west_coast"];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L898-L898)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L898-L898)
 
 ##### Kotlin  
 Android
@@ -2067,7 +2067,7 @@ Use the `in` operator to combine up to 30 equality (`==`) clauses on the same fi
     
     citiesRef.whereField("country", in: ["USA", "Japan"])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1083-L1085)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1083-L1085)
 
 ##### Objective-C
 
@@ -2078,7 +2078,7 @@ Use the `in` operator to combine up to 30 equality (`==`) clauses on the same fi
     
     [citiesRef queryWhereField:@"country" in:@[@"USA", @"Japan"]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L985-L987)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L985-L987)
 
 ##### Kotlin  
 Android
@@ -2227,7 +2227,7 @@ Use the `not-in` operator to combine up to 10 not equal (`!=`) clauses on the sa
     
     citiesRef.whereField("country", notIn: ["USA", "Japan"])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1093-L1093)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1093-L1093)
 
 ##### Objective-C
 
@@ -2236,7 +2236,7 @@ Use the `not-in` operator to combine up to 10 not equal (`!=`) clauses on the sa
     
     [citiesRef queryWhereField:@"country" notIn:@[@"USA", @"Japan"]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L995-L995)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L995-L995)
 
 ##### Kotlin  
 Android
@@ -2366,7 +2366,7 @@ Use the `array-contains-any` operator to combine up to 30 `array-contains` claus
     let citiesRef = db.collection("cities")
     citiesRef.whereField("regions", arrayContainsAny: ["west_coast", "east_coast"])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1076-L1077)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1076-L1077)
 
 ##### Objective-C
 
@@ -2377,7 +2377,7 @@ Use the `array-contains-any` operator to combine up to 30 `array-contains` claus
     
     [citiesRef queryWhereField:@"regions" arrayContainsAny:@[@"west_coast", @"east_coast"]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L977-L979)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L977-L979)
 
 ##### Kotlin  
 Android
@@ -2542,7 +2542,7 @@ You can use an array value as a comparison value for `in`, but unlike `array-con
     
     citiesRef.whereField("regions", in: [["west_coast"], ["east_coast"]])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1089-L1089)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1089-L1089)
 
 ##### Objective-C
 
@@ -2551,7 +2551,7 @@ You can use an array value as a comparison value for `in`, but unlike `array-con
     
     [citiesRef queryWhereField:@"regions" in:@[@[@"west_coast"], @[@"east_coast"]]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L991-L991)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L991-L991)
 
 ##### Kotlin  
 Android
@@ -2720,7 +2720,7 @@ You can combine constraints with a logical `AND` by chaining multiple equality o
       .whereField("state", isEqualTo: "CA")
       .whereField("population", isLessThan: 1000000)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L985-L990)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L985-L990)
 
 ##### Objective-C
 
@@ -2732,7 +2732,7 @@ You can combine constraints with a logical `AND` by chaining multiple equality o
     [[citiesRef queryWhereField:@"state" isEqualTo:@"CA"]
         queryWhereField:@"population" isLessThan:@1000000];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L905-L908)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L905-L908)
 
 ##### Kotlin  
 Android
@@ -3099,7 +3099,7 @@ Not available.
       ])
     ]))
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1372-L1378)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1372-L1378)
 
 ##### Objective-C
 
@@ -3115,7 +3115,7 @@ Not available.
       ]]
     ]]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1296-L1303)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1296-L1303)
 
 ##### Kotlin  
 Android
@@ -3379,7 +3379,7 @@ For example, you can create a `landmarks` collection group by adding a landmarks
     data = ["name": "Beijing Ancient Observatory", "type": "museum"]
     citiesRef.document("BJ").collection("landmarks").addDocument(data: data)
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L686-L716)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L686-L716)
 
 ##### Objective-C
 
@@ -3418,7 +3418,7 @@ For example, you can create a `landmarks` collection group by adding a landmarks
     data = @{@"name": @"Beijing Ancient Observatory", @"type": @"museum"};
     [[[citiesRef documentWithPath:@"BJ"] collectionWithPath:@"landmarks"] addDocumentWithData:data];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L609-L639)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L609-L639)
 
 ##### Kotlin  
 Android
@@ -4586,7 +4586,7 @@ The `landmarks` collection group consists of all collections with the ID `landma
       // ...
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1255-L1259)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1255-L1259)
 
 ##### Objective-C
 
@@ -4598,7 +4598,7 @@ The `landmarks` collection group consists of all collections with the ID `landma
         // ...
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1153-L1157)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1153-L1157)
 
 ##### Kotlin  
 Android

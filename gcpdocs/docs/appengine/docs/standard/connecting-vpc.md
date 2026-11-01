@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/connecting-vpc/
 title: Connecting to a VPC network \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:34.268205+00:00
+fetched_at: 2026-11-01T05:45:23.973208+00:00
 ---
 
 # Connecting to a VPC network  |  App Engine standard environment  |  Google Cloud Documentation
@@ -589,6 +589,8 @@ Replace:
 
 
 
+When you use `private-ranges-only`, outbound requests to the public internet use a regional pool of dynamic IP addresses shared across serverless workloads. To protect reputation-sensitive external connections from third-party firewall blocks, or to isolate authorized network scanning and load testing workloads, set the egress setting to `all-traffic` and configure Cloud NAT with a [static outbound IP address](https://docs.cloud.google.com/appengine/docs/standard/outbound-ip-addresses#static-ip).
+
 ### Disconnect a service from a VPC network
 
 To disconnect a service from a VPC network, remove the `vpc_access_connector` field from the `app.yaml` file and re-deploy the service.
@@ -1130,6 +1132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-rpo/
 title: Get metadata for a bucket and display current rpo setting \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:48.566239+00:00
+fetched_at: 2026-11-01T05:36:01.137583+00:00
 ---
 
 # Get metadata for a bucket and display current rpo setting  |  Cloud Storage  |  Google Cloud Documentation

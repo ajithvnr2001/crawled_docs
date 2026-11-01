@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-service-direct-vpc/
 title: Configure VPC access \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:02.813929+00:00
+fetched_at: 2026-11-01T05:38:37.034001+00:00
 ---
 
 # Configure VPC access  |  Cloud Run  |  Google Cloud Documentation
@@ -49,7 +49,7 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
         vpc_access {
           network_interfaces {
             network    = "default"
-            subnetwork = "default"
+            subnetwork = ";default"
             tags       = ["tag1", "tag2", "tag3"]
           }
         }

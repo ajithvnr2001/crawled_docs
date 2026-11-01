@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/media-cdn/docs/routing/
 title: Configure service routes \u00a0|\u00a0 Media CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:37.903165+00:00
+fetched_at: 2026-11-01T05:45:03.808262+00:00
 ---
 
 # Configure service routes  |  Media CDN  |  Google Cloud Documentation

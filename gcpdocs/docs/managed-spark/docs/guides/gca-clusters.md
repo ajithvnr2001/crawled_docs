@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/gca-clusters/
 title: AI-powered Investigations with Gemini Cloud Assist (Preview) \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:13:57.925128+00:00
+fetched_at: 2026-11-01T05:42:23.700396+00:00
 ---
 
 # AI-powered Investigations with Gemini Cloud Assist (Preview)  |  Managed Service for Apache Spark  |  Google Cloud Documentation

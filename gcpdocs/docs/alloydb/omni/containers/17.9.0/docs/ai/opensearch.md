@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.9.0/docs/ai/opensearch/
 title: Access OpenSearch data from AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:41.589667+00:00
+fetched_at: 2026-11-01T05:38:42.564229+00:00
 ---
 
 # Access OpenSearch data from AlloyDB Omni  |  AlloyDB Omni using containers: 17.9.0  |  Google Cloud Documentation
@@ -176,10 +176,10 @@ To perform a [hybrid search](https://docs.cloud.google.com/alloydb/omni/containe
     SELECT *
     FROM ai.hybrid_search(
       ARRAY[
-        '{"limit": LIMIT,
-          "weight": WEIGHT,
+        '{";limit": LIMIT,
+          &quot;weight": WEIGHT,
           "table_name": "OPENSEARCH_FD_TABLE",
-          "key_column": "id",
+          &quot;key_column": "id",
           "query_text_input": "QUERY"}'::jsonb
       ])
     ORDER BY score DESC;

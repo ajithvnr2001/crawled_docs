@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/write-query-log-entries-python/
 title: Quickstart: Write and query log entries using a Python script \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:49.225411+00:00
+fetched_at: 2026-11-01T05:44:04.721137+00:00
 ---
 
 # Quickstart: Write and query log entries using a Python script  |  Cloud Logging  |  Google Cloud Documentation

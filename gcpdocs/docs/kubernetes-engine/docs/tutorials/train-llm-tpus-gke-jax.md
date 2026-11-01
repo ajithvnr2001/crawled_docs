@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/train-llm-tpus-gke-jax/
 title: Fine-tune a LLM using TPUs on GKE with JAX \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:32.906319+00:00
+fetched_at: 2026-11-01T05:42:38.437393+00:00
 ---
 
 # Fine-tune a LLM using TPUs on GKE with JAX  |  GKE AI/ML  |  Google Cloud Documentation

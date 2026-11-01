@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/custom-constraints/
 title: Use custom organization policies \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:26.193333+00:00
+fetched_at: 2026-11-01T05:41:55.697551+00:00
 ---
 
 # Use custom organization policies  |  Pub/Sub  |  Google Cloud Documentation
@@ -233,7 +233,7 @@ When you have entered a value into each field, the equivalent YAML configuration
     methodTypes:
       - CREATE  
       - UPDATE 
-    condition: &quot;CONDITION"
+    condition: "CONDITION"
     actionType: ACTION
     displayName: DISPLAY_NAME
     description: DESCRIPTION
@@ -429,7 +429,7 @@ Require topics to enforce in-transit guarantees for messages and to provide at l
       methodTypes:
       - CREATE
       - UPDATE
-      condition: "resource.messageStoragePolicy.enforceInTransit == &&true  resource.messageStoragePolicy.allowedPersistenceRegions.si>ze() = 1"
+      condition: "resource.messageStoragePolicy.enforceInTransit == true && resource.messageStoragePolicy.allowedPersistenceRegions.size() >= 1"
       actionType: ALLOW
       displayName: Require in-transit enforcement and regions
       description: All topics must enable in-transit message storage policy enforcement and contain a non-empty list of allowed persistence regions.
@@ -443,7 +443,7 @@ Require topics to enforce in-transit guarantees for messages and exclude a parti
       methodTypes:
       - CREATE
       - UPDATE
-      condition: "resource.messageStoragePolicy.enforceInTra&&nsit  !resource.messageStoragePolicy.allowedPersistenceRegions.exists(r, r == 'us-east1')"
+      condition: "resource.messageStoragePolicy.enforceInTransit && !resource.messageStoragePolicy.allowedPersistenceRegions.exists(r, r == 'us-east1')"
       actionType: ALLOW
       displayName: Require in-transit enforcement and restrict regions
       description: All topics must enable in-transit message storage policy enforcement, and exclude us-east1 from the allowed persistence regions.
@@ -457,7 +457,7 @@ Require a minimum message retention duration for subscriptions |
       methodTypes:
       - CREATE
       - UPDATE
-      condition: "resource.messageRetentionDura<tion  duration('30m')"
+      condition: "resource.messageRetentionDuration < duration('30m')"
       actionType: DENY
       displayName: Minimum message retention duration
       description: All subscriptions must retain unacked messages for at least 30 minutes.
@@ -499,7 +499,7 @@ Require authenticated push for subscriptions |
       methodTypes:
       - CREATE
       - UPDATE
-      condition: "has(resource.pushConfig.pushEndpo&&int)  has(resource.pushConfig.oidcToken.serviceAccountEm&&ail)  has(resource.pushConfig.oidcToken.audience)"
+      condition: "has(resource.pushConfig.pushEndpoint) && has(resource.pushConfig.oidcToken.serviceAccountEmail) && has(resource.pushConfig.oidcToken.audience)"
       actionType: ALLOW
       displayName: Subscription uses authenticated push
       description: All subscriptions must enable push authentication.
@@ -531,6 +531,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

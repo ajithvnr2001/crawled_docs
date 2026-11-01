@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-make-public/
 title: Make an object public \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:19.960956+00:00
+fetched_at: 2026-11-01T05:35:46.404049+00:00
 ---
 
 # Make an object public  |  Cloud Storage  |  Google Cloud Documentation

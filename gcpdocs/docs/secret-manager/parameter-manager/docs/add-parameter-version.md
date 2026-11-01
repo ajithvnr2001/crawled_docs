@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/parameter-manager/docs/add-parameter-version/
 title: Add a parameter version \u00a0|\u00a0 Parameter Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:59:19.942941+00:00
+fetched_at: 2026-11-01T05:40:31.071035+00:00
 ---
 
 # Add a parameter version  |  Parameter Manager  |  Google Cloud Documentation
@@ -516,7 +516,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     #
     def create_param_version project_id:, parameter_id:, version_id:, payload:
       # Create a Parameter Manager client.
-      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
+      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
     
       # Build the resource name of the parent project.
       parent = client.[parameter_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager-V1-ParameterManager-Paths.html) project: project_id, location: "global", parameter: parameter_id
@@ -1048,7 +1048,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
       api_endpoint = "parametermanager.#{location_id}.rep.googleapis.com"
     
       # Create the Parameter Manager client.
-      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
+      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
         config.endpoint = api_endpoint
       end
     

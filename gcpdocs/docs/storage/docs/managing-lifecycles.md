@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/managing-lifecycles/
 title: Manage object lifecycles \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:23.669498+00:00
+fetched_at: 2026-11-01T05:35:35.865731+00:00
 ---
 
 # Manage object lifecycles  |  Cloud Storage  |  Google Cloud Documentation

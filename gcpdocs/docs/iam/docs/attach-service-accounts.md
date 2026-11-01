@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/attach-service-accounts/
 title: Attach service accounts to resources \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:32:16.629150+00:00
+fetched_at: 2026-11-01T05:37:57.462651+00:00
 ---
 
 # Attach service accounts to resources  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -205,18 +205,18 @@ You should receive a JSON response similar to the following:
     
     {
       "version": 1,
-      "etag": "BwWl3KCTUMY=",
+      "etag": "BwWl3KCTUM**Y="** ,
       "bindings": [
-        **{
+        {
           "role": "roles/iam.serviceAccountTokenCreator",
           "members": [
             "serviceAccount:SERVICE_AGENT_EMAIL"
           ]
-        },**
+        },
         {
-          "role": "roles/iam.serviceAccountUser",
+          &quot;role": ";roles/iam.siam.gserviceaccount.comerviceAccountUser",
           "members": [
-            "serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com"
+            "serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID."
           ]
         }
       ]

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/list-schema-revisions/
 title: List schema revisions for a topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:35.375607+00:00
+fetched_at: 2026-11-01T05:37:59.004313+00:00
 ---
 
 # List schema revisions for a topic  |  Pub/Sub  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-GetConnectionInfo-sync-flattened/
 title: Get connection information for an instance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:28:55.612996+00:00
+fetched_at: 2026-11-01T05:38:40.733191+00:00
 ---
 
 # Get connection information for an instance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -46,8 +46,8 @@ To authenticate to AlloyDB, set up Application Default Credentials. For more inf
             [AlloyDBAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html) alloyDBAdminClient = [AlloyDBAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_Create)();
             // Initialize request argument(s)
             string parent = "projects/[PROJECT]/locations/[LOCATION]/clusters/[CLUSTER]/instances/[INSTANCE]";
-            // Make the request
-            [ConnectionInfo](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.ConnectionInfo.html) response = alloyDBAdminClient.[GetConnectionInfo](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_GetConnectionInfo_Google_Cloud_AlloyDb_V1_GetConnectionInfoRequest_Google_Api_Gax_Grpc_CallSettings_)(parent);
+            // Make the reques[t](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.ConnectionInfo.html)
+            ConnectionInfo response = alloyDBAd[minClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_GetConnectionInfo_Google_Cloud_AlloyDb_V1_GetConnectionInfoRequest_Google_Api_Gax_Grpc_CallSettings_).GetConnectionInfo(parent);
         }
     }
 

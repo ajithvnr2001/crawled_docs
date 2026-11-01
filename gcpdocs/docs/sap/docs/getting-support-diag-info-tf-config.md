@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/getting-support-diag-info-tf-config/
 title: Terraform configurations for SAP diagnostic information \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:54:53.638427+00:00
+fetched_at: 2026-11-01T05:40:43.649033+00:00
 ---
 
 # Terraform configurations for SAP diagnostic information  |  SAP on Google Cloud  |  Google Cloud Documentation

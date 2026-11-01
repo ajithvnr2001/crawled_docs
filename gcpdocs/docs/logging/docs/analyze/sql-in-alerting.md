@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/analyze/sql-in-alerting/
 title: Monitor your SQL query results with an alerting policy \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:42.332427+00:00
+fetched_at: 2026-11-01T05:44:17.738041+00:00
 ---
 
 # Monitor your SQL query results with an alerting policy  |  Cloud Logging  |  Google Cloud Documentation

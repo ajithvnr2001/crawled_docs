@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-UpgradeCluster-sync-flattened/
 title: Upgrade a cluster \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:28:57.793277+00:00
+fetched_at: 2026-11-01T05:38:43.402134+00:00
 ---
 
 # Upgrade a cluster  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -46,25 +46,25 @@ To authenticate to AlloyDB, set up Application Default Credentials. For more inf
             // Create client
             [AlloyDBAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html) alloyDBAdminClient = [AlloyDBAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_Create)();
             // Initialize request argument(s)
-            string name = "projects/[PROJECT]/locations/[LOCATION]/clusters/[CLUSTER]";
-            [DatabaseVersion](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.DatabaseVersion.html) version = [DatabaseVersion](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.DatabaseVersion.html).[Unspecified](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.DatabaseVersion.html#Google_Cloud_AlloyDb_V1_DatabaseVersion_Unspecified);
+            string name = "projects/[PROJECT]/locations/[LOCATION]/clusters/[CLUSTER]"[;
+            Datab](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.DatabaseVersion.html)aseVersion [version = Datab](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.DatabaseVersion.html)a[seVersion.U](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.DatabaseVersion.html#Google_Cloud_AlloyDb_V1_DatabaseVersion_Unspecified)nspecified;
             // Make the request
-            Operation<UpgradeClusterResponse, OperationMetadata> response = alloyDBAdminClient.[UpgradeCluster](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_UpgradeCluster_Google_Cloud_AlloyDb_V1_ClusterName_Google_Cloud_AlloyDb_V1_DatabaseVersion_Google_Api_Gax_Grpc_CallSettings_)(name, version);
+           < OperationUpgradeClusterResponse, Operati>onMetadata response = alloyDBAd[minClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_UpgradeCluster_Google_Cloud_AlloyDb_V1_ClusterName_Google_Cloud_AlloyDb_V1_DatabaseVersion_Google_Api_Gax_Grpc_CallSettings_).UpgradeCluster(name, version);
     
             // Poll until the returned long-running operation is complete
-            Operation<UpgradeClusterResponse, OperationMetadata> completedResponse = response.PollUntilCompleted();
-            // Retrieve the operation result
-            [UpgradeClusterResponse](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.UpgradeClusterResponse.html) result = completedResponse.Result;
+           < OperationUpgradeClusterResponse, Operati>onMetadata completedResponse = response.PollUntilCompleted();
+            // Retrieve the operation resul[t](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.UpgradeClusterResponse.html)
+            UpgradeClusterResponse result = completedResponse.Result;
     
             // Or get the name of the operation
             string operationName = response.Name;
             // This name can be stored, then the long-running operation retrieved later by name
-            Operation<UpgradeClusterResponse, OperationMetadata> retrievedResponse = alloyDBAdminClient.[PollOnceUpgradeCluster](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_PollOnceUpgradeCluster_System_String_Google_Api_Gax_Grpc_CallSettings_)(operationName);
+           < OperationUpgradeClusterResponse, Operati>onMetadata retrievedResponse = alloyDBAd[minClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_PollOnceUpgradeCluster_System_String_Google_Api_Gax_Grpc_CallSettings_).PollOnceUpgradeCluster(operationName);
             // Check if the retrieved long-running operation has completed
             if (retrievedResponse.IsCompleted)
             {
                 // If it has completed, then access the result
-                [UpgradeClusterResponse](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.UpgradeClusterResponse.html) retrievedResult = retrievedResponse.Result;
+      [          ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.UpgradeClusterResponse.html)UpgradeClusterResponse retrievedResult = retrievedResponse.Result;
             }
         }
     }

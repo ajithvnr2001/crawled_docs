@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc/
 title: Configure VPC Service Controls and Private Service Connect with sandboxes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:33.016000+00:00
+fetched_at: 2026-11-01T05:38:27.932533+00:00
 ---
 
 # Configure VPC Service Controls and Private Service Connect with sandboxes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ Set the egress fields on the `SandboxEnvironmentTemplate` so the sandbox routes 
     client = Client(project="PROJECT_ID", location="REGION",
                     http_options={"api_version": "v1beta1"})
     
-    templates = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).sandboxes.[templates](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.sandboxes.Sandboxes.html#vertexai__genai_sandboxes_Sandboxes_templates)
+    templates = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).sandboxes.[templates](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.sandboxes.Sandboxes.html#vertexai__genai_sandboxes_Sandboxes_templates)
     op = [templates](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.sandboxes.Sandboxes.html#vertexai__genai_sandboxes_Sandboxes_templates).create(
         name=agent_instance_name,
         display_name="cu-vpcsc-template",

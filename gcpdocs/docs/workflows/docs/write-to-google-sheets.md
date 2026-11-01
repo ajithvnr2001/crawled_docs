@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/write-to-google-sheets/
 title: Write to Google Sheets from a workflow \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:38.121824+00:00
+fetched_at: 2026-11-01T05:39:24.704121+00:00
 ---
 
 # Write to Google Sheets from a workflow  |  Workflows  |  Google Cloud Documentation
@@ -212,7 +212,7 @@ In the following workflow, the `spreadsheetId` is retrieved from the `resp` resu
             "move_sheet": {
               "call": "http.patch",
               "args": {
-                "url": "${drive_url + resp.spreadsheetId}&quot;,
+                "url": "${drive_url + resp.spreadsheetId}",
                 "query": {
                   "addParents": "${folder_id}",
                   "removeParents": "${sheet_info[\"body\"][\"parents\"][0]}"

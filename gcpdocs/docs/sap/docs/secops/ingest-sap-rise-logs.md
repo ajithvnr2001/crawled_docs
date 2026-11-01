@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/secops/ingest-sap-rise-logs/
 title: Set up log ingestion for SAP RISE \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:34.996239+00:00
+fetched_at: 2026-11-01T05:45:18.833442+00:00
 ---
 
 # Set up log ingestion for SAP RISE  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  Set up log ingestion for SAP RISE Stay organized with collections  Save and categorize content based on your preferences. 
 
-****
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-This document explains how to ingest logs from your SAP systems managed by SAP as part of the [SAP RISE](https://www.sap.com/products/erp/rise.html) offering and forward them to Google SecOps.
+This document explains how to ingest logs from your SAP systems managed by SAP as part of the [SAP RISE](https://www.sap.com/products/erp/rise.html) offering and forward them to Google SecOps. 
 
 ## Select your ingestion path
 
@@ -145,34 +141,75 @@ Application log ingestion involves the following components:
   * **Bindplane agent** : A lightweight agent installed on the collector host that receives OTLP data and forwards the data to the Google SecOps gateway.
   * **Bindplane server** : Receives the logs from the Bindplane agents and forwards them to Google SecOps.
 
+**Note:** You can use the [SAP Telemetry Collector Setup Wizard](https://github.com/chronicle/ingestion-scripts/blob/main/sap_telemetry_collector_setup_wizard/README.md) on GitHub to install and configure the Application Telemetry Collector in a guided web interface. The wizard generates reproducible Terraform scripts to provision the required log ingestion infrastructure, including the Bindplane agents and telemetry collectors. Alternatively, you can follow the manual steps in the following sections to prepare, configure, and deploy the artifacts for the collector.
+
+### Prepare the collector host
+
+Provision the host machine to run the Application Telemetry Collector container:
+
+  * **Host options** : You can use Compute Engine instances, on-premises servers, or container orchestration platforms such as GKE.
+  * **Specifications** : Use a standard Linux distribution, such as Debian 11 or 12, with Docker Engine 20.10 or later.
+  * **Network** : The host requires a network connection to your SAP RISE instance, such as VPC peering or Cloud Interconnect. Open egress to SAP Gateway ports `32INSTANCE_NUMBER` or `33INSTANCE_NUMBER` (where `INSTANCE_NUMBER` is your instance number).
+  * **Continuity** : Ensure the host is "always-on" to prevent log gaps. Don't use serverless platforms like Cloud Run.
+  * **Identity (Within Google Cloud)** : Attach the service account created in the [Configure Google Cloud resources](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#configure-gcp-resources-app-logs) section to the host. In the console, set **Access Scopes** to **Allow full access to all Cloud APIs**.
+  * **Identity (Outside Google Cloud)** : Use [service account keys](https://docs.cloud.google.com/iam/docs/keys-create-delete) or [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation).
 
 
-### Prepare the collector host and dependencies
 
-Provision the infrastructure to run the collector and upload the necessary SAP libraries.
+### Update the Application Telemetry Collector
 
-  * **Infrastructure instance** : Provision a host to run the collector container. 
-    * **Host options** : You can use Compute Engine, on-premises servers, or container orchestration platforms such as GKE.
-    * **Specifications** : Use a standard Linux distribution, such as Debian 11 or 12, with Docker Engine 20.10 or later.
-    * **Network** : The host requires a network path to your SAP RISE instance, such as VPC peering or Cloud Interconnect. Open egress to SAP Gateway ports `32INSTANCE_NUMBER` or `33INSTANCE_NUMBER` (where `INSTANCE_NUMBER` is your instance number).
-    * **Continuity** : Ensure the host is "always-on" to prevent log gaps. Don't use serverless platforms like Cloud Run.
-    * **Identity (Within Google Cloud)** : Attach the service account created in the [Configure Google Cloud resources](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#configure-gcp-resources-app-logs) section to the host. In the console, set **Access Scopes** to **Allow full access to all Cloud APIs**.
-    * **Identity (Outside Google Cloud)** : Use [service account keys](https://docs.cloud.google.com/iam/docs/keys-create-delete) or [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation).
-  * **SAP Java Connector (JCo) and SNC libraries** : Upload the SAP connector and cryptographic files to the `jco/` folder in your Cloud Storage bucket. You create the `jco/` folder as described in the [Configure Google Cloud resources](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#setup-storage-buckets-iam-roles) guide. 
-    * **SAP JCo** : Download `sapjco3.jar` and `libsapjco3.so` from the [SAP Support Portal](https://support.sap.com/en/product/connectors/jco.html) and upload them to the `jco/` folder. Ensure you download the version matching your host architecture (ARM or x86).
-    * **SNC Libraries** : If you use SNC, download `libslcryptokernel.so` and `libsapcrypto.so` from the SAP portal, and then upload them to the `jco/` folder. For instructions on how to download the `.SAR` file and extract the files by using the `sapcar` utility, see the [SAP documentation](https://help.sap.com/docs/SAP_HANA_CLIENT/8e208b44c0784f028b948958ef1d05e7/463d3ceeb7404eca8762dfe74e9cff62.html).
+Skip this section if you are deploying the collector for the first time, and go to Configure the collector.
+
+If you're using an older version of the Application Telemetry Collector, you must update to the latest General Availability (GA) image.
+
+To update your existing deployment, do the following:
+
+  1. Pull the latest GA image from Artifact Registry for your region.
+         
+         docker pull IMAGE_PATH
+
+Replace `IMAGE_PATH` with the URI of the collector image. Use one of the following regional paths:
+
+     * `us-docker.pkg.dev/sap-core-eng-products/sap-application-telemetry/google-cloud-sap-application-telemetry:latest`
+     * `europe-docker.pkg.dev/sap-core-eng-products/sap-application-telemetry/google-cloud-sap-application-telemetry:latest`
+     * `asia-docker.pkg.dev/sap-core-eng-products/sap-application-telemetry/google-cloud-sap-application-telemetry:latest`
+  2. Stop the running collector instance gracefully.
+         
+         docker stop sap-telemetry-collector
+
+  3. Restart the container again using the exact same `docker run` command, environment variables, and volume mounts that you used during the initial setup.
+         
+         docker run -d \
+             --name sap-telemetry-collector \
+             --restart always \
+             --network host \
+             -v /etc/sap-collector:/tmp/keys:ro \
+             -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/keys/creds.json \
+             -e COLLECTOR_GCS_BUCKET=gs://BUCKET_NAME \
+             -e LOCK_LEASE_TIMEOUT_MINUTES=LEASE_TIMEOUT \
+             -e LOCK_HEARTBEAT_INTERVAL_MINUTES=HEARTBEAT_INTERVAL \
+             IMAGE_PATH
+
+For information about the placeholder variables in this command, see Run the collector container.
+
 
 
 
 ### Configure the collector
 
-Create a `collector_config.json` file to define your SAP connections and the logs you want to ingest.
+The Application Telemetry Collector uses a `collector_config.json` file to define your SAP connections, authentication settings, and the application-layer logs that you want to ingest.
 
-Once you have defined the configuration, upload the `collector_config.json` file to the `config/` folder in the Cloud Storage bucket you created in the [Configure Google Cloud resources](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#configure-gcp-resources-app-logs) section.
+To create and upload the collector configuration file, do the following:
+
+  1. In your local working directory, create a `collector_config.json` file using the configuration example and field descriptions.
+  2. Optional: To monitor multiple SAP systems through a single collector deployment, add multiple entries to the `systems` array in the configuration file. Each system must have a unique `system_id`.
+  3. Upload the `collector_config.json` file to the `config/` folder in the Cloud Storage bucket that you created in [Configure Google Cloud resources](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#configure-gcp-resources-app-logs).
+
+
 
 #### Configuration example and field descriptions
 
-Use the following JSON example to create your collector configuration file and refer to the field descriptions for detailed parameter information.
+Use the following JSON example to create your collector configuration file, and refer to the field descriptions for detailed parameter information:
     
     
     {
@@ -180,15 +217,15 @@ Use the following JSON example to create your collector configuration file and r
         {
           "system_id": "PRD-HANA",
           "connection": {
-            "host": "sap-prd.internal.net",
+            "host": "sap-prd.example.com",
             "client": "100",
             "system_number": "00",
             "language": "en"
           },
           "auth": {
             "basic": {
-              "username_secret": "projects/my-project-123/secrets/sap-collector-user/versions/latest",
-              "password_secret": "projects/my-project-123/secrets/sap-collector-pass/versions/latest"
+              "username_secret": "projects/SAP_PROJECT_ID/secrets/SAP_COLLECTOR_USER/versions/latest",
+              "password_secret": "projects/SAP_PROJECT_ID/secrets/SAP_COLLECTOR_PASS/versions/latest"
             }
           },
           "log_sources": [
@@ -208,17 +245,17 @@ Use the following JSON example to create your collector configuration file and r
         {
           "system_id": "DEV-HANA-SNC",
           "connection": {
-            "host": "sap-dev.internal.net",
+            "host": "10.128.0.50",
             "client": "200",
             "system_number": "01",
             "language": "en"
           },
           "auth": {
             "x509": {
-              "snc_name": "p:CN=SAP-Collector,O=MyCompany,C=US",
-              "snc_partner_name": "p:CN=SAP-Server-DEV,O=MyCompany,C=US",
+              "snc_name": "p:CN=SAP-Collector, O=MyCompany, C=US",
+              "snc_partner_name": "p:CN=SAP-Server-DEV, O=MyCompany, C=US",
               "snc_qop": "3",
-              "x509_cert_secret": "projects/my-project-123/secrets/sap-x509-cert/versions/latest"
+              "x509_cert_secret": "projects/SAP_PROJECT_ID/secrets/SAP_X509_CERT/versions/latest"
             }
           },
           "log_sources": [
@@ -236,8 +273,8 @@ Use the following JSON example to create your collector configuration file and r
       "heartbeat_enabled": true,
       "heartbeat_interval": "30s",
       "heartbeat_metric_name": "custom/sap/collector_heartbeat",
-      "jco_pse_secret": "projects/my-project-123/secrets/sap-collector-pse/versions/latest",
-      "jco_cred_secret": "projects/my-project-123/secrets/sap-collector-cred/versions/latest"
+      "jco_pse_secret": "projects/SAP_PROJECT_ID/secrets/SAP_COLLECTOR_PSE/versions/latest",
+      "jco_cred_secret": "projects/SAP_PROJECT_ID/secrets/SAP_COLLECTOR_CRED/versions/latest"
     }
     
 
@@ -245,45 +282,45 @@ The following table describes the fields in the `collector_config.json` file.
 
 Section | Field | Description  
 ---|---|---  
-**System Connection (`systems`)**  
-List of systems to monitor. | `system_id` | A unique label for the system, for example, `PRD`. In the example, replace `PRD-HANA` with your specific label.  
-`sap_timezone` | The timezone of the SAP application server, for example, `UTC`. This is critical for accurate log querying.  
-`initial_lookback_window` | How far back the collector looks for logs on its first run, for example, `"86400s"` for 24 hours.  
-`connection` | Contains the following RFC connection parameters: 
+**System connection (`systems`)**  
+List of SAP systems to monitor.  | `system_id` |  A unique name for your SAP system within the collector configuration, for example, `PRD-HANA`. In the example, replace `PRD-HANA` with your specific system label.   
+`sap_timezone` |  The timezone of the SAP application server, for example, `UTC`. This is critical for accurate log querying.   
+`initial_lookback_window` |  How far back the collector looks for logs on its first run, for example, `86400s` for 24 hours.   
+`connection` |  Contains the following RFC connection parameters: 
 
-  * `host`: The FQDN or IP of your SAP server. Replace `sap-prd.internal.net` in the example.
-  * `client`: The 3-digit SAP client, for example, `"100"`.
-  * `system_number`: The 2-digit instance number, for example, `"00"`.
-  * `language`: The logon language (defaults to `"en"`).
+  * `host`: The fully qualified domain name (FQDN) or IP address of your SAP server. Replace `sap-prd.example.com` in the example. 
+  * `client`: The 3-digit SAP client number, for example, `100`. 
+  * `system_number`: The 2-digit SAP system instance number, for example, `00`. 
+  * `language`: The logon language, which defaults to `en`. 
 
   
 **Authentication (`auth`)**  
-Choose one of the authentication methods. | `basic` | Username and password authentication. Provide the full Secret Manager paths for `username_secret` and `password_secret`. These secrets must contain the credentials of the [SAP service user](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#create-an-sap-service-user) created in the preparation guide. For more information, see [Basic authentication](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#auth-option-basic).  
-`x509` (SNC) | Secure Network Communication authentication. For setup instructions, see [Secure Network Communication (SNC)](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#configure-snc-x509). Provide the following: 
+Choose one of the authentication methods.  | `basic` |  Username and password authentication. Provide the full Secret Manager paths for `username_secret` and `password_secret`. These secrets must contain the credentials of the [SAP service user](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#create-an-sap-service-user) created in the preparation guide. For more information, see [Basic authentication](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#auth-option-basic).   
+`x509` (SNC) |  Secure Network Communication authentication. For setup instructions, see [Secure Network Communication (SNC)](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#configure-snc-x509). Provide the following: 
 
-  * `snc_name`: The SNC name.
-  * `snc_partner_name`: The SNC identity of the SAP Application Server.
-  * `snc_qop`: (Optional) The Quality of Protection level required by the SAP server, for example, `3` for end-to-end data privacy and payload encryption.
-  * `x509_cert_secret`: (Optional) The full Secret Manager path to the secret containing the `collector_cert.crt` file. For more information, see [Store SNC artifacts in Secret Manager](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#store-snc-artifacts).
+  * `snc_name`: The collector's SNC identity, for example, `p:CN=SAP-Collector,O=MyCompany,C=US`. 
+  * `snc_partner_name`: The SNC identity of the SAP application server. 
+  * `snc_qop`: (Optional) The Quality of Protection level required by the SAP server, for example, `3` for end-to-end data privacy and payload encryption. 
+  * `x509_cert_secret`: (Optional) The full Secret Manager path to the secret containing the collector's public X.509 certificate. For more information, see [Store SNC artifacts in Secret Manager](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#store-snc-artifacts). 
 
   
-**Log Sources (`log_sources`)**  
-Defines logs and frequency. | `log_type` | The type of log to ingest. Options include: 
+**Log sources (`log_sources`)**  
+Defines logs and frequency.  | `log_type` |  The type of log to ingest. Options include: 
 
   * `SAP_SECURITY_AUDIT`
   * `SAP_CHANGE_DOCUMENT`
 
 For more information, see [Review supported log sources](https://docs.cloud.google.com/sap/docs/secops/plan-log-ingestion#review-supported-log-sources).   
-`interval` | The polling frequency for this specific log source, for example, `"30s"`.  
-`change_document_object_classes` | (Optional) Used only for `SAP_CHANGE_DOCUMENT`. A list of specific SAP object classes to track, for example, `["MATERIAL", "USER"]`.  
-**Global Collector Settings**  
-Applied to the entire instance. | `bindplane_host` | The hostname or IP address of your Bindplane agent, such as `localhost` or `10.0.0.5`. We recommend deploying Bindplane agent on the same host as Application Telemetry Collector. In this configuration, set the `bindplane_host` value to `localhost`.  
-`bindplane_port` | The port number the Bindplane server listens on. Default is `4317`.  
-`heartbeat_enabled` | A boolean, which is `true` or `false`, to toggle a "stay-alive" metric.  
-`heartbeat_interval` | How often the heartbeat metric is sent to Monitoring through Bindplane. Must be a string followed by "s", for example, `"30s"`. Defaults to `60s`.  
-`heartbeat_metric_name` | (Optional) The name that appears in your monitoring dashboard for this heartbeat, for example, `sap_collector_status`. Defaults to `sap_appl_telemetry_collector_heartbeat`.  
-`jco_pse_secret` | The full Secret Manager path to the secret containing the PSE file (for example, `sapcrypto.pse`). For more information, see [Store SNC artifacts in Secret Manager](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#store-snc-artifacts).  
-`jco_cred_secret` | The full Secret Manager path to the secret containing the `cred_v2` file. For more information, see [Store SNC artifacts in Secret Manager](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#store-snc-artifacts).  
+`interval` |  The polling frequency for this specific log source, for example, `30s`.   
+`change_document_object_classes` |  (Optional) Used only for `SAP_CHANGE_DOCUMENT`. A list of specific SAP object classes to track, for example, `["MATERIAL", "USER"]`.   
+**Global collector settings**  
+Applied to the entire instance.  | `bindplane_host` |  The hostname or IP address of your Bindplane agent, such as `localhost` or `10.0.0.5`.  We recommend deploying Bindplane agent on the same host as Application Telemetry Collector. In this configuration, set the `bindplane_host` value to `localhost`.   
+`bindplane_port` |  The port number the Bindplane server listens on. Default is `4317`.   
+`heartbeat_enabled` |  A boolean, which is `true` or `false`, to toggle a "stay-alive" metric.   
+`heartbeat_interval` |  How often the heartbeat metric is sent to Monitoring through Bindplane. Must be a string followed by "s", for example, `30s`. Defaults to `60s`.   
+`heartbeat_metric_name` |  (Optional) The name that appears in your monitoring dashboard for this heartbeat, for example, `sap_collector_status`. Defaults to `sap_appl_telemetry_collector_heartbeat`.   
+`jco_pse_secret` |  The full Secret Manager path to the secret containing your binary `.pse` file (for example, `sapcrypto.pse`). For more information, see [Store SNC artifacts in Secret Manager](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#store-snc-artifacts).   
+`jco_cred_secret` |  The full Secret Manager path to the secret containing your binary credentials file (`cred_v2`). For more information, see [Store SNC artifacts in Secret Manager](https://docs.cloud.google.com/sap/docs/secops/prepare-environment-ingestion#store-snc-artifacts).   
   
 ### Deploy the collector
 
@@ -311,18 +348,17 @@ Choose the deployment command that matches your host environment:
 
 ###  Google Cloud 
 
-Use this command if your host runs on Google Cloud and uses an attached Service Account for authentication. 
+Use this command if your host runs on Google Cloud and uses an attached Service Account for authentication.
     
     
     docker run -d \
         --name sap-telemetry-collector \
         --restart always \
         --network host \
-        -e COLLECTOR_GCS_BUCKET=gs://YOUR_BUCKET_NAME \
+        -e COLLECTOR_GCS_BUCKET=gs://BUCKET_NAME \
         -e LOCK_LEASE_TIMEOUT_MINUTES=LEASE_TIMEOUT \
         -e LOCK_HEARTBEAT_INTERVAL_MINUTES=HEARTBEAT_INTERVAL \
-        COLLECTOR_IMAGE_PATH
-    
+        IMAGE_PATH
 
 ###  External host 
 
@@ -335,18 +371,17 @@ Use this command if your host is outside Google Cloud. This command uses the Doc
         --network host \
         -v /etc/sap-collector:/tmp/keys:ro \
         -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/keys/creds.json \
-        -e COLLECTOR_GCS_BUCKET=gs://YOUR_BUCKET_NAME \
+        -e COLLECTOR_GCS_BUCKET=gs://BUCKET_NAME \
         -e LOCK_LEASE_TIMEOUT_MINUTES=LEASE_TIMEOUT \
         -e LOCK_HEARTBEAT_INTERVAL_MINUTES=HEARTBEAT_INTERVAL \
-        COLLECTOR_IMAGE_PATH
-    
+        IMAGE_PATH
 
 Replace the following:
 
-  * `YOUR_BUCKET_NAME`: The name of the Cloud Storage bucket where you uploaded the SAP JCo libraries and the `collector_config.json` file. Ensure the value follows the format `gs://BUCKET_NAME` without trailing slashes or subdirectories.
+  * `BUCKET_NAME`: The name of the Cloud Storage bucket where you uploaded the SAP JCo libraries and the `collector_config.json` file. Ensure that the value follows the format `gs://BUCKET_NAME` without trailing slashes or subdirectories.
   * `LEASE_TIMEOUT`: (Optional) The duration, in minutes, that the collector instance holds a lease on the lock file. If an instance stops unexpectedly, then a new instance can acquire the lock after this period expires. Default value: `5`.
   * `HEARTBEAT_INTERVAL`: (Optional) The frequency, in minutes, at which the collector renews its lease on the Cloud Storage lock file. Default value: `1`.
-  * `COLLECTOR_IMAGE_PATH`: The URI of the collector image. The collector is available to download from the following regional Artifact Registry paths:
+  * `IMAGE_PATH`: The URI of the collector image in Artifact Registry. Use one of the following regional paths:
 
     * `us-docker.pkg.dev/sap-core-eng-products/sap-application-telemetry/google-cloud-sap-application-telemetry:TAG`
     * `europe-docker.pkg.dev/sap-core-eng-products/sap-application-telemetry/google-cloud-sap-application-telemetry:TAG`
@@ -498,6 +533,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

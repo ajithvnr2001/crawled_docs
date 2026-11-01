@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/tags/tags-supported-services/
 title: Services that support tags \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:17.263204+00:00
+fetched_at: 2026-11-01T05:45:15.505057+00:00
 ---
 
 # Services that support tags  |  Resource Manager  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback
 
 #  Services that support tags Stay organized with collections  Save and categorize content based on your preferences. 
 
-Tags let you create annotations for resources, and in some cases conditionally allow or deny policies based on whether a resource has a specific tag. The resources and policies used by each service use tags in different ways. For more information about tags, see the [Tags overview](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview).
+Tags let you annotate resources and, in some cases, conditionally enforce policies based on whether a resource has a specific tag. This document lists the Google Cloud services, policy engine services, and resource types that support tags. For more information, see the [Tags overview](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview).
 
-Some services, such as Identity and Access Management (IAM), are policy engines that support references by tags. If you can attach a tag to a service resource, and the policy engine service supports that resource, you can then leverage the conditional enforcement of policies to better control your resource hierarchy. Each policy engine service lists the resources it supports in the Policy engine services section.
-
-Resources not listed as explicitly supported by policy engine services can't be targeted directly for conditional enforcement of policies. Instead, the parent project, folder, or organization resource should be tagged to provide conditional control.
-
-Review the appropriate section when attaching tags to your service resources. For more information, see [Creating and managing tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing).
+Policy engines, such as Identity and Access Management (IAM), evaluate tags to govern access and configurations. When a service resource supports tag attachment and a policy engine supports that resource type, you can conditionally enforce policies on it. For resources that policy engines can't target directly, tag the parent project, folder, or organization to manage policies through inheritance. Each policy engine lists supported resources in the Policy engine services section. To attach tags, see [Creating and managing tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing).
 
 ## Policy engine services
 
@@ -513,6 +509,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

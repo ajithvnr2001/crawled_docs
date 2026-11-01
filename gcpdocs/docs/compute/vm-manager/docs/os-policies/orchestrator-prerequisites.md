@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/os-policies/orchestrator-prerequisites/
 title: Prerequisites for using policy orchestrator \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:17.912334+00:00
+fetched_at: 2026-11-01T05:39:09.752883+00:00
 ---
 
 # Prerequisites for using policy orchestrator  |  VM Manager  |  Google Cloud Documentation
@@ -24,9 +24,88 @@ Send feedback
 
 This page describes the prerequisites for using the policy orchestrator feature in VM Manager.
 
-## gcloud CLI commands for policy orchestrator prerequisites
+## Required roles and permissions to create and manage policy orchestrators
+
+Because policy orchestrators can install and manage software packages on virtual machine (VM) instances across projects, folders, or an organization, granting permission to create or update a policy orchestrator is equivalent to granting remote code execution access on the targeted VMs. When you set up policy orchestrators, Identity and Access Management (IAM) permissions control access to policy orchestrator resources. Follow the [principle of least privilege](https://docs.cloud.google.com/iam/docs/using-iam-securely#least_privilege) and grant only the required access to each principal.
+
+To get the permissions that you need to create and manage policy orchestrators, ask your administrator to grant you the following IAM roles: 
+
+  * Create, update, delete, view, and list policy orchestrators: [PolicyOrchestrator Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/osconfig#osconfig.policyOrchestratorAdmin) (`roles/osconfig.policyOrchestratorAdmin`) on the project, folder, or organization 
+  * View and list policy orchestrators: [PolicyOrchestrator Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/osconfig#osconfig.policyOrchestratorViewer) (`roles/osconfig.policyOrchestratorViewer`) on the project, folder, or organization 
+  * Use a quota project for folder-level and organization-level orchestrations: [Service Usage Consumer ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) on the quota project 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+These predefined roles contain the permissions required to create and manage policy orchestrators. To see the exact permissions that are required, expand the **Required permissions** section: 
+
+#### Required permissions
+
+The following permissions are required to create and manage policy orchestrators:
+
+  * Create policy orchestrators: 
+    * `osconfig.policyOrchestrators.create`
+    * `osconfig.operations.get`
+  * Update policy orchestrators: 
+    * `osconfig.policyOrchestrators.update`
+    * `osconfig.operations.get`
+  * Delete policy orchestrators: 
+    * `osconfig.policyOrchestrators.delete`
+    * `osconfig.operations.get`
+  * View and list policy orchestrators: 
+    * `osconfig.policyOrchestrators.get`
+    * `osconfig.policyOrchestrators.list`
+    * `osconfig.locations.get`
+    * `osconfig.locations.list`
+    * `osconfig.operations.get`
+  * Use a quota project for folder-level and organization-level orchestrations: `serviceusage.services.use`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+## Set up policy orchestrator prerequisites by using the gcloud CLI commands
 
 This section lists all `gcloud` commands that you need to run before you can use the policy orchestrator feature.
+
+### Required roles
+
+To get the permissions that you need to run the prerequisite commands for policy orchestrator, ask your administrator to grant you the following IAM roles: 
+
+  * Set up and use a quota project for folder-level and organization-level orchestrations: [Service Usage Consumer ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) on the quota project 
+  * Enable the OS Config API and Progressive Rollout API: [Service Usage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) (`roles/serviceusage.serviceUsageAdmin`) on the project or quota project 
+  * Create the OS Config and Progressive Rollout service agents: [Service Usage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) (`roles/serviceusage.serviceUsageAdmin`) on the project, folder, or organization 
+  * Grant service agents access to a project: [Project IAM Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) on the project 
+  * Grant service agents access to a folder: Folder IAM Admin (`roles/resourcemanager.folderIamAdmin`) or Folder Admin (`roles/resourcemanager.folderAdmin`) on the folder 
+  * Grant service agents access to an organization: [Organization Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.organizationAdmin) (`roles/resourcemanager.organizationAdmin`) on the organization 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+These predefined roles contain the permissions required to run the prerequisite commands for policy orchestrator. To see the exact permissions that are required, expand the **Required permissions** section: 
+
+#### Required permissions
+
+The following permissions are required to run the prerequisite commands for policy orchestrator:
+
+  * Set up and use a quota project for folder-level and organization-level orchestrations: `serviceusage.services.use`
+  * Enable the OS Config API and Progressive Rollout API: `serviceusage.services.enable`
+  * Create service agents: `serviceusage.services.generateServiceIdentity`
+  * Grant service agents access to a project: 
+    * `resourcemanager.projects.getIamPolicy`
+    * `resourcemanager.projects.setIamPolicy`
+  * Grant service agents access to a folder: 
+    * `resourcemanager.folders.getIamPolicy`
+    * `resourcemanager.folders.setIamPolicy`
+  * Grant service agents access to an organization: 
+    * `resourcemanager.organizations.getIamPolicy`
+    * `resourcemanager.organizations.setIamPolicy`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 ###  Project 
 
@@ -175,6 +254,14 @@ Replace the following:
 
 When you use policy orchestrators to manage OS policy resources in your organization or folders, you make requests to a [client-based API](https://docs.cloud.google.com/docs/quotas/quota-project#project-client-based). A _quota project_ is required for client-based APIs. For more information about client-based APIs and setting up quota projects, see [Quota project overview](https://docs.cloud.google.com/docs/quotas/quota-project).
 
+### Required roles
+
+To get the permission that you need to use a quota project for organization-level and folder-level orchestrations, ask your administrator to grant you the [Service Usage Consumer ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) IAM role on the quota project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+This predefined role contains the `serviceusage.services.use` permission, which is required to use a quota project for organization-level and folder-level orchestrations. 
+
+You might also be able to get this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
 When you use the gcloud CLI or REST API to call the policy orchestrator methods, specify the quota project as follows:
 
 **Note:** For the quota project, you can use any project that has [billing enabled](https://docs.cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project).
@@ -204,11 +291,27 @@ To use the policy orchestrator feature in VM Manager, enable OS Config API in th
 
 
 
+### Required roles
+
+To get the permission that you need to enable the OS Config API, ask your administrator to grant you the [Service Usage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) (`roles/serviceusage.serviceUsageAdmin`) IAM role on the project or quota project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+This predefined role contains the `serviceusage.services.enable` permission, which is required to enable the OS Config API. 
+
+You might also be able to get this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
 For more information, see [Enable OS Config API](https://docs.cloud.google.com/compute/vm-manager/docs/setup#enable-service-api).
 
 ## Enable Progressive Rollout API for the projects
 
 **Note:** This step is required only for project-level orchestrations.
+
+### Required roles
+
+To get the permission that you need to enable the Progressive Rollout API, ask your administrator to grant you the [Service Usage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) (`roles/serviceusage.serviceUsageAdmin`) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+This predefined role contains the `serviceusage.services.enable` permission, which is required to enable the Progressive Rollout API. 
+
+You might also be able to get this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 ###  Console 
 
@@ -252,7 +355,7 @@ For more information, see [`gcloud services`](https://docs.cloud.google.com/sdk/
 
 The policy orchestrator uses the OS Config service agents to perform actions in your projects. It also depends on the Progressive Rollout API, which has its own service agents. For more information, see [Service agents](https://docs.cloud.google.com/iam/docs/service-agents).
 
-You must create the service agents for each project, folder, or organization in which you create the policy orchestrator. For the policy orchestrator to function properly, grant the following required IAM roles to these service agents at the parent resource of the orchestrator:
+You must create the service agents for each project, folder, or organization in which you create the policy orchestrator. For the policy orchestrator to function properly, grant these service agents the required IAM roles at the parent resource of the orchestrator:
 
   * OSConfig Service Agent (`roles/osconfig.serviceAgent`) for the @gcp-sa-osconfig.iam.gserviceaccount.com account
   * OSConfig Rollout Service Agent (`roles/osconfig.rolloutServiceAgent`) for the @gcp-sa-osconfig-rollout.iam.gserviceaccount.com account
@@ -264,34 +367,37 @@ To grant IAM roles to the service agents, use the Google Cloud console or the [`
 
 ### Required roles
 
-  * To get the permissions that you need to grant the service agents access, ask your administrator to grant you the following IAM roles on the project, folder, or organization that you're granting access to: 
+To get the permissions that you need to create the service agents and grant them access, ask your administrator to grant you the following IAM roles on the project, folder, or organization where you create the policy orchestrator: 
 
-    * Grant service agents access to a project: [Project IAM Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) 
-    * Grant service agents access to a folder: [Folder Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.folderAdmin) (`roles/resourcemanager.folderAdmin`) 
-    * Grant service agents access to projects, folders, and organizations: [Organization Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.organizationAdmin) (`roles/resourcemanager.organizationAdmin`) 
+  * Create service agents: [Service Usage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) (`roles/serviceusage.serviceUsageAdmin`) 
+  * Grant service agents access to a project: [Project IAM Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) 
+  * Grant service agents access to a folder: Folder IAM Admin (`roles/resourcemanager.folderIamAdmin`) or Folder Admin (`roles/resourcemanager.folderAdmin`) 
+  * Grant service agents access to projects, folders, and organizations: [Organization Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.organizationAdmin) (`roles/resourcemanager.organizationAdmin`) 
+
+
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-These predefined roles contain the permissions required to grant the service agents access. To see the exact permissions that are required, expand the **Required permissions** section: 
+These predefined roles contain the permissions required to create the service agents and grant them access. To see the exact permissions that are required, expand the **Required permissions** section: 
 
 #### Required permissions
 
-The following permissions are required to grant the service agents access:
+The following permissions are required to create the service agents and grant them access:
 
-    * Grant service agents access to a project: 
-      * `resourcemanager.projects.getIamPolicy`
-      * `resourcemanager.projects.setIamPolicy`
-    * Grant service agents access to a folder: 
-      * `resourcemanager.folders.getIamPolicy`
-      * `resourcemanager.folders.setIamPolicy`
-    * Grant service agents access to an organization: 
-      * `resourcemanager.organizations.getIamPolicy`
-      * `resourcemanager.organizations.setIamPolicy`
+  * Create service agents: `serviceusage.services.generateServiceIdentity`
+  * Grant service agents access to a project: 
+    * `resourcemanager.projects.getIamPolicy`
+    * `resourcemanager.projects.setIamPolicy`
+  * Grant service agents access to a folder: 
+    * `resourcemanager.folders.getIamPolicy`
+    * `resourcemanager.folders.setIamPolicy`
+  * Grant service agents access to an organization: 
+    * `resourcemanager.organizations.getIamPolicy`
+    * `resourcemanager.organizations.setIamPolicy`
+
+
 
 You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
-
-
-
 
 To create the service agents, do the following.
 
@@ -360,6 +466,40 @@ Replace `ORGANIZATION_NUMBER` with the numeric ID of the organization in which y
 
 
 ## Grant IAM roles to the service agents
+
+After you create the OS Config and Progressive Rollout service agents, grant them the required IAM roles (`roles/osconfig.serviceAgent`, `roles/osconfig.rolloutServiceAgent`, and `roles/progressiverollout.serviceAgent`) on the project, folder, or organization where you create the policy orchestrator.
+
+### Required roles
+
+To get the permissions that you need to grant the service agents access, ask your administrator to grant you the following IAM roles on the project, folder, or organization that you're granting access to: 
+
+  * Grant service agents access to a project: [Project IAM Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) 
+  * Grant service agents access to a folder: Folder IAM Admin (`roles/resourcemanager.folderIamAdmin`) or Folder Admin (`roles/resourcemanager.folderAdmin`) 
+  * Grant service agents access to projects, folders, and organizations: [Organization Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.organizationAdmin) (`roles/resourcemanager.organizationAdmin`) 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+These predefined roles contain the permissions required to grant the service agents access. To see the exact permissions that are required, expand the **Required permissions** section: 
+
+#### Required permissions
+
+The following permissions are required to grant the service agents access:
+
+  * Grant service agents access to a project: 
+    * `resourcemanager.projects.getIamPolicy`
+    * `resourcemanager.projects.setIamPolicy`
+  * Grant service agents access to a folder: 
+    * `resourcemanager.folders.getIamPolicy`
+    * `resourcemanager.folders.setIamPolicy`
+  * Grant service agents access to an organization: 
+    * `resourcemanager.organizations.getIamPolicy`
+    * `resourcemanager.organizations.setIamPolicy`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 To grant the service agent roles, run the `gcloud add-iam-policy-binding` as follows:
 
@@ -432,7 +572,7 @@ If you use organization-level or folder-level policy orchestrators in projects p
 
 ### Required roles
 
-To get the permissions that you need to configure OS policy orchestrators for use within VPC Service Controls perimeters, ask your administrator to grant you the [Access Context Manager Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/accesscontextmanager#accesscontextmanager.policyEditor) (`roles/accesscontextmanager.policyEditor`) IAM role on your organization. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To get the permissions that you need to configure OS policy orchestrators for use within VPC Service Controls perimeters, ask your administrator to grant you the [Access Context Manager Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/accesscontextmanager#accesscontextmanager.policyEditor) (`roles/accesscontextmanager.policyEditor`) IAM role on the organization. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 This predefined role contains the permissions required to configure OS policy orchestrators for use within VPC Service Controls perimeters. To see the exact permissions that are required, expand the **Required permissions** section: 
 
@@ -440,15 +580,8 @@ This predefined role contains the permissions required to configure OS policy or
 
 The following permissions are required to configure OS policy orchestrators for use within VPC Service Controls perimeters:
 
-  * Grant service agents access to a project: 
-    * `resourcemanager.projects.getIamPolicy`
-    * `resourcemanager.projects.setIamPolicy`
-  * Grant service agents access to a folder: 
-    * `resourcemanager.folders.getIamPolicy`
-    * `resourcemanager.folders.setIamPolicy`
-  * Grant service agents access to an organization: 
-    * `resourcemanager.organizations.getIamPolicy`
-    * `resourcemanager.organizations.setIamPolicy`
+  * `accesscontextmanager.servicePerimeters.get`
+  * `accesscontextmanager.servicePerimeters.update`
 
 
 
@@ -603,6 +736,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam/
 title: Control access to resources with IAM \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:54:30.633443+00:00
+fetched_at: 2026-11-01T05:35:25.977793+00:00
 ---
 
 # Control access to resources with IAM  |  BigQuery  |  Google Cloud Documentation
@@ -1449,7 +1449,7 @@ To grant access to a table or view, select one of the following options:
 
   4. Click **Overview > Tables**, and then click a table or a view.
 
-  5. Click person_add **Share > Manage permissions**.
+  5. Click **Share > Manage permissions**.
 
   6. Click person_add **Add principal**.
 
@@ -2015,7 +2015,7 @@ To view the access controls for a table or view, choose one of the following opt
 
   4. Click **Overview > Tables**, and then click a table or a view.
 
-  5. Click person_add **Share**.
+  5. Click **Share > Manage permissions**.
 
 The table or view access controls appear in the **Share** pane.
 
@@ -3007,6 +3007,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

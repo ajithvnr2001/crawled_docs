@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/compute/supported-machine-types/
 title: Supported machine types \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:15:11.379862+00:00
+fetched_at: 2026-11-01T05:37:55.360014+00:00
 ---
 
 # Supported machine types  |  Managed Service for Apache Spark  |  Google Cloud Documentation

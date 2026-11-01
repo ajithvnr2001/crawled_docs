@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/xml-api/post-object-forms/
 title: Upload an object with HTML forms \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:02:00.159688+00:00
+fetched_at: 2026-11-01T05:38:47.907318+00:00
 ---
 
 # Upload an object with HTML forms  |  Cloud Storage  |  Google Cloud Documentation

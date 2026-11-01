@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/logs-based-metrics/counter-metrics/
 title: Configure counter metrics \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:41.859783+00:00
+fetched_at: 2026-11-01T05:42:10.184398+00:00
 ---
 
 # Configure counter metrics  |  Cloud Logging  |  Google Cloud Documentation

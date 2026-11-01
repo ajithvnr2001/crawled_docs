@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/delete-org/
 title: Delete an organization \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:36.291416+00:00
+fetched_at: 2026-11-01T05:45:30.698168+00:00
 ---
 
 # Delete an organization  |  Resource Manager  |  Google Cloud Documentation
@@ -21,18 +21,20 @@ Send feedback
 
 #  Delete an organization Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to delete an organization and describes the consequences of this action.
+You can delete an organization resource to permanently decommission your centralized Google Cloud hierarchy and remove top-level administrative control. Because an organization resource is bound to your Google Workspace account, deleting it permanently affects all associated resources and domain governance.
 
-The organization is bound to your Google Workspace (formerly G Suite) account.
+## Alternatives to deleting an organization
 
-If you prefer not to use the organization, consider restoring the organization's Identity and Access Management (IAM) allow policy to its original state by completing the following steps:
+If you prefer not to use the organization resource, consider restoring its Identity and Access Management (IAM) allow policy to its default state instead. This alternative lets users create projects and billing accounts, and lets the Google Workspace super administrator recover central administration if needed.
 
-  1. Add your domain to the `Project Creator` and `Billing Account Creator` roles.
+To restore the organization's allow policy to its default state, complete the following steps:
+
+  1. Add your domain to the **Project Creator** and **Billing Account Creator** roles.
+
   2. Remove all other entries in the organization's allow policy.
 
 
 
-This lets your users continue to create projects and billing accounts while letting the Google Workspace Super Admin recover central administration if needed.
 
 ## Before you delete an organization
 
@@ -72,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/use-index-advisor/
 title: Use the index advisor \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:43:57.310288+00:00
+fetched_at: 2026-11-01T05:44:54.975972+00:00
 ---
 
 # Use the index advisor  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -23,7 +23,15 @@ Send feedback
 
 AlloyDB for PostgreSQL offers an _index advisor_ that tracks the queries your database regularly handles. Periodically, it analyzes these queries to recommend new indexes that can increase the queries' performance.
 
-You can view and query its recommendations as a table, or request an on-demand analysis and report at any time.
+You can work with index advisor recommendations in the following ways:
+
+  * View and apply recommendations in the query insights dashboard in the Google Cloud console.
+  * Query the recommendations directly as database table views.
+  * Request an on-demand analysis and report at any time.
+
+
+
+To learn more about how the index advisor works, see [Index advisor overview](https://docs.cloud.google.com/alloydb/docs/index-advisor-overview).
 
 ## Before you begin
 
@@ -37,7 +45,7 @@ Before you use the index advisor, make sure that you meet the following requirem
 
   2. Click a cluster in the **Resource Name** column.
 
-  3. In the **Query Insights** page, click **Edit query settings**.
+  3. In the **Query insights** page, click **Edit query settings**.
 
   4. Click **Enable index advisor**.
 
@@ -46,7 +54,30 @@ Before you use the index advisor, make sure that you meet the following requirem
 
 ## View the index advisor's recommendations
 
-AlloyDB automatically runs the index advisor's analysis periodically. You can read its results through two table views located in each of your databases:
+AlloyDB automatically runs the index advisor's analysis periodically. You can view the resulting index recommendations in the **Query insights** dashboard in the Google Cloud console or by querying database table views directly.
+
+### View recommendations in query insights
+
+AlloyDB integrates the index advisor with [query insights](https://docs.cloud.google.com/alloydb/docs/query-insights-overview) and [advanced query insights](https://docs.cloud.google.com/alloydb/docs/advanced-query-insights-overview) in the Google Cloud console.
+
+**Note:** To view and apply index advisor recommendations in the query insights dashboard in the Google Cloud console, you must [enable advanced query insights features](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights#enable-advanced-features). Querying index advisor recommendations directly using database views or SQL functions doesn't require advanced query insights.
+
+When the index advisor identifies missing B-tree or ScaNN vector search indexes that can improve query performance, the **Query insights** dashboard surfaces index advisor recommendations and nudges in the following views:
+
+  * On the **Query insights** page, in the **Top dimensions by database load** section, select the **Queries** tab. In the table, the **Recommendations** column displays a **Create indexes** link next to any query that has index advisor recommendations. You can also add a filter for **Recommendation: Create indexes** to view only queries with index recommendations.
+
+  * Selecting a query from the **Queries** table opens the **Query details** page, which surfaces an **Index recommendation** card in the sample query plan view and a **Recommended indexes** table. These views show the estimated performance impact (high, medium, or low), the recommended index type and target table, the additional estimated storage needed, the number of impacted tables, and the number of impacted queries.
+
+  * Clicking **Create indexes** (or **View details** on a recommendation) opens the **Create indexes to improve query performance** pane. In this pane, you can inspect the recommended `CREATE INDEX` DDL statements, view the estimated execution time improvement, click **Show impacted queries** to inspect all workload queries that benefit from the recommended index, and copy the commands or open them directly in AlloyDB Studio.
+
+
+
+
+For step-by-step instructions on configuring the recommendation refresh frequency, filtering recommendations, and creating recommended indexes in the Google Cloud console, see [Use the AlloyDB for PostgreSQL index advisor with query insights](https://docs.cloud.google.com/alloydb/docs/use-index-advisor-with-query-insights) and [Improve query performance using advanced query insights features](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights).
+
+### View recommendations using database views
+
+You can also read the index advisor's results through two table views located in each of your databases:
 
   * `google_db_advisor_recommended_indexes` lists any recommended new indexes for its database. It also includes estimates of the storage required for each index, and the number of queries that each index can affect.
 
@@ -85,7 +116,9 @@ Note that [the PostgreSQL user role](https://docs.cloud.google.com/alloydb/docs/
 
 ## Apply the index advisor's recommendations
 
-The `index` column of the `google_db_advisor_recommended_indexes` view contains, in each row, a complete PostgreSQL `CREATE INDEX` DDL statement for generating the index recommended in that row.
+In the **Query insights** dashboard in the Google Cloud console, you can click **Create indexes** for a query, click **Copy all index commands** (or **Open commands in Studio** to open the `CREATE INDEX` statements in AlloyDB Studio), and then run the commands on your primary instance. For step-by-step instructions, see [Create recommended indexes in query insights](https://docs.cloud.google.com/alloydb/docs/use-index-advisor-with-query-insights#create-recommended-indexes).
+
+When you query a database view directly, the `index` column of the `google_db_advisor_recommended_indexes` view contains, in each row, a complete PostgreSQL `CREATE INDEX` DDL statement for generating the index recommended in that row.
 
 To apply that row's recommendation, run that DDL statement, exactly as presented. This includes copying it onto your clipboard and pasting it into a `psql` prompt.
 
@@ -132,10 +165,19 @@ For example, you can set the `google_db_advisor.enable_vector_index_advisor` fla
 
 To learn more, see [Index advisor flags](https://docs.cloud.google.com/alloydb/docs/reference/index-advisor-flags).
 
+## What's next
+
+  * [Use the AlloyDB for PostgreSQL index advisor with query insights](https://docs.cloud.google.com/alloydb/docs/use-index-advisor-with-query-insights)
+  * [Index advisor overview](https://docs.cloud.google.com/alloydb/docs/index-advisor-overview)
+  * [Improve query performance using advanced query insights features](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights)
+  * [Index advisor flags](https://docs.cloud.google.com/alloydb/docs/reference/index-advisor-flags)
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

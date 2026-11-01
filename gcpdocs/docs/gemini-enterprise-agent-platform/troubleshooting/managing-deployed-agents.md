@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/managing-deployed-agents/
 title: Troubleshoot managing deployed agents for Agent Runtime \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:24.233952+00:00
+fetched_at: 2026-11-01T05:36:16.687726+00:00
 ---
 
 # Troubleshoot managing deployed agents for Agent Runtime  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ Update the formatting of your filter so it's formatted correctly. For example, y
     
     from vertexai import agent_engines
     
-    agent_engines.[list](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.agent_engines.html)(filter=f'display_name={DISPLAY_NAME}')
+    agent_engines.[list](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(filter=f'display_name={DISPLAY_NAME}')
     
 
 In this case, enclose `{DISPLAY_NAME}` in double-quotation marks:
@@ -52,7 +52,7 @@ In this case, enclose `{DISPLAY_NAME}` in double-quotation marks:
     
     from vertexai import agent_engines
     
-    agent_engines.[list](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.agent_engines.html)(filter=f'display_name="{DISPLAY_NAME}"')
+    agent_engines.[list](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(filter=f'display_name="{DISPLAY_NAME}"')
     
 
 Send feedback 

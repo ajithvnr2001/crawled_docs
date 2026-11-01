@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/pubsub/
 title: View logs routed to Pub/Sub \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:36.075198+00:00
+fetched_at: 2026-11-01T05:43:34.447547+00:00
 ---
 
 # View logs routed to Pub/Sub  |  Cloud Logging  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/table-snapshots-restore/
 title: Restore table snapshots \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:24.765391+00:00
+fetched_at: 2026-11-01T05:37:35.588862+00:00
 ---
 
 # Restore table snapshots  |  BigQuery  |  Google Cloud Documentation
@@ -82,9 +82,7 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
   4. Click **Overview > Tables**, and then click the name of the table snapshot.
 
-  5. In the table snapshot pane that appears, click update **Restore**.
-
-![Restore table from snapshot](https://docs.cloud.google.com/static/bigquery/images/snapshot-restore.png)
+  5. In the table snapshot pane, click **More > Restore snapshot**.
 
   6. In the **Restore snapshot** pane that appears, enter the **Project** , **Dataset** , and **Table** information for the new table.
 
@@ -209,9 +207,7 @@ You can overwrite an existing table with a table snapshot by using one of the fo
 
   4. Click **Overview > Tables**, and then click the name of the table snapshot.
 
-  5. In the table snapshot pane that appears, click **Restore**.
-
-![Restore table from snapshot](https://docs.cloud.google.com/static/bigquery/images/snapshot-restore.png)
+  5. In the table snapshot pane, click **More > Restore snapshot**.
 
   6. In the **Restore snapshot** pane that appears, enter the **Project** , **Dataset** , and **Table** information for the existing table.
 
@@ -328,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

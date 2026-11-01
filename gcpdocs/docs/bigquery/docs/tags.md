@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/tags/
 title: Control access with tags \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:12.425486+00:00
+fetched_at: 2026-11-01T05:36:46.171899+00:00
 ---
 
 # Control access with tags  |  BigQuery  |  Google Cloud Documentation
@@ -114,9 +114,9 @@ Remove a tag from a dataset  |
   
 To list tag keys and key values in the Google Cloud console, you need the following permissions:
 
-  * To list the tag keys that are associated with a parent organization or project, you need the `resourcemanager.tagKeys.list` permission at the tag key's parent level and the `resourcemanager.tagKeys.get` permission for each tag key. To view the list of tag keys in the BigQuery console, click the dataset name and then click **Edit details** , or click the table or view name and then click **Details > Edit details**.
+  * To list the tag keys that are associated with a parent organization or project, you need the `resourcemanager.tagKeys.list` permission at the tag key's parent level and the `resourcemanager.tagKeys.get` permission for each tag key. To view the list of tag keys in the BigQuery console, click the dataset name and then click mode_edit **Edit details** , or click the table or view name and then click **Edit > Edit details**.
 
-  * To list the tag values of keys that are associated with a parent organization or project, you need the `resourcemanager.tagValues.list` permission at the tag value parent level and the `resourcemanager.tagValues.get` permission for each tag value. To view the list of tag key values in the BigQuery console, click the dataset name and then click **Edit details** , or click the table or view name and then click **Details > Edit details**.
+  * To list the tag values of keys that are associated with a parent organization or project, you need the `resourcemanager.tagValues.list` permission at the tag value parent level and the `resourcemanager.tagValues.get` permission for each tag value. To view the list of tag key values in the BigQuery console, click the dataset name and then click mode_edit **Edit details** , or click the table or view name and then click **Edit > Edit details**.
 
 
 
@@ -962,7 +962,7 @@ After you create a tag, you can attach it to an existing table. You can attach o
 
   4. Click **Overview > Tables**, and then select a table.
 
-  5. Click the **Details** tab, and then click mode_edit **Edit details**.
+  5. In the details pane, click **Edit > Edit details**.
 
   6. Expand the **Tags** section.
 
@@ -1231,7 +1231,7 @@ You can remove a tag association from a table by deleting the tag binding. If yo
 
   4. Click **Overview > Tables**, and then select a table.
 
-  5. Click the **Details** tab, and then click mode_edit **Edit details**.
+  5. In the details pane, click **Edit > Edit details**.
 
   6. In the **Tags** section, click delete**Delete item** next to the tag you want to delete.
 
@@ -2342,6 +2342,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

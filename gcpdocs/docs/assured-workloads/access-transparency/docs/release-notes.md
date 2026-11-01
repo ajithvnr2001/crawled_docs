@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-transparency/docs/release-notes/
 title: Access Transparency release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:59.708222+00:00
+fetched_at: 2026-11-01T05:45:15.733805+00:00
 ---
 
 # Access Transparency release notes  |  Google Cloud Documentation
@@ -255,6 +255,10 @@ Google Cloud Managed Service for Apache Kafka is generally available [(GA)](http
 Feature
 
 IAM System for Cross-domain Identity Management (SCIM) Service is available in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+Feature
+
+Compliance Manager is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
 ## October 08, 2025
 

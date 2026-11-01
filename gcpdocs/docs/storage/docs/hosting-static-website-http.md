@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/hosting-static-website-http/
 title: Hosting a static website using HTTP \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:31.268289+00:00
+fetched_at: 2026-11-01T05:35:55.779860+00:00
 ---
 
 # Hosting a static website using HTTP  |  Cloud Storage  |  Google Cloud Documentation

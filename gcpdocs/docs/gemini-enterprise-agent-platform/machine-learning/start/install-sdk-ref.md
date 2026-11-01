@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref/
 title: Install the Agent Platform SDK for Python \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:00.629501+00:00
+fetched_at: 2026-11-01T05:36:53.947967+00:00
 ---
 
 # Install the Agent Platform SDK for Python  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -68,9 +68,9 @@ After you install the Agent Platform SDK for Python, you must initialize the SDK
         service_account: Optional[str] = None,
     ):
     
-        import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+        import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
-        [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+        [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
             project=project,
             location=location,
             experiment=experiment,

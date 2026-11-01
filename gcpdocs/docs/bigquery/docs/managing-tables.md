@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-tables/
 title: Manage tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:12.900317+00:00
+fetched_at: 2026-11-01T05:36:32.931474+00:00
 ---
 
 # Manage tables  |  BigQuery  |  Google Cloud Documentation
@@ -90,7 +90,7 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
   3. Click **Overview > Tables**, and then select a table.
 
-  4. Click the **Details** tab, and then click **Edit details**.
+  4. In the details pane, click **Edit > Edit details**.
 
   5. In the **Description** section, add a new description or edit an existing description.
 
@@ -280,17 +280,15 @@ For more information about data insights, including setup steps, required IAM ro
 
   3. In the **Explorer** pane, expand your project and dataset, then select the table.
 
-  4. In the details panel, click the **Schema** tab.
+  4. In the details pane, click the **Details** tab.
 
-  5. Click **Generate**.
-
-**Note:** If you don't see the **Generate** button, click **Describe data**. You might need to scroll to see this button.
+  5. Next to **Table info** , click **Describe data**.
 
 Gemini generates a table description and insights about the table. It takes a few minutes for the information to be populated. You can view the generated insights on the table's **Insights** tab.
 
   6. To edit and save the generated table description, do the following:
 
-     1. Click **View column descriptions**.
+     1. Next to **Table info** , click **View descriptions**.
 
 The current table description and the generated description are displayed.
 
@@ -339,7 +337,7 @@ You can't add an expiration time when you create a table using the Google Cloud 
 
   3. Click **Overview > Tables**, and then select a table.
 
-  4. Click the **Details** tab and the click **Edit details**.
+  4. In the details pane, click **Edit > Edit details**.
 
   5. For **Expiration time** , select **Specify date**. Then select the expiration date using the calendar widget.
 
@@ -806,7 +804,7 @@ To copy a single source table:
 
   3. Click **Overview > Tables**, and then select a table.
 
-  4. In the details pane, click **Copy**.
+  4. In the details pane, click **More > Make a copy of table**.
 
   5. In the **Copy table** dialog, under **Destination** :
 
@@ -1895,7 +1893,7 @@ To delete a table:
 
   3. Click **Overview > Tables**, and then select a table.
 
-  4. In the details pane, click **Delete**.
+  4. In the details pane, click **More > Delete**.
 
   5. Type `"delete"` in the dialog, then click **Delete** to confirm.
 
@@ -2146,7 +2144,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def delete_table dataset_id = "my_dataset_id", table_id = "my_table_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table    = dataset.table table_id
     
@@ -2316,6 +2314,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

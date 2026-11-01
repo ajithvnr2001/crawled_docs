@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/disable-external-ip/
 title: Configure private internal-only services \u00a0|\u00a0 App Engine flexible environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:23:01.812944+00:00
+fetched_at: 2026-11-01T05:45:22.702879+00:00
 ---
 
 # Configure private internal-only services  |  App Engine flexible environment  |  Google Cloud Documentation
@@ -122,14 +122,26 @@ Scroll down to the **Instances** table (below the **Summary** chart). In the **E
 
 ## Send external requests without an external IP address
 
-If your service sends requests to the internet but you want to limit it to using only its internal IP address, you can use [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) to create a gateway. Your service can send external requests through the Cloud NAT gateway without using the default ephemeral external IP addresses.
+If your service sends requests to the internet but you want to limit it to using only its internal IP address, you can use [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) to create a gateway. Your service can send outbound requests through the Cloud NAT gateway using reserved static external IP addresses instead of default ephemeral external IP addresses.
+
+Configure your service to use `instance_ip_mode: internal` with Cloud NAT and dedicated static external IP addresses in the following situations:
+
+  * You connect to an external database or API that requires an IP address allowlist or firewall rule.
+  * You connect to reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs protected by third-party web application firewalls (WAFs). Prior or noisy traffic on shared ephemeral IP address pools can degrade IP reputation and cause external WAFs to block or throttle your requests with `HTTP 403` errors or connection timeouts.
+  * You run authorized network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing workloads.
+
+**Warning:** Don't run network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing over default ephemeral external IP addresses. Unisolated scanning traffic degrades IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+
+To route outbound internet requests through Cloud NAT:
 
   1. Follow the steps in the section Configure your service to use only its internal IP address.
 
-  2. Follow the steps to [Configure Cloud NAT](https://docs.cloud.google.com/nat/docs/set-up-manage-network-address-translation).
+  2. Follow the steps to [Configure Cloud NAT](https://docs.cloud.google.com/nat/docs/set-up-manage-network-address-translation) and assign reserved static external IP addresses to the gateway.
 
 
 
+
+If your service scales to many instances or opens many concurrent connections, such as during authorized network scanning, assign multiple static IP addresses to Cloud NAT. You can also increase the minimum ports per instance or enable dynamic port allocation to prevent port exhaustion. Learn more about how Cloud NAT gateways use [IP addresses and ports](https://docs.cloud.google.com/nat/docs/ports-and-addresses).
 
 To learn more about this approach, see the Cloud Architecture Center documentation on [Deploying Cloud NAT for fetching](https://docs.cloud.google.com/architecture/building-internet-connectivity-for-private-vms#deploying_cloud_nat_for_fetching).
 
@@ -137,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect/
 title: Connect using the AlloyDB Auth Proxy \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:52:21.208654+00:00
+fetched_at: 2026-11-01T05:38:36.046881+00:00
 ---
 
 # Connect using the AlloyDB Auth Proxy  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -499,7 +499,7 @@ Because these custom ports are sequential, the same effect can be achieved using
     
     alloydb-auth-proxy \
       "projects/myproject/locations/us-central1/clusters/mycluster/instances/myprimary" \
-      "projects/myproject/locations/us-central1/clusters/mycluster/instances/myreadpool" \
+      "projects/myproject/locations/us-central1/clusters/mycluster/instances/myreadpool&quot; \
       --port 5000
 
 #### Startup listening on a custom IP address

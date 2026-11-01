@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/logs-based-metrics/charts-and-alerts/
 title: Configure notifications for log-based metrics \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:47.223223+00:00
+fetched_at: 2026-11-01T05:42:09.848905+00:00
 ---
 
 # Configure notifications for log-based metrics  |  Cloud Logging  |  Google Cloud Documentation

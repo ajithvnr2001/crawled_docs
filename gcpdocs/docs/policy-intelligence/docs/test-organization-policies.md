@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/policy-intelligence/docs/test-organization-policies/
 title: Test organization policy changes with Policy Simulator \u00a0|\u00a0 Policy Intelligence \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:40.422703+00:00
+fetched_at: 2026-11-01T05:36:48.570064+00:00
 ---
 
 # Test organization policy changes with Policy Simulator  |  Policy Intelligence  |  Google Cloud Documentation
@@ -153,7 +153,7 @@ A YAML file that defines a custom constraint looks similar to the following:
          methodTypes:
          - METHOD1
          - METHOD2
-         condition: "CONDITION"
+         condition: &quot;CONDITION"
          actionType: ACTION
          displayName: DISPLAY_NAME
          description: DESCRIPTION

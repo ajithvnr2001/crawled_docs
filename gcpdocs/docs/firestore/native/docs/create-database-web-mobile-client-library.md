@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/create-database-web-mobile-client-library/
 title: Quickstart: Create a Firestore database by using a web or mobile client library \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:34.567935+00:00
+fetched_at: 2026-11-01T05:36:32.221116+00:00
 ---
 
 # Quickstart: Create a Firestore database by using a web or mobile client library  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -240,7 +240,7 @@ The values for `initializeApp` can be found in your web app's [`firebaseConfig`]
     
     let db = Firestore.firestore()
     
-    [AppDelegate.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/AppDelegate.swift#L31-L33)
+    [AppDelegate.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/AppDelegate.swift#L31-L33)
 
 ##### Objective-C
 
@@ -255,7 +255,7 @@ The values for `initializeApp` can be found in your web app's [`firebaseConfig`]
     
     FIRFirestore *defaultFirestore = [FIRFirestore firestore];
     
-    [AppDelegate.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/AppDelegate.m#L32-L32)
+    [AppDelegate.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/AppDelegate.m#L32-L32)
     
     
       
@@ -361,7 +361,7 @@ Create a new collection and a document using the following example code.
       print("Error adding document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L172-L182)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L172-L182)
 
 ##### Objective-C
 
@@ -382,7 +382,7 @@ Create a new collection and a document using the following example code.
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L92-L104)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L92-L104)
 
 ##### Kotlin  
 Android
@@ -547,7 +547,7 @@ Now add another document to the `users` collection. Notice that this document in
       print("Error adding document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L188-L199)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L188-L199)
 
 ##### Objective-C
 
@@ -569,7 +569,7 @@ Now add another document to the `users` collection. Notice that this document in
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L110-L123)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L110-L123)
 
 ##### Kotlin  
 Android
@@ -721,7 +721,7 @@ You can also use the `get` method to retrieve the entire collection.
       print("Error getting documents: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L205-L212)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L205-L212)
 
 ##### Objective-C
 
@@ -740,7 +740,7 @@ You can also use the `get` method to retrieve the entire collection.
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L129-L139)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L129-L139)
 
 ##### Kotlin  
 Android

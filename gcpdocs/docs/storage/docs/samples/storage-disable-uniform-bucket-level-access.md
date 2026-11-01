@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-disable-uniform-bucket-level-access/
 title: Disable uniform bucket-level access \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:11.525363+00:00
+fetched_at: 2026-11-01T05:35:45.604262+00:00
 ---
 
 # Disable uniform bucket-level access  |  Cloud Storage  |  Google Cloud Documentation

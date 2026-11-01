@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/use-client-side-metrics/
 title: Use client-side metrics to troubleshoot high latency \u00a0|\u00a0 Memorystore for Redis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:56.452859+00:00
+fetched_at: 2026-11-01T05:44:06.607330+00:00
 ---
 
 # Use client-side metrics to troubleshoot high latency  |  Memorystore for Redis  |  Google Cloud Documentation
@@ -346,22 +346,32 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
              <dependency>
                  <groupId>io.opentelemetry</groupId>
                  <artifactId>opentelemetry-api</artifactId>
-                 <version>1.36.0</version>
+                 <version>1.44.1</version>
              </dependency>
              <dependency>
                  <groupId>io.opentelemetry</groupId>
                  <artifactId>opentelemetry-sdk</artifactId>
-                 <version>1.36.0</version>
+                 <version>1.44.1</version>
              </dependency>
              <dependency>
-                 <groupId>com.google.cloud.opentelemetry</groupId>
-                 <artifactId>exporter-trace</artifactId>
-                 <version>0.28.0</version>
+                 <groupId>io.opentelemetry</groupId>
+                 <artifactId>opentelemetry-exporter-otlp</artifactId>
+                 <version>1.44.1</version>
              </dependency>
              <dependency>
-                 <groupId>com.google.cloud.opentelemetry</groupId>
-                 <artifactId>exporter-metrics</artifactId>
-                 <version>0.28.0</version>
+                 <groupId>io.opentelemetry</groupId>
+                 <artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId>
+                 <version>1.44.1</version>
+             </dependency>
+             <dependency>
+                 <groupId>io.opentelemetry.contrib</groupId>
+                 <artifactId>opentelemetry-gcp-resources</artifactId>
+                 <version>1.37.0-alpha</version>
+             </dependency>
+             <dependency>
+                 <groupId>com.google.auth</groupId>
+                 <artifactId>google-auth-library-oauth2-http</artifactId>
+                 <version>1.24.0</version>
              </dependency>
          
              <!-- Testing Dependencies -->
@@ -387,8 +397,7 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
 
   2. To enable the client-side metrics, create a `RedisTelemetryApp.java` file and add the following code to it:
          
-         import com.google.cloud.opentelemetry.metric.GoogleCloudMetricExporter;
-         import com.google.cloud.opentelemetry.trace.TraceExporter;
+         import com.google.auth.oauth2.[GoogleCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html);
          import io.opentelemetry.api.OpenTelemetry;
          import io.opentelemetry.api.common.AttributeKey;
          import io.opentelemetry.api.common.Attributes;
@@ -397,10 +406,13 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          import io.opentelemetry.api.metrics.Meter;
          import io.opentelemetry.api.trace.Span;
          import io.opentelemetry.api.trace.Tracer;
+         import io.opentelemetry.exporter.otlp.metrics.OtlpGrpcMetricExporter;
+         import io.opentelemetry.exporter.otlp.trace.OtlpGrpcSpanExporter;
          import io.opentelemetry.sdk.OpenTelemetrySdk;
-         import io.opentelemetry.sdk.metrics.export.MetricExporter;
          import io.opentelemetry.sdk.metrics.SdkMeterProvider;
+         import io.opentelemetry.sdk.metrics.export.MetricExporter;
          import io.opentelemetry.sdk.metrics.export.PeriodicMetricReader;
+         import io.opentelemetry.sdk.resources.Resource;
          import io.opentelemetry.sdk.trace.SdkTracerProvider;
          import io.opentelemetry.sdk.trace.export.BatchSpanProcessor;
          import io.opentelemetry.sdk.trace.export.SpanExporter;
@@ -409,17 +421,43 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          import redis.clients.jedis.JedisPoolConfig;
          import redis.clients.jedis.exceptions.JedisConnectionException;
          
+         import java.io.IOException;
          import java.time.Duration;
+         import java.util.Collections;
+         import java.util.Map;
          import java.util.function.Function;
+         import java.util.function.Supplier;
          
          /**
           * Sample application demonstrating client-side metrics and tracing for
-          * Google Cloud Memorystore for Redis.
+          * Google Cloud Memorystore for Redis using OpenTelemetry OTLP exporters.
           */
          public final class RedisTelemetryApp {
              /** Attribute key for Redis operation names. */
              private static final AttributeKey<String> ATTR_OPERATION =
                      AttributeKey.stringKey("operation");
+         
+             /** Attribute key for the detected cloud account/project ID. */
+             private static final AttributeKey<String> ATTR_CLOUD_ACCOUNT_ID =
+                     AttributeKey.stringKey("cloud.account.id");
+         
+             /** Attribute key required by the Google Cloud Telemetry API. */
+             private static final AttributeKey<String> ATTR_GCP_PROJECT_ID =
+                     AttributeKey.stringKey("gcp.project_id");
+         
+             /** Google Cloud Telemetry API OTLP endpoint. */
+             private static final String TELEMETRY_ENDPOINT =
+                     "https://telemetry.googleapis.com:443";
+         
+             /** OAuth2 scope for Google Cloud APIs. */
+             private static final String CLOUD_PLATFORM_SCOPE =
+                     "https://www.googleapis.com/auth/cloud-platform";
+         
+             /** HTTP/gRPC Authorization header name. */
+             private static final String AUTHORIZATION_HEADER = "Authorization";
+         
+             /** Prefix for OAuth2 Bearer tokens. */
+             private static final String BEARER_PREFIX = "Bearer ";
          
              /** Maximum number of Redis reconnection attempts. */
              private static final int MAX_RETRIES = 3;
@@ -438,6 +476,9 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          
              /** Default Redis port. */
              private static final int DEFAULT_REDIS_PORT = 6379;
+         
+             /** OpenTelemetry SDK instance used for flushing telemetry on shutdown. */
+             private static OpenTelemetrySdk openTelemetrySdk;
          
              /** OpenTelemetry Tracer instance for recording trace spans. */
              private static Tracer tracer;
@@ -470,8 +511,9 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
               * Main entry point for running the sample application.
               *
               * @param args Command line arguments (not used).
+              * @throws IOException If Google Cloud credentials cannot be loaded.
               */
-             public static void main(final String[] args) {
+             public static void main(final String[] args) throws IOException {
                  setupTelemetry();
          
                  final String host = System.getenv()
@@ -490,6 +532,9 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
                  } finally {
                      if (jedisPool != null) {
                          jedisPool.close();
+                     }
+                     if (openTelemetrySdk != null) {
+                         openTelemetrySdk.close();
                      }
                  }
              }
@@ -521,7 +566,7 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
              /**
               * Injects mocked or no-op telemetry and pool instances for unit testing.
               *
-              * @param pool                The mocked or test JedisPool instance.
+              * @param pool              The mocked or test JedisPool instance.
               * @param testOpenTelemetry The OpenTelemetry instance to use for testing.
               */
              static void initForTest(
@@ -544,42 +589,79 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
                          .counterBuilder("redis_connectivity_error_count")
                          .build();
          
-                 retryCounter.add(0, Attributes.of(ATTR_OPERATION, "startup"));
-                 connErrorCounter.add(0, Attributes.of(ATTR_OPERATION, "startup"));
+                 retryCounter.add(0, Attributes.[of](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.ClientId.html#com_google_auth_oauth2_ClientId_of_java_lang_String_java_lang_String_)(ATTR_OPERATION, "startup"));
+                 connErrorCounter.add(0, Attributes.[of](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.ClientId.html#com_google_auth_oauth2_ClientId_of_java_lang_String_java_lang_String_)(ATTR_OPERATION, "startup"));
              }
          
              /**
               * Configures the production OpenTelemetry SDK to export Traces and Metrics
-              * to Google Cloud Operations.
+              * via OTLP to Google Cloud.
+              *
+              * @throws IOException If Google Application Default Credentials fail.
               */
-             private static void setupTelemetry() {
-                 final SpanExporter traceExporter =
-                         TraceExporter.createWithDefaultConfiguration();
-                 final SdkTracerProvider tracerProvider =
-                         SdkTracerProvider.builder()
-                                 .addSpanProcessor(
-                                         BatchSpanProcessor.builder(traceExporter)
-                                                 .build())
-                                 .build();
+             private static void setupTelemetry() throws IOException {
+                 final [GoogleCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html) credentials = [GoogleCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html)
+                         .[getApplicationDefault](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html#com_google_auth_oauth2_GoogleCredentials_getApplicationDefault__)()
+                         .createScoped(Collections.singletonList(CLOUD_PLATFORM_SCOPE));
+                 credentials.[refreshIfExpired](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.OAuth2Credentials.html#com_google_auth_oauth2_OAuth2Credentials_refreshIfExpired__)();
          
-                 final MetricExporter metricExporter =
-                         GoogleCloudMetricExporter.createWithDefaultConfiguration();
-                 final SdkMeterProvider meterProvider =
-                         SdkMeterProvider.builder()
-                                 .registerMetricReader(
-                                         PeriodicMetricReader.builder(metricExporter)
-                                                 .setInterval(Duration.ofSeconds(
-                                                         METRIC_INTERVAL_SECONDS))
-                                                 .build())
-                                 .build();
+                 final Supplier<Map<String, String>> headerSupplier = () -> {
+                     try {
+                         synchronized (credentials) {
+                             credentials.refreshIfExpired();
+                             return Collections.singletonMap(
+                                     AUTHORIZATION_HEADER,
+                                     BEARER_PREFIX
+                                             + credentials.getAccessToken()
+                                                     .getTokenValue());
+                         }
+                     } catch (IOException e) {
+                         throw new RuntimeException(
+                                 "Failed to refresh Google credentials", e);
+                     }
+                 };
          
-                 final OpenTelemetry openTelemetry = OpenTelemetrySdk.builder()
+                 final Resource defaultResource = Resource.getDefault();
+                 String projectId =
+                         defaultResource.getAttributes().get(ATTR_CLOUD_ACCOUNT_ID);
+                 if (projectId == null || projectId.isEmpty()) {
+                     projectId = System.getenv("GOOGLE_CLOUD_PROJECT");
+                 }
+                 final Resource resource = projectId != null && !projectId.isEmpty()
+                         ? defaultResource.[merge](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.JwtClaims.html#com_google_auth_oauth2_JwtClaims_merge_com_google_auth_oauth2_JwtClaims_)(Resource.create(
+                                 Attributes.[of](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.ClientId.html#com_google_auth_oauth2_ClientId_of_java_lang_String_java_lang_String_)(ATTR_GCP_PROJECT_ID, projectId)))
+                         : defaultResource;
+         
+                 final SpanExporter traceExporter = OtlpGrpcSpanExporter.builder()
+                         .setEndpoint(TELEMETRY_ENDPOINT)
+                         .[setHeaders](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.StsRequestHandler.Builder.html#com_google_auth_oauth2_StsRequestHandler_Builder_setHeaders_com_google_api_client_http_HttpHeaders_)(headerSupplier)
+                         .build();
+                 final SdkTracerProvider tracerProvider = SdkTracerProvider.builder()
+                         .[setResource](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.StsTokenExchangeRequest.Builder.html#com_google_auth_oauth2_StsTokenExchangeRequest_Builder_setResource_java_lang_String_)(resource)
+                         .addSpanProcessor(
+                                 BatchSpanProcessor.builder(traceExporter).build())
+                         .build();
+         
+                 final MetricExporter metricExporter = OtlpGrpcMetricExporter.builder()
+                         .setEndpoint(TELEMETRY_ENDPOINT)
+                         .[setHeaders](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.StsRequestHandler.Builder.html#com_google_auth_oauth2_StsRequestHandler_Builder_setHeaders_com_google_api_client_http_HttpHeaders_)(headerSupplier)
+                         .build();
+                 final SdkMeterProvider meterProvider = SdkMeterProvider.builder()
+                         .[setResource](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.StsTokenExchangeRequest.Builder.html#com_google_auth_oauth2_StsTokenExchangeRequest_Builder_setResource_java_lang_String_)(resource)
+                         .registerMetricReader(
+                                 PeriodicMetricReader.builder(metricExporter)
+                                         .setInterval(Duration.ofSeconds(
+                                                 METRIC_INTERVAL_SECONDS))
+                                         .build())
+                         .build();
+         
+                 openTelemetrySdk = OpenTelemetrySdk.builder()
                          .setTracerProvider(tracerProvider)
                          .setMeterProvider(meterProvider)
                          .buildAndRegisterGlobal();
          
-                 tracer = openTelemetry.getTracer("jedis.client");
-                 final Meter meter = openTelemetry.getMeter("jedis.metrics");
+                 tracer = openTelemetrySdk.getTracer("jedis.client");
+                 final Meter meter = openTelemetrySdk.getMeter("jedis.metrics");
          
                  rttHist = meter.histogramBuilder("redis_client_rtt")
                          .setUnit("ms").build();
@@ -594,8 +676,8 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
                          .counterBuilder("redis_connectivity_error_count")
                          .build();
          
-                 retryCounter.add(0, Attributes.of(ATTR_OPERATION, "startup"));
-                 connErrorCounter.add(0, Attributes.of(ATTR_OPERATION, "startup"));
+                 retryCounter.add(0, Attributes.[of](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.ClientId.html#com_google_auth_oauth2_ClientId_of_java_lang_String_java_lang_String_)(ATTR_OPERATION, "startup"));
+                 connErrorCounter.add(0, Attributes.[of](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.ClientId.html#com_google_auth_oauth2_ClientId_of_java_lang_String_java_lang_String_)(ATTR_OPERATION, "startup"));
              }
          
              /**
@@ -611,7 +693,7 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
                      final String operationName,
                      final Function<Jedis, T> operation) {
                  int attempt = 0;
-                 final Attributes attrs = Attributes.of(ATTR_OPERATION,
+                 final Attributes attrs = Attributes.[of](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.ClientId.html#com_google_auth_oauth2_ClientId_of_java_lang_String_java_lang_String_)(ATTR_OPERATION,
                          operationName);
          
                  final Span span = tracer.spanBuilder(operationName).startSpan();
@@ -619,7 +701,7 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
                  try {
                      while (attempt < MAX_RETRIES) {
                          final long poolStart = System.nanoTime();
-                         try (Jedis jedis = jedisPool.getResource()) {
+                         try (Jedis jedis = jedisPool.[getResource](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.StsTokenExchangeRequest.html#com_google_auth_oauth2_StsTokenExchangeRequest_getResource__)()) {
                              clientBlockHist.record((System.nanoTime() - poolStart)
                                      / NANO_TO_MS, attrs);
          
@@ -681,26 +763,61 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          
          'use strict';
          
+         const grpc = require('@grpc/grpc-js');
          const {trace, metrics} = require('@opentelemetry/api');
-         const {NodeTracerProvider} = require('@opentelemetry/sdk-trace-node');
-         const {BatchSpanProcessor} = require('@opentelemetry/sdk-trace-base');
          const {
-           TraceExporter,
-         } = require('@google-cloud/opentelemetry-cloud-trace-exporter');
+           OTLPMetricExporter,
+         } = require('@opentelemetry/exporter-metrics-otlp-grpc');
+         const {OTLPTraceExporter} = require('@opentelemetry/exporter-trace-otlp-grpc');
+         const {registerInstrumentations} = require('@opentelemetry/instrumentation');
+         const {RedisInstrumentation} = require('@opentelemetry/instrumentation-redis');
+         const {gcpDetector} = require('@opentelemetry/resource-detector-gcp');
+         const {defaultResource, detectResources} = require('@opentelemetry/resources');
          const {
            MeterProvider,
            PeriodicExportingMetricReader,
          } = require('@opentelemetry/sdk-metrics');
-         const {
-           MetricExporter,
-         } = require('@google-cloud/opentelemetry-cloud-monitoring-exporter');
-         const {RedisInstrumentation} = require('@opentelemetry/instrumentation-redis');
-         const {registerInstrumentations} = require('@opentelemetry/instrumentation');
+         const {BatchSpanProcessor} = require('@opentelemetry/sdk-trace-base');
+         const {NodeTracerProvider} = require('@opentelemetry/sdk-trace-node');
+         const {GoogleAuth} = require('[google-auth-library](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/overview.html)');
          const {performance} = require('perf_hooks');
          
-         // FIX: Pass spanProcessors in the constructor options for NodeTracerProvider in SDK 2.x
+         const auth = new [GoogleAuth](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauth.html)({
+           scopes: 'https://www.googleapis.com/auth/cloud-platform',
+         });
+         
+         const channelCreds = grpc.[credentials](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauthoptions.html).combineChannelCredentials(
+           grpc.[credentials](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauthoptions.html).createSsl(),
+           grpc.[credentials](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/google-auth-library/googleauthoptions.html).createFromGoogleCredential({
+             getRequestHeaders: async url => {
+               const headers = await auth.getRequestHeaders(url);
+               return typeof headers.entries === 'function'
+                 ? Object.fromEntries(headers.entries())
+                 : headers;
+             },
+           })
+         );
+         
+         const projectDetector = {
+           detect: () => ({
+             attributes: {
+               'gcp.project_id': [auth](https://docs.cloud.google.com/nodejs/docs/reference/google-auth-library/latest/overview.html).getProjectId().catch(() => undefined),
+             },
+           }),
+         };
+         
+         const resource = defaultResource().merge(
+           detectResources({detectors: [gcpDetector, projectDetector]})
+         );
+         
+         const traceExporter = new OTLPTraceExporter({
+           url: 'https://telemetry.googleapis.com:443',
+           credentials: channelCreds,
+         });
+         
          const provider = new NodeTracerProvider({
-           spanProcessors: [new BatchSpanProcessor(new TraceExporter())],
+           resource,
+           spanProcessors: [new BatchSpanProcessor(traceExporter)],
          });
          provider.register();
          
@@ -710,12 +827,18 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          
          const redis = require('redis');
          
-         const metricExporter = new MetricExporter();
+         const metricExporter = new OTLPMetricExporter({
+           url: 'https://telemetry.googleapis.com:443',
+           credentials: channelCreds,
+         });
          const metricReader = new PeriodicExportingMetricReader({
            exporter: metricExporter,
            exportIntervalMillis: 10000,
          });
-         const meterProvider = new MeterProvider({readers: [metricReader]});
+         const meterProvider = new MeterProvider({
+           resource,
+           readers: [metricReader],
+         });
          metrics.setGlobalMeterProvider(meterProvider);
          
          const tracer = trace.getTracer('redis.client.node');
@@ -776,6 +899,9 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          }
          
          async function main() {
+           if (typeof resource.waitForAsyncAttributes === 'function') {
+             await resource.waitForAsyncAttributes();
+           }
            await client.connect();
          
            await tracer.startActiveSpan('process_user_span', async span => {

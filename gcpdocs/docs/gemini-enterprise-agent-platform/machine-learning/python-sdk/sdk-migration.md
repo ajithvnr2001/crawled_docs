@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/sdk-migration/
 title: Agent Platform SDK for Python: version 2.0.1 migration guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:59.294499+00:00
+fetched_at: 2026-11-01T05:37:44.162186+00:00
 ---
 
 # Agent Platform SDK for Python: version 2.0.1 migration guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -437,7 +437,7 @@ Note the following changes for function calling and grounding tasks:
 ###  Before 
     
     
-    from vertexai.generative_models import GenerativeModel, FunctionDeclaration, Tool, [grounding](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.generative_models.grounding.html)
+    from vertexai.generative_models import GenerativeModel, FunctionDeclaration, Tool, [grounding](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.generative_models.grounding.html)
     
     weather_tool = Tool(function_declarations=[
         FunctionDeclaration(
@@ -456,7 +456,7 @@ Note the following changes for function calling and grounding tasks:
     call = response.candidates[0].content.parts[0].function_call
     
     # Grounding
-    search_tool = Tool.from_google_search_retrieval([grounding](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.generative_models.grounding.html).[GoogleSearchRetrieval](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.generative_models.grounding.GoogleSearchRetrieval.html)())
+    search_tool = Tool.from_google_search_retrieval([grounding](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.generative_models.grounding.html).[GoogleSearchRetrieval](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.generative_models.grounding.GoogleSearchRetrieval.html)())
     
 
 ###  After 

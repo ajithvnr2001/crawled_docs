@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/natural-language/docs/audit-logging/
 title: Natural Language audit logging \u00a0|\u00a0 Cloud Natural Language API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:41.931957+00:00
+fetched_at: 2026-11-01T05:43:59.878921+00:00
 ---
 
 # Natural Language audit logging  |  Cloud Natural Language API  |  Google Cloud Documentation

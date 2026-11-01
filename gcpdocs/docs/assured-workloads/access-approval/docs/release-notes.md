@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-approval/docs/release-notes/
 title: Access Approval release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:11.934375+00:00
+fetched_at: 2026-11-01T05:45:15.870103+00:00
 ---
 
 # Access Approval release notes  |  Google Cloud Documentation
@@ -347,6 +347,12 @@ v1
 Feature
 
 IAM System for Cross-domain Identity Management (SCIM) Service is available in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+v1
+
+Feature
+
+Compliance Manager is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
 ## October 08, 2025
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/using-object-versioning/
 title: Use Object Versioning \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:39.664319+00:00
+fetched_at: 2026-11-01T05:36:09.439363+00:00
 ---
 
 # Use Object Versioning  |  Cloud Storage  |  Google Cloud Documentation

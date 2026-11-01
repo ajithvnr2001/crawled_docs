@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/migrate-gke-multi-cluster/
 title: Migrate to multi-cluster networking \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:55:56.742589+00:00
+fetched_at: 2026-11-01T05:44:14.933816+00:00
 ---
 
 # Migrate to multi-cluster networking  |  GKE networking  |  Google Cloud Documentation

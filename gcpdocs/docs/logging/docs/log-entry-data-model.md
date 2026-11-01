@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/log-entry-data-model/
 title: Log entry data model \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:56.373968+00:00
+fetched_at: 2026-11-01T05:43:33.186355+00:00
 ---
 
 # Log entry data model  |  Cloud Logging  |  Google Cloud Documentation

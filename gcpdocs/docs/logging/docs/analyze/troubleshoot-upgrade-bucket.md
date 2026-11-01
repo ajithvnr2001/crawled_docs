@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/analyze/troubleshoot-upgrade-bucket/
 title: Troubleshoot upgrading a bucket to use Observability Analytics \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:06.956691+00:00
+fetched_at: 2026-11-01T05:43:27.774253+00:00
 ---
 
 # Troubleshoot upgrading a bucket to use Observability Analytics  |  Cloud Logging  |  Google Cloud Documentation

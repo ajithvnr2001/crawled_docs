@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-bucket-dual-region/
 title: Create a dual-region bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:18.128608+00:00
+fetched_at: 2026-11-01T05:35:46.556683+00:00
 ---
 
 # Create a dual-region bucket  |  Cloud Storage  |  Google Cloud Documentation

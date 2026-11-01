@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:37.345529+00:00
+fetched_at: 2026-11-01T05:43:33.118557+00:00
 ---
 
 # Quotas and limits  |  Cloud Logging  |  Google Cloud Documentation

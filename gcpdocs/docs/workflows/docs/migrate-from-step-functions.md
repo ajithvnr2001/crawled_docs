@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/migrate-from-step-functions/
 title: Migrate from AWS Step Functions to Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:37.779891+00:00
+fetched_at: 2026-11-01T05:39:24.922465+00:00
 ---
 
 # Migrate from AWS Step Functions to Workflows  |  Google Cloud Documentation
@@ -843,7 +843,7 @@ To migrate the preceding Step Functions example to Workflows, you can create the
                    "init": {
                      "assign": [
                        {
-                         "projectId": "${sys.get_env(\"GOOGLE_CLOUD_PROJECT_ID\";)}";
+                         "projectId": "${sys.get_env(\"GOOGLE_CLOUD_PROJECT_ID\")}"
                        },
                        {
                          "region": "LOCATION"
@@ -1018,7 +1018,7 @@ Replace `CALLBACK_URL` with the rest of the path to your callback endpoint.
 
   5. Once the workflow has successfully completed, you can [receive the message from the Pub/Sub subscription](https://docs.cloud.google.com/pubsub/docs/create-topic-gcloud#receive_messages). For example:
          
-         gcloud pubsub subscriptions pull stock_example-sub  --format="value(message.data)&quot; | jq
+         gcloud pubsub subscriptions pull stock_example-sub  --format="value(message.data)" | jq
          
 
 The output message should be similar to the following (either a `buy` or a `sell`):

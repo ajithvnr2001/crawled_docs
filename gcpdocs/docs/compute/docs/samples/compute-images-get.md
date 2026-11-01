@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-images-get/
 title: Get an image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:23:21.409178+00:00
+fetched_at: 2026-11-01T05:36:33.025948+00:00
 ---
 
 # Get an image  |  Compute Engine  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// imageName := "my_image"
     
     	ctx := context.Background()
-    	imagesClient, err := compute.[NewImagesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_ImagesClient_NewImagesRESTClient)(ctx)
+    	imagesClient, err := compute.NewImagesRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewImagesRESTClient: %w", err)
     	}
@@ -64,7 +64,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     		return fmt.Errorf("unable to get image: %w", err)
     	}
     
-    	fmt.Fprintf(w, "Disk image %s was found\n", *image.[Name](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Name))
+    	fmt.Fprintf(w, "Disk image %s was found\n", *image.Name)
     
     	return nil
     }
@@ -77,9 +77,9 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.[GetImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetImageRequest.html);
-    import com.google.cloud.compute.v1.[Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html);
-    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html);
+    import com.google.cloud.compute.v1.GetImageRequest;
+    import com.google.cloud.compute.v1.Image;
+    import com.google.cloud.compute.v1.ImagesClient;
     import java.io.IOException;
     
     public class GetImage {
@@ -94,18 +94,18 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       }
     
       // Retrieve detailed information about a single image from a project
-      public static [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html) getImage(String projectId, String imageName) throws IOException {
+      public static Image getImage(String projectId, String imageName) throws IOException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html) client = [ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).create()) {
-          [GetImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetImageRequest.html) request = [GetImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetImageRequest.html).newBuilder()
+        try (ImagesClient client = ImagesClient.create()) {
+          GetImageRequest request = GetImageRequest.newBuilder()
                   .setProject(projectId)
                   .setImage(imageName)
                   .build();
     
-          [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html) image = client.get(request);
+          Image image = client.get(request);
     
-          System.out.printf("Image '%s' has been retrieved successfully", image.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html#com_google_cloud_compute_v1_Image_getName__)());
+          System.out.printf("Image '%s' has been retrieved successfully", image.getName());
     
           return image;
         }

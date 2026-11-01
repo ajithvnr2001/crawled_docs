@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/iam/custom-roles/
 title: Create a custom role \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:05.846367+00:00
+fetched_at: 2026-11-01T05:42:00.141381+00:00
 ---
 
 # Create a custom role  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -96,7 +96,7 @@ The permissions listed for predefined roles at the current scope (organization o
 
 
 
-###  gdcloud 
+### gdcloud
 
   1. Ensure you have the gdcloud CLI installed. For more information, see the [gdcloud CLI Overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-overview) page.
   2. List the roles available:
@@ -164,7 +164,7 @@ Your new custom role appears on the **Roles** page.
 
 
 
-###  gdcloud 
+### gdcloud
 
   1. Ensure you have the gdcloud CLI installed. For more information, see the [gdcloud CLI Overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-overview) page.
   2. Create a custom role:
@@ -277,7 +277,7 @@ A message appears confirming your saved changes.
 
 
 
-###  gdcloud 
+### gdcloud
 
   1. Ensure you have the gdcloud CLI installed. For more information, see the [gdcloud CLI Overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-overview) page.
   2. Edit a custom role:
@@ -378,7 +378,7 @@ Disable a custom role using the GDC console, gdcloud CLI, or the API:
 
 
 
-###  gdcloud 
+### gdcloud
 
   1. Ensure you have the gdcloud CLI installed. For more information, see the [gdcloud CLI Overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-overview) page.
   2. Disable a custom role:
@@ -450,7 +450,7 @@ Deleted roles are permanently removed from the system; however, you can create a
 
 Delete a custom role using the gdcloud CLI or the API:
 
-###  gdcloud 
+### gdcloud
 
   1. Ensure you have the gdcloud CLI installed. For more information, see the [gdcloud CLI Overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-overview) page.
   2. Delete a custom role:
@@ -484,6 +484,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

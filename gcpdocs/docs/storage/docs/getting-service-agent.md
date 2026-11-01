@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/getting-service-agent/
 title: Get the Cloud Storage service agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:57.438404+00:00
+fetched_at: 2026-11-01T05:35:51.680647+00:00
 ---
 
 # Get the Cloud Storage service agent  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/default-settings/
 title: Configure default resource settings for Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:46.902318+00:00
+fetched_at: 2026-11-01T05:43:32.721062+00:00
 ---
 
 # Configure default resource settings for Cloud Logging  |  Google Cloud Documentation

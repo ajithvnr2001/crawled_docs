@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/column-data-masking/
 title: Mask column data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:44.020571+00:00
+fetched_at: 2026-11-01T05:35:24.929771+00:00
 ---
 
 # Mask column data  |  BigQuery  |  Google Cloud Documentation
@@ -407,9 +407,9 @@ Set the policy tag by [modifying a schema](https://docs.cloud.google.com/bigquer
 
 [Go to the BigQuery page](https://console.cloud.google.com/bigquery)
 
-  2. In the BigQuery Explorer, locate and select the table that you want to update. The table schema for that table opens.
+  2. In the BigQuery **Explorer** pane, locate and select the table that you want to update.
 
-  3. Click **Edit Schema**.
+  3. In the details pane, click **Edit > Edit schema**.
 
   4. In the **Current schema** screen, select the target column and click **Add policy tag**.
 
@@ -1649,6 +1649,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

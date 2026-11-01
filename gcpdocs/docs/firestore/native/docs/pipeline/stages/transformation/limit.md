@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/limit/
 title: Limit (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:56.044697+00:00
+fetched_at: 2026-11-01T05:38:18.302578+00:00
 ---
 
 # Limit (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -57,7 +57,7 @@ Limits the number of documents returned by the pipeline.
       // unintentional results.
       .limit(10)
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L67-L76)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L89-L98)
 
 ##### Kotlin  
 Android
@@ -106,7 +106,7 @@ Android
         .limit(10)
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L58-L66)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L58-L66)
 
 ##### Java
     

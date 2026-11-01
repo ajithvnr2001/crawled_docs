@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents-client/
 title: Evaluate generative AI agents using the GenAI Client in Agent Platform SDK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:00.240585+00:00
+fetched_at: 2026-11-01T05:38:39.349646+00:00
 ---
 
 # Evaluate generative AI agents using the GenAI Client in Agent Platform SDK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -90,12 +90,12 @@ For other environments, refer to [Authenticate to Agent Platform](https://docs.c
 
   4. Initialize the GenAI Client in Agent Platform SDK:
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai import Client
-         from google.genai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html) as genai_types
+         from google.genai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html) as genai_types
          
          GCS_DEST = "gs://BUCKET_NAME/output-path"
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
              project=PROJECT_ID,
              location=LOCATION,
          )

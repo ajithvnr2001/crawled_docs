@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-stream-file-download/
 title: Read Object as a Stream \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:20.317318+00:00
+fetched_at: 2026-11-01T05:36:07.153352+00:00
 ---
 
 # Read Object as a Stream  |  Cloud Storage  |  Google Cloud Documentation

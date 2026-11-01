@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/ca-service/create-root-ca/
 title: Create a root certificate authority \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:23.501670+00:00
+fetched_at: 2026-11-01T05:45:30.639059+00:00
 ---
 
 # Create a root certificate authority  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -123,15 +123,17 @@ KEY_SIZE | The size, in bits, of the private key for this certificate depends on
 ACME_ENABLED | If set to `true`, CA runs in ACME mode and outputs the ACME server URL. You can then use the ACME client and protocol to manage certificates.  
   2. Apply the custom resource to your Distributed Cloud instance:
          
-         kubectl apply -f root-ca.yaml –kubeconfig MANAGEMENT_API_SERVER_KUBECONFIG
+         kubectl apply -f root-ca.yaml --kubeconfig MANAGEMENT_API_SERVER_KUBECONFIG
          
 
 Replace `MANAGEMENT_API_SERVER_KUBECONFIG` with the path to the kubeconfig file of the Management API server.
 
   3. Verify the readiness of the root CA. It normally takes around 40 minutes for the CA to become ready:
          
-         kubectl --kubeconfig MANAGEMENT_API_SERVER_KUBECONFIG -n USER_PROJECT_NAMESPACE get certificateauthority.pki.security.gdc.goog/ROOT_CA_NAME -ojson | jq -r ' 
-         .status.conditions[] | select( .type as $id | "Ready" | index($id))
+         kubectl --kubeconfig MANAGEMENT_API_SERVER_KUBECONFIG \
+             -n USER_PROJECT_NAMESPACE \
+             get certificateauthority.pki.security.gdc.goog/ROOT_CA_NAME \
+             -o json | jq -r '.status.conditions[] | select(.type as $id | "Ready" | index($id))'
          
 
 The output looks similar to the following:
@@ -171,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

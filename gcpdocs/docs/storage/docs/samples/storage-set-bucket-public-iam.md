@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-bucket-public-iam/
 title: Make a bucket public \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:14.670253+00:00
+fetched_at: 2026-11-01T05:36:01.962400+00:00
 ---
 
 # Make a bucket public  |  Cloud Storage  |  Google Cloud Documentation

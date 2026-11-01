@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits/
 title: Manage prepaid credits \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:40:07.926060+00:00
+fetched_at: 2026-11-01T05:37:48.001731+00:00
 ---
 
 # Manage prepaid credits  |  Gemini Enterprise  |  Google Cloud Documentation

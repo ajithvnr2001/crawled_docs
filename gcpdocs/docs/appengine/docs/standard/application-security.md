@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/application-security/
 title: Overview of app security \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:41:18.055072+00:00
+fetched_at: 2026-11-01T05:45:21.833031+00:00
 ---
 
 # Overview of app security  |  App Engine standard environment  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ OK
 
 Security is a core feature of the Google Cloud, but there are still steps you should take to protect your App Engine app and identify vulnerabilities.
 
-Use the following features to ensure that your App Engine app is secure. To learn more about the Google Security Model and the available steps that you can take to secure your Google Cloud projects, see [Google Cloud Platform Security](https://docs.cloud.google.com/security).
+Use the following features to ensure that your App Engine app is secure. To learn more about the Google Security Model and the available steps that you can take to secure your Google Cloud projects, see [Google Cloud Security](https://cloud.google.com/security).
 
 ## HTTPS requests
 
@@ -85,7 +85,19 @@ You can use Ingress controls to restrict inbound traffic to your App Engine app.
 
 ## Egress controls
 
-Egress controls determine what traffic is sent over [Serverless VPC connectors](https://docs.cloud.google.com/appengine/docs/standard/connecting-shared-vpc). By default, only requests to private IP addresses are routed through a Serverless VPC connector. With Egress control settings, you can require all traffic from your App Engine services to be routed through the attached VPC Connector. To specify Egress settings for your app, see [Egress settings](https://docs.cloud.google.com/appengine/docs/standard/ingress-settings#egress). 
+Egress controls determine which outbound traffic from your App Engine service routes through your Virtual Private Cloud (VPC) network when you use [Direct VPC egress](https://docs.cloud.google.com/appengine/docs/standard/vpc-direct-vpc) ([Preview](https://cloud.google.com/products#product-launch-stages)) or a [Serverless VPC Access connector](https://docs.cloud.google.com/appengine/docs/standard/connecting-vpc). By default, only requests to private IP addresses route through your VPC network, while requests to public destinations route directly to the internet. With egress control settings, you can route all outbound traffic (`all-traffic`) from your App Engine service through your VPC network. To configure egress settings for your app, see [Egress settings](https://docs.cloud.google.com/appengine/docs/standard/ingress-settings#egress). 
+
+### Shared internet egress risks and acceptable use
+
+By default, outbound traffic to the public internet uses a regional pool of dynamic IP addresses shared with other serverless workloads. Keep the following risks and responsibilities in mind: 
+
+  * Noisy or abusive traffic from another workload in the region can degrade the reputation of the shared IP address pool. External firewalls and third-party web application firewalls (WAFs) might throttle or block requests from these shared IP addresses, causing connection timeouts or `HTTP 403` errors.
+  * Don't use the default shared IP pool for reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs behind WAFs. Instead, route all outbound traffic (`all-traffic`) through your VPC network and use Cloud NAT with dedicated [static outbound IP addresses](https://docs.cloud.google.com/appengine/docs/standard/outbound-ip-addresses#static-ip).
+  * Don't run network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing over the default shared internet egress path. This activity degrades shared IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+  * If you run authorized security scanning, host fingerprinting, or load testing workloads, you must isolate your outbound traffic. Route all outbound requests (`all-traffic`) through your VPC network and Cloud NAT using your own [static outbound IP addresses](https://docs.cloud.google.com/appengine/docs/standard/outbound-ip-addresses#static-ip). 
+
+
+
 
 ## Security scanner
 
@@ -103,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

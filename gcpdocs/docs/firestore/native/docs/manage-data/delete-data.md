@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/delete-data/
 title: Delete documents and fields \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:03.142128+00:00
+fetched_at: 2026-11-01T05:37:45.436160+00:00
 ---
 
 # Delete documents and fields  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ Use the `delete()` method:
       print("Error removing document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L436-L441)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L436-L441)
 
 ##### Objective-C
 
@@ -83,7 +83,7 @@ Use the `deleteDocumentWithCompletion:` method:
           }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L364-L371)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L364-L371)
 
 ##### Kotlin  
 Android
@@ -311,7 +311,7 @@ Use the `FieldValue.delete()` method:
       print("Error updating document: \(error)")
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L481-L489)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L481-L489)
 
 ##### Objective-C
 
@@ -330,7 +330,7 @@ Use the `fieldValueForDelete:` method:
       }
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L414-L422)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L414-L422)
 
 ##### Kotlin  
 Android
@@ -603,7 +603,7 @@ Deleting collections from the client is not recommended.
       }
     }
     
-    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/b91df580e4fd993c77b1d49b16af53609ca4206a/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
+    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/5347dccb9bf57ac758c34abe66f5f22922451a8a/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
 
 ##### Python
     

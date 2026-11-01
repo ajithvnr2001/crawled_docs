@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-ibm-db2-planning-guide/
 title: IBM Db2 for SAP planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:37.218517+00:00
+fetched_at: 2026-11-01T05:40:34.376148+00:00
 ---
 
 # IBM Db2 for SAP planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation

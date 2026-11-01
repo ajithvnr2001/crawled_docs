@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/quickstarts/training-megatron-llama-workload/
 title: Train Llama2 with Megatron-LM on A3 Mega virtual machines \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:45.007198+00:00
+fetched_at: 2026-11-01T05:44:09.538807+00:00
 ---
 
 # Train Llama2 with Megatron-LM on A3 Mega virtual machines  |  GKE AI/ML  |  Google Cloud Documentation

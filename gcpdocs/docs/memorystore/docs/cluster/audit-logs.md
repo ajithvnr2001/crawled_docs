@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/cluster/audit-logs/
 title: Monitor access using audit logs \u00a0|\u00a0 Memorystore for Redis Cluster \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:49.104348+00:00
+fetched_at: 2026-11-01T05:44:22.408594+00:00
 ---
 
 # Monitor access using audit logs  |  Memorystore for Redis Cluster  |  Google Cloud Documentation

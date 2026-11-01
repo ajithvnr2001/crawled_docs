@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.1/how-to/deploying-spring-cloud-config/
 title: Deploying Spring Cloud Config \u00a0|\u00a0 Kf 2.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:42.025666+00:00
+fetched_at: 2026-11-01T05:45:04.193147+00:00
 ---
 
 # Deploying Spring Cloud Config  |  Kf 2.1  |  Google Cloud Documentation
@@ -100,7 +100,7 @@ Existing PCF applications that use [Pivotal's Spring Cloud Services client libra
 
   1. Create a user provided service named config-server. This step only has to be done once per configuration server:
          
-         kf cups config-server -p '{"uri&quot;:"http://spring-cloud-config&quot;}' -t configuration
+         kf cups config-server -p '{"uri":"http://spring-cloud-config"}' -t configuration
 
 **Note:** If you want to use a configuration server in a different space, change the URI [to include the space](https://docs.cloud.google.com/migrate/kf/docs/2.1/concepts/service-discovery#how_to_use_service_discovery_with).
   2. For each application that needs get credentials, run:

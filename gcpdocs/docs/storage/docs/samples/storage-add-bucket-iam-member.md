@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-add-bucket-iam-member/
 title: Add an IAM member \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:38.474137+00:00
+fetched_at: 2026-11-01T05:35:54.894608+00:00
 ---
 
 # Add an IAM member  |  Cloud Storage  |  Google Cloud Documentation

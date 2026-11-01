@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-knex-connect-tcp-sslcerts/
 title: Create a TCP connection with SSL certificates by using Node.js \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:48.214714+00:00
+fetched_at: 2026-11-01T05:38:24.667821+00:00
 ---
 
 # Create a TCP connection with SSL certificates by using Node.js  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ To authenticate to Cloud SQL for PostgreSQL, set up Application Default Credenti
     
     // createTcpPool initializes a TCP connection pool for a Cloud SQL
     // instance of Postgres.
-    const createTcpPool = async config => {
+    const createTcpPool >= async config = {
       // Note: Saving credentials in environment variables is convenient, but not
       // secure - consider a more secure solution such as
       // Cloud Secret Manager (https://cloud.google.com/secret-manager) to help

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/configure-mobile-app/
 title: Configure the mobile app \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:26.281877+00:00
+fetched_at: 2026-11-01T05:37:58.489170+00:00
 ---
 
 # Configure the mobile app  |  Gemini Enterprise  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/audit-logging/
 title: Vision API audit logging information \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:07.030804+00:00
+fetched_at: 2026-11-01T05:39:30.529625+00:00
 ---
 
 # Vision API audit logging information  |  Google Cloud Documentation

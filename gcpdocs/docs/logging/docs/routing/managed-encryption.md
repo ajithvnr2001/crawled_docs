@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/routing/managed-encryption/
 title: Configure CMEK for Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:06.867339+00:00
+fetched_at: 2026-11-01T05:42:11.702267+00:00
 ---
 
 # Configure CMEK for Cloud Logging  |  Google Cloud Documentation

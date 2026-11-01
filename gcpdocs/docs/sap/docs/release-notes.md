@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/release-notes/
 title: SAP on Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:57:09.354740+00:00
+fetched_at: 2026-11-01T05:45:17.714837+00:00
 ---
 
 # SAP on Google Cloud release notes  |  Google Cloud Documentation
@@ -32,6 +32,34 @@ For announcements about Compute Engine VMs, persistent disks, OS images, and oth
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/sapongooglecloud-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Announcement
+
+**Google SecOps for SAP is generally available (GA)**
+
+Google SecOps for SAP is generally available (GA). This solution helps you protect your enterprise SAP applications by integrating business-critical telemetry into Google SecOps to provide unified visibility, threat detection, and security response capabilities.
+
+This release includes:
+
+  * Log ingestion from SAP RISE and self-managed SAP environments that run on Google Cloud, on-premises, or other clouds.
+  * SAP-specific YARA-L threat detection rules available in the Google SecOps Detection Rules GitHub repository.
+  * Automated threat response and containment capabilities by using the SAP RFC Gateway and SOAR playbooks ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+
+
+For more information, see [Secure SAP applications with Google SecOps](https://docs.cloud.google.com/sap/docs/secops/overview).
+
+## October 29, 2026
+
+Announcement
+
+**ABAP SDK for Google Cloud version 1.15 (On-premises or any cloud edition)**
+
+Version 1.15 of the on-premises or any cloud edition of the ABAP SDK for Google Cloud is generally available (GA). This version enhances binary data handling to let you download archived `.msg` files and other binary formats without applying character decoding when you use Cloud Storage as a content repository for SAP.
+
+For more information, see [What's new with the on-premises or any cloud edition of the ABAP SDK for Google Cloud](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/whats-new#version-1-15).
 
 ## September 29, 2026
 

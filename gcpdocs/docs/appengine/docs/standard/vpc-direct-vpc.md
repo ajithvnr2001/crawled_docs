@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/vpc-direct-vpc/
 title: Direct VPC egress \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:41:00.243137+00:00
+fetched_at: 2026-11-01T05:45:23.445662+00:00
 ---
 
 # Direct VPC egress  |  App Engine standard environment  |  Google Cloud Documentation
@@ -203,6 +203,19 @@ It is necessary to manage your IP addresses since each instance of your service 
 
 
 
+### Isolate outbound internet traffic
+
+By default, when `vpc_egress` is set to `private-ranges-only`, App Engine sends outbound internet traffic through a regional pool of dynamic IP addresses shared across serverless workloads. Don't use this default shared pool for workloads that depend on IP reputation or generate high-volume probing traffic.
+
+Instead, set `vpc_egress: all-traffic` and route outbound traffic through Cloud NAT with dedicated [static outbound IP addresses](https://docs.cloud.google.com/appengine/docs/standard/outbound-ip-addresses#static-ip) in these cases:
+
+  * Your service connects to reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs behind third-party web application firewalls (WAFs). Dedicated static IP addresses prevent noisy traffic from other tenants on the shared pool from triggering external WAF blocks or `HTTP 403` errors.
+  * Your service runs authorized network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing. Running these workloads over the default shared IP pool degrades IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+
+
+
+When you run authorized scanning or high-connection workloads through Cloud NAT, allocate enough static IP addresses and configure [port reservation](https://docs.cloud.google.com/nat/docs/ports-and-addresses) to prevent port exhaustion.
+
 ## Troubleshoot
 
 This section describes the common errors you might encounter while deploying your App Engine service with Direct VPC egress.
@@ -285,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/central-log-storage/
 title: Aggregate and store your organization's logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:47.436030+00:00
+fetched_at: 2026-11-01T05:44:04.321324+00:00
 ---
 
 # Aggregate and store your organization's logs  |  Cloud Logging  |  Google Cloud Documentation

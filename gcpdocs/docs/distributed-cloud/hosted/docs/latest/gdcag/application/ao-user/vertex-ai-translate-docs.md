@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-translate-docs/
 title: Try translating formatted documents \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:21:59.766147+00:00
+fetched_at: 2026-11-01T05:45:25.375958+00:00
 ---
 
 # Try translating formatted documents  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -245,7 +245,7 @@ Follow these steps to make a `curl` request:
          
          {
            "source_language_code": "SOURCE_LANGUAGE",
-           "target_language_codes": ["TARGET_LANGUAGE", ...],
+           "target_language_codes": ["TARGET_LANGUAGE"],
            "input_configs": [
              {
                "s3_source": {
@@ -256,8 +256,7 @@ Follow these steps to make a `curl` request:
                "s3_source": {
                  "input_uri": "s3://INPUT_FILE_PATH_2"
                }
-             },
-             ...
+             }
            ],
            "output_config": {
              "s3_destination": {
@@ -271,7 +270,7 @@ Replace the following:
 
      * `SOURCE_LANGUAGE`: the language code of the input documents. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
      * `TARGET_LANGUAGE`: the target language or languages to translate the input documents to. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
-     * `INPUT_FILE_PATH`: the storage bucket location and filename of one or more input documents.
+     * `INPUT_FILE_PATH_1` and `INPUT_FILE_PATH_2`: the storage bucket locations and filenames of the input documents.
      * `OUTPUT_FILE_PREFIX`: the storage bucket location where all output documents are stored.
   2. [Get an authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth).
 
@@ -320,7 +319,7 @@ Follow these steps to make a `curl` request:
          
          {
            "source_language_code": "SOURCE_LANGUAGE",
-           "target_language_codes": ["TARGET_LANGUAGE", ...],
+           "target_language_codes": ["TARGET_LANGUAGE"],
            "input_configs": [
              {
                "s3_source": {
@@ -331,8 +330,7 @@ Follow these steps to make a `curl` request:
                "s3_source": {
                  "input_uri": "s3://INPUT_FILE_PATH_2"
                }
-             },
-             ...
+             }
            ],
            "output_config": {
              "s3_destination": {
@@ -349,7 +347,7 @@ Replace the following:
 
      * `SOURCE_LANGUAGE`: the language code of the input documents. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
      * `TARGET_LANGUAGE`: the target language or languages to translate the input documents to. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
-     * `INPUT_FILE_PATH`: the storage bucket location and filename of one or more input documents.
+     * `INPUT_FILE_PATH_1` and `INPUT_FILE_PATH_2`: the storage bucket locations and filenames of the input documents.
      * `OUTPUT_FILE_PREFIX`: the storage bucket location where all output documents are stored.
   2. [Get an authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth).
 
@@ -398,7 +396,7 @@ Follow these steps to make a `curl` request:
          
          {
            "source_language_code": "SOURCE_LANGUAGE",
-           "target_language_codes": ["TARGET_LANGUAGE", ...],
+           "target_language_codes": ["TARGET_LANGUAGE"],
            "input_configs": [
              {
                "s3_source": {
@@ -414,8 +412,7 @@ Follow these steps to make a `curl` request:
            "glossaries": {
              "TARGET_LANGUAGE": {
                "glossary": "projects/GLOSSARY_PROJECT_ID/glossaries/GLOSSARY_ID"
-             },
-             ...
+             }
            }
          }
          
@@ -463,6 +460,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

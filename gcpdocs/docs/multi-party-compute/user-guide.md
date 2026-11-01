@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/multi-party-compute/user-guide/
 title: Multi-party Compute User Guide \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:09.067394+00:00
+fetched_at: 2026-11-01T05:43:08.876799+00:00
 ---
 
 # Multi-party Compute User Guide  |  Google Cloud Documentation
@@ -2138,7 +2138,7 @@ Last updated 2026-10-28 UTC.
 
 
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/vc1b996b07630b7fba08b3b2fd258fb35e39e5d8dfeab71af65465d9a2fbe5870/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/ve828226d17bf98b2ac333a1bbe96ed6401cc6183d543bad39ccac2722acbc6a7/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
 
   * [ Android ](https://developer.android.com/)
   * [ Chrome ](https://developer.chrome.com/)

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/create-and-manage-tags/
 title: Create and manage tags \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:07.620366+00:00
+fetched_at: 2026-11-01T05:36:41.784088+00:00
 ---
 
 # Create and manage tags  |  Secret Manager  |  Google Cloud Documentation
@@ -462,7 +462,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     #
     def create_secret_with_tags project_id:, secret_id:, tag_key:, tag_value:
       # Create a Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
       # Build the resource name of the parent project.
       parent = client.project_path project: project_id

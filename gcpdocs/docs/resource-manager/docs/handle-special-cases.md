@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/handle-special-cases/
 title: Handle special cases \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:35.213582+00:00
+fetched_at: 2026-11-01T05:45:30.153490+00:00
 ---
 
 # Handle special cases  |  Resource Manager  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Handle special cases Stay organized with collections  Save and categorize content based on your preferences. 
 
-Learn how to handle special cases when you migrate projects. Before you migrate a project, ensure that you have the required Identity and Access Management (IAM) [permissions](https://docs.cloud.google.com/resource-manager/docs/perform-migration#required-roles) on the project, its parent resource, and the destination resource.
+When you migrate Google Cloud projects across organizations, some resources and configurations require additional steps to maintain service continuity and prevent configuration conflicts. These special cases include projects without an organization resource, Shared VPC resources, custom roles, and cross-project service accounts. Before you migrate a project, ensure that you have the required Identity and Access Management (IAM) [permissions](https://docs.cloud.google.com/resource-manager/docs/perform-migration#required-roles) on the project, its parent resource, and the destination resource.
 
 ## Migrate projects that aren't associated with an organization resource
 
@@ -344,6 +344,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

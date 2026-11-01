@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/choose-consumption-option/
 title: Choose a consumption option \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:51.413093+00:00
+fetched_at: 2026-11-01T05:45:21.486413+00:00
 ---
 
 # Choose a consumption option  |  Cluster Director  |  Google Cloud Documentation
@@ -21,18 +21,7 @@ Send feedback
 
 #  Choose a consumption option Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains the different ways, called _consumption options_ , to get and use compute resources in Cluster Director. For each partition that you want to create in a cluster, choose the consumption option that best suits your workload, duration, and budget.
-
-Each consumption option defines the following:
-
-  * **Resource access** : how you access compute resources to create Compute Engine instances in your cluster.
-
-  * **Provisioning model** : the underlying [provisioning model](https://docs.cloud.google.com/compute/docs/instances/provisioning-models), which determines the availability, lifespan, and pricing of your compute instances.
-
-
-
-
-To get AI-powered assistance when you evaluate which consumption option fits your workload and budget requirements, you can prompt Gemini in the Google Cloud console. For more information, see [Design and optimize clusters with Compute Advisor](https://docs.cloud.google.com/cluster-director/docs/create/design-with-gemini).
+When you create a cluster in Cluster Director, you must select the _consumption option_ that you want to use to obtain resources (vCPUs, memory, GPUs, and Local SSD disks) for creating Compute Engine instances. Each consumption option defines the availability, lifespan, and cost of your requested resources. This document compares the available consumption options, and it helps you choose the option that best fits your workload and cost needs.
 
 ## Compare consumption options
 
@@ -47,8 +36,37 @@ Consumption option | Future reservations for capacity blocks | Future reservatio
 **Pricing** | Discounted up to 53% ([accelerator pricing](https://docs.cloud.google.com/compute/vm-instance-pricing#accelerator-optimized)) | Discounted up to 53% ([DWS pricing](https://cloud.google.com/products/dws/pricing)) | Discounted up to 53% ([DWS pricing](https://cloud.google.com/products/dws/pricing)) | Deeply discounted up to 91% ([Spot pricing](https://cloud.google.com/spot-vms/pricing)) | Standard pricing ([general-purpose pricing](https://docs.cloud.google.com/compute/vm-instance-pricing#general-purpose-machine-type-family))  
 **Billing model** | Charged for the reservation period ([reservation billing](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#reservation-billing)) | Charged for the reservation period ([reservation billing](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#reservation-billing)) | Pay-as-you-go (PAYG) | Pay-as-you-go (PAYG) | Pay-as-you-go (PAYG)  
 **Resource allocation** | Dense | Dense | Best-effort | Best-effort | Best-effort  
-**Provisioning model** | Reservation-bound | Reservation-bound | Flex-start | Spot | Standard  
+[**Provisioning model**](https://docs.cloud.google.com/compute/docs/instances/provisioning-models) | Reservation-bound | Reservation-bound | Flex-start | Spot | Standard  
   
+If you want AI-powered assistance to compare consumption options, then run the following prompt in Compute Advisor:
+
+agent_mode_2 Compute Advisor help_outline Compute Advisor is an AI-powered assistant that you can prompt to get customized recommendations for your infrastructure based on information such as your quota limits, existing reservations, and resource location constraints.
+
+This prompt evaluates your project quotas and reservations, compares capacity assurance, lifespan, and discounts across consumption options, and outputs a Markdown comparison table with recommended partition configurations. 
+
+Act as a cloud architect. Help me choose the best consumption option and provisioning model for each partition in my Cluster Director cluster based on my project quotas, existing reservations, and available regions. Walk me through the following steps:  
+  
+1\. Compare the five consumption options (future reservations for capacity blocks, future reservations in calendar mode, Flex-start, Spot, and On-demand) across supported machine series, lifespan, capacity assurance, quota type (standard or preemptible), pricing discounts, billing model, and resource allocation.  
+  
+2\. Evaluate regional and zonal availability for GPU machine series (A4X Max, A4X, A4, A3 Ultra, and A3 Mega) and CPU machine series (N2 for compute or controller nodes, and C4A or N2 for login nodes).  
+  
+3\. Recommend a consumption option and provisioning model (reservation-bound, flex-start, spot, or standard) for each cluster partition based on whether my workload needs high assurance, capacity for more than 90 days, reserved capacity for up to 90 days, a run duration of up to 7 days, or fault-tolerant Spot capacity.  
+  
+Format the recommendations as a Markdown comparison table for my Slurm partitions and nodesets, followed by the steps to reserve capacity and create the cluster. expand_more
+    
+    
+    Act as a cloud architect. Help me choose the best consumption option and provisioning model for each partition in my Cluster Director cluster based on my project quotas, existing reservations, and available regions. Walk me through the following steps:
+    
+    1. Compare the five consumption options (future reservations for capacity blocks, future reservations in calendar mode, Flex-start, Spot, and On-demand) across supported machine series, lifespan, capacity assurance, quota type (standard or preemptible), pricing discounts, billing model, and resource allocation.
+    
+    2. Evaluate regional and zonal availability for GPU machine series (A4X Max, A4X, A4, A3 Ultra, and A3 Mega) and CPU machine series (N2 for compute or controller nodes, and C4A or N2 for login nodes).
+    
+    3. Recommend a consumption option and provisioning model (reservation-bound, flex-start, spot, or standard) for each cluster partition based on whether my workload needs high assurance, capacity for more than 90 days, reserved capacity for up to 90 days, a run duration of up to 7 days, or fault-tolerant Spot capacity.
+    
+    Format the recommendations as a Markdown comparison table for my Slurm partitions and nodesets, followed by the steps to reserve capacity and create the cluster.
+
+[ Edit and run prompt in Compute Advisor ](https://console.cloud.google.com/compute/advisor#prompt=Act%20as%20a%20cloud%20architect.%20Help%20me%20choose%20the%20best%20consumption%20option%20and%20provisioning%20model%20for%20each%20partition%20in%20my%20Cluster%20Director%20cluster%20based%20on%20my%20project%20quotas%2C%20existing%20reservations%2C%20and%20available%20regions.%20Walk%20me%20through%20the%20following%20steps%3A%0A%0A1.%20Compare%20the%20five%20consumption%20options%20%28future%20reservations%20for%20capacity%20blocks%2C%20future%20reservations%20in%20calendar%20mode%2C%20Flex-start%2C%20Spot%2C%20and%20On-demand%29%20across%20supported%20machine%20series%2C%20lifespan%2C%20capacity%20assurance%2C%20quota%20type%20%28standard%20or%20preemptible%29%2C%20pricing%20discounts%2C%20billing%20model%2C%20and%20resource%20allocation.%0A%0A2.%20Evaluate%20regional%20and%20zonal%20availability%20for%20GPU%20machine%20series%20%28A4X%20Max%2C%20A4X%2C%20A4%2C%20A3%20Ultra%2C%20and%20A3%20Mega%29%20and%20CPU%20machine%20series%20%28N2%20for%20compute%20or%20controller%20nodes%2C%20and%20C4A%20or%20N2%20for%20login%20nodes%29.%0A%0A3.%20Recommend%20a%20consumption%20option%20and%20provisioning%20model%20%28reservation-bound%2C%20flex-start%2C%20spot%2C%20or%20standard%29%20for%20each%20cluster%20partition%20based%20on%20whether%20my%20workload%20needs%20high%20assurance%2C%20capacity%20for%20more%20than%2090%20days%2C%20reserved%20capacity%20for%20up%20to%2090%20days%2C%20a%20run%20duration%20of%20up%20to%207%20days%2C%20or%20fault-tolerant%20Spot%20capacity.%0A%0AFormat%20the%20recommendations%20as%20a%20Markdown%20comparison%20table%20for%20my%20Slurm%20partitions%20and%20nodesets%2C%20followed%20by%20the%20steps%20to%20reserve%20capacity%20and%20create%20the%20cluster.&origin=cluster_director_consumption)
+
 ## Choose a consumption option
 
 Use the following flowchart to choose the consumption option that best fits the type of partition for your cluster:
@@ -369,6 +387,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

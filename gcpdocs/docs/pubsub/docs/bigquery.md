@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/bigquery/
 title: BigQuery subscriptions \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:22.181880+00:00
+fetched_at: 2026-11-01T05:41:54.542590+00:00
 ---
 
 # BigQuery subscriptions  |  Pub/Sub  |  Google Cloud Documentation

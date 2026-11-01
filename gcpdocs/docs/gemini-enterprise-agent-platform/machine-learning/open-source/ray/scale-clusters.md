@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/scale-clusters/
 title: Scale Ray clusters on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:18.028512+00:00
+fetched_at: 2026-11-01T05:38:38.030068+00:00
 ---
 
 # Scale Ray clusters on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -164,10 +164,10 @@ Use the Google Cloud console or Agent Platform SDK for Python to update your wor
 ###  Ray on Agent Platform SDK 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     import vertex_ray
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init()
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init()
     cluster = vertex_ray.get_ray_cluster("CLUSTER_NAME")
     
     # Get the resource name.

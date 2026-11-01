@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/adding-labels/
 title: Add labels to resources \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:01.287594+00:00
+fetched_at: 2026-11-01T05:37:13.308675+00:00
 ---
 
 # Add labels to resources  |  BigQuery  |  Google Cloud Documentation
@@ -55,16 +55,12 @@ To add a label to a dataset after it is created:
 
   1. In the Google Cloud console, select the dataset.
 
-  2. On the dataset details page, in the **Labels** section, click edit **Edit**.
+  2. Click the **Details** tab, and then click mode_edit **Edit details**.
 
-![Pencil icon next to the Labels section.](https://docs.cloud.google.com/static/bigquery/images/label-pencil.png)
+  3. In the **Labels** section, click **Add labels** , and then enter a key and value in the **Key** and **Value** fields. To apply additional labels, click **Add labels**. Each key can be used only once per dataset, but you can use the same key in different datasets within the same project.
 
-  3. In the **Edit labels** dialog:
+  4. Click **Save**.
 
-     * Click **Add label**
-     * Enter the key and value in the appropriate fields. To apply additional labels, click **Add label**. Each key can be used only once per dataset, but you can use the same key in different datasets within the same project.
-     * To update a label, modify the existing keys or values.
-     * To save your changes, click **Update**.
 
 
 
@@ -299,22 +295,14 @@ To add a label to an existing table or view:
 
 ###  Console 
 
-  1. In the Google Cloud console, select the table, or view.
+  1. In the Google Cloud console, select the table or view.
 
-  2. Click the **Details** tab.
+  2. In the details pane, click **Edit > Edit details**.
 
-![Table details page in the Google Cloud console.](https://docs.cloud.google.com/static/bigquery/images/table-details.png)
+  3. In the **Labels** section, click **Add labels** , and then enter a key and value in the **Key** and **Value** fields. To apply additional labels, click **Add labels**. Each key can be used only once per table or view, but you can use the same key in different tables or views.
 
-  3. In the **Labels** section, click edit **Edit**.
+  4. Click **Save**.
 
-![Pencil icon next to the Labels section.](https://docs.cloud.google.com/static/bigquery/images/label-pencil.png)
-
-  4. In the **Edit labels** dialog:
-
-     * Click **Add label**
-     * Enter the key and value in the appropriate fields. To apply additional labels, click **Add label**. Each key can be used only once per dataset, but you can use the same key in different datasets within the same project.
-     * Modify existing keys or values to update a label.
-     * Click **Update** to save your changes.
 
 
 
@@ -751,21 +739,18 @@ To add a label without a value:
 
 ###  Console 
 
-  1. In the Google Cloud console, select the appropriate resource (a dataset, table, or view).
+  1. In the Google Cloud console, select the dataset, table, or view.
 
-  2. For datasets, the dataset details page opens automatically. For tables and views, click **Details** to open the details page.
+  2. Open the **Edit details** pane:
 
-![Table details page in the Google Cloud console.](https://docs.cloud.google.com/static/bigquery/images/table-details.png)
+     * For a dataset, click the **Details** tab, and then click mode_edit **Edit details**.
+     * For a table or view, in the details pane, click **Edit > Edit details**.
+  3. In the **Labels** section, click **Add labels**.
 
-  3. On the details page, in the **Labels** section, click edit **Edit**.
+  4. Enter a key in the **Key** field and leave the **Value** field blank. To apply additional labels, click **Add labels** and repeat.
 
-![Pencil icon next to the Labels section.](https://docs.cloud.google.com/static/bigquery/images/label-pencil.png)
+  5. Click **Save**.
 
-  4. In the **Edit labels** dialog:
-
-     * Click **Add label**.
-     * Enter a new key in the appropriate field and leave the value field blank. To apply additional labels, click **Add label** and repeat.
-     * To save your changes, click **Update**.
 
 
 
@@ -833,6 +818,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/add_fields/
 title: Add Fields (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:26.540414+00:00
+fetched_at: 2026-11-01T05:38:03.959734+00:00
 ---
 
 # Add Fields (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ The generated documents will contain all the fields from the previous stage alon
       .select([Field("soldBooks").add(Field("unsoldBooks")).as("totalBooks")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L552-L555)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L584-L587)
 
 ##### Kotlin  
 Android
@@ -86,7 +86,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L683-L690)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L683-L690)
 
 ##### Java
     
@@ -111,7 +111,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_arithmetic.go#L28-L33)
+    [pipeline_snippets_arithmetic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_arithmetic.go#L28-L33)
 
 ## Behavior
 

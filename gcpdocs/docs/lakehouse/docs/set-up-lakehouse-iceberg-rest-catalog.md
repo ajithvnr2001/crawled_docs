@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog/
 title: Set up the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:22:32.067257+00:00
+fetched_at: 2026-11-01T05:45:01.782675+00:00
 ---
 
 # Set up the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation

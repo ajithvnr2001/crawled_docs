@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/release-notes/
 title: What's new in the Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:22.846165+00:00
+fetched_at: 2026-11-01T05:38:48.308182+00:00
 ---
 
 # What's new in the Architecture Center  |  Google Cloud Documentation
@@ -22,6 +22,12 @@ Send feedback
 This page lists new and updated content in the [Google Cloud Architecture Center](https://docs.cloud.google.com/architecture). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/architecture-center-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Change
+
+[Harness CI/CD pipeline for RAG applications](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app): Added security and reliability guidance for source code management, container image verification, runtime AI protection, and progressive revision rollouts by using Secure Source Manager, Artifact Analysis, Binary Authorization, Model Armor, and Cloud Run traffic splitting.
 
 ## October 27, 2026
 

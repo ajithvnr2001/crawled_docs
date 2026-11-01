@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/create/process-overview/
 title: Cluster creation process overview \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:50.401320+00:00
+fetched_at: 2026-11-01T05:45:21.569322+00:00
 ---
 
 # Cluster creation process overview  |  Cluster Director  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Cluster creation process overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document helps you understand the components that you need to configure before or when you create a cluster to meet the requirements of your workload. To get AI-powered assistance when you plan and design your cluster infrastructure, see [Design and optimize clusters with Compute Advisor](https://docs.cloud.google.com/cluster-director/docs/create/design-with-gemini).
+This document explains how to plan and configure the infrastructure for a cluster in Cluster Director. To meet the performance, capacity, and budget requirements of your artificial intelligence (AI), machine learning (ML), or high performance computing (HPC) workload, you must choose the compute, storage, network, and data protection resources that your cluster uses. You must also define how the Slurm orchestrator manages your cluster nodes.
 
 ## Cluster creation process
 
@@ -39,6 +39,47 @@ Creating a cluster involves configuring compute, storage, and networking resourc
 
 
 
+
+If you want an interactive planning session before you configure resources, then run the following prompt in Compute Advisor:
+
+agent_mode_2 Compute Advisor help_outline Compute Advisor is an AI-powered assistant that you can prompt to get customized recommendations for your infrastructure based on information such as your quota limits, existing reservations, and resource location constraints.
+
+This prompt starts an interactive session to evaluate your project quotas and reservations, recommends machine configurations for your cluster, and outputs a summary table with recommended Google Cloud console settings. 
+
+Act as a cloud architect. Help me design a cluster in Cluster Director based on my project quotas, existing reservations, and available regions.  
+  
+Start by asking me about my workload type (such as foundation model training, fine-tuning, or inference) and my target scale. After I provide my workload details, walk me through the five setup steps in this guide:  
+  
+1\. Configure compute resources: Recommend machine series for compute nodes (A4X, A4, A3 Ultra, A3 Mega, or N2), controller nodes (N2), and login nodes (C4A or N2), a deployment region and zone, and a consumption option (future reservations for capacity blocks, future reservations in calendar mode, Flex-start, Spot, or On-demand).  
+  
+2\. Configure storage resources: Recommend a new or existing Filestore or Google Cloud Managed Lustre instance for the shared /home directory, plus any optional Cloud Storage buckets.  
+  
+3\. Configure networking resources: Recommend whether to let Cluster Director create a new VPC network or to use an existing VPC or Shared VPC network with the required subnet, Private Google Access, health check (TCP port 8319), and IAP (TCP port 22) firewall rules.  
+  
+4\. Configure data protection (optional): Identify whether I need a VPC Service Controls service perimeter and list the required restricted APIs.  
+  
+5\. Configure the Slurm orchestrator: Recommend boot disk options for the controller and login nodes, and define the partitions and nodesets with static and dynamic node counts (using multiples of 18 VMs for A4X nodesets).  
+  
+Format the recommendations as a Markdown summary table for each step, followed by recommended Google Cloud console settings and next steps. expand_more
+    
+    
+    Act as a cloud architect. Help me design a cluster in Cluster Director based on my project quotas, existing reservations, and available regions.
+    
+    Start by asking me about my workload type (such as foundation model training, fine-tuning, or inference) and my target scale. After I provide my workload details, walk me through the five setup steps in this guide:
+    
+    1. Configure compute resources: Recommend machine series for compute nodes (A4X, A4, A3 Ultra, A3 Mega, or N2), controller nodes (N2), and login nodes (C4A or N2), a deployment region and zone, and a consumption option (future reservations for capacity blocks, future reservations in calendar mode, Flex-start, Spot, or On-demand).
+    
+    2. Configure storage resources: Recommend a new or existing Filestore or Google Cloud Managed Lustre instance for the shared /home directory, plus any optional Cloud Storage buckets.
+    
+    3. Configure networking resources: Recommend whether to let Cluster Director create a new VPC network or to use an existing VPC or Shared VPC network with the required subnet, Private Google Access, health check (TCP port 8319), and IAP (TCP port 22) firewall rules.
+    
+    4. Configure data protection (optional): Identify whether I need a VPC Service Controls service perimeter and list the required restricted APIs.
+    
+    5. Configure the Slurm orchestrator: Recommend boot disk options for the controller and login nodes, and define the partitions and nodesets with static and dynamic node counts (using multiples of 18 VMs for A4X nodesets).
+    
+    Format the recommendations as a Markdown summary table for each step, followed by recommended Google Cloud console settings and next steps.
+
+[ Edit and run prompt in Compute Advisor ](https://console.cloud.google.com/compute/advisor#prompt=Act%20as%20a%20cloud%20architect.%20Help%20me%20design%20a%20cluster%20in%20Cluster%20Director%20based%20on%20my%20project%20quotas%2C%20existing%20reservations%2C%20and%20available%20regions.%0A%0AStart%20by%20asking%20me%20about%20my%20workload%20type%20%28such%20as%20foundation%20model%20training%2C%20fine-tuning%2C%20or%20inference%29%20and%20my%20target%20scale.%20After%20I%20provide%20my%20workload%20details%2C%20walk%20me%20through%20the%20five%20setup%20steps%20in%20this%20guide%3A%0A%0A1.%20Configure%20compute%20resources%3A%20Recommend%20machine%20series%20for%20compute%20nodes%20%28A4X%2C%20A4%2C%20A3%20Ultra%2C%20A3%20Mega%2C%20or%20N2%29%2C%20controller%20nodes%20%28N2%29%2C%20and%20login%20nodes%20%28C4A%20or%20N2%29%2C%20a%20deployment%20region%20and%20zone%2C%20and%20a%20consumption%20option%20%28future%20reservations%20for%20capacity%20blocks%2C%20future%20reservations%20in%20calendar%20mode%2C%20Flex-start%2C%20Spot%2C%20or%20On-demand%29.%0A%0A2.%20Configure%20storage%20resources%3A%20Recommend%20a%20new%20or%20existing%20Filestore%20or%20Google%20Cloud%20Managed%20Lustre%20instance%20for%20the%20shared%20/home%20directory%2C%20plus%20any%20optional%20Cloud%20Storage%20buckets.%0A%0A3.%20Configure%20networking%20resources%3A%20Recommend%20whether%20to%20let%20Cluster%20Director%20create%20a%20new%20VPC%20network%20or%20to%20use%20an%20existing%20VPC%20or%20Shared%20VPC%20network%20with%20the%20required%20subnet%2C%20Private%20Google%20Access%2C%20health%20check%20%28TCP%20port%208319%29%2C%20and%20IAP%20%28TCP%20port%2022%29%20firewall%20rules.%0A%0A4.%20Configure%20data%20protection%20%28optional%29%3A%20Identify%20whether%20I%20need%20a%20VPC%20Service%20Controls%20service%20perimeter%20and%20list%20the%20required%20restricted%20APIs.%0A%0A5.%20Configure%20the%20Slurm%20orchestrator%3A%20Recommend%20boot%20disk%20options%20for%20the%20controller%20and%20login%20nodes%2C%20and%20define%20the%20partitions%20and%20nodesets%20with%20static%20and%20dynamic%20node%20counts%20%28using%20multiples%20of%2018%20VMs%20for%20A4X%20nodesets%29.%0A%0AFormat%20the%20recommendations%20as%20a%20Markdown%20summary%20table%20for%20each%20step%2C%20followed%20by%20recommended%20Google%20Cloud%20console%20settings%20and%20next%20steps.&origin=cluster_director_process_overview)
 
 ### Configure compute resources
 
@@ -206,6 +247,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

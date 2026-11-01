@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/dml/
 title: Modify data with Pipeline operations \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:01.771182+00:00
+fetched_at: 2026-11-01T05:36:17.980201+00:00
 ---
 
 # Modify data with Pipeline operations  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ For example, the following operation backfills a data model change to all docume
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L3166-L3176)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L3166-L3176)
 
 ##### Java
     
@@ -95,7 +95,7 @@ For example, the following operation backfills a data model change to all docume
     	Update().
     	Execute(ctx)
     
-    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_dml.go#L28-L36)
+    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_dml.go#L28-L36)
 
 ## Delete documents
 
@@ -133,7 +133,7 @@ For example, the following pipeline deletes all `users` documents with `address.
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L3199-L3212)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L3199-L3212)
 
 ##### Java
     
@@ -157,7 +157,7 @@ For example, the following pipeline deletes all `users` documents with `address.
     	Delete().
     	Execute(ctx)
     
-    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_dml.go#L50-L55)
+    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_dml.go#L50-L55)
 
 ## Execution Modes and Consistency
 

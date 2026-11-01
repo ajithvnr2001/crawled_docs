@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/type_functions/
 title: Type Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:01.873407+00:00
+fetched_at: 2026-11-01T05:37:39.463106+00:00
 ---
 
 # Type Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -94,7 +94,7 @@ ABSENT | `NULL`
       .select([Field("title").notEqual("1984").as("not1984")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L858-L861)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L890-L893)
 
 ##### Kotlin  
 Android
@@ -130,7 +130,7 @@ Android
         .execute()
     )
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L1111-L1118)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1111-L1118)
 
 ##### Java
     
@@ -151,11 +151,13 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.NotEqual(firestore.FieldOf("title"), "1984").As("not1984"),
-    	)).
-    	Execute(ctx)
+    		firestore.NotEqual(firestore.FieldOf("title"), "1984").As(
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_comparison.go#L123-L128)
+    ["not1984"),
+    	)).
+    	Exe](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_comparison.go#L123-L128)
+    
+    cute(ctx)pipeline_snippets_comparison.go
 
 ### IS_TYPE
 

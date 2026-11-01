@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration-custom-org-policies/
 title: Custom Org Policies for BigQuery Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:07.507888+00:00
+fetched_at: 2026-11-01T05:37:08.378209+00:00
 ---
 
 # Custom Org Policies for BigQuery Migration Service  |  Google Cloud Documentation
@@ -408,6 +408,46 @@ Replace `PROJECT_ID` with your project ID.
 
 If you see a permission denied error, then your policy is successfully applied.
 
+## Example custom organization policies for common use cases
+
+The following table provides syntax examples of custom constraints for common BigQuery Migration Service governance use cases, such as restricting AI-generated SQL translation suggestions or non-default translation output types.
+
+The following examples use the CEL macro `exists`. For more information about CEL macros, see [Macros](https://github.com/google/cel-spec/blob/master/doc/langdef.md#macros).
+
+Description | Constraint syntax  
+---|---  
+Disallow AI-generated SQL translation suggestions in migration workflows. | 
+    
+    
+    name: organizations/ORGANIZATION_ID/customConstraints/custom.disableMigrationAiSuggestions
+    resourceTypes:
+    - bigquerymigration.googleapis.com/MigrationWorkflow
+    methodTypes:
+    - CREATE
+    condition: >-
+      resource.tasks.exists(k,
+      (has(resource.tasks[k].translationDetails) && 'suggestion' in resource.tasks[k].translationDetails.targetTypes) ||
+      (has(resource.tasks[k].translationConfigDetails) && 'suggestion' in resource.tasks[k].translationConfigDetails.targetTypes))
+    actionType: DENY
+    displayName: Disallow AI-generated SQL translation suggestions
+    description: Deny creating migration workflows that request AI-generated translation suggestions.  
+  
+Disallow non-SQL translation output types in migration workflows. | 
+    
+    
+    name: organizations/ORGANIZATION_ID/customConstraints/custom.restrictTranslationTargetTypes
+    resourceTypes:
+    - bigquerymigration.googleapis.com/MigrationWorkflow
+    methodTypes:
+    - CREATE
+    condition: >-
+      resource.tasks.exists(k,
+      (has(resource.tasks[k].translationDetails) && resource.tasks[k].translationDetails.targetTypes.exists(t, t != 'sql')) ||
+      (has(resource.tasks[k].translationConfigDetails) && resource.tasks[k].translationConfigDetails.targetTypes.exists(t, t != 'sql')))
+    actionType: DENY
+    displayName: Restrict translation workflows to SQL output
+    description: Deny creating translation workflows that specify output types other than translated SQL.  
+  
 ## What's next
 
   * Learn more about [Organization Policy Service](https://docs.cloud.google.com/organization-policy/overview).
@@ -420,6 +460,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

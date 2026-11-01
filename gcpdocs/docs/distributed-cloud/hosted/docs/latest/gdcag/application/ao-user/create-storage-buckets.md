@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/create-storage-buckets/
 title: Create storage buckets for projects \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:00:50.907859+00:00
+fetched_at: 2026-11-01T05:42:00.483838+00:00
 ---
 
 # Create storage buckets for projects  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -82,6 +82,30 @@ By default, buckets use the `Standard` storage class. If Nearline storage has be
 
 
 To verify that you have successfully created a new bucket, refresh the **Buckets** page after a few minutes and check that the bucket state updates from `Not ready` to `Ready`.
+
+### gdcloud
+
+To create a single-zone bucket with `gdcloud` using the `Nearline` storage class:
+    
+    
+    gdcloud storage buckets create BUCKET_NAME \
+        --location=ZONE_NAME \
+        --location-type=SingleZone \
+        --storage-class=Nearline
+    
+
+To create a dual-zone bucket with `gdcloud` using the global location:
+    
+    
+    gdcloud storage buckets create BUCKET_NAME \
+        --location=ZONE_1,ZONE_2 \
+        --location-type=AsyncDualZone \
+        --storage-class=Nearline
+    
+
+If `--storage-class` is omitted, `Standard` is used by default.
+
+For more details, see [gdcloud storage buckets create](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-storage-buckets-create).
 
 ### API
 
@@ -167,30 +191,6 @@ To create a dual-zone bucket, apply the specification against the global API ser
     kubectl --kubeconfig GLOBAL_API_SERVER_KUBECONFIG apply -f bucket.yaml
     
 
-### gdcloud
-
-To create a single-zone bucket with `gdcloud` using the `Nearline` storage class:
-    
-    
-    gdcloud storage buckets create BUCKET_NAME \
-        --location=ZONE_NAME \
-        --location-type=SingleZone \
-        --storage-class=Nearline
-    
-
-To create a dual-zone bucket with `gdcloud` using the global location:
-    
-    
-    gdcloud storage buckets create BUCKET_NAME \
-        --location=ZONE_1,ZONE_2 \
-        --location-type=AsyncDualZone \
-        --storage-class=Nearline
-    
-
-If `--storage-class` is omitted, `Standard` is used by default.
-
-For more details, see [gdcloud storage buckets create](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-storage-buckets-create).
-
 ## Verify bucket and related resource creation
 
 After creating the bucket, run the following command to confirm and check the details of the bucket:
@@ -243,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

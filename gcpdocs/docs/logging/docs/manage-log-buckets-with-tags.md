@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/manage-log-buckets-with-tags/
 title: Use tags to manage access to log buckets \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:59.090408+00:00
+fetched_at: 2026-11-01T05:43:31.069599+00:00
 ---
 
 # Use tags to manage access to log buckets  |  Cloud Logging  |  Google Cloud Documentation

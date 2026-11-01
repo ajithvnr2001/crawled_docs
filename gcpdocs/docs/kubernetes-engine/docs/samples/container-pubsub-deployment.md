@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-pubsub-deployment/
 title: Pub/Sub deployment \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:35.140942+00:00
+fetched_at: 2026-11-01T05:43:58.413389+00:00
 ---
 
 # Pub/Sub deployment  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

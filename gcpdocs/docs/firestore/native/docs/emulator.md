@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/emulator/
 title: Use Firestore emulator locally \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:18.819213+00:00
+fetched_at: 2026-11-01T05:36:33.913798+00:00
 ---
 
 # Use Firestore emulator locally  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -113,7 +113,7 @@ The following examples demonstrate how to connect the Android, Apple platforms, 
     settings.isSSLEnabled = false
     Firestore.firestore().settings = settings
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1265-L1269)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1265-L1269)
 
 ### Web version 9
     

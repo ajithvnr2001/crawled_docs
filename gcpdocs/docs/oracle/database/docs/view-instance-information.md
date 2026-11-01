@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/view-instance-information/
 title: View Exadata Infrastructure instance information \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:40:03.199944+00:00
+fetched_at: 2026-11-01T05:38:46.052263+00:00
 ---
 
 # View Exadata Infrastructure instance information  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ Replace the following:
 ### C#
     
     
-    using [Google.Cloud.OracleDatabase.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.OracleDatabase.V1/latest/Google.Cloud.OracleDatabase.V1.html);
+    using Google.Cloud.OracleDatabase.V1;
     using System.Threading.Tasks;
     
     public sealed partial class GeneratedOracleDatabaseClientSnippets
@@ -88,11 +88,11 @@ Replace the following:
         public async Task GetCloudExadataInfrastructureAsync()
         {
             // Create client
-            [OracleDatabaseClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.OracleDatabase.V1/latest/Google.Cloud.OracleDatabase.V1.OracleDatabaseClient.html) oracleDatabaseClient = await [OracleDatabaseClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.OracleDatabase.V1/latest/Google.Cloud.OracleDatabase.V1.OracleDatabaseClient.html).[CreateAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.OracleDatabase.V1/latest/Google.Cloud.OracleDatabase.V1.OracleDatabaseClient.html#Google_Cloud_OracleDatabase_V1_OracleDatabaseClient_CreateAsync_System_Threading_CancellationToken_)();
+            OracleDatabaseClient oracleDatabaseClient = await OracleDatabaseClient.CreateAsync();
             // Initialize request argument(s)
             string name = "projects/[PROJECT]/locations/[LOCATION]/cloudExadataInfrastructures/[CLOUD_EXADATA_INFRASTRUCTURE]";
             // Make the request
-            [CloudExadataInfrastructure](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.OracleDatabase.V1/latest/Google.Cloud.OracleDatabase.V1.CloudExadataInfrastructure.html) response = await oracleDatabaseClient.[GetCloudExadataInfrastructureAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.OracleDatabase.V1/latest/Google.Cloud.OracleDatabase.V1.OracleDatabaseClient.html#Google_Cloud_OracleDatabase_V1_OracleDatabaseClient_GetCloudExadataInfrastructureAsync_Google_Cloud_OracleDatabase_V1_CloudExadataInfrastructureName_Google_Api_Gax_Grpc_CallSettings_)(name);
+            CloudExadataInfrastructure response = await oracleDatabaseClient.GetCloudExadataInfrastructureAsync(name);
         }
     }
 
@@ -117,11 +117,11 @@ Replace the following:
     	// - It may require correct/in-range values for request initialization.
     	// - It may require specifying regional endpoints when creating the service client as shown in:
     	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
-    	c, err := oracledatabase.[NewClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/oracledatabase/latest/apiv1.html#cloud_google_com_go_oracledatabase_apiv1_Client_NewClient)(ctx)
+    	c, err := oracledatabase.NewClient(ctx)
     	if err != nil {
     		// TODO: Handle error.
     	}
-    	defer c.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/oracledatabase/latest/apiv1.html#cloud_google_com_go_oracledatabase_apiv1_Client_Close)()
+    	defer c.Close()
     
     	req := &oracledatabasepb.GetCloudExadataInfrastructureRequest{
     		// TODO: Fill request struct fields.
@@ -139,11 +139,11 @@ Replace the following:
 ### Java
     
     
-    import com.google.api.core.[ApiFuture](https://docs.cloud.google.com/java/docs/reference/api-common/latest/com.google.api.core.ApiFuture.html);
-    import com.google.cloud.oracledatabase.v1.[CloudExadataInfrastructure](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CloudExadataInfrastructure.html);
-    import com.google.cloud.oracledatabase.v1.[CloudExadataInfrastructureName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CloudExadataInfrastructureName.html);
-    import com.google.cloud.oracledatabase.v1.[GetCloudExadataInfrastructureRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.GetCloudExadataInfrastructureRequest.html);
-    import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
+    import com.google.api.core.ApiFuture;
+    import com.google.cloud.oracledatabase.v1.CloudExadataInfrastructure;
+    import com.google.cloud.oracledatabase.v1.CloudExadataInfrastructureName;
+    import com.google.cloud.oracledatabase.v1.GetCloudExadataInfrastructureRequest;
+    import com.google.cloud.oracledatabase.v1.OracleDatabaseClient;
     
     public class AsyncGetCloudExadataInfrastructure {
     
@@ -157,18 +157,18 @@ Replace the following:
         // - It may require correct/in-range values for request initialization.
         // - It may require specifying regional endpoints when creating the service client as shown in
         // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-        try ([OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html) oracleDatabaseClient = [OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html).create()) {
-          [GetCloudExadataInfrastructureRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.GetCloudExadataInfrastructureRequest.html) request =
-              [GetCloudExadataInfrastructureRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.GetCloudExadataInfrastructureRequest.html).newBuilder()
+        try (OracleDatabaseClient oracleDatabaseClient = OracleDatabaseClient.create()) {
+          GetCloudExadataInfrastructureRequest request =
+              GetCloudExadataInfrastructureRequest.newBuilder()
                   .setName(
-                      [CloudExadataInfrastructureName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CloudExadataInfrastructureName.html).of(
+                      CloudExadataInfrastructureName.of(
                               "[PROJECT]", "[LOCATION]", "[CLOUD_EXADATA_INFRASTRUCTURE]")
                           .toString())
                   .build();
           ApiFuture<CloudExadataInfrastructure> future =
-              oracleDatabaseClient.[getCloudExadataInfrastructureCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html#com_google_cloud_oracledatabase_v1_OracleDatabaseClient_getCloudExadataInfrastructureCallable__)().futureCall(request);
+              oracleDatabaseClient.getCloudExadataInfrastructureCallable().futureCall(request);
           // Do something.
-          [CloudExadataInfrastructure](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CloudExadataInfrastructure.html) response = future.get();
+          CloudExadataInfrastructure response = future.get();
         }
       }
     }
@@ -190,10 +190,10 @@ Replace the following:
     // const name = 'abc123'
     
     // Imports the Oracledatabase library
-    const {OracleDatabaseClient} = require('[@google-cloud/oracledatabase](https://docs.cloud.google.com/nodejs/docs/reference/oracledatabase/latest/overview.html)').v1;
+    const {OracleDatabaseClient} = require('@google-cloud/oracledatabase').v1;
     
     // Instantiates a client
-    const oracledatabaseClient = new [OracleDatabaseClient](https://docs.cloud.google.com/nodejs/docs/reference/oracledatabase/latest/overview.html)();
+    const oracledatabaseClient = new OracleDatabaseClient();
     
     async function callGetCloudExadataInfrastructure() {
       // Construct request
@@ -273,20 +273,20 @@ Replace the following:
     # - It may require specifying regional endpoints when creating the service
     #   client as shown in:
     #   https://googleapis.dev/python/google-api-core/latest/client_options.html
-    from google.cloud import [oracledatabase_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-oracledatabase/latest)
+    from google.cloud import oracledatabase_v1
     
     
     def sample_get_cloud_exadata_infrastructure():
         # Create a client
-        client = [oracledatabase_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-oracledatabase/latest).[OracleDatabaseClient](https://docs.cloud.google.com/python/docs/reference/google-cloud-oracledatabase/latest/google.cloud.oracledatabase_v1.services.oracle_database.OracleDatabaseClient.html)()
+        client = oracledatabase_v1.OracleDatabaseClient()
     
         # Initialize request argument(s)
-        request = [oracledatabase_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-oracledatabase/latest).[GetCloudExadataInfrastructureRequest](https://docs.cloud.google.com/python/docs/reference/google-cloud-oracledatabase/latest/google.cloud.oracledatabase_v1.types.GetCloudExadataInfrastructureRequest.html)(
+        request = oracledatabase_v1.GetCloudExadataInfrastructureRequest(
             name="name_value",
         )
     
         # Make the request
-        response = client.[get_cloud_exadata_infrastructure](https://docs.cloud.google.com/python/docs/reference/google-cloud-oracledatabase/latest/google.cloud.oracledatabase_v1.services.oracle_database.OracleDatabaseClient.html#google_cloud_oracledatabase_v1_services_oracle_database_OracleDatabaseClient_get_cloud_exadata_infrastructure)(request=request)
+        response = client.get_cloud_exadata_infrastructure(request=request)
     
         # Handle the response
         print(response)

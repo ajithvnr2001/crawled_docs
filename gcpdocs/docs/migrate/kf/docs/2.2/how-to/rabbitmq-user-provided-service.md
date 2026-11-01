@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.2/how-to/rabbitmq-user-provided-service/
 title: Setting Up RabbitMQ as a User-Provided Service \u00a0|\u00a0 Kf 2.2 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:42:46.850671+00:00
+fetched_at: 2026-11-01T05:44:19.772640+00:00
 ---
 
 # Setting Up RabbitMQ as a User-Provided Service  |  Kf 2.2  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ This document guides you through binding your App to a RabbitMQ instance not lis
 For Kf to successfully bind an App to your RabbitMQ instance, the minimum environment variable is the URI (for example `amqp://username:password@host:port/vhost?query`). Additional key-value pairs may be included if desired. The [RabbitMQ documentation](https://www.rabbitmq.com/uri-spec.html) can help with creating a URI string. The following example should be sufficient for basic deployments.
     
     
-    kf cups service-instance-name -p '{"uri":"amqp://username:password@rabbitmq-host:5672"}' -t "rabbitmq"
+    kf cups service-instance-name -p '{"uri&quot;:&quot;amqp://username:password@rabbitmq-host:5672"}' -t "rabbitmq"
 
 # Bind your App
 
@@ -80,7 +80,7 @@ You can confirm the new environment variables being provided to your App:
 If there are changes to the environment (for example password or host update in the URI, or the addition of new key-value pairs) that need to be passed on to any App bound to it, you can update the user-provided instance.
     
     
-    kf uups service-instance-name -p '{"uri":"new-uri", "some-new-key": "some-new-value"}'
+    kf uups service-instance-name -p '{&quot;uri&quot;:"new-uri&quot;, "some-new-key": "some-new-value"}'
 
 **Note:** After updating environment the service, you must unbind then rebind the service to make the changes active in your App.
     

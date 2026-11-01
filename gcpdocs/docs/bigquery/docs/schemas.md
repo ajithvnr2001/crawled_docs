@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/schemas/
 title: Specify a schema \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:20.895852+00:00
+fetched_at: 2026-11-01T05:45:20.869893+00:00
 ---
 
 # Specify a schema  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Specify a schema
 
-A schema defines the column names, data types, and other properties of a BigQuery table, so your data is stored and queried with the structure that you expect. BigQuery lets you specify a schema when you load data into a table or create an empty table. Alternatively, you can use schema [auto-detection](https://docs.cloud.google.com/bigquery/docs/schema-detect#auto-detect) for supported data formats.
+A schema defines the column names, data types, and other properties of a BigQuery table, so your data is stored and queried with the structure that you expect. BigQuery lets you specify a schema when you load data into a table or create an empty table. Alternatively, you can use schema [auto-detection](https://docs.cloud.google.com/bigquery/docs/schema-detect) for supported data formats.
 
 For self-describing formats, such as Avro, Parquet, ORC, Firestore export files, and Datastore export files, BigQuery retrieves the schema from the source data. After you load data or create an empty table, you can [modify the schema definition](https://docs.cloud.google.com/bigquery/docs/managing-table-schemas).
 
@@ -1051,6 +1051,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

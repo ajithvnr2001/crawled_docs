@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/workload-optimization/
 title: Optimize for workloads on GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:43.736009+00:00
+fetched_at: 2026-11-01T05:42:13.118513+00:00
 ---
 
 # Optimize for workloads on GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

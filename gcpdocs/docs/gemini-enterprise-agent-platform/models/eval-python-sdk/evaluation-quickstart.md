@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/evaluation-quickstart/
 title: Tutorial: Perform evaluation using the Python SDK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:20.934269+00:00
+fetched_at: 2026-11-01T05:38:35.098463+00:00
 ---
 
 # Tutorial: Perform evaluation using the Python SDK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ Import your libraries and set up your project and location.
     
     import pandas as pd
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.evaluation import EvalTask, PointwiseMetric, PointwiseMetricPromptTemplate
     from google.cloud import aiplatform
     
@@ -85,7 +85,7 @@ Import your libraries and set up your project and location.
     LOCATION = "LOCATION"
     EXPERIMENT_NAME = "EXPERIMENT_NAME"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(
         project=PROJECT_ID,
         location=LOCATION,
     )

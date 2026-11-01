@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-enable-versioning/
 title: Enable object versioning for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:16.935494+00:00
+fetched_at: 2026-11-01T05:36:03.707078+00:00
 ---
 
 # Enable object versioning for a bucket  |  Cloud Storage  |  Google Cloud Documentation

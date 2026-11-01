@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.18.0/docs/ai/maintain-vector-indexes/
 title: Maintain vector indexes \u00a0|\u00a0 AlloyDB Omni using containers: 15.18.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:38.885591+00:00
+fetched_at: 2026-11-01T05:38:40.230650+00:00
 ---
 
 # Maintain vector indexes  |  AlloyDB Omni using containers: 15.18.0  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ To enable AlloyDB to maintain an index automatically, add the `alloydb_scann` ex
 
   1. Load the `alloydb_scann` extension to the `shared_preload_libraries` list:
          
-         sudo sed -r -i "s|(shared_preload_libraries\s*=\s*)'(.*)'.*$|\1'\2,alloydb_scann'|" DATA_DIR/postgresql.conf
+         sudo sed -r -i "s|(shared_preload_libraries\s*=\s*)'(.*)'.*$|\1'\2,alloydb_scann'|"; DATA_DIR/postgresql.conf
 
   2. Verify that the parameter's configuration is set properly:
          
@@ -157,7 +157,7 @@ Replace the following:
 If you want to invoke maintenance on a particular index on-demand, then run the following command:
     
     
-    SELECT scann_index_maintenance('INDEX_NAME');
+    SELECT scann_index_maintenance(&#39;INDEX_NAME');
     
 
 ## Manually rebuild your index

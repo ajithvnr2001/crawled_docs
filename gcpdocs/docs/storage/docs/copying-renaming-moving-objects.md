@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/copying-renaming-moving-objects/
 title: Copy, rename, and move objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:04.840490+00:00
+fetched_at: 2026-11-01T05:35:56.249065+00:00
 ---
 
 # Copy, rename, and move objects  |  Cloud Storage  |  Google Cloud Documentation

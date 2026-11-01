@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/mixed-workloads/
 title: Optimize GKE resource utilization for mixed AI/ML training and inference workloads \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:45.466414+00:00
+fetched_at: 2026-11-01T05:43:57.964277+00:00
 ---
 
 # Optimize GKE resource utilization for mixed AI/ML training and inference workloads  |  GKE AI/ML  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/getting-started/java/
 title: Getting started with Spanner in Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:38.327064+00:00
+fetched_at: 2026-11-01T05:39:20.073509+00:00
 ---
 
 # Getting started with Spanner in Java  |  Google Cloud Documentation
@@ -41,6 +41,57 @@ In particular, make sure that you run [`gcloud auth application-default login`](
 **Note:** If you don't plan to keep the resources that you create in this tutorial, consider creating a new Google Cloud project instead of selecting an existing project. After you finish the tutorial, you can delete the project, removing all resources associated with the project. 
 
 ## Prepare your local Java environment
+
+To get started using Spanner in your own application, add the client library to your project dependencies:
+
+**Note:** If your application uses the Spring Framework, a [Spring Data module](https://docs.cloud.google.com/spanner/docs/adding-spring) is also available. 
+
+If you are using [Maven](https://maven.apache.org/), add the following to your `pom.xml` file. For more information about BOMs, see [The Google Cloud Platform Libraries BOM](https://cloud.google.com/java/docs/bom).
+    
+    
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>com.google.cloud</groupId>
+          <artifactId>libraries-bom</artifactId>
+          <version>26.90.0</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    
+    <dependencies>
+      <dependency>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>google-cloud-spanner</artifactId>
+      </dependency>
+    </dependencies>
+
+If you are using [Gradle](https://gradle.org/), add the following to your dependencies:
+    
+    
+    implementation platform('com.google.cloud:libraries-bom:26.90.0')
+    
+    implementation 'com.google.cloud:google-cloud-spanner'
+
+If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
+    
+    
+    libraryDependencies += "com.google.cloud" % "google-cloud-spanner" % "6.125.0"
+
+If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
+
+  * [Cloud Code for VS Code](https://docs.cloud.google.com/code/docs/vscode/client-libraries)
+  * [Cloud Code for IntelliJ](https://docs.cloud.google.com/code/docs/intellij/client-libraries)
+
+
+
+The plugins provide additional functionality, such as key management for service accounts. Refer to each plugin's documentation for details.
+
+**Note:** Cloud Java client libraries do not currently support Android.
+
+Alternatively, if you want to run the sample application used in this tutorial, follow these steps to prepare your local environment:
 
   1. Install the following on your development machine if they are not already installed:
 
@@ -1194,6 +1245,6 @@ Deleting an instance automatically drops all databases created in that instance.
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

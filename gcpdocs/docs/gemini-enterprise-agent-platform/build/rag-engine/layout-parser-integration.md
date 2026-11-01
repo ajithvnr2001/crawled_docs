@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration/
 title: Use Document AI layout parser with RAG Engine \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:14.055438+00:00
+fetched_at: 2026-11-01T05:38:33.865111+00:00
 ---
 
 # Use Document AI layout parser with RAG Engine  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -147,14 +147,14 @@ Replace the following variables used in the code sample:
     
     
     from vertexai import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
     paths = ["https://drive.google.com/file/123", "gs://my_bucket/my_files_dir"]  # Supports Cloud Storage and Google Drive.
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="LOCATION")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="LOCATION")
     
     response = rag.import_files(
         corpus_name=corpus_name,

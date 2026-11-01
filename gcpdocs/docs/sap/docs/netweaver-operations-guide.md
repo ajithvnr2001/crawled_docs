@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/netweaver-operations-guide/
 title: SAP NetWeaver Operations Guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:40.028358+00:00
+fetched_at: 2026-11-01T05:40:40.194257+00:00
 ---
 
 # SAP NetWeaver Operations Guide  |  SAP on Google Cloud  |  Google Cloud Documentation

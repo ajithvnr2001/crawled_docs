@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/generic_functions/
 title: Generic Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:29.007990+00:00
+fetched_at: 2026-11-01T05:38:19.510378+00:00
 ---
 
 # Generic Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -98,7 +98,7 @@ b"abc", b"def" | b"abcdef"
     
     let displayString = Constant("Author ID: ").concat([Field("authorId")])
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/f3036609c93935c1dac413010ec37306c33104fe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L36-L36)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/412e73fe76304ba204ab0410def88d2e9ede1acc/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L36-L36)
 
 ##### Kotlin  
 Android
@@ -122,7 +122,7 @@ Android
     
     Constant.of("Author ID: ").concat(Field.of("authorId"))
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L32-L32)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L32-L32)
 
 ### LENGTH
 

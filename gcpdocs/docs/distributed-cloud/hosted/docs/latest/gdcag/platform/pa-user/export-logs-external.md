@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/export-logs-external/
 title: Export logs to a SIEM system \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:36.891391+00:00
+fetched_at: 2026-11-01T05:42:00.635744+00:00
 ---
 
 # Export logs to a SIEM system  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -82,7 +82,6 @@ Replace the following:
      * `SECRET_NAME`: the name of your secret.
      * `SECRET_FIELD`: the name of the field where you want to store the secret. For Elastic, use the same value as `HTTP_USER_NAME` in the custom resource.
      * `FIELD_VALUE`: FIELD_VALUE is token in case of Splunk and password for Elastic.
-     * `TOKEN`: your token.
 **Note:** Consider using separate tokens for audit and operational logs, deploying two secrets accordingly. You must reference the corresponding secret name in the `SIEMOrgForwarder` custom resource.
   2. Deploy the `SIEMOrgForwarder` custom resource in your project namespace. You must specify the log type by choosing between audit or operational logs. To configure the log export for both log types, you must deploy a `SIEMOrgForwarder` resource for each type.
 
@@ -172,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

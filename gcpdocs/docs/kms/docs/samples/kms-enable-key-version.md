@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-enable-key-version/
 title: Enable a key version \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:01:26.540834+00:00
+fetched_at: 2026-11-01T05:36:58.627393+00:00
 ---
 
 # Enable a key version  |  Cloud Key Management Service  |  Google Cloud Documentation

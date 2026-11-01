@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-update-attributes/
 title: Update database cluster attributes \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:01:00.386642+00:00
+fetched_at: 2026-11-01T05:45:26.461487+00:00
 ---
 
 # Update database cluster attributes  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -77,17 +77,21 @@ For all database cluster types, you can edit the primary instance properties:
 
 For all database cluster types, this form also lets you add, modify, or remove database flags. The set of flags available is predetermined by GDC. See the Configure database flags section for more information.
 
-###  gdcloud CLI 
+###  gdcloud 
 
-Use the following command to update a database cluster: `sh gdcloud database clusters update CLUSTER_NAME [options]`
+Use the following command to update a database cluster:
+    
+    
+    gdcloud database clusters update CLUSTER_NAME [options]
+    
 
-Replace the following:
+Replace `CLUSTER_NAME` with the name of the database cluster to update.
 
-  * CLUSTER_NAME with the name of the database cluster to update.
-
-
-
-For the full list of options, see the [command reference](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-database-clusters-update) or run `sh gdcloud database clusters update --help`
+For the full list of options, see the [command reference](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-database-clusters-update) or run:
+    
+    
+    gdcloud database clusters update --help
+    
 
 ###  API 
 
@@ -305,6 +309,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

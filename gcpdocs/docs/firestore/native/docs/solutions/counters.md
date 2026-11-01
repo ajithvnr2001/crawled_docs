@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/counters/
 title: Support frequent and distributed counters \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:15.873719+00:00
+fetched_at: 2026-11-01T05:37:47.431229+00:00
 ---
 
 # Support frequent and distributed counters  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ Write throughput increases linearly with the number of shards, so a distributed 
       }
     }
     
-    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L32-L48)
+    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L32-L48)
 
 ### Objective-C
 
@@ -106,7 +106,7 @@ Write throughput increases linearly with the number of shards, so a distributed 
     }
     @end
     
-    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L22-L50)
+    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L22-L50)
 
 ###  Kotlin  
 Android
@@ -305,7 +305,7 @@ The following code initializes a distributed counter:
       }
     }
     
-    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L52-L61)
+    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L52-L61)
 
 ### Objective-C
 
@@ -323,7 +323,7 @@ The following code initializes a distributed counter:
       }];
     }
     
-    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L65-L74)
+    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L65-L74)
 
 ###  Kotlin  
 Android
@@ -536,7 +536,7 @@ To increment the counter, choose a random shard and increment the count:
       ])
     }
     
-    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L65-L73)
+    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L65-L73)
 
 ### Objective-C
 
@@ -556,7 +556,7 @@ To increment the counter, choose a random shard and increment the count:
       }];
     }
     
-    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L78-L89)
+    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L78-L89)
 
 ###  Kotlin  
 Android
@@ -737,7 +737,7 @@ To get the total count, query for all shards and sum their `count` fields:
       }
     }
     
-    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L77-L90)
+    [SolutionCountersViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/SolutionCountersViewController.swift#L77-L90)
 
 ### Objective-C
 
@@ -763,7 +763,7 @@ To get the total count, query for all shards and sum their `count` fields:
       }];
     }
     
-    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L93-L110)
+    [FIRSolutionCountersViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/FIRSolutionCountersViewController.m#L93-L110)
 
 ###  Kotlin  
 Android

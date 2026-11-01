@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/format-structure/
 title: Input data format and structure \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:06.463238+00:00
+fetched_at: 2026-11-01T05:37:23.706834+00:00
 ---
 
 # Input data format and structure  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ The following are examples of dense, sparse, and hybrid embeddings:
   * Dense embeddings:
         
         {"id": "1", "embedding": [1,1,1]}
-        {"id": "2", "embedding": [2,2,2]}
+        {&quot;id": "2", "embedding": [2,2,2]}
         
 
   * Sparse embeddings:
@@ -68,7 +68,7 @@ The following are examples of dense, sparse, and hybrid embeddings:
   * Hybrid embeddings:
         
         {"id": "5", "embedding": [5, 5, -5], "sparse_embedding": {"values": [0.1], "dimensions": [500]}}
-        {"id": "6", "embedding": [6, 7, -8.1], "sparse_embedding": {"values": [0.1, -0.2], "dimensions": [40, 901]}}
+        {"id": "6", "embedding&quot;: [6, 7, -8.1], "sparse_embedding": {"values": [0.1, -0.2], "dimensions": [40, 901]}}
         
 
 
@@ -292,7 +292,7 @@ For example, `#size=3i` represents this `NumericRestrictNamespace`:
         
         {
           "namespace": "ratio"
-          "value_float": 0.1
+          &quot;value_float": 0.1
         }
         
 
@@ -300,7 +300,7 @@ For example, `#size=3i` represents this `NumericRestrictNamespace`:
         
         {
           "namespace": "weight"
-          "value_double": 0.3
+          &quot;value_double": 0.3
         }
         
 

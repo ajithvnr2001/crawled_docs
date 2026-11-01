@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb/
 title: Set up a regional external Application Load Balancer with VM instance group backends \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:35.971124+00:00
+fetched_at: 2026-11-01T05:36:29.477695+00:00
 ---
 
 # Set up a regional external Application Load Balancer with VM instance group backends  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -1228,13 +1228,13 @@ Create the regional backend service by making a `POST` request to the [`regionBa
     {
       "name": "l7-xlb-backend-service",
       "backends": [
-        {
-          "group": "projects/<var>PROJECT_ID</var>/zones/us-west1-a/instanceGroups/l7-xlb-backend-example",
-          "balancingMode": "UTILIZATION"
+     <   >{
+          &q<uot;>group": "projects/varPROJECT_ID/var/zones/us-west1-a/instanceGroups/l7-xlb-backend-example",
+          "balancingMode":< &q>uot;UTILIZ<ATIO>N"
         }
       ],
       "healthChecks": [
-        "projects/<var>PROJECT_ID</var>/regions/us-west1/healthChecks/l7-xlb-basic-check"
+        "projects/varPROJECT_ID/var/regions/us-west1/healthChecks/l7-xlb-basic-check"
       ],
       "loadBalancingScheme": "EXTERNAL_MANAGED"
     }
@@ -1246,7 +1246,7 @@ Create the URL map by making a `POST` request to the [`regionUrlMaps.insert`](ht
     POST https://compute.googleapis.com/compute/v1/projects/<var>PROJECT_ID</var>/regions/us-west1/urlMaps
     {
       "name": "regional-l7-xlb-map",
-      "defaultService": "projects/<var>PROJECT_ID</var>/regions/us-west1/backendServices/l7-xlb-backend-service"
+      "de<fau>ltService&<quot>;: "projects/varPROJECT_ID/var/regions/us-west1/backendServices/l7-xlb-backend-service"
     }
     
 
@@ -1377,7 +1377,7 @@ To set session affinity, make a `PATCH` request to the [`regionBackendServices/p
     
     PATCH https://compute.googleapis.com/compute/v1/projects/<var>PROJECT_ID</var>/regions/us-west1/regionBackendServices/l7-xlb-backend-service
     {
-      "sessionAffinity": <var>"GENERATED_COOKIE" | "HEADER_FIELD" | "HTTP_COOKIE" | "CLIENT_IP"</var>
+      "sessionAffini<ty&>quot;: var"GENERATED_COOKIE" | "HEADER_FIELD"< | &>quot;HTTP_COOKIE" | "CLIENT_IP"/var
     }
     
 

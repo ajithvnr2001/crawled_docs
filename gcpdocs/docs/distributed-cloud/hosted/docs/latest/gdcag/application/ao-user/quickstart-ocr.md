@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-ocr/
 title: Detect text in images \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:31.215289+00:00
+fetched_at: 2026-11-01T05:45:24.630619+00:00
 ---
 
 # Detect text in images  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -80,7 +80,7 @@ Follow these steps to detect text in images using the REST API method:
            "requests": [
              {
                "image": {
-                 "content": BASE64_ENCODED_IMAGE
+                 "content": "BASE64_ENCODED_IMAGE"
                },
                "features": [
                  {
@@ -89,9 +89,7 @@ Follow these steps to detect text in images using the REST API method:
                ],
                "image_context": {
                  "language_hints": [
-                   "LANGUAGE_HINT_1",
-                   "LANGUAGE_HINT_2",
-                   ...
+                   "LANGUAGE_HINT"
                  ]
                }
              }
@@ -132,17 +130,18 @@ Replace the following:
       "x-goog-user-project" = "projects/PROJECT_ID"
     }
     
-    Invoke-WebRequest
-      -Method POST
-      -Headers $headers
-      -ContentType: "application/json; charset=utf-8"
-      -InFile request.json
-      -Uri "ENDPOINT/v1/images:annotate" | Select-Object -Expand Content
+    Invoke-WebRequest `
+      -Method POST `
+      -Headers $headers `
+      -ContentType "application/json; charset=utf-8" `
+      -InFile request.json `
+      -Uri "https://ENDPOINT/v1/images:annotate" | Select-Object -Expand Content
     
 
 Replace the following:
 
      * `TOKEN`: [the authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth) you obtained.
+     * `PROJECT_ID`: your project ID.
      * `ENDPOINT`: the OCR endpoint that you use for your organization. For more information, [view service status and endpoints](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status).
 
 
@@ -226,6 +225,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

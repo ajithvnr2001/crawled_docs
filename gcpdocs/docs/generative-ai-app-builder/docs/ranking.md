@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking/
 title: Improve search and RAG quality with ranking API \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:18:38.513557+00:00
+fetched_at: 2026-11-01T05:45:14.890359+00:00
 ---
 
 # Improve search and RAG quality with ranking API  |  Agent Search  |  Google Cloud Documentation
@@ -73,7 +73,9 @@ For example:
         "query": "Why is the sky blue?"
         
 
-  * A set of records that are relevant to the query. The records are provided as an array of objects. Each record can include a unique ID, a title, and the content of the document. For each record include either a title, content, or both. The maximum supported tokens per record depends on the model version being used. For example, models up to version `003` support 512 tokens, while version `004` supports 1024 tokens. If the combined length of the title and content exceeds the model's token limit, the extra content is truncated. You can include up to 1000 records per request.
+  * A set of records that are relevant to the query. The records are provided as an array of objects. Each record can include a unique ID, a title, and the content of the document. For each record include either a title, content, or both. The maximum supported tokens per record depends on the model version being used. For example, models up to version `003` support 512 tokens, while version `004` supports 1024 tokens. If the combined length of the title and content exceeds the model's token limit, the extra content is chunked and processed in segments. If a record is considered too long, part of the content is truncated and ignored.
+
+You can include up to 1000 records per request.
 
 For example, a record array looks something like this. In reality, many more records would be included in the array and the content would be much longer:
         
@@ -155,7 +157,7 @@ Typically, you'll supply the ranking API with a query and a set of records that 
 
   1. Obtain the query and resulting records. Ensure that each record has an ID and either a title, content, or both.
 
-The maximum number of supported tokens per record depends on the model version. Models up to version `003`, such as `semantic-ranker-512-003`, support 512 tokens per record. Starting from version `004`, this limit increases to 1024 tokens. If the combined length of the title and content exceeds the model's token limit, the extra content is truncated.
+The maximum number of supported tokens per record depends on the model version. Models up to version `003`, such as `semantic-ranker-512-003`, support 512 tokens per record. Starting from version `004`, this limit increases to 1024 tokens. If the combined length of the title and content exceeds the model's token limit, the extra content is chunked and processed in segments. In extreme cases, if a record is considered too long, part of the content will be truncated and will be ignored.
 
   2. Call the [`rankingConfigs.rank`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.rankingConfigs/rank) method using the following code:
 
@@ -335,6 +337,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

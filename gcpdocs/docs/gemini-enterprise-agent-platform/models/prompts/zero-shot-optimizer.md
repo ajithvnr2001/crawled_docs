@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/zero-shot-optimizer/
 title: Zero-shot optimizer \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:15.761432+00:00
+fetched_at: 2026-11-01T05:38:34.603865+00:00
 ---
 
 # Zero-shot optimizer  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ Your administrator might also be able to give the [Compute Engine default servic
     
     
     # Import libraries
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     import logging
     
     # Google Colab authentication
@@ -71,7 +71,7 @@ Your administrator might also be able to give the [Compute Engine default servic
     auth.authenticate_user(project_id=PROJECT_NAME)
     
     # Initialize the Agent Platform client
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(project=PROJECT_NAME, location='us-central1')
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(project=PROJECT_NAME, location='us-central1')
     
     # Input original prompt to optimize
     prompt = """You are a professional chef. Your goal is teaching how to cook healthy cooking recipes to your apprentice.
@@ -81,7 +81,7 @@ Your administrator might also be able to give the [Compute Engine default servic
     """
     
     # Optimize prompt
-    output = client.[prompt_optimizer](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompt_optimizer.html).optimize_prompt(prompt=prompt)
+    output = client.[prompt_optimizer](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompt_optimizer.html).optimize_prompt(prompt=prompt)
     
     # View optimized prompt
     print(output.model_dump_json(indent=2))

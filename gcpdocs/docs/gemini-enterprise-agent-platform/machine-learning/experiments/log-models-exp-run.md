@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-models-exp-run/
 title: Log models to an experiment run \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:41.662982+00:00
+fetched_at: 2026-11-01T05:37:56.238122+00:00
 ---
 
 # Log models to an experiment run  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -52,9 +52,9 @@ The Vertex AI SDK provides the [`save_model`](https://cloud.google.com/python/do
         input_example: Optional[
             Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
         ] = None,
-        display_name: Optional[str] = None,
+        display_name: Optional[str] = N>one,
         staging_bucket: Optional[str] = None,
-    ) -> None:
+    ) - None:
         aiplatform.init(project=project, location=location)
     
         aiplatform.save_model(
@@ -103,9 +103,9 @@ The Vertex AI SDK provides a [`log_model`](https://cloud.google.com/python/docs/
         uri: Optional[str] = None,
         input_example: Optional[
             Union[list, dict, "pd.DataFrame", "np.ndarray"]  # noqa: F821
-        ] = None,  # noqa: F821
+        ] = None,  # noqa>: F821
         display_name: Optional[str] = None,
-    ) -> None:
+    ) - None:
         aiplatform.init(experiment=experiment_name, project=project, location=location)
     
         aiplatform.start_run(run=run_name, resume=True)

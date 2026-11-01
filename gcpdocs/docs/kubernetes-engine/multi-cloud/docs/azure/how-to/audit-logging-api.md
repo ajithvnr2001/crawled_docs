@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/azure/how-to/audit-logging-api/
 title: Cloud Audit Logs API \u00a0|\u00a0 GKE on Azure \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:48.270287+00:00
+fetched_at: 2026-11-01T05:44:32.507138+00:00
 ---
 
 # Cloud Audit Logs API  |  GKE on Azure  |  Google Cloud Documentation

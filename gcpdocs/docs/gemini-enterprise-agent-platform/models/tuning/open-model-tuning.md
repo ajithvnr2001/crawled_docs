@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/open-model-tuning/
 title: Supervised and distillation fine-tuning for open models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:17.648683+00:00
+fetched_at: 2026-11-01T05:37:35.977982+00:00
 ---
 
 # Supervised and distillation fine-tuning for open models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -261,12 +261,12 @@ Install the SDK and import the libraries for your tuning method.
     import os
     import time
     import uuid
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=PROJECT_ID, location=REGION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=PROJECT_ID, location=REGION)
     
     from google.cloud import aiplatform
-    from vertexai.tuning import [sft](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.tuning.sft.html), [SourceModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.tuning.SourceModel.html)
+    from vertexai.tuning import [sft](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.tuning.sft.html), [SourceModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.tuning.SourceModel.html)
     
 
 ### Distillation tuning

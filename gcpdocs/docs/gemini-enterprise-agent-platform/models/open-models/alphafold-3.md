@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphafold-3/
 title: AlphaFold 3 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:50.404243+00:00
+fetched_at: 2026-11-01T05:38:15.949993+00:00
 ---
 
 # AlphaFold 3  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ The following is a sample Python snippet that shows how to deploy the model in a
     
     import google.auth
     from google.auth.transport.requests import AuthorizedSession
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai import model_garden
     
     PROJECT_ID = "YOUR_PROJECT_ID"
@@ -123,7 +123,7 @@ The following is a sample Python snippet that shows how to deploy the model in a
     MODEL_ID = "google/alphafold3@v3_0_4"
     MACHINE_TYPE = "a3-highgpu-1g"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     # 1. Deploy Model Garden OpenModel to Dedicated Endpoint
     af3_model = model_garden.OpenModel(MODEL_ID)
@@ -157,7 +157,7 @@ The following is a sample Python snippet that shows how to deploy the model in a
             }
         }
     }
-    response = [session](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.GenerateMemoriesRequestVertexSessionSourceDict.html#vertexai__genai_types_GenerateMemoriesRequestVertexSessionSourceDict_session).post(url, json=payload)
+    response = [session](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.GenerateMemoriesRequestVertexSessionSourceDict.html#vertexai__genai_types_GenerateMemoriesRequestVertexSessionSourceDict_session).post(url, json=payload)
     response.raise_for_status()
     print(f"Endpoint Resource Name: {endpoint.resource_name}")
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/netweaver-deployment-windows-manual/
 title: Manual VM deployment for SAP NetWeaver on Windows \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:54:52.266363+00:00
+fetched_at: 2026-11-01T05:40:42.556760+00:00
 ---
 
 # Manual VM deployment for SAP NetWeaver on Windows  |  SAP on Google Cloud  |  Google Cloud Documentation

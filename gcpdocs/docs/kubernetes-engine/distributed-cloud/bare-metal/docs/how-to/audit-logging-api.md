@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/audit-logging-api/
 title: Cloud API audit logging \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:59.192149+00:00
+fetched_at: 2026-11-01T05:44:32.784869+00:00
 ---
 
 # Cloud API audit logging  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation

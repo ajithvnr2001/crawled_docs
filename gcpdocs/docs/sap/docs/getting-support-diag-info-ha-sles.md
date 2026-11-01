@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/getting-support-diag-info-ha-sles/
 title: High-availability clusters on SLES diagnostic information \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:55:58.563643+00:00
+fetched_at: 2026-11-01T05:40:38.360398+00:00
 ---
 
 # High-availability clusters on SLES diagnostic information  |  SAP on Google Cloud  |  Google Cloud Documentation

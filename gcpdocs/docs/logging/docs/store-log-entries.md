@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/store-log-entries/
 title: Store log entries \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:38.479833+00:00
+fetched_at: 2026-11-01T05:44:09.451176+00:00
 ---
 
 # Store log entries  |  Cloud Logging  |  Google Cloud Documentation

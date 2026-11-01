@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/valkey/audit-logging/
 title: Monitor access using audit logs \u00a0|\u00a0 Memorystore for Valkey \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:40.956703+00:00
+fetched_at: 2026-11-01T05:44:11.448210+00:00
 ---
 
 # Monitor access using audit logs  |  Memorystore for Valkey  |  Google Cloud Documentation

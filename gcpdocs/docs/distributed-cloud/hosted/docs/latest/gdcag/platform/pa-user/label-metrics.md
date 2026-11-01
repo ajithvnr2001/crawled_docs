@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/label-metrics/
 title: Label metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:43.092118+00:00
+fetched_at: 2026-11-01T05:42:00.767023+00:00
 ---
 
 # Label metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -71,14 +71,14 @@ The following code sample shows how to set the `_gdch_project` target label in t
       namespace: PROJECT_NAMESPACE
       name: MONITORING_TARGET_NAME
     spec:
-      [...]
+      # [...]
       podMetricsEndpoints:
-        [...]
+        # [...]
         metricsRelabelings:
           - action: replace
             targetLabel: _gdch_project
             replacement: another-project-name
-          [...]
+          # [...]
     
 
 Replace the following:
@@ -102,14 +102,14 @@ The following code sample shows how to set the `my_new_label` target label and c
       namespace: PROJECT_NAMESPACE
       name: MONITORING_TARGET_NAME
     spec:
-      [...]
+      # [...]
       podMetricsEndpoints:
-        [...]
+        # [...]
         metricsRelabelings:
           - action: replace
             targetLabel: my_new_label
             replacement: my_label_value
-          [...]
+          # [...]
     
 
 Replace the following:
@@ -133,16 +133,16 @@ The following code sample shows how to replace the `cpu_usage` metric name (rege
       namespace: PROJECT_NAMESPACE
       name: MONITORING_TARGET_NAME
     spec:
-      [...]
+      # [...]
       podMetricsEndpoints:
-        [...]
+        # [...]
         metricsRelabelings:
           - action: replace
             regex: cpu_usage
             replacement: cpu_usage_new_name
             sourceLabels: [__name__]
             targetLabel: __name__
-          [...]
+          # [...]
     
 
 Replace the following:
@@ -156,6 +156,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

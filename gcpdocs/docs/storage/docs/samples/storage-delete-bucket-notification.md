@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-delete-bucket-notification/
 title: Delete a Pub/Sub notification \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:16.081980+00:00
+fetched_at: 2026-11-01T05:35:40.348540+00:00
 ---
 
 # Delete a Pub/Sub notification  |  Cloud Storage  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/getting-support/
 title: Getting support for SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:54:53.149960+00:00
+fetched_at: 2026-11-01T05:40:43.330915+00:00
 ---
 
 # Getting support for SAP on Google Cloud  |  Google Cloud Documentation

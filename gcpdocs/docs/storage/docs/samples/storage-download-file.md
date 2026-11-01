@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-download-file/
 title: Download an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:34.976475+00:00
+fetched_at: 2026-11-01T05:36:04.559825+00:00
 ---
 
 # Download an object  |  Cloud Storage  |  Google Cloud Documentation

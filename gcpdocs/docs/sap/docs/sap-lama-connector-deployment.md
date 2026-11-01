@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-lama-connector-deployment/
 title: Connector for LaMa installation and operations guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:55:56.007960+00:00
+fetched_at: 2026-11-01T05:40:34.590663+00:00
 ---
 
 # Connector for LaMa installation and operations guide  |  SAP on Google Cloud  |  Google Cloud Documentation

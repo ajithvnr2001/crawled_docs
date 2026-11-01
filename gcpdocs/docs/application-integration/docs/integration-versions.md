@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/integration-versions/
 title: Integration versions \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:51:24.798616+00:00
+fetched_at: 2026-11-01T05:45:17.425321+00:00
 ---
 
 # Integration versions  |  Application Integration  |  Google Cloud Documentation
@@ -23,12 +23,12 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 Integrations are design time entities that are often developed in collaboration with multiple authors. Although an integration can only be actively edited by one author at a time, teams can collaborate on an integration and track changes in state through its _versions_. 
 
-A version of an integration can be in any of the following states: 
+An integration version can have one of the following states: 
 
-  * `DRAFT`: The state of an integration version actively being edited by an author. When an integration is in `DRAFT`, edit capabilities are only available to the current author. The integration is locked for editing by others for 15 minutes from the last update. Locks are released after 15 minutes from the last update.
-  * `SNAPSHOT`: When a new author takes over editing a version, the existing version is converted to `SNAPSHOT` and a new `DRAFT` is created.
-  * `ACTIVE`: The state of a published version.
-  * `DELETED`: The state of a version that has been deleted by an author, or remains untouched for a specified period of time.
+  * `DRAFT`: A version actively being edited by an author. Only the current author can edit a `DRAFT` version. The version is locked to other users for 15 minutes after the most recent update.
+  * `SNAPSHOT`: A version that is neither being edited nor published. When a new author takes over editing a version, the existing version is converted to `SNAPSHOT` and a new `DRAFT` is created. When you publish a different version or unpublish the integration, the previously published version is converted to `SNAPSHOT`.
+  * `ACTIVE`: A published version.
+  * `ARCHIVED`: A deleted or archived version. Archived versions don't appear when you list an integration's versions.
 
 
 
@@ -95,6 +95,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

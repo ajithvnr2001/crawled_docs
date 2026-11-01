@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:51:45.576831+00:00
+fetched_at: 2026-11-01T05:45:16.370663+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,14 @@ This page documents production updates to AlloyDB for PostgreSQL. Check this pag
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydb-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Fixed
+
+For AlloyDB clusters compatible with PostgreSQL 18 or later, an instance restart is no longer required when you enable or edit [Advanced Query Insights](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights) settings, including changing the query length or enabling active query analysis. For clusters compatible with PostgreSQL 17 or earlier, saving changes still requires an instance restart.
+
+For more information, see [Use Advanced Query Insights](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights) and [Monitor active queries](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries).
 
 ## October 29, 2026
 

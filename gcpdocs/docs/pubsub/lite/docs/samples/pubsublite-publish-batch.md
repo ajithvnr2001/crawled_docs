@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/lite/docs/samples/pubsublite-publish-batch/
 title: Publish with batch settings \u00a0|\u00a0 Pub/Sub Lite \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:32:39.265018+00:00
+fetched_at: 2026-11-01T05:38:48.952129+00:00
 ---
 
 # Publish with batch settings  |  Pub/Sub Lite  |  Google Cloud Documentation

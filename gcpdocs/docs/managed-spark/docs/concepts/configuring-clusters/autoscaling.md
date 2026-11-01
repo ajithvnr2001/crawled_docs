@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/autoscaling/
 title: Autoscale clusters \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:42.055160+00:00
+fetched_at: 2026-11-01T05:40:45.370326+00:00
 ---
 
 # Autoscale clusters  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -93,7 +93,7 @@ To create an autoscaling policy, select CREATE POLICY from the Managed Service f
 
 You can use the [`gcloud dataproc autoscaling-policies import`](https://docs.cloud.google.com/sdk/gcloud/reference/dataproc/autoscaling-policies/import) command to create an autoscaling policy. It reads a local [YAML](https://yaml.org/)`` file that defines an autoscaling policy. The format and content of the file should match config objects and fields defined by the [autoscalingPolicies](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/projects.locations.autoscalingPolicies) REST API.
 
-The following YAML example defines a policy for Managed Service for Apache Spark standard clusters, with all required fields. It also provides the `minInstances` and `maxInstances` values for the primary workers, the `maxInstances` value for the secondary (preemptible) workers, and specifies a 4-minute `cooldownPeriod` (the default is 2 minutes). The `workerConfig` configures the primary workers. In this example, `minInstances` and `maxInstances` are set to the same value [to avoid scaling the primary workers](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/autoscaling#avoid_scaling_primary_workers). 
+The following YAML example defines a policy for Managed Service for Apache Spark standard clusters, with all required fields. It also provides the `minInstances` and `maxInstances` values for the primary workers, the `maxInstances` value for the secondary workers, and specifies a 4-minute `cooldownPeriod` (the default is 2 minutes). The `workerConfig` configures the primary workers. In this example, `minInstances` and `maxInstances` are set to the same value [to avoid scaling the primary workers](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/autoscaling#avoid_scaling_primary_workers). 
     
     
     workerConfig:
@@ -133,7 +133,7 @@ The following YAML example defines a policy for Managed Service for Apache Spark
 
 The following YAML example defines a policy for [zero-scale clusters](https://docs.cloud.google.com/managed-spark/docs/guides/create-zero-scale-cluster).
 
-For zero-scale clusters, don't include `workerConfig`. 
+For zero-scale clusters, don't include `workerConfig`.
     
     
     clusterType: ZERO_SCALE
@@ -239,7 +239,7 @@ To enable an autoscaling policy on an existing cluster, set the [AutoscalingConf
 To view the `AutoscalingConfig.policyUri` (policy resource name), run the following `gcloud ` command: 
     
     
-    gcloud dataproc gcloud dataproc autoscaling-policies \
+    gcloud dataproc autoscaling-policies \
         describe policy-name \
         --region=region
     
@@ -331,7 +331,7 @@ OR
 
   4. If the number of workers to scale is large enough to trigger scaling, autoscaling uses the `minInstances` `maxInstances` bounds of `workerConfig` and `secondaryWorkerConfig` and `weight` (ratio of primary to secondary workers) to determine how to split the number of workers across the primary and secondary worker instance groups. The result of these calculations is the final autoscaling change to the cluster for the scaling period.
 
-  5. Autoscaling scaledown requests will be cancelled on clusters created with image versions [2.0.57+, 2.1.5+, and later image versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-version-clusters#supported-dataproc-image-versions) if:
+  5. Autoscaling scaledown requests will be cancelled on clusters created with image versions [2.0.57+, 2.1.5+, and later image versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-version-lists#supported-image-versions) if:
 
      1. a scaledown is in progress with a non-zero graceful decommissioning timeout value, and
      2. the number of ACTIVE YARN workers ("active workers") plus the change in the total number of workers recommended by the autoscaler (`Δworkers`) is equal to or greater than `DECOMMISSIONING` YARN workers ("decommissioning workers"), as shown in the following formula:
@@ -353,7 +353,7 @@ This section contains recommendations to help you configure autoscaling.
 
 ### Avoid scaling primary workers
 
-Primary workers run HDFS Datanodes, while secondary workers are compute-only. The use of secondary workers lets you efficiently scale compute resources without the need to provision storage, resulting in faster scaling capabilities. HDFS Namenodes can have multiple race conditions that cause HDFS to become corrupted so that decommissioning is stuck indenfintely. To avoid this problem, avoid scaling primary workers. For example: `none workerConfig: minInstances: 10 maxInstances: 10 secondaryWorkerConfig: minInstances: 0 maxInstances: 100`
+Primary workers run HDFS Datanodes, while secondary workers are compute-only. The use of secondary workers lets you efficiently scale compute resources without the need to provision storage, resulting in faster scaling capabilities. HDFS Namenodes can have multiple race conditions that cause HDFS to become corrupted so that decommissioning is stuck indefinitely. To avoid this problem, avoid scaling primary workers. For example: `none workerConfig: minInstances: 10 maxInstances: 10 secondaryWorkerConfig: minInstances: 0 maxInstances: 100`
 
 There are a few modifications that need to be made to the cluster creation command:
 
@@ -379,7 +379,7 @@ With EFM enabled, an autoscaling policy's graceful decommissioning timeout must 
 
 Autoscaling supports [YARN graceful decommissioning](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/GracefulDecommission.html) when removing nodes from a cluster. Graceful decommissioning allows applications to finish shuffling data between stages to avoid setting back job progress. The [⁠graceful decommission timeout](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/scaling-clusters#graceful_decommissioning) provided in an autoscaling policy is the upper bound of the duration that YARN will wait for running applications (application that were running when decommissioning started) before removing nodes.
 
-**Note:** Autoscaling won't scale up during graceful decommissioning. It waits for an update operation, including graceful decommissioning, to complete, continues to wait for one cooldown period (for example, 2m), then issues another update operation.
+**Note:** Autoscaling doesn't scale up during graceful decommissioning. Before it issues another update operation, it waits for the current update operation, including graceful decommissioning, to complete and for the cooldown period to elapse.
 
 When a process does not complete within the specified graceful decommissioning timeout period, the worker node is forcefully shut down, potentially causing data loss or service disruption. To help avoid this possibility, set the graceful decommission timeout to a value **longer than the longest job that the cluster will process**. For example, if you expect your longest job to run for one hour, set the timeout to at least one hour (`1h`).
 
@@ -407,13 +407,13 @@ Set this value to `0.0` to prevent scaling down the cluster, for example, when u
 
 ### Setting `scaleUpMinWorkerFraction` and `scaleDownMinWorkerFraction`
 
-`scaleUpMinWorkerFraction` and `scaleDownMinWorkerFraction` are used with `scaleUpFactor` or `scaleDownFactor` and have default values of `0.0`. They represent the thresholds at which the autoscaler will scale up or scale down the cluster: the minimum fractional value increase or decresse in cluster size necessary to issue an scale-up or scale-down requests.
+`scaleUpMinWorkerFraction` and `scaleDownMinWorkerFraction` are used with `scaleUpFactor` or `scaleDownFactor` and have default values of `0.0`. They represent the thresholds at which the autoscaler will scale up or scale down the cluster: the minimum fractional value increase or decrease in cluster size necessary to issue a scale-up or scale-down request.
 
-Examples: The autoscaler won't issue an update request to add 5 workers to a 100-node cluster unless `scaleUpMinWorkerFraction` is less than or equal to `0.05` (5%). If set to `0.1`, the autoscaler won't issue the request to scale up the cluster. Similarly, if `scaleDownMinWorkerFraction` is `0.05`, the autoscaler won't at least 5 nodes are to be removed.
+Examples: The autoscaler won't issue an update request to add 5 workers to a 100-node cluster unless `scaleUpMinWorkerFraction` is less than or equal to `0.05` (5%). If set to `0.1`, the autoscaler won't issue the request to scale up the cluster. Similarly, if `scaleDownMinWorkerFraction` is `0.05`, the autoscaler won't issue a scale-down request unless at least 5 nodes are to be removed.
 
 The default value of `0.0` signifies no threshold.
 
-Setting higher `scaleDownMinWorkerFractionthresholds` on large clusters (> 100 nodes) to avoid small, unnecessary scaling operations is **strongly recommended**.
+Setting higher `scaleDownMinWorkerFraction` thresholds on large clusters (> 100 nodes) to avoid small, unnecessary scaling operations is **strongly recommended**.
 
 ### Pick a cooldown period
 
@@ -554,7 +554,7 @@ You should ensure your data is evenly partitioned. If there is significant key s
 
 Autoscaling clusters have default cluster property values that help avoid job failure when primary workers are removed or secondary workers are preempted. You can override these default values when you create a cluster with autoscaling (see [Cluster Properties](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties)).
 
-To help increase job stability, you can create a cluster with non-preemptible secondary workers—for an example, see [Using preemptibles in a cluster](https://docs.cloud.google.com/managed-spark/docs/concepts/compute/preemptible-vms?auto_signin=false#using_preemptibles_in_a_cluster).
+To help increase job stability, you can create a cluster with non-preemptible secondary workers—for an example, see [Non-preemptible workers](https://docs.cloud.google.com/managed-spark/docs/concepts/compute/secondary-vms#non-preemptible_workers).
 
 **Defaults to increase the maximum number of retries for tasks, application masters, and stages:**
     
@@ -595,11 +595,11 @@ Yes. You may decide to manually resize a cluster as a stop-gap measure when tuni
 
 Instead of manually resizing an autoscaling cluster, consider:
 
-Updating the autoscaling policy. Any changes made to the autoscaling policy will affect all clusters that are currently using the policy** (see Multi-cluster policy usage).
+Updating the autoscaling policy. Any changes made to the autoscaling policy affect all clusters that use the policy (see Multi-cluster policy usage).
 
 Detaching the policy and manually scaling the cluster to the preferred size.
 
-[Getting Managed Service for Apache Spark support](https://docs.cloud.google.com/managed-spark/docs/support/get-support).
+[Getting Managed Service for Apache Spark support](https://docs.cloud.google.com/managed-spark/docs/support/getting-support).
 
 #### How is Managed Service for Apache Spark different from Dataflow autoscaling?
 
@@ -607,7 +607,7 @@ See [Dataflow horizontal autoscaling](https://docs.cloud.google.com/dataflow/doc
 
 #### Can the Managed Service for Apache Spark dev team reset cluster status from `ERROR` back to `RUNNING`?
 
-In general, no. Doing so requires manual effort to verify whether it is safe to reset the cluster's state, and often a cluster cdan't be reset without other manual steps, such as restarting the HDFS NameNode.
+In general, no. Doing so requires manual effort to verify whether it is safe to reset the cluster's state, and often a cluster can't be reset without other manual steps, such as restarting the HDFS NameNode.
 
 Managed Service for Apache Spark sets a cluster's status to `ERROR` when it can't determine the status of a cluster after a failed operation. Clusters in `ERROR` are not autoscaled. Common causes include:
 
@@ -624,13 +624,13 @@ Managed Service for Apache Spark sets a cluster's status to `ERROR` when it can'
 
 #### When does autoscaling cancel a scaledown operation?
 
-The following graphic is an illustration that demonstrates when autoscaling will cancel an scaledown operation (also see How autoscaling works).
+The following graphic is an illustration that demonstrates when autoscaling will cancel a scaledown operation (also see How autoscaling works).
 
 ![dataproc-autoscaling-cancellation-example](https://docs.cloud.google.com/static/managed-spark/images/autoscaling-cancellation-example.png)
 
 Notes:
 
-  * The cluster has autoscaling enabled based on YARN memory metrics only (the default).
+  * The cluster has autoscaling enabled based on YARN memory metrics only.
   * T1-T9 represent cooldown intervals when the autoscaler evaluates the number of workers (event timing has been simplified).
   * Stacked bars represent counts of active, decommissioning, and decommissioned cluster YARN workers.
   * The autoscaler's recommended number of workers (black line) is based on YARN memory metrics, YARN active worker count, and autoscaling policy settings (see How autoscaling works).
@@ -667,6 +667,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-31 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 

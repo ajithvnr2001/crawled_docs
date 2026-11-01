@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-extended/
 title: GKE release notes (Extended channel) \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:43.627174+00:00
+fetched_at: 2026-11-01T05:44:41.488541+00:00
 ---
 
 # GKE release notes (Extended channel)  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

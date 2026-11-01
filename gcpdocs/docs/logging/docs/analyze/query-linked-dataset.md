@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/analyze/query-linked-dataset/
 title: Create a linked BigQuery dataset on a log bucket \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:40.272427+00:00
+fetched_at: 2026-11-01T05:44:17.633136+00:00
 ---
 
 # Create a linked BigQuery dataset on a log bucket  |  Cloud Logging  |  Google Cloud Documentation

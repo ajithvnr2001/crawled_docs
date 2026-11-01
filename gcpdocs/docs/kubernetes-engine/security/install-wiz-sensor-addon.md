@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/security/install-wiz-sensor-addon/
 title: Install the Wiz Runtime Sensor in GKE clusters \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:42.064992+00:00
+fetched_at: 2026-11-01T05:44:11.205361+00:00
 ---
 
 # Install the Wiz Runtime Sensor in GKE clusters  |  GKE security  |  Google Cloud Documentation

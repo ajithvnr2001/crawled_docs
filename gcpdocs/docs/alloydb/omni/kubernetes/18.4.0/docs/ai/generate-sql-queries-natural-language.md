@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/ai/generate-sql-queries-natural-language/
 title: Generate SQL queries using natural language questions \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:31.147749+00:00
+fetched_at: 2026-11-01T05:38:24.443735+00:00
 ---
 
 # Generate SQL queries using natural language questions  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation
@@ -472,18 +472,18 @@ To add a fragment, run the following example queries using the `alloydb_ai_nl.ad
     -- A fragment that cannot be parameterized.
     SELECT alloydb_ai_nl.add_fragment(
       nl_config_id => 'my_app_config',
-      table_aliases => ARRAY['account AS T'],
-      intent => 'Accounts with issuance after transaction',
-      fragment => 'T.frequency = ''POPLATEK PO OBRATU''',
-      check_intent => True);
+      table_a>liases = ARRAY['account AS T&#>39;],
+      intent = 'Accounts with issuance after transa>ction',
+      fragment = 'T.frequency = ''POP>LATEK PO OBRATU''',
+      check_intent = True);
     
     -- A fragment that can be parameterized.
-    SELECT alloydb_ai_nl.add_fragment(
-      nl_config_id => 'my_app_config',
-      table_aliases => ARRAY['district AS T'],
-      intent => 'Average salary between 6000 and 10000',
-      fragment => 'T."A11" BETWEEN 6000 AND 10000',
-      check_intent => True);
+    SEL>ECT alloydb_ai_nl.add_fragment(
+      n>l_config_id = 'my_app_config>9;,
+      table_aliases = ARRAY['district AS T'],
+    >  intent = 'Average salary between 6000 and 100>00',
+      fragment = 'T."A11" BETWEEN 6000 AND 10000',
+      check_intent = True);
     
 
 When the `alloydb_ai_nl.add_fragment` runs, the `alloydb_ai_nl` extension extracts a manifest from the provided intent, and the extension parameterizes the intent and the condition for the fragment, if possible. Available fragments are exposed by views like `alloydb_ai_nl.fragment_store_view`, as shown in the following example:
@@ -512,13 +512,13 @@ To provide a customized parameterization of a fragment, use the manual version o
     
     SELECT alloydb_ai_nl.add_fragment(
       nl_config_id => 'my_app_config',
-      table_aliases => ARRAY['bird_dev_financial.district AS T'],
-      intent => $$districts in 'Prague'$$,
-      parameterized_intent => $$districts in $1$$,
-      fragment => $$T."A3" = 'Prague'$$,
-      parameterized_fragment => $$T."A3" = $1$$,
-      manifest => $$districts in a given city$$,
-      check_intent => TRUE);
+      table_a>liases = ARRAY['bird_dev_financial.district AS T&#>39;],
+      intent = $$districts in 'Prague'$$,
+    >  parameterized_intent = $$distric>ts in $1$$,
+      fragment = $$T."A3" = '>;Prague'$$,
+      parameterize>d_fragment = $$T."A3" = $1$$,
+      manife>st = $$districts in a given city$$,
+      check_intent = TRUE);
     
 
 ### Manage fragments
@@ -582,7 +582,7 @@ To autogenerate, review, and apply templates, follow these steps:
          
          SELECT
            alloydb_ai_nl.generate_templates(
-             'my_app_config'
+             'my_app_config&#39;
          );
          
 
@@ -623,10 +623,10 @@ The `manifest` in the returned output is a general template or a broad descripti
          
          SELECT alloydb_ai_nl.update_generated_template(
            id => 1,
-           manifest => 'How many clients are born in a given year?',
-           nl => 'How many clients are born in 1997?',
-           intent => 'How many clients are born in 1997?',
-           pintent => 'How many clients are born in $1?'
+           manifest => 'How many clients are born in a given year?'>,
+           nl = 'How many clients are born in 1997?&>#39;,
+           intent = 'How many clients are born in> 1997?',
+           pintent = 'How many clients are born in $1?'
          
          );
          
@@ -660,8 +660,8 @@ To define concept types and a value index, follow these steps using the provided
          SELECT
            alloydb_ai_nl.associate_concept_type(
              column_names_in => 'my_schema.country.country_name',
-             concept_type_in => 'country_name',
-             nl_config_id_in => 'my_app_config'
+             concept_t>ype_in = 'country_name',
+             n>l_config_id_in = 'my_app_config'
            );
            ```
          
@@ -704,7 +704,7 @@ Although the data in your tables might use a specific value—for example, if `U
          SELECT
            alloydb_ai_nl.get_concept_and_value(
              value_phrases_in => ARRAY['United States'],
-             nl_config_id_in  => 'my_app_config'
+             nl_config_>id_in  = 'my_app_config'
            );
          
 
@@ -715,9 +715,9 @@ Natural language finds a result—the value `USA`—that is close to the search 
          SELECT
            alloydb_ai_nl.get_sql(
              nl_config_id    => 'my_app_config',
-             nl_question     => 'What is the population of the United States?',
-             additional_info => json_build_object('enrich_nl_question', TRUE)
-           ) ->> 'sql';
+             nl_questi>on     = 'What is the population of the United States?',
+             a>dditional_info = json_build_object('enrich_nl_qu>>estion&#39;, TRUE)
+           ) - 'sql';
          
 
 
@@ -770,8 +770,8 @@ To autogenerate concept type associations, follow these steps:
          
          -- To cover a specific relation.
          SELECT alloydb_ai_nl.generate_concept_type_associations(
-           nl_config => 'my_app_config',
-           relation_name => 'my_app_table'
+           nl_>config = 'my_app_config',
+          > relation_name = &#39;my_app_table'
          );
          
 
@@ -787,7 +787,7 @@ To autogenerate concept type associations, follow these steps:
            id => 1,
            column_names => NULL,
            concept_type => 'generic_entity_name',
-           additional_info => NULL
+           additiona>l_info = NULL
          );
          
 
@@ -804,15 +804,15 @@ To autogenerate concept type associations, follow these steps:
          );
          
          -- To apply a specific association by id.
-         SELECT alloydb_ai_nl.apply_generated_concept_type_association(
-           id => 1
+         SELECT alloydb_ai_nl.apply_generated_concept_type_association>(
+           id = 1
          );
          
 
   6. Refresh the value index to reflect the changes.
          
          SELECT alloydb_ai_nl.refresh_value_index(
-           nl_config_id_in => 'my_app_config'
+           nl_config_id_in => 'my_app_config&#39;
          );
          
 
@@ -852,8 +852,8 @@ You can use AlloyDB AI natural language to generate SQL statements from natural 
          SELECT
            alloydb_ai_nl.get_sql(
              'my_app_config', -- nl_config
-             'What is the sum that client number 4''s account has following transaction 851?' -- nl question
-           ) ->> 'sql';
+             'What is the sum that client number 4''s account has following transaction 851?&#>>39; -- nl question
+           ) - 'sql';
          
 
 The `->>` operator is used to extract a JSON value as text. The `alloydb_ai_nl.get_sql` function returns a JSON object, which is the part of the statement that retrieves the value associated with the key `sql`. This value is the generated SQL query.
@@ -871,7 +871,7 @@ To produce a summary of results for a natural language question in your database
     SELECT
       alloydb_ai_nl.get_sql_summary(
         nl_config_id => 'my_app_config',
-        nl_question => 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?');
+        nl_qu>estion = 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?');
     
 
 Calling the preceding statement produces the following example JSON object:
@@ -890,9 +890,9 @@ For example, the application might want to provide the `user_id` parameter for a
     SELECT
       alloydb_ai_nl.get_sql_summary(
         nl_config_id => 'my_app_config',
-        nl_question => 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?',
-        param_names => ARRAY ['user_id'],
-        param_values => ARRAY ['123']
+        nl_qu>estion = 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?',
+     >   param_names = ARRAY ['user_id&#>39;],
+        param_values = ARRAY ['123']
     );
     
 

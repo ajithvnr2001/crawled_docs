@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/cloud-storage-fuse-csi-driver/
 title: Quickstart: Access Cloud Storage buckets with the FUSE CSI driver \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:40.281062+00:00
+fetched_at: 2026-11-01T05:43:34.570041+00:00
 ---
 
 # Quickstart: Access Cloud Storage buckets with the FUSE CSI driver  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

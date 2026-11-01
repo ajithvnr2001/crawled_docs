@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/managing-turbo-replication/
 title: Managing turbo replication \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:33.411484+00:00
+fetched_at: 2026-11-01T05:35:34.239002+00:00
 ---
 
 # Managing turbo replication  |  Cloud Storage  |  Google Cloud Documentation

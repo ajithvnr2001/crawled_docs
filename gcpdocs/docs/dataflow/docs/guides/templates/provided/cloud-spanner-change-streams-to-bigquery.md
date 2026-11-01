@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-spanner-change-streams-to-bigquery/
 title: Spanner change streams to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:40:48.134052+00:00
+fetched_at: 2026-11-01T05:36:14.621264+00:00
 ---
 
 # Spanner change streams to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -254,17 +254,17 @@ You can use the following values:
      */
     package com.google.cloud.teleport.v2.templates.spannerchangestreamstobigquery;
     
-    import com.google.api.services.bigquery.[model](https://docs.cloud.google.com/java/docs/reference/google-cloud-translate/latest/com.google.cloud.translate.Translate.TranslateOption.html#com_google_cloud_translate_Translate_TranslateOption_model_java_lang_String_).[TableRow](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableRow.html);
-    import com.google.cloud.[Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html);
-    import com.google.cloud.teleport.metadata.[Template](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.Template.html);
+    import com.google.api.services.bigquery.model.TableRow;
+    import com.google.cloud.Timestamp;
+    import com.google.cloud.teleport.metadata.Template;
     import com.google.cloud.teleport.metadata.TemplateCategory;
     import com.google.cloud.teleport.v2.cdc.dlq.DeadLetterQueueManager;
     import com.google.cloud.teleport.v2.cdc.dlq.StringDeadLetterQueueSanitizer;
     import com.google.cloud.teleport.v2.coders.FailsafeElementCoder;
     import com.google.cloud.teleport.v2.common.UncaughtExceptionLogger;
     import com.google.cloud.teleport.v2.options.SpannerChangeStreamsToBigQueryOptions;
-    import com.google.cloud.teleport.v2.templates.spannerchangestreamstobigquery.[model](https://docs.cloud.google.com/java/docs/reference/google-cloud-translate/latest/com.google.cloud.translate.Translate.TranslateOption.html#com_google_cloud_translate_Translate_TranslateOption_model_java_lang_String_).Mod;
-    import com.google.cloud.teleport.v2.templates.spannerchangestreamstobigquery.[model](https://docs.cloud.google.com/java/docs/reference/google-cloud-translate/latest/com.google.cloud.translate.Translate.TranslateOption.html#com_google_cloud_translate_Translate_TranslateOption_model_java_lang_String_).ModColumnType;
+    import com.google.cloud.teleport.v2.templates.spannerchangestreamstobigquery.model.Mod;
+    import com.google.cloud.teleport.v2.templates.spannerchangestreamstobigquery.model.ModColumnType;
     import com.google.cloud.teleport.v2.templates.spannerchangestreamstobigquery.schemautils.BigQueryUtils;
     import com.google.cloud.teleport.v2.templates.spannerchangestreamstobigquery.schemautils.OptionsUtils;
     import com.google.cloud.teleport.v2.transforms.DLQWriteTransform;
@@ -275,21 +275,21 @@ You can use the following values:
     import java.io.IOException;
     import java.util.ArrayList;
     import java.util.Arrays;
-    import java.util.[List](https://docs.cloud.google.com/java/docs/reference/google-cloud-chronicle/latest/com.google.cloud.chronicle.v1.ExecuteDashboardQueryResponse.ColumnType.List.html);
+    import java.util.List;
     import java.util.Set;
     import java.util.stream.Collectors;
     import org.apache.beam.runners.dataflow.options.DataflowPipelineOptions;
-    import org.apache.beam.sdk.[Pipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Pipeline.html);
-    import org.apache.beam.sdk.[PipelineResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineResult.html);
+    import org.apache.beam.sdk.Pipeline;
+    import org.apache.beam.sdk.PipelineResult;
     import org.apache.beam.sdk.coders.StringUtf8Coder;
     import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO;
     import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO.Write;
-    import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO.Write.[CreateDisposition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.JobInfo.CreateDisposition.html);
+    import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO.Write.CreateDisposition;
     import org.apache.beam.sdk.io.gcp.bigquery.InsertRetryPolicy;
-    import org.apache.beam.sdk.io.gcp.bigquery.[WriteResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.WriteResult.html);
+    import org.apache.beam.sdk.io.gcp.bigquery.WriteResult;
     import org.apache.beam.sdk.io.gcp.spanner.SpannerConfig;
     import org.apache.beam.sdk.io.gcp.spanner.SpannerIO;
-    import org.apache.beam.sdk.io.gcp.spanner.changestreams.[model](https://docs.cloud.google.com/java/docs/reference/google-cloud-translate/latest/com.google.cloud.translate.Translate.TranslateOption.html#com_google_cloud_translate_Translate_TranslateOption_model_java_lang_String_).DataChangeRecord;
+    import org.apache.beam.sdk.io.gcp.spanner.changestreams.model.DataChangeRecord;
     import org.apache.beam.sdk.options.PipelineOptionsFactory;
     import org.apache.beam.sdk.options.ValueProvider;
     import org.apache.beam.sdk.transforms.DoFn;
@@ -423,14 +423,14 @@ You can use the following values:
       // Max number of deadletter queue retries.
       private static final int DLQ_MAX_RETRIES = 5;
     
-      private static final [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) USE_RUNNER_V2_EXPERIMENT = "use_runner_v2";
+      private static final String USE_RUNNER_V2_EXPERIMENT = "use_runner_v2";
     
       /**
        * Main entry point for executing the pipeline.
        *
        * @param args The command-line arguments to the pipeline.
        */
-      public static void main([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html)[] args) {
+      public static void main(String[] args) {
         UncaughtExceptionLogger.register();
     
         LOG.info("Starting to replicate change records from Spanner change streams to BigQuery");
@@ -451,7 +451,7 @@ You can use the following values:
             .getBigQueryChangelogTableNameTemplate()
             .equals(BigQueryUtils.BQ_CHANGELOG_FIELD_NAME_TABLE_NAME)) {
           throw new IllegalArgumentException(
-              [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html).format(
+              String.format(
                   "bigQueryChangelogTableNameTemplate cannot be set to '{%s}'. This value is reserved"
                       + " for the Cloud Spanner table name.",
                   BigQueryUtils.BQ_CHANGELOG_FIELD_NAME_TABLE_NAME));
@@ -473,7 +473,7 @@ You can use the following values:
         if (!experiments.contains(USE_RUNNER_V2_EXPERIMENT)) {
           experiments.add(USE_RUNNER_V2_EXPERIMENT);
         }
-        options.[setExperiments](https://docs.cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/com.google.cloud.dialogflow.cx.v3.ListExperimentsResponse.Builder.html#com_google_cloud_dialogflow_cx_v3_ListExperimentsResponse_Builder_setExperiments_int_com_google_cloud_dialogflow_cx_v3_Experiment_)(experiments);
+        options.setExperiments(experiments);
       }
     
       /**
@@ -482,7 +482,7 @@ You can use the following values:
        * @param options The execution parameters to the pipeline.
        * @return The result of the pipeline execution.
        */
-      public static [PipelineResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineResult.html) run(SpannerChangeStreamsToBigQueryOptions options) {
+      public static PipelineResult run(SpannerChangeStreamsToBigQueryOptions options) {
         setOptions(options);
         validateOptions(options);
     
@@ -493,12 +493,12 @@ You can use the following values:
          * commit timestamp. 4) Append {@link TableRow} to BigQuery. 5) Write Failures from 2), 3) and
          * 4) to GCS dead letter queue.
          */
-        [Pipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Pipeline.html) pipeline = [Pipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Pipeline.html).create(options);
+        Pipeline pipeline = Pipeline.create(options);
         DeadLetterQueueManager dlqManager = buildDlqManager(options);
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) spannerProjectId = OptionsUtils.getSpannerProjectId(options);
+        String spannerProjectId = OptionsUtils.getSpannerProjectId(options);
     
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) dlqDirectory = dlqManager.getRetryDlqDirectoryWithDateTime();
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) tempDlqDirectory = dlqManager.getRetryDlqDirectory() + "tmp/";
+        String dlqDirectory = dlqManager.getRetryDlqDirectoryWithDateTime();
+        String tempDlqDirectory = dlqManager.getRetryDlqDirectory() + "tmp/";
     
         /**
          * There are two types of errors that can occur in this pipeline:
@@ -523,14 +523,14 @@ You can use the following values:
         }
     
         // Retrieve and parse the startTimestamp and endTimestamp.
-        [Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html) startTimestamp =
+        Timestamp startTimestamp =
             options.getStartTimestamp().isEmpty()
-                ? [Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html).[now](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html#com_google_cloud_Timestamp_now__)()
-                : [Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html).[parseTimestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html#com_google_cloud_Timestamp_parseTimestamp_java_lang_String_)(options.getStartTimestamp());
-        [Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html) endTimestamp =
+                ? Timestamp.now()
+                : Timestamp.parseTimestamp(options.getStartTimestamp());
+        Timestamp endTimestamp =
             options.getEndTimestamp().isEmpty()
-                ? [Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html).MAX_VALUE
-                : [Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html).[parseTimestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html#com_google_cloud_Timestamp_parseTimestamp_java_lang_String_)(options.getEndTimestamp());
+                ? Timestamp.MAX_VALUE
+                : Timestamp.parseTimestamp(options.getEndTimestamp());
     
         SpannerConfig spannerConfig =
             SpannerConfig.create()
@@ -550,7 +550,7 @@ You can use the following values:
         }
     
         SpannerIO.ReadChangeStream readChangeStream =
-            SpannerIO.[readChangeStream](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.BigtableDataClient.html#com_google_cloud_bigtable_data_v2_BigtableDataClient_readChangeStream_com_google_cloud_bigtable_data_v2_models_ReadChangeStreamQuery_)()
+            SpannerIO.readChangeStream()
                 .withSpannerConfig(spannerConfig)
                 .withMetadataInstance(options.getSpannerMetadataInstanceId())
                 .withMetadataDatabase(options.getSpannerMetadataDatabase())
@@ -560,24 +560,24 @@ You can use the following values:
                 .withRpcPriority(options.getRpcPriority())
                 .withDirectedReadOptions(options.getSpannerDirectedReadOptions());
     
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) spannerMetadataTableName = options.getSpannerMetadataTableName();
+        String spannerMetadataTableName = options.getSpannerMetadataTableName();
         if (spannerMetadataTableName != null) {
-          readChangeStream = [readChangeStream](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.BigtableDataClient.html#com_google_cloud_bigtable_data_v2_BigtableDataClient_readChangeStream_com_google_cloud_bigtable_data_v2_models_ReadChangeStreamQuery_).withMetadataTable(spannerMetadataTableName);
+          readChangeStream = readChangeStream.withMetadataTable(spannerMetadataTableName);
         }
     
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) tvfNameListString = options.getSpannerChangeStreamTvfNameList();
+        String tvfNameListString = options.getSpannerChangeStreamTvfNameList();
         if (tvfNameListString != null && !tvfNameListString.isEmpty()) {
           List<String> tvfNameList =
-              Arrays.stream(tvfNameListString.[split](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_split_com_google_cloud_firestore_pipeline_expressions_Expression_)(";"))
-                  .filter(name -> !name.[trim](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_trim__)().isEmpty())
+              Arrays.stream(tvfNameListString.split(";"))
+                  .filter(name -> !name.trim().isEmpty())
                   .collect(Collectors.toList());
           if (!tvfNameList.isEmpty()) {
-            readChangeStream = [readChangeStream](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.BigtableDataClient.html#com_google_cloud_bigtable_data_v2_BigtableDataClient_readChangeStream_com_google_cloud_bigtable_data_v2_models_ReadChangeStreamQuery_).withTvfNameList(tvfNameList);
+            readChangeStream = readChangeStream.withTvfNameList(tvfNameList);
           }
         }
     
         PCollection<DataChangeRecord> dataChangeRecord =
-            [pipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.Firestore.html#com_google_cloud_firestore_Firestore_pipeline__)
+            pipeline
                 .apply("Read from Spanner Change Streams", readChangeStream)
                 .apply("Reshuffle DataChangeRecord", Reshuffle.viaRandomKey());
     
@@ -599,7 +599,7 @@ You can use the following values:
     
         PCollectionTuple dlqModJson =
             dlqManager.getReconsumerDataTransform(
-                [pipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.Firestore.html#com_google_cloud_firestore_Firestore_pipeline__).apply(dlqManager.dlqReconsumer(options.getDlqRetryMinutes())));
+                pipeline.apply(dlqManager.dlqReconsumer(options.getDlqRetryMinutes())));
         PCollection<FailsafeElement<String, String>> retryableDlqFailsafeModJson =
             dlqModJson.get(DeadLetterQueueManager.RETRYABLE_ERRORS).setCoder(FAILSAFE_ELEMENT_CODER);
     
@@ -609,7 +609,7 @@ You can use the following values:
                 .apply("Merge Source And DLQ Mod JSON", Flatten.pCollections());
     
         ImmutableSet.Builder<String> ignoreFieldsBuilder = ImmutableSet.builder();
-        for ([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) ignoreField : options.getIgnoreFields().[split](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_split_com_google_cloud_firestore_pipeline_expressions_Expression_)(",")) {
+        for (String ignoreField : options.getIgnoreFields().split(",")) {
           ignoreFieldsBuilder.add(ignoreField);
         }
         ImmutableSet<String> ignoreFields = ignoreFieldsBuilder.build();
@@ -631,8 +631,8 @@ You can use the following values:
         // If users pass in the full BigQuery dataset ID (projectId.datasetName), extract the dataset
         // name for the setBigQueryDataset parameter.
         List<String> results = OptionsUtils.processBigQueryProjectAndDataset(options);
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bigqueryProject = [results](https://docs.cloud.google.com/java/docs/reference/google-cloud-dns/latest/com.google.cloud.dns.spi.v1.DnsRpc.ListResult.html#com_google_cloud_dns_spi_v1_DnsRpc_ListResult_results__).get(0);
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bigqueryDataset = [results](https://docs.cloud.google.com/java/docs/reference/google-cloud-dns/latest/com.google.cloud.dns.spi.v1.DnsRpc.ListResult.html#com_google_cloud_dns_spi_v1_DnsRpc_ListResult_results__).get(1);
+        String bigqueryProject = results.get(0);
+        String bigqueryDataset = results.get(1);
     
         BigQueryDynamicDestinations.BigQueryDynamicDestinationsOptions
             bigQueryDynamicDestinationsOptions =
@@ -645,7 +645,7 @@ You can use the following values:
                     .setBigQueryTableTemplate(options.getBigQueryChangelogTableNameTemplate())
                     .setUseStorageWriteApi(options.getUseStorageWriteApi())
                     .build();
-        [WriteResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.WriteResult.html) writeResult;
+        WriteResult writeResult;
         if (!options.getUseStorageWriteApi()) {
           writeResult =
               tableRowTuple
@@ -653,10 +653,10 @@ You can use the following values:
                   .apply(
                       "Write To BigQuery",
                       BigQueryIO.<TableRow>write()
-                          .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
+                          .to(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
                           .withFormatFunction(element -> removeIntermediateMetadataFields(element))
                           .withFormatRecordOnFailureFunction(element -> element)
-                          .withCreateDisposition([CreateDisposition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.JobInfo.CreateDisposition.html).CREATE_IF_NEEDED)
+                          .withCreateDisposition(CreateDisposition.CREATE_IF_NEEDED)
                           .withWriteDisposition(Write.WriteDisposition.WRITE_APPEND)
                           .withExtendedErrorInfo()
                           .withFailedInsertRetryPolicy(InsertRetryPolicy.retryTransientErrors()));
@@ -667,10 +667,10 @@ You can use the following values:
                   .apply(
                       "Write To BigQuery",
                       BigQueryIO.<TableRow>write()
-                          .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
+                          .to(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
                           .withFormatFunction(element -> removeIntermediateMetadataFields(element))
                           .withFormatRecordOnFailureFunction(element -> element)
-                          .withCreateDisposition([CreateDisposition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.JobInfo.CreateDisposition.html).CREATE_IF_NEEDED)
+                          .withCreateDisposition(CreateDisposition.CREATE_IF_NEEDED)
                           .withWriteDisposition(Write.WriteDisposition.WRITE_APPEND)
                           .ignoreUnknownValues()
                           .withAutoSchemaUpdate(true) // only supported when using STORAGE_WRITE_API or
@@ -720,16 +720,16 @@ You can use the following values:
                     .setIncludePaneInfo(true)
                     .build());
     
-        return [pipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.Firestore.html#com_google_cloud_firestore_Firestore_pipeline__).run();
+        return pipeline.run();
       }
     
       private static DeadLetterQueueManager buildDlqManager(
           SpannerChangeStreamsToBigQueryOptions options) {
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) tempLocation =
+        String tempLocation =
             options.as(DataflowPipelineOptions.class).getTempLocation().endsWith("/")
                 ? options.as(DataflowPipelineOptions.class).getTempLocation()
                 : options.as(DataflowPipelineOptions.class).getTempLocation() + "/";
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) dlqDirectory =
+        String dlqDirectory =
             options.getDeadLetterQueueDirectory().isEmpty()
                 ? tempLocation + "dlq/" + options.getJobName() + "/"
                 : options.getDeadLetterQueueDirectory();
@@ -742,12 +742,12 @@ You can use the following values:
        * Remove the following intermediate metadata fields that are not user data from {@link TableRow}:
        * _metadata_error, _metadata_retry_count, _metadata_spanner_original_payload_json.
        */
-      private static [TableRow](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableRow.html) removeIntermediateMetadataFields([TableRow](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableRow.html) tableRow) {
-        [TableRow](https://docs.cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/com.google.cloud.documentai.v1.Document.Page.Table.TableRow.html) cleanTableRow = tableRow.clone();
+      private static TableRow removeIntermediateMetadataFields(TableRow tableRow) {
+        TableRow cleanTableRow = tableRow.clone();
         Set<String> rowKeys = tableRow.keySet();
         Set<String> metadataFields = BigQueryUtils.getBigQueryIntermediateMetadataFieldNames();
     
-        for ([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) rowKey : rowKeys) {
+        for (String rowKey : rowKeys) {
           if (metadataFields.contains(rowKey)) {
             cleanTableRow.remove(rowKey);
           } else if (rowKeys.contains("_type_" + rowKey)) {
@@ -766,7 +766,7 @@ You can use the following values:
     
         @ProcessElement
         public void process(@Element DataChangeRecord input, OutputReceiver<String> receiver) {
-          for (org.apache.beam.sdk.io.gcp.spanner.changestreams.[model](https://docs.cloud.google.com/java/docs/reference/google-cloud-translate/latest/com.google.cloud.translate.Translate.TranslateOption.html#com_google_cloud_translate_Translate_TranslateOption_model_java_lang_String_).Mod changeStreamsMod :
+          for (org.apache.beam.sdk.io.gcp.spanner.changestreams.model.Mod changeStreamsMod :
               input.getMods()) {
             Mod mod =
                 new Mod(
@@ -777,19 +777,19 @@ You can use the following values:
                     input.isLastRecordInTransactionInPartition(),
                     input.getRecordSequence(),
                     input.getTableName(),
-                    input.getRowType().stream().[map](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_map_java_util_Map_java_lang_String_java_lang_Object__)(ModColumnType::new).collect(Collectors.toList()),
+                    input.getRowType().stream().map(ModColumnType::new).collect(Collectors.toList()),
                     input.getModType(),
                     input.getValueCaptureType(),
                     input.getNumberOfRecordsInTransaction(),
                     input.getNumberOfPartitionsInTransaction());
     
-            [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) modJsonString;
+            String modJsonString;
     
             try {
-              modJsonString = [mod](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_mod_com_google_cloud_firestore_pipeline_expressions_Expression_com_google_cloud_firestore_pipeline_expressions_Expression_).[toJson](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.PostPolicyV4.PostPolicyV4Document.html#com_google_cloud_storage_PostPolicyV4_PostPolicyV4Document_toJson__)();
+              modJsonString = mod.toJson();
             } catch (IOException e) {
               // Ignore exception and print bad format.
-              modJsonString = [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html).format("\"%s\"", input);
+              modJsonString = String.format("\"%s\"", input);
             }
             receiver.output(modJsonString);
           }

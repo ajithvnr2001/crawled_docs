@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/schemas/
 title: Schema overview \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:13.658664+00:00
+fetched_at: 2026-11-01T05:41:54.869635+00:00
 ---
 
 # Schema overview  |  Pub/Sub  |  Google Cloud Documentation

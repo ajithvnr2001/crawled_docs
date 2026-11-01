@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/input/database/
 title: Database (Input Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:53.252248+00:00
+fetched_at: 2026-11-01T05:37:44.581709+00:00
 ---
 
 # Database (Input Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ Returns all the documents within a database across different collections and nes
       .aggregate([CountAll().as("total")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L312-L316)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L334-L338)
 
 ##### Kotlin  
 Android
@@ -84,7 +84,7 @@ Android
     # Count all documents in the database
     results = client.pipeline().database().aggregate(Count().as_("total")).execute()
     
-    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/c4ba7c06bb0f7082908f16fee6df5d266483101d/snippets/firestore/firestore_pipelines.py#L366-L369)
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L366-L369)
 
 ##### Java
     

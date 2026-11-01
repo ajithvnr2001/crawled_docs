@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-catalog/docs/samples/data-catalog-list-entry-groups/
 title: List entry groups \u00a0|\u00a0 Data Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:50.255856+00:00
+fetched_at: 2026-11-01T05:38:48.667485+00:00
 ---
 
 # List entry groups  |  Data Catalog  |  Google Cloud Documentation
@@ -43,24 +43,24 @@ To authenticate to Data Catalog, set up Application Default Credentials. For mor
       public static void main(String[] args) throws IOException {
         // TODO(developer): Replace these variables before running the sample.
         String projectId = "MY_PROJECT_ID";
-        String location = "MY_LOCATION";
-        [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html) name = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html).of(projectId, location);
+        String location = "MY_[LOCATION&quo](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html)t;;
+        [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html) name = LocationName.of(projectId, location);
         listEntryGroups(name);
       }
     
-      public static void listEntryGroups([LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html) name) throws IOException {
+      public static v[oid](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html) listEntryGroups(LocationName name) throws IOException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
-        // the "close" method on the client to safely clean up any remaining background resources.
-        try ([DataCatalogClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.html) client = [DataCatalogClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.html).create()) {
-          [ListEntryGroupsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.ListEntryGroupsRequest.html) request =
-              [ListEntryGroupsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.ListEntryGroupsRequest.html).newBuilder().setParent(name.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html#com_google_cloud_datacatalog_v1_LocationName_toString__)()).build();
-          [DataCatalogClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.html).[ListEntryGroupsPagedResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.ListEntryGroupsPagedResponse.html) listEntryGroups =
+        // the "close" method on the client to safely clean up any remaining b[ackground resourc](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.html)es.
+        tr[y](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.html) (DataCatalogClient client = DataCa[talogClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.ListEntryGroupsRequest.html).create()) {
+          ListEntryGrou[psRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.ListEntryGroupsRequest.html) request =
+              ListEntryGroupsReques[t](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.LocationName.html#com_google_cloud_datacatalog_v1_LocationName_toString__).newBuilder().setParent(na[me](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.html).toString()).bui[ld](https://docs.cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/com.google.cloud.datacatalog.v1.DataCatalogClient.ListEntryGroupsPagedResponse.html)();
+          DataCatalogClient.ListEntryGroupsPagedResponse listEntryGroups =
               client.listEntryGroups(request);
           listEntryGroups
               .iterateAll()
-              .forEach(
-                  entryGroup -> {
+              .forEa>ch(
+                  entryGroup - {
                     System.out.println("Entry group name : " + entryGroup.getName());
                   });
         }

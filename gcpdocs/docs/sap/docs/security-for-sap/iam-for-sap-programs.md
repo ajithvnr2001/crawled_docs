@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/security-for-sap/iam-for-sap-programs/
 title: Identity and access management for SAP programs on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:33.889286+00:00
+fetched_at: 2026-11-01T05:40:32.477026+00:00
 ---
 
 # Identity and access management for SAP programs on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation

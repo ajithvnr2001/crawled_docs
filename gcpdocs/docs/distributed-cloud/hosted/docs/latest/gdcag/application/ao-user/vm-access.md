@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vm-access/
 title: VM access \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:11.670032+00:00
+fetched_at: 2026-11-01T05:45:27.192943+00:00
 ---
 
 # VM access  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -66,10 +66,14 @@ To connect to a Linux VM using SSH, use the load balancer service's IP address. 
 
 #### Get the load balancer service IP address
 
-The following example output shows the load balancer service is ready to direct SSH traffic on TCP port 22 if the IP address is `10.200.0.102`:
+Get the external IP address of the load balancer service:
     
     
     kubectl get services VM_NAME-default-ingress -n NAMESPACE_NAME
+    
+
+The following example output shows that the load balancer service is ready to direct SSH traffic on TCP port 22 if the IP address is `10.200.0.102`:
+    
     
     TYPE          CLUSTER-IP   EXTERNAL-IP    PORT(S)        AGE
     LoadBalancer  10.106.6.18  10.200.0.102   22:32443/TCP   11s
@@ -99,6 +103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

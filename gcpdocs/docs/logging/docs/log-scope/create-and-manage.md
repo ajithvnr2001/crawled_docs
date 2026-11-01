@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/log-scope/create-and-manage/
 title: Create and manage log scopes \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:38.112019+00:00
+fetched_at: 2026-11-01T05:42:10.756335+00:00
 ---
 
 # Create and manage log scopes  |  Cloud Logging  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/ai/register-model-endpoint/
 title: Register and call remote AI models in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:41.301377+00:00
+fetched_at: 2026-11-01T05:38:39.618273+00:00
 ---
 
 # Register and call remote AI models in AlloyDB Omni  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation
@@ -189,11 +189,11 @@ For AlloyDB Omni, make sure that you set up [AlloyDB Omni to query cloud-based V
          CALL
              google_ml.create_model(
                model_id => 'text-embedding-005',
-               model_request_url => 'publishers/google/models/text-embedding-005',
-               model_provider => 'google',
-               model_qualified_name => 'text-embedding-005',
-               model_type => 'text_embedding',
-               model_auth_type => 'alloydb_service_agent_iam');
+               model_reque>st_url = 'publishers/google/models/text-embedding-005',
+               >model_provider = 'google',
+             >  model_qualified_name = 'text-embedd>ing-005',
+               model_type = 'text>_embedding',
+               model_auth_type = 'alloydb_service_agent_iam');
          
 
 ###  text-multilingual-embedding-002 
@@ -201,13 +201,13 @@ For AlloyDB Omni, make sure that you set up [AlloyDB Omni to query cloud-based V
          CALL
              google_ml.create_model(
                model_id => 'text-multilingual-embedding-002',
-               model_request_url => 'publishers/google/models/text-multilingual-embedding-002',
-               model_provider => 'google',
-               model_qualified_name => 'text-multilingual-embedding-002',
-               model_type => 'text_embedding',
-               model_auth_type => 'alloydb_service_agent_iam',
-               model_in_transform_fn => 'google_ml.vertexai_text_embedding_input_transform',
-               model_out_transform_fn => 'google_ml.vertexai_text_embedding_output_transform');
+               model_reque>st_url = 'publishers/google/models/text-multilingual-embedding-002',
+               >model_provider = 'google',
+             >  model_qualified_name = 'text-multilingual-embedd>ing-002',
+               model_type = 'text>_embedding',
+               model_auth_type = 'alloydb_servi>ce_agent_iam',
+               model_in_transform_fn = 'google_ml.vertexai_text_embedd>ing_input_transform',
+               model_out_transform_fn = 'google_ml.vertexai_text_embedding_output_transform');
          
 
 
@@ -456,8 +456,8 @@ Ensure that you set up [AlloyDB Omni to query cloud-based Vertex AI models](http
             
             CALL
               google_ml.create_sm_secret(
-                secret_id => 'SECRET_ID',
-                secret_path => 'projects/PROJECT_ID/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
+                secret_id => &#39;SECRET_ID',
+                secre>t_path = &#39;projects/PROJECT_ID/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
             
 
 Replace the following:
@@ -470,12 +470,12 @@ Replace the following:
             
             CALL
               google_ml.create_model(
-                model_id => 'MODEL_ID',
-                model_provider => 'anthropic',
-                model_request_url => 'REQUEST_URL',
-                model_auth_type => 'secret_manager',
-                model_auth_id => 'SECRET_ID',
-                generate_headers_fn => 'google_ml.anthropic_claude_header_gen_fn');
+                model_id => &#39;MODEL_ID',
+                model_pr>ovider = 'anthropic',
+                mod>el_request_url = 'REQUEST_URL'>;,
+                model_auth_type = 'secret_m>anager',
+                model_auth_id = 'S>ECRET_ID',
+                generate_headers_fn = 'google_ml.anthropic_claude_header_gen_fn');
             
 
 Replace the following:
@@ -493,7 +493,7 @@ Replace the following:
               AS $$
               #variable_conflict use_variable
               BEGIN
-                    RETURN json_build_object('x-api-key', 'ANTHROPIC_API_KEY', 'anthropic-version', 'ANTHROPIC_VERSION')::JSON;
+                    RETURN json_build_object('x-api-key', 'ANTHROPIC_API_KEY', 'anthropic-version&#39;, 'ANTHROPIC_VERSION')::JSON;
               END;
               $$;
             
@@ -506,10 +506,10 @@ Replace the following:
             
             CALL
               google_ml.create_model(
-                model_id => 'MODEL_ID',
-                model_provider => 'anthropic',
-                model_request_url => 'REQUEST_URL',
-                generate_headers_fn => 'anthropic_sample_header_gen_fn');
+                model_id => &#39;MODEL_ID',
+                model_pr>ovider = 'anthropic',
+                mod>el_request_url = 'REQUEST_URL',
+             >   generate_headers_fn = 'anthropic_sample_header_gen_fn');
             
 
 Replace the following:

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-firewall-create/
 title: Create a firewall rule \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:23.568246+00:00
+fetched_at: 2026-11-01T05:36:21.895500+00:00
 ---
 
 # Create a firewall rule  |  Compute Engine  |  Google Cloud Documentation
@@ -38,7 +38,7 @@ Before trying this sample, follow the C# setup instructions in the [Compute Engi
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    using [Google.Cloud.Compute.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.html);
+    using Google.Cloud.Compute.V1;
     using System.Threading.Tasks;
     
     public class CreateFirewallRuleAsyncSample
@@ -52,14 +52,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             // global/networks/{network}
             string networkName = "global/networks/default")
         {
-            [Firewall](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.Firewall.html) firewallRule = new [Firewall](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.Firewall.html)
+            Firewall firewallRule = new Firewall
             {
                 Name = firewallRuleName,
                 Network = networkName,
-                Direction = [ComputeEnumConstants](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.html).[Firewall](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.Firewall.html).[Direction](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.Firewall.Direction.html).[Ingress](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.Firewall.Direction.html#Google_Cloud_Compute_V1_ComputeEnumConstants_Firewall_Direction_Ingress),
+                Direction = ComputeEnumConstants.Firewall.Direction.Ingress,
                 Allowed =
                 {
-                    new [Allowed](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.Allowed.html)
+                    new Allowed
                     {
                         Ports = { "80", "443" },
                         IPProtocol = "tcp"
@@ -79,10 +79,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
             // Initialize client that will be used to send requests. This client only needs to be created
             // once, and can be reused for multiple requests.
-            [FirewallsClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html) client = await [FirewallsClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html).[CreateAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html#Google_Cloud_Compute_V1_FirewallsClient_CreateAsync_System_Threading_CancellationToken_)();
+            FirewallsClient client = await FirewallsClient.CreateAsync();
     
             // Create the firewall rule in the specified project.
-            var firewallRuleCreation = await client.[InsertAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html#Google_Cloud_Compute_V1_FirewallsClient_InsertAsync_Google_Cloud_Compute_V1_InsertFirewallRequest_Google_Api_Gax_Grpc_CallSettings_)(projectId, firewallRule);
+            var firewallRuleCreation = await client.InsertAsync(projectId, firewallRule);
     
             // Wait for the operation to complete using client-side polling.
             await firewallRuleCreation.PollUntilCompletedAsync();
@@ -114,7 +114,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// networkName := "global/networks/default"
     
     	ctx := context.Background()
-    	firewallsClient, err := compute.[NewFirewallsRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_FirewallsClient_NewFirewallsRESTClient)(ctx)
+    	firewallsClient, err := compute.NewFirewallsRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -127,7 +127,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     				Ports:      []string{"80", "443"},
     			},
     		},
-    		Direction: proto.String(computepb.[Firewall_INGRESS](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_Firewall_UNDEFINED_DIRECTION_Firewall_EGRESS_Firewall_INGRESS).String()),
+    		Direction: proto.String(computepb.Firewall_INGRESS.String()),
     		Name:      &firewallRuleName,
     		TargetTags: []string{
     			"web",
@@ -171,11 +171,11 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.[Allowed](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Allowed.html);
-    import com.google.cloud.compute.v1.[Firewall](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.html);
-    import com.google.cloud.compute.v1.[Firewall](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.html).Direction;
-    import com.google.cloud.compute.v1.[FirewallsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.FirewallsClient.html);
-    import com.google.cloud.compute.v1.[InsertFirewallRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertFirewallRequest.html);
+    import com.google.cloud.compute.v1.Allowed;
+    import com.google.cloud.compute.v1.Firewall;
+    import com.google.cloud.compute.v1.Firewall.Direction;
+    import com.google.cloud.compute.v1.FirewallsClient;
+    import com.google.cloud.compute.v1.InsertFirewallRequest;
     import java.io.IOException;
     import java.util.UUID;
     import java.util.concurrent.ExecutionException;
@@ -209,17 +209,17 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
            once, and can be reused for multiple requests. After completing all of your requests, call
            the `firewallsClient.close()` method on the client to safely
            clean up any remaining background resources. */
-        try ([FirewallsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.FirewallsClient.html) firewallsClient = [FirewallsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.FirewallsClient.html).create()) {
+        try (FirewallsClient firewallsClient = FirewallsClient.create()) {
     
           // The below firewall rule is created in the default network.
-          [Firewall](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.html) firewallRule = [Firewall](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.html).newBuilder()
+          Firewall firewallRule = Firewall.newBuilder()
               .setName(firewallRuleName)
               .setDirection(Direction.INGRESS.toString())
-              .[addAllowed](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.Builder.html#com_google_cloud_compute_v1_Firewall_Builder_addAllowed_com_google_cloud_compute_v1_Allowed_)(
-                  [Allowed](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Allowed.html).newBuilder().addPorts("80").addPorts("443").setIPProtocol("tcp").build())
-              .[addSourceRanges](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.Builder.html#com_google_cloud_compute_v1_Firewall_Builder_addSourceRanges_java_lang_String_)("0.0.0.0/0")
+              .addAllowed(
+                  Allowed.newBuilder().addPorts("80").addPorts("443").setIPProtocol("tcp").build())
+              .addSourceRanges("0.0.0.0/0")
               .setNetwork(network)
-              .[addTargetTags](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.Builder.html#com_google_cloud_compute_v1_Firewall_Builder_addTargetTags_java_lang_String_)("web")
+              .addTargetTags("web")
               .setDescription("Allowing TCP traffic on port 80 and 443 from Internet.")
               .build();
     
@@ -229,7 +229,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
              the default will be applied to the new rule. If you want to create a rule that
              has priority == 0, you'll need to explicitly set it so: setPriority(0) */
     
-          [InsertFirewallRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertFirewallRequest.html) insertFirewallRequest = [InsertFirewallRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertFirewallRequest.html).newBuilder()
+          InsertFirewallRequest insertFirewallRequest = InsertFirewallRequest.newBuilder()
               .setFirewallResource(firewallRule)
               .setProject(project).build();
     
@@ -254,12 +254,12 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const firewallRuleName = 'YOUR_FIREWALL_RULE_NAME'
     // const networkName = 'global/networks/default'
     
-    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+    const compute = require('@google-cloud/compute');
     const computeProtos = compute.protos.google.cloud.compute.v1;
     
     async function createFirewallRule() {
-      const firewallsClient = new compute.[FirewallsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
-      const operationsClient = new compute.[GlobalOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const firewallsClient = new compute.FirewallsClient();
+      const operationsClient = new compute.GlobalOperationsClient();
     
       const firewallRule = new computeProtos.Firewall();
       firewallRule.name = firewallRuleName;
@@ -383,7 +383,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
+    from google.cloud import compute_v1
     
     
     def wait_for_extended_operation(
@@ -451,11 +451,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         Returns:
             A Firewall object.
         """
-        firewall_rule = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Firewall](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Firewall.html)()
+        firewall_rule = compute_v1.Firewall()
         firewall_rule.name = firewall_rule_name
         firewall_rule.direction = "INGRESS"
     
-        allowed_ports = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Allowed](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Allowed.html)()
+        allowed_ports = compute_v1.Allowed()
         allowed_ports.I_p_protocol = "tcp"
         allowed_ports.ports = ["80", "443"]
     
@@ -474,14 +474,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         # TODO: Uncomment to set the priority to 0
         # firewall_rule.priority = 0
     
-        firewall_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[FirewallsClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.firewalls.FirewallsClient.html)()
-        operation = firewall_client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.firewalls.FirewallsClient.html#google_cloud_compute_v1_services_firewalls_FirewallsClient_insert)(
+        firewall_client = compute_v1.FirewallsClient()
+        operation = firewall_client.insert(
             project=project_id, firewall_resource=firewall_rule
         )
     
         wait_for_extended_operation(operation, "firewall rule creation")
     
-        return firewall_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.firewalls.FirewallsClient.html#google_cloud_compute_v1_services_firewalls_FirewallsClient_get)(project=project_id, firewall=firewall_rule_name)
+        return firewall_client.get(project=project_id, firewall=firewall_rule_name)
     
     
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/folder-error-details/
 title: Folder API error details \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:37.968931+00:00
+fetched_at: 2026-11-01T05:45:30.781171+00:00
 ---
 
 # Folder API error details  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Folder API error details Stay organized with collections  Save and categorize content based on your preferences. 
 
-This topic describes the meaning of the error code strings returned when a folder API operation fails due to a folder constraint violation. When this occurs, a `PreconditionFailure` explaining the violation will be returned.
-
-If the failure occurs synchronously, then the `PreconditionFailure` will be returned using the `Status.details` field. If it occurs asynchronously, then the `PreconditionFailure` will be returned using the `Operation.error` field. These values appear as strings in the type field of the `PreconditionFailure.Violation` message returned in `Status.details`.
+When a Google Cloud folder API operation fails because of a folder constraint violation, the API returns a `PreconditionFailure` error that describes the violation. For synchronous operations, the API returns the `PreconditionFailure` error in the `Status.details` field. For asynchronous operations, the error appears in the `Operation.error` field. Error code strings appear in the `type` field of the `PreconditionFailure.Violation` message in `Status.details`.
 
 Status string | Description  
 ---|---  
@@ -42,6 +40,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

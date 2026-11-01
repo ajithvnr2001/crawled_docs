@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/query-cursors/
 title: Paginate data with query cursors \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:19.195515+00:00
+fetched_at: 2026-11-01T05:38:23.682825+00:00
 ---
 
 # Paginate data with query cursors  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ For example, if you use `startAt(A)` in a query, it returns the entire alphabet.
       .order(by: "population")
       .start(at: [1000000])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1169-L1172)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1169-L1172)
 
 ##### Objective-C
 
@@ -80,7 +80,7 @@ For example, if you use `startAt(A)` in a query, it returns the entire alphabet.
         queryOrderedByField:@"population"]
         queryStartingAtValues:@[ @1000000 ]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1073-L1076)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1073-L1076)
 
 ##### Kotlin  
 Android
@@ -222,7 +222,7 @@ Similarly, use the `endAt()` or `endBefore()` methods to define an end point for
       .order(by: "population")
       .end(at: [1000000])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1176-L1179)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1176-L1179)
 
 ##### Objective-C
 
@@ -234,7 +234,7 @@ Similarly, use the `endAt()` or `endBefore()` methods to define an end point for
         queryOrderedByField:@"population"]
         queryEndingAtValues:@[ @1000000 ]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1079-L1082)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1079-L1082)
 
 ##### Kotlin  
 Android
@@ -403,7 +403,7 @@ For example, take a snapshot of a "San Francisco" document in your data set of c
           .start(atDocument: document)
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1187-L1199)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1187-L1199)
 
 ##### Objective-C
 
@@ -422,7 +422,7 @@ For example, take a snapshot of a "San Francisco" document in your data set of c
               queryStartingAtDocument:snapshot];
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1092-L1102)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1092-L1102)
 
 ##### Kotlin  
 Android
@@ -681,7 +681,7 @@ Paginate queries by combining query cursors with the `limit()` method. For examp
       // ...
     }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1207-L1231)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1207-L1231)
 
 ##### Objective-C
 
@@ -708,7 +708,7 @@ Paginate queries by combining query cursors with the `limit()` method. For examp
       // ...
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1110-L1128)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1110-L1128)
 
 ##### Kotlin  
 Android
@@ -1098,7 +1098,7 @@ To start at a specific Springfield, you could add the state as a secondary condi
       .order(by: "state")
       .start(at: ["Springfield", "Missouri"])
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L1239-L1249)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L1239-L1249)
 
 ##### Objective-C
 
@@ -1116,7 +1116,7 @@ To start at a specific Springfield, you could add the state as a secondary condi
        queryOrderedByField:@"state"]
        queryStartingAtValues:@[ @"Springfield", @"Missouri" ]];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L1138-L1147)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L1138-L1147)
 
 ##### Kotlin  
 Android
