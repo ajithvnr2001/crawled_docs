@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/dynamic-dispatch/
 title: Dynamic dispatch Worker \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:05.185870+00:00
+fetched_at: 2026-11-01T08:55:29.579218+00:00
 ---
 
 # Dynamic dispatch Worker · Cloudflare for Platforms docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:05.185870+00:00
 
 # Dynamic dispatch Worker
 
-Last updated Sep 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/dynamic-dispatch/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Configure the dispatch namespace binding Pass data and capabilities per request Routing examples
 
@@ -33,6 +33,8 @@ A [dynamic dispatch Worker](https://developers.cloudflare.com/cloudflare-for-pla
 Note
 
 You can also create a dispatch Worker from the Cloudflare dashboard. Go to **Workers for Platforms** , select your namespace, and click **Create** > **Dispatch Worker**. The dashboard provides templates for path-based and subdomain-based routing.
+
+For apps with public and private routes, refer to [Authentication and authorization](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/authentication/). The guide combines route policies with scoped data access.
 
 #### Why use a dynamic dispatch Worker?
 

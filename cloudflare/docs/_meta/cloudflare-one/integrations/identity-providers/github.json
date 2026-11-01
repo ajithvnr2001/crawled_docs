@@ -3,8 +3,5 @@
   "file": "cloudflare-one/integrations/identity-providers/github.md",
   "title": "GitHub \u00b7 Cloudflare One docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:09:03.568816+00:00",
-  "html_len": 282114,
-  "md_len": 3919,
-  "depth": 0
+  "fetched_at": "2026-11-01T08:55:29.902180+00:00"
 }

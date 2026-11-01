@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dynamic-workers/usage/bindings/
 title: Bindings \u00b7 Cloudflare Dynamic Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:24.694696+00:00
+fetched_at: 2026-11-01T08:55:29.971486+00:00
 ---
 
 # Bindings · Cloudflare Dynamic Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:24.694696+00:00
 
 # Bindings
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCustom bindings with Dynamic Workers How it works Example: Chat room agentPassing normal Workers bindings Example: Scoping a KV namespace per customerCapability-based sandboxing
 
@@ -31,6 +31,8 @@ This allows you to:
   * **Restrict and control access** : Inspect, transform, or reject calls before they reach the underlying resource.
 
 
+
+For apps with public and private routes, refer to [Authentication and authorization](https://developers.cloudflare.com/dynamic-workers/usage/authentication/). The guide checks requests before invocation and permissions inside platform-owned operations.
 
 ## Custom bindings with Dynamic Workers
 
@@ -224,7 +226,7 @@ This is powered by Workers RPC, also known as [Cap'n Web ↗︎](https://github.
 
 Capability-based security is essential to the design of most successful sandboxes, though it is usually hidden as an implementation detail. For example, Android has Binder, Chrome has Mojo, and Cloudflare Workers has Cap'n Web. Dynamic Workers directly expose this power to you, the developer, so that you can build your own strong sandbox.
 
-[PreviousGetting started](https://developers.cloudflare.com/dynamic-workers/getting-started/)[NextStatic assets](https://developers.cloudflare.com/dynamic-workers/usage/static-assets/)
+[PreviousGetting started](https://developers.cloudflare.com/dynamic-workers/getting-started/)[NextAuthentication and authorization](https://developers.cloudflare.com/dynamic-workers/usage/authentication/)
 
 Was this helpful?
 

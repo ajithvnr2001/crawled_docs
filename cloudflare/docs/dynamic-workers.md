@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dynamic-workers/
 title: Dynamic Workers \u00b7 Cloudflare Dynamic Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:24.549333+00:00
+fetched_at: 2026-11-01T08:55:29.319762+00:00
 ---
 
 # Dynamic Workers · Cloudflare Dynamic Workers docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-13T08:48:24.549333+00:00
 
 # Dynamic Workers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet startedUse casesFeatures
 
@@ -48,6 +48,7 @@ Use Dynamic Workers when code needs to run quickly in a secure, isolated environ
 
 Because you compose the Worker that runs the code at runtime, you control how that Worker is configured and what it can access.
 
+  * **[Authentication and authorization](https://developers.cloudflare.com/dynamic-workers/usage/authentication/)** : Enforce route policies and protect data access outside app code.
   * **[Bindings](https://developers.cloudflare.com/dynamic-workers/usage/bindings/)** : Decide which bindings and structured data the dynamic Worker receives.
   * **[Observability](https://developers.cloudflare.com/dynamic-workers/usage/observability/)** : Attach Tail Workers and capture logs for each run.
   * **[Network access](https://developers.cloudflare.com/dynamic-workers/usage/egress-control/)** : Intercept or block Internet access for outbound requests.

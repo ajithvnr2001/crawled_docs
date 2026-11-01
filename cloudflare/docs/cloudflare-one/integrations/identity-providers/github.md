@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/github/
 title: GitHub \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:03.568553+00:00
+fetched_at: 2026-11-01T08:55:29.901766+00:00
 ---
 
 # GitHub · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # GitHub
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/github/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up GitHub AccessExample API Configuration
 
@@ -38,7 +38,7 @@ To configure GitHub access in both GitHub and Cloudflare One:
 
   3. In **Developer Settings** , select **OAuth Apps** and select **New OAuth app**.
 
-  4. On the **Register a new OAuth application** page, enter an **Application name**. Your users will see this application name on the login page.
+  4. On the **Register a new OAuth app** page, enter an **Application name**. Your users will see this application name on the login page.
 
   5. In the **Homepage URL** field, enter your team domain:
          
@@ -46,7 +46,7 @@ To configure GitHub access in both GitHub and Cloudflare One:
 
 You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com) under **Settings** > **Team name and domain** > **Team name**.
 
-  6. In the GitHub **Authorization callback URL** field, enter the following URL:
+  6. Under **Redirect URIs** , enter the following URL in the **Redirect URI** field:
          
          https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback
 
