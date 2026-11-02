@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-uniform-bucket-level-access/
 title: Get uniform bucket-level access \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:28.843474+00:00
+fetched_at: 2026-11-02T05:40:39.461127+00:00
 ---
 
 # Get uniform bucket-level access  |  Cloud Storage  |  Google Cloud Documentation
@@ -307,6 +307,21 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Uniform bucket-level access is disabled for #{bucket_name}."
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!("successfully obtained bucket metadata {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

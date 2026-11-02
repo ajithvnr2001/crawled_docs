@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-configure-retries/
 title: Demonstrate retry configuration \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:37.991863+00:00
+fetched_at: 2026-11-02T05:40:26.628201+00:00
 ---
 
 # Demonstrate retry configuration  |  Cloud Storage  |  Google Cloud Documentation
@@ -437,6 +437,95 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       storage.service.delete_file bucket_name, file_name, options: { retries: 4 }
       puts "File #{file.name} deleted with a customized retry strategy."
     end
+
+### Rust
+    
+    
+    use google_cloud_gax::exponential_backoff::ExponentialBackoffBuilder;
+    use google_cloud_gax::retry_policy::RetryPolicyExt;
+    use google_cloud_storage::client::{Storage, StorageControl};
+    use google_cloud_storage::retry_policy::RetryableErrors;
+    use std::time::Duration;
+    
+    pub async fn sample(bucket_id: &str) -> anyhow::Result<()> {
+        // Retries all operations for up to 5 minutes, including any backoff time.
+        let retry_policy = RetryableErrors.with_time_limit(Duration::from_secs(60 * 5));
+        // On error, it backs off for a random delay between [0, 1] seconds, then
+        // [0, 3] seconds, then [0, 9] seconds, etc. The backoff time never grows
+        // larger than 1 minute.
+        let backoff_policy = ExponentialBackoffBuilder::new()
+            .with_initial_delay(Duration::from_secs(1))
+            .with_maximum_delay(Duration::from_secs(60))
+            .with_scaling(3)
+            .build()?;
+    
+        let control = StorageControl::builder()
+            .with_retry_policy(retry_policy)
+            .with_backoff_policy(backoff_policy)
+            .build()
+            .await?;
+        // Use the `StorageControl` client as usual:
+        let bucket = control
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!("Bucket {bucket_id} metadata is {bucket:?}");
+    
+        // Retries all operations for up to 5 attempts.
+        let retry_policy = RetryableErrors.with_attempt_limit(5);
+        // On error, it backs off for a random delay between [0, 1] seconds, then
+        // [0, 3] seconds, then [0, 9] seconds, etc. The backoff time never grows
+        // larger than 1 minute.
+        let backoff_policy = ExponentialBackoffBuilder::new()
+            .with_initial_delay(Duration::from_secs(1))
+            .with_maximum_delay(Duration::from_secs(60))
+            .with_scaling(3)
+            .build()?;
+    
+        let client = Storage::builder()
+            .with_retry_policy(retry_policy)
+            .with_backoff_policy(backoff_policy)
+            .build()
+            .await?;
+        // Use the `Storage` client as usual:
+        let reader = client
+            .read_object(format!("projects/_/buckets/{bucket_id}"), "hello-world.txt")
+            .send()
+            .await?;
+        println!("Object highlights: {:?}", reader.object());
+    
+        // Requests are retried only when they are idempotent. Single-shot uploads
+        // are idempotent, and therefore retried, only if they set
+        // `if_generation_match`. A value of `0` means "create the object only if
+        // it does not exist".
+        const NAME: &str = "configure-retries.txt";
+        let object = client
+            .write_object(
+                format!("projects/_/buckets/{bucket_id}"),
+                NAME,
+                "hello world",
+            )
+            .set_if_generation_match(0)
+            .send_unbuffered()
+            .await?;
+        println!("Created object with retries enabled: {object:?}");
+    
+        // Use `with_idempotency(false)` to disable retries for a single request.
+        let object = client
+            .write_object(
+                format!("projects/_/buckets/{bucket_id}"),
+                NAME,
+                "goodbye world",
+            )
+            .set_if_generation_match(object.generation)
+            .with_idempotency(false)
+            .send_unbuffered()
+            .await?;
+        println!("Replaced object with retries disabled: {object:?}");
+    
+        Ok(())
+    }
 
 ## What's next
 

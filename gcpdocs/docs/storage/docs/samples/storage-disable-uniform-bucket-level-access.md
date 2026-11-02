@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-disable-uniform-bucket-level-access/
 title: Disable uniform bucket-level access \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:45.604262+00:00
+fetched_at: 2026-11-02T05:40:35.324701+00:00
 ---
 
 # Disable uniform bucket-level access  |  Cloud Storage  |  Google Cloud Documentation
@@ -264,13 +264,44 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name
     
       bucket.uniform_bucket_level_access = false
     
       puts "Uniform bucket-level access was disabled for #{bucket_name}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::IamConfig;
+    use google_cloud_storage::model::bucket::iam_config::UniformBucketLevelAccess;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let iam_config = IamConfig::new()
+            .set_uniform_bucket_level_access(UniformBucketLevelAccess::new().set_enabled(false));
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_iam_config(iam_config))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["iam_config.uniform_bucket_level_access"]))
+            .send()
+            .await?;
+        println!(
+            "Uniform bucket-level access disabled for bucket {bucket_id}: {:?}",
+            bucket.iam_config
+        );
+        Ok(())
+    }
 
 ## What's next
 

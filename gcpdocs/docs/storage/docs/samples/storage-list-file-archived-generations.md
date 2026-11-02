@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-list-file-archived-generations/
 title: List archived generations \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:42.028917+00:00
+fetched_at: 2026-11-02T05:40:21.703931+00:00
 ---
 
 # List archived generations  |  Cloud Storage  |  Google Cloud Documentation
@@ -263,6 +263,26 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "#{file.name},#{file.generation}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_gax::paginator::ItemPaginator;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let mut objects = client
+            .list_objects()
+            .set_parent(format!("projects/_/buckets/{bucket_id}"))
+            .set_versions(true)
+            .by_item();
+        println!("listing objects in bucket {bucket_id}");
+        while let Some(object) = objects.next().await.transpose()? {
+            println!("{object:?}");
+        }
+        println!("DONE");
+        Ok(())
+    }
 
 ## What's next
 

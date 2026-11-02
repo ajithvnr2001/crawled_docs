@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-bucket-dual-region/
 title: Create a dual-region bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:46.556683+00:00
+fetched_at: 2026-11-02T05:40:27.152012+00:00
 ---
 
 # Create a dual-region bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -363,6 +363,35 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     puts "- location_type: #{bucket.location_type}"
     puts "- custom_placement_config:"
     puts "  - data_locations: #{bucket.data_locations}"
+
+### Rust
+    
+    
+    use google_cloud_storage::{
+        client::StorageControl, model::Bucket, model::bucket::CustomPlacementConfig,
+    };
+    
+    pub async fn sample(
+        client: &StorageControl,
+        project_id: &str,
+        bucket_id: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .create_bucket()
+            .set_parent("projects/_")
+            .set_bucket_id(bucket_id)
+            .set_bucket(
+                Bucket::new()
+                    .set_project(format!("projects/{project_id}"))
+                    .set_custom_placement_config(
+                        CustomPlacementConfig::new().set_data_locations(["US-EAST4", "US-CENTRAL1"]),
+                    ),
+            )
+            .send()
+            .await?;
+        println!("successfully created bucket {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

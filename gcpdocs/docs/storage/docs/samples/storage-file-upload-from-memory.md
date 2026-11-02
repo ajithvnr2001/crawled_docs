@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-file-upload-from-memory/
 title: Upload object from memory \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:36.850006+00:00
+fetched_at: 2026-11-02T05:40:26.419461+00:00
 ---
 
 # Upload object from memory  |  Cloud Storage  |  Google Cloud Documentation
@@ -337,6 +337,23 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     file = bucket.[create_file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) StringIO.[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)(file_content), file_name
     
     puts "Uploaded file #{file.name} to bucket #{bucket_name} with content: #{file_content}"
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(client: &Storage, bucket: &str) -> Result<(), anyhow::Error> {
+        const NAME: &str = "object-to-upload.txt";
+        let data: bytes::Bytes = bytes::Bytes::from("Hello, world!");
+        let _result = client
+            .write_object(format!("projects/_/buckets/{bucket}"), NAME, data)
+            .send_unbuffered()
+            .await?;
+    
+        println!("Uploaded to {NAME} in bucket {bucket} from memory.");
+        Ok(())
+    }
 
 ## What's next
 

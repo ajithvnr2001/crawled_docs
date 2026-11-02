@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-print-file-acl-for-user/
 title: Get an object ACL that's filtered by user \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:01.264800+00:00
+fetched_at: 2026-11-02T05:40:23.418962+00:00
 ---
 
 # Get an object ACL that's filtered by user  |  Cloud Storage  |  Google Cloud Documentation
@@ -283,6 +283,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     puts "Permissions for #{email}:"
     puts "OWNER"  if file.acl.owners.include?  email
     puts "READER" if file.acl.readers.include? email
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-read";
+        let object = client
+            .get_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .send()
+            .await?;
+    
+        // For other scopes see: https://cloud.google.com/storage/docs/access-control/lists#scopes
+        const USER: &str = "allAuthenticatedUsers";
+    
+        if let Some(acl) = object.acl.into_iter().find(|e| e.entity == USER) {
+            println!(
+                "Object {NAME} in bucket {bucket_id} has the following ACL for user {USER}: {:?}",
+                acl
+            );
+        } else {
+            println!("Object {NAME} in bucket {bucket_id} has no ACL entry for user {USER}");
+        }
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/array_functions/
 title: Array Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:18.424532+00:00
+fetched_at: 2026-11-02T05:40:07.096071+00:00
 ---
 
 # Array Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -114,7 +114,7 @@ arrays | `array_concat(arrays)`
       .select([Field("genre").arrayConcat([Field("subGenre")]).as("allGenres")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L761-L764)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L761-L764)
 
 ##### Kotlin  
 Android
@@ -229,7 +229,7 @@ array | value | `array_contains(array, value)`
       .select([Field("genre").arrayContains(Constant("mystery")).as("isMystery")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L772-L775)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L772-L775)
 
 ##### Kotlin  
 Android
@@ -358,7 +358,7 @@ array | search_values | `array_contains_all(array, search_values)`
       ])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L783-L790)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L783-L790)
 
 ##### Kotlin  
 Android
@@ -498,7 +498,7 @@ array | search_values | `array_contains_any(array, search_values)`
       ])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L798-L805)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L798-L805)
 
 ##### Kotlin  
 Android
@@ -685,7 +685,7 @@ array | `array_length(array)`
       .select([Field("genre").arrayLength().as("genreCount")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L813-L816)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L813-L816)
 
 ##### Kotlin  
 Android
@@ -799,7 +799,7 @@ array | `array_reverse(array)`
       .select([Field("genre").arrayReverse().as("reversedGenres")])
       .execute()
     
-    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L824-L827)
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L824-L827)
 
 ##### Kotlin  
 Android

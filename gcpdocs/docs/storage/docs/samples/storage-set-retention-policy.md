@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-retention-policy/
 title: Set a retention policy \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:13.863983+00:00
+fetched_at: 2026-11-02T05:40:20.789606+00:00
 ---
 
 # Set a retention policy  |  Cloud Storage  |  Google Cloud Documentation
@@ -306,6 +306,40 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Retention period for #{bucket_name} is now #{bucket.[retention_period](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)} seconds."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::RetentionPolicy;
+    use google_cloud_wkt::{Duration, FieldMask};
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        retention_period: i64,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let retention_policy =
+            RetentionPolicy::new().set_retention_duration(Duration::new(retention_period, 0)?);
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_retention_policy(retention_policy))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["retention_policy"]))
+            .send()
+            .await?;
+        println!(
+            "Retention policy for bucket {bucket_id} set to: {:?}",
+            bucket.retention_policy
+        );
+        Ok(())
+    }
 
 ## What's next
 

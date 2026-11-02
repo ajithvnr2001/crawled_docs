@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-bucket-class-location/
 title: Create a bucket with options \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:30.460908+00:00
+fetched_at: 2026-11-02T05:40:31.748663+00:00
 ---
 
 # Create a bucket with options  |  Cloud Storage  |  Google Cloud Documentation
@@ -321,6 +321,32 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Created bucket #{bucket.name} in #{bucket.location} with #{bucket.storage_class} class"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::{client::StorageControl, model::Bucket};
+    
+    pub async fn sample(
+        client: &StorageControl,
+        project_id: &str,
+        bucket_id: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .create_bucket()
+            .set_parent("projects/_")
+            .set_bucket_id(bucket_id)
+            .set_bucket(
+                Bucket::new()
+                    .set_project(format!("projects/{project_id}"))
+                    .set_storage_class("NEARLINE")
+                    .set_location("US-CENTRAL1"),
+            )
+            .send()
+            .await?;
+        println!("successfully created bucket {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

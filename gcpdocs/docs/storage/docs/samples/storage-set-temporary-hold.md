@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-temporary-hold/
 title: Set a temporary hold on an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:56.421461+00:00
+fetched_at: 2026-11-02T05:40:25.005575+00:00
 ---
 
 # Set a temporary hold on an object  |  Cloud Storage  |  Google Cloud Documentation
@@ -293,7 +293,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name, skip_lookup: true
       file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
     
@@ -301,6 +301,33 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Temporary hold was set for #{file_name}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-update";
+        let object = client
+            .get_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .send()
+            .await?;
+    
+        let metageneration = object.metageneration;
+        let updated = client
+            .update_object()
+            .set_if_metageneration_match(metageneration)
+            .set_object(object.set_temporary_hold(true))
+            .set_update_mask(FieldMask::default().set_paths(["temporary_hold"]))
+            .send()
+            .await?;
+        println!("successfully set temporary hold on object {NAME} in bucket {bucket_id}: {updated:?}");
+        Ok(())
+    }
 
 ## What's next
 

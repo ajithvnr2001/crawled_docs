@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-bucket-turbo-replication/
 title: Create a dual-region bucket with turbo replication \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:36.659923+00:00
+fetched_at: 2026-11-02T05:40:30.111497+00:00
 ---
 
 # Create a dual-region bucket with turbo replication  |  Cloud Storage  |  Google Cloud Documentation
@@ -289,6 +289,32 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       puts "Created bucket #{bucket.name} in #{bucket.location} with "
       + "the recovery point objective (RPO) set to #{bucket.[rpo](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::{client::StorageControl, model::Bucket};
+    
+    pub async fn sample(
+        client: &StorageControl,
+        project_id: &str,
+        bucket_id: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .create_bucket()
+            .set_parent("projects/_")
+            .set_bucket_id(bucket_id)
+            .set_bucket(
+                Bucket::new()
+                    .set_project(format!("projects/{project_id}"))
+                    .set_location("NAM4")
+                    .set_rpo("ASYNC_TURBO"),
+            )
+            .send()
+            .await?;
+        println!("successfully created bucket {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

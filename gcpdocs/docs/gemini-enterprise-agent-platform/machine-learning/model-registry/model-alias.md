@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-alias/
 title: How to use model version aliases \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:27.899607+00:00
+fetched_at: 2026-11-02T05:39:58.556978+00:00
 ---
 
 # How to use model version aliases  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -118,8 +118,8 @@ Some considerations for using aliases:
         # Initialize the client.
         aiplatform.init(project=project, location=location)
     
-        # Upload a new aliased version of the Model resource with the ID 'model_id'. The parent_name <of Model resour>ce can be a<lso
-        # &>#39;proj<ects/your-pro>ject-id/locations/your-region/models/your-model-id'
+        # Upload a new aliased version of the Model resource with the ID 'model_id'. The parent_name of Model resource can be also
+        # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
         model = aiplatform.Model.upload(
             artifact_uri=artifact_uri,
             serving_container_image=serving_container_image,
@@ -191,8 +191,8 @@ When you delete a model version assigned the default alias, the alias is automat
         # Initialize the client.
         aiplatform.init(project=project, location=location)
     
-        # Initialize the Model Registry resource with the ID 'model_id'.The parent_name of Model< resource can b>e also
-        <# 'proj>ects/you<r-project-id/>locations/your-region/models/your-model-id'
+        # Initialize the Model Registry resource with the ID 'model_id'.The parent_name of Model resource can be also
+        # 'projects/<your-project-id>/locations/<your-region>/models/<your-model-id>'
         model_registry = aiplatform.models.ModelRegistry(model=model_id)
     
         # Remove the version aliases to the model version with the version 'version'.

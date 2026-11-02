@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-enable-requester-pays/
 title: Enable Requester Pays for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:03.044699+00:00
+fetched_at: 2026-11-02T05:40:37.476354+00:00
 ---
 
 # Enable Requester Pays for a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -251,6 +251,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Requester pays has been enabled for #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::Billing;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_billing(Billing::new().set_requester_pays(true)))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["billing.requester_pays"]))
+            .send()
+            .await?;
+        println!(
+            "Requester pays was enabled for bucket {bucket_id}: {:?}",
+            bucket.billing
+        );
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-disable-anywhere-cache/
 title: Storage Control Disable Anywhere Cache \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:31.749365+00:00
+fetched_at: 2026-11-02T05:40:19.973716+00:00
 ---
 
 # Storage Control Disable Anywhere Cache  |  Google Cloud Documentation
@@ -150,6 +150,28 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Failed to disable AnywhereCache. Error: #{e.message}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        cache_id: &str,
+    ) -> anyhow::Result<()> {
+        let cache = client
+            .disable_anywhere_cache()
+            .set_name(format!(
+                "projects/_/buckets/{}/anywhereCaches/{}",
+                bucket_id, cache_id
+            ))
+            .send()
+            .await?;
+        println!("Disabled anywhere cache: {:?}", cache);
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-change-default-storage-class/
 title: Change the default storage class of a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:51.991542+00:00
+fetched_at: 2026-11-02T05:40:44.262074+00:00
 ---
 
 # Change the default storage class of a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -273,6 +273,30 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Default storage class for bucket #{bucket_name} has been set to #{bucket.storage_class}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_storage_class("NEARLINE"))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["storage_class"]))
+            .send()
+            .await?;
+        println!("successfully updated bucket {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

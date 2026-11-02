@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-get-operation/
 title: Get details about a long-running operation \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:14.413446+00:00
+fetched_at: 2026-11-02T05:40:25.775504+00:00
 ---
 
 # Get details about a long-running operation  |  Document AI  |  Google Cloud Documentation
@@ -47,15 +47,15 @@ To authenticate to Document AI, set up Application Default Credentials. For more
     # operation_name = "YOUR_OPERATION_NAME"  # Format is "projects/{project_id}/locations/{location}/operations/{operation_id}"
     
     
-    def get_oper>ation_sample(location: str, operation_name: str) - None:
+    def get_operation_sample(location: str, operation_name: str) -> None:
         # You must set the `api_endpoint` if you use a location other than "us".
-        opts = ClientOptions(api_endpoint=f&quo[t;](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html){location}-documentai.googleapis.com")
-        client = documentai.DocumentProcessorServiceClient(client_options=opts)
+        opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
+        client = documentai.[DocumentProcessorServiceClient](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html)(client_options=opts)
     
-        request = GetOperationRequest(name=op[eration_name](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html#google_cloud_documentai_v1_services_document_processor_service_DocumentProcessorServiceClient_get_operation))
+        request = GetOperationRequest(name=operation_name)
     
         # Make GetOperation request
-        operation = client.get_operation(request=request)
+        operation = client.[get_operation](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html#google_cloud_documentai_v1_services_document_processor_service_DocumentProcessorServiceClient_get_operation)(request=request)
         # Print the Operation Information
         print(operation)
     

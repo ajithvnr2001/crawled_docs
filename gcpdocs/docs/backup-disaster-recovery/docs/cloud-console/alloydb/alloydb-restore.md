@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/alloydb/alloydb-restore/
 title: Restore an AlloyDB cluster from a backup vault \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:47.765476+00:00
+fetched_at: 2026-11-02T05:42:43.347086+00:00
 ---
 
 # Restore an AlloyDB cluster from a backup vault  |  Backup and DR  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-delete-file-archived-generation/
 title: Delete an archived generation of an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:13.370045+00:00
+fetched_at: 2026-11-02T05:40:32.949761+00:00
 ---
 
 # Delete an archived generation of an object  |  Cloud Storage  |  Google Cloud Documentation
@@ -291,6 +291,28 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Generation #{generation} of file #{file_name} was deleted from #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        generation: i64,
+    ) -> anyhow::Result<()> {
+        const NAME: &str = "object-generation-to-delete";
+        client
+            .delete_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .set_generation(generation)
+            .send()
+            .await?;
+        println!("successfully deleted object {NAME} in bucket {bucket_id}");
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-start-enc-instance/
 title: Start a VM with encrypted disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:29.031137+00:00
+fetched_at: 2026-11-02T05:41:15.246802+00:00
 ---
 
 # Start a VM with encrypted disks  |  Compute Engine  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// key := "your_encryption_key"
     
     	ctx := context.Background()
-    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
+    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -111,16 +111,16 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.longrunning.OperationFuture;
-    import com.google.cloud.compute.v1.CustomerEncryptionKey;
-    import com.google.cloud.compute.v1.CustomerEncryptionKeyProtectedDisk;
-    import com.google.cloud.compute.v1.GetInstanceRequest;
-    import com.google.cloud.compute.v1.Instance;
-    import com.google.cloud.compute.v1.InstancesClient;
-    import com.google.cloud.compute.v1.InstancesStartWithEncryptionKeyRequest;
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.Operation.Status;
-    import com.google.cloud.compute.v1.StartWithEncryptionKeyInstanceRequest;
+    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
+    import com.google.cloud.compute.v1.[CustomerEncryptionKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.CustomerEncryptionKey.html);
+    import com.google.cloud.compute.v1.[CustomerEncryptionKeyProtectedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.CustomerEncryptionKeyProtectedDisk.html);
+    import com.google.cloud.compute.v1.[GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html);
+    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
+    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
+    import com.google.cloud.compute.v1.[InstancesStartWithEncryptionKeyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesStartWithEncryptionKeyRequest.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).[Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html);
+    import com.google.cloud.compute.v1.[StartWithEncryptionKeyInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartWithEncryptionKeyInstanceRequest.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -154,44 +154,44 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
            once, and can be reused for multiple requests. After completing all of your requests, call
            the `instancesClient.close()` method on the client to safely
            clean up any remaining background resources. */
-        try (InstancesClient instancesClient = InstancesClient.create()) {
+        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) instancesClient = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
     
-          GetInstanceRequest getInstanceRequest = GetInstanceRequest.newBuilder()
+          [GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html) getInstanceRequest = [GetInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceRequest.html).newBuilder()
               .setProject(project)
               .setZone(zone)
               .setInstance(instanceName).build();
     
-          Instance instance = instancesClient.get(getInstanceRequest);
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instance = instancesClient.get(getInstanceRequest);
     
           // Prepare the information about disk encryption.
-          CustomerEncryptionKeyProtectedDisk protectedDisk = CustomerEncryptionKeyProtectedDisk
+          [CustomerEncryptionKeyProtectedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.CustomerEncryptionKeyProtectedDisk.html) protectedDisk = [CustomerEncryptionKeyProtectedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.CustomerEncryptionKeyProtectedDisk.html)
               .newBuilder()
               /* Use raw_key to send over the key to unlock the disk
                  To use a key stored in KMS, you need to provide:
                  `kms_key_name` and `kms_key_service_account`
                */
-              .setDiskEncryptionKey(CustomerEncryptionKey.newBuilder()
-                  .setRawKey(key).build())
-              .setSource(instance.getDisks(0).getSource())
+              .setDiskEncryptionKey([CustomerEncryptionKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.CustomerEncryptionKey.html).newBuilder()
+                  .[setRawKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.CustomerEncryptionKey.Builder.html#com_google_cloud_compute_v1_CustomerEncryptionKey_Builder_setRawKey_java_lang_String_)(key).build())
+              .setSource(instance.[getDisks](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html#com_google_cloud_compute_v1_Instance_getDisks_int_)(0).getSource())
               .build();
     
-          InstancesStartWithEncryptionKeyRequest startWithEncryptionKeyRequest =
-              InstancesStartWithEncryptionKeyRequest.newBuilder()
+          [InstancesStartWithEncryptionKeyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesStartWithEncryptionKeyRequest.html) startWithEncryptionKeyRequest =
+              [InstancesStartWithEncryptionKeyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesStartWithEncryptionKeyRequest.html).newBuilder()
                   .addDisks(protectedDisk).build();
     
-          StartWithEncryptionKeyInstanceRequest encryptionKeyInstanceRequest =
-              StartWithEncryptionKeyInstanceRequest.newBuilder()
+          [StartWithEncryptionKeyInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartWithEncryptionKeyInstanceRequest.html) encryptionKeyInstanceRequest =
+              [StartWithEncryptionKeyInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartWithEncryptionKeyInstanceRequest.html).newBuilder()
                   .setProject(project)
                   .setZone(zone)
                   .setInstance(instanceName)
-                  .setInstancesStartWithEncryptionKeyRequestResource(startWithEncryptionKeyRequest)
+                  .[setInstancesStartWithEncryptionKeyRequestResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartWithEncryptionKeyInstanceRequest.Builder.html#com_google_cloud_compute_v1_StartWithEncryptionKeyInstanceRequest_Builder_setInstancesStartWithEncryptionKeyRequestResource_com_google_cloud_compute_v1_InstancesStartWithEncryptionKeyRequest_)(startWithEncryptionKeyRequest)
                   .build();
     
-          OperationFuture<Operation, Operation> operation = instancesClient.startWithEncryptionKeyAsync(
+          OperationFuture<Operation, Operation> operation = instancesClient.[startWithEncryptionKeyAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html#com_google_cloud_compute_v1_InstancesClient_startWithEncryptionKeyAsync_com_google_cloud_compute_v1_StartWithEncryptionKeyInstanceRequest_)(
               encryptionKeyInstanceRequest);
-          Operation response = operation.get(3, TimeUnit.MINUTES);
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = operation.get(3, TimeUnit.MINUTES);
     
-          if (response.getStatus() == Status.DONE) {
+          if (response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)() == [Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html).DONE) {
             System.out.println("Encrypted instance started successfully ! ");
           }
         }
@@ -214,10 +214,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const instanceName = 'YOUR_INSTANCE_NAME'
     // const key = 'YOUR_KEY_STRING'
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     async function startInstanceWithEncryptionKey() {
-      const instancesClient = new compute.InstancesClient();
+      const instancesClient = new compute.[InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [instance] = await instancesClient.get({
         project: projectId,
@@ -241,7 +241,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         },
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.ZoneOperationsClient();
+      const operationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the operation to complete.
       while (operation.status !== 'DONE') {
@@ -348,7 +348,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -412,23 +412,23 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
                 For more information about disk encryption see:
                 https://cloud.google.com/compute/docs/disks/customer-supplied-encryption#specifications
         """
-        instance_client = compute_v1.InstancesClient()
+        instance_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstancesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html)()
     
-        instance_data = instance_client.get(
+        instance_data = instance_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_get)(
             project=project_id, zone=zone, instance=instance_name
         )
     
         # Prepare the information about disk encryption
-        disk_data = compute_v1.CustomerEncryptionKeyProtectedDisk()
-        disk_data.source = instance_data.disks[0].source
-        disk_data.disk_encryption_key = compute_v1.CustomerEncryptionKey()
+        disk_data = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[CustomerEncryptionKeyProtectedDisk](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.CustomerEncryptionKeyProtectedDisk.html)()
+        disk_data.source = instance_data.[disks](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.html)[0].source
+        disk_data.disk_encryption_key = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[CustomerEncryptionKey](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.CustomerEncryptionKey.html)()
         # Use raw_key to send over the key to unlock the disk
         # To use a key stored in KMS, you need to provide `kms_key_name` and `kms_key_service_account`
         disk_data.disk_encryption_key.raw_key = key
-        enc_data = compute_v1.InstancesStartWithEncryptionKeyRequest()
-        enc_data.disks = [disk_data]
+        enc_data = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstancesStartWithEncryptionKeyRequest](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.InstancesStartWithEncryptionKeyRequest.html)()
+        enc_data.[disks](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.html) = [disk_data]
     
-        operation = instance_client.start_with_encryption_key(
+        operation = instance_client.[start_with_encryption_key](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_start_with_encryption_key)(
             project=project_id,
             zone=zone,
             instance=instance_name,

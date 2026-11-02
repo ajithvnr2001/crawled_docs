@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-download-byte-range/
 title: Download an object using a byte range \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:40.176345+00:00
+fetched_at: 2026-11-02T05:40:32.395411+00:00
 ---
 
 # Download an object using a byte range  |  Cloud Storage  |  Google Cloud Documentation
@@ -385,7 +385,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     require "google/cloud/storage"
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     bucket  = storage.bucket bucket_name
     file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
     
@@ -393,6 +393,38 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     puts "Downloaded bytes #{start_byte} to #{end_byte} of object #{file_name} from bucket #{bucket_name}" \
          + " to local file #{local_file_path}."
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    use google_cloud_storage::model_ext::ReadRange;
+    
+    pub async fn sample(
+        client: &Storage,
+        bucket: &str,
+        object: &str,
+        start: u64,
+        end: u64,
+    ) -> Result<(), anyhow::Error> {
+        let count = end - start + 1;
+        let mut reader = client
+            .read_object(format!("projects/_/buckets/{bucket}"), object)
+            .set_read_range(ReadRange::segment(start, count))
+            .send()
+            .await?;
+    
+        let mut content = Vec::new();
+        while let Some(data) = reader.next().await.transpose()? {
+            content.extend_from_slice(&data);
+        }
+    
+        println!(
+            "Downloaded {} bytes from {start} to {end} of object {object} in bucket {bucket}.",
+            content.len()
+        );
+        Ok(())
+    }
 
 ## What's next
 

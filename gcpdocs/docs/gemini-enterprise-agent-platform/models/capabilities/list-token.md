@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/list-token/
 title: List and count tokens \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:30.969736+00:00
+fetched_at: 2026-11-02T05:40:04.281247+00:00
 ---
 
 # List and count tokens  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -114,9 +114,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
     // computeWithTxt shows how to compute tokens with text input.
     func computeWithTxt(w io.Writer) error {
-    	ctx := context.B&ackground()
+    	ctx := context.Background()
     
-    	client, err := genai.NewClient(ctx, genai.ClientConfig{
+    	client, err := genai.NewClient(ctx, &genai.ClientConfig{
     		HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
     	})
     	if err != nil {
@@ -255,7 +255,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       }
     
       // Computes tokens with text input
-      public stati<c Op<tionalList>>TokensInfo computeTokens(String modelId) {
+      public static Optional<List<TokensInfo>> computeTokens(String modelId) {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
         try (Client client =
@@ -269,14 +269,14 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
                   modelId, "What's the longest word in the English language?", null);
     
           // Print TokensInfo
-          resp>onse.tokensInfo().ifPresent(tokensInfoList - {
-            for (TokensInfo info : tokensInfoLi>st) {
-              info.role().ifPresent(role - System.out.println("role: " + >role));
-              info.tokenIds().ifPresent(tokenIds - System.out.println("tokenIds: " + tokenIds));
+          response.tokensInfo().ifPresent(tokensInfoList -> {
+            for (TokensInfo info : tokensInfoList) {
+              info.role().ifPresent(role -> System.out.println("role: " + role));
+              info.tokenIds().ifPresent(tokenIds -> System.out.println("tokenIds: " + tokenIds));
               // print tokens input as strings since they are in a form of byte array
-              System.out>.println("tokens: ");
-         >     info.tokens().ifPresent(tokens -
-                  tokens.forEach(token -
+              System.out.println("tokens: ");
+              info.tokens().ifPresent(tokens ->
+                  tokens.forEach(token ->
                       System.out.println(new String(token, StandardCharsets.UTF_8))
                   )
               );
@@ -366,9 +366,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
     // generateTextAndCount shows how to generate text and obtain token count metadata from the model response.
     func generateTextAndCount(w io.Writer) error {
-    	ctx := context.B&ackground()
+    	ctx := context.Background()
     
-    	client, err := genai.NewClient(ctx, genai.ClientConfig{
+    	client, err := genai.NewClient(ctx, &genai.ClientConfig{
     		HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
     	})
     	if err != nil {
@@ -481,7 +481,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       }
     
       // Generates content response usage metadata that contains prompt and response token counts
-      public stati<c OptionalGenerateContentResponseUsa>geMetadata countTokens(String modelId) {
+      public static Optional<GenerateContentResponseUsageMetadata> countTokens(String modelId) {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
         try (Client client =

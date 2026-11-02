@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/switching-modes/
 title: Switching between modes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:30.472038+00:00
+fetched_at: 2026-11-02T05:40:07.857187+00:00
 ---
 
 # Switching between modes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -62,13 +62,13 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -117,13 +117,13 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -161,13 +161,13 @@ The following code samples demonstrate how to read your `RagEngineConfig` to see
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config = rag.rag_data.get_rag_engine_config(
         name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
@@ -216,13 +216,13 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -274,13 +274,13 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -333,13 +333,13 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     

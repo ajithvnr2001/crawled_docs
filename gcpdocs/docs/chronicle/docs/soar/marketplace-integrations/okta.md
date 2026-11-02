@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/okta/
 title: Integrate Okta with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:09.369418+00:00
+fetched_at: 2026-11-02T05:42:58.740308+00:00
 ---
 
 # Integrate Okta with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -42,13 +42,13 @@ The **Okta** integration uses Google SecOps capabilities to support the followin
 
 ## Before you begin
 
-Before you configure the integration in Google SecOps, verify that you have the following requirements met in your Okta environment:
+Before you configure the integration in Google SecOps, verify that you meet the following requirements in your Okta environment:
 
-  * **Authentication method** : Determine whether your organization uses an API Token (SSWS) or OAuth 2.0 for authentication.
+  * **Authentication method** : Determine whether your organization uses an API token or OAuth 2.0 for authentication:
 
-    * **API token** : Generate an SSWS token. For details, see the [Okta API token documentation](https://developer.okta.com/docs/guides/create-an-api-token/).
-    * **OAuth 2.0** : Register a service app to obtain a `Client ID`, `Key ID`, and `Private Key`. For details, see the [Okta OAuth documentation](https://developer.okta.com/docs/guides/implement-oauth-for-okta/main/).
-  * **Account permissions** : Verify the account has sufficient permissions to perform user management and session termination actions.
+    * **API token** : Generate an API token in the Okta Admin Console. For details, see the [Okta API token documentation](https://developer.okta.com/docs/guides/create-an-api-token/).
+    * **OAuth 2.0** : Register a service app in Okta to obtain a `Client ID`, `Key ID`, and `Private Key`, and grant the app the `okta.users.read`, `okta.users.manage`, and `okta.groups.read` OAuth 2.0 scopes. For details, see the [Okta OAuth documentation](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/).
+  * **Account permissions** : Verify that the account or OAuth service app has sufficient permissions to view groups and perform user management and session termination actions.
 
 
 
@@ -902,6 +902,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

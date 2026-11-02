@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-disable-default-event-based-hold/
 title: Disable a default event-based hold on a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:43.801401+00:00
+fetched_at: 2026-11-02T05:40:34.050592+00:00
 ---
 
 # Disable a default event-based hold on a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -253,6 +253,30 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Default event-based hold was disabled for #{bucket_name}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_default_event_based_hold(false))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["default_event_based_hold"]))
+            .send()
+            .await?;
+        println!("Default event-based hold was disabled for bucket {bucket_id}: {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

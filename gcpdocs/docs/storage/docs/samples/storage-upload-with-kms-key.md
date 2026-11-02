@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-upload-with-kms-key/
 title: Upload an object with a specified KMS key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:02.511254+00:00
+fetched_at: 2026-11-02T05:40:34.394970+00:00
 ---
 
 # Upload an object with a specified KMS key  |  Cloud Storage  |  Google Cloud Documentation
@@ -376,6 +376,29 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Uploaded #{file.name} and encrypted service side using #{file.kms_key}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(
+        client: &Storage,
+        bucket_id: &str,
+        file_path: &str,
+        kms_key: &str,
+    ) -> Result<(), anyhow::Error> {
+        const NAME: &str = "object-to-upload.txt";
+        let payload = tokio::fs::File::open(file_path).await?;
+        let _result = client
+            .write_object(format!("projects/_/buckets/{bucket_id}"), NAME, payload)
+            .set_kms_key(kms_key)
+            .send_unbuffered()
+            .await?;
+    
+        println!("Uploaded {NAME} to bucket {bucket_id} with KMS key {kms_key}.");
+        Ok(())
+    }
 
 ## What's next
 

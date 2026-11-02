@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-generate-upload-signed-url-v4/
 title: Create a PUT-signed URL using Cloud Storage libraries (V4) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:06.484842+00:00
+fetched_at: 2026-11-02T05:40:34.891489+00:00
 ---
 
 # Create a PUT-signed URL using Cloud Storage libraries (V4)  |  Google Cloud Documentation
@@ -380,6 +380,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       puts "You can use this URL with any user agent, for example:"
       puts "curl -X PUT -H 'Content-Type: text/plain' --upload-file my-file '#{url}'"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::builder::storage::SignedUrlBuilder;
+    use google_cloud_storage::http::Method;
+    use std::time::Duration;
+    
+    pub async fn sample(bucket_name: &str, object_name: &str) -> anyhow::Result<()> {
+        let signer = google_cloud_auth::credentials::Builder::default().build_signer()?;
+    
+        let signed_url =
+            SignedUrlBuilder::for_object(format!("projects/_/buckets/{bucket_name}"), object_name)
+                .with_method(Method::PUT)
+                .with_expiration(Duration::from_secs(15 * 60)) // 15 minutes
+                .with_header("content-type", "application/octet-stream")
+                .sign_with(&signer)
+                .await?;
+    
+        println!("Generated PUT signed URL:");
+        println!("{signed_url}");
+        println!("You can use this URL with any user agent, for example:");
+        println!(
+            "curl -X PUT -H 'Content-Type: application/octet-stream' --upload-file my-file '{signed_url}'",
+        );
+    
+        Ok(())
+    }
 
 ## What's next
 

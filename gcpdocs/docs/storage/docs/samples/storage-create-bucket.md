@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-bucket/
 title: Create a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:03.992097+00:00
+fetched_at: 2026-11-02T05:40:25.920837+00:00
 ---
 
 # Create a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -243,6 +243,27 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Created bucket: #{bucket.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::{client::StorageControl, model::Bucket};
+    
+    pub async fn sample(
+        client: &StorageControl,
+        project_id: &str,
+        bucket_id: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .create_bucket()
+            .set_parent("projects/_")
+            .set_bucket_id(bucket_id)
+            .set_bucket(Bucket::new().set_project(format!("projects/{project_id}")))
+            .send()
+            .await?;
+        println!("successfully created bucket {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

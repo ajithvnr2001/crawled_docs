@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-cors-configuration/
 title: Configure CORS for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:04.713185+00:00
+fetched_at: 2026-11-02T05:40:26.231022+00:00
 ---
 
 # Configure CORS for a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -387,6 +387,40 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Set CORS policies for bucket #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::Cors;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let mut cors = bucket.cors.clone();
+        cors.push(
+            Cors::new()
+                .set_origin(["http://example.appspot.com".to_string()])
+                .set_method(["GET".to_string(), "HEAD".to_string(), "DELETE".to_string()])
+                .set_response_header(["Content-Type".to_string()])
+                .set_max_age_seconds(3600),
+        );
+    
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_cors(cors))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["cors"]))
+            .send()
+            .await?;
+        println!("successfully updated bucket CORS for {bucket_id}: {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

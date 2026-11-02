@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/release-notes/
 title: Cloud Asset Inventory release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:40:15.079561+00:00
+fetched_at: 2026-11-02T05:42:41.946832+00:00
 ---
 
 # Cloud Asset Inventory release notes  |  Google Cloud Documentation
@@ -26,6 +26,43 @@ This page documents production updates to Cloud Asset Inventory. You can check t
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/asset-release-notes.xml) directly. 
+
+## October 28, 2026
+
+Feature
+
+The following resource types are publicly available through the [ExportAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/exportAssets), [ListAssets](https://docs.cloud.google.com/asset-inventory/docs/listing-assets), [BatchGetAssetsHistory](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/batchGetAssetsHistory), [QueryAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/queryAssets), [Feed](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/feeds), and Search ([SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources), [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies)) APIs.
+
+  * Google Cloud Migration Center 
+    * `migrationcenter.googleapis.com/DiscoveryClient`
+    * `migrationcenter.googleapis.com/Group`
+    * `migrationcenter.googleapis.com/ImportJob`
+    * `migrationcenter.googleapis.com/PreferenceSet`
+    * `migrationcenter.googleapis.com/ReportConfig`
+    * `migrationcenter.googleapis.com/Settings`
+    * `migrationcenter.googleapis.com/Source`
+
+
+
+## October 21, 2026
+
+Feature
+
+The following resource type is publicly available through the [SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources) and [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies) APIs.
+
+  * Cloud TPU API 
+    * `tpu.googleapis.com/QueuedResource`
+
+
+
+Feature
+
+The following resource type is publicly available through the [SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources) and [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies) APIs.
+
+  * Network Management API 
+    * `networkmanagement.googleapis.com/VpcFlowLogsConfig`
+
+
 
 ## October 19, 2026
 

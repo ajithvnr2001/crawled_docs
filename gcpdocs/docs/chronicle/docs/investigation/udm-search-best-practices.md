@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-best-practices/
 title: Search best practices \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:26.090705+00:00
+fetched_at: 2026-11-02T05:43:09.436253+00:00
 ---
 
 # Search best practices  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/goog
 
 This document describes Google's recommended best practices for using the [**Search**](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search) feature in Google Security Operations. Searches can require substantial computational resources if they're not carefully constructed. Performance also varies depending on the size and complexity of the data in your Google SecOps instance.
 
-**Note:** For raw log searches, the **Search** field is limited to 150 characters.
+**Tip:** To accelerate interactive event retrieval and query iteration when you don't need timeline charts, prevalence scoring, or detection correlations, run your search in **Basic Mode**. The search-execution mode feature (**Basic Mode** and **Advanced Mode**) is in Public Preview. For more information, see [Choose the search-execution mode](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#choose-search-execution-mode) and [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).**Note:** For raw log searches, the **Search** field is limited to 150 characters.
 
 ## Use specific filters in queries for maximum speed and performance
 
@@ -264,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

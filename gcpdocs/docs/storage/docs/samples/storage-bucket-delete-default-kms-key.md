@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-bucket-delete-default-kms-key/
 title: Remove the default KMS key name \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:36.066170+00:00
+fetched_at: 2026-11-02T05:40:27.302785+00:00
 ---
 
 # Remove the default KMS key name  |  Cloud Storage  |  Google Cloud Documentation
@@ -259,6 +259,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Default KMS key was removed from #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::Encryption;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_or_clear_encryption(None::<Encryption>))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["encryption.default_kms_key"]))
+            .send()
+            .await?;
+        println!(
+            "successfully deleted default kms key for bucket {bucket_id}: {:?}",
+            bucket.encryption
+        );
+        Ok(())
+    }
 
 ## What's next
 

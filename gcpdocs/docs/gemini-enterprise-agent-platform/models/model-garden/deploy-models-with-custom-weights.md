@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-models-with-custom-weights/
 title: Deploy models with custom weights \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:46.265061+00:00
+fetched_at: 2026-11-02T05:40:02.362998+00:00
 ---
 
 # Deploy models with custom weights  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -274,11 +274,11 @@ This command demonstrates how to deploy the model to a specific region with its 
 ###  Python 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from google.cloud import aiplatform
     from vertexai.preview import model_garden
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=${PROJECT_ID}, location=${REGION})
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=${PROJECT_ID}, location=${REGION})
     custom_model = model_garden.[CustomModel](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1beta1.types.DeployRequest.CustomModel.html)(
       gcs_uri=GCS_URI,
     )
@@ -295,11 +295,11 @@ This command demonstrates how to deploy the model to a specific region with its 
 Alternatively, you don't have to pass a parameter to the `custom_model.deploy()` method.
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from google.cloud import aiplatform
     from vertexai.preview import model_garden
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=${PROJECT_ID}, location=${REGION})
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=${PROJECT_ID}, location=${REGION})
     custom_model = model_garden.[CustomModel](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1beta1.types.DeployRequest.CustomModel.html)(
       gcs_uri=GCS_URI,
     )

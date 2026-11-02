@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-download-public-file/
 title: Download a public object without credentials \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:36.989186+00:00
+fetched_at: 2026-11-02T05:40:36.495980+00:00
 ---
 
 # Download a public object without credentials  |  Cloud Storage  |  Google Cloud Documentation
@@ -311,6 +311,33 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Downloaded public object #{file.name} from bucket #{bucket} to #{local_file_path}"
     end
+
+### Rust
+    
+    
+    use google_cloud_auth::credentials::anonymous;
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(bucket: &str, object: &str) -> Result<(), anyhow::Error> {
+        let client = Storage::builder()
+            .with_credentials(anonymous::Builder::new().build())
+            .build()
+            .await?;
+    
+        // Download the file.
+        let mut reader = client
+            .read_object(format!("projects/_/buckets/{bucket}"), object)
+            .send()
+            .await?;
+    
+        println!("counting newlines {object} in bucket {bucket}");
+        let mut count = 0;
+        while let Some(buffer) = reader.next().await.transpose()? {
+            count += buffer.into_iter().filter(|c| *c == b'\n').count();
+        }
+        println!("Public object {object} in bucket {bucket} contains {count} newlines");
+        Ok(())
+    }
 
 ## What's next
 

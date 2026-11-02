@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-copy-file-archived-generation/
 title: Copy an archived object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:37.572316+00:00
+fetched_at: 2026-11-02T05:40:33.905199+00:00
 ---
 
 # Copy an archived object  |  Cloud Storage  |  Google Cloud Documentation
@@ -417,6 +417,35 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       puts "Generation #{generation} of the file #{source_file.name} in bucket #{source_bucket.name} copied to file " \
            "#{destination_file.name} in bucket #{destination_bucket.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::builder_ext::RewriteObjectExt;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        source_bucket_id: &str,
+        dest_bucket_id: &str,
+        generation: i64,
+    ) -> anyhow::Result<()> {
+        const SOURCE_NAME: &str = "object-generation-to-copy";
+        const DEST_NAME: &str = "copied-object";
+        let copied = client
+            .rewrite_object()
+            .set_source_bucket(format!("projects/_/buckets/{source_bucket_id}"))
+            .set_source_object(SOURCE_NAME)
+            .set_source_generation(generation)
+            .set_destination_bucket(format!("projects/_/buckets/{dest_bucket_id}"))
+            .set_destination_name(DEST_NAME)
+            .rewrite_until_done()
+            .await?;
+        println!(
+            "successfully copied {source_bucket_id}/{SOURCE_NAME} to {dest_bucket_id}/{DEST_NAME}: {copied:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

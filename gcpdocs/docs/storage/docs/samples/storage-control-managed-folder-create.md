@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-managed-folder-create/
 title: Storage Control Create a Managed Folder \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:31.484595+00:00
+fetched_at: 2026-11-02T05:40:38.514334+00:00
 ---
 
 # Storage Control Create a Managed Folder  |  Google Cloud Documentation
@@ -297,6 +297,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Created managed folder: #{response.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::{client::StorageControl, model::ManagedFolder};
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const ID: &str = "example001";
+        let folder = client
+            .create_managed_folder()
+            .set_parent(format!("projects/_/buckets/{bucket_id}"))
+            .set_managed_folder_id(ID)
+            .set_managed_folder(ManagedFolder::new())
+            .send()
+            .await?;
+        println!("folder successfully created {folder:?}");
+        Ok(())
+    }
 
 ## What's next
 

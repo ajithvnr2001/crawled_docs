@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-bucket-get-default-kms-key/
 title: Get a bucket's default KMS key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:26.149972+00:00
+fetched_at: 2026-11-02T05:40:20.191340+00:00
 ---
 
 # Get a bucket's default KMS key  |  Cloud Storage  |  Google Cloud Documentation
@@ -53,6 +53,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       std::cout << "The default KMS key for bucket " << metadata->name()
                 << " is: " << metadata->encryption().default_kms_key_name << "\n";
+    }
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!(
+            "Encryption config for bucket {bucket_id}: {:?}",
+            bucket.encryption
+        );
+        Ok(())
     }
 
 ## What's next

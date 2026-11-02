@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/custom-constraints/
 title: Create custom organization policy constraints \u00a0|\u00a0 Database Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:34.423588+00:00
+fetched_at: 2026-11-02T05:40:36.999168+00:00
 ---
 
 # Create custom organization policy constraints  |  Database Migration Service  |  Google Cloud Documentation
@@ -483,7 +483,7 @@ To test the policy, try to create a Database Migration Service migration job wit
     
     # This command is a conceptual example. You need to provide valid IDs and other flags.
     # Replace <VAR> placeholders with actual values.
-    gcloud database-migration migration-jobs create my-one-time-mig --region=<VAR>REGION</VAR> --type=ONE_TIME --display-name="One Time Migration"< -->source=VA<RSOU>RCE_CP/VAR --de<sti>nation=<VARD>EST_CP/VAR ...
+    gcloud database-migration migration-jobs create my-one-time-mig --region=<VAR>REGION</VAR> --type=ONE_TIME --display-name="One Time Migration" --source=<VAR>SOURCE_CP</VAR> --destination=<VAR>DEST_CP</VAR> ...
     
 
 The output includes an error similar to the following:
@@ -556,6 +556,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

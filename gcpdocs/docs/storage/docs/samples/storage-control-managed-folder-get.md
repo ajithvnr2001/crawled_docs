@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-managed-folder-get/
 title: storage control get a managed folder \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:00.002979+00:00
+fetched_at: 2026-11-02T05:40:38.651971+00:00
 ---
 
 # storage control get a managed folder  |  Cloud Storage  |  Google Cloud Documentation
@@ -299,6 +299,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Got managed folder: #{response.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const ID: &str = "example001";
+        let folder = client
+            .get_managed_folder()
+            .set_name(format!(
+                "projects/_/buckets/{bucket_id}/managedFolders/{ID}"
+            ))
+            .send()
+            .await?;
+        println!("successfully retrieved managed folder metadata: {folder:?}");
+        Ok(())
+    }
 
 ## What's next
 

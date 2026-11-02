@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/get-asset-history/
 title: Get asset histories \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:52:37.884442+00:00
+fetched_at: 2026-11-02T05:41:16.001088+00:00
 ---
 
 # Get asset histories  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -601,16 +601,16 @@ To learn how to install and use the client library for Cloud Asset Inventory, se
 To authenticate to Cloud Asset Inventory, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest)
+    from google.cloud import asset_v1
     
     # TODO project_id = 'Your Google Cloud Project ID'
     # TODO asset_names = 'Your asset names list, e.g.:
     # ["//storage.googleapis.com/[BUCKET_NAME]",]'
     
-    client = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
+    client = asset_v1.[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
     parent = f"projects/{project_id}"
-    content_type = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[ContentType](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.ContentType.html).RESOURCE
-    read_time_window = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[TimeWindow](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.TimeWindow.html)()
+    content_type = asset_v1.[ContentType](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.ContentType.html).RESOURCE
+    read_time_window = asset_v1.[TimeWindow](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.TimeWindow.html)()
     response = client.[batch_get_assets_history](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html#google_cloud_asset_v1_services_asset_service_AssetServiceClient_batch_get_assets_history)(
         request={
             "parent": parent,

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-default-event-based-hold/
 title: Get the state of a default event-based hold \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:03.576641+00:00
+fetched_at: 2026-11-02T05:40:34.196762+00:00
 ---
 
 # Get the state of a default event-based hold  |  Cloud Storage  |  Google Cloud Documentation
@@ -249,6 +249,29 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Default event-based hold is not enabled for #{bucket_name}."
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!(
+            "The default event-based hold for bucket \"{}\" is {}.",
+            bucket_id,
+            if bucket.default_event_based_hold {
+                "enabled"
+            } else {
+                "disabled"
+            }
+        );
+        Ok(())
+    }
 
 ## What's next
 

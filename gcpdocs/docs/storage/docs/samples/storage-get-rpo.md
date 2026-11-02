@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-rpo/
 title: Get metadata for a bucket and display current rpo setting \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:01.137583+00:00
+fetched_at: 2026-11-02T05:40:33.292303+00:00
 ---
 
 # Get metadata for a bucket and display current rpo setting  |  Cloud Storage  |  Google Cloud Documentation
@@ -233,6 +233,21 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "The RPO setting of bucket '#{bucket_name}' is #{bucket.[rpo](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!("successfully obtained bucket metadata {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

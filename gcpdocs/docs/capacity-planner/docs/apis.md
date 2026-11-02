@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/capacity-planner/docs/apis/
 title: APIs and reference \u00a0|\u00a0 Capacity Planner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:44.694819+00:00
+fetched_at: 2026-11-02T05:42:55.686783+00:00
 ---
 
 # APIs and reference  |  Capacity Planner  |  Google Cloud Documentation
@@ -36,6 +36,7 @@ This product is subject to the "Pre-GA Offerings Terms" in the General Service T
 
   * ### [Client libraries Get started with Capacity Planner in your language of choice.  ](https://docs.cloud.google.com/capacity-planner/docs/reference/libraries)
   * ### [REST API reference Programming reference for the REST Capacity Planner API.  ](https://docs.cloud.google.com/capacity-planner/docs/reference/rest)
+  * ### [MCP reference (Preview) Reference for the Capacity Planner MCP server tools.  ](https://docs.cloud.google.com/capacity-planner/docs/reference/mcp)
 
 
 

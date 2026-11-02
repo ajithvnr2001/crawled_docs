@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-download-file/
 title: Download an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:04.559825+00:00
+fetched_at: 2026-11-02T05:40:23.915509+00:00
 ---
 
 # Download an object  |  Cloud Storage  |  Google Cloud Documentation
@@ -321,6 +321,33 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Downloaded #{file.name} to #{local_file_path}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    use tokio::io::AsyncWriteExt;
+    
+    pub async fn sample(
+        client: &Storage,
+        bucket: &str,
+        object: &str,
+        file_path: &str,
+    ) -> Result<(), anyhow::Error> {
+        let mut reader = client
+            .read_object(format!("projects/_/buckets/{bucket}"), object)
+            .send()
+            .await?;
+    
+        let mut file = tokio::fs::File::create(file_path).await?;
+        while let Some(data) = reader.next().await.transpose()? {
+            file.write_all(&data).await?;
+        }
+        file.flush().await?;
+    
+        println!("Downloaded {object} in bucket {bucket} to {file_path}.");
+        Ok(())
+    }
 
 ## What's next
 

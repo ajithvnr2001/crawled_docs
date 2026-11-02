@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/deploy-resources/
 title: Deploy infrastructure using Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:28.343420+00:00
+fetched_at: 2026-11-02T05:39:48.748703+00:00
 ---
 
 # Deploy infrastructure using Infrastructure Manager  |  Google Cloud Documentation
@@ -169,7 +169,7 @@ If the storage bucket is in the same project as Infra Manager, read permission t
                  --quota-validation=QUOTA_VALIDATION \
                  --input-values=INPUT_1_NAME=VALUE,INPUT_2_NAME=VALUE \
                  --tf-version-constraint=TERRAFORM_VERSION \
-                 --annotations=&quot;ANNOTATION_KEY=ANNOTATION_VALUE"
+                 --annotations="ANNOTATION_KEY=ANNOTATION_VALUE"
                  --provider-source=SERVICE_MAINTAINED
                  
 
@@ -212,13 +212,13 @@ This section describes how to work with a Terraform configuration that is stored
          
          gcloud infra-manager deployments apply projects/PROJECT_ID/locations/LOCATION/deployments/DEPLOYMENT_ID \
                  --service-account projects/SERVICE_ACCOUNT_PROJECT_ID/serviceAccounts/SERVICE_ACCOUNT \
-                 --git-source-repo=&quot;GIT_REPO" \
+                 --git-source-repo="GIT_REPO" \
                  --git-source-directory="DIRECTORY" \
-                 </span>--git-source-ref="REF" \
+                 --git-source-ref="REF" \
                  --quota-validation=QUOTA_VALIDATION \
                  --input-values=INPUT_1_NAME=VALUE,INPUT_2_NAME=VALUE \
                  --tf-version-constraint=TERRAFORM_VERSION \
-                 --annotations=&quot;ANNOTATION_KEY=ANNOTATION_VALUE"
+                 --annotations="ANNOTATION_KEY=ANNOTATION_VALUE"
                  --provider-source=SERVICE_MAINTAINED
                  
 
@@ -258,11 +258,11 @@ This section describes how to work with a Terraform configuration that is stored
          
          gcloud infra-manager deployments apply projects/PROJECT_ID/locations/LOCATION/deployments/DEPLOYMENT_ID \
                  --service-account projects/SERVICE_ACCOUNT_PROJECT_ID/serviceAccounts/SERVICE_ACCOUNT \
-                 --local-source=&quot;LOCAL_DIRECTORY" \
+                 --local-source="LOCAL_DIRECTORY" \
                  --quota-validation=QUOTA_VALIDATION \
                  --input-values=INPUT_1_NAME=VALUE,INPUT_2_NAME=VALUE \
                  --tf-version-constraint=TERRAFORM_VERSION \
-                 --annotations=";ANNOTATION_KEY=ANNOTATION_VALUE"
+                 --annotations="ANNOTATION_KEY=ANNOTATION_VALUE"
                  --provider-source=SERVICE_MAINTAINED
                  
 

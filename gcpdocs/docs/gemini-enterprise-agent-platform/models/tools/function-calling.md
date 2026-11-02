@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling/
 title: Introduction to function calling \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:14.255572+00:00
+fetched_at: 2026-11-02T05:40:02.134627+00:00
 ---
 
 # Introduction to function calling  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -178,20 +178,20 @@ The following examples submit a prompt and function declaration to the Gemini mo
 You can specify the schema either manually using a Python dictionary or automatically with the `from_func` helper function. The following example demonstrates how to declare a function manually:
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.generative_models import (
-        [Content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Content.html),
-        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
-        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerationConfig.html),
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
-        [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html),
-        [Tool](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Tool.html),
-        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.ToolConfig.html)
+        [Content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Content.html),
+        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
+        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerationConfig.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html),
+        [Tool](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Tool.html),
+        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.ToolConfig.html)
     )
     
     # Initialize Agent Platform
     # TODO(developer): Update the project
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="PROJECT_ID", location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="PROJECT_ID", location="us-central1")
     
     # Initialize Gemini model
     model = GenerativeModel(model_name="gemini-2.5-flash")
@@ -215,12 +215,12 @@ You can specify the schema either manually using a Python dictionary or automati
         },
     )
     
-    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
+    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
         contents = [
           Content(
             role="user",
               parts=[
-                  [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston?"),
+                  [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston?"),
               ],
           )
         ],
@@ -1114,20 +1114,20 @@ This example demonstrates a scenario with one `get_current_weather` function. Th
 Replace my-project with the name of your Google Cloud project.
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.generative_models import (
-        [Content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Content.html),
-        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
-        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerationConfig.html),
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
-        [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html),
-        [Tool](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Tool.html),
-        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.ToolConfig.html)
+        [Content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Content.html),
+        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
+        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerationConfig.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html),
+        [Tool](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Tool.html),
+        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.ToolConfig.html)
     )
     
     # Initialize Agent Platform
     # TODO(developer): Update the project
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="my-project", location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="my-project", location="us-central1")
     
     # Initialize Gemini model
     model = GenerativeModel(model_name="gemini-2.5-flash")
@@ -1151,12 +1151,12 @@ Replace my-project with the name of your Google Cloud project.
         },
     )
     
-    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
+    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
         contents = [
           Content(
             role="user",
               parts=[
-                  [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston and San Francisco?"),
+                  [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston and San Francisco?"),
               ],
           )
         ],

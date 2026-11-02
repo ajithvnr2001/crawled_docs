@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-requester-pays-status/
 title: Get the Requester Pays status on a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:02.778856+00:00
+fetched_at: 2026-11-02T05:40:24.311993+00:00
 ---
 
 # Get the Requester Pays status on a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -270,6 +270,30 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Requester pays status is disabled for #{bucket_name}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_gax::options::RequestOptionsBuilder;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        user_project: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .with_quota_project(user_project)
+            .send()
+            .await?;
+        println!(
+            "Bucket {bucket_id} has billing status: {:?}",
+            bucket.billing
+        );
+        Ok(())
+    }
 
 ## What's next
 

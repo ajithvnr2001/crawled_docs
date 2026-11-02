@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-remove-bucket-default-owner/
 title: Remove a default ACL from a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:03.293024+00:00
+fetched_at: 2026-11-02T05:40:52.608951+00:00
 ---
 
 # Remove a default ACL from a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -262,6 +262,38 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     bucket.[default_acl](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).delete email
     
     puts "Removed default ACL permissions for #{email} from #{bucket_name}"
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        user_email: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let mut acls = bucket.default_object_acl.clone();
+        acls.retain(|acl| acl.entity != format!("user-{}", user_email));
+    
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_default_object_acl(acls))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["default_object_acl"]))
+            .send()
+            .await?;
+        println!("Successfully removed default owner {user_email} from bucket {bucket_id}");
+        println!("{:?}", bucket.default_object_acl);
+        Ok(())
+    }
 
 ## What's next
 

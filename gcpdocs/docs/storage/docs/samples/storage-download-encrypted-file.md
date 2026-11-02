@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-download-encrypted-file/
 title: Download a CSEK-encrypted object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:42.028804+00:00
+fetched_at: 2026-11-02T05:40:39.647941+00:00
 ---
 
 # Download a CSEK-encrypted object  |  Cloud Storage  |  Google Cloud Documentation
@@ -330,7 +330,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
       bucket = storage.bucket bucket_name, skip_lookup: true
     
@@ -339,6 +339,32 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Downloaded encrypted #{file.name} to #{local_file_path}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    use google_cloud_storage::model_ext::KeyAes256;
+    
+    pub async fn sample(
+        client: &Storage,
+        bucket: &str,
+        object: &str,
+        encryption_key: KeyAes256,
+    ) -> Result<(), anyhow::Error> {
+        let mut reader = client
+            .read_object(format!("projects/_/buckets/{bucket}"), object)
+            .set_key(encryption_key.clone())
+            .send()
+            .await?;
+    
+        while let Some(data) = reader.next().await.transpose()? {
+            println!("downloaded {} bytes", data.len())
+        }
+    
+        println!("Downloaded {object} in bucket {bucket} with key={encryption_key}.");
+        Ok(())
+    }
 
 ## What's next
 

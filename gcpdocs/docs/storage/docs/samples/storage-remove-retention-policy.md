@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-remove-retention-policy/
 title: Remove retention policy \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:07.990117+00:00
+fetched_at: 2026-11-02T05:40:23.137393+00:00
 ---
 
 # Remove retention policy  |  Cloud Storage  |  Google Cloud Documentation
@@ -302,6 +302,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Policy is locked and retention policy can't be removed."
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::RetentionPolicy;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_retention_policy(RetentionPolicy::new()))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["retention_policy"]))
+            .send()
+            .await?;
+        println!(
+            "Retention policy for bucket {bucket_id} removed: {:?}",
+            bucket.retention_policy
+        );
+        Ok(())
+    }
 
 ## What's next
 

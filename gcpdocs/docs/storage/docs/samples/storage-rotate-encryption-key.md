@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-rotate-encryption-key/
 title: Rotate an encryption key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:43.099217+00:00
+fetched_at: 2026-11-02T05:40:38.992523+00:00
 ---
 
 # Rotate an encryption key  |  Cloud Storage  |  Google Cloud Documentation
@@ -395,6 +395,41 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "The encryption key for #{file.name} in #{bucket.name} was rotated."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::builder_ext::RewriteObjectExt;
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::CommonObjectRequestParams;
+    use google_cloud_storage::model_ext::KeyAes256;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        object_id: &str,
+        old_key: KeyAes256,
+        new_key: KeyAes256,
+    ) -> anyhow::Result<()> {
+        let old: CommonObjectRequestParams = old_key.into();
+        let updated = client
+            .rewrite_object()
+            .set_source_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_source_object(object_id)
+            .set_copy_source_encryption_algorithm(old.encryption_algorithm)
+            .set_copy_source_encryption_key_bytes(old.encryption_key_bytes)
+            .set_copy_source_encryption_key_sha256_bytes(old.encryption_key_sha256_bytes)
+            .set_destination_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_destination_name(object_id)
+            .set_common_object_request_params(new_key)
+            .rewrite_until_done()
+            .await?;
+    
+        println!(
+            "successfully rotated encryption key for object {object_id} in bucket {bucket_id}: {updated:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

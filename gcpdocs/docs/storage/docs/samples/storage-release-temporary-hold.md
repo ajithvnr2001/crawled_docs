@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-release-temporary-hold/
 title: Release a temporary hold on an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:59.211343+00:00
+fetched_at: 2026-11-02T05:40:36.214348+00:00
 ---
 
 # Release a temporary hold on an object  |  Cloud Storage  |  Google Cloud Documentation
@@ -304,6 +304,35 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Temporary hold was released for #{file_name}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-update";
+        let object = client
+            .get_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .send()
+            .await?;
+    
+        let metageneration = object.metageneration;
+        let updated = client
+            .update_object()
+            .set_if_metageneration_match(metageneration)
+            .set_object(object.set_temporary_hold(false))
+            .set_update_mask(FieldMask::default().set_paths(["temporary_hold"]))
+            .send()
+            .await?;
+        println!(
+            "successfully released temporary hold on object {NAME} in bucket {bucket_id}: {updated:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-bucket-default-kms-key/
 title: Set a default KMS key for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:43.932217+00:00
+fetched_at: 2026-11-02T05:40:23.582595+00:00
 ---
 
 # Set a default KMS key for a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -300,6 +300,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Default KMS key for #{bucket.name} was set to #{bucket.[default_kms_key](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::Encryption;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str, kms_key: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_encryption(Encryption::new().set_default_kms_key(kms_key)))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["encryption.default_kms_key"]))
+            .send()
+            .await?;
+        println!(
+            "successfully updated default KMS key for bucket {bucket_id}: {:?}",
+            bucket.encryption
+        );
+        Ok(())
+    }
 
 ## What's next
 

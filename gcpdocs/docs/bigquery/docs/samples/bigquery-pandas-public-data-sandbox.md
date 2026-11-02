@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-pandas-public-data-sandbox/
 title: Download public table data to DataFrame from the sandbox \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:33.184752+00:00
+fetched_at: 2026-11-02T05:40:55.317755+00:00
 ---
 
 # Download public table data to DataFrame from the sandbox  |  BigQuery  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     query_string = "SELECT * FROM `bigquery-public-data.usa_names.usa_1910_current`"
     
     # Use the BigQuery Storage API to speed-up downloads of large tables.
-    dataframe = client.[query_and_wait](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_query_and_wait)(query_string).to_dataframe(
+    dataframe[ = client.quer](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_query_and_wait)y_and_wait(query_string).to_dataframe(
         create_bqstorage_client=True
     )
     

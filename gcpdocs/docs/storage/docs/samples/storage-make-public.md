@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-make-public/
 title: Make an object public \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:46.404049+00:00
+fetched_at: 2026-11-02T05:40:29.975856+00:00
 ---
 
 # Make an object public  |  Cloud Storage  |  Google Cloud Documentation
@@ -244,6 +244,40 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "#{file.name} is publicly accessible at #{file.[public_url](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-File.html)}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::{client::StorageControl, model::ObjectAccessControl};
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-update";
+        let object = client
+            .get_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .send()
+            .await?;
+        const ENTITY: &str = "allUsers";
+        const ROLE: &str = "READER";
+        let mut acl = object.acl.clone();
+        let entry = acl.iter_mut().find(|x| x.entity == ENTITY);
+        match entry {
+            None => acl.push(ObjectAccessControl::new().set_entity(ENTITY).set_role(ROLE)),
+            Some(e) => e.role = ROLE.into(),
+        };
+        let metageneration = object.metageneration;
+        let updated = client
+            .update_object()
+            .set_if_metageneration_match(metageneration)
+            .set_object(object.set_acl(acl))
+            .set_update_mask(FieldMask::default().set_paths(["acl"]))
+            .send()
+            .await?;
+        println!("successfully made public object {NAME} in bucket {bucket_id}: {updated:?}");
+        Ok(())
+    }
 
 ## What's next
 

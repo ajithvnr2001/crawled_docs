@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-object-csek-to-cmek/
 title: Convert CSEK to CMEK \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:08.152869+00:00
+fetched_at: 2026-11-02T05:40:40.841310+00:00
 ---
 
 # Convert CSEK to CMEK  |  Cloud Storage  |  Google Cloud Documentation
@@ -414,6 +414,41 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       puts "File #{file_name} in bucket #{bucket_name} is now managed by the KMS key #{kms_key_name} instead of a " \
            "customer-supplied encryption key"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::builder_ext::RewriteObjectExt;
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::CommonObjectRequestParams;
+    use google_cloud_storage::model_ext::KeyAes256;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        object_id: &str,
+        csek_key: KeyAes256,
+        kms_key: &str,
+    ) -> anyhow::Result<()> {
+        let csek: CommonObjectRequestParams = csek_key.into();
+        let updated = client
+            .rewrite_object()
+            .set_source_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_source_object(object_id)
+            .set_copy_source_encryption_algorithm(csek.encryption_algorithm)
+            .set_copy_source_encryption_key_bytes(csek.encryption_key_bytes)
+            .set_copy_source_encryption_key_sha256_bytes(csek.encryption_key_sha256_bytes)
+            .set_destination_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_destination_name(object_id)
+            .set_destination_kms_key(kms_key.to_string())
+            .rewrite_until_done()
+            .await?;
+    
+        println!(
+            "successfully rotated encryption key for object {object_id} in bucket {bucket_id} from CSEK to CMEK: {updated:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

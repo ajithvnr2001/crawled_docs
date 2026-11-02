@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/create-a-custom-bin/
 title: Create a custom bin \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:29.580071+00:00
+fetched_at: 2026-11-02T05:40:43.289431+00:00
 ---
 
 # Create a custom bin  |  Data Studio  |  Google Cloud Documentation

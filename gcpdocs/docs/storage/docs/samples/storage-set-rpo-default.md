@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-rpo-default/
 title: Set the rpo setting of bucket metadata to DEFAULT \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:05.487305+00:00
+fetched_at: 2026-11-02T05:40:43.571448+00:00
 ---
 
 # Set the rpo setting of bucket metadata to DEFAULT  |  Cloud Storage  |  Google Cloud Documentation
@@ -254,6 +254,30 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "The replication behavior or recovery point objective (RPO) for #{bucket_name} is set to default."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_rpo("DEFAULT"))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["rpo"]))
+            .send()
+            .await?;
+        println!("successfully updated bucket RPO to DEFAULT: {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

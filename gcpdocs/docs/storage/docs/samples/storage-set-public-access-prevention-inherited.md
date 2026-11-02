@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-public-access-prevention-inherited/
 title: Set Public Access Prevention to Inherited \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:03.440647+00:00
+fetched_at: 2026-11-02T05:40:40.271218+00:00
 ---
 
 # Set Public Access Prevention to Inherited  |  Cloud Storage  |  Google Cloud Documentation
@@ -268,6 +268,33 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Public access prevention is 'inherited' for #{bucket_name}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::IamConfig;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(
+                bucket.set_iam_config(IamConfig::new().set_public_access_prevention("inherited")),
+            )
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["iam_config.public_access_prevention"]))
+            .send()
+            .await?;
+        println!("Public access prevention is inherited for bucket {bucket_id}: {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-remove-bucket-label/
 title: Remove a bucket label \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:37.850183+00:00
+fetched_at: 2026-11-02T05:40:39.841347+00:00
 ---
 
 # Remove a bucket label  |  Cloud Storage  |  Google Cloud Documentation
@@ -281,7 +281,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name
     
       bucket.update do |bucket|
@@ -290,6 +290,38 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Deleted label #{label_key} from #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        label_key: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let mut labels = bucket.labels.clone();
+        labels.remove(label_key);
+    
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_labels(labels))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["labels"]))
+            .send()
+            .await?;
+        println!("Successfully removed label {label_key} from bucket {bucket_id}");
+        println!("{:?}", bucket.labels);
+        Ok(())
+    }
 
 ## What's next
 

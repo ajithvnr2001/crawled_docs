@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/entity-context-in-search/
 title: Conduct entity context searches \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:01:39.445683+00:00
+fetched_at: 2026-11-02T05:43:07.743442+00:00
 ---
 
 # Conduct entity context searches  |  Google Security Operations  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ The interface displays timed entities or timeless entities, up to the configured
     * **Total changed entities** : The Entity Context Graph (ECG) stores data in time buckets within their validity period. It also copies this data forward to the next time bucket, provided the entity remains valid (based on `end_time`). This graph updates whenever an entity property changes between two time buckets.
 
 
-
+**Note:** The **Alerts & Detections** tab, the **Overview** tab, and the **Activity Over Time** chart are displayed only when you run a search in **Advanced Mode**. The search-execution mode feature (**Basic Mode** and **Advanced Mode**) is in Public Preview. For more information, see [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
 
 ## Use case: Investigate a compromised user account
 
@@ -383,6 +383,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

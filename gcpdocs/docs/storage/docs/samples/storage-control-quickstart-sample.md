@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-quickstart-sample/
 title: Storage Control Quickstart Sample \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:02.570913+00:00
+fetched_at: 2026-11-02T05:40:30.673174+00:00
 ---
 
 # Storage Control Quickstart Sample  |  Google Cloud Documentation
@@ -294,6 +294,21 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Performed get_storage_layout request for #{response.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let layout = client
+            .get_storage_layout()
+            .set_name(format!("projects/_/buckets/{bucket_id}/storageLayout"))
+            .send()
+            .await?;
+        println!("successfully retrieved storage layout: {layout:?}");
+        Ok(())
+    }
 
 ## What's next
 

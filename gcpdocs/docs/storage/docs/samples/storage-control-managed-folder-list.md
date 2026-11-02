@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-managed-folder-list/
 title: Storage Control List Managed Folders \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:16.574242+00:00
+fetched_at: 2026-11-02T05:40:45.474862+00:00
 ---
 
 # Storage Control List Managed Folders  |  Google Cloud Documentation
@@ -309,6 +309,25 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Listed managed folders in bucket #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_gax::paginator::ItemPaginator;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let mut items = client
+            .list_managed_folders()
+            .set_parent(format!("projects/_/buckets/{bucket_id}"))
+            .by_item();
+        println!("Listing managed folders in bucket {bucket_id}");
+        while let Some(folder) = items.next().await.transpose()? {
+            println!("{folder:?}");
+        }
+        println!("DONE");
+        Ok(())
+    }
 
 ## What's next
 

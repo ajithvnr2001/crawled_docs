@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-bucket-public-iam/
 title: Make a bucket public \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:01.962400+00:00
+fetched_at: 2026-11-02T05:40:30.513711+00:00
 ---
 
 # Make a bucket public  |  Cloud Storage  |  Google Cloud Documentation
@@ -284,6 +284,39 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Bucket #{bucket_name} is now publicly readable"
     end
+
+### Rust
+    
+    
+    use google_cloud_iam_v1::model::{Binding, GetPolicyOptions};
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let mut policy = client
+            .get_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .set_options(GetPolicyOptions::new().set_requested_policy_version(3))
+            .send()
+            .await?;
+        policy.version = 3;
+        policy.bindings.push(
+            Binding::new()
+                .set_role("roles/storage.objectViewer")
+                .set_members(["allUsers"]),
+        );
+        let updated_policy = client
+            .set_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .set_policy(policy)
+            .send()
+            .await?;
+        println!(
+            "Successfully set public IAM policy for bucket {}",
+            bucket_id
+        );
+        println!("The updated policy is: {:?}", updated_policy);
+        Ok(())
+    }
 
 ## What's next
 

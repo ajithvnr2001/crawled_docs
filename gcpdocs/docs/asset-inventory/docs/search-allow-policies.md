@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/search-allow-policies/
 title: Search for IAM allow policies on resources \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:33.393125+00:00
+fetched_at: 2026-11-02T05:41:15.051149+00:00
 ---
 
 # Search for IAM allow policies on resources  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -662,13 +662,13 @@ To learn how to install and use the client library for Cloud Asset Inventory, se
 To authenticate to Cloud Asset Inventory, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest)
+    from google.cloud import asset_v1
     
     # TODO scope = 'Scope of the search'
     # TODO query = 'Query statement'
     # TODO page_size = Size of each result page
     
-    client = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
+    client = asset_v1.[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
     response = client.[search_all_iam_policies](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html#google_cloud_asset_v1_services_asset_service_AssetServiceClient_search_all_iam_policies)(
         request={"scope": scope, "query": query, "page_size": page_size}
     )

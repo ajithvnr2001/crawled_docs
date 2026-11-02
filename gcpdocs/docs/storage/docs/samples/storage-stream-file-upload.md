@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-stream-file-upload/
 title: Upload an object by streaming \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:01.028130+00:00
+fetched_at: 2026-11-02T05:40:23.746727+00:00
 ---
 
 # Upload an object by streaming  |  Cloud Storage  |  Google Cloud Documentation
@@ -337,6 +337,38 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     bucket.[create_file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) local_file_obj, file_name
     
     puts "Stream data uploaded to #{file_name} in bucket #{bucket_name}"
+
+### Rust
+    
+    
+    use bytes::Bytes;
+    use google_cloud_storage::{client::Storage, streaming_source::StreamingSource};
+    
+    pub async fn sample(client: &Storage, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-upload.txt";
+        let payload = Payload(100);
+        let object = client
+            .write_object(format!("projects/_/buckets/{bucket_id}"), NAME, payload)
+            .set_if_generation_match(0)
+            .send_buffered()
+            .await?;
+        println!("successfully uploaded object {NAME} to bucket {bucket_id}: {object:?}");
+        Ok(())
+    }
+    
+    struct Payload(i32);
+    
+    impl StreamingSource for Payload {
+        type Error = std::convert::Infallible;
+        async fn next(&mut self) -> Option<Result<bytes::Bytes, Self::Error>> {
+            if self.0 <= 0 {
+                return None;
+            }
+            let value = format!("still have to send {} lines\n", self.0);
+            self.0 -= 1;
+            Some(Ok(Bytes::from_owner(value)))
+        }
+    }
 
 ## What's next
 

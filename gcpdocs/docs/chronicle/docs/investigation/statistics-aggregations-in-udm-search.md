@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search/
 title: Analyze search data with statistics \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:56.459009+00:00
+fetched_at: 2026-11-02T05:43:03.121260+00:00
 ---
 
 # Analyze search data with statistics  |  Google Security Operations  |  Google Cloud Documentation
@@ -516,6 +516,7 @@ To create and save visualizations to add to the [dashboard](https://docs.cloud.g
 
   2. Select a date range, and then click the **Run Search** to run the query. View the results on the **Statistics** and **Visualize** tabs.
 
+**Note:** The **Visualize** tab is displayed only when you run a search in **Advanced Mode**. The search-execution mode feature (**Basic Mode** and **Advanced Mode**) is in Public Preview. For more information, see [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
   3. On the **Visualize** tab, do the following: a. Select a chart type from the **Chart type** list. b. Adjust settings under **Data Settings** to customize the chart.
 
   4. On the **Add to dashboard** screen, do the following: a. Enter a **chart name** , **description** , and **time range**. b. Choose to add the chart to an existing dashboard or create a new dashboard.
@@ -540,6 +541,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-add-bucket-iam-member/
 title: Add an IAM member \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:54.894608+00:00
+fetched_at: 2026-11-02T05:40:37.756874+00:00
 ---
 
 # Add an IAM member  |  Cloud Storage  |  Google Cloud Documentation
@@ -361,6 +361,38 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Added #{member} with role #{role} to #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_iam_v1::model::Binding;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        role: &str,
+        member: &str,
+    ) -> anyhow::Result<()> {
+        let mut policy = client
+            .get_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        policy
+            .bindings
+            .push(Binding::new().set_role(role).set_members([member]));
+        let updated_policy = client
+            .set_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .set_policy(policy)
+            .send()
+            .await?;
+        println!(
+            "Successfully added binding for {member} to bucket {bucket_id} policy: {updated_policy:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

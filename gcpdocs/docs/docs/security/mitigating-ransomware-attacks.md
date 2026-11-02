@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/mitigating-ransomware-attacks/
 title: Mitigate ransomware attacks using Google Cloud \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:20.144174+00:00
+fetched_at: 2026-11-02T05:40:21.894870+00:00
 ---
 
 # Mitigate ransomware attacks using Google Cloud  |  Security  |  Google Cloud Documentation

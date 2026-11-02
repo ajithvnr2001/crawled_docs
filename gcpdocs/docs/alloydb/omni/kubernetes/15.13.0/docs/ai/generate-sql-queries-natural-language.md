@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/ai/generate-sql-queries-natural-language/
 title: Generate SQL queries using natural language questions \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:41.498345+00:00
+fetched_at: 2026-11-02T05:42:45.566759+00:00
 ---
 
 # Generate SQL queries using natural language questions  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation
@@ -148,8 +148,8 @@ A large application can also use different configurations for different parts of
          SELECT
            alloydb_ai_nl.g_manage_configuration(
              operation => 'register_schema',
-             configuration>_id_in = 'my_app_config',
-             s>chema_names_in = 9;{my_schema}'
+             configuration_id_in => 'my_app_config',
+             schema_names_in => '{my_schema}'
            );
          
 
@@ -178,7 +178,7 @@ To add general context for application-specific rules and application or domain-
            alloydb_ai_nl.g_manage_configuration(
              'add_general_context',
              'my_app_config',
-             gene>ral_context_in = '{"If the user asks for a good seat, assume that means a window or aisle seat."}'
+             general_context_in => '{"If the user asks for a good seat, assume that means a window or aisle seat."}'
            );
          
 
@@ -309,15 +309,15 @@ To add a template to the template store, run the following query:
     SELECT
       alloydb_ai_nl.add_template(
         nl_config_id => 'my_app_config',
-        >intent = 'How many accounts associated with loans are located in the Prague region?>',
-        sql = 'SELECT COUNT(T1.account_id)
+        intent => 'How many accounts associated with loans are located in the Prague region?',
+        sql => 'SELECT COUNT(T1.account_id)
                 FROM bird_dev_financial.account AS T1
                 INNER JOIN bird_dev_financial.loan AS T2
                   ON T1.account_id = T2.account_id
                 INNER JOIN bird_dev_financial.district AS T3
                   ON T1.district_id = T3.district_id
-                WHERE T3."A3" = &>#39;'Prague''',
-        check_intent = TRUE
+                WHERE T3."A3" = ''Prague''',
+        check_intent => TRUE
       );
     
 
@@ -350,25 +350,25 @@ This statement returns the following:
     ```sql
     SELECT
       alloydb_ai_nl.add_template(
-         nl_c>onfig_id = 'my_app_config&#>39;,
-         intent = 'Among the accounts opened, how many customers born before 1950 resided in Slokolov at the time of account> opening?',
-         sql = $$SELECT COUNT(DISTINCT T2.client_id)
+         nl_config_id => 'my_app_config',
+         intent => 'Among the accounts opened, how many customers born before 1950 resided in Slokolov at the time of account opening?',
+         sql => $$SELECT COUNT(DISTINCT T2.client_id)
                   FROM district AS T1 INNER JOIN client AS T2
                     ON T1.district_id = T2.district_id
                  INNER JOIN account AS T3 ON T2.client_id IN (
                        SELECT client_id FROM disp WHERE account_id = T3.account_id)
-                 WHERE to_char(T2.birth<_date::timestamp, 'YYYY')  '1950'
-                   AND T1.>"A2" = 'Slokolov'$$,
-      parameterized_sql = $$SELECT COUNT(DISTINCT T2.client_id)
+                 WHERE to_char(T2.birth_date::timestamp, 'YYYY') < '1950'
+                   AND T1."A2" = 'Slokolov'$$,
+      parameterized_sql => $$SELECT COUNT(DISTINCT T2.client_id)
                              FROM district AS T1 INNER JOIN client AS T2
                                ON T1.district_id = T2.district_id
                        INNER JOIN account AS T3 ON T2.client_id IN (
                              SELECT client_id FROM disp WHERE account_id = T3.account_id)
-           <            WHERE to_char(T2.birth_date::timestamp, 'YYYY')  >$2
+                       WHERE to_char(T2.birth_date::timestamp, 'YYYY') < $2
                          AND T1."A2" = $1$$,
-      parameterized_intent = $$Among the accounts opened, how many customer>s born before $2 resided in $1 at the time of account opening?$$,
-      manifest = $$Among the accounts opened, how many customers born before a given da>te resided in a given city at the time of account opening?$$,
-      check_intent = TRUE);
+      parameterized_intent => $$Among the accounts opened, how many customers born before $2 resided in $1 at the time of account opening?$$,
+      manifest => $$Among the accounts opened, how many customers born before a given date resided in a given city at the time of account opening?$$,
+      check_intent => TRUE);
     
 
 In the preceding definition, the parameterization of the SQL statement is provided. The parameters are `$1` and `$2`, respectively, for `Slokolov` and `1950`. A manifest is provided as a generalized version of the intent, where the values of literals are replaced with generic descriptions of the values.
@@ -381,14 +381,14 @@ In the following example, the purpose of the template—as indicated in the inte
     SELECT
       alloydb_ai_nl.add_template(
         nl_config_id => 'my_app_config',
-        >intent = 'List the account id for all accounts that associated with loans and are located in the Prague region.>',
-        sql = 'SELECT COUNT(T1.account_id)
+        intent => 'List the account id for all accounts that associated with loans and are located in the Prague region.',
+        sql => 'SELECT COUNT(T1.account_id)
                 FROM account AS T1 INNER JOIN loan AS T2
                   ON T1.account_id = T2.account_id
                 INNER JOIN district AS T3
                   ON T1.district_id = T3.district_id
-                WHERE T3."A3" = &>#39;'Prague''',
-        check_intent = TRUE
+                WHERE T3."A3" = ''Prague''',
+        check_intent => TRUE
       );
     
 
@@ -462,18 +462,18 @@ To add a fragment, run the following example queries using the `alloydb_ai_nl.ad
     -- A fragment that cannot be parameterized.
     SELECT alloydb_ai_nl.add_fragment(
       nl_config_id => 'my_app_config',
-      table_a>liases = ARRAY['account AS T&#>39;],
-      intent = 'Accounts with issuance after transa>ction',
-      fragment = 'T.frequency = ''POP>LATEK PO OBRATU''',
-      check_intent = True);
+      table_aliases => ARRAY['account AS T'],
+      intent => 'Accounts with issuance after transaction',
+      fragment => 'T.frequency = ''POPLATEK PO OBRATU''',
+      check_intent => True);
     
     -- A fragment that can be parameterized.
-    SEL>ECT alloydb_ai_nl.add_fragment(
-      n>l_config_id = 'my_app_config>9;,
-      table_aliases = ARRAY['district AS T'],
-    >  intent = 'Average salary between 6000 and 100>00',
-      fragment = 'T."A11" BETWEEN 6000 AND 10000',
-      check_intent = True);
+    SELECT alloydb_ai_nl.add_fragment(
+      nl_config_id => 'my_app_config',
+      table_aliases => ARRAY['district AS T'],
+      intent => 'Average salary between 6000 and 10000',
+      fragment => 'T."A11" BETWEEN 6000 AND 10000',
+      check_intent => True);
     
 
 When the `alloydb_ai_nl.add_fragment` runs, the `alloydb_ai_nl` extension extracts a manifest from the provided intent, and the extension parameterizes the intent and the condition for the fragment, if possible. Available fragments are exposed by views like `alloydb_ai_nl.fragment_store_view`, as shown in the following example:
@@ -502,13 +502,13 @@ To provide a customized parameterization of a fragment, use the manual version o
     
     SELECT alloydb_ai_nl.add_fragment(
       nl_config_id => 'my_app_config',
-      table_a>liases = ARRAY['bird_dev_financial.district AS T&#>39;],
-      intent = $$districts in 'Prague'$$,
-    >  parameterized_intent = $$distric>ts in $1$$,
-      fragment = $$T."A3" = '>;Prague'$$,
-      parameterize>d_fragment = $$T."A3" = $1$$,
-      manife>st = $$districts in a given city$$,
-      check_intent = TRUE);
+      table_aliases => ARRAY['bird_dev_financial.district AS T'],
+      intent => $$districts in 'Prague'$$,
+      parameterized_intent => $$districts in $1$$,
+      fragment => $$T."A3" = 'Prague'$$,
+      parameterized_fragment => $$T."A3" = $1$$,
+      manifest => $$districts in a given city$$,
+      check_intent => TRUE);
     
 
 ### Manage fragments
@@ -572,7 +572,7 @@ To autogenerate, review, and apply templates, follow these steps:
          
          SELECT
            alloydb_ai_nl.generate_templates(
-             'my_app_config&#39;,
+             'my_app_config',
          );
          
 
@@ -613,10 +613,10 @@ The `manifest` in the returned output is a general template or a broad descripti
          
          SELECT alloydb_ai_nl.update_generated_template(
            id => 1,
-           manifest => 'How many clients are born in a given year?'>,
-           nl = 'How many clients are born in 1997?&>#39;,
-           intent = 'How many clients are born in> 1997?',
-           pintent = 'How many clients are born in $1?'
+           manifest => 'How many clients are born in a given year?',
+           nl => 'How many clients are born in 1997?',
+           intent => 'How many clients are born in 1997?',
+           pintent => 'How many clients are born in $1?'
          
          );
          
@@ -650,8 +650,8 @@ To define concept types and a value index, follow these steps using the provided
          SELECT
            alloydb_ai_nl.associate_concept_type(
              column_names_in => 'my_schema.country.country_name',
-             concept_t>ype_in = 'country_name',
-             n>l_config_id_in = 'my_app_config'
+             concept_type_in => 'country_name',
+             nl_config_id_in => 'my_app_config'
            );
            ```
          
@@ -694,7 +694,7 @@ Although the data in your tables might use a specific value—for example, if `U
          SELECT
            alloydb_ai_nl.get_concept_and_value(
              value_phrases_in => ARRAY['United States'],
-             nl_config_>id_in  = 'my_app_config'
+             nl_config_id_in  => 'my_app_config'
            );
          
 
@@ -705,9 +705,9 @@ Natural language finds a result—the value `USA`—that is close to the search 
          SELECT
            alloydb_ai_nl.get_sql(
              nl_config_id    => 'my_app_config',
-             nl_questi>on     = 'What is the population of the United States?',
-             a>dditional_info = json_build_object('enrich_nl_qu>>estion&#39;, TRUE)
-           ) - 'sql';
+             nl_question     => 'What is the population of the United States?',
+             additional_info => json_build_object('enrich_nl_question', TRUE)
+           ) ->> 'sql';
          
 
 
@@ -760,8 +760,8 @@ To autogenerate concept type associations, follow these steps:
          
          -- To cover a specific relation.
          SELECT alloydb_ai_nl.generate_concept_type_associations(
-           nl_>config = 'my_app_config',
-          > relation_name = &#39;my_app_table'
+           nl_config => 'my_app_config',
+           relation_name => 'my_app_table'
          );
          
 
@@ -777,7 +777,7 @@ To autogenerate concept type associations, follow these steps:
            id => 1,
            column_names => NULL,
            concept_type => 'generic_entity_name',
-           additiona>l_info = NULL
+           additional_info => NULL
          );
          
 
@@ -794,15 +794,15 @@ To autogenerate concept type associations, follow these steps:
          );
          
          -- To apply a specific association by id.
-         SELECT alloydb_ai_nl.apply_generated_concept_type_association>(
-           id = 1
+         SELECT alloydb_ai_nl.apply_generated_concept_type_association(
+           id => 1
          );
          
 
   6. Refresh the value index to reflect the changes.
          
          SELECT alloydb_ai_nl.refresh_value_index(
-           nl_config_id_in => 'my_app_config&#39;
+           nl_config_id_in => 'my_app_config'
          );
          
 
@@ -842,8 +842,8 @@ You can use AlloyDB AI natural language to generate SQL statements from natural 
          SELECT
            alloydb_ai_nl.get_sql(
              'my_app_config', -- nl_config
-             'What is the sum that client number 4''s account has following transaction 851?&#>>39; -- nl question
-           ) - 'sql';
+             'What is the sum that client number 4''s account has following transaction 851?' -- nl question
+           ) ->> 'sql';
          
 
 The `->>` operator is used to extract a JSON value as text. The `alloydb_ai_nl.get_sql` function returns a JSON object, which is the part of the statement that retrieves the value associated with the key `sql`. This value is the generated SQL query.
@@ -861,7 +861,7 @@ To produce a summary of results for a natural language question in your database
     SELECT
       alloydb_ai_nl.get_sql_summary(
         nl_config_id => 'my_app_config',
-        nl_qu>estion = 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?');
+        nl_question => 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?');
     
 
 Calling the preceding statement produces the following example JSON object:
@@ -880,9 +880,9 @@ For example, the application might want to provide the `user_id` parameter for a
     SELECT
       alloydb_ai_nl.get_sql_summary(
         nl_config_id => 'my_app_config',
-        nl_qu>estion = 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?',
-     >   param_names = ARRAY ['user_id&#>39;],
-        param_values = ARRAY ['123']
+        nl_question => 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?',
+        param_names => ARRAY ['user_id'],
+        param_values => ARRAY ['123']
     );
     
 

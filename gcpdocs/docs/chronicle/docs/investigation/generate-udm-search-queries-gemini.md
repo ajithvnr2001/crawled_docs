@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/generate-udm-search-queries-gemini/
 title: Generate search queries with Gemini \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:08.823372+00:00
+fetched_at: 2026-11-02T05:43:06.966532+00:00
 ---
 
 # Generate search queries with Gemini  |  Google Security Operations  |  Google Cloud Documentation
@@ -113,16 +113,19 @@ If the search statement can't be interpreted, you see the following message:
 
   5. Optional: Adjust the search time range.
 
-  6. Click **Run Search**.
+  6. Select the [search-execution mode](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#choose-search-execution-mode): **Basic Mode** or **Advanced Mode**.
 
-  7. Review the search results to determine if the event is present. If needed, use search filters to narrow the list of results.
+**Note:** The search-execution mode feature is in Public Preview. For more information, see [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
+  7. Click **Run Search**.
 
-  8. Provide feedback about the query using the **Generated Query** feedback icons. Select one of the following:
+  8. Review the search results to determine if the event is present. If needed, use search filters to narrow the list of results.
+
+  9. Provide feedback about the query using the **Generated Query** feedback icons. Select one of the following:
 
      * If the query returns the expected results, click thumb_up **Thumbs Up**.
      * If the query does not return the expected results, click thumb_down **Thumbs Down**.
      * Optional: Include additional detail in the **Feedback** field.
-  9. To submit a revised search query that helps improve results:
+  10. To submit a revised search query that helps improve results:
 
      1. Edit the search query that was generated.
      2. Click **Submit**. 
@@ -157,6 +160,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

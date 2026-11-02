@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-managed-folder-delete/
 title: Storage Control delete a managed folder \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:38.002607+00:00
+fetched_at: 2026-11-02T05:40:51.882547+00:00
 ---
 
 # Storage Control delete a managed folder  |  Google Cloud Documentation
@@ -294,6 +294,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Deleted managed folder: #{managed_folder_id}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const ID: &str = "example001";
+        client
+            .delete_managed_folder()
+            .set_name(format!(
+                "projects/_/buckets/{bucket_id}/managedFolders/{ID}"
+            ))
+            .send()
+            .await?;
+        println!("folder successfully deleted");
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/tool/a2a-protocol/
 title: A2A Protocol tools \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:18.305844+00:00
+fetched_at: 2026-11-02T05:40:05.406124+00:00
 ---
 
 # A2A Protocol tools  |  CX Agent Studio  |  Google Cloud Documentation
@@ -354,13 +354,13 @@ To deploy an ADK agent onto [Vertex AI Agent Engine](https://docs.cloud.google.c
          import os
          import sys
          from google.protobuf import json_format
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai.agent_engines import _agent_engines
          
          sys.path.append("./")
          from app.agent_runtime_app import agent_runtime
          
-         client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(project="PROJECT_ID", location="us-central1")
+         client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(project="PROJECT_ID", location="us-central1")
          
          ops = agent_runtime.register_operations()
          class_methods_proto = _agent_engines._generate_class_methods_spec_or_raise(
@@ -387,7 +387,7 @@ To deploy an ADK agent onto [Vertex AI Agent Engine](https://docs.cloud.google.c
              "resource_limits": {"cpu": "4", "memory": "8Gi"},
          }
          
-         engine = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).create(config=agent_config)
+         engine = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(config=agent_config)
          print(f"Deployed Engine Resource Name: {engine.api_resource.name}")
          
 

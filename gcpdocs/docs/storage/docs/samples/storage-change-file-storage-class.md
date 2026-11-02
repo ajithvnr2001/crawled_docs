@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-change-file-storage-class/
 title: Update the object storage class \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:52.283770+00:00
+fetched_at: 2026-11-02T05:40:22.171535+00:00
 ---
 
 # Update the object storage class  |  Cloud Storage  |  Google Cloud Documentation
@@ -361,6 +361,32 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "File #{file_name} in bucket #{bucket_name} had its storage class set to #{file.storage_class}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::builder_ext::RewriteObjectExt;
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::Object;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "update-storage-class";
+        let updated = client
+            .rewrite_object()
+            .set_source_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_source_object(NAME)
+            .set_destination_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_destination_name(NAME)
+            // For other valid storage classes, refer to the documentation:
+            // https://cloud.google.com/storage/docs/storage-classes
+            .set_destination(Object::new().set_storage_class("NEARLINE"))
+            .rewrite_until_done()
+            .await?;
+        println!(
+            "successfully updated storage class for object {NAME} in bucket {bucket_id}: {updated:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-remove-bucket-iam-member/
 title: Delete an IAM member \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:30.311280+00:00
+fetched_at: 2026-11-02T05:40:25.351833+00:00
 ---
 
 # Delete an IAM member  |  Cloud Storage  |  Google Cloud Documentation
@@ -412,6 +412,37 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Removed #{member} with role #{role} from #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        role: &str,
+        member: &str,
+    ) -> anyhow::Result<()> {
+        let mut policy = client
+            .get_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        if let Some(binding) = policy.bindings.iter_mut().find(|b| b.role == role) {
+            binding.members.retain(|m| m != member);
+        }
+        policy.bindings.retain(|b| !b.members.is_empty());
+        let updated_policy = client
+            .set_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .set_policy(policy)
+            .send()
+            .await?;
+        println!("Successfully removed {member} with role {role} from bucket {bucket_id}");
+        println!("The updated policy is: {:?}", updated_policy);
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-define-bucket-website-configuration/
 title: Set the website configuration on a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:44.220312+00:00
+fetched_at: 2026-11-02T05:40:29.583646+00:00
 ---
 
 # Set the website configuration on a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -330,6 +330,42 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       puts "Static website bucket #{bucket_name} is set up to use #{main_page_suffix} as the index page and " \
            "#{not_found_page} as the 404 page"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::Website;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        main_page_suffix: &str,
+        not_found_page: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let website = Website::new()
+            .set_main_page_suffix(main_page_suffix)
+            .set_not_found_page(not_found_page);
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_website(website))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["website"]))
+            .send()
+            .await?;
+        println!(
+            "Website configuration for bucket {} defined as: {:?}",
+            bucket_id, bucket.website
+        );
+        Ok(())
+    }
 
 ## What's next
 

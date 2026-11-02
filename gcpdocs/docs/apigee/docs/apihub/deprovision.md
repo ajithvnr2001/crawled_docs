@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/apihub/deprovision/
 title: Deprovision Apigee API hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:52:09.669714+00:00
+fetched_at: 2026-11-02T05:40:18.043314+00:00
 ---
 
 # Deprovision Apigee API hub  |  Google Cloud Documentation
@@ -25,8 +25,6 @@ _This page applies to**Apigee** and **Apigee hybrid**._
 
 This page describes how to deprovision an API hub instance from your Google Cloud project. Deprovisioning an API hub instance removes all associated resources, including APIs, versions, deployments, and any Apigee organizations (with no [Apigee instances](https://cloud.google.com/apigee/docs/api-platform/system-administration/instances)) from your project. 
 
-**Note:** Deprovisioning an API hub instance doesn't impact or delete any existing Apigee data, such as API proxies or proxy deployments. 
-
 ## Before you begin
 
   * Grant the **Cloud API hub Admin** (`roles/apiHub.admin`) IAM role on the project. 
@@ -46,8 +44,9 @@ To deprovision an API hub instance, do the following:
 
 **Warnings:**
 
-  * Deprovisioning an API hub instance deletes all the data associated with the instance. Any associated **Apigee organizations** (with no [Apigee instances](https://cloud.google.com/apigee/docs/api-platform/system-administration/instances)) are also deleted. This action can't be undone.
-  * Once deprovisioned, you can re-provision an API hub instance again. However, you will need to wait **7 days** before reprovisioning.
+  * Deprovisioning an API hub instance deletes only the API hub data associated with the instance. Any associated **Apigee organizations** (with no [Apigee instances](https://docs.cloud.google.com/apigee/docs/api-platform/system-administration/instances)) are also deleted. This action can't be undone.
+  * If you have an active Apigee instance in the Apigee org, you cannot deprovision API hub.
+  * If you don't want your API hub instance to include Apigee Gateway proxy data, detach the gateway under **Settings > Project Association**. This deletes all existing Apigee Gateway data from API hub and stops syncing proxy data.
 
 
 
@@ -173,6 +172,7 @@ The API returns a `done` value of `true` when the deletion is complete.
 ## Considerations
 
   * Once deprovisioned, you can re-provision an API hub instance again. However, you will need to wait **7 days** before reprovisioning. 
+  * If you don't want your API hub instance to include Apigee Gateway proxy data, detach the gateway under **Settings > Project Association**. This will delete all existing Apigee Gateway data from API hub and stop syncing proxy data. 
 
 
 
@@ -186,6 +186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

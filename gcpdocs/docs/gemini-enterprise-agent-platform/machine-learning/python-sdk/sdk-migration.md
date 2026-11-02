@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/sdk-migration/
 title: Agent Platform SDK for Python: version 2.0.1 migration guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:44.162186+00:00
+fetched_at: 2026-11-02T05:39:57.358050+00:00
 ---
 
 # Agent Platform SDK for Python: version 2.0.1 migration guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -91,10 +91,10 @@ Run your test suite with `-W error::UserWarning` to catch imports you missed.
          
          # pip install google-cloud-aiplatform
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-         from vertexai.generative_models import [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+         from vertexai.generative_models import [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html)
          
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="my-project", location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="my-project", location="us-central1")
          
          # Model identity and config are bound at construction time.
          model = GenerativeModel("gemini-2.5-flash")

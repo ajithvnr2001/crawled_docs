@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/pam-overview/
 title: Privileged Access Manager overview \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:26:44.009141+00:00
+fetched_at: 2026-11-02T05:39:59.183989+00:00
 ---
 
 # Privileged Access Manager overview  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -232,7 +232,7 @@ Administrator of the entitlement |
   
 ### Pub/Sub notifications
 
-Privileged Access Manager is integrated with [Cloud Asset Inventory](https://docs.cloud.google.com/asset-inventory/docs/overview). You can use [Cloud Asset Inventory feeds](https://docs.cloud.google.com/asset-inventory/docs/monitoring-asset-changes) feature to receive notifications about all grant changes through Pub/Sub. The asset type to use for grants is `privilegedaccessmanager.googleapis.com/Grant`.
+To receive notifications about grant changes through Pub/Sub, we recommend [routing Cloud Audit Logs to Pub/Sub using a Cloud Logging sink](https://docs.cloud.google.com/logging/docs/export/configure_export_v2). For more information about the available audit events, see [Privileged Access Manager audit logging](https://docs.cloud.google.com/iam/docs/audit-logging/audit-logging-pam).
 
 ## What's next
 
@@ -244,6 +244,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

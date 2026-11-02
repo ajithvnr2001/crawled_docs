@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-move-file/
 title: Move objects by copying \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:38.283910+00:00
+fetched_at: 2026-11-02T05:40:33.152395+00:00
 ---
 
 # Move objects by copying  |  Cloud Storage  |  Google Cloud Documentation
@@ -370,7 +370,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name, skip_lookup: true
       file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
     
@@ -380,6 +380,41 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "#{file_name} has been renamed to #{renamed_file.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::builder_ext::RewriteObjectExt;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        source_bucket_id: &str,
+        dest_bucket_id: &str,
+    ) -> anyhow::Result<()> {
+        const SOURCE_NAME: &str = "object-to-move";
+        const DEST_NAME: &str = "moved-object";
+        let moved = client
+            .rewrite_object()
+            .set_source_bucket(format!("projects/_/buckets/{source_bucket_id}"))
+            .set_source_object(SOURCE_NAME)
+            .set_destination_bucket(format!("projects/_/buckets/{dest_bucket_id}"))
+            .set_destination_name(DEST_NAME)
+            .rewrite_until_done()
+            .await?;
+    
+        client
+            .delete_object()
+            .set_bucket(format!("projects/_/buckets/{source_bucket_id}"))
+            .set_object(SOURCE_NAME)
+            .send()
+            .await?;
+        println!(
+            "successfully moved {source_bucket_id}/{SOURCE_NAME} to {dest_bucket_id}/{DEST_NAME}: {moved:?}"
+        );
+    
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/capacity-planner/docs/overview/
 title: Capacity Planner overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:45:21.642954+00:00
+fetched_at: 2026-11-02T05:42:55.634266+00:00
 ---
 
 # Capacity Planner overview  |  Google Cloud Documentation
@@ -172,12 +172,15 @@ For more information about granting roles, see [Manage access](https://docs.clou
 
   2. If you want to use the API for Capacity Planner, learn how to [Authenticate to Capacity Planner](https://docs.cloud.google.com/capacity-planner/docs/authentication).
 
+  3. If you want to use the Capacity Planner Model Context Protocol (MCP) server, ask your administrator to also grant you the [MCP Tool User](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) (`roles/mcp.toolUser`) role on the project, in addition to the required Capacity Planner IAM roles. Then, learn how to [authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp) and [configure MCP in an AI application](https://docs.cloud.google.com/mcp/configure-mcp-ai-application).
+
 
 
 
 ## What's next
 
   * [View usage and forecast data](https://docs.cloud.google.com/capacity-planner/docs/view-data)
+  * [Explore the Capacity Planner MCP reference](https://docs.cloud.google.com/capacity-planner/docs/reference/mcp)
 
 
 
@@ -185,6 +188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

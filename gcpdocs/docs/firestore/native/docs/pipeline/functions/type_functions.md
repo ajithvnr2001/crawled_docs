@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/type_functions/
 title: Type Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:39.463106+00:00
+fetched_at: 2026-11-02T05:40:06.599753+00:00
 ---
 
 # Type Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -151,13 +151,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.NotEqual(firestore.FieldOf("title"), "1984").As(
-    
-    ["not1984"),
+    		firestore.NotEqual(firestore.FieldOf("title"), "1984").As("not1984"),
     	)).
-    	Exe](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_comparison.go#L123-L128)
+    	Execute(ctx)
     
-    cute(ctx)pipeline_snippets_comparison.go
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_comparison.go#L123-L128)
 
 ### IS_TYPE
 

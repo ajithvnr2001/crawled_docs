@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-tables/
 title: Manage tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:32.931474+00:00
+fetched_at: 2026-11-02T05:41:34.206732+00:00
 ---
 
 # Manage tables  |  BigQuery  |  Google Cloud Documentation
@@ -2144,7 +2144,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def delete_table dataset_id = "my_dataset_id", table_id = "my_table_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table    = dataset.table table_id
     

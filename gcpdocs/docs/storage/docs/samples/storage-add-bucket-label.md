@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-add-bucket-label/
 title: Add a label to a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:37.257585+00:00
+fetched_at: 2026-11-02T05:40:20.119089+00:00
 ---
 
 # Add a label to a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -297,6 +297,39 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Added label #{label_key} with value #{label_value} to #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        label_key: &str,
+        label_value: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let mut labels = bucket.labels.clone();
+        labels.insert(label_key.to_string(), label_value.to_string());
+    
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_labels(labels))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["labels"]))
+            .send()
+            .await?;
+        println!("Successfully added label {label_key}={label_value} to bucket {bucket_id}");
+        println!("{:?}", bucket.labels);
+        Ok(())
+    }
 
 ## What's next
 

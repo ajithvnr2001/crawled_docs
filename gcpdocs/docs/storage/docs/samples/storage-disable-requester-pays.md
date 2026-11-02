@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-disable-requester-pays/
 title: Disable the requester pays status for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:44.056111+00:00
+fetched_at: 2026-11-02T05:40:19.877630+00:00
 ---
 
 # Disable the requester pays status for a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -267,6 +267,41 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Requester pays has been disabled for #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_gax::options::RequestOptionsBuilder;
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::Billing;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        user_project: &str,
+    ) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .with_quota_project(user_project)
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_billing(Billing::new().set_requester_pays(false)))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["billing.requester_pays"]))
+            .with_quota_project(user_project)
+            .send()
+            .await?;
+        println!(
+            "Requester pays was disabled for bucket {bucket_id}: {:?}",
+            bucket.billing
+        );
+        Ok(())
+    }
 
 ## What's next
 

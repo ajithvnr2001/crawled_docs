@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-bucket-labels/
 title: List bucket labels \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:30.091405+00:00
+fetched_at: 2026-11-02T05:40:35.185704+00:00
 ---
 
 # List bucket labels  |  Cloud Storage  |  Google Cloud Documentation
@@ -99,6 +99,21 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         pprint.pprint(labels)
     
     
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!("successfully obtained bucket metadata {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

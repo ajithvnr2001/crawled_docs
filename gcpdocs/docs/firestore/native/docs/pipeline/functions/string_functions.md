@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/string_functions/
 title: String Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:54.533919+00:00
+fetched_at: 2026-11-02T05:40:09.334689+00:00
 ---
 
 # String Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -75,13 +75,11 @@ b"abc" | 3
     const result = await db.pipeline()
       .collection("books")
       .select(
-        field("title").byteLength().as("titleByteL
-    
-    [ength")
+        field("title").byteLength().as("titleByteLength")
       )
-    ](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1800-L1805)
+      .execute();
     
-      .execute();test.firestore.js
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1800-L1805)
 
 ### Web
     
@@ -89,13 +87,11 @@ b"abc" | 3
     const result = await execute(db.pipeline()
       .collection("books")
       .select(
-        field("title").byteLength().as("
-    
-    [;titleByteLength&](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3074-L3079)
-    
-    quot;)
+        field("title").byteLength().as("titleByteLength")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3074-L3079)
 
 ##### Swift
     
@@ -103,13 +99,11 @@ b"abc" | 3
     let result = try await db.pipeline()
       .collection("books")
       .select([
-        Field("title").byteLength().as("titleByteL
-    
-    [ength")
+        Field("title").byteLength().as("titleByteLength")
       ])
-      .e](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1054-L1059)
+      .execute()
     
-    xecute()PipelineSnippets.swift
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1054-L1059)
 
 ##### Kotlin  
 Android
@@ -118,13 +112,11 @@ Android
     val result = db.pipeline()
         .collection("books")
         .select(
-            field("title").byteLength().alias("titleByteLeng
+            field("title").byteLength().alias("titleByteLength")
+        )
+        .execute()
     
-    [th")
-        ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2378-L2383)
-    
-    )
-        .execute()DocSnippets.kt
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2378-L2383)
 
 ##### Java  
 Android
@@ -133,13 +125,11 @@ Android
     Task<Pipeline.Snapshot> result = db.pipeline()
         .collection("books")
         .select(
-            field("title").byteLength().alias("titleByteLengt
-    
-    [h")
+            field("title").byteLength().alias("titleByteLength")
         )
-     ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2627-L2632)
+        .execute();
     
-       .execute();DocSnippets.java
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2627-L2632)
 
 ##### Python
     
@@ -149,13 +139,11 @@ Android
     result = (
         client.pipeline()
         .collection("books")
-        .select(Field.of("title").byte_length().as_("titleByteL
+        .select(Field.of("title").byte_length().as_("titleByteLength"))
+        .execute()
+    )
     
-    [ength"))
-        .exe](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1329-L1336)
-    
-    cute()
-    )firestore_pipelines.py
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1329-L1336)
 
 ##### Java
     
@@ -165,12 +153,10 @@ Android
             .pipeline()
             .collection("books")
             .select(byteLength(field("title")).as("titleByteLength"))
-        
+            .execute()
+            .get();
     
-    [    .execute()
-          ](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1234-L1240)
-    
-      .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1234-L1240)
 
 ##### Go
     
@@ -178,13 +164,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.ByteLength(firestore.FieldOf("title")).As("titleByteLen
-    
-    [gth"),
+    		firestore.ByteLength(firestore.FieldOf("title")).As("titleByteLength"),
     	)).
-    	Execute(c](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L28-L33)
+    	Execute(ctx)
     
-    tx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L28-L33)
 
 ### CHAR_LENGTH
 
@@ -212,13 +196,11 @@ value | `char_length(value)`
     const result = await db.pipeline()
       .collection("books")
       .select(
-        field("title").charLength().as("titleCharL
-    
-    [ength")
+        field("title").charLength().as("titleCharLength")
       )
-    ](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1812-L1817)
+      .execute();
     
-      .execute();test.firestore.js
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1812-L1817)
 
 ### Web
     
@@ -226,13 +208,11 @@ value | `char_length(value)`
     const result = await execute(db.pipeline()
       .collection("books")
       .select(
-        field("title").charLength().as("
-    
-    [;titleCharLength&](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3086-L3091)
-    
-    quot;)
+        field("title").charLength().as("titleCharLength")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3086-L3091)
 
 ##### Swift
     
@@ -240,13 +220,11 @@ value | `char_length(value)`
     let result = try await db.pipeline()
       .collection("books")
       .select([
-        Field("title").charLength().as("titleCharL
-    
-    [ength")
+        Field("title").charLength().as("titleCharLength")
       ])
-      .e](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1067-L1072)
+      .execute()
     
-    xecute()PipelineSnippets.swift
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1067-L1072)
 
 ##### Kotlin  
 Android
@@ -255,13 +233,11 @@ Android
     val result = db.pipeline()
         .collection("books")
         .select(
-            field("title").charLength().alias("titleCharLeng
+            field("title").charLength().alias("titleCharLength")
+        )
+        .execute()
     
-    [th")
-        ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2391-L2396)
-    
-    )
-        .execute()DocSnippets.kt
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2391-L2396)
 
 ##### Java  
 Android
@@ -270,13 +246,11 @@ Android
     Task<Pipeline.Snapshot> result = db.pipeline()
         .collection("books")
         .select(
-            field("title").charLength().alias("titleCharLengt
-    
-    [h")
+            field("title").charLength().alias("titleCharLength")
         )
-     ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2640-L2645)
+        .execute();
     
-       .execute();DocSnippets.java
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2640-L2645)
 
 ##### Python
     
@@ -286,13 +260,11 @@ Android
     result = (
         client.pipeline()
         .collection("books")
-        .select(Field.of("title").char_length().as_("titleCharL
+        .select(Field.of("title").char_length().as_("titleCharLength"))
+        .execute()
+    )
     
-    [ength"))
-        .exe](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1344-L1351)
-    
-    cute()
-    )firestore_pipelines.py
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1344-L1351)
 
 ##### Java
     
@@ -302,12 +274,10 @@ Android
             .pipeline()
             .collection("books")
             .select(charLength(field("title")).as("titleCharLength"))
-        
+            .execute()
+            .get();
     
-    [    .execute()
-          ](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1247-L1253)
-    
-      .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1247-L1253)
 
 ##### Go
     
@@ -315,13 +285,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.CharLength(firestore.FieldOf("title")).As("titleCharLen
-    
-    [gth"),
+    		firestore.CharLength(firestore.FieldOf("title")).As("titleCharLength"),
     	)).
-    	Execute(c](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L47-L52)
+    	Execute(ctx)
     
-    tx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L47-L52)
 
 ### STARTS_WITH
 
@@ -350,13 +318,11 @@ value | prefix | `starts_with(value, prefix)`
       .collection("books")
       .select(
         field("title").startsWith("The")
-          .as("needsSpecialA
-    
-    [lphabeticalSort&q](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1824-L1830)
-    
-    uot;)
+          .as("needsSpecialAlphabeticalSort")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1824-L1830)
 
 ### Web
     
@@ -365,13 +331,11 @@ value | prefix | `starts_with(value, prefix)`
       .collection("books")
       .select(
         field("title").startsWith("The")
-          .as("ne
-    
-    [edsSpecialAlphabe](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3098-L3104)
-    
-    ticalSort")
+          .as("needsSpecialAlphabeticalSort")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3098-L3104)
 
 ##### Swift
     
@@ -380,13 +344,11 @@ value | prefix | `starts_with(value, prefix)`
       .collection("books")
       .select([
         Field("title").startsWith("The")
-          .as("needsSpecialA
-    
-    [lphabeticalSort")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1080-L1086)
-    
-    
+          .as("needsSpecialAlphabeticalSort")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1080-L1086)
 
 ##### Kotlin  
 Android
@@ -396,13 +358,11 @@ Android
         .collection("books")
         .select(
             field("title").startsWith("The")
-                .alias("needsSpecialAlph
-    
-    [abeticalSort&q](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2404-L2410)
-    
-    uot;)
+                .alias("needsSpecialAlphabeticalSort")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2404-L2410)
 
 ##### Java  
 Android
@@ -412,13 +372,11 @@ Android
         .collection("books")
         .select(
             field("title").startsWith("The")
-                .alias("needsSpecialAlpha
-    
-    [beticalSort"](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2653-L2659)
-    
-    ;)
+                .alias("needsSpecialAlphabeticalSort")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2653-L2659)
 
 ##### Python
     
@@ -429,14 +387,12 @@ Android
         client.pipeline()
         .collection("books")
         .select(
-            Field.of("title").starts_with("The").as_("needsSpecialAlphab
-    
-    [eticalSort")
-        ](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1359-L1368)
-    
-    )
+            Field.of("title").starts_with("The").as_("needsSpecialAlphabeticalSort")
+        )
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1359-L1368)
 
 ##### Java
     
@@ -445,13 +401,11 @@ Android
         firestore
             .pipeline()
             .collection("books")
-            .select(startsWith(field("title"), "The").as("needsSpecialAlphabeticalSort&qu
+            .select(startsWith(field("title"), "The").as("needsSpecialAlphabeticalSort"))
+            .execute()
+            .get();
     
-    [ot;))
-            .execut](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1260-L1266)
-    
-    e()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1260-L1266)
 
 ##### Go
     
@@ -459,13 +413,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.StartsWith(firestore.FieldOf("title"), "The").As("needsSpecialAlp
-    
-    [habeticalSort"),
+    		firestore.StartsWith(firestore.FieldOf("title"), "The").As("needsSpecialAlphabeticalSort"),
     	)).
-    ](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L66-L71)
+    	Execute(ctx)
     
-    	Execute(ctx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L66-L71)
 
 ### ENDS_WITH
 
@@ -494,13 +446,11 @@ value | postfix | `ends_with(value, postfix)`
       .collection("inventory/devices/laptops")
       .select(
         field("name").endsWith("16 inch")
-          .as(&q
-    
-    [uot;16InLaptops&q](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1837-L1843)
-    
-    uot;)
+          .as("16InLaptops")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1837-L1843)
 
 ##### Swift
     
@@ -509,13 +459,11 @@ value | postfix | `ends_with(value, postfix)`
       .collection("inventory/devices/laptops")
       .select([
         Field("name").endsWith("16 inch")
-          .as(&q
-    
-    [uot;16InLaptops")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1094-L1100)
-    
-    
+          .as("16InLaptops")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1094-L1100)
 
 ##### Kotlin  
 Android
@@ -525,13 +473,11 @@ Android
         .collection("inventory/devices/laptops")
         .select(
             field("name").endsWith("16 inch")
-                .alias("
-    
-    [;16InLaptops&q](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2418-L2424)
-    
-    uot;)
+                .alias("16InLaptops")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2418-L2424)
 
 ##### Java  
 Android
@@ -541,13 +487,11 @@ Android
         .collection("inventory/devices/laptops")
         .select(
             field("name").endsWith("16 inch")
-                .alias("
-    
-    [16InLaptops"](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2667-L2673)
-    
-    ;)
+                .alias("16InLaptops")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2667-L2673)
 
 ##### Python
     
@@ -557,13 +501,11 @@ Android
     result = (
         client.pipeline()
         .collection("inventory/devices/laptops")
-        .select(Field.of("name").ends_with("16 inch").as_(&q
-    
-    [uot;16InLaptops")](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1376-L1383)
-    
-    )
+        .select(Field.of("name").ends_with("16 inch").as_("16InLaptops"))
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1376-L1383)
 
 ##### Java
     
@@ -572,13 +514,11 @@ Android
         firestore
             .pipeline()
             .collection("inventory/devices/laptops")
-            .select(endsWith(field("name"), "16 inch").as("16InLaptops&qu
+            .select(endsWith(field("name"), "16 inch").as("16InLaptops"))
+            .execute()
+            .get();
     
-    [ot;))
-            .execut](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1273-L1279)
-    
-    e()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1273-L1279)
 
 ##### Go
     
@@ -586,13 +526,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("inventory/devices/laptops").
     	Select(firestore.Fields(
-    		firestore.EndsWith(firestore.FieldOf("name"), "16 inch").As("
-    
-    [`Laptops16in`"),
+    		firestore.EndsWith(firestore.FieldOf("name"), "16 inch").As("`Laptops16in`"),
     	)).
-    ](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L85-L90)
+    	Execute(ctx)
     
-    	Execute(ctx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L85-L90)
 
 ### LIKE
 
@@ -622,13 +560,11 @@ value | pattern | `like(value, pattern)`
       .collection("books")
       .select(
         field("genre").like("%Fiction")
-          .as(&
-    
-    [quot;anyFiction&q](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1850-L1856)
-    
-    uot;)
+          .as("anyFiction")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1850-L1856)
 
 ### Web
     
@@ -637,13 +573,11 @@ value | pattern | `like(value, pattern)`
       .collection("books")
       .select(
         field("genre").like("%Fiction")
-    
-    
-    [      .as("a](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3124-L3130)
-    
-    nyFiction")
+          .as("anyFiction")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3124-L3130)
 
 ##### Swift
     
@@ -652,13 +586,11 @@ value | pattern | `like(value, pattern)`
       .collection("books")
       .select([
         Field("genre").like("%Fiction")
-          .as(&
-    
-    [quot;anyFiction")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1108-L1114)
-    
-    
+          .as("anyFiction")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1108-L1114)
 
 ##### Kotlin  
 Android
@@ -668,13 +600,11 @@ Android
         .collection("books")
         .select(
             field("genre").like("%Fiction")
-                .alias(&quo
-    
-    [t;anyFiction&q](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2432-L2438)
-    
-    uot;)
+                .alias("anyFiction")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2432-L2438)
 
 ##### Java  
 Android
@@ -684,13 +614,11 @@ Android
         .collection("books")
         .select(
             field("genre").like("%Fiction")
-                .alias("
-    
-    [;anyFiction"](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2681-L2687)
-    
-    ;)
+                .alias("anyFiction")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2681-L2687)
 
 ##### Python
     
@@ -700,13 +628,11 @@ Android
     result = (
         client.pipeline()
         .collection("books")
-        .select(Field.of("genre").like("%Fiction").as_(&
-    
-    [quot;anyFiction")](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1391-L1398)
-    
-    )
+        .select(Field.of("genre").like("%Fiction").as_("anyFiction"))
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1391-L1398)
 
 ##### Java
     
@@ -715,13 +641,11 @@ Android
         firestore
             .pipeline()
             .collection("books")
-            .select(like(field("genre"), "%Fiction").as("anyFiction&qu
+            .select(like(field("genre"), "%Fiction").as("anyFiction"))
+            .execute()
+            .get();
     
-    [ot;))
-            .execut](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1286-L1292)
-    
-    e()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1286-L1292)
 
 ##### Go
     
@@ -729,13 +653,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.Like(firestore.FieldOf("genre"), "%Fiction").As(&qu
-    
-    [ot;anyFiction"),
+    		firestore.Like(firestore.FieldOf("genre"), "%Fiction").As("anyFiction"),
     	)).
-    ](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L104-L109)
+    	Execute(ctx)
     
-    	Execute(ctx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L104-L109)
 
 ### REGEX_CONTAINS
 
@@ -778,13 +700,11 @@ value | regexp | `regex_contains(value, regexp)`
       .collection("documents")
       .select(
         field("title").regexContains("Firestore (Enterprise|Standard)")
-          .as("isF
-    
-    [irestoreRelated&q](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1863-L1869)
-    
-    uot;)
+          .as("isFirestoreRelated")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1863-L1869)
 
 ### Web
     
@@ -793,13 +713,11 @@ value | regexp | `regex_contains(value, regexp)`
       .collection("documents")
       .select(
         field("title").regexContains("Firestore (Enterprise|Standard)")
-          .a
-    
-    [s("isFiresto](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3137-L3143)
-    
-    reRelated")
+          .as("isFirestoreRelated")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3137-L3143)
 
 ##### Swift
     
@@ -808,13 +726,11 @@ value | regexp | `regex_contains(value, regexp)`
       .collection("documents")
       .select([
         Field("title").regexContains("Firestore (Enterprise|Standard)")
-          .as("isF
-    
-    [irestoreRelated")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1122-L1128)
-    
-    
+          .as("isFirestoreRelated")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1122-L1128)
 
 ##### Kotlin  
 Android
@@ -824,13 +740,11 @@ Android
         .collection("documents")
         .select(
             field("title").regexContains("Firestore (Enterprise|Standard)")
-                .alias("isFire
-    
-    [storeRelated&q](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2446-L2452)
-    
-    uot;)
+                .alias("isFirestoreRelated")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2446-L2452)
 
 ##### Java  
 Android
@@ -840,13 +754,11 @@ Android
         .collection("documents")
         .select(
             field("title").regexContains("Firestore (Enterprise|Standard)")
-                .alias("isFires
-    
-    [toreRelated"](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2695-L2701)
-    
-    ;)
+                .alias("isFirestoreRelated")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2695-L2701)
 
 ##### Python
     
@@ -859,14 +771,12 @@ Android
         .select(
             Field.of("title")
             .regex_contains("Firestore (Enterprise|Standard)")
-            .as_("isFirest
-    
-    [oreRelated")
-        ](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1406-L1417)
-    
-    )
+            .as_("isFirestoreRelated")
+        )
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1406-L1417)
 
 ##### Java
     
@@ -877,13 +787,11 @@ Android
             .collection("documents")
             .select(
                 regexContains(field("title"), "Firestore (Enterprise|Standard)")
-                    .as("isFirestoreRelated&qu
+                    .as("isFirestoreRelated"))
+            .execute()
+            .get();
     
-    [ot;))
-            .execut](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1299-L1307)
-    
-    e()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1299-L1307)
 
 ##### Go
     
@@ -891,13 +799,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("documents").
     	Select(firestore.Fields(
-    		firestore.RegexContains(firestore.FieldOf("title"), "Firestore (Enterprise|Standard)").As("isFir
-    
-    [estoreRelated"),
+    		firestore.RegexContains(firestore.FieldOf("title"), "Firestore (Enterprise|Standard)").As("isFirestoreRelated"),
     	)).
-    ](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L123-L128)
+    	Execute(ctx)
     
-    	Execute(ctx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L123-L128)
 
 ### REGEX_FIND
 
@@ -1005,13 +911,11 @@ value | regexp | `regex_match(value, regexp)`
       .collection("documents")
       .select(
         field("title").regexMatch("Firestore (Enterprise|Standard)")
-          .as("isF
-    
-    [irestoreExactly&q](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1876-L1882)
-    
-    uot;)
+          .as("isFirestoreExactly")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1876-L1882)
 
 ### Web
     
@@ -1020,13 +924,11 @@ value | regexp | `regex_match(value, regexp)`
       .collection("documents")
       .select(
         field("title").regexMatch("Firestore (Enterprise|Standard)")
-          .a
-    
-    [s("isFiresto](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3150-L3156)
-    
-    reExactly")
+          .as("isFirestoreExactly")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3150-L3156)
 
 ##### Swift
     
@@ -1035,13 +937,11 @@ value | regexp | `regex_match(value, regexp)`
       .collection("documents")
       .select([
         Field("title").regexMatch("Firestore (Enterprise|Standard)")
-          .as("isF
-    
-    [irestoreExactly")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1136-L1142)
-    
-    
+          .as("isFirestoreExactly")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1136-L1142)
 
 ##### Kotlin  
 Android
@@ -1051,13 +951,11 @@ Android
         .collection("documents")
         .select(
             field("title").regexMatch("Firestore (Enterprise|Standard)")
-                .alias("isFire
-    
-    [storeExactly&q](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2460-L2466)
-    
-    uot;)
+                .alias("isFirestoreExactly")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2460-L2466)
 
 ##### Java  
 Android
@@ -1067,13 +965,11 @@ Android
         .collection("documents")
         .select(
             field("title").regexMatch("Firestore (Enterprise|Standard)")
-                .alias("isFires
-    
-    [toreExactly"](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2709-L2715)
-    
-    ;)
+                .alias("isFirestoreExactly")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2709-L2715)
 
 ##### Python
     
@@ -1086,14 +982,12 @@ Android
         .select(
             Field.of("title")
             .regex_match("Firestore (Enterprise|Standard)")
-            .as_("isFirest
-    
-    [oreExactly")
-        ](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1425-L1436)
-    
-    )
+            .as_("isFirestoreExactly")
+        )
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1425-L1436)
 
 ##### Java
     
@@ -1104,13 +998,11 @@ Android
             .collection("documents")
             .select(
                 regexMatch(field("title"), "Firestore (Enterprise|Standard)")
-                    .as("isFirestoreExactly&qu
+                    .as("isFirestoreExactly"))
+            .execute()
+            .get();
     
-    [ot;))
-            .execut](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1340-L1348)
-    
-    e()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1340-L1348)
 
 ##### Go
     
@@ -1118,13 +1010,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("documents").
     	Select(firestore.Fields(
-    		firestore.RegexMatch(firestore.FieldOf("title"), "Firestore (Enterprise|Standard)").As("isFir
-    
-    [estoreExactly"),
+    		firestore.RegexMatch(firestore.FieldOf("title"), "Firestore (Enterprise|Standard)").As("isFirestoreExactly"),
     	)).
-    ](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L180-L185)
+    	Execute(ctx)
     
-    	Execute(ctx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L180-L185)
 
 ### STRING_CONCAT
 
@@ -1154,13 +1044,11 @@ arguments | `string_concat(values...)`
       .collection("books")
       .select(
         field("title").stringConcat(" by ", field("author"))
-          .as(
-    
-    ["fullyQualif](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1889-L1895)
-    
-    iedTitle")
+          .as("fullyQualifiedTitle")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1889-L1895)
 
 ### Web
     
@@ -1169,13 +1057,11 @@ arguments | `string_concat(values...)`
       .collection("books")
       .select(
         field("title").stringConcat(" by ", field("author"))
-    
-    [
-          .as("](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3163-L3169)
-    
-    fullyQualifiedTitle")
+          .as("fullyQualifiedTitle")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3163-L3169)
 
 ##### Swift
     
@@ -1184,13 +1070,11 @@ arguments | `string_concat(values...)`
       .collection("books")
       .select([
         Field("title").concat([" by ", Field("author")])
-          .as(
-    
-    ["fullyQualifiedTi](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1150-L1156)
-    
-    tle")
+          .as("fullyQualifiedTitle")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1150-L1156)
 
 ##### Kotlin  
 Android
@@ -1200,13 +1084,11 @@ Android
         .collection("books")
         .select(
             field("title").concat(" by ", field("author"))
-                .alias(&qu
-    
-    [ot;fullyQualif](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2474-L2480)
-    
-    iedTitle")
+                .alias("fullyQualifiedTitle")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2474-L2480)
 
 ##### Java  
 Android
@@ -1216,13 +1098,11 @@ Android
         .collection("books")
         .select(
             field("title").concat(" by ", field("author"))
-                .alias(&quo
-    
-    [t;fullyQualified](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2723-L2729)
-    
-    Title")
+                .alias("fullyQualifiedTitle")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2723-L2729)
 
 ##### Python
     
@@ -1235,14 +1115,12 @@ Android
         .select(
             Field.of("title")
             .concat(" by ", Field.of("author"))
-            .as_("
-    
-    [;fullyQualifiedTitle&q](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1444-L1455)
-    
-    uot;)
+            .as_("fullyQualifiedTitle")
         )
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1444-L1455)
 
 ##### Java
     
@@ -1251,13 +1129,11 @@ Android
         firestore
             .pipeline()
             .collection("books")
-            .select(stringConcat(field("title"), " by ", field("author")).as("fullyQualifi
+            .select(stringConcat(field("title"), " by ", field("author")).as("fullyQualifiedTitle"))
+            .execute()
+            .get();
     
-    [edTitle"))
-         ](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1355-L1361)
-    
-       .execute()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1355-L1361)
 
 ##### Go
     
@@ -1265,13 +1141,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.StringConcat(firestore.FieldOf("title"), " by ", firestore.FieldOf("author")).As(&q
-    
-    [uot;fullyQualifiedTitle&quo](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L199-L204)
-    
-    t;),
+    		firestore.StringConcat(firestore.FieldOf("title"), " by ", firestore.FieldOf("author")).As("fullyQualifiedTitle"),
     	)).
-    	Execute(ctx)pipeline_snippets_string.go
+    	Execute(ctx)
+    
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L199-L204)
 
 ### STRING_CONTAINS
 
@@ -1302,13 +1176,11 @@ value | substring | `string_contains(value, substring)`
       .collection("articles")
       .select(
         field("body").stringContains("Firestore")
-          .as("isF
-    
-    [irestoreRelated&q](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1902-L1908)
-    
-    uot;)
+          .as("isFirestoreRelated")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1902-L1908)
 
 ### Web
     
@@ -1317,13 +1189,11 @@ value | substring | `string_contains(value, substring)`
       .collection("articles")
       .select(
         field("body").stringContains("Firestore")
-          .a
-    
-    [s("isFiresto](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3176-L3182)
-    
-    reRelated")
+          .as("isFirestoreRelated")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3176-L3182)
 
 ##### Swift
     
@@ -1332,13 +1202,11 @@ value | substring | `string_contains(value, substring)`
       .collection("articles")
       .select([
         Field("body").stringContains("Firestore")
-          .as("isF
-    
-    [irestoreRelated")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1164-L1170)
-    
-    
+          .as("isFirestoreRelated")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1164-L1170)
 
 ##### Kotlin  
 Android
@@ -1348,13 +1216,11 @@ Android
         .collection("articles")
         .select(
             field("body").stringContains("Firestore")
-                .alias("isFire
-    
-    [storeRelated&q](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2488-L2494)
-    
-    uot;)
+                .alias("isFirestoreRelated")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2488-L2494)
 
 ##### Java  
 Android
@@ -1364,13 +1230,11 @@ Android
         .collection("articles")
         .select(
             field("body").stringContains("Firestore")
-                .alias("isFires
-    
-    [toreRelated"](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2737-L2743)
-    
-    ;)
+                .alias("isFirestoreRelated")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2737-L2743)
 
 ##### Python
     
@@ -1380,13 +1244,11 @@ Android
     result = (
         client.pipeline()
         .collection("articles")
-        .select(Field.of("body").string_contains("Firestore").as_("isF
-    
-    [irestoreRelated")](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1463-L1470)
-    
-    )
+        .select(Field.of("body").string_contains("Firestore").as_("isFirestoreRelated"))
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1463-L1470)
 
 ##### Java
     
@@ -1395,13 +1257,11 @@ Android
         firestore
             .pipeline()
             .collection("articles")
-            .select(stringContains(field("body"), "Firestore").as("isFirestoreRelated&qu
+            .select(stringContains(field("body"), "Firestore").as("isFirestoreRelated"))
+            .execute()
+            .get();
     
-    [ot;))
-            .execut](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1368-L1374)
-    
-    e()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1368-L1374)
 
 ##### Go
     
@@ -1409,13 +1269,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("articles").
     	Select(firestore.Fields(
-    		firestore.StringContains(firestore.FieldOf("body"), "Firestore").As("isFir
-    
-    [estoreRelated"),
+    		firestore.StringContains(firestore.FieldOf("body"), "Firestore").As("isFirestoreRelated"),
     	)).
-    ](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L218-L223)
+    	Execute(ctx)
     
-    	Execute(ctx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L218-L223)
 
 ### STRING_INDEX_OF
 
@@ -1478,13 +1336,11 @@ b"a1c" | b"A1C"
       .collection("authors")
       .select(
         field("name").toUpper()
-          .as("uppercas
-    
-    [eName")
+          .as("uppercaseName")
       )
-    ](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1915-L1921)
+      .execute();
     
-      .execute();test.firestore.js
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1915-L1921)
 
 ### Web
     
@@ -1493,13 +1349,11 @@ b"a1c" | b"A1C"
       .collection("authors")
       .select(
         field("name").toUpper()
-          .as(&qu
-    
-    [ot;uppercaseName&](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3189-L3195)
-    
-    quot;)
+          .as("uppercaseName")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3189-L3195)
 
 ##### Swift
     
@@ -1508,13 +1362,11 @@ b"a1c" | b"A1C"
       .collection("authors")
       .select([
         Field("name").toUpper()
-          .as("uppercas
-    
-    [eName")
+          .as("uppercaseName")
       ])
-      .e](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1178-L1184)
+      .execute()
     
-    xecute()PipelineSnippets.swift
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1178-L1184)
 
 ##### Kotlin  
 Android
@@ -1524,13 +1376,11 @@ Android
         .collection("authors")
         .select(
             field("name").toUpper()
-                .alias("uppercaseNa
+                .alias("uppercaseName")
+        )
+        .execute()
     
-    [me")
-        ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2502-L2508)
-    
-    )
-        .execute()DocSnippets.kt
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2502-L2508)
 
 ##### Java  
 Android
@@ -1540,13 +1390,11 @@ Android
         .collection("authors")
         .select(
             field("name").toUpper()
-                .alias("uppercaseNam
-    
-    [e")
+                .alias("uppercaseName")
         )
-     ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2751-L2757)
+        .execute();
     
-       .execute();DocSnippets.java
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2751-L2757)
 
 ##### Python
     
@@ -1556,13 +1404,11 @@ Android
     result = (
         client.pipeline()
         .collection("authors")
-        .select(Field.of("name").to_upper().as_("uppercas
+        .select(Field.of("name").to_upper().as_("uppercaseName"))
+        .execute()
+    )
     
-    [eName"))
-        .exe](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1478-L1485)
-    
-    cute()
-    )firestore_pipelines.py
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1478-L1485)
 
 ##### Java
     
@@ -1572,12 +1418,10 @@ Android
             .pipeline()
             .collection("authors")
             .select(toUpper(field("name")).as("uppercaseName"))
-        
+            .execute()
+            .get();
     
-    [    .execute()
-          ](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1381-L1387)
-    
-      .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1381-L1387)
 
 ##### Go
     
@@ -1585,13 +1429,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("authors").
     	Select(firestore.Fields(
-    		firestore.ToUpper(firestore.FieldOf("name")).As("uppercaseN
-    
-    [ame"),
+    		firestore.ToUpper(firestore.FieldOf("name")).As("uppercaseName"),
     	)).
-    	Execute(c](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L237-L242)
+    	Execute(ctx)
     
-    tx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L237-L242)
 
 ### TO_LOWER
 
@@ -1623,13 +1465,11 @@ b"ABC" | b"abc"
       .collection("authors")
       .select(
         field("genre").toLower().equal("fantasy")
-          .as(
-    
-    ["isFantasy&q](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1928-L1934)
-    
-    uot;)
+          .as("isFantasy")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1928-L1934)
 
 ### Web
     
@@ -1638,13 +1478,11 @@ b"ABC" | b"abc"
       .collection("authors")
       .select(
         field("genre").toLower().equal("fantasy")
-    
-    [
-          .as("](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3202-L3208)
-    
-    isFantasy")
+          .as("isFantasy")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3202-L3208)
 
 ##### Swift
     
@@ -1653,13 +1491,11 @@ b"ABC" | b"abc"
       .collection("authors")
       .select([
         Field("genre").toLower().equal("fantasy")
-          .as(
-    
-    ["isFantasy")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1192-L1198)
-    
-    
+          .as("isFantasy")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1192-L1198)
 
 ##### Kotlin  
 Android
@@ -1669,13 +1505,11 @@ Android
         .collection("authors")
         .select(
             field("genre").toLower().equal("fantasy")
-                .alias(&qu
-    
-    [ot;isFantasy&q](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2516-L2522)
-    
-    uot;)
+                .alias("isFantasy")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2516-L2522)
 
 ##### Java  
 Android
@@ -1685,13 +1519,11 @@ Android
         .collection("authors")
         .select(
             field("genre").toLower().equal("fantasy")
-                .alias(&quo
-    
-    [t;isFantasy"](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2765-L2771)
-    
-    ;)
+                .alias("isFantasy")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2765-L2771)
 
 ##### Python
     
@@ -1701,13 +1533,11 @@ Android
     result = (
         client.pipeline()
         .collection("authors")
-        .select(Field.of("genre").to_lower().equal("fantasy").as_(
-    
-    ["isFantasy")](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1493-L1500)
-    
-    )
+        .select(Field.of("genre").to_lower().equal("fantasy").as_("isFantasy"))
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1493-L1500)
 
 ##### Java
     
@@ -1716,13 +1546,11 @@ Android
         firestore
             .pipeline()
             .collection("authors")
-            .select(equal(toLower(field("genre")), "fantasy").as("isFantasy&qu
+            .select(equal(toLower(field("genre")), "fantasy").as("isFantasy"))
+            .execute()
+            .get();
     
-    [ot;))
-            .execut](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1394-L1400)
-    
-    e()
-            .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1394-L1400)
 
 ##### Go
     
@@ -1730,13 +1558,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("authors").
     	Select(firestore.Fields(
-    		firestore.Equal(firestore.ToLower(firestore.FieldOf("genre")), "fantasy").As(&q
-    
-    [uot;isFantasy"),
+    		firestore.Equal(firestore.ToLower(firestore.FieldOf("genre")), "fantasy").As("isFantasy"),
     	)).
-    ](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L256-L261)
+    	Execute(ctx)
     
-    	Execute(ctx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L256-L261)
 
 ### SUBSTRING
 
@@ -1789,13 +1615,11 @@ b"abc" | 0 | 1 | b"a"
       .where(field("title").startsWith("The "))
       .select(
         field("title").substring(4)
-          .as(&qu
-    
-    [ot;titleWithoutLe](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1940-L1947)
-    
-    adingThe")
+          .as("titleWithoutLeadingThe")
       )
-      .execute();test.firestore.js
+      .execute();
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1940-L1947)
 
 ### Web
     
@@ -1805,13 +1629,11 @@ b"abc" | 0 | 1 | b"a"
       .where(field("title").startsWith("The "))
       .select(
         field("title").substring(4)
-      
-    
-    [    .as("tit](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3214-L3221)
-    
-    leWithoutLeadingThe")
+          .as("titleWithoutLeadingThe")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3214-L3221)
 
 ##### Swift
     
@@ -1821,13 +1643,11 @@ b"abc" | 0 | 1 | b"a"
       .where(Field("title").startsWith("The "))
       .select([
         Field("title").substring(position: 4)
-          .as(&qu
-    
-    [ot;titleWithoutLeading](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1206-L1213)
-    
-    The")
+          .as("titleWithoutLeadingThe")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1206-L1213)
 
 ##### Kotlin  
 Android
@@ -1840,13 +1660,11 @@ Android
             field("title")
               .substring(constant(4),
                 field("title").charLength().subtract(4))
-                .al
-    
-    [ias("titl](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2530-L2539)
-    
-    eWithoutLeadingThe")
+                .alias("titleWithoutLeadingThe")
         )
-        .execute()DocSnippets.kt
+        .execute()
+    
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2530-L2539)
 
 ##### Java  
 Android
@@ -1859,13 +1677,11 @@ Android
             field("title").substring(
               constant(4),
                 field("title").charLength().subtract(4))
-                .ali
-    
-    [as("titleWi](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2779-L2788)
-    
-    thoutLeadingThe")
+                .alias("titleWithoutLeadingThe")
         )
-        .execute();DocSnippets.java
+        .execute();
+    
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2779-L2788)
 
 ##### Python
     
@@ -1876,13 +1692,11 @@ Android
         client.pipeline()
         .collection("books")
         .where(Field.of("title").starts_with("The "))
-        .select(Field.of("title").substring(4).as_(&qu
-    
-    [ot;titleWithoutLeading](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1508-L1516)
-    
-    The"))
+        .select(Field.of("title").substring(4).as_("titleWithoutLeadingThe"))
         .execute()
-    )firestore_pipelines.py
+    )
+    
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1508-L1516)
 
 ##### Java
     
@@ -1894,13 +1708,11 @@ Android
             .where(startsWith(field("title"), "The "))
             .select(
                 substring(field("title"), constant(4), field("title").charLength())
-                    .as("title
-    
-    [WithoutLeadingThe&quo](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1407-L1416)
-    
-    t;))
+                    .as("titleWithoutLeadingThe"))
             .execute()
-            .get();PipelineSnippets.java
+            .get();
+    
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1407-L1416)
 
 ##### Go
     
@@ -1909,13 +1721,11 @@ Android
     	Collection("books").
     	Where(firestore.StartsWith(firestore.FieldOf("title"), "The ")).
     	Select(firestore.Fields(
-    		firestore.Substring(firestore.FieldOf("title"), firestore.ConstantOf(4), firestore.FieldOf("title").CharLength()
-    
-    [).As("titleWithoutLead](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L275-L281)
-    
-    ingThe"),
+    		firestore.Substring(firestore.FieldOf("title"), firestore.ConstantOf(4), firestore.FieldOf("title").CharLength()).As("titleWithoutLeadingThe"),
     	)).
-    	Execute(ctx)pipeline_snippets_string.go
+    	Execute(ctx)
+    
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L275-L281)
 
 ### STRING_REVERSE
 
@@ -1946,13 +1756,11 @@ b"abc" | b"cba"
     const result = await db.pipeline()
       .collection("books")
       .select(
-        field("name").reverse().as("reverse
-    
-    [dName")
+        field("name").reverse().as("reversedName")
       )
-    ](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1954-L1959)
+      .execute();
     
-      .execute();test.firestore.js
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-temp/test.firestore.js#L1954-L1959)
 
 ### Web
     
@@ -1960,13 +1768,11 @@ b"abc" | b"cba"
     const result = await execute(db.pipeline()
       .collection("books")
       .select(
-        field("name").reverse().as(&q
-    
-    [uot;reversedName&](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3228-L3233)
-    
-    quot;)
+        field("name").reverse().as("reversedName")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3228-L3233)
 
 ##### Swift
     
@@ -1974,13 +1780,11 @@ b"abc" | b"cba"
     let result = try await db.pipeline()
       .collection("books")
       .select([
-        Field("name").reverse().as("reverse
-    
-    [dName")
+        Field("name").reverse().as("reversedName")
       ])
-      .e](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1221-L1226)
+      .execute()
     
-    xecute()PipelineSnippets.swift
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1221-L1226)
 
 ##### Kotlin  
 Android
@@ -1989,13 +1793,11 @@ Android
     val result = db.pipeline()
         .collection("books")
         .select(
-            field("name").reverse().alias("reversedNa
+            field("name").reverse().alias("reversedName")
+        )
+        .execute()
     
-    [me")
-        ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2547-L2552)
-    
-    )
-        .execute()DocSnippets.kt
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2547-L2552)
 
 ##### Java  
 Android
@@ -2004,13 +1806,11 @@ Android
     Task<Pipeline.Snapshot> result = db.pipeline()
         .collection("books")
         .select(
-            field("name").reverse().alias("reversedNam
-    
-    [e")
+            field("name").reverse().alias("reversedName")
         )
-     ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2796-L2801)
+        .execute();
     
-       .execute();DocSnippets.java
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2796-L2801)
 
 ##### Python
     
@@ -2020,13 +1820,11 @@ Android
     result = (
         client.pipeline()
         .collection("books")
-        .select(Field.of("name").string_reverse().as_("reverse
+        .select(Field.of("name").string_reverse().as_("reversedName"))
+        .execute()
+    )
     
-    [dName"))
-        .exe](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1524-L1531)
-    
-    cute()
-    )firestore_pipelines.py
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1524-L1531)
 
 ##### Java
     
@@ -2036,12 +1834,10 @@ Android
             .pipeline()
             .collection("books")
             .select(reverse(field("name")).as("reversedName"))
-        
+            .execute()
+            .get();
     
-    [    .execute()
-          ](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1423-L1429)
-    
-      .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1423-L1429)
 
 ##### Go
     
@@ -2049,13 +1845,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.Reverse(firestore.FieldOf("name")).As("reversedN
-    
-    [ame"),
+    		firestore.Reverse(firestore.FieldOf("name")).As("reversedName"),
     	)).
-    	Execute(c](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L295-L300)
+    	Execute(ctx)
     
-    tx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L295-L300)
 
 ### STRING_REPEAT
 
@@ -2186,13 +1980,11 @@ b"C1C2" | "foo" | error
     const result = await execute(db.pipeline()
       .collection("books")
       .select(
-        field("name").trim().as("white
-    
-    [spaceTrimmedName&](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3240-L3245)
-    
-    quot;)
+        field("name").trim().as("whitespaceTrimmedName")
       )
-    );test.firestore.js
+    );
+    
+    [test.firestore.js](https://github.com/firebase/snippets-web/blob/3999dead1c222ee0870d5f3e011194fa519e9553/firestore-next/test.firestore.js#L3240-L3245)
 
 ##### Swift
     
@@ -2200,13 +1992,11 @@ b"C1C2" | "foo" | error
     let result = try await db.pipeline()
       .collection("books")
       .select([
-        Field("name").trim(" \n\t").as("whites
-    
-    [paceTrimmedName")](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1234-L1239)
-    
-    
+        Field("name").trim(" \n\t").as("whitespaceTrimmedName")
       ])
-      .execute()PipelineSnippets.swift
+      .execute()
+    
+    [PipelineSnippets.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/PipelineSnippets.swift#L1234-L1239)
 
 ##### Kotlin  
 Android
@@ -2215,13 +2005,11 @@ Android
     val result = db.pipeline()
         .collection("books")
         .select(
-            field("name").trim().alias("whitespaceTrimmedNa
+            field("name").trim().alias("whitespaceTrimmedName")
+        )
+        .execute()
     
-    [me")
-        ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2560-L2565)
-    
-    )
-        .execute()DocSnippets.kt
+    [DocSnippets.kt](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/kotlin/DocSnippets.kt#L2560-L2565)
 
 ##### Java  
 Android
@@ -2230,13 +2018,11 @@ Android
     Task<Pipeline.Snapshot> result = db.pipeline()
         .collection("books")
         .select(
-            field("name").trim().alias("whitespaceTrimmedNam
-    
-    [e")
+            field("name").trim().alias("whitespaceTrimmedName")
         )
-     ](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2809-L2814)
+        .execute();
     
-       .execute();DocSnippets.java
+    [DocSnippets.java](https://github.com/firebase/snippets-android/blob/bb5b419494a9d94466a5422d49f758f8ef5d81fa/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L2809-L2814)
 
 ##### Python
     
@@ -2246,13 +2032,11 @@ Android
     result = (
         client.pipeline()
         .collection("books")
-        .select(Field.of("name").trim().as_("whitespaceTrimme
+        .select(Field.of("name").trim().as_("whitespaceTrimmedName"))
+        .execute()
+    )
     
-    [dName"))
-        .exe](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1539-L1546)
-    
-    cute()
-    )firestore_pipelines.py
+    [firestore_pipelines.py](https://github.com/firebase/firebase-admin-python/blob/e7081bb30f3610ad13228056b08bd7a14f309af9/snippets/firestore/firestore_pipelines.py#L1539-L1546)
 
 ##### Java
     
@@ -2262,12 +2046,10 @@ Android
             .pipeline()
             .collection("books")
             .select(trim(field("name")).as("whitespaceTrimmedName"))
-        
+            .execute()
+            .get();
     
-    [    .execute()
-          ](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1436-L1442)
-    
-      .get();PipelineSnippets.java
+    [PipelineSnippets.java](https://github.com/googleapis/java-firestore/blob/dd16eb077d99ea3c7ddb213b23537ae700c8ea6c/samples/preview-snippets/src/main/java/com/example/firestore/PipelineSnippets.java#L1436-L1442)
 
 ##### Go
     
@@ -2275,13 +2057,11 @@ Android
     snapshot := client.Pipeline().
     	Collection("books").
     	Select(firestore.Fields(
-    		firestore.Trim(firestore.FieldOf("name")).As("whitespaceTrimmedN
-    
-    [ame"),
+    		firestore.Trim(firestore.FieldOf("name")).As("whitespaceTrimmedName"),
     	)).
-    	Execute(c](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L314-L319)
+    	Execute(ctx)
     
-    tx)pipeline_snippets_string.go
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/pipeline_snippets_string.go#L314-L319)
 
 ### LTRIM
 

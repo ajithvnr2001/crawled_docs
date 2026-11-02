@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek/
 title: Configure Customer-managed encryption keys (CMEK) for sandboxes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:40.654511+00:00
+fetched_at: 2026-11-02T05:40:08.403695+00:00
 ---
 
 # Configure Customer-managed encryption keys (CMEK) for sandboxes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -115,11 +115,11 @@ Set `encryption_spec.kms_key_name` when you create the Gemini Enterprise Agent P
 ### Python SDK
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(project="PROJECT_ID", location="REGION",
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(project="PROJECT_ID", location="REGION",
                             http_options={"api_version": "v1beta1"})
-    agent_instance = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).create(
+    agent_instance = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(
         config={
             "encryption_spec": {
                 "kms_key_name":

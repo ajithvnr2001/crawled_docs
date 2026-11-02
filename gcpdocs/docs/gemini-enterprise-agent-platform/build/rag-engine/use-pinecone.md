@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone/
 title: Use Pinecone with RAG Engine \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:39.296205+00:00
+fetched_at: 2026-11-02T05:40:07.396117+00:00
 ---
 
 # Use Pinecone with RAG Engine  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -270,12 +270,12 @@ This code example demonstrates how to create a RAG corpus with Pinecone without 
 ###  Python 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview import rag
     
     # Set Project
     PROJECT_ID = "YOUR_PROJECT_ID"
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     # Configure the Pinecone vector DB information
     vector_db = rag.Pinecone()
@@ -333,12 +333,12 @@ Field | Mutability | Required or Optional
 ###  Python 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview import rag
     
     # Set Project
     PROJECT_ID = "YOUR_PROJECT_ID"
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     # Configure the Pinecone vector DB information
     vector_db = rag.Pinecone(index_name=)

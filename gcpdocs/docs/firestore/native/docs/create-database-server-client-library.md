@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/create-database-server-client-library/
 title: Quickstart: Create a Firestore database by using a server client library \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:30.644603+00:00
+fetched_at: 2026-11-02T05:40:12.980744+00:00
 ---
 
 # Quickstart: Create a Firestore database by using a server client library  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -317,7 +317,7 @@ Initialize an instance of Firestore:
     # The `project_id` parameter is optional and represents which project the
     # client will act on behalf of. If not supplied, the client falls back to the
     # default project inferred from the environment.
-    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore-v1/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
+    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin-v1/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
     
     puts "Created Cloud Firestore client with given project ID."
     

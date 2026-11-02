@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/materialized-views-create/
 title: Create materialized views \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:00.512778+00:00
+fetched_at: 2026-11-02T05:41:37.145238+00:00
 ---
 
 # Create materialized views  |  BigQuery  |  Google Cloud Documentation
@@ -198,9 +198,9 @@ Call the [`tables.insert` method](https://docs.cloud.google.com/bigquery/docs/re
     {
       "kind": "bigquery#table",
       "tableReference": {
-        "projectId": "PROJECT_ID&quot;,
+        "projectId": "PROJECT_ID",
         "datasetId": "DATASET",
-        "tableId": &quot;MATERIALIZED_VIEW_NAME"
+        "tableId": "MATERIALIZED_VIEW_NAME"
       },
       "materializedView": {
         "query": "QUERY_EXPRESSION"
@@ -270,17 +270,17 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
           String datasetName, String materializedViewName, String query) {
         try {
           // Initialize client that will be used to send requests. This client only needs to be created
-      [    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html)// once, and can[ be reused for ](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html)multiple requests.
-          BigQuery bigquery [= BigQu](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.TableId.html)eryOptions.[getDefa](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.TableId.html)ultInstance().getService();
+          // once, and can be reused for multiple requests.
+          [BigQuery](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html) bigquery = [BigQueryOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html).getDefaultInstance().getService();
     
-          TableId tabl[eId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.MaterializedViewDefinition.html) = TableId.of(datasetName, materializedViewName);
+          [TableId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.TableId.html) tableId = [TableId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.TableId.html).of(datasetName, materializedViewName);
     
-          Materi[alizedViewDefinition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.MaterializedViewDefinition.html) materializedViewDefinition =
-              Materializ[edView](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_create_com_google_cloud_bigquery_DatasetInfo_com_google_cloud_bigquery_BigQuery_DatasetOption____)Definition.newBuilder(query).build();
+          [MaterializedViewDefinition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.MaterializedViewDefinition.html) materializedViewDefinition =
+              [MaterializedViewDefinition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.MaterializedViewDefinition.html).newBuilder(query).build();
     
-          bigquery.create(TableInfo.of(tableId, materializedViewDefinition));
-          System.out.prin[tln](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html)("Materialized view created successfully");
-        } catch (BigQueryException e) {
+          bigquery.[create](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_create_com_google_cloud_bigquery_DatasetInfo_com_google_cloud_bigquery_BigQuery_DatasetOption____)(TableInfo.of(tableId, materializedViewDefinition));
+          System.out.println("Materialized view created successfully");
+        } catch ([BigQueryException](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html) e) {
           System.out.println("Materialized view was not created. \n" + e.toString());
         }
       }
@@ -760,8 +760,8 @@ Call the [`tables.insert`](https://docs.cloud.google.com/bigquery/docs/reference
     {
       "kind": "bigquery#table",
       "tableReference": {
-        "projectId": &quot;project-id";,
-        &quot;datasetId": "my_dataset",
+        "projectId": "project-id",
+        "datasetId": "my_dataset",
         "tableId": "my_mv_table"
       },
       "materializedView": {
@@ -879,7 +879,7 @@ Add an `OPTIONS` clause to the DDL statement when you create the materialized vi
          LEFT OUTER JOIN my_project.my_dataset.store_sales
            ON ss_store_sk = s_store_sk
          GROUP BY s_store_sk
-         HAVI<NG median  40 OR median is NULL ;
+         HAVING median < 40 OR median is NULL ;
 
 Replace the following: 
 
@@ -902,8 +902,8 @@ Call the [`tables.insert`](https://docs.cloud.google.com/bigquery/docs/reference
     {
       "kind": "bigquery#table",
       "tableReference": {
-        "projectId": &quot;my_project";,
-        &quot;datasetId": "my_dataset",
+        "projectId": "my_project",
+        "datasetId": "my_dataset",
         "tableId": "my_mv_table"
       },
       "materializedView": {

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-metadata/
 title: Get an object's metadata \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:44.920118+00:00
+fetched_at: 2026-11-02T05:40:21.219072+00:00
 ---
 
 # Get an object's metadata  |  Cloud Storage  |  Google Cloud Documentation
@@ -512,6 +512,28 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts " - #{key} = #{value}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-read";
+        let object = client
+            .get_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .send()
+            .await?;
+    
+        let object_metadata = object.metadata;
+        println!(
+            "successfully retrieved object {NAME} metadata in bucket {bucket_id}: {:?}",
+            object_metadata
+        );
+        Ok(())
+    }
 
 ## What's next
 

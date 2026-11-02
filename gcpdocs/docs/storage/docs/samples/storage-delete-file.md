@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-delete-file/
 title: Delete an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:37.692233+00:00
+fetched_at: 2026-11-02T05:40:33.425949+00:00
 ---
 
 # Delete an object  |  Cloud Storage  |  Google Cloud Documentation
@@ -290,6 +290,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Deleted #{file.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "deleted-object-name";
+        client
+            .delete_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            // Consider .set_generation() to make request idempotent
+            .send()
+            .await?;
+        println!("successfully deleted object {NAME} in bucket {bucket_id}");
+        Ok(())
+    }
 
 ## What's next
 

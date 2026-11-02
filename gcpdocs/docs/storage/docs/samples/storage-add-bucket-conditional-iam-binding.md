@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-add-bucket-conditional-iam-binding/
 title: Add conditional role binding \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:44.518247+00:00
+fetched_at: 2026-11-02T05:40:29.838747+00:00
 ---
 
 # Add conditional role binding  |  Cloud Storage  |  Google Cloud Documentation
@@ -484,6 +484,53 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Added #{member} with role #{role} to #{bucket_name} with condition #{title} #{description} #{expression}"
     end
+
+### Rust
+    
+    
+    use google_cloud_iam_v1::model::{Binding, GetPolicyOptions};
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_type::model::Expr;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        service_account: &str,
+    ) -> anyhow::Result<()> {
+        const ROLE: &str = "roles/storage.objectViewer";
+        const TITLE: &str = "A service account can read prefix-a-*";
+    
+        let mut policy = client
+            .get_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .set_options(GetPolicyOptions::new().set_requested_policy_version(3))
+            .send()
+            .await?;
+        let condition = Expr::new()
+            .set_expression(format!(
+                r#"resource.name.startsWith("projects/_/buckets/{bucket_id}/objects/prefix-a-")"#
+            ))
+            .set_title(TITLE)
+            .set_description(format!(
+                "Allows {service_account} read access to objects starting with `prefix-a-`"
+            ));
+        let binding = Binding::new()
+            .set_role(ROLE)
+            .set_members([format!("serviceAccount:{service_account}")])
+            .set_condition(condition);
+        policy.version = 3;
+        policy.bindings.push(binding);
+        let updated_policy = client
+            .set_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .set_policy(policy)
+            .send()
+            .await?;
+        println!(
+            "Successfully added conditional IAM binding to bucket {bucket_id}: {updated_policy:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

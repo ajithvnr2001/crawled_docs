@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-template-get/
 title: Get information about an instance template \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:23.834972+00:00
+fetched_at: 2026-11-02T05:41:17.846158+00:00
 ---
 
 # Get information about an instance template  |  Compute Engine  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// templateName := "your_template_name"
     
     	ctx := context.Background()
-    	instanceTemplatesClient, err := compute.NewInstanceTemplatesRESTClient(ctx)
+    	instanceTemplatesClient, err := compute.[NewInstanceTemplatesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstanceTemplatesClient_NewInstanceTemplatesRESTClient)(ctx)
     	if err != nil {
     		return nil, fmt.Errorf("NewInstanceTemplatesRESTClient: %w", err)
     	}
@@ -75,9 +75,9 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.GetInstanceTemplateRequest;
-    import com.google.cloud.compute.v1.InstanceTemplate;
-    import com.google.cloud.compute.v1.InstanceTemplatesClient;
+    import com.google.cloud.compute.v1.[GetInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceTemplateRequest.html);
+    import com.google.cloud.compute.v1.[InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html);
+    import com.google.cloud.compute.v1.[InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html);
     import java.io.IOException;
     
     public class GetInstanceTemplate {
@@ -94,15 +94,15 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       //  Retrieve an instance template, which you can use to create virtual machine
       //  (VM) instances and managed instance groups (MIGs).
       public static void getInstanceTemplate(String projectId, String templateName) throws IOException {
-        try (InstanceTemplatesClient instanceTemplatesClient = InstanceTemplatesClient.create()) {
+        try ([InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html) instanceTemplatesClient = [InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).create()) {
     
-          GetInstanceTemplateRequest getInstanceTemplateRequest = GetInstanceTemplateRequest
+          [GetInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceTemplateRequest.html) getInstanceTemplateRequest = [GetInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GetInstanceTemplateRequest.html)
               .newBuilder()
               .setProject(projectId)
               .setInstanceTemplate(templateName).build();
     
-          InstanceTemplate instanceTemplate = instanceTemplatesClient.get(getInstanceTemplateRequest);
-          System.out.println("Instance Template retrieved: " + instanceTemplate.getName());
+          [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html) instanceTemplate = instanceTemplatesClient.get(getInstanceTemplateRequest);
+          System.out.println("Instance Template retrieved: " + instanceTemplate.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html#com_google_cloud_compute_v1_InstanceTemplate_getName__)());
         }
       }
     }
@@ -120,12 +120,12 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const projectId = 'YOUR_PROJECT_ID';
     // const templateName = 'your_template_name';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Retrieve an instance template, which you can use to create
     // virtual machine (VM) instances and managed instance groups (MIGs).
     async function getInstanceTemplate() {
-      const instanceTemplatesClient = new compute.InstanceTemplatesClient();
+      const instanceTemplatesClient = new compute.[InstanceTemplatesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [instance] = await instanceTemplatesClient.get({
         project: projectId,

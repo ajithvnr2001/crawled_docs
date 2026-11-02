@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-view-bucket-iam-members/
 title: Get IAM members \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:59.382895+00:00
+fetched_at: 2026-11-02T05:40:36.361113+00:00
 ---
 
 # Get IAM members  |  Cloud Storage  |  Google Cloud Documentation
@@ -312,6 +312,21 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         end
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let policy = client
+            .get_iam_policy()
+            .set_resource(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!("IAM policy for bucket {}: {:?}", bucket_id, policy);
+        Ok(())
+    }
 
 ## What's next
 

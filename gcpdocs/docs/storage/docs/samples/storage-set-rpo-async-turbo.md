@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-rpo-async-turbo/
 title: Set the rpo setting of bucket metadata to ASYNC_TURBO \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:05.600492+00:00
+fetched_at: 2026-11-02T05:40:24.664706+00:00
 ---
 
 # Set the rpo setting of bucket metadata to ASYNC_TURBO  |  Cloud Storage  |  Google Cloud Documentation
@@ -255,6 +255,30 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Turbo replication is enabled for #{bucket_name}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_rpo("ASYNC_TURBO"))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["rpo"]))
+            .send()
+            .await?;
+        println!("successfully updated bucket RPO to ASYNC_TURBO: {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

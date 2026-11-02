@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-qwen3-8-2-4t-a4-gke-multi-host-sglang/
 title: Serve Qwen3.8-2.4T on GKE with multi-host PD disaggregation using Dynamo and SGLang on A4 VMs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:32.635992+00:00
+fetched_at: 2026-11-02T05:42:51.525945+00:00
 ---
 
 # Serve Qwen3.8-2.4T on GKE with multi-host PD disaggregation using Dynamo and SGLang on A4 VMs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -98,11 +98,11 @@ You might also be able to get the required permissions through [custom roles](ht
 Export the environment variables that you use throughout this tutorial:
     
     
-    export PROJECT_ID=&quot;YOUR_PROJECT_ID"
-    export REGION=&quot;YOUR_REGION"
+    export PROJECT_ID="YOUR_PROJECT_ID"
+    export REGION="YOUR_REGION"
     export ZONE="YOUR_ZONE"
     export CLUSTER_NAME="YOUR_CLUSTER_NAME"
-    export RESERVATION_NAME=&quot;YOUR_RESERVATION_NAME"
+    export RESERVATION_NAME="YOUR_RESERVATION_NAME"
     export GCS_BUCKET="YOUR_BUCKET_NAME"
     export HF_TOKEN="YOUR_HF_TOKEN"
     export CLUSTER_TOOLKIT_VERSION="v1.104.0"
@@ -136,8 +136,8 @@ Download Cluster Toolkit and provision a GKE cluster in Standard mode with four 
          
          TAG="${CLUSTER_TOOLKIT_VERSION:-v1.104.0}"
          OS="linux"
-         ARCH="amd64&q&&uot;
-         mkdir -p cluster-toolkit  curl -L "https://github.com/GoogleCloudPlatform/cluster-toolkit/releases/download/${TAG}/gcluster_bundle_${OS}_${ARCH}.tgz" | tar -xz -C cluster-toolkit
+         ARCH="amd64"
+         mkdir -p cluster-toolkit && curl -L "https://github.com/GoogleCloudPlatform/cluster-toolkit/releases/download/${TAG}/gcluster_bundle_${OS}_${ARCH}.tgz" | tar -xz -C cluster-toolkit
 
 If you run this command on macOS or on an `arm64` workstation, set `OS="mac"` or `ARCH="arm64"` to match your platform.
 
@@ -148,7 +148,7 @@ If you run this command on macOS or on an `arm64` workstation, set `OS="mac"` or
              --project="${PROJECT_ID}" \
              --location="${REGION}" \
              --uniform-bucket-level-access
-         gcloud storage buckets update &quot;gs://${GCS_BUCKET}" --versioning
+         gcloud storage buckets update "gs://${GCS_BUCKET}" --versioning
 
   4. Create the `cluster-toolkit/examples/gke-a4/gke-a4-deployment.yaml` deployment configuration file for four `a4-highgpu-8g` nodes:
          
@@ -214,7 +214,7 @@ Prepare your cluster by creating a Hugging Face Secret and installing the KAI Sc
              --set topologyMigration.enabled=false
          
          kubectl wait --for=condition=Available deployment/kai-operator --timeout=120s
-         until >kubectl get>& deployment/queue-controller /dev/null 21; do sleep 2; done
+         until kubectl get deployment/queue-controller >/dev/null 2>&1; do sleep 2; done
          kubectl wait --for=condition=Available deployment/queue-controller --timeout=120s
          
          helm upgrade --install dynamo-platform ./dynamo-platform \
@@ -364,7 +364,7 @@ Alternatively, create a file named `qwen3.8-2.4t-nvfp4-stage-weights-job.yaml` w
 
   3. Substitute your Cloud Storage bucket name into `qwen3.8-2.4t-nvfp4-stage-weights-job.yaml`, start the staging Job, wait for all four Pods to finish uploading the weights, and then delete the completed Job:
          
-         envsubst '${GCS_BUCKE<T}'  qwen3.8-2.4t-nvfp4-stage-weights-job.yaml | kubectl apply -f -
+         envsubst '${GCS_BUCKET}' < qwen3.8-2.4t-nvfp4-stage-weights-job.yaml | kubectl apply -f -
          
          kubectl wait --for=condition=complete job/qwen3-8-2-4t-stage-weights --timeout=2h
          
@@ -374,8 +374,8 @@ Downloading the model weights to Local NVMe SSD and uploading them to Cloud Stor
 
   4. Optional: While the staging Job is running, stream the logs of a staging Pod in a second terminal session to monitor the download progress:
          
-         POD_NAME=&quot;YOUR_POD_NAME"
-         kubectl logs -f &quot;${POD_NAME}"
+         POD_NAME="YOUR_POD_NAME"
+         kubectl logs -f "${POD_NAME}"
 
 Replace `YOUR_POD_NAME` with the name of one of the `qwen3-8-2-4t-stage-weights` Pods from `kubectl get pods`.
 
@@ -747,13 +747,13 @@ Deploy and monitor the disaggregated inference server:
 
   2. Substitute your Cloud Storage bucket name into `qwen3.8-2.4t-nvfp4-multihost-a4-gcsfuse.yaml` and apply the workload manifest to your cluster:
          
-         envsubst '${GCS_BUCKE<T}'  qwen3.8-2.4t-nvfp4-multihost-a4-gcsfuse.yaml | kubectl apply -f -
+         envsubst '${GCS_BUCKET}' < qwen3.8-2.4t-nvfp4-multihost-a4-gcsfuse.yaml | kubectl apply -f -
 
   3. To monitor weight loading and server initialization, list the Pods in your cluster, and stream the logs of the prefill leader Pod and decode leader Pod:
          
          kubectl get pods
-         POD_NAME=&quot;YOUR_POD_NAME"
-         kubectl logs -f &quot;${POD_NAME}"
+         POD_NAME="YOUR_POD_NAME"
+         kubectl logs -f "${POD_NAME}"
 
 Replace `YOUR_POD_NAME` with the name of the prefill leader Pod or decode leader Pod from the `kubectl get pods` output.
 

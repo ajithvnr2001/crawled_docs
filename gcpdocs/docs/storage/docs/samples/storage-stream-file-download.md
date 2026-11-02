@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-stream-file-download/
 title: Read Object as a Stream \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:07.153352+00:00
+fetched_at: 2026-11-02T05:40:35.085961+00:00
 ---
 
 # Read Object as a Stream  |  Cloud Storage  |  Google Cloud Documentation
@@ -326,6 +326,26 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     # rewind the object before starting to read the downloaded contents
     local_file_obj.rewind
     puts "The full downloaded file contents are: #{local_file_obj.read.inspect}"
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(client: &Storage, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-download.txt";
+        let mut reader = client
+            .read_object(format!("projects/_/buckets/{bucket_id}"), NAME)
+            .send()
+            .await?;
+        println!("counting newlines {NAME} in bucket {bucket_id}");
+        let mut count = 0;
+        while let Some(buffer) = reader.next().await.transpose()? {
+            count += buffer.into_iter().filter(|c| *c == b'\n').count();
+        }
+        println!("object {NAME} in bucket {bucket_id} contains {count} newlines");
+        Ok(())
+    }
 
 ## What's next
 

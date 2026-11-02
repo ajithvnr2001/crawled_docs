@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-dataset-partition-expiration/
 title: Update partition expiration \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:39.438049+00:00
+fetched_at: 2026-11-02T05:41:14.644572+00:00
 ---
 
 # Update partition expiration  |  BigQuery  |  Google Cloud Documentation
@@ -52,22 +52,22 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         String datasetName = "MY_DATASET_NAME";
         // Set the default partition expiration (applies to new tables, only) in
         // milliseconds. This example sets the default expiration to 90 days.
-        Long newExpiration = TimeUnit.MILLISECONDS.[convert](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ProtoSchemaConverter.html#com_google_cloud_bigquery_storage_v1_ProtoSchemaConverter_convert_com_google_protobuf_Descriptors_Descriptor_)(90, TimeUnit.DAYS);
+        Long newExpiration = TimeUnit.MIL[LISECON](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ProtoSchemaConverter.html#com_google_cloud_bigquery_storage_v1_ProtoSchemaConverter_convert_com_google_protobuf_Descriptors_Descriptor_)DS.convert(90, TimeUnit.DAYS);
         updateDatasetPartitionExpiration(datasetName, newExpiration);
       }
     
       public static void updateDatasetPartitionExpiration(String datasetName, Long newExpiration) {
         try {
           // Initialize client that will be used to send requests. This client only needs to be created
-          // once, and can be reused for multiple requests.
-          [BigQuery](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html) bigquery = [BigQueryOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html).getDefaultInstance().getService();
+          // once, and can be reused for multiple reques[ts.](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html)
+          BigQuery b[igquery](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html) = BigQueryOptions.getDefaultInstance().getService([);](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html)
     
-          [Dataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.Dataset.html) dataset = bigquery.[getDataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_getDataset_com_google_cloud_bigquery_DatasetId_com_google_cloud_bigquery_BigQuery_DatasetOption____)(datasetName);
-          bigquery.[update](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_update_com_google_cloud_bigquery_DatasetInfo_com_google_cloud_bigquery_BigQuery_DatasetOption____)(dataset.toBuilder().setDefaultPartitionExpirationMs(newExpiration).build());
+          Dataset dataset =[ bigquery.](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_getDataset_com_google_cloud_bigquery_DatasetId_com_google_cloud_bigquery_BigQuery_DatasetOption____)getDataset(datasetName);
+         [ ](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_update_com_google_cloud_bigquery_DatasetInfo_com_google_cloud_bigquery_BigQuery_DatasetOption____)bigquery.update(dataset.toBuilder().setDefaultPartitionExpirationMs(newExpiration).build());
           System.out.println(
-              "Dataset default partition expiration updated successfully to " + newExpiration);
-        } catch ([BigQueryException](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html) e) {
-          System.out.println("Dataset partition expiration was not updated \n" + e.toString());
+              "Dataset default partition expiration updated successfully to " + newExpira[tion](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html));
+        } catch (BigQueryException e) {
+          System.out.println("Dataset partition expiration was not updated \n"; + e.toString());
         }
       }
     }
@@ -87,19 +87,19 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     # TODO(developer): Set dataset_id to the ID of the dataset to fetch.
     # dataset_id = 'your-project.your_dataset'
     
-    dataset = client.[get_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_get_dataset)(dataset_id)  # Make an API request.
+    dataset =[ client.get](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_get_dataset)_dataset(dataset_id)  # Make an API request.
     
     # Set the default partition expiration (applies to new tables, only) in
     # milliseconds. This example sets the default expiration to 90 days.
-    dataset.[default_partition_expiration_ms](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_default_partition_expiration_ms) = 90 * 24 * 60 * 60 * 1000
+    [dataset.default_partition_expir](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_default_partition_expiration_ms)ation_ms = 90 * 24 * 60 * 60 * 1000
     
-    dataset = client.[update_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)(
+    dataset =[ client.update](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)_dataset(
         dataset, ["default_partition_expiration_ms"]
     )  # Make an API request.
     
     print(
         "Updated dataset {}.{} with new default partition expiration {}".format(
-            dataset.project, dataset.dataset_id, dataset.[default_partition_expiration_ms](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_default_partition_expiration_ms)
+            dataset.project, [dataset.dataset_id, dataset.def](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_default_partition_expiration_ms)ault_partition_expiration_ms
         )
     )
 

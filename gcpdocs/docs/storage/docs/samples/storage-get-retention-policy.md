@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-retention-policy/
 title: Get a retention policy \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:05.762661+00:00
+fetched_at: 2026-11-02T05:40:42.562020+00:00
 ---
 
 # Get a retention policy  |  Cloud Storage  |  Google Cloud Documentation
@@ -286,6 +286,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       puts "effective time: #{bucket.[retention_effective_at](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)}"
       puts "policy locked: #{bucket.[retention_policy_locked?](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!(
+            "Retention policy for bucket {bucket_id}: {:?}",
+            bucket.retention_policy
+        );
+        Ok(())
+    }
 
 ## What's next
 

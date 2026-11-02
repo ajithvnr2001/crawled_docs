@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-get-anywhere-cache/
 title: Storage Control Get Anywhere Cache \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:13.197509+00:00
+fetched_at: 2026-11-02T05:40:33.583574+00:00
 ---
 
 # Storage Control Get Anywhere Cache  |  Google Cloud Documentation
@@ -250,6 +250,27 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Failed to fetch AnywhereCache. Error: #{e.message}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        cache_id: &str,
+    ) -> anyhow::Result<()> {
+        let cache = client
+            .get_anywhere_cache()
+            .set_name(format!(
+                "projects/_/buckets/{bucket_id}/anywhereCaches/{cache_id}"
+            ))
+            .send()
+            .await?;
+        println!("Got anywhere cache: {:?}", cache);
+        Ok(())
+    }
 
 ## What's next
 

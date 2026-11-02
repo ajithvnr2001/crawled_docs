@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/connect-language-connectors/
 title: Connect using the AlloyDB Language Connectors \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:36.979108+00:00
+fetched_at: 2026-11-02T05:42:54.406875+00:00
 ---
 
 # Connect using the AlloyDB Language Connectors  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -106,7 +106,7 @@ For Gradle, you can install the AlloyDB Java Connector by including the followin
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.5'
     
     // Add HikariCP with the latest version
-    implementation group: &#39;com.zaxxer', name: 'HikariCP', version: '5.1.0'
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.1.0'
     
 
 ### Python (pg8000)
@@ -202,7 +202,7 @@ To use this snippet in the context of a web application, view [the README on Git
 If you're using public IP to connect to your AlloyDB cluster, then include the following:
     
     
-    config.addDataSourceProperty("alloydbIpType", &quot;PUBLIC");
+    config.addDataSourceProperty("alloydbIpType", "PUBLIC");
     
 
 **Use Private Service Connect**
@@ -239,8 +239,8 @@ To use this snippet in the context of a web application, view [the README on Git
         password: str,
         db: str,
         refresh_strategy: str = "background",
-        ip_type: str = &quo>t;PRIVATE",
-    ) - tuple[sqlalchemy.engine.Engine, Connector]:
+        ip_type: str = "PRIVATE",
+    ) -> tuple[sqlalchemy.engine.Engine, Connector]:
         """Creates a connection pool for an AlloyDB instance and returns the pool
         and the connector. Callers are responsible for closing the pool and the
         connector.
@@ -371,8 +371,8 @@ To use this snippet in the context of a web application, view [the README on Git
         password: str,
         db: str,
         refresh_strategy: str = "background",
-        ip_type: str = &quo>t;PRIVATE",
-    ) - tuple[sqlalchemy.ext.asyncio.engine.AsyncEngine, AsyncConnector]:
+        ip_type: str = "PRIVATE",
+    ) -> tuple[sqlalchemy.ext.asyncio.engine.AsyncEngine, AsyncConnector]:
         """Creates a connection pool for an AlloyDB instance and returns the pool
         and the connector. Callers are responsible for closing the pool and the
         connector.
@@ -514,24 +514,24 @@ To use this snippet in the context of a web application, view [the README on Git
     //
     // In addition to a *pgxpool.Pool type, the function returns a cleanup function
     // that should be called when you're done with the database connection.
-    fu[nc](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Option) connectPgx(
+    func connectPgx(
     	ctx context.Context, instURI, user, pass, dbname string,
-    	opts ...alloydbconn.Option,
+    	opts ...alloydbconn.[Option](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Option),
     ) (*pgxpool.Pool, func() error, error) {
     	// First initialize the dialer. alloydbconn.NewDialer accepts additional
     	// options to configure credentials, timeouts, etc.
     	//
-    	// For detai[ls, see:<](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Dialer_NewDialer)/span>
+    	// For details, see:
     	// https://pkg.go.dev/cloud.google.com/go/alloydbconn#Option
-    	d, err := alloydbconn.NewDialer(ctx, opts...)
+    	d, err := alloydbconn.[NewDialer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Dialer_NewDialer)(ctx, opts...)
     	if err != nil {
     		noop := func() error { return nil }
     		return nil, noop, fmt.Errorf("failed to init Dialer: %v", err)
     	}
     	// The cleanup function will stop the dialer's background refresh
-    	// goroutines. Call it when y[ou](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Dialer_Close)9;re done with your database connection to
+    	// goroutines. Call it when you're done with your database connection to
     	// avoid a goroutine leak.
-    	cleanup := func() error { return d.Close() }
+    	cleanup := func() error { return d.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Dialer_Close)() }
     
     	dsn := fmt.Sprintf(
     		// sslmode is disabled, because the Dialer will handle the SSL
@@ -548,9 +548,9 @@ To use this snippet in the context of a web application, view [the README on Git
     		return nil, cleanup, fmt.Errorf("failed to parse pgx config: %v", err)
     	}
     
-    	// Tell pgx to use alloydbconn.Dialer to [conn](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Dialer_Dial)ect to the instance.
+    	// Tell pgx to use alloydbconn.Dialer to connect to the instance.
     	config.ConnConfig.DialFunc = func(ctx context.Context, _ string, _ string) (net.Conn, error) {
-    		return d.Dial(ctx, instURI)
+    		return d.[Dial](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Dialer_Dial)(ctx, instURI)
     	}
     
     	// Establish the connection.
@@ -625,10 +625,10 @@ To use this snippet in the context of a web application, view [the README on Git
     //	)
     //
     // In addition to a *db.SQL type, the function returns a cleanup function that
-    // should be called when you're done with the database connect[ion.](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Option)
+    // should be called when you're done with the database connection.
     func connectDatabaseSQL(
     	instURI, user, pass, dbname string,
-    	opts ...alloydbconn.Option,
+    	opts ...alloydbconn.[Option](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/index.html#cloud_google_com_go_alloydbconn_Option),
     ) (*sql.DB, func() error, error) {
     	// First, register the AlloyDB driver. Note, the driver's name is arbitrary
     	// and must only match what you use below in sql.Open. Also,
@@ -639,9 +639,9 @@ To use this snippet in the context of a web application, view [the README on Git
     	// https://pkg.go.dev/cloud.google.com/go/alloydbconn#Option
     	//
     	// The cleanup function will stop the dialer's background refresh
-    	// goroutines. Call it when you['re done w](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/driver/postgres.html#cloud_google_com_go_alloydbconn_driver_postgres_RegisterDriver)ith your database connection to
+    	// goroutines. Call it when you're done with your database connection to
     	// avoid a goroutine leak.
-    	cleanup, err := postgres.RegisterDriver("alloydb", opts...)
+    	cleanup, err := postgres.[RegisterDriver](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/alloydbconn/latest/driver/postgres.html#cloud_google_com_go_alloydbconn_driver_postgres_RegisterDriver)("alloydb", opts...)
     	if err != nil {
     		return nil, cleanup, err
     	}
@@ -651,7 +651,7 @@ To use this snippet in the context of a web application, view [the README on Git
     		fmt.Sprintf(
     			// sslmode is disabled, because the Dialer will handle the SSL
     			// connection instead.
-    			&quot;host=%s user=%s password=%s dbname=%s sslmode=disable",
+    			"host=%s user=%s password=%s dbname=%s sslmode=disable",
     			instURI, user, pass, dbname,
     		),
     	)

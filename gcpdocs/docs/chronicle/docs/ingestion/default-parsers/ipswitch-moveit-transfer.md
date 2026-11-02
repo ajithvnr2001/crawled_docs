@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ipswitch-moveit-transfer/
 title: Collect Progress MOVEit Transfer logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:09:52.405407+00:00
+fetched_at: 2026-11-02T05:42:38.302670+00:00
 ---
 
 # Collect Progress MOVEit Transfer logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -96,7 +96,7 @@ Install the Bindplane agent on your Windows or Linux operating system according 
   1. Open **Command Prompt** or **PowerShell** as an administrator.
   2. Run the following command:
          
-         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi" /quiet
+         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi&quot; /quiet
          
 
   3. Wait for the installation to complete.
@@ -166,12 +166,12 @@ For additional installation options and troubleshooting, see [Bindplane agent in
           chronicle/moveit_transfer:
             protocol: https
             # Region of your instance, for example us, europe, asia-southeast1
-            location: <LOCATION>
+            <location>: LOCATION
             # Project number of the Google Cloud project linked to the instance
-            project: '<PROJECT_NUMBER>'
+            <project: '>PROJECT_NUMBER'
             compression: gzip
-            creds_file_path: '<CREDS_FILE_PATH>'
-            customer_id: '<CUSTOMER_ID>'
+            <creds_file_path>: 'CREDS_FILE_PA<TH'
+           > customer_id: 'CUSTOMER_ID'
             endpoint: chronicle.googleapis.com
             log_type: IPSWITCH_MOVEIT_TRANSFER
             raw_log_field: body
@@ -214,9 +214,9 @@ Replace the following placeholders.
           chronicle/moveit_transfer:
             protocol: https
             # Region of your instance, for example us, europe, asia-southeast1
-            location: <LOCATION>
+            <location>: LOCATION
             # Project number of the Google Cloud project linked to the instance
-            project: '<PROJECT_NUMBER>'
+            <project: '>PROJECT_NUMBER'
             compression: gzip
             creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
             customer_id: 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'
@@ -245,8 +245,8 @@ Replace the following placeholders.
         exporters:
           chronicle/moveit_transfer:
             compression: gzip
-            creds_file_path: '<CREDS_FILE_PATH>'
-            customer_id: '<CUSTOMER_ID>'
+            creds_file_path: &<#39;CREDS_FILE_>PATH'
+            custom<er_id: '>;CUSTOMER_ID'
             endpoint: malachiteingestion-pa.googleapis.com
             log_type: IPSWITCH_MOVEIT_TRANSFER
             raw_log_field: body

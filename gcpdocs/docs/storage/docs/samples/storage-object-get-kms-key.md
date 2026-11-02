@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-object-get-kms-key/
 title: Get an object's KMS key name \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:48.797557+00:00
+fetched_at: 2026-11-02T05:40:32.496032+00:00
 ---
 
 # Get an object's KMS key name  |  Cloud Storage  |  Google Cloud Documentation
@@ -106,6 +106,26 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         return kms_key
     
     
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-read";
+        let object = client
+            .get_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .send()
+            .await?;
+        println!(
+            "Object {NAME} in bucket {bucket_id} has KMS key: {}",
+            object.kms_key
+        );
+        Ok(())
+    }
 
 ## What's next
 

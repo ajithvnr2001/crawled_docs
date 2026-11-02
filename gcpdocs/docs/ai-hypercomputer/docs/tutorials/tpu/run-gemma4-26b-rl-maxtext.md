@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-gemma4-26b-rl-maxtext/
 title: Run multi-host reinforcement learning training for Gemma 4 26B on TPU v6e \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:37.503645+00:00
+fetched_at: 2026-11-02T05:42:53.470421+00:00
 ---
 
 # Run multi-host reinforcement learning training for Gemma 4 26B on TPU v6e  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -100,14 +100,14 @@ You might also be able to get the required permissions through [custom roles](ht
 Set up your environment variables:
     
     
-    export PROJECT=&quot;YOUR_PROJECT_ID"
-    export REGION=&quot;YOUR_REGION"
+    export PROJECT="YOUR_PROJECT_ID"
+    export REGION="YOUR_REGION"
     export ZONE="YOUR_ZONE"
-    export CLUSTER_NAME="YOUR_CLUSTER_NAME&quot;
+    export CLUSTER_NAME="YOUR_CLUSTER_NAME"
     export GCS_BUCKET="YOUR_BUCKET_NAME"
     export CLOUD_IMAGE_NAME="us-docker.pkg.dev/cloud-tpu-images/maxtext-images/tpu_post_training:0.2.4"
     export COMPUTE_TYPE="ct6e-standard-4t"
-    export TPU_TYPE="v6e-32&quot;
+    export TPU_TYPE="v6e-32"
     export TOPOLOGY="4x8"
     export CLUSTER_NODEPOOL_COUNT=1
     export RESERVATION="YOUR_RESERVATION_NAME"
@@ -143,7 +143,7 @@ Download and extract the prebuilt bundle for the specific version of Cluster Too
       Linux-aarch64|Linux-arm64) BUNDLE="gcluster_bundle_linux_arm64.tgz" ;;
       Darwin-x86_64)             BUNDLE="gcluster_bundle_mac_amd64.tgz" ;;
       Darwin-arm64)              BUNDLE="gcluster_bundle_mac_arm64.tgz" ;;
-      *) BUNDLE="&>&quot;; echo "Unsupported platform: $(uname -s)-$(uname -m)" 2 ;;
+      *) BUNDLE=""; echo "Unsupported platform: $(uname -s)-$(uname -m)" >&2 ;;
     esac
     mkdir -p cluster-toolkit
     curl -fsSL "https://github.com/GoogleCloudPlatform/cluster-toolkit/releases/download/${CLUSTER_TOOLKIT_VERSION:?}/${BUNDLE:?}" \
@@ -170,7 +170,7 @@ To create and deploy a Cluster Toolkit cluster with 32 `v6e` TPU chips, complete
 
   1. Create a Cloud Storage bucket:
          
-         gcloud storage buckets create "gs://${GCS_BUCKET:?}" --project="${PROJECT:?}" --location=&quot;${REGION:?}" || true
+         gcloud storage buckets create "gs://${GCS_BUCKET:?}" --project="${PROJECT:?}" --location="${REGION:?}" || true
 
   2. Use the [`gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) to deploy your Cluster Toolkit cluster by using the blueprint `gke-tpu-v6e-advanced.yaml` and passing the required variables by using the `--vars` flag:
          
@@ -265,10 +265,10 @@ The command includes the `--await-job-completion` flag, which means that it wait
            --pathways-server-env="GRPC_DNS_RESOLVER=native" \
            --pathways-server-env="FLAGS_pathways_enforce_subset_devices_form_subslice=false" \
            --pathways-worker-env="GRPC_DNS_RESOLVER=native" \
-           --pathways-worker-env=&&&quot;FLAGS_pathways_enforce_subset_devices_form&&_subslice=false" \
-           --command="export VLLM_HOST_IP=\$(hostname -I | awk '{print \$1}')  \
-             export VLLM_ENABLE_V1_MULTIPROCESSING=0  \
-             python3 -c \"import pathlib, re; p = pathlib.Path('/deps/sr&&c/maxtext/trainers/post_train/rl/utils_rl.py'); p.write_text(re.sub('optax[.]adamw[(][^)]+[)]', 'optax.adafactor(learning_rate=learning_rate)', p.read_text()))\"  \
+           --pathways-worker-env="FLAGS_pathways_enforce_subset_devices_form_subslice=false" \
+           --command="export VLLM_HOST_IP=\$(hostname -I | awk '{print \$1}') && \
+             export VLLM_ENABLE_V1_MULTIPROCESSING=0 && \
+             python3 -c \"import pathlib, re; p = pathlib.Path('/deps/src/maxtext/trainers/post_train/rl/utils_rl.py'); p.write_text(re.sub('optax[.]adamw[(][^)]+[)]', 'optax.adafactor(learning_rate=learning_rate)', p.read_text()))\" && \
              JAX_PLATFORMS=proxy,cpu ENABLE_PATHWAYS_PERSISTENCE=1 \
              python3 -m maxtext.trainers.post_train.rl.train_rl \
              run_name=rl \
@@ -308,7 +308,7 @@ The command includes the `--await-job-completion` flag, which means that it wait
              rl.reshard_chunk_size=4 \
              debug=True \
              vllm_hf_overrides='{\"architectures\": [\"MaxTextForCausalLM\"]}' \
-             vllm_additional_config=\"{'maxtext_config': {'model_name&#39;: '${MODEL_NAME}', 'model_call_mode': 'inference', 'enable_dp_attention': false, 'allow_split_physical_axes': true, 'use_ragged_sort': false, 'ragged_gather_reduce_fallback': true, 'prefuse_moe_weights': true, 'weight_dtype': 'bfloat16'}}\""
+             vllm_additional_config=\"{'maxtext_config': {'model_name': '${MODEL_NAME}', 'model_call_mode': 'inference', 'enable_dp_attention': false, 'allow_split_physical_axes': true, 'use_ragged_sort': false, 'ragged_gather_reduce_fallback': true, 'prefuse_moe_weights': true, 'weight_dtype': 'bfloat16'}}\""
 
   2. Check the status, wait for the coordinator Pod to become ready, and stream the logs of the training job:
          

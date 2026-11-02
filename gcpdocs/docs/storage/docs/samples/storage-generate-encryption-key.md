@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-generate-encryption-key/
 title: Generate an encryption key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:22.571910+00:00
+fetched_at: 2026-11-02T05:40:30.886119+00:00
 ---
 
 # Generate an encryption key  |  Cloud Storage  |  Google Cloud Documentation
@@ -238,6 +238,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Sample encryption key: #{encoded_enc_key}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::{error::KeyAes256Error, model_ext::KeyAes256};
+    use rand::Rng;
+    
+    pub fn sample() -> Result<KeyAes256, KeyAes256Error> {
+        // Generates a 256 bit (32 byte) AES encryption key and prints the base64 representation.
+        //
+        // This is included for demonstration purposes. You should generate your own key.
+        // Please remember that encryption keys should be handled with a comprehensive security policy.
+        let mut raw_key_bytes = [0u8; 32];
+        rand::rng().fill_bytes(&mut raw_key_bytes);
+        let key = KeyAes256::new(&raw_key_bytes)?;
+        println!("Sample encryption key: {key}");
+        Ok(key)
+    }
 
 ## What's next
 

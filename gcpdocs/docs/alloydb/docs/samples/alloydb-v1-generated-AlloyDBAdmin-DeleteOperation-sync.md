@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-DeleteOperation-sync/
 title: Delete a long-running operation \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:41.769988+00:00
+fetched_at: 2026-11-02T05:42:49.043665+00:00
 ---
 
 # Delete a long-running operation  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -48,11 +48,11 @@ To authenticate to AlloyDB, set up Application Default Credentials. For more inf
     	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
     	c, err := alloydb.NewAlloyDBAdminClient(ctx)
     	if err != nil {
-    		// TODO: Handle error.&
+    		// TODO: Handle error.
     	}
-    	defer c.C[lose](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb.html#cloud_google_com_go_longrunning_autogen_longrunningpb_DeleteOperationRequest)()
+    	defer c.Close()
     
-    	req := longrunningpb.DeleteOperationRequest{
+    	req := &longrunningpb.[DeleteOperationRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb.html#cloud_google_com_go_longrunning_autogen_longrunningpb_DeleteOperationRequest){
     		// TODO: Fill request struct fields.
     		// See https://pkg.go.dev/cloud.google.com/go/longrunning/autogen/longrunningpb#DeleteOperationRequest.
     	}

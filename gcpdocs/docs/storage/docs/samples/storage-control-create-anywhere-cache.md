@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-create-anywhere-cache/
 title: Storage Control Create Anywhere Cache \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:29.504871+00:00
+fetched_at: 2026-11-02T05:40:26.775636+00:00
 ---
 
 # Storage Control Create Anywhere Cache  |  Google Cloud Documentation
@@ -221,6 +221,27 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Failed to create AnywhereCache. Error: #{e.message}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_lro::Poller;
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::AnywhereCache;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str, zone: &str) -> anyhow::Result<()> {
+        let cache = client
+            .create_anywhere_cache()
+            .set_parent(format!("projects/_/buckets/{bucket_id}"))
+            .set_anywhere_cache(AnywhereCache::new().set_zone(zone).set_name(format!(
+                "projects/_/buckets/{bucket_id}/anywhereCaches/{zone}"
+            )))
+            .poller()
+            .until_done()
+            .await?;
+        println!("Created anywhere cache: {cache:?}");
+        Ok(())
+    }
 
 ## What's next
 

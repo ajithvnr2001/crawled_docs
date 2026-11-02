@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/schema-detect/
 title: Using schema auto-detection \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:39.230362+00:00
+fetched_at: 2026-11-02T05:41:41.458108+00:00
 ---
 
 # Using schema auto-detection  |  BigQuery  |  Google Cloud Documentation
@@ -465,7 +465,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def load_table_gcs_json_autodetect dataset_id = "your_dataset_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       gcs_uri  = "gs://cloud-samples-data/bigquery/us-states/us-states.json"
       table_id = "us_states"

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/manage-application-data-security-parameterized-secure-views/
 title: Manage application data security using AlloyDB Omni parameterized secure views \u00a0|\u00a0 AlloyDB Omni using containers: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:02.896926+00:00
+fetched_at: 2026-11-02T05:42:50.305300+00:00
 ---
 
 # Manage application data security using AlloyDB Omni parameterized secure views  |  AlloyDB Omni using containers: 18.4.0  |  Google Cloud Documentation

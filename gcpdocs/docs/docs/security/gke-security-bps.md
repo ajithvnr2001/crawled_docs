@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/gke-security-bps/
 title: GKE security best practices \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:13.856798+00:00
+fetched_at: 2026-11-02T05:40:22.251122+00:00
 ---
 
 # GKE security best practices  |  Security  |  Google Cloud Documentation

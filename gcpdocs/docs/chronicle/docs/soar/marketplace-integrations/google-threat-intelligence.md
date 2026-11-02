@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/google-threat-intelligence/
 title: Integrate Google Threat Intelligence with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:55.905666+00:00
+fetched_at: 2026-11-02T05:43:00.385784+00:00
 ---
 
 # Integrate Google Threat Intelligence with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -291,6 +291,67 @@ The following table lists the value for the script result output when using the 
 Script result name | Value  
 ---|---  
 `is_success` | `True` or `False`  
+  
+### Ask Threat Intelligence Agent
+
+Use the **Ask Threat Intelligence Agent** action to run natural language queries and converse with the Google Threat Intelligence Agent to retrieve AI-driven threat analysis, actor context, malware triage, and detection recommendations.
+
+This action doesn't run on Google SecOps entities. 
+
+#### Action inputs
+
+The **Ask Threat Intelligence Agent** action requires the following parameters:
+
+Parameter | Description  
+---|---  
+`Prompt` | Required. The natural language prompt or investigation query to submit to the Google Threat Intelligence Agent.  
+`Session ID` | Optional. An existing session ID used to continue an ongoing conversation with the agent. If no value is provided, the action creates a new session.  
+`File Paths` | Optional. A comma-separated list of local file paths to attach to the prompt.  
+`Delete Session After Completion` | Optional. If selected, the action automatically deletes the agent session after retrieving the response.  
+  
+#### Action outputs
+
+The **Ask Threat Intelligence Agent** action provides the following outputs:
+
+Action output type | Availability  
+---|---  
+Case wall attachment | Not available  
+Case wall link | Not available  
+Case wall table | Not available  
+Enrichment table | Not available  
+JSON result | Available  
+Output messages | Available  
+Script result | Available  
+  
+##### JSON result
+
+The following example shows the JSON result output received when using the **Ask Threat Intelligence Agent** action:
+    
+    
+    {
+      "session_id": "cdc04504-0e13-4e53-901b-3a3c3a8b2211",
+      "title": "Threat Investigation",
+      "response_text": "### 1. Overview & Reputation\n\nThe IP address 8.8.8.8 is safe and benign..."
+    }
+    
+
+##### Output messages
+
+The **Ask Threat Intelligence Agent** action can return the following output messages:
+
+Output message | Message description  
+---|---  
+`Successfully executed prompt in Google Threat Intelligence.` | The action succeeded and returned a text response from the agent.  
+`Google Threat Intelligence Agent didn't return a text response for session SESSION_ID.` | The session completed, but the agent response contained no text.  
+`Error executing action "Ask Threat Intelligence Agent". Reason: Failed to connect to the Google Threat Intelligence server! Please check the provided credentials.` `Error executing action "Ask Threat Intelligence Agent". Reason: Google Threat Intelligence Agent didn't return a final response for session SESSION_ID.` `Error executing action "Ask Threat Intelligence Agent". Reason: The following paths are directories, not files: PATHS.` `Error executing action "Ask Threat Intelligence Agent". Reason: The following files are empty: PATHS.` `Error executing action "Ask Threat Intelligence Agent". Reason: ERROR_REASON` | The action failed. Verify the connection to the server, your API credentials, the `Session ID`, and any local paths specified in `File Paths`.  
+  
+##### Script result
+
+The following table lists the value for the script result output when using the **Ask Threat Intelligence Agent** action:
+
+Script result name | Value  
+---|---  
+`is_success` | `true` or `false`  
   
 ### Download File
 
@@ -4020,6 +4081,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

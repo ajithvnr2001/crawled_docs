@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/mcp/supported-products/
 title: Supported products \u00a0|\u00a0 Google Cloud MCP servers \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:34.898243+00:00
+fetched_at: 2026-11-02T05:42:55.320263+00:00
 ---
 
 # Supported products  |  Google Cloud MCP servers  |  Google Cloud Documentation
@@ -65,6 +65,7 @@ BigQuery | `https://bigquery.googleapis.com/mcp` | [BigQuery MCP reference](http
 BigQuery Data Transfer Service (Preview) | `https://bigquerydatatransfer.googleapis.com/mcp` | [BigQuery Data Transfer Service MCP reference](https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/mcp) |   
 BigQuery Migration Service | `https://bigquerymigration.googleapis.com/mcp` | [BigQuery Migration reference](https://docs.cloud.google.com/bigquery/docs/reference/migration/mcp) | [Learn how to use the BigQuery Migration Service MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp)  
 Bigtable | `https://bigtableadmin.googleapis.com/mcp` | [Bigtable Admin API MCP reference](https://docs.cloud.google.com/bigtable/docs/reference/admin/mcp) | [Use the Bigtable remote MCP server](https://docs.cloud.google.com/bigtable/docs/use-bigtable-mcp)  
+Capacity Planner (Preview) | `https://capacityplanner.googleapis.com/mcp` | [Capacity Planner MCP reference](https://docs.cloud.google.com/capacity-planner/docs/reference/mcp) |   
 Cloud Asset Inventory (Preview) | `https://cloudasset.googleapis.com/mcp` | [Cloud Asset Inventory MCP reference](https://docs.cloud.google.com/asset-inventory/docs/reference/mcp)  
 Cloud Billing (Preview) | `https://cloudbilling.googleapis.com/mcp` | 
 
@@ -785,6 +786,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

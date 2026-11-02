@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-upload-file/
 title: Upload an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:56.562323+00:00
+fetched_at: 2026-11-02T05:40:38.101711+00:00
 ---
 
 # Upload an object  |  Cloud Storage  |  Google Cloud Documentation
@@ -340,13 +340,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name, skip_lookup: true
     
       file = bucket.[create_file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) local_file_path, file_name
     
       puts "Uploaded #{local_file_path} as #{file.name} in bucket #{bucket_name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(
+        client: &Storage,
+        bucket: &str,
+        object: &str,
+        file_path: &str,
+    ) -> Result<(), anyhow::Error> {
+        let payload = tokio::fs::File::open(file_path).await?;
+        let _result = client
+            .write_object(format!("projects/_/buckets/{bucket}"), object, payload)
+            .send_unbuffered()
+            .await?;
+    
+        println!("Uploaded {file_path} to {object} in bucket {bucket}.");
+        Ok(())
+    }
 
 ## What's next
 

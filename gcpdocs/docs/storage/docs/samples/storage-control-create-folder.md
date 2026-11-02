@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-create-folder/
 title: Storage Control Create Folder \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:38.611804+00:00
+fetched_at: 2026-11-02T05:40:31.880768+00:00
 ---
 
 # Storage Control Create Folder  |  Google Cloud Documentation
@@ -299,6 +299,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Created folder: #{response.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::{client::StorageControl, model::Folder};
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const ID: &str = "example-folder-id";
+        let folder = client
+            .create_folder()
+            .set_parent(format!("projects/_/buckets/{bucket_id}"))
+            .set_folder_id(ID)
+            .set_folder(Folder::new())
+            .send()
+            .await?;
+        println!("folder successfully created {folder:?}");
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-compose-file/
 title: Compose multiple objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:37.416492+00:00
+fetched_at: 2026-11-02T05:40:37.939122+00:00
 ---
 
 # Compose multiple objects  |  Cloud Storage  |  Google Cloud Documentation
@@ -424,6 +424,37 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
            "by combining #{first_file_name} and #{second_file_name}"
       puts "Source objects were deleted" if delete_source_objects
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::{Object, compose_object_request::SourceObject};
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const COMPOSE_SOURCE_1: &str = "compose-source-object-1";
+        const COMPOSE_SOURCE_2: &str = "compose-source-object-2";
+        const DESTINATION_NAME: &str = "compose-destination-object";
+        let object = client
+            .compose_object()
+            .set_destination(
+                Object::new()
+                    .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+                    .set_name(DESTINATION_NAME),
+            )
+            .set_source_objects([
+                SourceObject::new().set_name(COMPOSE_SOURCE_1),
+                SourceObject::new().set_name(COMPOSE_SOURCE_2),
+            ])
+            // Consider .set_if_generation_match() to make the request idempotent
+            // Consider .set_delete_source_objects() to automatically delete the source objects
+            .send()
+            .await?;
+        println!(
+            "successfully composed {COMPOSE_SOURCE_1} and {COMPOSE_SOURCE_2} into object {object:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

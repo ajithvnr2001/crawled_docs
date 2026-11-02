@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-list-anywhere-caches/
 title: Storage Control List Anywhere Caches \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:30.583640+00:00
+fetched_at: 2026-11-02T05:40:36.758114+00:00
 ---
 
 # Storage Control List Anywhere Caches  |  Google Cloud Documentation
@@ -270,6 +270,23 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Failed to list AnywhereCaches. Error: #{e.message}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_gax::paginator::ItemPaginator;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let mut stream = client
+            .list_anywhere_caches()
+            .set_parent(format!("projects/_/buckets/{}", bucket_id))
+            .by_item();
+        while let Some(cache) = stream.next().await {
+            println!("Found cache: {:?}", cache?);
+        }
+        Ok(())
+    }
 
 ## What's next
 

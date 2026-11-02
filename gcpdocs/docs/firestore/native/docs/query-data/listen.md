@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/listen/
 title: Get real-time updates \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:14.951782+00:00
+fetched_at: 2026-11-02T05:40:10.861017+00:00
 ---
 
 # Get real-time updates  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -71,7 +71,7 @@ You can _listen_ to a document with the `onSnapshot()` method. An initial call u
         print("Current data: \(data)")
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L773-L784)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L773-L784)
 
 ##### Objective-C
 
@@ -87,7 +87,7 @@ You can _listen_ to a document with the `onSnapshot()` method. An initial call u
           NSLog(@"Current data: %@", snapshot.data);
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L695-L702)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L695-L702)
 
 ##### Kotlin  
 Android
@@ -412,7 +412,7 @@ Retrieved documents have a `metadata.hasPendingWrites` property that indicates w
         print("\(source) data: \(document.data() ?? [:])")
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L790-L798)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L790-L798)
 
 ##### Objective-C
 
@@ -429,7 +429,7 @@ Retrieved documents have a `metadata.hasPendingWrites` property that indicates w
           NSLog(@"%@ data: %@", source, snapshot.data);
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L708-L716)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L708-L716)
 
 ##### Kotlin  
 Android
@@ -634,7 +634,7 @@ If you want to receive snapshot events when the document or query metadata chang
         // ...
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L804-L808)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L804-L808)
 
 ##### Objective-C
 
@@ -648,7 +648,7 @@ If you want to receive snapshot events when the document or query metadata chang
        // ...
     }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L722-L727)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L722-L727)
 
 ##### Kotlin  
 Android
@@ -932,7 +932,7 @@ As with documents, you can use `onSnapshot()` instead of `get()` to listen to th
         print("Current cities in CA: \(cities)")
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L854-L862)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L854-L862)
 
 ##### Objective-C
 
@@ -952,7 +952,7 @@ As with documents, you can use `onSnapshot()` instead of `get()` to listen to th
           NSLog(@"Current cities in CA: %@", cities);
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L778-L789)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L778-L789)
 
 ##### Kotlin  
 Android
@@ -1290,7 +1290,7 @@ It is often useful to see the actual changes to query results between query snap
         }
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L868-L885)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L868-L885)
 
 ##### Objective-C
 
@@ -1316,7 +1316,7 @@ It is often useful to see the actual changes to query results between query snap
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L795-L812)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L795-L812)
 
 ##### Kotlin  
 Android
@@ -1707,7 +1707,7 @@ When you are no longer interested in listening to your data, you must detach you
     // Stop listening to changes
     listener.remove()
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L912-L920)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L912-L920)
 
 ##### Objective-C
 
@@ -1724,7 +1724,7 @@ When you are no longer interested in listening to your data, you must detach you
     // Stop listening to changes
     [listener remove];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L838-L846)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L838-L846)
 
 ##### Kotlin  
 Android
@@ -1899,7 +1899,7 @@ A listen may occasionally fail — for example, due to security permissions, or 
         }
       }
     
-    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/swift/firestore-smoketest/ViewController.swift#L926-L931)
+    [ViewController.swift](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/swift/firestore-smoketest/ViewController.swift#L926-L931)
 
 ##### Objective-C
 
@@ -1913,7 +1913,7 @@ A listen may occasionally fail — for example, due to security permissions, or 
           }
         }];
     
-    [ViewController.m](https://github.com/firebase/snippets-ios/blob/a542286ec4de7ab7e90e838485eaa2f3cd92d153/firestore/objc/firestore-smoketest-objc/ViewController.m#L852-L857)
+    [ViewController.m](https://github.com/firebase/snippets-ios/blob/26bd4eba55c68017aa0d2e4389227920c1994fbe/firestore/objc/firestore-smoketest-objc/ViewController.m#L852-L857)
 
 ##### Kotlin  
 Android

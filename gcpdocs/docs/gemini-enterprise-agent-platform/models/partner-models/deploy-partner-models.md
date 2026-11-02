@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/deploy-partner-models/
 title: Deploy partner models from Model Garden \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:28.851122+00:00
+fetched_at: 2026-11-02T05:40:11.765514+00:00
 ---
 
 # Deploy partner models from Model Garden  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -78,10 +78,10 @@ To deploy a partner model in the Google Cloud console, do the following:
 The following sample shows how to deploy a partner model using the Agent Platform SDK for Python. Replace the placeholder values with your specific information.
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai import model_garden
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="PROJECT_ID", location="LOCATION")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="PROJECT_ID", location="LOCATION")
     
     # Replace with the actual partner model ID from Model Garden
     model = model_garden.OpenModel("PARTNER_MODEL_ID")

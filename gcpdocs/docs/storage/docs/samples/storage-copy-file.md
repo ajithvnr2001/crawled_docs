@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-copy-file/
 title: Copy an object between buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:39.792850+00:00
+fetched_at: 2026-11-02T05:40:24.848120+00:00
 ---
 
 # Copy an object between buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -379,6 +379,33 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       puts "#{file.name} in #{bucket.name} copied to " \
            "#{destination_file.name} in #{destination_bucket.name}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::builder_ext::RewriteObjectExt;
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        source_bucket_id: &str,
+        dest_bucket_id: &str,
+    ) -> anyhow::Result<()> {
+        const SOURCE_NAME: &str = "object-to-copy";
+        const DEST_NAME: &str = "copied-object";
+        let copied = client
+            .rewrite_object()
+            .set_source_bucket(format!("projects/_/buckets/{source_bucket_id}"))
+            .set_source_object(SOURCE_NAME)
+            .set_destination_bucket(format!("projects/_/buckets/{dest_bucket_id}"))
+            .set_destination_name(DEST_NAME)
+            .rewrite_until_done()
+            .await?;
+        println!(
+            "successfully copied {source_bucket_id}/{SOURCE_NAME} to {dest_bucket_id}/{DEST_NAME}: {copied:?}"
+        );
+        Ok(())
+    }
 
 ## What's next
 

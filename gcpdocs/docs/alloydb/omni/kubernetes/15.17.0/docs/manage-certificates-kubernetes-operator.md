@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.17.0/docs/manage-certificates-kubernetes-operator/
 title: Manage certificates \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.17.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:36.395281+00:00
+fetched_at: 2026-11-02T05:42:51.070624+00:00
 ---
 
 # Manage certificates  |  AlloyDB Omni using the container orchestrator: 15.17.0  |  Google Cloud Documentation
@@ -150,7 +150,7 @@ If you are installing the AlloyDB Omni operator for the first time, use `helm in
     helm install alloydbomni-operator alloydbomni-operator-OPERATOR_VERSION.tgz \
     --create-namespace \
     --namespace alloydb-omni-system \
-    --set operatorCertIssuer.certManagerIssuerName=&quot;OPERATOR_CERT_ISSUER_NAME" \
+    --set operatorCertIssuer.certManagerIssuerName="OPERATOR_CERT_ISSUER_NAME" \
     --set operatorCertIssuer.certManagerIssuerKind="OPERATOR_CERT_ISSUER_KIND" \
     --atomic \
     --timeout 5m
@@ -162,7 +162,7 @@ If you already have the operator installed and need to set the certificate issue
     helm upgrade alloydbomni-operator alloydbomni-operator-OPERATOR_VERSION.tgz \
     --create-namespace \
     --namespace alloydb-omni-system \
-    --set operatorCertIssuer.certManagerIssuerName=&quot;OPERATOR_CERT_ISSUER_NAME" \
+    --set operatorCertIssuer.certManagerIssuerName="OPERATOR_CERT_ISSUER_NAME" \
     --set operatorCertIssuer.certManagerIssuerKind="OPERATOR_CERT_ISSUER_KIND" \
     --atomic \
     --timeout 5m
@@ -343,7 +343,7 @@ To check and rotate the operator client certificate, follow these steps:
 
   1. Save the following script to a file named `rotate_cert.sh`, and then make the file executable:
          
-         cat << 'E>OF'  rotate_cert.sh
+         cat << 'EOF' > rotate_cert.sh
          #!/usr/bin/env bash
          set -euo pipefail
          MODE="${1:-}"
@@ -352,18 +352,18 @@ To check and rotate the operator client certificate, follow these steps:
          CERT="dbs-al-cert-request-l2-operator"
          DEPLOY="local-controller-manager"
          get_cert_info() {
-           kubectl get >secret "$SECRET" -n> "$NS" -o jsonpath='{.data.tls\.crt}>' 2/dev/null \
-             | base64 -d 2/dev/null | openssl x509 -noout -serial -end>date 2/dev/null || true
+           kubectl get secret "$SECRET" -n "$NS" -o jsonpath='{.data.tls\.crt}' 2>/dev/null \
+             | base64 -d 2>/dev/null | openssl x509 -noout -serial -enddate 2>/dev/null || true
          }
          calc_rotate_by() {
-           date -u -d "$1 - 10 days&qu>ot; +"%Y-%m-%d" 2/dev/null \
-             || date -u -j -v-10d -f "%Y-%m-%dT%H:%M:%SZ" "$1" +"%Y-%m-%d" 2/dev/null || echo "unknown"
+           date -u -d "$1 - 10 days" +"%Y-%m-%d" 2>/dev/null \
+             || date -u -j -v-10d -f "%Y-%m-%dT%H:%M:%SZ" "$1" +"%Y-%m-%d" 2>/dev/null || echo "unknown"
          }
          get_container_name() {
            local names
-           names="$(kubectl get pods -n "$NS" -l local-control-plan>e=controller-manager \
+           names="$(kubectl get pods -n "$NS" -l local-control-plane=controller-manager \
              --field-selector=status.phase=Running --sort-by=.metadata.creationTimestamp \
-             -o jsonpath='{.items[-1].spec.containers[*].name}' 2/dev/null || true)"
+             -o jsonpath='{.items[-1].spec.containers[*].name}' 2>/dev/null || true)"
            if [[ " $names " == *" local-manager "* ]]; then
              echo "local-manager"
            else
@@ -380,52 +380,52 @@ To check and rotate the operator client certificate, follow these steps:
              CONTAINER="$(get_container_name)"
              STARTED_AT="$(kubectl get pods -n "$NS" -l local-control-plane=controller-manager \
                --field-selector=status.phase=Running --sort-by=.metadata.creationTimestamp \
-               -o jsonpath="{.items[-1].st<atus.containerStatuses[?(@.name==\"$CONTAINER\")].state.running.startedAt}")"
+               -o jsonpath="{.items[-1].status.containerStatuses[?(@.name==\"$CONTAINER\")].state.running.startedAt}")"
              echo "Certificate Serial      : $SERIAL"
              echo "Certificate Start Date  : $NOT_BEFORE"
              echo "Certificate End Date    : $ENDDATE ($NOT_AFTER)"
-             echo "Recommended Rotate By   : $(calc_rotate_by "$NOT_AFTER") (10 days before >expiry)"
+             echo "Recommended Rotate By   : $(calc_rotate_by "$NOT_AFTER") (10 days before expiry)"
              echo "Operator Started At     : $STARTED_AT"
-             if [[ "$STARTED_AT"  "$NOT_BEFORE" ]]; then
-               echo "[WARNING] Operator started ($S>TARTED_AT) BEFORE current cert was issued ($NOT_BEFORE). It is still caching the old cert in memory! Run './rotate_cert.sh rotate $NS' now."
+             if [[ "$STARTED_AT" < "$NOT_BEFORE" ]]; then
+               echo "[WARNING] Operator started ($STARTED_AT) BEFORE current cert was issued ($NOT_BEFORE). It is still caching the old cert in memory! Run './rotate_cert.sh rotate $NS' now."
              else
                echo "[OK] Operator is running with the current certificate in memory."
              fi
-             echo "Optional Backup Command : kubectl get secret $SECRET -n $NS -o yaml  $SECRET-backup.yaml"
-           >  ;;
+             echo "Optional Backup Command : kubectl get secret $SECRET -n $NS -o yaml > $SECRET-backup.yaml"
+             ;;
            rotate)
              OLD_SERIAL="$(get_cert_info | sed -n 's/^serial=//p')"
-             OLD_REV="$(kubectl get certificate "$C>ERT" -n "$NS" -o jsonpath='{.status.revision}' 2/dev/null || true)"
-             echo "Cur>rent Certificate Serial: ${OLD_SERIAL:-none}&q&&uot;
-             kubectl delete secret &&&quot;$SECRET" -n &quo&&t;$NS" --ignore-not-&&found
-             NEW_SERIAL&&=""
-             NOT_AFTER=""&&
+             OLD_REV="$(kubectl get certificate "$CERT" -n "$NS" -o jsonpath='{.status.revision}' 2>/dev/null || true)"
+             echo "Current Certificate Serial: ${OLD_SERIAL:-none}"
+             kubectl delete secret "$SECRET" -n "$NS" --ignore-not-found
+             NEW_SERIAL=""
+             NOT_AFTER=""
              for _ in {1..30}; do
-               &&sleep 2
+               sleep 2
                NEW_SERIAL="$(get_cert_info | sed -n 's/^serial=//p')"
-               NEW_REV="$(kubectl get certificate "$CERT" -n "$NS" -o jsonpath='{.status.revision}' 2/dev/null || true)"
-               READY_COND="$(kubectl get certificate "$CERT" -n "$NS" -o jsonpath='{.status.conditions[?(@.type=="Ready")].status}' 2/dev/null || true)"
-               NOT_AFTER="$(kubectl get certificate "$CERT" -n "$NS" -o jsonpath='{.status.notAfter}' 2/dev/null || true)&quo>t;
-               [[ -n "$NEW_SERIAL"  "$NEW_SERIAL&quo<<<t; != &q&&uot;$OLD_SERIAL"  "$NEW_REV" != "$OLD_REV"  "$READY_COND" == "True"  -n "$NOT_AFTER" ]]  break<<<
-             don&&e
-             [[ -n "$NEW_SERIAL"  "$NEW_SERIAL" != "$OLD_SERIAL"  "$READY_COND" == "True" ]] || { echo "[ERROR] Timed out waiting for new cert."; exit 1; }
+               NEW_REV="$(kubectl get certificate "$CERT" -n "$NS" -o jsonpath='{.status.revision}' 2>/dev/null || true)"
+               READY_COND="$(kubectl get certificate "$CERT" -n "$NS" -o jsonpath='{.status.conditions[?(@.type=="Ready")].status}' 2>/dev/null || true)"
+               NOT_AFTER="$(kubectl get certificate "$CERT" -n "$NS" -o jsonpath='{.status.notAfter}' 2>/dev/null || true)"
+               [[ -n "$NEW_SERIAL" && "$NEW_SERIAL" != "$OLD_SERIAL" && "$NEW_REV" != "$OLD_REV" && "$READY_COND" == "True" && -n "$NOT_AFTER" ]] && break
+             done
+             [[ -n "$NEW_SERIAL" && "$NEW_SERIAL" != "$OLD_SERIAL" && "$READY_COND" == "True" ]] || { echo "[ERROR] Timed out waiting for new cert."; exit 1; }
              kubectl rollout restart "deployment/$DEPLOY" -n "$NS"
-             kubectl rollout status "deployment/$DEPLO<Y" -n &>quot;$NS" --timeout=180s
+             kubectl rollout status "deployment/$DEPLOY" -n "$NS" --timeout=180s
              NEW_POD="$(kubectl get pods -n "$NS" -l local-control-plane=controller-manager \
                --field-selector=status.phase=Running --sort-by=.metadata.creationTimestamp -o jsonpath='{.items[-1].metadata.name}')"
              CONTAINER="$(get_container_name)"
              READY=false
              for _ in {1..40}; do
-               LOGS="$(kubectl logs "pod/$NEW_POD" -n "$NS" -c "$CONTAINER" 2/dev/null || true)"
-               grep -q "tls: expired certificate" "$LOGS"  { echo "[ERROR] Found 'tls: expired certificate' in operator logs!"; exit 1; }
-               grep -q "L2 controller cert generation completed successfully" "$LOGS"  { READY=true; break; }
+               LOGS="$(kubectl logs "pod/$NEW_POD" -n "$NS" -c "$CONTAINER" 2>/dev/null || true)"
+               grep -q "tls: expired certificate" <<<"$LOGS" && { echo "[ERROR] Found 'tls: expired certificate' in operator logs!"; exit 1; }
+               grep -q "L2 controller cert generation completed successfully" <<<"$LOGS" && { READY=true; break; }
                sleep 3
              done
              [[ "$READY" == "true" ]] || { echo "[ERROR] Timed out waiting for L2 controller cert generation log."; exit 1; }
              echo "[SUCCESS] New Serial: $NEW_SERIAL | End Date: $NOT_AFTER | Next Rotate By: $(calc_rotate_by "$NOT_AFTER") (10 days before expiry)"
              ;;
            *)
-             echo "Usage: $0 check|rotate [namespace]"
+             echo "Usage: $0 <check|rotate> [namespace]"
              echo "  check       : Validate current certificate status and operator start time."
              echo "  rotate      : Trigger immediate certificate rotation and restart the operator."
              echo "  [namespace] : Namespace of the operator (defaults to 'alloydb-omni-system')."

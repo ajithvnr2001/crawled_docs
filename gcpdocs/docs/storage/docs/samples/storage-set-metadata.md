@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-metadata/
 title: Set an object's metadata \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:02.926695+00:00
+fetched_at: 2026-11-02T05:40:39.164327+00:00
 ---
 
 # Set an object's metadata  |  Cloud Storage  |  Google Cloud Documentation
@@ -356,6 +356,36 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Metadata for #{file_name} has been updated."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        const NAME: &str = "object-to-update";
+        let object = client
+            .get_object()
+            .set_bucket(format!("projects/_/buckets/{bucket_id}"))
+            .set_object(NAME)
+            .send()
+            .await?;
+    
+        let metageneration = object.metageneration;
+        let mut meta = object.metadata.clone();
+        meta.insert("updated".to_string(), "true".to_string());
+    
+        let updated = client
+            .update_object()
+            .set_if_metageneration_match(metageneration)
+            .set_object(object.set_metadata(meta))
+            .set_update_mask(FieldMask::default().set_paths(["metadata"]))
+            .send()
+            .await?;
+        println!("successfully updated object {NAME} in bucket {bucket_id}: {updated:?}");
+        Ok(())
+    }
 
 ## What's next
 

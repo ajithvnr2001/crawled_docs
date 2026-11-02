@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-databasesql-connect-tcp/
 title: Connect with a TCP socket \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:43.339230+00:00
+fetched_at: 2026-11-02T05:42:44.970955+00:00
 ---
 
 # Connect with a TCP socket  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

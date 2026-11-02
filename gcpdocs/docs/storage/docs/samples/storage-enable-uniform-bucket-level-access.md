@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-enable-uniform-bucket-level-access/
 title: Enable uniform bucket-level access \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:04.305989+00:00
+fetched_at: 2026-11-02T05:40:45.872945+00:00
 ---
 
 # Enable uniform bucket-level access  |  Cloud Storage  |  Google Cloud Documentation
@@ -273,6 +273,37 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Uniform bucket-level access was enabled for #{bucket_name}."
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::IamConfig;
+    use google_cloud_storage::model::bucket::iam_config::UniformBucketLevelAccess;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let iam_config = IamConfig::new()
+            .set_uniform_bucket_level_access(UniformBucketLevelAccess::new().set_enabled(true));
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_iam_config(iam_config))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["iam_config.uniform_bucket_level_access"]))
+            .send()
+            .await?;
+        println!(
+            "Uniform bucket-level access enabled for bucket {bucket_id}: {:?}",
+            bucket.iam_config
+        );
+        Ok(())
+    }
 
 ## What's next
 

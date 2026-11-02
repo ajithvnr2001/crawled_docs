@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/capacity-planner/docs/release-notes/
 title: Capacity Planner release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:26:49.921351+00:00
+fetched_at: 2026-11-02T05:41:30.558633+00:00
 ---
 
 # Capacity Planner release notes  |  Google Cloud Documentation
@@ -25,6 +25,14 @@ Send feedback
 This page documents production updates to Capacity Planner. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## October 26, 2026
+
+Feature
+
+**Preview** : You can use the Capacity Planner remote Model Context Protocol (MCP) server (`capacityplanner.googleapis.com`) to connect AI applications and agents to your Capacity Planner data ([Preview](https://cloud.google.com/products#product-launch-stages)). You can use the Capacity Planner MCP tools to query historical resource usage, usage forecasts, and reservation data across your projects, folders, and organizations.
+
+For more information, see the [Capacity Planner MCP reference](https://docs.cloud.google.com/capacity-planner/docs/reference/mcp) and [Google Cloud MCP servers overview](https://docs.cloud.google.com/mcp/overview).
 
 ## September 30, 2026
 

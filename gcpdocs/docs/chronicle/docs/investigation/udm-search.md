@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/udm-search/
 title: Understand search \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:02.939356+00:00
+fetched_at: 2026-11-02T05:43:07.460785+00:00
 ---
 
 # Understand search  |  Google Security Operations  |  Google Cloud Documentation
@@ -69,13 +69,13 @@ To open the **SIEM Search** page, do the following:
 
 ![Search](https://docs.cloud.google.com/static/chronicle/images/investigation/search-results-default.png)
 
-**Figure 1.** Example of the **SIEM Search** page used to explore event trends.
+**Figure 1.** Example of the **SIEM Search** page used to explore event trends—in **Advanced Mode**.
 
 **Note:** On systems that use data RBAC, you can only see data that matches your scopes. For more information, see [data RBAC impact on Search](https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact#search).
 
 ## Data RBAC scope enforcement
 
-The Google SecOps Search engine strictly enforces Role-Based Access Control (data RBAC) scope filtering across all tabs. You will only see UDM events, raw logs, alerts, detections, and cases that explicitly match the data scopes assigned to your user role.
+The Google SecOps Search engine strictly enforces [Role-Based Access Control (data RBAC) scope filtering](https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact#search) across all tabs. You will only see UDM events, raw logs, alerts, detections, and cases that explicitly match the data scopes assigned to your user role.
 
 ## Configure general settings for the Search page
 
@@ -112,6 +112,33 @@ To enable the auto-collapse feature, follow these steps:
 
 
 
+## Choose the search-execution mode
+
+**Note:** This feature is covered by [Pre-GA Offerings Terms](https://chronicle.security/legal/service-terms/) of the Google Security Operations Service Specific Terms. Pre-GA features might have limited support, and changes to pre-GA features might not be compatible with other pre-GA versions. For more information, see the [Google SecOps Technical Support Service guidelines](https://chronicle.security/legal/technical-support-services-guidelines/) and the [Google SecOps Service Specific Terms](https://chronicle.security/legal/service-terms/).  
+If this feature isn't visible in your environment, see [Manage preview features](https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage) or contact your system administrator.
+
+Google SecOps can execute a search in either of the following modes, which you can select in the query editor:
+
+  * **Basic Mode** : Use **Basic Mode** (the default mode) for fast event retrieval and query iteration.
+  * **Advanced Mode** : Use **Advanced Mode** for standard search workflows and for comprehensive multidimensional analysis.
+
+
+
+The **SIEM Search** page displays fewer tabs and widgets in **Basic Mode** compared to **Advanced Mode**. If you run a search in **Basic Mode** and you identify suspicious events in the **Results** tab, you can switch to **Advanced Mode** and rerun the query to inspect timeline charts, activity heatmaps, prevalence scores, and correlated detections. 
+
+For more information about the two modes, see Understand the search-execution modes.
+
+The following table describes recommended usage scenarios for **Basic Mode** and **Advanced Mode** :
+
+Scenario | Recommended mode | Rationale  
+---|---|---  
+Initial threat hunting and hypothesis testing | **Basic Mode** | Test indicator hypotheses across broad time windows without waiting for timeline histograms.  
+High-volume telemetry triage | **Basic Mode** | Query high-volume data sources (such as AWS VPC Flow, firewall, proxy, or Sysmon logs) with minimal latency.  
+Query formulation and filter tuning | **Basic Mode** | Iterate on UDM syntax, regular expressions, reference lists, and data table filters before running comprehensive audits.  
+Incident timeline reconstruction | **Advanced Mode** | Use the visual event distribution timeline and activity heatmaps to identify temporal bursts.  
+Indicator rarity and anomaly analysis | **Advanced Mode** | Inspect enterprise prevalence scores to evaluate whether an observed artifact is common or an outlier.  
+Detection validation | **Advanced Mode** | Verify whether specific events triggered correlated YARA-L 2.0 alerting rules.  
+  
 ## Create a search query
 
 The following sections describe how to create a search query.
@@ -156,9 +183,13 @@ If the search statement includes a time-based term, the **Time Range** parameter
 
   3. Optional: Adjust the search time range using the **Time Range** parameters.
 
-  4. Click **Run Search**. The search results are displayed.
+  4. Optional: Modify the generated query in the query editor.
 
-  5. Optional: Narrow the results by adding additional search filters manually or using the _natural language query bar_ and run the search again.
+  5. Select the search-execution mode: **Basic Mode** or **Advanced Mode**.
+
+  6. Click **Run Search**. The search results are displayed.
+
+  7. Optional: Narrow the results by adding additional search filters manually or using the _natural language query bar_ and run the search again.
 
 
 
@@ -188,9 +219,11 @@ To construct a query manually, complete the following steps:
      * **Syntax compilation errors** : If the query editor detects a syntax compilation error, it displays a red squiggly line directly beneath the problematic text. Hover over the underlined text to view the specific error description. The query editor highlights only one error at a time, which means that you must fix errors sequentially.
   4. Set the time range for the query using the **Time Range** parameters.
 
-  5. If the query expression is valid, click **Run Search**. The search results are displayed.
+  5. Select the search-execution mode: **Basic Mode** or **Advanced Mode**.
 
-  6. Optional: Narrow the results by adding additional search filters manually or using the console and run the search again.
+  6. If the query expression is valid, click **Run Search**. The search results are displayed.
+
+  7. Optional: Narrow the results by adding additional search filters manually or using the console and run the search again.
 
 
 **Note:** You can also construct a new query from within the **Search Manager** dialog. The same UDM-editing and automatic-suggestion and completion tools are also available there.
@@ -216,7 +249,7 @@ Google SecOps evaluates the configuration of your search query and applies the m
 
 To set the time range, do the following:
 
-  1. On the **SIEM Search** page, next to **Time Range** , from the list, select the mode
+  1. On the **SIEM Search** page, next to **Time Range** , from the list, select the mode:
 
      * **Absolute** : Use an absolute time range to select a fixed start and end time.
      * **Relative** : Use a relative time range to search backwards from the current time. The time when you click **Run Search** is set as the end time for your query.
@@ -261,7 +294,7 @@ The query editor organizes suggestions into three distinct categories, in the fo
   1. **Recently and frequently used fields** : Displays up to the top seven matching fields based on your active browser session and 30-day query usage history across the **SIEM Search** , **Rules & Detections**, and **Dashboards** pages. Suggestions in this category are prioritized in the following order:
 
      * **Recent browser history** : Fields you recently entered or selected in the query editor (up to the 100 most recent valid UDM fields). Matching fields appear first, ordered by how recently you used them. This list is saved in your browser's local storage across logins. Clearing your browser cache or switching browsers resets this history.
-     * **Historical usage (past 30 days)** : Fields extracted from queries you and your organization ran over the past 30 days (including UDM searches, dashboard queries, rule tests, and retrohunts). This usage data refreshes every 8 hours, is out of scope for data RBAC filtering because it serves derived UDM schema field names rather than log events, and isolates custom labels and extracted fields (`additional.*`, `extracted.*`) to your tenant. Historical usage follows a strict two-tier hierarchy:
+     * **Historical usage (past 30 days)** : Fields extracted from queries you and your organization ran over the past 30 days (including UDM searches, dashboard queries, rule tests, and retrohunts). This usage data refreshes every 8 hours. It is out of scope for data RBAC filtering because it serves derived UDM schema field names rather than log events, and it isolates custom labels and extracted fields (`additional.*`, `extracted.*`) to your tenant. Historical usage follows a strict two-tier hierarchy:
 
        1. **User-level usage** : Fields you used most frequently over the past 30 days, sorted by usage count in descending order.
        2. **Tenant-level usage** : Fields used most frequently by all users across your tenant over the past 30 days, sorted by usage count in descending order. If a field already appears in your user-level usage list, its user-level rank takes precedence.
@@ -579,7 +612,7 @@ Your search history is saved to your Google SecOps account.
   * To delete an individual search from your search history, see Delete a saved search.
 
 
-
+**Note:** Search history records the search-execution mode (**Basic Mode** or **Advanced Mode**) for each query and restores that mode when you rerun the search from the **History** dialog. For more information, see Understand the search-execution modes.
 
 ## Save and use a metrics query
 
@@ -682,7 +715,8 @@ To retrieve and run a saved search, do the following:
   2. Optional: Delete a search by clicking more_horiz **More** and selecting **Delete Search**. You can only delete searches that _you_ authored.
   3. You can change the name of the search and the description. Click **Save edits** when you're finished.
   4. Click **Load search**. The search is loaded into the main search field.
-  5. Click **Run Search**.
+  5. Select the search-execution mode: **Basic Mode** or **Advanced Mode**.
+  6. Click **Run Search**.
 
 
 
@@ -720,7 +754,12 @@ If you want the search to only be visible to you, click more_horiz **More** and 
 
 When you click **Run Search** on the **SIEM Search** page, Google Security Operations evaluates your query across your environment and categorizes and displays the results below the query editor.
 
-The UI elements for search results vary depending on the search type (which are, according to their badges: **UDM** , **RAW** , **JOIN** , **STATS** , **CASE** or **CASE HISTORY**).
+The UI elements for search results vary depending on the following:
+
+  * The search type (which is, according to its badge: **UDM** , **RAW** , **JOIN** , **STATS** , **CASE** , or **CASE HISTORY**).
+  * The search-execution mode (**Basic Mode** or **Advanced Mode**). When you run a search in **Basic Mode** , the **SIEM Search** page displays only the **Results** tab and hides the **Alerts & Detections**, **Overview** , and **Visualize** tabs. For more information, see Understand the search-execution modes.
+
+
 
 The **SIEM Search** page displays the following tabs for search results:
 
@@ -759,7 +798,7 @@ The **Results** tab includes the following elements, depending on the search typ
 
     * **Events** table and **Pivot** sub-tab: Displayed only for UDM search results. The **Events** table displays normalized UDM event telemetry and raw log records matching your query within the selected time window. The **Pivot** sub-tab lets you create and use a pivot table to perform multidimensional mathematical grouping and summarization (`sum`, `count`, `avg`, `stddev`) on the event results.
     * **Raw Logs**: Displayed only for RAW search results.
-    * **Stats**: Displayed only for STATS search results. 
+    * **Stats**: Displayed only for STATS search results.
     * **Joins**: Displayed only for JOIN search results.
     * **Cases**: Displayed only for CASE search results.
     * **Case History**: Displayed only for CASE and CASE HISTORY search results.
@@ -768,7 +807,7 @@ The **Results** tab includes the following elements, depending on the search typ
 For information about the supported functions and tools for these tables, see Use common tools for tables. Supported functions include managing the columns in the table that the tab displays, downloading search results, and more.
 
 
-**Tip:** Click **View Options** to hide or unhide the charts and the **Aggregations** panel.
+**Tip:** Click **View Options** to hide or unhide the charts and the **Aggregations** panel.**Note:** In **Basic Mode** , timeline charts, the **Prevalence** tab, and the **Activity heatmap** table are bypassed and hidden to accelerate event retrieval, but the **Events** panel and **Aggregations** panel remain active. For more information, see Understand the search-execution modes.
 
 ### Use the Activity Over Time chart
 
@@ -1151,6 +1190,8 @@ Click an entity to display the **Entity context** dialog, which can include the 
 
 ## View and manage information in the Alerts & Detections tab
 
+**Note:** The **Alerts & Detections** tab is displayed only when you run a search in **Advanced Mode**. In **Basic Mode** , Google SecOps bypasses detection correlation and hides this tab. For more information, see Understand the search-execution modes.
+
 Use the **Alerts & Detections** tab for:
 
   * Threat hunting across all rule executions
@@ -1330,6 +1371,8 @@ Click an entity to display the **Entity context** dialog, which can include the 
 
 
 ## View and manage information in the Overview tab
+
+**Note:** The **Overview** tab is displayed only when you run a search in **Advanced Mode**. In **Basic Mode** , Google SecOps bypasses Entity Context Graph (ECG) resolution and hides this tab. For more information, see Understand the search-execution modes.
 
 Use the **Overview** tab to do the following:
 
@@ -1684,9 +1727,62 @@ Pivot aggregations (**Results** > **Pivot**) | 100,000 records | Charts render t
 Rule detections | 100,000 records | Surfaced directly in the combined **Alerts & Detections** tab.  
 Entity Context Graph (ECG) | 1,000,000 records | Surfaced in the **Timed Data** and **Timeless Data** panels inside the **Results** tab. The table in the **Timed Data** panel displays entities that have a defined time range. The table in the **Timeless Data** tab displays entities that don't have a defined time range. It's possible that the interface displays only timeless entities, or only timed entities, or a different mix of them each time the query is run. For more information, see Use the Timed Data and Timeless Data panels.  
   
+## Understand the search-execution modes
+
+**Note:** This feature is covered by [Pre-GA Offerings Terms](https://chronicle.security/legal/service-terms/) of the Google Security Operations Service Specific Terms. Pre-GA features might have limited support, and changes to pre-GA features might not be compatible with other pre-GA versions. For more information, see the [Google SecOps Technical Support Service guidelines](https://chronicle.security/legal/technical-support-services-guidelines/) and the [Google SecOps Service Specific Terms](https://chronicle.security/legal/service-terms/).  
+If this feature isn't visible in your environment, see [Manage preview features](https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage) or contact your system administrator.
+
+This section describes the two search-execution modes in detail.
+
+### Differences between Basic Mode and Advanced Mode
+
+The following table shows the differences between **Basic Mode** and **Advanced Mode** on the **SIEM Search** page:
+
+Capability or dimension | Basic Mode | Advanced Mode  
+---|---|---  
+Visible results tabs | **Results** only | **Results** , **Alerts & Detections**, **Overview** , and **Visualize**  
+Timeline charts | Hidden (bypasses bucket aggregation) | Displayed (**Activity Over Time** and **Trend Over Time** charts, **Prevalence** tab, and **Activity heatmap** table—that is, with event count, alert count, joins, and ECG charts)  
+Prevalence scoring | Bypassed | Enabled (calculates enterprise prevalence)  
+Correlated detections | Bypassed | Enabled (correlates triggered YARA-L 2.0 detections)  
+Entity Context Graph (ECG) | Bypassed | Enabled  
+Relative latency profile | Minimal wait time for interactive feedback | Standard wait time to compute full enrichment  
+  
+### Understand the backend differences between Basic Mode and Advanced Mode
+
+**Basic Mode** accelerates interactive threat investigations, hypothesis validation, and ad hoc log analysis by dedicating compute resources exclusively to raw event retrieval and field aggregation. **Basic Mode** uses a streamlined, fast-path execution pipeline that bypasses secondary enrichment steps during search execution. This approach reduces end-to-end search wait times while preserving full data fidelity and query syntax parity.
+
+In **Advanced Mode** , Google SecOps computes auxiliary analytics alongside core event retrieval, including timeline bucket aggregations, cross-enterprise indicator prevalence scoring, YARA-L 2.0 detection and alert correlations, and Entity Context Graph (ECG) resolution. Although these enrichments are useful for broad situational awareness, these secondary enrichment pipelines add processing and rendering latency when you search high-volume telemetry.
+
+### Backend and UI optimizations in Basic Mode
+
+When you run a query in **Basic Mode** , Google SecOps optimizes both the backend search execution and the frontend rendering as follows:
+
+  * **Fast-path backend execution** : 
+    * **Bypasses prevalence calculations** : Searches in **Advanced Mode** evaluate historical prevalence for indicators (such as domains, IP addresses, and file hashes) across your enterprise. **Basic Mode** skips this auxiliary calculation, reducing processing time by up to 20 seconds on high-volume event streams.
+    * **Suppresses detection enrichment** : The backend sets detection correlation limits to zero, eliminating secondary lookups against the rules engine during event retrieval.
+    * **Prunes timeline aggregation** : Google SecOps skips granular bucketed histogram calculations, bypassing timeline aggregation tasks and streaming matching events directly to the client.
+  * **Streamlined interface** : 
+    * **Focused tab presentation** : The results interface displays only the **Results** tab and hides the **Alerts & Detections**, **Overview** , and **Visualize** tabs to eliminate tab-switching latency.
+    * **Hidden chart widgets** : Collapsible timeline charts and visual panels (the **Activity Over Time** and **Trend Over Time** charts, the **Prevalence** tab, and the **Activity heatmap** table) are automatically hidden to maximize vertical screen space for the **Events** panel and **Event Viewer**.
+    * **Field aggregation parity** : The **Aggregations** panel remains active and interactive, so you can inspect value-distribution counts, apply **Show only** or **Filter out** filters, and narrow result subsets without leaving **Basic Mode**.
+
+
+
+### UI and workflow details for the search-execution modes
+
+The following list describes how the search-execution modes are exposed in the UI and the workflow:
+
+  * **Persistent browser preference** : Google SecOps saves the selected search-execution mode in your browser's local storage (`searchMode`) across browser refreshes, tabs, and sessions. For example, if you select **Basic Mode** , subsequent searches continue to run in **Basic Mode** until you switch modes.
+  * **Shareable URL state** : The active search-execution mode is reflected in the page URL query parameter (`&searchMode=SEARCH_MODE`, where `SEARCH_MODE` is `FAST` for **Basic Mode** or `ADVANCED` for **Advanced Mode**). When you share an investigation URL with team members, the search-execution mode specified in the shared URL takes precedence over the search-execution mode that is selected in the browser of the target user.
+  * **Search history tracking** : Each executed query in the **History** dialog records its search-execution mode. Selecting and rerunning a query from **History** automatically restores the search-execution mode that was used when the query was run.
+
+
+
 ## Optimize and refine your search results
 
 This section outlines performance limitations and expectations, and provides self-service fixes for common issues with the **SIEM Search** page in Google Security Operations.
+
+**Tip:** To accelerate interactive event retrieval and query iteration when you don't need timeline charts, prevalence scoring, or detection correlations, select **Basic Mode** in the query editor. For more information, see Understand the search-execution modes.
 
 ### Performance optimization and best practices
 
@@ -1810,6 +1906,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

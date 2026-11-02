@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-list-buckets/
 title: List buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:43.225414+00:00
+fetched_at: 2026-11-02T05:40:31.007319+00:00
 ---
 
 # List buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -236,6 +236,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts bucket.name
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, project_id: &str) -> anyhow::Result<()> {
+        use google_cloud_gax::paginator::ItemPaginator;
+    
+        let mut items = client
+            .list_buckets()
+            .set_parent(format!("projects/{project_id}"))
+            .by_item();
+        while let Some(bucket) = items.next().await.transpose()? {
+            println!("{bucket:?}");
+        }
+        Ok(())
+    }
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/apihub/provision-terraform/
 title: Provision API hub using Terraform \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:17.708864+00:00
+fetched_at: 2026-11-02T05:42:43.088799+00:00
 ---
 
 # Provision API hub using Terraform  |  Apigee  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ To use a local development environment, follow these steps:
 `
     
     
-    gcloud projects add-iam-policy-binding PROJECT_ID --member="user:USER_IDENTIFIER&quot; --role=ROLE
+    gcloud projects add-iam-policy-binding PROJECT_ID --member="user:USER_IDENTIFIER" --role=ROLE
 
 Replace the following:
 

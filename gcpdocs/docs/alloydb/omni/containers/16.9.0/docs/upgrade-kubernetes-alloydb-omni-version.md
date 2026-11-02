@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.9.0/docs/upgrade-kubernetes-alloydb-omni-version/
 title: Upgrade to AlloyDB Omni version 16.8.0 on Kubernetes \u00a0|\u00a0 AlloyDB Omni for containers: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:43.165623+00:00
+fetched_at: 2026-11-02T05:42:49.197497+00:00
 ---
 
 # Upgrade to AlloyDB Omni version 16.8.0 on Kubernetes  |  AlloyDB Omni for containers: 16.9.0  |  Google Cloud Documentation
@@ -109,7 +109,7 @@ Replace the following variable:
      * POD_NAME: the name of your pod.
   6. Patch your database cluster to version `16.8.0` and your control plane agents (CPA) to `1.6.0`.
          
-         kubectl patch dbclusters.alloydbomni.dbadmin.goog NAME --type=merge -p '{"spec":{"databaseVersion":"16.8.0","controlPlaneAgentsVersion&quot;:"omni_control_plane_agents_version"}}'
+         kubectl patch dbclusters.alloydbomni.dbadmin.goog NAME --type=merge -p '{"spec":{"databaseVersion":"16.8.0","controlPlaneAgentsVersion":"omni_control_plane_agents_version"}}'
          
 
 Replace the following variable:
@@ -134,7 +134,7 @@ Replace the following variable:
          postgres@POD_NAME:~$ cp /mnt/disks/pgsql/15/data/pg_hba.conf /mnt/disks/pgsql/15/data/pg_hba.conf.bak
          
          # Update pg15 configurations
-         postgres@POD_NAME:~$ echo "local      all           all                      tr>>ust"  /mnt/disks/pgsql/15/data/pg_hba.conf; echo "host       all           all      127.0.0.>>1/32    trust"  /mnt/disks/pgsql/15/data/pg_hba.conf
+         postgres@POD_NAME:~$ echo "local      all           all                      trust" >> /mnt/disks/pgsql/15/data/pg_hba.conf; echo "host       all           all      127.0.0.1/32    trust" >> /mnt/disks/pgsql/15/data/pg_hba.conf
          
 
 Replace the following variable:
@@ -142,7 +142,7 @@ Replace the following variable:
      * POD_NAME: the name of your pod.
   9. Modify `pg_hba.conf` in the new database cluster to provide the upgrade process the permissions and connections it needs.
          
-         postgres@POD_NAME:~$ rm /mnt/disks/pgsql/data/pg_hba.conf; echo "local      all           all                      tr>>ust"  /mnt/disks/pgsql/data/pg_hba.conf; echo "host       all           all      127.0.0.>>1/32    trust"  /mnt/disks/pgsql/data/pg_hba.conf; chmod 2740 /mnt/disks/pgsql/15/data
+         postgres@POD_NAME:~$ rm /mnt/disks/pgsql/data/pg_hba.conf; echo "local      all           all                      trust" >> /mnt/disks/pgsql/data/pg_hba.conf; echo "host       all           all      127.0.0.1/32    trust" >> /mnt/disks/pgsql/data/pg_hba.conf; chmod 2740 /mnt/disks/pgsql/15/data
          
 
 Replace the following variable:

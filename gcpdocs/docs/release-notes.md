@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:28.915731+00:00
+fetched_at: 2026-11-02T05:43:02.909025+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,18 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## October 31, 2026
+
+**Google SecOps**
+
+Feature
+
+**Basic Mode search**
+
+This feature is in public preview. The **SIEM Search** page now provides two search-execution modes: **Basic Mode** and **Advanced Mode**. **Basic Mode** (the default option) uses a streamlined, fast-path execution pipeline that bypasses secondary enrichment steps during search execution. This approach reduces end-to-end search wait times while preserving full data fidelity and query syntax parity. **Advanced Mode** is equivalent to the previous search experience.
+
+For more information, see [Choose the search-execution mode](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#choose-search-execution-mode) and [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
 
 ## October 30, 2026
 
@@ -420,6 +432,12 @@ Feature
 **Computer use tool is available in General Availability**
 
 The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/tools/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
+
+**Looker**
+
+Announcement
+
+On November 1, 2026, several Canadian provinces and territories—Manitoba, Alberta, British Columbia, and parts of the Northwest Territories—transition to permanent daylight saving time (DST) or remain on their summer UTC offsets year-round. On unpatched Looker instances, these changes affect scheduled content delivery fire times and [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations) that use `now()` with the affected Canadian time zones (`America/Winnipeg`, `Canada/Central`, `America/Rainy_River`, `America/Edmonton`, `Canada/Mountain`, `America/Vancouver`, `Canada/Pacific`, and `America/Inuvik`). Patched Looker builds update the scheduler (Ruby) and browser (JavaScript) time zone data, while server-evaluated `now()` table calculations on the JVM still use the bundled JDK time zone database (`tzdb 2026b`). To learn how to upgrade to a patched Looker build or configure an alternative schedule delivery time zone, see [2026 Canadian time zone changes](https://docs.cloud.google.com/looker/docs/canada-permanent-dst-2026).
 
 **SAP on Google Cloud**
 
@@ -917,6 +935,93 @@ Feature
 The Admin (`roles/admin`), Writer (`roles/writer`), and Reader (`roles/reader`) basic roles are generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Basic roles](https://docs.cloud.google.com/iam/docs/roles-overview#basic).
 
 The legacy basic roles—Owner (`roles/owner`), Editor (`roles/editor`), and Viewer (`roles/viewer`)—are still available for use and are being actively maintained. However, if you need to grant a basic role, we recommend granting the Admin, Writer, or Reader role instead of a legacy basic role. This is because the newer roles support additional features, such as the use of [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview).
+
+**Looker**
+
+Announcement
+
+Beginning October 26, 2026, the following features will be automatically enabled for Looker (original) and Looker (Google Cloud core) instances running Looker 26.20.
+
+Feature
+
+The ability to [generate a summary of an Explore by using Gemini assistance](https://docs.cloud.google.com/looker/docs/explore-summary-gemini) is now generally available.
+
+Feature
+
+The [bullet chart](https://docs.cloud.google.com/looker/docs/bullet-options) visualization type is now generally available. Bullet charts let you evaluate a single primary metric's performance as one or more bars and mark your goal with a target line. You can plot both against shaded background ranges that represent performance thresholds, such as "poor," "satisfactory," and "good." For more information, see [Bullet chart options](https://docs.cloud.google.com/looker/docs/bullet-options).
+
+Feature
+
+Looker now includes [network diagnostics](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#network-diagnostics) to help you troubleshoot database connectivity issues. When a [database connection test](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#troubleshooting) fails, Looker automatically tests DNS resolution and TCP connectivity for the connection's endpoints and appends the results to the error message. To [test network reachability](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#test-network-reachability) to any hostname and port without creating a connection, Looker administrators can click **Test Reachability** on the **Connections** page.
+
+**Note:** This item was added on October 30, 2026.
+
+Feature
+
+The **Table Row Grouping** feature and the [**Grouping** menu options](https://docs.cloud.google.com/looker/docs/table-options#grouping-menu-options) are now generally available. The **Grouping** menu options let you display and customize the appearance of table chart data hierarchically in groups.
+
+Feature
+
+The [**Visualization Assistant**](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) is now generally available.
+
+Feature
+
+Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
+
+Feature
+
+Two new legacy features, [**Use Legacy Explore and Merge Query Experience**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience) and [**Use Legacy Explore and Merge Query Experience for Embed**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience_for_embed), are now available for Looker (original) and Looker (Google Cloud core) instances. These features let administrators configure Explores and merged queries to open in the classic experience by default across an instance or in embedded contexts. For more information, see [Legacy feature schedule](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule).
+
+Feature
+
+Looker now includes a new [histogram chart](https://docs.cloud.google.com/looker/docs/histogram-options) visualization option. A histogram chart is a graphical representation of the data distribution of an attribute. A histogram creates intervals (bins) and counts how many values fall into each bin.
+
+Feature
+
+The [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) chart type is now generally available. The KPI (Single Value) chart type replaces the Single Value chart type.
+
+Feature
+
+The new Looker Explore and merge query experience is now generally available and is the default interface for [Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and for [joining data from multiple queries](https://docs.cloud.google.com/looker/docs/merged-results).
+
+Feature
+
+When you enter values in a string filter on dashboards, Looks, or Explores, clicking **Done** or clicking outside the input field no longer creates a filter chip from uncommitted text. To create a filter chip, press Enter, enter a comma (`,`), or paste values into the input field.
+
+Feature
+
+The new [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups) lets you [organize related tiles into collapsible containers](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#organizing_tiles_into_groups) for improved visual organization. You can move, duplicate, or delete multiple tiles as a single unit on dashboards that use the newspaper layout. This update also adds LookML support for programmatically managing tile groups.
+
+Feature
+
+Now available in [preview](https://cloud.google.com/products#product-launch-stages), the [**Release Changelog**](https://docs.cloud.google.com/looker/docs/release-changelog) gives Looker users and administrators real-time visibility into the features, behavioral changes, and bug fixes that are available for their instance.
+
+Feature
+
+The [**Legacy features** page](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule) is now available in the **Admin** panel for Looker (Google Cloud core) instances. Legacy features that appear on the Looker (Google Cloud core) **Legacy features** page might differ from those that are available on Looker (original) instances. For more information, see [Looker (Google Cloud core) admin settings](https://docs.cloud.google.com/looker/docs/looker-core-admin-looker).
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.22**
+  * Latest version in the No Channel channel: **Looker 26.22**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
+
+Breaking
+
+Some elements of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics) have been renamed. The dashboard layout and capabilities remain the same.
+
+On the **Token usage** tab, the **Conversational Analytics API** value in the **Feature** column and the **Feature Name** filter has been renamed to **Looker API**. This value refers to the Conversational Analytics methods for the Looker API.
+
+This rename might cause a breaking change if you built custom dashboards that reference the former **Feature** column or **Feature Name** filter value.
+
+Change
+
+The **Use Legacy Connections Page** [legacy feature](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) and the legacy database connection workflow have been removed. All database connections now use the connection workflow that is described in [Connecting Looker to your database](https://docs.cloud.google.com/looker/docs/connecting-to-your-db).
 
 **Model Armor**
 
@@ -2146,6 +2251,12 @@ Change
 
 
 
+**Looker**
+
+Feature
+
+The latest version of the Looker-Excel Connector ODBC driver, version 1.0.7, is now available to download. See the [Looker-Excel Connector](https://docs.cloud.google.com/looker/docs/excel-connector#install-driver) documentation page for information.
+
 **Model Armor**
 
 Feature
@@ -2666,6 +2777,16 @@ Feature
 Support for Looker (Google Cloud core) in Data lineage is now [generally available](https://cloud.google.com/products#product-launch-stages). This support includes lineage views for LookML views and Explores, Looker dashboards, dashboard elements, Looks, LookML dashboards, and Conversational Analytics agents. You can control data lineage ingestion at the organization, folder, and project levels. You can also visualize the end-to-end flow of your data from BigQuery sources through the Looker semantic layer to downstream assets.
 
 For more information, see [Track data lineage with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-lineage), [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage#other), and [About data lineage ingestion control](https://docs.cloud.google.com/knowledge-catalog/docs/control-lineage-ingestion#supported-service-integrations).
+
+**Looker**
+
+Feature
+
+[Looker (Google Cloud core) data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is now generally available (GA). The GA launch adds end-to-end visibility for [LookML dashboards](https://docs.cloud.google.com/looker/docs/building-lookml-dashboards) and [Conversational Analytics agents](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents). Lineage enablement is now managed independently through the Data Lineage API and service-level ingestion controls, which decouples it from Looker's internal Knowledge Catalog metadata settings. For more information, see [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage).
+
+Feature
+
+The [Looker-managed Model Context Protocol (MCP) server](https://docs.cloud.google.com/looker/docs/mcp) is now generally available (GA), allowing AI agents to securely interact with business data and LookML models without the need for additional middleware. This launch is supported by a new [**Manage OAuth Clients** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients), which provides a centralized interface for governing identity-based access for AI agents and other external applications. Administrators can now quickly enable pre-configured integrations from the Application Library or register custom OAuth clients with specific redirect URIs and group-based access controls.
 
 **Model Armor**
 
@@ -3909,6 +4030,73 @@ In the enhanced Investigation Management experience, you can select up to 50 cas
 
 
 
+**Looker**
+
+Announcement
+
+**Looker 26.22** will roll out to Looker (original) instances on the following schedule:
+
+  * Expected Looker (original) deployment start: **Monday, October 26, 2026**
+  * Expected Looker (original) final deployment and download available: **Monday, November 9, 2026**
+
+
+
+The Looker 26.22 rollout for Looker (Google Cloud core) will be announced separately.
+
+Looker 26.22 is expected to include the following changes, features, and fixes.
+
+Fixed
+
+An issue has been fixed where table column options menus and search boxes appeared behind drill dialogs, which prevented users from interacting with them. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where configuring a LookML model could trigger unnecessary derived table rebuilds. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the **Show filters** option was displayed on dashboard tiles that failed to load data in view mode. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where drilling into results that were filtered by string dimensions that contained backslashes returned zero rows. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where pivoted queries in SQL Runner could fail to render or re-pivot unexpectedly. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the **View (Expanded / Full Screen)** option appeared in the tile action menu on embedded dashboards in view mode. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where custom visualization tiles were truncated in dashboard PDF exports when the **Expand tables to show all rows** option was enabled. This feature now performs as expected.
+
+Fixed
+
+Table row group subtotals are now displayed only for sum and count measures. For other measure types (such as `averages` and `count distinct`) and table calculations, subtotals are now left blank rather than displaying an inaccurate summed value.
+
+Fixed
+
+The System Activity `query_metrics` Explore now records connection acquisition time (`acquire_connection`) for queries that are canceled while waiting in the connection pool.
+
+Fixed
+
+Conversational Analytics `DELETE` endpoints now return `HTTP 404 Not Found` instead of `HTTP 204 No Content` when you attempt to delete nonexistent resources.
+
+Fixed
+
+The System Activity `query_metrics` Explore has been updated to accurately record model initialization time for models that are loaded from cache.
+
+Fixed
+
+An issue has been fixed where adding a new series to a categorical chart, such as adding a new pivot value, could cause category bars to appear ungrouped. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in the TypeScript and JavaScript SDKs where calling methods that have only optional parameters without passing an empty object could result in compilation or runtime errors. This feature now performs as expected.
+
 ## October 21, 2026
 
 **Apigee X**
@@ -4545,6 +4733,14 @@ Change
 
 
 
+**Looker**
+
+Feature
+
+[Automated cataloging and ingestion of Looker (Google Cloud core) metadata with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-dataplex) is now generally available (GA). This includes support for additional granular metadata (including dimension/measure definitions, default queries, and relationships) and new asset types: LookML dashboards, LookML dashboard elements, and agents.
+
+The [data lineage integration](https://docs.cloud.google.com/looker/docs/looker-core-lineage) remains in Preview.
+
 **Model Armor**
 
 Feature
@@ -4639,6 +4835,22 @@ This issue has been resolved. You can upgrade your cluster control plane to the 
 
 
 
+
+**Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Regular channel: **Looker 26.18**
+
+
+
+The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
+
+**Note:** This item was added on October 23, 2026.
+
+**Note:** This item was updated on October 29, 2026, to correct the latest version in the Regular channel to Looker 26.18.
 
 **Managed Service for Apache Airflow**
 
@@ -5666,6 +5878,25 @@ Feature
 Administrators can make Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5—available to users in the Gemini Enterprise app. After an administrator turns on a model in the **Enable third-party models** section of the **Feature Management** tab, users can select the model in the model selector. Claude models are available in the `global` location and the `us` and `eu` multi-regions, and are charged on a pay-as-you-go basis.
 
 This feature is generally available. For more information, see [Enable third-party models](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features#enable-third-party-models).
+
+**Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.20**
+  * Latest version in the No Channel channel: **Looker 26.20**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
+
+**Note:** This item was added on October 23, 2026.
+
+Feature
+
+The Looker 26.18 features have begun to be enabled for Looker (Google Cloud core) instances.
 
 **NetApp Volumes**
 
@@ -7687,6 +7918,12 @@ Announcement
 
 The deadline for the migration of SOAR APIs to the Chronicle API has been extended from November 30, 2026 until March 31, 2027. For more information, refer to [SOAR Migration overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp)
 
+**Looker**
+
+Feature
+
+Looker (Google Cloud core) now supports [Workforce Identity Federation](https://docs.cloud.google.com/looker/docs/looker-core-workforce-identity) in [preview](https://cloud.google.com/products#product-launch-stages) for instances that use Looker 26.18 and later. Workforce Identity Federation allows users to authenticate by using external identity providers without the need to manage individual Google Accounts. Administrators can select Workforce Identity as the primary authentication method when they create or edit an instance and, optionally, enable secondary Google OAuth for secure backup access.
+
 **Managed Service for Apache Spark**
 
 Announcement
@@ -7845,6 +8082,60 @@ For alternative AI developer tools, use Antigravity, which is available through 
 Change
 
 The format for bootstrap addresses and broker URLs has changed for new Managed Service for Apache Kafka clusters. To learn how to get a cluster's bootstrap address, see [View a Managed Service for Apache Kafka cluster](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/view-cluster#view-bootstrap-address).
+
+**Looker**
+
+Announcement
+
+Beginning October 5, 2026, the following features will be automatically enabled for Looker (original) instances running Looker 26.18. Feature enablement for Looker (Google Cloud core) will be announced separately.
+
+Feature
+
+Looker now includes built-in support for the **Dremio 26.0+ (Arrow Flight SQL)** dialect. The **Dremio 26.0+ (Arrow Flight SQL)** uses the bundled Apache Arrow Flight SQL JDBC driver, so that you don't have to install unpackaged custom JDBC driver JAR files. See the [Dremio](https://docs.cloud.google.com/looker/docs/db-config-dremio) documentation page for more information.
+
+Feature
+
+The **AI-Assisted Quick Starts** feature, called [**Starter questions**](https://docs.cloud.google.com/looker/docs/gemini-quick-starts) in the new Explore experience, is now generally available.
+
+Feature
+
+The new [**Diagnose & Repair** tool](https://docs.cloud.google.com/looker/docs/diagnosing-and-repairing-git-projects) evaluates your LookML project repository across eight diagnostic test checks in either your personal development environment or the shared production environment. When issues are found, Looker can automatically perform repairs (such as removing stale lock files, fixing file permissions, or repairing corrupted object indexes) or rebuild damaged repositories while safeguarding uncommitted changes on a dedicated recovery branch.
+
+Feature
+
+[Looker Continuous Integration (CI)](https://docs.cloud.google.com/looker/docs/continuous-integration) now includes the [Style Validator](https://docs.cloud.google.com/looker/docs/ci-style-validator), which enforces LookML coding standards, naming conventions, and structural best practices across your LookML project. You can run the Style Validator with the default built-in ruleset or customize rule severities, file exclusions, path overrides, and custom rules by adding an `lkmlstyle.yaml` configuration file to your project repository.
+
+Feature
+
+Now available in [preview](https://cloud.google.com/products#product-launch-stages), [Conversational Analytics agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-agentic-workflows-overview) support [scheduled agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-scheduled-agentic-workflows) in addition to [triggered agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-triggered-agentic-workflows). You can use scheduled agentic workflows to schedule recurring deliveries of AI-generated insights summaries, data tables, visualizations, and PDF reports to email or Slack by using natural language. Recipients can select **Investigate** in a workflow notification to open a private, persistent conversation with the data agent.
+
+Users and admins can manage workflows on the updated [**Manage Workflows** user page](https://docs.cloud.google.com/looker/docs/user-workflows) and [**Manage Workflows** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-workflows), respectively, and Looker admins can monitor scheduled workflow runs and troubleshoot errors on the new [**Workflow Executions** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-workflow-executions).
+
+Workflows that were created in versions earlier than Looker 26.14 appear on the **Legacy Workflows** tab and must be recreated.
+
+Feature
+
+Now available in preview, [Looker **Data Apps**](https://docs.cloud.google.com/looker/docs/data-apps) are freeform canvas dashboards that are built by local AI coding agents, such as Gemini CLI, Claude Code, or Cursor, from natural-language prompts. **Data Apps** give you complete visual layout control (including absolute positioning, overlapping elements, and custom web components) while remaining bound to Looker's governed LookML semantic layer and user permissions.
+
+Change
+
+In Conversational Analytics, the default [question mode](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data#ca-question-mode) is now **Fast** rather than **Thinking**. **Fast** mode is intended for answering quickly, and it directly maps your query to underlying LookML definitions without generating reasoning steps. You can still select **Thinking** mode from the question mode drop-down menu when asking complex, multi-step analytical questions about [Explores](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data#ca-question-mode) or [dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards#ca-question-mode).
+
+Change
+
+The [**Modern User Interface** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#modern_user_interface) toggle now defaults to **ON**.
+
+Change
+
+The [Modern visualization theme](https://docs.cloud.google.com/looker/docs/modern-ui#modern_visualizations) now supports map charts (static map points and regions), word cloud charts, and donut multiples. While support for donut multiples was previously documented, it is now officially available with this release. These additions expand the range of visualization options that are available with the modern theme.
+
+Feature
+
+Looker now supports connections to the ClickHouse 26+ dialect. ClickHouse 26+ uses modernized JDBC drivers and introduces support for [symmetric aggregates](https://docs.cloud.google.com/looker/docs/reference/param-explore-symmetric-aggregates). See the [ClickHouse](https://docs.cloud.google.com/looker/docs/db-config-clickhouse) documentation page for more information.
+
+Feature
+
+Enhanced observability metrics, including user engagement and estimated token usage data on the [**Token usage** tab](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#ca-sa-token-usage) of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics), are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This launch also adds a **Daily Token Utilization** visualization and supports token usage observability for [Conversational Analytics data agents that are published to Gemini Enterprise](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#publish-data-agents). (**Note** : This item was added on October 20, 2026.)
 
 **Model Armor**
 
@@ -8498,6 +8789,101 @@ The following log types were added without a default parser. Each parser is list
   * Twilio Segment (`TWILIO_SEGMENT`)
 
 
+
+**Looker**
+
+Announcement
+
+**Looker 26.20** will roll out to Looker (original) and Looker (Google Cloud core) instances on the following schedule:
+
+  * Expected deployment start: **Monday, October 12, 2026**
+  * Expected final deployment and download available: **Sunday, October 25, 2026**
+
+
+
+Looker 26.20 is expected to include the following changes, features, and fixes.
+
+Breaking
+
+Custom TopoJSON URL validation is updated to improve security. This change is isolated to Google Maps rendering in preview. Existing dashboards and Looks with the [Google Maps Enhancements preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#google-maps-enhancements) enabled that use custom TopoJSON files may be impacted.
+
+Feature
+
+The **Gemini in Looker** admin page has been restructured to allow Looker admins to selectively enable Conversational Analytics features and capabilities. Enablement for generally available Conversational Analytics features is now organized under the follow settings:
+
+  * **Conversational Analytics (Conversations page)** : Enables access to the [**Conversations** page](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data) for data agents with Explores and direct chats with an Explore.
+  * **Dashboard agents** : Enables [default data agents](https://docs.cloud.google.com/looker/docs/glossary#default-agent) on [user-defined and LookML dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards).
+  * **Additional options** : Allows Conversational Analytics data agent creators to enable the [**Advanced Analytics** feature](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-advanced-analytics) for all conversations with their data agent. To use Advanced Analytics, you must also enable whichever Conversational Analytics toggle corresponds to the content that you are querying (**Conversational Analytics (Conversations page)** or **Dashboard agents**). If both the **Conversational Analytics (Conversations page)** and **Dashboard agents** toggles are turned off, then **Advanced Analytics** cannot be enabled. If either **Conversational Analytics (Conversations page)** or **Dashboard agents** is enabled, **Advanced Analytics** can be enabled, but it is turned off by default.
+
+
+
+The **Conversational Analytics (Conversations page)** and **Dashboard agents** settings inherit the enablement state of the **Conversational Analytics** setting in previous versions of Looker.
+
+Conversational Analytics preview features can still be enabled selectively under the **Enable Trusted Tester Features** setting.
+
+(**Note** : This item was added on October 14, 2026.)
+
+Feature
+
+Conversational Analytics data agents for both [user-defined dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards) and [LookML dashboards](https://docs.cloud.google.com/release-notes/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards) are now generally available.
+
+(**Note** : This item was added on October 14, 2026.)
+
+Feature
+
+You can now apply [themes](https://docs.cloud.google.com/looker/docs/themes-for-internal-dashboards) to Looks in addition to internal dashboards.
+
+Fixed
+
+An issue has been fixed where duplicating a scheduled plan could fail to retain the custom message value. This feature now performs as expected.
+
+Fixed
+
+Table visualizations now proportionally scale left-pinned columns during automatic sizing, which prevents unnecessary horizontal scrollbars. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where enabling subtotals on table visualizations did not automatically disable the **Cell Visualizations** option. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where previews for Looker charts in Slack integrations could fail to be displayed. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where editing and saving a dashboard could cause the dashboard to reload indefinitely, forcing users to refresh the page. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where table cell visualizations that included both positive and negative values could display unwanted scrollbars and hide value labels. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the BigQuery JDBC driver could fail to properly parse certain data types, such as `BYTES`, `STRUCT/RECORD`, and nested `ARRAY` structures. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where linked filters on a dashboard could fail to display autocomplete suggestions even when a parent filter is selected. This feature now performs as expected.
+
+Fixed
+
+The System Activity `query_metrics` Explore has been updated to ensure that phase timings (such as connection acquisitions, execution runtimes, and optimistic pivot fallback retry loops) are successfully captured for queries that fail or time out. This feature now performs as expected.
+
+Fixed
+
+The System Activity **Dashboard Diagnostics** dashboard has been updated to fully support statistics, tile run counts, and performance recommendations for LookML dashboards. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the color palette popover in visualization settings failed to dynamically reposition when it expanded, causing controls to overlap or truncate. This feature now performs as expected.
+
+Breaking
+
+When you set up a connection, self-service modeling will now be available only if a role that grants `create_self_service_from_table` also selects it through that role's model set.
+
+Fixed
+
+The opacity for the comparison bar in short KPI visualizations has been reduced to increase legibility.
 
 **Memorystore for Redis**
 
@@ -10898,6 +11284,14 @@ Change
 
 
 
+**Looker**
+
+Feature
+
+Enhanced observability metrics, including user engagement and estimated token usage data on the [**Token usage** tab](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#ca-sa-token-usage) of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics), are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for Looker (original) instances that are on Looker 26.16 or later. This launch also adds a **Daily Token Utilization** visualization and supports token usage observability for [Conversational Analytics data agents that are published to Gemini Enterprise](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#publish-data-agents).
+
+(For Looker (Google Cloud core) instances, token usage observability remains in [Preview](https://cloud.google.com/products#product-launch-stages) when the [**Conversational Analytics Agent Token usage**](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#ca-agent-token-usage) preview feature is enabled.)
+
 **Managed Service for Apache Spark**
 
 Announcement
@@ -11171,6 +11565,19 @@ You can now configure a fixed **Denial message** on a semantic governance policy
 When a single request triggers denials from more than one policy, the policy engine combines the configured Denial messages, deduplicates them, and falls back to a generic message for firing policies that don't have one configured.
 
 For more information, see [Configure a semantic governance policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) and [Information exposure risk](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#natural-language-constraints-nlc).
+
+**Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.18**
+  * Latest version in the No Channel channel: **Looker 26.18**
+
+
+
+The Regular channel remains on **Looker 26.14**.
 
 **Network Connectivity Center**
 
@@ -12696,6 +13103,36 @@ Feature
 Data products now support configuring a default IAM role in an access group. The default role, once configured, is automatically granted on all packaged and supported assets in the data product. Data product owners can override the default role for individual assets. In addition, the assets table in a data product now shows the permission state of each asset (`Applied`, `Failed`, or `Unsupported`).
 
 For more information, see [Create data products](https://docs.cloud.google.com/knowledge-catalog/docs/create-data-products) and [Manage data products](https://docs.cloud.google.com/knowledge-catalog/docs/manage-data-products).
+
+**Looker**
+
+Announcement
+
+Beginning September 21, 2026, the following features will be automatically enabled for Looker (original) instances running Looker 26.16.
+
+Feature
+
+Looker now displays an **Authorize OAuth Connection** dialog when users initiate an OAuth authorization flow for database connections. This dialog notifies users that authorizing the connection allows Looker to access data on their behalf, and that privileged Looker users—such as administrators and developers—may have visibility into their data (for example, when an administrator runs queries by using another user's active OAuth token during a sudo session).
+
+Feature
+
+Looker now includes a [**Filters on Visualization Tiles** preview feature](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#filters-on-visualization-tiles) that lets dashboard creators place filter controls directly on individual visualization tiles rather than only in the dashboard filter bar.
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.16**
+  * Latest version in the Regular channel: **Looker 26.14**
+  * Latest version in the No Channel channel: **Looker 26.16**
+
+
+
+**Update:** Looker 26.16 won't be deployed to Looker (Google Cloud core); instead, Looker 26.18 will begin rolling out to Looker (Google Cloud core) on September 29, 2026. This update was added on September 29, 2026.
+
+Feature
+
+Looker now includes a long polling concurrency guard. This prevents issues where queries cause long poll requests that oversaturate Looker and cause Looker to freeze. If a query causes a long poll request, Looker will display the error message `Query polling capacity reached. Please try again later.`
 
 **Memorystore for Valkey**
 
@@ -15951,6 +16388,95 @@ Change
 
 
 
+**Looker**
+
+Announcement
+
+**Looker 26.18** will roll out to Looker (original) instances on the following schedule:
+
+  * Expected deployment start: **Monday, September 21, 2026**
+  * Expected final deployment and download available: **Sunday, October 4, 2026**
+
+
+
+Looker 26.18 is expected to include the following changes, features, and fixes.
+
+Fixed
+
+An issue has been fixed where custom content theme fonts were improperly applied to the Look edit mode bar. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where downloading a dashboard as a CSV or ZIP file could result in a `500` error if any dashboard elements lacked an explicit title. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where links created using the LookML `link` parameter could return a `500` error if no label was specified. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dashboard filter token chips didn't display an active highlighted background when a filter value was selected. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the Git connection test could fail to recognize Git credentials as sufficient if a branch protection rule on the Git provider restricted temporary branches. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where analytic models that referenced cross-database, schema-qualified, or dot-delimited table names failed to compile in BigQuery and Snowflake DDL generation. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where custom tooltips in Single Record visualizations appeared at the bottom of the Explore panel rather than directly beneath the selected row. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dashboard filter tokens and popover menus could fail to inherit fonts from custom themes. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dragging series between Y-axes on pivoted Cartesian charts could cause the Explore page to crash or prevent visualization configurations from being saved. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in Explores where you couldn't scroll within the **Chart Config Editor** dialog when editing JSON visualization configurations. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled PDF deliveries to Cloud Storage could produce corrupted files and unexpectedly replace spaces in filenames with underscores. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where attempting to visualize pivoted query results in SQL Runner resulted in a `TypeError` configuration error. This feature now performs as expected.
+
+Fixed
+
+API requests that target a LookML project whose files or directories aren't found on the instance now return a `404 Not Found` error instead of a `500 Internal Server Error`.
+
+Fixed
+
+In Conversational Analytics, the **Open in Explore** button and sidebar exploration links are now hidden or disabled with explanatory tooltips when you lack `explore` permissions for the underlying model.
+
+Fixed
+
+The embed preload page now supports custom theming using the `theme` URL query parameter.
+
+Fixed
+
+Donut Multiples visualizations now automatically hide overlapping value labels.
+
+Fixed
+
+An issue has been fixed in self-service analytics where CSV and Excel uploads to BigQuery and Snowflake could fail or corrupt data when files contained multiline headers, leading numeric characters, UTF-8 BOM markers, or special characters. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where creating a shared branch based on the production branch in a bare repository project could initialize from stale remote commits, causing the Looker IDE to immediately report the branch as being behind production. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries intermittently failed with permission errors such as `Cannot send all results` because user permissions were incorrectly cached across scheduled jobs on worker threads. This feature now performs as expected.
+
 **NetApp Volumes**
 
 Feature
@@ -17209,6 +17735,12 @@ For more information, see the following documentation:
 
 
 
+**Looker**
+
+Feature
+
+The [Looker extension for VS Code](https://docs.cloud.google.com/looker/docs/getting-started-vscode-extension) is now generally available, enabling local LookML development and [AI-assisted "vibe coding"](https://docs.cloud.google.com/looker/docs/ai-assisted-development-vscode) using the [Model Context Protocol (MCP)](https://docs.cloud.google.com/looker/docs/mcp). This update introduces an interactive onboarding walkthrough, support for populating workspaces from bare repositories, and enhanced synchronization between local Git branches and Looker [Development Mode](https://docs.cloud.google.com/looker/docs/dev-mode-prod-mode#development_mode). Additional improvements include support for OAuth with the Kiro IDE and more secure storage of API client secrets.
+
 **Network Connectivity Center**
 
 Feature
@@ -17394,6 +17926,12 @@ For more information, see the following documentation:
   * [Policy Assist REST reference](https://docs.cloud.google.com/policy-intelligence/docs/reference/policyassist/rest)
 
 
+
+**Looker**
+
+Deprecated
+
+The deprecation of the [Looker Mobile (Legacy) application](https://docs.cloud.google.com/looker/docs/mobile-app-legacy) has been postponed to January 31, 2027. Starting on January 31, 2027, support for the Looker Mobile (Legacy) app will be discontinued and the app will be unavailable for download from the App Store or Play Store. Although users will still be able to use the Looker Mobile (Legacy) app if they already have it installed, we recommend that you install the non-legacy [Looker mobile app](https://docs.cloud.google.com/looker/docs/mobile-app-installation).
 
 **NetApp Volumes**
 
@@ -18696,6 +19234,137 @@ Change
 
 
 
+**Looker**
+
+Announcement
+
+**Looker 26.16** will roll out to Looker (original) instances on the following schedule:
+
+  * Expected deployment start: **Tuesday, September 8, 2026**
+  * Expected final deployment and download available: **Sunday, September 20, 2026**
+
+
+
+Looker 26.16 is expected to include the following changes, features, and fixes.
+
+Fixed
+
+An issue has been fixed where logging in with a Google Cloud Workforce Identity within an embedded iframe could fail as a result of frame restrictions or because the authentication popup closed before session cookies were established. This feature now performs as expected.
+
+Feature
+
+The [Semantic Search](https://docs.cloud.google.com/looker/docs/finding-content#searching_for_saved_content) feature is now generally available.
+
+Fixed
+
+An issue has been fixed where switching to a histogram visualization in an Explore could fail or revert unexpectedly. Additionally, stack resolution on pivoted histograms has been improved. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the alert creation and edit modal displayed `Method` instead of defaulting to `Email` as the notification method. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where embedded dashboards with numerous filters caused horizontal container overflow, prevented filters from wrapping across rows, and resulted in clipped tiles during PDF and PNG exports.
+
+Fixed
+
+An issue has been fixed where custom themes configured as the instance default were not applied to dashboards in view-only mode or during dashboard navigation. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where LookML dashboard URLs that were opened from the search page contained encoded colons (`%3A%3A`), which prevented filter interactions from updating URL query parameters. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where Single Value visualizations and KPI visualizations would not allow creating a comparison against a non-measure table calculation. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where visualization-level filters could not be edited or deleted because of missing popover menus. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where resizing an Explore that contained a Word Cloud visualization could cause the Explore to crash. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where generating LookML for analytic models without selecting any database tables could cause Looker to create views for all database tables and to drop certain properties because of identifier case sensitivity. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where filter context banners and timezone settings were not preserved when generating PNG downloads from drill menus. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where applying pivots to merge queries could cause visualization errors and blank column headers in the results table. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where standalone tile exports from embedded dashboards with filter context could render off-screen or with clipped visualizations in PDF and PNG formats. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where clearing all text from a dashboard note tile failed to persist upon page refresh. This feature now performs as expected.
+
+Fixed
+
+The BigQuery High Throughput API has been disabled by default to prevent connection errors for environments without `bigquery.readsessions.create` permissions. Additionally, required JVM flags for JDK 11 environments have been added. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where [updating the data for a self-service Explore](https://docs.cloud.google.com/looker/docs/exploring-self-service#update-data) that was created from a Google Sheets document with [OAuth authentication](https://docs.cloud.google.com/looker/docs/admin-panel-self-service-explore#enabling_oauth_for_uploads) would default to the BigQuery connection's service account credentials instead of using the user's OAuth credentials, which could cause Google Sheets API enablement or permission errors during model refresh. Looker admins now need only to [enable the Google Sheets API](https://docs.cloud.google.com/looker/docs/admin-panel-self-service-explore#enable-apis) in either the Google Cloud project that's associated with the service account or the Google Cloud project that owns the OAuth client ID credentials, depending on which authentication method is used. This feature now performs as expected.
+
+**Note:** This item was added on September 22, 2026.
+
+Fixed
+
+An issue has been fixed where multi-line prompt text in dashboard chat views caused action buttons (such as the **Thinking** toggle and **Send** button) and vertical scrollbars to be misaligned. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where pinned Looks on boards generated broken URLs that redirected to the home page and failed to dynamically reflect title updates. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where selecting a suggestion could reset the dropdown to a loading spinner. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where collapsible navigation items in the Admin panel and the main navigation pane rendered rectangular focus outlines rather than rounded focus indicators during keyboard navigation. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where typed search strings persisted after you selected an autocomplete suggestion in multi-select filters. This feature now performs as expected.
+
+Fixed
+
+When you duplicate a user-defined dashboard, associated Looker data agent instructions, configurations, and sources are now preserved on the copied dashboard.
+
+Fixed
+
+Self-service models have been restricted to only their assigned user database connections, preventing unintended instance-wide database connection access.
+
+Fixed
+
+Boxplot visualizations now render transparent median dividers and borders properly in inverted and dark theme layouts.
+
+Fixed
+
+An issue has been fixed where IAM administrators on Looker (Google Cloud core) instances failed authentication when the `auth_requires_role` and strict Group Role Mapping were enabled. This feature now performs as expected.
+
+Feature
+
+Now available in preview, the [Admin Assistant](https://docs.cloud.google.com/looker/docs/gemini-admin-asst) helps you use natural language to manage Looker roles.
+
+Breaking
+
+Some elements of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics) have been renamed. The dashboard layout and functionality remain the same.
+
+Specifically, the **Feature** column and **Feature Name** filter value on the **Token usage** tab have each been renamed to **Conversation Surface**. The renaming of this element may cause a potential breaking change for users who have built custom dashboards that reference the **Feature** column or the **Feature Name** filter value.
+
+**Note:** This item was added on September 22, 2026.
+
 **Managed Service for Apache Spark**
 
 Announcement
@@ -19019,156 +19688,11 @@ For more information, see [Supported identities for ingress and egress rules](ht
 
 ## September 02, 2026
 
-**AlloyDB for PostgreSQL**
-
-Feature
-
-AlloyDB real-time data access to BigQuery (in [Preview](https://cloud.google.com/products#product-launch-stages)) now offers limit pushdown and runtime projects:
-
-  * Limit pushdown: when you query foreign tables, some `LIMIT` and `OFFSET` clauses are automatically pushed down to BigQuery, reducing network transfer and improving query response times. For more information, see [Access to real-time data in BigQuery overview](https://docs.cloud.google.com/alloydb/docs/access-real-time-data-overview).
-  * Runtime projects: you can specify an optional runtime project at either the foreign server or foreign table level to execute queries and manage compute costs independently of the project that stores your data. For more information, see [Configure access to real-time data in BigQuery](https://docs.cloud.google.com/alloydb/docs/configure-access-real-time-data).
-
-
-
-Consider using least-privilege security controls to restrict foreign server usage. For more information, see [Secure BigQuery data access using the foreign data wrapper](https://docs.cloud.google.com/alloydb/docs/security-best-practices#secure-bq-fdw).
-
-**Apigee Edge for Private Cloud**
-
-Announcement
-
-Apigee Edge for Private Cloud release notes are now published on Google Cloud documentation.
-
-Release notes and patch announcements for Apigee Edge for Private Cloud are published on the [Apigee Edge for Private Cloud release notes](https://docs.cloud.google.com/apigee/docs/edge-private-cloud/release-notes) page from September 2026 onward. You can [subscribe](https://docs.cloud.google.com/apigee/docs/edge-private-cloud/release-notes#sub) to that page with a feed reader to be notified when a new release or patch is published.
-
-Release notes published before September 2026 remain available in the [Apigee Edge release notes archive](https://docs.apigee.com/release/notes/apigee-release-notes).
-
-**Apigee Edge for Public Cloud**
-
-Announcement
-
-Apigee Edge for Public Cloud release notes are now published on Google Cloud documentation.
-
-Release notes for Apigee Edge for Public Cloud, including its Edge UI, SSO, Message Processor, and integrated portal components, are published on the [Apigee Edge for Public Cloud release notes](https://docs.cloud.google.com/apigee/docs/edge-public-cloud/release-notes) page from September 2026 onward. You can [subscribe](https://docs.cloud.google.com/apigee/docs/edge-public-cloud/release-notes#sub) to that page with a feed reader to be notified when a new release is published.
-
-Release notes published before September 2026 remain available in the [Apigee Edge release notes archive](https://docs.apigee.com/release/notes/apigee-release-notes).
-
-**Application Design Center**
-
-Feature
-
-Application Design Center [supports](https://docs.cloud.google.com/application-design-center/docs/supported-resources) the following components in [General Availability](https://docs.cloud.google.com/products#product-launch-stages):
-
-  * Firebase AI Logic
-  * Firebase AI Logic Prompt Template
-  * Firebase App Check
-  * Firebase Authentication
-  * Firebase Multi-Platform App
-  * Firestore Security Rules
-
-
-
-**BigQuery**
-
-Change
-
-An updated version of the [Simba JDBC driver for BigQuery](https://docs.cloud.google.com/bigquery/docs/reference/odbc-jdbc-drivers#current_jdbc_driver) is now available.
-
-**Cloud SQL for MySQL**
-
-Feature
-
-Cloud SQL supports Workforce Identity Federation authentication. This lets you authenticate to your Cloud SQL instance using identities from an external identity provider such as Microsoft Active Directory or Okta. For more information, see [Workforce Identity Federation authentication](https://docs.cloud.google.com/sql/docs/mysql/workforce-authentication).
-
-**Cloud SQL for PostgreSQL**
-
-Feature
-
-Cloud SQL supports Workforce Identity Federation authentication. This lets you authenticate to your Cloud SQL instance using identities from an external identity provider such as Microsoft Active Directory or Okta. For more information, see [Workforce Identity Federation authentication](https://docs.cloud.google.com/sql/docs/postgres/workforce-authentication).
-
 **Confidential VM**
 
 Feature
 
 Support for Intel TDX on [`c3-standard-*-lssd` machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone) is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
-
-**Cortex Framework**
-
-Announcement
-
-### Release 7.0.6
-
-Fixed
-
-  * Added support for logical SAP table remapping in SAP Data Foundation.
-  * Added `custom/` directory scaffolding across all developer skills for local extensions.
-
-
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: Gemini 3.8 Flash available in Global, US, and EU regions**
-
-Gemini 3.8 Flash is generally available (GA) in the `global`, `us`, and `eu` regions.
-
-For more information, see:
-
-  * [Manage features on the web app](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features)
-  * [Data residency for Gemini Enterprise Standard and Plus Editions and Gemini Notebook Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations)
-
-
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Gemini 3.8 Flash is generally available**
-
-[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) is now generally available (GA) and available for production use.
-
-For more information on 3.8 Flash, see the [model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash).
-
-Feature
-
-**Provisioned Throughput support for Gemini Omni**
-
-Provisioned Throughput supports Gemini Omni. To learn more, see [supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models).
-
-Fixed
-
-**CodeMender updates (v0.6.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Machine-readable metrics** : Added the `--json` flag to `cm stats` to export aggregate and per-session metrics (`CACHE_HIT%`, `THINK_RATIO%`, `TOOL_CALLS`, `DURATION`).
-  * **Session drill-down** : Added `cm stats --session <id>` to inspect turn-by-turn token consumption for specific sessions.
-  * **Bug fixes** : 
-    * Improved codebase search reliability by skipping binary archives and non-regular files during traversal.
-    * Fixed an issue where `cm report import` failed on native JSON reports or findings referencing new files.
-    * Fixed an issue where preview mode could create empty directories on disk before user confirmation.
-    * Prevented erroneous verification verdicts when workspace reset fails.
-
-
-
-For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
-
-Feature
-
-**Deferred tier for autonomous agent scheduling (Preview)**
-
-The _deferred tier_ is available in Preview. The deferred tier automatically queues non-latency-sensitive background agent workloads and schedules them to execute during off-peak hours.
-
-Key capabilities and benefits include:
-
-  * **50% token discount** : Receive a 50% discount on consumed tokens for deferred workloads.
-  * **Reduced rate limiting** : Mitigate resource exhaustion (429) errors and infrastructure pressure during long-running background tasks.
-  * **Supported agents** : 
-    * **Deep Research Agent** : Pass `service_tier="deferred"` in the Python SDK or `"service_tier": "deferred"` in REST API interaction requests.
-
-
-
-For more information, see [Autonomous agent scheduling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling).
 
 **Google Kubernetes Engine**
 
@@ -19489,62 +20013,6 @@ Change
       * 1.36 to [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
 
 
-
-**Managed Service for Apache Airflow**
-
-Announcement
-
-A new Managed Service for Apache Airflow release has started on **September 02, 2026**. Get ready for upcoming changes and features as we roll out the new release to all regions. This release is in progress at the moment. Listed changes and features might not be available in some regions yet.
-
-Feature
-
-Managed Airflow (Gen 3) environments now provide Out-of-Memory (OOM) event logs to help troubleshoot and diagnose memory exhaustion.
-
-Change
-
-Improved Airflow task resilience against transient Kubernetes pod connection issues.
-
-Change
-
-Improved Airflow web server update process during environment upgrade operations.
-
-Change
-
-New [Airflow builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3) are available in Managed Airflow (Gen 3):
-
-  * [composer-3-airflow-3.3.1-build.2](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-2)
-  * [composer-3-airflow-3.2.2-build.6](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-6)
-  * [composer-3-airflow-2.11.1-build.19](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-19) (default)
-  * [composer-3-airflow-2.10.5-build.52](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-10-5-build-52)
-
-
-
-Change
-
-New [images](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-2) are available in Managed Airflow (Gen 2):
-
-  * [composer-2.17.13-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-13-airflow-2-11-1) (default)
-  * [composer-2.17.13-airflow-2.10.5](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-13-airflow-2-10-5)
-
-
-
-**Model Armor**
-
-Feature
-
-Filter version `v3` will be promoted to the `Stable` alias on or before September 25, 2026. On the same date, filter versions `v1` and `v2` transition to `Legacy` status and retire on November 29, 2026.
-
-If your templates use the `Stable` alias, they will automatically upgrade to `v3` when it is promoted. If your templates use explicit version numbers (`v1` or `v2`), migrate them to `v3` or the `Stable` alias before November 29, 2026.
-
-For more information, see [Set the filter version for a template](https://docs.cloud.google.com/model-armor/set-filter-version#release-timeline).
-
-**Spanner**
-
-Feature
-
-Spanner supports using the `TABLESAMPLE` operator in PostgreSQL-dialect databases to select a random sample of a dataset.
-
-For more information, see [`TABLESAMPLE` operator](https://docs.cloud.google.com/spanner/docs/reference/postgresql/query-syntax#tablesample_operator).
 
 Send feedback 
 

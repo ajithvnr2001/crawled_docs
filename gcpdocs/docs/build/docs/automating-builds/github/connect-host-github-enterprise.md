@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/automating-builds/github/connect-host-github-enterprise/
 title: Connect to a GitHub Enterprise host \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:49.848283+00:00
+fetched_at: 2026-11-02T05:42:40.010976+00:00
 ---
 
 # Connect to a GitHub Enterprise host  |  Cloud Build  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ To create connections using `gcloud` installation steps, grant the Secret Manage
     
     
           PN=$(gcloud projects describe ${PROJECT_ID} --format="value(projectNumber)")
-          CLOUD_BUILD_SERVICE_AGENT="service-${PN}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+          CLOUD_BUILD_SERVICE_AGENT="service-${PN}@gcpiam.gserviceaccount.com-sa-cloudbuild."
            gcloud projects add-iam-policy-binding ${PROJECT_ID} \
              --member="serviceAccount:${CLOUD_BUILD_SERVICE_AGENT}" \
              --role="roles/secretmanager.admin"
@@ -250,7 +250,7 @@ In the following example, the code snippet does the following:
         }
         
         // create Secrets and grant permissions to the Service Agent
-        resource "google_secret_manager_secret" "private-key-secret" {
+        resource "google_secret_manager_secret" "private-key-secret&quot; {
             project = "PROJECT_ID"
             secret_id = "PRIVATE_KEY_SECRET"
         
@@ -264,7 +264,7 @@ In the following example, the code snippet does the following:
             secret_data = file("private-key.pem")
         }
         
-        resource "google_secret_manager_secret" "webhook-secret-secret" {
+        resource &quot;google_secret_manager_secret" &quot;webhook-secret-secret" {
             project = "PROJECT_ID"
             secret_id = "WEBHOOK_SECRET"
         
@@ -278,10 +278,10 @@ In the following example, the code snippet does the following:
             secret_data = "WEBHOOK_SECRET_VALUE"
         }
         
-        data "google_iam_policy" "serviceagent-secretAccessor" {
+        data "google_iam_policy" ";serviceagent-secreiam.gserviceaccount.comtAccessor" {
             binding {
                 role = "roles/secretmanager.secretAccessor"
-                members = ["serviceAccount:service-PROJECT_NUMBER@gcp-sa-cloudbuild.iam.gserviceaccount.com"]
+                members = ["serviceAccount:service-PROJECT_NUMBER@gcp-sa-cloudbuild."]
             }
         }
         
@@ -304,7 +304,7 @@ In the following example, the code snippet does the following:
             name = "CONNECTION_NAME"
         
             github_enterprise_config {
-                host_uri = "URI"
+                host_uri = &quot;URI"
                 private_key_secret_version = google_secret_manager_secret_version.private-key-secret-version.id
                 webhook_secret_secret_version = google_secret_manager_secret_version.webhook-secret-secret-version.id
                 app_id = "APP_ID"
@@ -355,12 +355,12 @@ Where:
   2. Grant access to the Cloud Build Service Agent to access your secrets:
          
          PROJECT_NUMBER=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
-         CLOUD_BUILD_SERVICE_AGENT="service-$PROJECT_NUMBER@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+         CLOUD_BUILD_SERVICE_AGENT="service-$PROJECT_NUMBER@gcpiam.gserviceaccount.com-sa-cloudbuild."
          gcloud secrets add-iam-policy-binding mygheapp-webhook-secret \
            --member="serviceAccount:$CLOUD_BUILD_SERVICE_AGENT" \
            --role="roles/secretmanager.secretAccessor"
          gcloud secrets add-iam-policy-binding mygheapp-private-key \
-           --member="serviceAccount:$CLOUD_BUILD_SERVICE_AGENT" \
+           --member="serviceAccount:$CLOUD_BUILD_SERVICE_AGENT"; \
            --role="roles/secretmanager.secretAccessor"
          
 

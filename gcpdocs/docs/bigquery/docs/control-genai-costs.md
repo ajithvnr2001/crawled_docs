@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-genai-costs/
 title: Control costs with token quotas \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:51.510515+00:00
+fetched_at: 2026-11-02T05:42:56.729675+00:00
 ---
 
 # Control costs with token quotas  |  BigQuery  |  Google Cloud Documentation
@@ -57,9 +57,45 @@ These quotas are tracked in increments of millions of tokens. While you can set 
 
 Cached tokens don't count towards the quotas.
 
+## Before you begin
+
+If you use the Google Cloud CLI, the Cloud Quotas API client libraries, or Terraform to manage token quotas programmatically, enable the Cloud Quotas API (`cloudquotas.googleapis.com`) on your Google Cloud project:
+    
+    
+    gcloud services enable cloudquotas.googleapis.com --project=PROJECT_ID
+    
+
+Replace `PROJECT_ID` with your Google Cloud project ID.
+
+### Required roles
+
+To get the permissions that you need to view and update token quotas, ask your administrator to grant you the [Cloud Quotas Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudquotas#cloudquotas.admin) (`roles/cloudquotas.admin`) IAM role on your project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+This predefined role contains the permissions required to view and update token quotas. To see the exact permissions that are required, expand the **Required permissions** section: 
+
+#### Required permissions
+
+The following permissions are required to view and update token quotas:
+
+  * `cloudquotas.quotas.get`
+  * `cloudquotas.quotas.update`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
 ## Manage quotas
 
-Depending on your resource usage, you might want to view or adjust your token quota values up or down. You can use the Google Cloud console to perform these tasks:
+Depending on your resource usage, you might want to view or adjust your token quota values up or down:
+
+  * If your workloads require more capacity than the default limit provides, you can [request a quota increase](https://docs.cloud.google.com/docs/quotas/view-manage#requesting_higher_quota).
+  * If you want to place a stricter limit on your usage to prevent budget overruns, you can [create a quota override](https://docs.cloud.google.com/docs/quotas/view-manage#create_override) to cap your usage.
+
+
+
+To view and update your daily token quotas, select one of the following options:
+
+###  Console 
 
   1. In the Google Cloud console, go to the **IAM & Admin > Quotas & System Limits** page.
 
@@ -67,15 +103,251 @@ Depending on your resource usage, you might want to view or adjust your token qu
 
   2. Filter the quotas by entering `Service: BigQuery API`.
 
-  3. Search for a specific quota from the list of quotas (for example, search for `GenAiInputTokensPerDay`).
+  3. Search for a specific quota from the list of quotas (for example, search for `AI input tokens per day` or `GenAiInputTokensPerDay`).
 
   4. Click **Edit**.
 
-  5. Increase or decrease the quota in the **Quota changes** pane by entering a new value.
+  5. To increase or decrease the quota, in the **Quota changes** pane, enter a new value.
 
-     * If your workloads require more capacity than the default limit provides, you can [request a quota increase](https://docs.cloud.google.com/docs/quotas/view-manage#requesting_higher_quota).
-     * If you want to place a stricter limit on your usage to prevent budget overruns, you can [create a quota override](https://docs.cloud.google.com/docs/quotas/view-manage#create_override) to cap your usage.
   6. Click **Submit request**.
+
+
+
+
+###  gcloud 
+
+When you manage token quotas with the gcloud CLI, specify `bigquery.googleapis.com` as the service name and use the following case-sensitive quota IDs:
+
+  * **AI input tokens per day** : `GenAiInputTokensPerDay`
+  * **AI input tokens per day per user** : `GenAiInputTokensPerUserPerDay`
+  * **AI output tokens per day** : `GenAiOutputTokensPerDay`
+  * **AI output tokens per day per user** : `GenAiOutputTokensPerUserPerDay`
+
+
+  1. Optional: To list the BigQuery generative AI token quotas and their current values, use [`gcloud quotas info list`](https://docs.cloud.google.com/sdk/gcloud/reference/quotas/info/list):
+         
+         gcloud quotas info list \
+             --service=bigquery.googleapis.com \
+             --project=PROJECT_ID \
+             --filter="quotaId:GenAi*"
+         
+
+  2. To create or update quota preferences for your daily token limits, use [`gcloud quotas preferences update`](https://docs.cloud.google.com/sdk/gcloud/reference/quotas/preferences/update). The following example checks whether a quota preference already exists for each quota (for example, if it was previously modified in the Google Cloud console) and updates or creates the preference:
+         
+         PROJECT_ID="PROJECT_ID"
+         
+         for ITEM in \
+           "GenAiInputTokensPerDay:INPUT_TOKEN_LIMIT" \
+           "GenAiOutputTokensPerDay:OUTPUT_TOKEN_LIMIT"; do
+           QUOTA_ID="${ITEM%:*}"
+           NEW_LIMIT="${ITEM#*:}"
+         
+           PREF_ID=$(gcloud quotas preferences list \
+             --project="${PROJECT_ID}" \
+             --filter="quotaId:${QUOTA_ID}" \
+             --format="value(name.basename())")
+           PREF_ID="${PREF_ID:-custom-${QUOTA_ID}}"
+         
+           gcloud quotas preferences update "${PREF_ID}" \
+             --project="${PROJECT_ID}" \
+             --service=bigquery.googleapis.com \
+             --quota-id="${QUOTA_ID}" \
+             --preferred-value="${NEW_LIMIT}" \
+             --allow-high-percentage-quota-decrease \
+             --allow-missing
+         done
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: your Google Cloud project ID.
+     * `INPUT_TOKEN_LIMIT`: your target daily input token limit (for example, `754000000`).
+     * `OUTPUT_TOKEN_LIMIT`: your target daily output token limit (for example, `8000000`).
+
+You can also include the following optional flags with `gcloud quotas preferences update`:
+
+     * `--allow-quota-decrease-below-usage`: allows lowering a quota limit below your current usage for the day.
+     * `--email`: specifies a contact email address, which is required when requesting a quota increase above the default limit.
+     * `--justification`: provides a reason for the quota adjustment.
+  3. To verify the status of your quota preferences, use [`gcloud quotas preferences list`](https://docs.cloud.google.com/sdk/gcloud/reference/quotas/preferences/list):
+         
+         gcloud quotas preferences list \
+             --project=PROJECT_ID \
+             --filter="quotaId:GenAiInputTokensPerDay OR quotaId:GenAiOutputTokensPerDay"
+         
+
+When `reconciling` is `false`, the value in `grantedValue` is actively enforced.
+
+
+
+
+###  Python 
+
+When you manage token quotas with the Cloud Quotas client library for Python, specify `bigquery.googleapis.com` as the service name and use the following case-sensitive quota IDs:
+
+  * **AI input tokens per day** : `GenAiInputTokensPerDay`
+  * **AI input tokens per day per user** : `GenAiInputTokensPerUserPerDay`
+  * **AI output tokens per day** : `GenAiOutputTokensPerDay`
+  * **AI output tokens per day per user** : `GenAiOutputTokensPerUserPerDay`
+
+
+  1. Install the Cloud Quotas client library for Python:
+         
+         pip install --user google-cloud-quotas
+         
+
+  2. To check for existing quota preference resources and create or update your daily token limits, run the following Python script:
+         
+         from google.cloud import [cloudquotas_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest)
+         
+         PROJECT_ID = "PROJECT_ID"
+         QUOTA_LIMITS = {
+             "GenAiInputTokensPerDay": INPUT_TOKEN_LIMIT,
+             "GenAiOutputTokensPerDay": OUTPUT_TOKEN_LIMIT,
+         }
+         
+         # Initialize the client with quota_project_id (required by the Cloud Quotas API).
+         client = [cloudquotas_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest).[CloudQuotasClient](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.services.cloud_quotas.CloudQuotasClient.html)(
+             client_options={"quota_project_id": PROJECT_ID}
+         )
+         parent = f"projects/{PROJECT_ID}/locations/global"
+         
+         for quota_id, new_limit in QUOTA_LIMITS.items():
+             # Check for an existing preference ID, or fall back to a default name.
+             list_request = [cloudquotas_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest).[ListQuotaPreferencesRequest](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.types.ListQuotaPreferencesRequest.html)(
+                 parent=parent,
+                 filter=f"quotaId:{quota_id}",
+             )
+             prefs = list(client.[list_quota_preferences](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.services.cloud_quotas.CloudQuotasClient.html#google_cloud_cloudquotas_v1_services_cloud_quotas_CloudQuotasClient_list_quota_preferences)(request=list_request))
+             pref_name = (
+                 prefs[0].name
+                 if prefs
+                 else f"{parent}/quotaPreferences/custom-{quota_id}"
+             )
+         
+             # Update the existing preference or create it if missing (allow_missing=True).
+             update_request = [cloudquotas_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest).[UpdateQuotaPreferenceRequest](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.types.UpdateQuotaPreferenceRequest.html)(
+                 quota_preference=[cloudquotas_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest).[QuotaPreference](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.types.QuotaPreference.html)(
+                     name=pref_name,
+                     service="bigquery.googleapis.com",
+                     quota_id=quota_id,
+                     quota_config=[cloudquotas_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest).[QuotaConfig](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.types.QuotaConfig.html)(preferred_value=new_limit),
+                 ),
+                 allow_missing=True,
+                 ignore_safety_checks=[
+                     [cloudquotas_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest).[QuotaSafetyCheck](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.types.QuotaSafetyCheck.html).QUOTA_DECREASE_PERCENTAGE_TOO_HIGH
+                 ],
+             )
+             response = client.[update_quota_preference](https://docs.cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest/google.cloud.cloudquotas_v1.services.cloud_quotas.CloudQuotasClient.html#google_cloud_cloudquotas_v1_services_cloud_quotas_CloudQuotasClient_update_quota_preference)(request=update_request)
+             print(f"Quota ID: {quota_id}")
+             print(f"Preference Name: {response.name}")
+             print(f"Preferred Value: {response.quota_config.preferred_value}")
+             print(f"Granted Value: {response.quota_config.granted_value}")
+             print(f"Reconciling: {response.reconciling}\n")
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: your Google Cloud project ID.
+     * `INPUT_TOKEN_LIMIT`: your target daily input token limit as an integer (for example, `754000000`).
+     * `OUTPUT_TOKEN_LIMIT`: your target daily output token limit as an integer (for example, `8000000`).
+
+
+
+###  Terraform 
+
+When you manage token quotas with Terraform, specify `bigquery.googleapis.com` as the service name and use the following case-sensitive quota IDs:
+
+  * **AI input tokens per day** : `GenAiInputTokensPerDay`
+  * **AI input tokens per day per user** : `GenAiInputTokensPerUserPerDay`
+  * **AI output tokens per day** : `GenAiOutputTokensPerDay`
+  * **AI output tokens per day per user** : `GenAiOutputTokensPerUserPerDay`
+
+
+  1. Check whether quota preferences already exist on your project. Cloud Quotas allows only one preference resource per quota on a project. If a quota was previously modified in the Google Cloud console or another tool, you must use its existing preference ID:
+         
+         gcloud quotas preferences list \
+             --project=PROJECT_ID \
+             --filter="quotaId:GenAiInputTokensPerDay OR quotaId:GenAiOutputTokensPerDay" \
+             --format="table(quotaId, name.basename():label=PREFERENCE_ID, quotaConfig.preferredValue)"
+         
+
+  2. To configure your daily token limits in your Terraform configuration (for example, `main.tf`), use the [`google_cloud_quotas_quota_preference`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_quotas_quota_preference) resource:
+         
+         terraform {
+           required_providers {
+             google = {
+               source  = "hashicorp/google"
+               version = ">= 5.30.0"
+             }
+           }
+         }
+         
+         locals {
+           project_id = "PROJECT_ID"
+         
+           # If you previously modified a quota in the console or another
+           # tool, replace `name` with the existing PREFERENCE_ID from
+           # `gcloud quotas preferences list` and uncomment the `import` block.
+           bq_genai_quotas = {
+             GenAiInputTokensPerDay = {
+               name            = "custom-GenAiInputTokensPerDay"
+               preferred_value = "INPUT_TOKEN_LIMIT" # Default: 200,000,000,000
+             }
+             GenAiOutputTokensPerDay = {
+               name            = "custom-GenAiOutputTokensPerDay"
+               preferred_value = "OUTPUT_TOKEN_LIMIT" # Default: 20,000,000,000
+             }
+           }
+         }
+         
+         # If quota preferences already exist on your project, uncomment this `import`
+         # block so that Terraform imports the existing preferences instead of
+         # attempting to create duplicates.
+         #
+         # import {
+         #   for_each = local.bq_genai_quotas
+         #   to       = google_cloud_quotas_quota_preference.bq_genai[each.key]
+         #   id       = "projects/${local.project_id}/locations/global/quotaPreferences/${each.value.name}"
+         # }
+         
+         resource "google_cloud_quotas_quota_preference" "bq_genai" {
+           for_each      = local.bq_genai_quotas
+           parent        = "projects/${local.project_id}"
+           name          = each.value.name
+           service       = "bigquery.googleapis.com"
+           quota_id      = each.key
+           justification = "Managing BigQuery GenAI daily token budget"
+         
+           # Allows decreases greater than 10% when setting a stricter cost cap.
+           ignore_safety_checks = "QUOTA_DECREASE_PERCENTAGE_TOO_HIGH"
+         
+           quota_config {
+             preferred_value = each.value.preferred_value
+           }
+         }
+         
+         output "quota_status" {
+           value = {
+             for k, v in google_cloud_quotas_quota_preference.bq_genai : k => {
+               preferred_value = v.quota_config[0].preferred_value
+               granted_value   = v.quota_config[0].granted_value
+               reconciling     = v.reconciling
+             }
+           }
+         }
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: your Google Cloud project ID.
+     * `INPUT_TOKEN_LIMIT`: your target daily input token limit (for example, `754000000`).
+     * `OUTPUT_TOKEN_LIMIT`: your target daily output token limit (for example, `8000000`).
+  3. Initialize and apply your Terraform configuration:
+         
+         terraform init
+         terraform apply
+         
 
 
 
@@ -96,6 +368,10 @@ BigQuery monitors your token consumption at multiple stages of query execution:
 
   * **Global quotas:** The defined quotas are global. Token usage is aggregated across all regions where your project operates, providing a unified cost control mechanism. This prevents unexpected charges from usage in different regions.
   * **Provisioned throughput:** If you are using Gemini Enterprise Agent Platform models with provisioned throughput, billing is not based on token usage. You should set these BigQuery token quotas to a high value to avoid unnecessarily blocking your queries.
+  * **Quota reduction safety check:** By default, the Cloud Quotas API blocks any programmatic update that reduces an effective quota limit by more than 10% at once. Because the default token limits are in the hundreds of billions, setting a stricter daily cap typically exceeds a 10% reduction and fails with a `QUOTA_DECREASE_PERCENTAGE_TOO_HIGH` error unless you override this safety check: 
+    * **gcloud CLI** : include the `--allow-high-percentage-quota-decrease` flag.
+    * **Python client library** : pass `ignore_safety_checks=[cloudquotas_v1.QuotaSafetyCheck.QUOTA_DECREASE_PERCENTAGE_TOO_HIGH]`.
+    * **Terraform** : set `ignore_safety_checks = "QUOTA_DECREASE_PERCENTAGE_TOO_HIGH"`.
 
 
 
@@ -110,6 +386,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-custom-vllm/
 title: Deploy open models with a custom vLLM container \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:57.768810+00:00
+fetched_at: 2026-11-02T05:40:03.887017+00:00
 ---
 
 # Deploy open models with a custom vLLM container  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -62,8 +62,8 @@ vLLM downloads the models from Hugging Face if a Hugging Face access token is pr
          
          PROJECT_ID = "PROJECT_ID"
          LOCATION = "LOCATION"
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
          
          
          gcloud config set project {PROJECT_ID}

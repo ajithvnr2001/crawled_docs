@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/get-user-information/
 title: Get SFTP user information \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:24.033908+00:00
+fetched_at: 2026-11-02T05:42:06.530253+00:00
 ---
 
 # Get SFTP user information  |  Google Cloud Documentation
@@ -154,21 +154,21 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
             // Initialize request argument(s)
             string parent = "projects/[PROJECT]/locations/[LOCATION]/servers/[SERVER]";
             // Make the request
-            PagedAsync<EnumerableListUsersResp>onse, User response = cloud[FtpClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.CloudFtpClient.html#Google_Cloud_Ftp_V1_CloudFtpClient_ListUsersAsync_Google_Cloud_Ftp_V1_ListUsersRequest_Google_Api_Gax_Grpc_CallSettings_).ListUsersAsync(parent);
+            PagedAsyncEnumerable<ListUsersResponse, User> response = cloudFtpClient.[ListUsersAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.CloudFtpClient.html#Google_Cloud_Ftp_V1_CloudFtpClient_ListUsersAsync_Google_Cloud_Ftp_V1_ListUsersRequest_Google_Api_Gax_Grpc_CallSettings_)(parent);
     
             // Iterate over all response items, lazily performing RPCs as required
-            await[ for](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html)each (User item in response)
+            await foreach ([User](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html) item in response)
             {
                 // Do something with each item
                 Console.WriteLine(item);
             }
     
             // Or iterate over pages (of server-defined size), performing one RPC per page
-            await[ foreach (ListUse](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.ListUsersResponse.html)rsResponse page in response.AsRawResponses())
+            await foreach ([ListUsersResponse](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.ListUsersResponse.html) page in response.AsRawResponses())
             {
                 // Do something with each page of items
                 Console.WriteLine("A page of results:");
-     [    ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html)       foreach (User item in page)
+                foreach ([User](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html) item in page)
                 {
                     // Do something with each item
                     Console.WriteLine(item);
@@ -176,11 +176,11 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
             }
     
             // Or retrieve a single page of known size (unless it's the final page), performing as many RPCs as required
-            int pag<eSiz>e = 10;
-            PageUser singlePage = await response.ReadPageAsync(pageSize);
+            int pageSize = 10;
+            Page<User> singlePage = await response.ReadPageAsync(pageSize);
             // Do something with the page of items
-            Console.WriteLine($"A page of {pageSize} results (unless it's the [fina](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html)l page):");
-            foreach (User item in singlePage)
+            Console.WriteLine($"A page of {pageSize} results (unless it's the final page):");
+            foreach ([User](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html) item in singlePage)
             {
                 // Do something with each item
                 Console.WriteLine(item);
@@ -215,14 +215,14 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     	// It will require modifications to work:
     	// - It may require correct/in-range values for request initialization.
     	// - It may require specifying regional endpoints when creating the service client as shown in:
-    	//   https://pkg.go.dev/cloud.google.c[om/go#hdr-Client_Opti](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_NewCloudFtpRESTClient)ons
-    	c, err := ftp.NewCloudFtpRESTClient(ctx)
-    	if err != nil[ {
-    		](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_Close)// TODO: Han&dle error.
+    	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+    	c, err := ftp.[NewCloudFtpRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_NewCloudFtpRESTClient)(ctx)
+    	if err != nil {
+    		// TODO: Handle error.
     	}
-    	defer c.Close()
+    	defer c.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_Close)()
     
-    	req := ftppb.ListUsersRequest{
+    	req := &ftppb.ListUsersRequest{
     		// TODO: Fill request struct fields.
     		// See https://pkg.go.dev/cloud.google.com/go/ftp/apiv1/ftppb#ListUsersRequest.
     	}
@@ -280,12 +280,12 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
                   .setPageSize(883849137)
                   .setPageToken("pageToken873572522")
                   .setFilter("filter-1274492040")
-                  .setOrd[erBy](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.UserView.html)(&quot;orderBy-1207110587")
-                  .setView(Us<erVi>ew.forNumber(0))
-            [      ](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html#com_google_cloud_ftp_v1_CloudFtpClient_listUsersPagedCallable__).build();
-          ApiFutureUser future = cloudFtpClient.listUsersPagedCallab[le](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.User.html)().futureCall(request);
+                  .setOrderBy("orderBy-1207110587")
+                  .setView([UserView](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.UserView.html).forNumber(0))
+                  .build();
+          ApiFuture<User> future = cloudFtpClient.[listUsersPagedCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html#com_google_cloud_ftp_v1_CloudFtpClient_listUsersPagedCallable__)().futureCall(request);
           // Do something.
-          for (User element : future.get().iterateAll()) {
+          for ([User](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.User.html) element : future.get().iterateAll()) {
             // doThingsWith(element);
           }
         }
@@ -333,10 +333,10 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     // const view = {}
     
     // Imports the Ftp library
-    co[nst](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html) {CloudFtpClient} = require('@google-cloud/ftp').v1;
+    const {CloudFtpClient} = require('[@google-cloud/ftp](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html)').v1;
     
-    // Inst[antiates a cli](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html)ent
-    const ftpClient = new CloudFtpClient();
+    // Instantiates a client
+    const ftpClient = new [CloudFtpClient](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html)();
     
     async function callListUsers() {
       // Construct request
@@ -344,8 +344,8 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
         parent,
       };
     
-      // R[un request](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/ftp/v1.cloudftpclient.html)
-      const iterable = ftpClient.listUsersAsync(request);
+      // Run request
+      const iterable = ftpClient.[listUsersAsync](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/ftp/v1.cloudftpclient.html)(request);
       for await (const response of iterable) {
           console.log(response);
       }
@@ -386,10 +386,10 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
             $response = $cloudFtpClient->listUsers($request);
     
             foreach ($response as $element) {
-                printf('Element data: %s' . PHP_EOL, $>element-serializeToJsonString());
+                printf('Element data: %s' . PHP_EOL, $element->serializeToJsonString());
             }
         } catch (ApiException $ex) {
-            printf('Call failed with message: %s'> . PHP_EOL, $ex-getMessage());
+            printf('Call failed with message: %s' . PHP_EOL, $ex->getMessage());
         }
     }
     
@@ -436,7 +436,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
         )
     
         # Make the request
-        page_result[ = client.](https://docs.cloud.google.com/python/docs/reference/google-cloud-ftp/latest/google.cloud.ftp_v1.services.cloud_ftp.CloudFtpClient.html#google_cloud_ftp_v1_services_cloud_ftp_CloudFtpClient_list_users)list_users(request=request)
+        page_result = client.[list_users](https://docs.cloud.google.com/python/docs/reference/google-cloud-ftp/latest/google.cloud.ftp_v1.services.cloud_ftp.CloudFtpClient.html#google_cloud_ftp_v1_services_cloud_ftp_CloudFtpClient_list_users)(request=request)
     
         # Handle the response
         for response in page_result:
@@ -601,8 +601,8 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
             [CloudFtpClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.CloudFtpClient.html) cloudFtpClient = await [CloudFtpClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.CloudFtpClient.html).[CreateAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.CloudFtpClient.html#Google_Cloud_Ftp_V1_CloudFtpClient_CreateAsync_System_Threading_CancellationToken_)();
             // Initialize request argument(s)
             string name = "projects/[PROJECT]/locations/[LOCATION]/servers/[SERVER]/users/[USER]";
-            // Make the reques[t](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html)
-            User response = await cloud[FtpClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.CloudFtpClient.html#Google_Cloud_Ftp_V1_CloudFtpClient_GetUserAsync_Google_Cloud_Ftp_V1_GetUserRequest_Google_Api_Gax_Grpc_CallSettings_).GetUserAsync(name);
+            // Make the request
+            [User](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.User.html) response = await cloudFtpClient.[GetUserAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Ftp.V1/latest/Google.Cloud.Ftp.V1.CloudFtpClient.html#Google_Cloud_Ftp_V1_CloudFtpClient_GetUserAsync_Google_Cloud_Ftp_V1_GetUserRequest_Google_Api_Gax_Grpc_CallSettings_)(name);
         }
     }
 
@@ -630,14 +630,14 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     	// It will require modifications to work:
     	// - It may require correct/in-range values for request initialization.
     	// - It may require specifying regional endpoints when creating the service client as shown in:
-    	//   https://pkg.go.dev/cloud.google.com/go#hdr-[Client_Options](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_NewCloudFtpRESTClient)
-    	c, err := ftp.NewCloudFtpRESTClient(ctx)
+    	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+    	c, err := ftp.[NewCloudFtpRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_NewCloudFtpRESTClient)(ctx)
     	if err != nil {
-    		// TO[DO: H](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_Close)andle error.&
+    		// TODO: Handle error.
     	}
-    	defer c.Close()
+    	defer c.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/ftp/latest/apiv1.html#cloud_google_com_go_ftp_apiv1_CloudFtpClient_Close)()
     
-    	req := ftppb.GetUserRequest{
+    	req := &ftppb.GetUserRequest{
     		// TODO: Fill request struct fields.
     		// See https://pkg.go.dev/cloud.google.com/go/ftp/apiv1/ftppb#GetUserRequest.
     	}
@@ -679,12 +679,12 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
         try ([CloudFtpClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html) cloudFtpClient = [CloudFtpClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html).create()) {
           [GetUserRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.GetUserRequest.html) request =
               [GetUserRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.GetUserRequest.html).newBuilder()
-                  .setName([UserName](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.UserName.html).of("[PROJECT]", "[LOCATION]", "[SERVER]", "[USER]&qu[ot;](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.UserView.html)).toString())
-                  .setView(UserView.forNumber(0))<
-       >           .build();
-        [  ](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html#com_google_cloud_ftp_v1_CloudFtpClient_getUserCallable__)ApiFutureUser future = cloudFtpClient.getUserCallable().futureCall[(req](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.User.html)uest);
+                  .setName([UserName](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.UserName.html).of("[PROJECT]", "[LOCATION]", "[SERVER]", "[USER]").toString())
+                  .setView([UserView](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.UserView.html).forNumber(0))
+                  .build();
+          ApiFuture<User> future = cloudFtpClient.[getUserCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html#com_google_cloud_ftp_v1_CloudFtpClient_getUserCallable__)().futureCall(request);
           // Do something.
-          User response = future.get();
+          [User](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.User.html) response = future.get();
         }
       }
     }
@@ -712,10 +712,10 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     // const view = {}
     
     // Imports the Ftp library
-    const {CloudFtpClient} = r[equire](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html)('@google-cloud/ftp').v1;
+    const {CloudFtpClient} = require('[@google-cloud/ftp](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html)').v1;
     
     // Instantiates a client
-    const [ftpClient = ne](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html)w CloudFtpClient();
+    const ftpClient = new [CloudFtpClient](https://docs.cloud.google.com/nodejs/docs/reference/ftp/latest/overview.html)();
     
     async function callGetUser() {
       // Construct request
@@ -761,9 +761,9 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
         try {
             /** @var User $response */
             $response = $cloudFtpClient->getUser($request);
-            printf('Response data: %s' . PHP_EOL, $r>esponse-serializeToJsonString());
+            printf('Response data: %s' . PHP_EOL, $response->serializeToJsonString());
         } catch (ApiException $ex) {
-            printf('Call failed with message: %s'> . PHP_EOL, $ex-getMessage());
+            printf('Call failed with message: %s' . PHP_EOL, $ex->getMessage());
         }
     }
     
@@ -810,7 +810,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
         )
     
         # Make the request
-        response[ = clien](https://docs.cloud.google.com/python/docs/reference/google-cloud-ftp/latest/google.cloud.ftp_v1.services.cloud_ftp.CloudFtpClient.html#google_cloud_ftp_v1_services_cloud_ftp_CloudFtpClient_get_user)t.get_user(request=request)
+        response = client.[get_user](https://docs.cloud.google.com/python/docs/reference/google-cloud-ftp/latest/google.cloud.ftp_v1.services.cloud_ftp.CloudFtpClient.html#google_cloud_ftp_v1_services_cloud_ftp_CloudFtpClient_get_user)(request=request)
     
         # Handle the response
         print(response)

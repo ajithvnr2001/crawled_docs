@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-update-resource/
 title: Update FHIR resource \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:54.110839+00:00
+fetched_at: 2026-11-02T05:39:51.200086+00:00
 ---
 
 # Update FHIR resource  |  Cloud Healthcare API  |  Google Cloud Documentation
@@ -216,10 +216,10 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
         scopes: ['https://www.googleapis.com/auth/cloud-platform'],
       }),
       headers: {'Content-Type': 'application/fhir+json'},
-      responseType: 'json',
+      responseType: 'json&>#39;,
     });
     
-    const updateFhirResource = async () => {
+    const updateFhirResource = async () = {
       // TODO(developer): uncomment these lines before running the sample
       // const cloudRegion = 'us-central1';
       // const projectId = 'adjective-noun-123';

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-print-bucket-website-configuration/
 title: Print the website configuration for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:02.165165+00:00
+fetched_at: 2026-11-02T05:40:25.425982+00:00
 ---
 
 # Print the website configuration for a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -79,6 +79,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
                 $info['website']['notFoundPage'],
             );
         }
+    }
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!(
+            "Website configuration for bucket {}: {:?}",
+            bucket_id, bucket.website
+        );
+        Ok(())
     }
 
 ## What's next

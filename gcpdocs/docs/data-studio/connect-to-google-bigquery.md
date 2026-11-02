@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/connect-to-google-bigquery/
 title: Connect to Google BigQuery \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:19.468049+00:00
+fetched_at: 2026-11-02T05:40:30.339156+00:00
 ---
 
 # Connect to Google BigQuery  |  Data Studio  |  Google Cloud Documentation

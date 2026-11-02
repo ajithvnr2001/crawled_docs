@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-upload-encrypted-file/
 title: Upload an object by using CSEK \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:48.250640+00:00
+fetched_at: 2026-11-02T05:40:34.547714+00:00
 ---
 
 # Upload an object by using CSEK  |  Cloud Storage  |  Google Cloud Documentation
@@ -386,6 +386,28 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Uploaded #{file.name} with encryption key"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::Storage;
+    use google_cloud_storage::model_ext::KeyAes256;
+    
+    pub async fn sample(
+        client: &Storage,
+        bucket: &str,
+        object: &str,
+        encryption_key: KeyAes256,
+    ) -> Result<(), anyhow::Error> {
+        let _result = client
+            .write_object(format!("projects/_/buckets/{bucket}"), object, "top secret")
+            .set_key(encryption_key.clone())
+            .send_unbuffered()
+            .await?;
+    
+        println!("Uploaded to {object} in bucket {bucket} with key={encryption_key}.",);
+        Ok(())
+    }
 
 ## What's next
 

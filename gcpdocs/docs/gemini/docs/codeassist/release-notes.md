@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/release-notes/
 title: Gemini Code Assist release notes \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:16.093664+00:00
+fetched_at: 2026-11-02T05:40:15.463474+00:00
 ---
 
 # Gemini Code Assist release notes  |  Gemini for Google Cloud  |  Google Cloud Documentation
@@ -26,6 +26,16 @@ This page documents production updates to Gemini Code Assist. Check this page fo
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gemini-codeassist-release-notes.xml) directly. 
+
+## October 29, 2026
+
+**VS Code Gemini Code Assist 2.107.0**
+
+Other
+
+### Bug fixes in VS Code
+
+Various bug fixes and minor product enhancements.
 
 ## October 13, 2026
 

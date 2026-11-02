@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/apihub/curations/
 title: Curations overview \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:57.022609+00:00
+fetched_at: 2026-11-02T05:40:18.820331+00:00
 ---
 
 # Curations overview  |  Apigee  |  Google Cloud Documentation
@@ -34,9 +34,13 @@ API hub offers two types of curation to cater to different levels of data transf
 Default curation
     
 
-Default curation is the basic level of curation offered in API hub and is auto-selected during the plugin instance creation process. Its primary function is to identify and merge duplicate APIs based on their display name. When plugin instances contain APIs with the same display name from multiple sources, the default curation logic consolidates them into a single API entity within API hub. 
+Default curation is the basic level of curation offered in API hub and is auto-selected during the plugin instance creation process. Its primary function is to identify and merge duplicate APIs based on their `fingerprint`. The default curation logic merges APIs with the same fingerprint into a single entity in API hub. 
 
-For example, consider a plugin instance that is attached to two Apigee projects: `project-alpha (production)` and `project-beta (development)`. If both projects have an API named `Orders`, the default curation process recognizes these as the same API based on their display name. API hub then creates a single `Orders` API with two deployments, one associated with `project-alpha` and the other with `project-beta`. 
+For APIs ingested by a plugin, API hub populates the `fingerprint` field automatically. If the plugin doesn't set a fingerprint, API hub derives it by converting the API's display name to lowercase and replacing spaces with hyphens. For example, if an API has the display name `Products-API`, API hub assigns it the fingerprint `products-api`. 
+
+For example, consider a plugin instance that is attached to two Apigee projects: `project-alpha (production)` and `project-beta (development)`. If both projects have an API named `Orders`, both APIs receive the same `fingerprint` (`orders`) and default curation recognizes them as the same API. API hub then creates a single `Orders` API with two deployments, one associated with `project-alpha` and the other with `project-beta`. 
+
+Default curation applies only to APIs created by plugins. When you create an API manually, the `fingerprint` field isn't automatically set. Therefore, default curation doesn't merge a manually created API with a plugin-ingested API that has the same display name. Instead, two separate API entries appear in API hub. 
 
 You can override the default curation behavior of a plugin instance by creating and attaching a custom curation logic. 
 
@@ -71,6 +75,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

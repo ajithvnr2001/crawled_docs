@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/code/docs/intellij/set-up-sample-repo/
 title: Manage custom sample repositories in Cloud Code for IntelliJ \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:26.094421+00:00
+fetched_at: 2026-11-02T05:42:31.710486+00:00
 ---
 
 # Manage custom sample repositories in Cloud Code for IntelliJ  |  Google Cloud Documentation
@@ -125,7 +125,7 @@ version  | The version of the sample schema to use. The only valid version is `1
     
     
     {
-       "version":"1"
+       "version&quot;:"1"
     }
     
 

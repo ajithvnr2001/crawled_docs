@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-enable-bucket-lifecycle-management/
 title: Enable lifecycle management for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:41.091758+00:00
+fetched_at: 2026-11-02T05:40:25.702594+00:00
 ---
 
 # Enable lifecycle management for a bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -349,6 +349,39 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       puts "Lifecycle management is enabled for bucket #{bucket_name} and the rules are #{rules}"
     end
+
+### Rust
+    
+    
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::bucket::Lifecycle;
+    use google_cloud_storage::model::bucket::lifecycle::{
+        Rule,
+        rule::{Action, Condition},
+    };
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(client: &StorageControl, bucket_id: &str) -> anyhow::Result<()> {
+        let bucket = client
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        let metageneration = bucket.metageneration;
+        let rule = Rule::new()
+            .set_action(Action::new().set_type("Delete"))
+            .set_condition(Condition::new().set_age_days(30));
+        let lifecycle = Lifecycle::new().set_rule(vec![rule]);
+        let bucket = client
+            .update_bucket()
+            .set_bucket(bucket.set_lifecycle(lifecycle))
+            .set_if_metageneration_match(metageneration)
+            .set_update_mask(FieldMask::default().set_paths(["lifecycle"]))
+            .send()
+            .await?;
+        println!("Lifecycle management enabled for bucket {bucket_id}: {bucket:?}");
+        Ok(())
+    }
 
 ## What's next
 

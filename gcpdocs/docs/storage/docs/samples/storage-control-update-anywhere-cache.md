@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-update-anywhere-cache/
 title: Storage Control Update Anywhere Cache \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:42.536845+00:00
+fetched_at: 2026-11-02T05:40:37.168247+00:00
 ---
 
 # Storage Control Update Anywhere Cache  |  Google Cloud Documentation
@@ -189,7 +189,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         name: name,
         ttl: ttl_in_seconds
       )
-      mask = Google::Protobuf::[FieldMask](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-vision_ai-v1/latest/Google-Protobuf-FieldMask.html).new paths: ["ttl"]
+      mask = Google::Protobuf::[FieldMask](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-container_analysis-v1/latest/Google-Protobuf-FieldMask.html).new paths: ["ttl"]
       # Create a request.
       request = Google::Cloud::Storage::Control::V2::UpdateAnywhereCacheRequest.new(
         anywhere_cache: anywhere_cache,
@@ -221,6 +221,36 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         puts "Failed to update AnywhereCache. Error: #{e.message}"
       end
     end
+
+### Rust
+    
+    
+    use google_cloud_lro::Poller;
+    use google_cloud_storage::client::StorageControl;
+    use google_cloud_storage::model::AnywhereCache;
+    use google_cloud_wkt::FieldMask;
+    
+    pub async fn sample(
+        client: &StorageControl,
+        bucket_id: &str,
+        cache_id: &str,
+    ) -> anyhow::Result<()> {
+        let anywhere_cache = AnywhereCache::new()
+            .set_name(format!(
+                "projects/_/buckets/{}/anywhereCaches/{}",
+                bucket_id, cache_id
+            ))
+            .set_admission_policy("ADMIT_ON_SECOND_MISS".to_string());
+        let operation = client
+            .update_anywhere_cache()
+            .set_anywhere_cache(anywhere_cache)
+            .set_update_mask(FieldMask::default().set_paths(["admission_policy"]))
+            .poller()
+            .until_done()
+            .await?;
+        println!("Updated anywhere cache: {:?}", operation);
+        Ok(())
+    }
 
 ## What's next
 

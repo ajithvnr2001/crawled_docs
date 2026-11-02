@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/investigate-detections-in-search/
 title: Investigate detections in search \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:59.595933+00:00
+fetched_at: 2026-11-02T05:43:06.789946+00:00
 ---
 
 # Investigate detections in search  |  Google Security Operations  |  Google Cloud Documentation
@@ -66,6 +66,8 @@ You must have the standard SecOps Search [permissions and roles](https://docs.cl
 On the **SIEM Search** page, rule detections are natively integrated alongside raw log telemetry and SOAR cases.
 
 When you type any search query (for example, `detection.detection.rule_name != ""` or `target.ip = "10.200.1.50"`) and click **Run Search** , the search engine evaluates your query across both historical UDM events (Events tab) and rule execution outputs (**Alerts & Detections** tab) simultaneously.
+
+**Note:** The **Alerts & Detections** tab is displayed only when you run a search in **Advanced Mode**. In **Basic Mode** , Google SecOps bypasses detection correlation and hides this tab. The search-execution mode feature (**Basic Mode** and **Advanced Mode**) is in Public Preview. For more information, see [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
 
 #### Result tabs and detections scope
 
@@ -274,6 +276,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-01 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 

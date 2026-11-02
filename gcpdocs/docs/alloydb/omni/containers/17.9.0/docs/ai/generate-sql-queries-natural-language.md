@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.9.0/docs/ai/generate-sql-queries-natural-language/
 title: Generate SQL queries using natural language questions \u00a0|\u00a0 AlloyDB Omni using containers: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:42.474270+00:00
+fetched_at: 2026-11-02T05:42:45.182065+00:00
 ---
 
 # Generate SQL queries using natural language questions  |  AlloyDB Omni using containers: 17.9.0  |  Google Cloud Documentation
@@ -760,8 +760,8 @@ To autogenerate concept type associations, follow these steps:
          
          -- To cover a specific relation.
          SELECT alloydb_ai_nl.generate_concept_type_associations(
-           nl_>config = 'my_app_config',
-          > relation_name = &#39;my_app_table'
+           nl_config => 'my_app_config',
+           relation_name => 'my_app_table'
          );
          
 
@@ -777,7 +777,7 @@ To autogenerate concept type associations, follow these steps:
            id => 1,
            column_names => NULL,
            concept_type => 'generic_entity_name',
-           additiona>l_info = NULL
+           additional_info => NULL
          );
          
 
@@ -794,15 +794,15 @@ To autogenerate concept type associations, follow these steps:
          );
          
          -- To apply a specific association by id.
-         SELECT alloydb_ai_nl.apply_generated_concept_type_association>(
-           id = 1
+         SELECT alloydb_ai_nl.apply_generated_concept_type_association(
+           id => 1
          );
          
 
   6. Refresh the value index to reflect the changes.
          
          SELECT alloydb_ai_nl.refresh_value_index(
-           nl_config_id_in => 'my_app_config&#39;
+           nl_config_id_in => 'my_app_config'
          );
          
 
@@ -842,8 +842,8 @@ You can use AlloyDB AI natural language to generate SQL statements from natural 
          SELECT
            alloydb_ai_nl.get_sql(
              'my_app_config', -- nl_config
-             'What is the sum that client number 4''s account has following transaction 851?&#>>39; -- nl question
-           ) - 'sql';
+             'What is the sum that client number 4''s account has following transaction 851?' -- nl question
+           ) ->> 'sql';
          
 
 The `->>` operator is used to extract a JSON value as text. The `alloydb_ai_nl.get_sql` function returns a JSON object, which is the part of the statement that retrieves the value associated with the key `sql`. This value is the generated SQL query.
@@ -861,7 +861,7 @@ To produce a summary of results for a natural language question in your database
     SELECT
       alloydb_ai_nl.get_sql_summary(
         nl_config_id => 'my_app_config',
-        nl_qu>estion = 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?');
+        nl_question => 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?');
     
 
 Calling the preceding statement produces the following example JSON object:
@@ -880,9 +880,9 @@ For example, the application might want to provide the `user_id` parameter for a
     SELECT
       alloydb_ai_nl.get_sql_summary(
         nl_config_id => 'my_app_config',
-        nl_qu>estion = 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?',
-     >   param_names = ARRAY ['user_id&#>39;],
-        param_values = ARRAY ['123']
+        nl_question => 'Give me the total number of accounts and the earliest opening date and other information for accounts who choose issuance after transaction are staying in east Bohemia region?',
+        param_names => ARRAY ['user_id'],
+        param_values => ARRAY ['123']
     );
     
 
