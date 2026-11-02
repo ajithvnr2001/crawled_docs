@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/whats-new/generative-ui-spec-support/
 title: Generative UI Spec Support
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:32:18.884647+00:00
+fetched_at: 2026-11-02T10:52:31.286341+00:00
 ---
 
 # Generative UI Spec Support
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 

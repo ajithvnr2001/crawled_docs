@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/agno/persistence-and-scaling/
 title: Microsoft Teams + Agno: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:32:28.649526+00:00
+fetched_at: 2026-11-02T10:52:25.606771+00:00
 ---
 
 # Microsoft Teams + Agno: Persistence and scaling
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/agno/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/agno/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/agno/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/agno/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/agno/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/agno/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/agno/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/agno/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/agno/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/agno/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/agno/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/agno/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/agno/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/agno/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/agno/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/agno/threads-and-state)
 
 Production
 

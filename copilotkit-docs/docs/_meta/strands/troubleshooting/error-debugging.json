@@ -3,8 +3,5 @@
   "file": "strands/troubleshooting/error-debugging.md",
   "title": "Error Debugging & Observability",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:31:58.470260+00:00",
-  "html_len": 226896,
-  "md_len": 7187,
-  "depth": 0
+  "fetched_at": "2026-11-02T10:52:38.463813+00:00"
 }

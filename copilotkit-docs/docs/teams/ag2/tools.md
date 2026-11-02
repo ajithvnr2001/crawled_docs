@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ag2/tools/
 title: Microsoft Teams + AG2: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:32:25.046471+00:00
+fetched_at: 2026-11-02T10:52:28.559265+00:00
 ---
 
 # Microsoft Teams + AG2: Tools and context
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/ag2/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/ag2/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/ag2/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/ag2/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/ag2/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/ag2/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/ag2/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/ag2/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/ag2/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/ag2/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/ag2/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/ag2/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/ag2/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/ag2/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/ag2/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/ag2/threads-and-state)
 
 Production
 
@@ -110,6 +110,8 @@ Return information the model can act on:
   * Do not manually `JSON.stringify` successful data.
 
 
+
+Want the agent to turn data into an image? Post your own presentational React markup through [Posting JSX as images](https://docs.copilotkit.ai/teams/ag2/posting-jsx-as-images).
 
 ## Add stable context#
 

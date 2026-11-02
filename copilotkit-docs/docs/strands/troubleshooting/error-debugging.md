@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/troubleshooting/error-debugging/
 title: Error Debugging & Observability
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:58.470061+00:00
+fetched_at: 2026-11-02T10:52:38.463434+00:00
 ---
 
 # Error Debugging & Observability
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -189,7 +193,7 @@ Code| Description
 `tool_argument_parse_failed`| Tool call arguments were not valid JSON  
 `tool_handler_failed`| A frontend tool handler threw  
   
-Need to see the full event pipeline: what events your agent emits, whether they reach the client, and where they are dropped? Open the [Inspector](https://docs.copilotkit.ai/strands/troubleshooting/inspector). The launcher turns red, and where there is room a pill names the failure. Click the launcher to land on the pane that shows the agent, the tool if one failed, and the error.
+Need to see the full event pipeline: what events your agent emits, whether they reach the client, and where they are dropped? Open the [Inspector](https://docs.copilotkit.ai/inspector). The launcher turns red, and where there is room a pill names the failure. Click the launcher to land on the pane that shows the agent, the tool if one failed, and the error.
 
 ## Troubleshooting#
 
