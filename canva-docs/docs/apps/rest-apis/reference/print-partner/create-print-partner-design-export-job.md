@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/print-partner/create-print-partner-design-export-job/
 title: Create print partner design export job - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:57.565007+00:00
+fetched_at: 2026-11-02T19:51:34.986818+00:00
 ---
 
 # Create print partner design export job - Canva REST API reference - Canva Developers SDK Documentation
@@ -88,6 +88,14 @@ This API is currently provided as a preview. Be aware of the following:
 This API is only available to Print Partners.
 
 Starts a new [asynchronous job](https://www.canva.dev/docs/apps/rest-apis/requests-responses/#asynchronous-job-endpoints) to export a Print Partner file from Canva. Once the exported file is generated, you can download it using the URL(s) provided. The download URLs are only valid for 24 hours. The request requires the design ID and exports a file as a print-quality PDF.
+
+This endpoint has the following additional rate limits:
+
+  * **Integration throttle:** Each integration can export a maximum of 750 times per 5-minute window, and 5,000 times per 24-hour window.
+  * **Document throttle:** Each document can be exported a maximum of 75 times per 5-minute window.
+  * **User throttle:** Each user can export a maximum of 75 times per 5-minute window, and 500 times per 24-hour window.
+
+
 
 For more information on the workflow for using asynchronous jobs, see [API requests and responses](https://www.canva.dev/docs/apps/rest-apis/requests-responses/#asynchronous-job-endpoints). You can check the status and get the results of export jobs created with this API using the [Get design export job API](https://www.canva.dev/docs/apps/rest-apis/reference/exports/get-design-export-job/).
 

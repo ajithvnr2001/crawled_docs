@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/print-partner/create-print-partner-design/
 title: Create print partner design - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:56.231543+00:00
+fetched_at: 2026-11-02T19:51:32.952528+00:00
 ---
 
 # Create print partner design - Canva REST API reference - Canva Developers SDK Documentation
@@ -156,6 +156,8 @@ Required
 Required
 
 Dimensions of the design. Used to match a product type, or to create a custom-size design if no product matches.
+
+When no matching product is found, the dimensions of each side, converted to pixels, must be between 40 and 8000, and the total area (width × height) must not exceed 25,000,000 pixels squared.
 
 Properties of **dimensions**
 
