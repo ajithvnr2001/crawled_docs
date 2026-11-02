@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/veo/veo-2-0/
-title: Veo 2.0: imagen a video - ComfyUI
+title: Veo 2.0 en ComfyUI: modelo de imagen a video retirado - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:56.363933+00:00
+fetched_at: 2026-11-02T16:54:40.364493+00:00
 ---
 
-# Veo 2.0: imagen a video - ComfyUI
+# Veo 2.0 en ComfyUI: modelo de imagen a video retirado - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/veo/veo-2-0/
 
@@ -13,34 +13,23 @@ fetched_at: 2026-10-26T14:03:56.363933+00:00
 
 Volver arriba
 
-  * Capacidades clave
-  * Flujos de trabajo disponibles
+  * Flujo de trabajo archivado
 
 
 
 Veo
 
-# Veo 2.0: imagen a video
+# Veo 2.0 en ComfyUI: modelo de imagen a video retirado
 
 Copiar páginaCopiar página
 
-Anima imágenes estáticas en clips de video cortos con Veo 2.0 de Google DeepMind en ComfyUI.
+Veo 2.0 era el modelo de video de Google en ComfyUI. El nodo se eliminó y el flujo de trabajo está archivado; usa Veo 3.1 para imagen a video.
 
 Copiar páginaCopiar página
 
-Veo 2.0 es el modelo ligero de imagen a video de Google DeepMind en ComfyUI. Anima imágenes estáticas y las convierte en clips de video cortos, conservando la composición original mientras añade movimiento natural: ideal para dar vida a arte conceptual, imágenes generadas con IA o fotografías.
+**Veo 2.0 está retirado.** ComfyUI eliminó el nodo Veo 2.0 en #15883 y el flujo de trabajo de ejemplo ahora vive en `archived/`, así que ya no se ejecuta en las versiones actuales de ComfyUI. Usa [Veo 3.1](https://docs.comfy.org/es/tutorials/partner-nodes/veo/veo-3-1) en su lugar: el nodo **Google Veo 3 Video Generation** acepta una imagen de referencia opcional y genera video de 720p a 4K con audio nativo.
 
-## 
-
-​
-
-Capacidades clave
-
-  * **Animación de imagen a video** : convierte imágenes estáticas en clips de video cortos y de aspecto natural.
-  * **Conservación de la composición** : mantiene la estructura, los colores y la disposición de la imagen original mientras añade movimiento.
-  * **Generación de movimiento natural** : produce un movimiento realista que respeta el contenido y el estilo de la imagen de origen.
-
-
+Veo 2.0 generaba clips cortos a partir de un prompt de texto y aceptaba una imagen opcional para fijar el primer fotograma. El ejemplo archivado que sigue es la variante de imagen a video, que animaba una sola imagen fija conservando su composición.
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 
@@ -71,15 +60,15 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 ​
 
-Flujos de trabajo disponibles
+Flujo de trabajo archivado
 
-## Abrir en ComfyCloud
+El flujo de trabajo de imagen a video de Veo 2.0 se conserva en el archivo de plantillas de flujos de trabajo como referencia. No se puede usar en las versiones actuales de ComfyUI porque el nodo que utiliza ya no existe.
 
-Inicia el flujo de trabajo I2V de Veo 2.0 en ComfyCloud
+## Flujo de trabajo archivado
 
-## Descargar JSON
+Descarga `api_veo2_i2v.json` del archivo de plantillas de flujos de trabajo.
 
-Descarga el JSON del flujo de trabajo para ComfyUI local
+Para una ruta de imagen a video que funcione, usa [Veo 3.1](https://docs.comfy.org/es/tutorials/partner-nodes/veo/veo-3-1).
 
 ¿Esta página le ayudó?
 

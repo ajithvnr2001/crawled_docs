@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:58.899749+00:00
+fetched_at: 2026-11-02T16:54:40.319727+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -431,7 +431,7 @@ The request exceeded a deadline. Check the error type before retrying.Body: `Rou
 
 `POST /v2/models/{provider}/{model}/estimate`
 
-**Price a model call before running it, without running it.** Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced from the same rate card the run is billed against (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`. **Parameters**
+**Price a model call before running it, without running it.** Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced from the same rate card the run is billed against (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`; a model Router cannot run yet answers the same `403` with the run route’s own `detail`, so read `detail` to tell the two apart. **Parameters**
 
 ​
 

@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/veo/overview/
-title: Video Generation with Google Veo - ComfyUI
+title: Google Veo Video Generation in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.803017+00:00
+fetched_at: 2026-11-02T16:54:39.803512+00:00
 ---
 
-# Video Generation with Google Veo - ComfyUI
+# Google Veo Video Generation in ComfyUI - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/veo/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -18,15 +20,15 @@ fetched_at: 2026-10-25T12:24:50.803017+00:00
 
 Veo
 
-# Video Generation with Google Veo
+# Google Veo Video Generation in ComfyUI
 
 Copy pageCopy page
 
-Generate cinematic, high-resolution videos using Google DeepMind’s Veo models — Veo 3.1 and Veo 2.0 — directly within ComfyUI.
+Generate video with Google DeepMind’s Veo 3.1 in ComfyUI: cinema-grade 4K output with native audio, across Standard, Fast, and Lite tiers.
 
 Copy pageCopy page
 
-Google DeepMind’s **Veo 3.1** and **Veo 2.0** bring state-of-the-art AI video generation to ComfyUI. Veo 3.1 delivers cinema-grade 4K video with native audio, while Veo 2.0 offers fast image-to-video for rapid prototyping — all seamlessly integrated into your ComfyUI pipeline.
+Google DeepMind’s **Veo 3.1** generates video with synchronized native audio through ComfyUI partner nodes, so the render runs on Google’s servers and the output chains straight into ComfyUI’s upscaling, audio, and compositing nodes.
 
 ## 
 
@@ -34,12 +36,11 @@ Google DeepMind’s **Veo 3.1** and **Veo 2.0** bring state-of-the-art AI video 
 
 Key capabilities
 
-  * **Cinema-grade 4K video** — Veo 3.1 generates 4K resolution video with crisp detail, natural lighting, and realistic physics, suitable for professional film and advertising use.
-  * **Native audio sync** — Video output includes synchronized audio, eliminating the need for separate audio generation and manual alignment in post-production.
-  * **Text-to-video (Veo 3.1)** — Generate high-quality video directly from text prompts, with support for detailed scene direction, camera movement, and visual style control.
-  * **Optimized speed tier** — A faster inference variant of Veo 3.1 that trades slight quality for significantly reduced generation time, ideal for iteration and draft production.
-  * **Image-to-video (Veo 2.0)** — Animate static images into short video clips, preserving the original composition while adding natural motion.
-  * **Seamless ComfyUI pipeline** — Full integration allows chaining Veo output with ComfyUI’s existing upscaling, audio, and compositing nodes without file export steps.
+  * **Cinema-grade 4K video** : Veo 3.1 renders up to 4K resolution with natural lighting and realistic motion.
+  * **Native audio sync** : the output video carries synchronized audio, so there is no separate audio pass to align.
+  * **Three speed tiers** : Standard, Fast, and Lite trade quality and latency for cost, which suits both final renders and quick iteration.
+  * **Image guidance** : the text-to-video node accepts an optional reference image, and a dedicated node animates between a first and a last frame.
+  * **Seamless ComfyUI pipeline** : chain Veo output with upscaling, audio, and compositing nodes without exporting files.
 
 
 
@@ -74,15 +75,15 @@ So, if you find any core node missing in this document, it might be because the 
 
 Models
 
-Google Veo offers two model generations in ComfyUI, each optimized for different use cases. Veo 3.1 is the flagship text-to-video model with two speed tiers, while Veo 2.0 provides a lightweight image-to-video option.
+Veo 3.1 is the current model in ComfyUI. Veo 2.0 has been retired: its node was removed in ComfyUI #15883 and its workflow is archived, so that page is kept for reference only.
 
 ## Veo 3.1
 
-Cinema-grade 4K text-to-video with native audio. Standard and Fast tiers available.
+Text-to-video with native audio. Standard, Fast, and Lite tiers.
 
 ## Veo 2.0
 
-Lightweight image-to-video for animating static images.
+Retired image-to-video model, kept for reference.
 
 Was this page helpful?
 

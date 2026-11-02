@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/SaveVideo/
 title: Guardar video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:29.644758+00:00
+fetched_at: 2026-11-02T16:54:39.496149+00:00
 ---
 
 # Guardar video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -37,13 +37,15 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 ---|---|---|---|---  
 `video`| El video a guardar.| VIDEO| Sí| -  
 `prefijo_nombre_archivo`| El prefijo para el archivo a guardar. Puede incluir información de formato como `%date:yyyy-MM-dd%` o `%Empty Latent Image.width%` para incluir valores de los nodos (predeterminado: `video/ComfyUI`).| STRING| Sí| -  
-`formato`| El contenedor de salida. `auto` usa MP4 para `auto`/H.264 y WebM para AV1. MP4, MKV y WebM seleccionan un contenedor específico. Seleccionar un formato también determina qué opciones de códec están disponibles (predeterminado: `auto`).| DYNAMIC_COMBO| Sí| `"auto"`  
+`formato`| El contenedor de salida. `auto` usa MOV para ProRes, WebM para AV1 y MP4 en los demás casos. MP4, MKV, WebM y MOV seleccionan un contenedor específico. Seleccionar un formato también determina qué opciones de códec están disponibles (predeterminado: `auto`).| DYNAMIC_COMBO| Sí| `"auto"`  
 `"mp4"`  
 `"mkv"`  
 `"webm"`  
+`"mov"`  
 `códec`| El códec de video de salida. `auto` conserva un flujo de origen compatible. La recodificación H.264 y AV1 admite SDR, HDR (HLG) y HDR PQ. Este selector está anidado bajo el formato elegido (predeterminado: `auto`).| DYNAMIC_COMBO| No| `"auto"`  
 `"h264"`  
 `"av1"` (no disponible con el formato `webm`)  
+`"prores"` (solo con los formatos `auto`, `mkv` y `mov`)  
   
 ### 
 
@@ -73,7 +75,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 `"re-encode"`  
 `crf`| Los valores más bajos producen mayor calidad y archivos más grandes. Aparece cuando `encoding` es `"re-encode"` (predeterminado: 30.0).| FLOAT| No| 0.0 a 63.0  
   
-Nota: Cuando `format` es `"auto"`, el contenedor guardado se elige automáticamente: `av1` produce WebM, mientras que `auto` y `h264` producen MP4. El formato `webm` solo permite los códecs `auto` y `av1`. Cuando `codec` es `"auto"`, el flujo de video de origen se conserva en lugar de recodificarse. El archivo guardado usa un sufijo de contador para evitar sobrescribir archivos existentes. La extensión del archivo se determina por el contenedor resuelto. Los metadatos del flujo de trabajo (el prompt y la información adicional de los nodos) se incrustan en el archivo guardado a menos que el guardado de metadatos esté deshabilitado al iniciar.
+Nota: Cuando `format` es `"auto"`, el contenedor guardado se elige automáticamente: `av1` produce WebM, `prores` produce MOV, mientras que `auto` y `h264` producen MP4. El formato `webm` solo permite los códecs `auto` y `av1`, y el formato `mov` solo permite `prores`. Cuando `codec` es `"auto"`, el flujo de video de origen se conserva en lugar de recodificarse. El archivo guardado usa un sufijo de contador para evitar sobrescribir archivos existentes. La extensión del archivo se determina por el contenedor resuelto. Los metadatos del flujo de trabajo (el prompt y la información adicional de los nodos) se incrustan en el archivo guardado a menos que el guardado de metadatos esté deshabilitado al iniciar.
 
 ## 
 
@@ -90,7 +92,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `8078f692b5c366447a1b08f351637baff901e489f2389e7a26c945661f75c37a`
+**Source fingerprint (SHA-256):** `b8d3b6191a3e14ee305a7dd848c0988877a0b0ec8963daaff6568092a0939197`
 
 ¿Esta página le ayudó?
 

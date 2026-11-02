@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/CreateVideo/
-title: CreateVideo - ComfyUI Built-in Node Documentation - ComfyUI
+title: Create Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:40:28.471817+00:00
+fetched_at: 2026-11-02T16:54:39.389610+00:00
 ---
 
-# CreateVideo - ComfyUI Built-in Node Documentation - ComfyUI
+# Create Video - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/CreateVideo/
 
 Video
 
-# CreateVideo - ComfyUI Built-in Node Documentation
+# Create Video - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -38,6 +38,10 @@ Parameter| Description| Data Type| Required| Range
 `color_space`| Colorspace of the input images. HDR selects BT.2020/HLG and HDR PQ selects BT.2020/PQ. (default: “sRGB”)| COMBO| No| `"sRGB"`  
 `"HDR"`  
 `"HDR PQ"`  
+`chroma_subsampling`| 444 keeps full color resolution, 422 halves horizontal color resolution, and 420 halves both axes. Auto uses the codec default. Unsupported choices use the closest supported mode and print a console warning. (default: “auto”)| COMBO| No| `"auto"`  
+`"444"`  
+`"422"`  
+`"420"`  
 `codec`| Optionally encode the video immediately. None keeps the images in tensor form; Auto uses H.264. (default: “none”)| COMBO| No| `"none"`  
 Available video codec options from the video codec list (e.g. `"auto"` and other supported codecs)  
   
@@ -57,7 +61,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `9274559caabbafbcaad47883bf017967f9685f155ea1031e66cf22ee8d0d14c3`
+**Source fingerprint (SHA-256):** `614285ac3a38eedb63fd72f8b70f776b441b1b043707f4b21f587f70e2e071fa`
 
 Was this page helpful?
 
@@ -65,26 +69,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/CreateVideo.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/CreateVideo)
 
-[ConcatenateVideo - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/ConcatenateVideo)[FrameInterpolate - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/FrameInterpolate)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Concatenate Video](https://docs.comfy.org/built-in-nodes/ConcatenateVideo)[Run Frame Interpolation Model](https://docs.comfy.org/built-in-nodes/FrameInterpolate)

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/veo/overview/
-title: Generaci\u00f3n de video con Google Veo - ComfyUI
+title: Generaci\u00f3n de video con Google Veo en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:56.609965+00:00
+fetched_at: 2026-11-02T16:54:39.730902+00:00
 ---
 
-# Generación de video con Google Veo - ComfyUI
+# Generación de video con Google Veo en ComfyUI - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/veo/overview/
 
@@ -20,15 +20,15 @@ Volver arriba
 
 Veo
 
-# Generación de video con Google Veo
+# Generación de video con Google Veo en ComfyUI
 
 Copiar páginaCopiar página
 
-Genera videos cinematográficos de alta resolución con los modelos Veo de Google DeepMind, Veo 3.1 y Veo 2.0, directamente en ComfyUI.
+Genera video con Veo 3.1 de Google DeepMind en ComfyUI: salida 4K con audio nativo, en niveles Estándar, Fast y Lite.
 
 Copiar páginaCopiar página
 
-**Veo 3.1** y **Veo 2.0** de Google DeepMind traen la generación de video con IA más avanzada a ComfyUI. Veo 3.1 ofrece video 4K de calidad cinematográfica con audio nativo, mientras que Veo 2.0 ofrece imagen a video rápido para prototipado veloz, todo integrado de forma fluida en tu pipeline de ComfyUI.
+**Veo 3.1** de Google DeepMind genera video con audio nativo sincronizado a través de los nodos asociados de ComfyUI, así que el render se ejecuta en los servidores de Google y la salida se encadena directamente con los nodos de ampliación, audio y composición de ComfyUI.
 
 ## 
 
@@ -36,12 +36,11 @@ Copiar páginaCopiar página
 
 Capacidades clave
 
-  * **Video 4K de calidad cinematográfica** : Veo 3.1 genera video en resolución 4K con detalle nítido, iluminación natural y física realista, apto para uso profesional en cine y publicidad.
-  * **Sincronización de audio nativo** : la salida de video incluye audio sincronizado, lo que elimina la necesidad de generar audio por separado y de alinearlo manualmente en postproducción.
-  * **Texto a video (Veo 3.1)** : genera video de alta calidad directamente a partir de prompts de texto, con soporte para dirección detallada de escena, movimiento de cámara y control del estilo visual.
-  * **Nivel de velocidad optimizado** : una variante de inferencia más rápida de Veo 3.1 que sacrifica un poco de calidad a cambio de un tiempo de generación mucho menor, ideal para iterar y producir borradores.
-  * **Imagen a video (Veo 2.0)** : anima imágenes estáticas y las convierte en clips de video cortos, conservando la composición original y añadiendo movimiento natural.
-  * **Pipeline fluido en ComfyUI** : la integración completa te permite encadenar la salida de Veo con los nodos de ampliación, audio y composición existentes de ComfyUI sin pasos de exportación de archivos.
+  * **Video 4K de calidad cinematográfica** : Veo 3.1 genera hasta resolución 4K con iluminación natural y movimiento realista.
+  * **Sincronización de audio nativo** : el video de salida incluye audio sincronizado, así que no hay que alinear una pasada de audio por separado.
+  * **Tres niveles de velocidad** : Estándar, Fast y Lite intercambian calidad y latencia por costo, lo que sirve tanto para renders finales como para iterar rápido.
+  * **Orientación por imagen** : el nodo de texto a video acepta una imagen de referencia opcional, y un nodo dedicado anima entre un primer y un último fotograma.
+  * **Pipeline fluido en ComfyUI** : encadena la salida de Veo con nodos de ampliación, audio y composición sin exportar archivos.
 
 
 
@@ -76,15 +75,15 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Modelos
 
-Google Veo ofrece dos generaciones de modelos en ComfyUI, cada una optimizada para casos de uso diferentes. Veo 3.1 es el modelo insignia de texto a video con dos niveles de velocidad, mientras que Veo 2.0 ofrece una opción ligera de imagen a video.
+Veo 3.1 es el modelo actual en ComfyUI. Veo 2.0 se retiró: su nodo se eliminó en ComfyUI #15883 y su flujo de trabajo está archivado, así que esa página se conserva solo como referencia.
 
 ## Veo 3.1
 
-Texto a video 4K de calidad cinematográfica con audio nativo. Niveles Estándar y Fast disponibles.
+Texto a video con audio nativo. Niveles Estándar, Fast y Lite.
 
 ## Veo 2.0
 
-Imagen a video ligero para animar imágenes estáticas.
+Modelo de imagen a video retirado, conservado como referencia.
 
 ¿Esta página le ayudó?
 

@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/IdeogramPreciseEditApi/",
   "file": "built-in-nodes/IdeogramPreciseEditApi.md",
-  "title": "IdeogramPreciseEditApi - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Ideogram 4.5 Precise Edit - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:48:06.146618+00:00",
-  "html_len": 635352,
-  "md_len": 5024,
-  "depth": 0
+  "fetched_at": "2026-11-02T16:54:39.355241+00:00"
 }

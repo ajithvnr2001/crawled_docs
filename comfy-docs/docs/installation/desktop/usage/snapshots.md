@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/usage/snapshots/
 title: Comfy Desktop Snapshots - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:58.598076+00:00
+fetched_at: 2026-11-02T16:54:40.016998+00:00
 ---
 
 # Comfy Desktop Snapshots - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:58.598076+00:00
 > Source: https://docs.comfy.org/installation/desktop/usage/snapshots/
 
 ## On this page
+
+Back to top
 
   * Accessing Snapshots
   * Snapshots Tab Overview
@@ -35,9 +37,9 @@ Copy pageCopy page
 
 A snapshot records your instance’s current state, including:
 
-  * **ComfyUI version** ：which build of ComfyUI is installed
-  * **Custom nodes** ：every custom node with its version or commit hash
-  * **pip packages** ：all Python packages installed in the environment
+  * **ComfyUI version** : which build of ComfyUI is installed
+  * **Custom nodes** : every custom node with its version or commit hash
+  * **pip packages** : all Python packages installed in the environment
 
 Snapshots serve as restore points: roll back after a broken update, clone an installation, or share a working configuration with a teammate. Comfy Desktop automatically creates snapshots on key events: every boot, restart, before/after an update, and after a restore. You can also manually create snapshots at any time (up to 200 auto-snapshots per install).
 
@@ -90,8 +92,8 @@ View Snapshot Details
 
 Click any row to expand it. A collapsed row already shows how the snapshot was created, when it was taken, the ComfyUI version, and pills summarizing how many nodes and packages were added, removed, or changed against the previous snapshot. The newest snapshot also carries a **Latest** badge. The expanded view shows the snapshot’s total node and package counts, its label if it has one, and two collapsible diffs:
 
-  * **What changed in this snapshot** ：Compares this snapshot with the one right before it. Hidden for the oldest snapshot in the timeline.
-  * **What restoring this would change** ：Compares this snapshot with the instance’s current state. Hidden for the newest snapshot in the timeline.
+  * **What changed in this snapshot** : Compares this snapshot with the one right before it. Hidden for the oldest snapshot in the timeline.
+  * **What restoring this would change** : Compares this snapshot with the instance’s current state. Hidden for the newest snapshot in the timeline.
 
 The **Restore** , **Export** , and **Delete** buttons for that snapshot also live in this expanded view. The newest snapshot in the timeline has no **Restore** button.
 
@@ -102,17 +104,17 @@ The **Restore** , **Export** , and **Delete** buttons for that snapshot also liv
 Restore from a Snapshot
 
   1. In the Snapshots tab, find the snapshot you want to restore.
-  2. Click **Restore** ：a preview shows the diff (what will change).
-  3. Review the changes and click **Confirm** to begin the restore process.
+  2. Click **Restore** : a preview shows the diff (what will change).
+  3. Review the changes and click **Restore** in the confirmation dialog to start.
 
-During restoration, Comfy Desktop will:
+Restoring needs the instance stopped. If ComfyUI is running when you start the restore, the dialog says the instance will be stopped first. Comfy Desktop stops it, waits for it to exit, runs the restore, and starts it again when the restore succeeds. During restoration, Comfy Desktop will:
 
   1. **Check out the recorded ComfyUI version** (Git commit)
   2. **Install missing custom nodes** , switch versions, and enable/disable nodes as needed
   3. **Restore pip packages** : install missing packages, upgrade/downgrade to the recorded version, and remove extras
   4. **Run post-install scripts** for any newly installed or version-switched custom nodes
 
-The process can be cancelled at any time. If cancelled or if a package install fails, the system automatically rolls back to the pre-restore state using a built-in backup. After a successful restore, Comfy Desktop automatically creates a `post-restore` snapshot so you can undo the restoration if needed.
+Comfy Desktop restores the custom nodes first, because installing a node can pull in Python packages, and then syncs the Python packages. Before the sync it backs up the packages it is going to overwrite or remove. A cancel or a package install failure after that point puts those packages back and returns ComfyUI to the commit it was on before the restore. If a package could not be put back, the restore reports that instead of claiming a clean revert. A cancel during the node step rolls the commit back but leaves the node folders it already installed, and any packages they added, in place. When the environment already matches the snapshot, the restore reports **No changes needed** and leaves the environment as it is. Custom nodes are best effort. A node that fails to install or switch does not stop the rest of the restore: the restore finishes with the failures listed, and the timeline entry it writes carries the **Restore did not complete** label next to its **Restored** tag. Fix or remove the node, then restore again. The card at the top of the timeline reports how the last restore ended: **Snapshot restored** or **Restore failed**. Cancelling a restore closes the card without a result. A successful restore also adds a new entry tagged **Restored** , which records the state the restore produced.
 
 ### 
 
@@ -169,26 +171,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/usage/snapshots.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/usage/snapshots)
 
-[Workspaces and ComfyUI Builds in Comfy DesktopPrevious](https://docs.comfy.org/installation/desktop/usage/workspaces-and-builds)[Model Downloads in Comfy DesktopNext](https://docs.comfy.org/installation/desktop/usage/downloads)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Workspaces & Builds](https://docs.comfy.org/installation/desktop/usage/workspaces-and-builds)[Downloads](https://docs.comfy.org/installation/desktop/usage/downloads)

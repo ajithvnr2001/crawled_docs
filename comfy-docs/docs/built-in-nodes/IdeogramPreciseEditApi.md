@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/IdeogramPreciseEditApi/
-title: IdeogramPreciseEditApi - ComfyUI Built-in Node Documentation - ComfyUI
+title: Ideogram 4.5 Precise Edit - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:48:06.146211+00:00
+fetched_at: 2026-11-02T16:54:39.354591+00:00
 ---
 
-# IdeogramPreciseEditApi - ComfyUI Built-in Node Documentation - ComfyUI
+# Ideogram 4.5 Precise Edit - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/IdeogramPreciseEditApi/
 
 Ideogram
 
-# IdeogramPreciseEditApi - ComfyUI Built-in Node Documentation
+# Ideogram 4.5 Precise Edit - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -19,7 +19,7 @@ Edit an image guided by a text prompt with Ideogram 4.5 precise editing: only wh
 
 Copy pageCopy page
 
-Edit an image guided by a text prompt with Ideogram 4.5 precise editing: only what the prompt asks for changes, untouched pixels stay identical, and the output keeps the size of image 1. Image 1 is the image to edit and up to 4 further images can be connected as references.
+Edit an image guided by a text prompt with Ideogram 4.5 precise editing: only what the prompt asks for changes, untouched pixels stay identical, and the output keeps the size of image 1. Image 1 is the image to edit and up to 4 further images can be connected as references. A single region of image 1 can also be edited on its own, selected by a mask or by bounding boxes, which returns the image at full size.
 
 ## 
 
@@ -30,13 +30,18 @@ Inputs
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
 `model`| Model to use. (default: `"ideogram-4.5"`)| DYNAMIC_COMBO| Yes| `"ideogram-4.5"`  
-`images`| Growable slot: image 1 is the image to edit and images 2 to 5 are optional references (`image_1` … `image_5`). Refer to them in the prompt as @Image1, @Image2, …; a batched input counts once per image. Each image must have an aspect ratio between 1:6 and 6:1.| IMAGE| Yes| 1 to 5 images  
+`images`| Growable slot: image 1 is the image to edit and images 2 to 5 are optional references (`image_1` … `image_5`). Refer to them in the prompt as @Image1, @Image2, …; a batched input counts once per image. Each image must have an aspect ratio between 1:6 and 6:1, except that image 1 is not aspect-checked while a context window is in use.| IMAGE| Yes| 1 to 5 images  
 `prompt`| Editing instructions. Supports @Image1-style references to the connected images. (default: empty string)| STRING| Yes| 1 to 10000 characters  
 `quality`| Quality tier. Higher tiers cost more and take longer. (default: `"medium"`)| COMBO| Yes| `"very_low"`  
 `"low"`  
 `"medium"`  
 `"high"`  
 `seed`| Seed for generation. The same images, prompt, settings and seed give the same result. (default: 42)| INT| Yes| 0 to 2147483647  
+`context_window`| Region of image 1 to edit. `"none"` edits the whole image. `"auto"` edits a region around `context_window_mask` and `"custom"` the region from `context_window_bboxes`; both keep image 1 at full size and leave the rest of the image unchanged. (default: `"none"`)| COMBO| No| `"none"`  
+`"auto"`  
+`"custom"`  
+`context_window_bboxes`| Region of image 1 to edit, for example the output of Create Bounding Boxes. Required when `context_window` is `"custom"`; not used otherwise. Several boxes are merged into one region, which is grown to at least 256 pixels per side and an aspect ratio of 6:1. The region can be up to 4608 pixels per side and about 4 MP (e.g. 2048x2048).| BOUNDING_BOX| No| -  
+`context_window_mask`| White marks what to edit; the edit region is placed around it. Required when `context_window` is `"auto"`; not used otherwise. The mask must contain both white (edit) and black (keep) areas.| MASK| No| -  
   
 ### 
 
@@ -44,11 +49,13 @@ Parameter| Description| Data Type| Required| Range
 
 Parameter Constraints
 
-  * **Image count:** at least 1 and at most 5 images; a batched input counts once per image. Image 1 is the image to edit and images 2 to 5 are references.
-  * **Output size:** the result keeps the size of image 1, so this node has no size, width or height inputs.
-  * **Image aspect ratio:** every image must be no wider than 6x its height and no taller than 6x its width (between 1:6 and 6:1).
+  * **Image count:** at least 1 and at most 5 images; a batched input counts once per image. Image 1 is the image to edit and images 2 to 5 are references. With `context_window_mask` at most 4 images are accepted, that is image 1 and 3 references.
+  * **Output size:** the result keeps the size of image 1, so this node has no size, width or height inputs. That also holds when a region is edited, where the full image comes back with only the region changed.
+  * **Image aspect ratio:** every image must be no wider than 6x its height and no taller than 6x its width (between 1:6 and 6:1). Image 1 is exempt while `context_window` is `"auto"` or `"custom"`, because only its selected region is sent.
+  * **Region source size:** with a context window in use, image 1 may be up to 8192x8192 pixels (about 67 MP); larger sources raise an error. Without a context window, images larger than about 4 MP or 4608 px on the long side are scaled down before they are sent.
+  * **Region limits:** a region from `context_window_bboxes` can be up to 4608 pixels per side and about 4 MP; boxes that lie entirely outside image 1 raise an error.
   * **Prompt tags:** `@ImageN` is matched case-insensitively and must not exceed the number of connected images; the prompt must be non-whitespace and at most 10000 characters.
-  * **Upload scaling:** images larger than about 4 MP, or larger than 4608 px on the long side, are scaled down before they are sent.
+  * **Upload limit:** image 1, the mask and the references together must fit in Ideogram’s 50 MB upload; image 1 is re-encoded as JPEG when needed and the node raises an error if it still does not fit.
   * **Content safety:** if Ideogram’s content safety filter blocks the result, the node raises an error instead of returning an image.
 
 
@@ -67,7 +74,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `74ba429ac93e4528e44c864ccfd3928f6c42108cfcc83577c8963a099a66f527`
+**Source fingerprint (SHA-256):** `84f042739a8d7bc1a4b268f6175be6a598b67d32b9311fdf204a923472f5fcc9`
 
 Was this page helpful?
 
@@ -75,26 +82,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/IdeogramPreciseEditApi.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/IdeogramPreciseEditApi)
 
-[IdeogramPImage - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/IdeogramPImage)[IdeogramTextToImageApi - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/IdeogramTextToImageApi)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Ideogram & Pruna P-Image](https://docs.comfy.org/built-in-nodes/IdeogramPImage)[Ideogram 4.5 Text to Image](https://docs.comfy.org/built-in-nodes/IdeogramTextToImageApi)

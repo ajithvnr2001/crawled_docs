@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-4-5/
 title: Ideogram 4.5 en ComfyUI: texto a imagen y edici\u00f3n - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:50.679680+00:00
+fetched_at: 2026-11-02T16:54:40.069549+00:00
 ---
 
 # Ideogram 4.5 en ComfyUI: texto a imagen y edición - ComfyUI
@@ -16,6 +16,7 @@ Volver arriba
   * Texto a imagen
   * Editar imagen
   * Edición precisa
+    * Editar una sola región
 
 
 
@@ -123,7 +124,7 @@ Puedes conectar hasta cinco imágenes en total. Las entradas de más de unos 4 M
 
 Edición precisa
 
-Cambia solo lo que pida el prompt. Los píxeles sin tocar permanecen idénticos y la salida conserva el tamaño de `image_1`. Acepta hasta cuatro imágenes de referencia además de la imagen que se edita. ![Vista previa del flujo de trabajo de edición precisa de Ideogram 4.5](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_precise_image_edit-1.webp)
+Cambia solo lo que pida el prompt. Los píxeles sin tocar permanecen idénticos. Acepta hasta cuatro imágenes de referencia además de la imagen que se edita. ![Vista previa del flujo de trabajo de edición precisa de Ideogram 4.5](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_precise_image_edit-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -139,7 +140,23 @@ Descarga el JSON o busca “Ideogram 4.5: Precise Edit” en la Biblioteca de pl
 
 Carga en la ranura `image_1` del nodo Ideogram 4.5 Precise Edit
 
-La edición precisa comparte las ranuras de referencia, el direccionamiento `@Image1` y los controles `quality` y `seed` con el modo Edit. No tiene control de tamaño, porque la salida siempre coincide con el tamaño de `image_1`. La plantilla también genera su instrucción con el nodo **Build JSON Prompt**. Úsala para recolorear productos, cambiar materiales y hacer retoques que deban conservar la iluminación, el fondo y el encuadre del resto de la foto.
+La edición precisa comparte las ranuras de referencia, el direccionamiento `@Image1` y los controles `quality` y `seed` con el modo Edit. No tiene control de tamaño. Con una región, la salida conserva el tamaño de `image_1`. Sin región (`context_window` en el valor predeterminado `none`), las fuentes de más de unos 4 MP se reducen primero, así que la salida puede ser más pequeña. La plantilla también genera su instrucción con el nodo **Build JSON Prompt**.
+
+### 
+
+​
+
+Editar una sola región
+
+Sin región, el nodo vuelve a generar todo `image_1` y reduce primero cualquier imagen de más de unos 4 MP (2048x2048). Ajusta `context_window` para editar una sola región: solo esa región se regenera y la salida conserva el tamaño original de `image_1`, desde una fuente de hasta 8192x8192 píxeles. Fuera de la región, los píxeles se copian sin cambios mientras `image_1` se envía como PNG. Si el PNG supera el límite de subida y `image_1` se convierte a JPEG, los píxeles fuera de la región pueden cambiar ligeramente.
+
+`context_window`| Entrada adicional| Región que se edita  
+---|---|---  
+`none` (predeterminado)| ninguna| Toda la imagen, reducida por encima de unos 4 MP  
+`auto`| `context_window_mask`| Se ajusta alrededor del área blanca de la máscara  
+`custom`| `context_window_bboxes`| Un rectángulo envolvente alrededor de todos los cuadros conectados (el espacio entre cuadros separados se incluye y puede editarse), por ejemplo desde el nodo **Create Bounding Boxes**  
+  
+La región puede medir de 256 a 4608 píxeles por lado, hasta unos 4 MP y como máximo 6:1. Las regiones o cuadros de menos de 256 píxeles por lado se amplían a 256. Con `auto`, mantén la región de `context_window_mask` dentro de esos mismos límites de lado, área y proporción. Un área blanca más grande no se rechaza: Ideogram puede volver a una edición de toda la imagen, y una imagen grande puede reducirse. Solo la región debe cumplir los límites, así que `image_1` puede tener cualquier proporción y, con `context_window_mask`, puedes conectar tres imágenes de referencia en lugar de cuatro. Úsala para recolorear productos, cambiar materiales y hacer retoques que deban conservar la iluminación, el fondo y el encuadre del resto de la foto.
 
 ¿Esta página le ayudó?
 

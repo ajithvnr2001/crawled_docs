@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/moss-image/moss-image/
-title: MOSS-Image en ComfyUI: flujos de trabajo de texto a imagen y de dise\u00f1o guiado - ComfyUI
+title: MOSS-Image en ComfyUI: texto a imagen, edici\u00f3n y flujos de dise\u00f1o - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.546116+00:00
+fetched_at: 2026-11-02T16:54:34.682289+00:00
 ---
 
-# MOSS-Image en ComfyUI: flujos de trabajo de texto a imagen y de diseño guiado - ComfyUI
+# MOSS-Image en ComfyUI: texto a imagen, edición y flujos de diseño - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/moss-image/moss-image/
 
@@ -15,28 +15,34 @@ Volver arriba
 
   * Acerca de MOSS-Image
   * Flujos de trabajo de MOSS-Image
-    * MOSS-Image: Text to Image
+    * MOSS-Image: Texto a imagen
     * Empezar
-    * MOSS-Image Base: Text to Image
+    * MOSS-Image Base: Texto a imagen
     * Empezar
-    * MOSS-Image: Layout-Guided Text to Image
+    * MOSS-Image: texto a imagen guiado por diseño
     * Empezar
-    * MOSS-Image Base: Layout-Guided Text to Image
+    * MOSS-Image Base: texto a imagen guiado por diseño
     * Empezar
+    * MOSS-Image: edición de imágenes
+    * Empezar
+    * Consejos para editar
+    * MOSS-Image: control de color y profundidad
+    * Empezar
+    * Consejos sobre el control
   * Descargas de modelos de MOSS-Image
   * Consejos para escribir prompts
   * Superar los 2 MP
-  * Imágenes de referencia y el mejorador de prompts
+  * Imágenes de referencia y el potenciador de prompt
 
 
 
 MOSS-Image
 
-# MOSS-Image en ComfyUI: flujos de trabajo de texto a imagen y de diseño guiado
+# MOSS-Image en ComfyUI: texto a imagen, edición y flujos de diseño
 
 Copiar páginaCopiar página
 
-Ejecuta MOSS-Image en ComfyUI: modelo de texto a imagen de 5B con mejora de prompt y generación guiada por diseño desde cuadros delimitadores.
+Ejecuta MOSS-Image en ComfyUI: modelo de imagen de 5B con mejora de prompt, cajas de diseño, LoRA de edición y control de profundidad desde una foto.
 
 Copiar páginaCopiar página
 
@@ -52,7 +58,7 @@ MOSS-Image es el modelo texto a imagen de pesos abiertos de OpenMOSS: un DiT de 
   * Orientación de composición nativa: dibuja cajas, dale un texto a cada caja y las cajas de texto renderizan su propio texto
   * Mejorador de prompts integrado en las plantillas de Texto a imagen, para que baste con una idea de una línea
   * Dos checkpoints: SFT para composiciones más limpias, Base para ajuste fino y trabajo con LoRA
-  * Prompts largos de aproximadamente 4K tokens y cualquier relación de aspecto en múltiplos de 16
+  * Prompts largos de aproximadamente 4K tokens y tamaños de lienzo con ancho y alto múltiplos de 16
 
 **Licencia** : [Apache 2.0](https://github.com/OpenMOSS/MOSS-Image) **Enlaces relacionados:**
 
@@ -60,7 +66,7 @@ MOSS-Image es el modelo texto a imagen de pesos abiertos de OpenMOSS: un DiT de 
   * [Guía del modelo (USERGUIDE)](https://github.com/OpenMOSS/MOSS-Image/blob/main/USERGUIDE.md)
   * [Hugging Face (Comfy-Org)](https://huggingface.co/Comfy-Org/MOSS-Image)
 
-**Requisito de versión** : Las plantillas de MOSS-Image necesitan ComfyUI 0.42.0 o posterior.
+**Requisito de versión** : las cuatro plantillas de Texto a imagen necesitan ComfyUI 0.42.0 o posterior. Las plantillas de edición de imagen y de control de color/profundidad necesitan 0.43.0 o posterior.
 
   * Usuarios locales
 
@@ -91,19 +97,19 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Flujos de trabajo de MOSS-Image
 
-Las cuatro plantillas ejecutan el mismo subgrafo. Ábrelo para acceder a los cargadores, el sampler y el tamaño del lienzo.
+Las cuatro plantillas de texto a imagen ejecutan el mismo subgraph. Ábrelo para acceder a los cargadores, al sampler y al tamaño del lienzo. Las plantillas de edición y de color/profundidad usan sus propios grafos, que se describen en sus secciones más abajo.
 
-## Aprende sobre Subgraph
+## Acerca de Subgraph
 
-Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y ampliar el flujo de trabajo.
+Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y extender el flujo de trabajo.
 
 ### 
 
 ​
 
-MOSS-Image: Text to Image
+MOSS-Image: Texto a imagen
 
-Genera una imagen solo a partir de un prompt, sin archivos de entrada. El potenciador de prompts está activado, así que una descripción breve se amplía a un caption completo antes de llegar al modelo. El caption que realmente se usa aparece en `Preview Any`. ![Vista previa del flujo de trabajo MOSS-Image de texto a imagen](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_t2i-1.webp)
+Genera una imagen solo con un prompt, sin archivos de entrada. El potenciador de prompt está activado, así que una descripción breve se amplía hasta un texto descriptivo completo antes de llegar al modelo. El texto que se usa realmente se muestra en `Preview Any`. ![Vista previa del flujo de trabajo MOSS-Image de texto a imagen](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_t2i-1.webp)
 
 ## Descargar flujo de trabajo
 
@@ -116,9 +122,9 @@ Descarga el JSON o busca “MOSS-Image: Text to Image” en la Biblioteca de pla
 Empezar
 
   1. Actualiza ComfyUI a la versión 0.42.0 o posterior
-  2. Ve a **Template** y busca **MOSS-Image**
+  2. Ve a **Plantillas** y busca **MOSS-Image**
   3. Selecciona **MOSS-Image: Text to Image**
-  4. Descarga los modelos que se indican en descargas de modelos
+  4. Descarga los modelos que aparecen en descargas de modelos
   5. Escribe tu idea en el prompt positivo y haz clic en **Queue**
 
 
@@ -127,15 +133,15 @@ Empezar
 
 ​
 
-MOSS-Image Base: Text to Image
+MOSS-Image Base: Texto a imagen
 
-El mismo gráfico con el checkpoint Base cargado. Úsalo para comparar la salida en bruto con el checkpoint SFT, o como punto de partida para el entrenamiento de LoRA. ![Vista previa del flujo de trabajo de texto a imagen de MOSS-Image Base](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_base_t2i-1.webp)
+El mismo gráfico con el checkpoint Base cargado. Úsalo para comparar la salida sin ajuste contra el checkpoint SFT, o como punto de partida para el entrenamiento de LoRA. ![Vista previa del flujo de trabajo MOSS-Image Base texto a imagen](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_base_t2i-1.webp)
 
 ## Descargar flujo de trabajo
 
 Descarga el JSON o busca “MOSS-Image Base: Text to Image” en la Biblioteca de plantillas
 
-**Salida de ejemplo** ![Ejemplo de salida de texto a imagen de MOSS-Image Base](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_moss_image_t2i_base.png)
+**Salida de ejemplo** ![Salida de ejemplo de MOSS-Image Base texto a imagen](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_moss_image_t2i_base.png)
 
 #### 
 
@@ -143,10 +149,10 @@ Descarga el JSON o busca “MOSS-Image Base: Text to Image” en la Biblioteca d
 
 Empezar
 
-  1. Actualiza ComfyUI a 0.42.0 o posterior
+  1. Actualizar ComfyUI a 0.42.0 o más tarde
   2. Ve a **Template** y busca **MOSS-Image Base**
   3. Selecciona **MOSS-Image Base: Text to Image**
-  4. Descarga los modelos que aparecen en descargas de modelos, incluido `moss_image_base_int8_convrot.safetensors`
+  4. Descarga los modelos listados en descargas de modelos, incluido `moss_image_base_int8_convrot.safetensors`
   5. Escribe tu idea en el prompt positivo y haz clic en **Queue**
 
 
@@ -155,43 +161,15 @@ Empezar
 
 ​
 
-MOSS-Image: Layout-Guided Text to Image
+MOSS-Image: texto a imagen guiado por diseño
 
-Genera una imagen a partir de un prompt y un diseño que dibujes tú. Abre `Create Bounding Boxes` y arrastra una caja para cada elemento; cada caja lleva su propio texto descriptivo, y las cajas marcadas como texto muestran ese texto dentro de ellas. `MOSS-Image Layout Prompt` convierte las cajas en el prompt de diseño que lee el modelo, así que se usan tanto el texto de la caja como el prompt de tu escena. Dibuja primero la caja del fondo y deja para el final los elementos en primer plano: las cajas se emiten en el orden en que las dibujas. Cada caja se etiqueta como `text` si la marcas como texto y, si no, como `object`. Para etiquetar como personaje una caja que contiene una persona, anota su número del panel de vista previa de `Create Bounding Boxes` en `character_boxes` del nodo `MOSS-Image Layout Prompt`, por ejemplo `1, 3`. Los números que apuntan a una caja de texto no tienen efecto. Las dos plantillas de layout traen este campo ya relleno (`2` en SFT y `1` en Base), así que compruébalo con tus propias cajas antes de encolar. Con al menos una caja conectada, `MOSS-Image Layout Prompt` genera un prompt JSON: un caption de la escena más un elemento por cada caja. Las plantillas de layout traen `enable_prompt_enhancer` desactivado, así que ese JSON llega al modelo sin cambios. Si lo activas, el mejorador de prompts reescribe el texto y puede perder las cajas. ![Vista previa del flujo de trabajo de MOSS-Image de texto a imagen guiado por diseño](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_t2i_bboxes-1.webp)
+Genera una imagen a partir de un prompt y un diseño que dibujes tú. Abre `Create Bounding Boxes` y arrastra una caja para cada elemento; cada caja lleva su propio texto descriptivo, y las cajas marcadas como texto renderizan ese texto dentro de ellas. `MOSS-Image Layout Prompt` convierte las cajas en el prompt de diseño que lee el modelo, así que se usan tanto el texto de la caja como el prompt de tu escena. Dibuja primero la caja del fondo y al final los elementos en primer plano: las cajas se emiten en el orden en que las dibujas. Cada caja se etiqueta como `text` si la marcas como texto; de lo contrario, como `object`. Para etiquetar como personaje una caja que contiene a una persona, enumera su número según la vista previa de `Create Bounding Boxes` en `character_boxes` de `MOSS-Image Layout Prompt`, por ejemplo `1, 3`. Los números que apuntan a una caja de texto no tienen efecto. Ambas plantillas de diseño incluyen este campo ya rellenado (`2` en SFT, `1` en Base), así que verifícalo con tus propias cajas antes de enviar a la cola. Con al menos una caja conectada, `MOSS-Image Layout Prompt` genera un prompt JSON: un texto de escena más un elemento por caja. Las plantillas de diseño traen `enable_prompt_enhancer` desactivado, así que ese JSON llega al modelo sin cambios. Si lo activas, el mejorador de prompt reescribe el texto y puede llegar a descartar las cajas. ![Vista previa del flujo de trabajo de texto a imagen guiado por diseño de MOSS-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_t2i_bboxes-1.webp)
 
 ## Descargar flujo de trabajo
 
 Descarga el JSON o busca “MOSS-Image: Layout-Guided Text to Image” en la Biblioteca de plantillas
 
-**Ejemplo de salida** ![Ejemplo de salida de MOSS-Image de texto a imagen guiado por diseño](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_moss_image_t2i_bboxes.png)
-
-#### 
-
-​
-
-Empezar
-
-  1. Actualiza ComfyUI a 0.42.0 o una versión posterior
-  2. Ve a **Template** , busca **MOSS-Image** y elige la variante de diseño
-  3. Descarga los modelos que se indican en descargas de modelos
-  4. Dibuja una caja por elemento en `Create Bounding Boxes` y luego escribe un texto descriptivo para cada caja. Para una caja de texto, escribe el texto que quieres que se renderice
-  5. Describe la escena completa en el prompt y haz clic en **Queue**
-
-
-
-### 
-
-​
-
-MOSS-Image Base: Layout-Guided Text to Image
-
-El flujo de trabajo de layout con el checkpoint Base. Útil cuando quieres comparar cómo los dos checkpoints siguen el mismo layout de cajas. ![Vista previa del flujo de trabajo de texto a imagen guiado por layout de MOSS-Image Base](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_base_t2i_bboxes-1.webp)
-
-## Descargar flujo de trabajo
-
-Descarga el JSON o busca “MOSS-Image Base: Layout-Guided Text to Image” en la Biblioteca de plantillas
-
-**Salida de ejemplo** ![Ejemplo de salida de texto a imagen guiado por layout de MOSS-Image Base](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_moss_image_t2i_bboxes_base.png)
+**Salida de ejemplo** ![Salida de ejemplo de texto a imagen guiado por diseño de MOSS-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_moss_image_t2i_bboxes.png)
 
 #### 
 
@@ -200,10 +178,128 @@ Descarga el JSON o busca “MOSS-Image Base: Layout-Guided Text to Image” en l
 Empezar
 
   1. Actualiza ComfyUI a la versión 0.42.0 o posterior
-  2. Ve a **Template** , busca **MOSS-Image Base** y elige la variante de layout
-  3. Descarga los modelos enumerados en descargas de modelos, incluido `moss_image_base_int8_convrot.safetensors`
-  4. Dibuja las cajas, escribe un título para cada una y redacta el prompt de la escena
+  2. Ve a **Template** y busca **MOSS-Image** , luego elige la variante de diseño
+  3. Descarga los modelos que se indican en descargas de modelos
+  4. Dibuja una caja por elemento en `Create Bounding Boxes` y escribe un texto descriptivo para cada caja. En una caja de texto, escribe el texto que quieres que se renderice
+  5. Describe la escena completa en el prompt y haz clic en **Queue**
+
+
+
+### 
+
+​
+
+MOSS-Image Base: texto a imagen guiado por diseño
+
+El flujo de trabajo de diseño con el checkpoint Base. Útil cuando quieres comparar cómo ambos checkpoints siguen el mismo diseño de cajas. ![Vista previa del flujo de trabajo de texto a imagen guiado por diseño de MOSS-Image Base](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_base_t2i_bboxes-1.webp)
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “MOSS-Image Base: Layout-Guided Text to Image” en la biblioteca de plantillas
+
+**Ejemplo de salida** ![Ejemplo de salida del flujo de trabajo de texto a imagen guiado por diseño de MOSS-Image Base](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_moss_image_t2i_bboxes_base.png)
+
+#### 
+
+​
+
+Empezar
+
+  1. Actualiza ComfyUI a 0.42.0 o posterior
+  2. Ve a **Plantillas** , busca **MOSS-Image Base** y elige la variante de diseño
+  3. Descarga los modelos que aparecen en descargas de modelos, incluido `moss_image_base_int8_convrot.safetensors`
+  4. Dibuja las cajas, escribe una leyenda para cada una y redacta el prompt de la escena
   5. Haz clic en **Queue**
+
+
+
+### 
+
+​
+
+MOSS-Image: edición de imágenes
+
+Edita una foto con una instrucción breve. Un LoRA de edición se ejecuta sobre el checkpoint SFT, y tu instrucción se codifica junto con la imagen de origen, de modo que el sampler vuelve a dibujar el mismo encuadre y solo se aplica el cambio descrito. Los cambios de color, material, vestuario y fondo mantienen intactos el rostro, el cabello, la pose y el encuadre. Requiere ComfyUI 0.43.0 o posterior. ![Vista previa del flujo de trabajo de edición de imágenes MOSS-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_edit-1.webp)
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “MOSS-Image: Image Edit LoRA” en la Biblioteca de plantillas
+
+**Material de entrada**
+
+## two_women_berets_floral_jackets.png
+
+Cárgala en `Load Image`. Cualquier foto sirve: el gráfico la escala a 1.0 MP y mantiene su relación de aspecto.
+
+#### 
+
+​
+
+Empezar
+
+  1. Actualiza ComfyUI a 0.43.0 o posterior
+  2. Ve a **Template** y busca **MOSS-Image: Image Edit**
+  3. Descarga los modelos indicados en descargas de modelos, incluido `moss_image_edit_lora_rank_64_bf16.safetensors`
+  4. Carga la foto que quieres editar y describe solo el cambio en el prompt positivo
+  5. Haz clic en **Queue**
+
+
+
+#### 
+
+​
+
+Consejos para editar
+
+  * **Formula el cambio tal como se entrenó el LoRA.** `Change only the X to Y. Keep the character, face, hair, pose, background and composition unchanged.` es lo que mejor funciona. Una instrucción vaga como “improve it” le da al modelo demasiada libertad.
+  * **Mantén`edit_format` en `Moss-Image-Edit`.** Ambos nodos de codificación deben llevar el valor con el que se entrenó el LoRA. Un valor distinto sigue devolviendo una imagen, pero la identidad, el encuadre y el detalle fino se alejan de la fuente.
+  * **Mantén el CFG en 4.0.** La rama negativa importa para este LoRA. Los valores más bajos pueden añadir accesorios como un collar que no estaban en la foto de origen.
+  * **Conecta hasta cuatro referencias.** Los nodos de codificación ganan ranuras adicionales cuando los conectas, así que una prenda, un rostro y un objeto pueden ir por separado. Indica en el prompt para qué sirve cada una.
+
+
+
+### 
+
+​
+
+MOSS-Image: control de color y profundidad
+
+Cambia la pose y el estilo de una foto mientras su geometría se mantiene igual. El flujo de trabajo estima la geometría de la referencia con MoGe 3 y la pasa al modelo mediante un LoRA de adaptador de control, así que la pose, el encuadre y la silueta los fija el mapa mientras el prompt decide el personaje, el vestuario, el escenario y la luz. Requiere ComfyUI 0.43.0 o posterior. ![Vista previa del flujo de trabajo de control de color y profundidad de MOSS-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_color_depth_control-1.webp)
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “MOSS-Image: Color & Depth Control” en la biblioteca de plantillas
+
+**Material de entrada**
+
+## fashion_portrait_red_canyon.png
+
+Cárgala en `Load Image`. El flujo de trabajo estima la geometría a partir de ella, así que sirve cualquier retrato con buena iluminación.
+
+#### 
+
+​
+
+Empezar
+
+  1. Actualiza ComfyUI a 0.43.0 o posterior
+  2. Ve a **Template** y busca **MOSS-Image: Color & Depth Control**
+  3. Descarga los modelos indicados en descargas de modelos, incluidos `moss_image_color_depth_control.safetensors` y `moge_3_vitg_fp16.safetensors`
+  4. Carga tu foto de referencia y describe el personaje y la escena que quieres
+  5. Haz clic en **Queue**
+
+
+
+#### 
+
+​
+
+Consejos sobre el control
+
+  * **`Render MoGe Geometry` usa la máscara de forma predeterminada.** Solo se controla la silueta. Cámbialo a `depth` cuando el perfil del rostro, los hombros y la caída del fondo también deban seguir a la referencia: la pose se vuelve más estricta y el prompt tiene menos margen.
+  * **`end_percent` define cuánto tiempo se mantiene el mapa.** En 0.6 los últimos pasos renderizan la superficie y la iluminación con libertad. En 1.0 la geometría queda fijada hasta el paso final.
+  * **El LoRA es lo que hace funcionar el mapa.** El adaptador de control se carga justo antes del nodo de control, y sin él el nodo no tiene efecto.
+  * **Pinta un mapa a mano cuando la estimación sea incorrecta.** `Painter` ya está en el gráfico: conecta su salida a `depth_map`, blanco cerca y negro lejos. `color_map` no está conectado de forma predeterminada, toma un color plano por región y debe coincidir con el tamaño de salida.
 
 
 
@@ -213,7 +309,7 @@ Empezar
 
 Descargas de modelos de MOSS-Image
 
-Todos los archivos están en [Comfy-Org/MOSS-Image](https://huggingface.co/Comfy-Org/MOSS-Image) en Hugging Face. Las plantillas cargan los checkpoints int8; las versiones bf16 de ambos checkpoints están en el mismo repositorio para más VRAM.
+Los archivos de modelo están en [Comfy-Org/MOSS-Image](https://huggingface.co/Comfy-Org/MOSS-Image) en Hugging Face, salvo el estimador de geometría MoGe 3, que está en [Comfy-Org/MoGe](https://huggingface.co/Comfy-Org/MoGe). Las plantillas cargan los checkpoints int8; las versiones bf16 de ambos checkpoints están en el mismo repositorio para quienes tengan más VRAM.
 
 ## moss_image_sft_int8_convrot.safetensors
 
@@ -225,11 +321,27 @@ Modelo de difusión, checkpoint Base. Lo cargan ambas plantillas Base.
 
 ## qwen3.5_9b_w4a8_gptq.safetensors
 
-Codificador de texto para todas las plantillas. Cárgalo con `CLIPLoader` de tipo `moss_image`.
+Codificador de texto de las cuatro plantillas de texto a imagen y de la plantilla de edición. Cárgalo con `CLIPLoader` tipo `moss_image`.
+
+## qwen3.5_9b_int8_convrot.safetensors
+
+Codificador de texto que carga la plantilla de control de color y profundidad. Las demás plantillas usan la versión w4a8 de arriba.
 
 ## flux2-vae_small.safetensors
 
 VAE para MOSS-Image.
+
+## moss_image_edit_lora_rank_64_bf16.safetensors
+
+LoRA de edición, 297 MB. Lo carga la plantilla de edición de imagen.
+
+## moss_image_color_depth_control.safetensors
+
+LoRA adaptador de control de color y profundidad, 313 MB. La plantilla de control de color y profundidad lo carga con fuerza 1.0.
+
+## moge_3_vitg_fp16.safetensors
+
+Estimador de geometría MoGe 3, 2.50 GB. Lo usa la plantilla de control de color y profundidad. Proviene de [Comfy-Org/MoGe](https://huggingface.co/Comfy-Org/MoGe).
 
 **Ubicación de almacenamiento de los modelos**
     
@@ -240,9 +352,15 @@ VAE para MOSS-Image.
     │   │      ├── moss_image_sft_int8_convrot.safetensors
     │   │      └── moss_image_base_int8_convrot.safetensors
     │   ├── 📂 text_encoders/
-    │   │      └── qwen3.5_9b_w4a8_gptq.safetensors
-    │   └── 📂 vae/
-    │          └── flux2-vae_small.safetensors
+    │   │      ├── qwen3.5_9b_w4a8_gptq.safetensors
+    │   │      └── qwen3.5_9b_int8_convrot.safetensors
+    │   ├── 📂 vae/
+    │   │      └── flux2-vae_small.safetensors
+    │   ├── 📂 loras/
+    │   │      ├── moss_image_edit_lora_rank_64_bf16.safetensors
+    │   │      └── moss_image_color_depth_control.safetensors
+    │   └── 📂 geometry_estimation/
+    │          └── moge_3_vitg_fp16.safetensors
     
 
 Las versiones bf16 `moss_image_sft_bf16.safetensors` y `moss_image_base_bf16.safetensors` están en el mismo repositorio. Cambia el checkpoint en `UNET Loader` si tienes la VRAM necesaria para ellas.
@@ -253,16 +371,16 @@ Las versiones bf16 `moss_image_sft_bf16.safetensors` y `moss_image_base_bf16.saf
 
 Consejos para escribir prompts
 
-  * **Describe la imagen finalizada, no la solicitud.** El modelo se entrenó con descripciones, así que escribe cómo se ve la imagen en lugar de una instrucción como «hazme un póster». El mejorador sigue la misma regla, por eso un prompt corto sigue funcionando.
+  * **Describe la imagen finalizada, no la solicitud.** El modelo se entrenó con descripciones, así que escribe cómo se ve la imagen en lugar de una instrucción como «hazme un póster». El mejorador de prompts sigue la misma regla, por eso un prompt corto sigue funcionando.
   * **Base lee secuencias de etiquetas.** Con el mejorador desactivado, MOSS-Image-Base acepta etiquetas separadas por comas además de descripciones, en el orden documentado: calidad, puntuación, meta, año, personaje, serie, artista y luego las etiquetas generales; por ejemplo `best quality, highres, hatsune miku, vocaloid, @foo bar, 1girl, blue hair`.
-  * **Desactiva el mejorador para controlar la redacción.** Establece `enable_prompt_enhancer` en `false` en el nodo del subgrafo y tu prompt llegará al modelo sin cambios. Con el mejorador activado, `prompt_enhancer_seed` cambia cómo se reescribe el prompt. Ambas configuraciones muestran el resultado en `Preview Any`, así que puedes comparar.
+  * **Desactiva el mejorador de prompts para controlar la redacción.** Establece `enable_prompt_enhancer` en `false` en el nodo del subgrafo y tu prompt llegará al modelo sin cambios. Con el mejorador activado, `prompt_enhancer_seed` cambia cómo se reescribe el prompt. Ambas configuraciones muestran el resultado en `Preview Any`, así que puedes comparar.
   * **Controla los saltos de línea tú mismo.** Los saltos automáticos pueden no quedar donde quieres. Coloca saltos de línea reales o `\n` en el texto que quieres que se renderice cuando importe la posición de un salto.
   * **Usa el flujo de trabajo de diseño cuando importe la colocación.** Las cajas le dan al modelo una posición explícita para cada elemento y cada bloque de texto, lo cual es más fiable que describir posiciones en prosa.
-  * **Mantén el lienzo en el alcance recomendado.** `ResolutionSelector` elige la relación de aspecto y la cantidad de megapíxeles (1 MP por defecto). MOSS-Image está pensado para 1 MP a 2 MP y extrapola desde aproximadamente 0.25 MP hasta 4 MP; el ancho y el alto deben ser múltiplos de 16.
-  * **Parte de las configuraciones de la plantilla y luego ve más despacio para conseguir el aspecto oficial.** Las plantillas ejecutan 25 pasos con CFG 2.5 y el sampler `er_sde` para ir más rápido. Los ajustes oficiales de Base son 50 pasos con CFG 3 y el sampler `euler`, así que pruébalos si un resultado queda crudo. Las configuraciones oficiales son 50 pasos con CFG 3, así que pruébalas si un resultado se queda corto.
-  * **Sube el CFG para prompts cortos en Base.** El rango oficial de CFG para MOSS-Image-Base va de 3.0 a 6.0, por encima del 2.5 que traen las plantillas. Desactiva el mejorador con un prompt corto para llegar al modelo tal cual, mantén 3.0 con uno largo y súbelo según sea necesario.
+  * **Mantén el lienzo en el rango recomendado.** `ResolutionSelector` elige la relación de aspecto y la cantidad de megapíxeles (1 MP por defecto). El rango de salida recomendado es de 1 MP a 2 MP y el modelo extrapola desde aproximadamente 0.25 MP hasta 4 MP; el ancho y el alto deben ser múltiplos de 16.
+  * **Parte de las configuraciones de la plantilla y luego ve más despacio para conseguir el aspecto oficial.** Las plantillas ejecutan 25 pasos con CFG 2.5 y el sampler `er_sde`. Las configuraciones oficiales de Base son 50 pasos con CFG 3 y el sampler `euler`, así que pruébalas si un resultado se queda corto.
+  * **Sube el CFG para prompts cortos en Base.** El rango oficial de CFG para MOSS-Image-Base va de 3.0 a 6.0, por encima del 2.5 que traen las plantillas. Desactiva el mejorador con un prompt corto para que llegue al modelo tal cual, mantén 3.0 con uno largo y súbelo según sea necesario.
   * **Mantén el prompt negativo corto.** Las plantillas incluyen `nsfw, worst quality, bad anatomy, watermark, jpeg artifact`.
-  * **La orientación con salto de capas está activada en la capa 22.** El nodo del subgrafo incluye un interruptor `SLG`, y la orientación se ejecuta en la capa 22 oficial. Desactivarla puede dar un aspecto más realista, pero puede contraer el detalle; a las demás capas solo se puede acceder dentro del subgrafo.
+  * **La orientación con salto de capas se ejecuta en la capa 22.** El nodo del subgrafo incluye un interruptor `SLG`, y 22 es la capa oficial. Desactivarla puede dar un aspecto más realista, pero puede contraer el detalle; a las demás capas solo se puede acceder dentro del subgrafo.
   * **Base es para el ajuste fino.** Cuando entrenes una LoRA en MOSS-Image, congela el codificador de texto.
 
 
@@ -273,21 +391,21 @@ Consejos para escribir prompts
 
 Superar los 2 MP
 
-El alcance de salida recomendado va de 1 MP a 2 MP, y el modelo extrapola hasta unos 4 MP. Cualquier tamaño mayor queda fuera de ese alcance, así que construye las imágenes grandes con pasadas sucesivas en lugar de un solo lienzo grande. Las plantillas alimentan al sampler con un `Empty Flux 2 Latent` fijo, así que esto requiere una edición dentro del subgrafo:
+El rango de salida recomendado es de 1 MP a 2 MP, y el modelo extrapola hasta unos 4 MP. Cualquier tamaño mayor queda fuera de ese rango, así que crea imágenes grandes a partir de pasadas sucesivas en lugar de un solo lienzo grande. Las plantillas alimentan al sampler con un `Empty Flux 2 Latent` fijo, así que esto requiere una edición dentro del subgrafo:
 
-  1. Renderiza la primera pasada a 1 MP o 2 MP.
-  2. Decodifica el resultado, redimensiónalo en el espacio de píxeles con `Upscale Image` y vuelve a codificarlo con `VAE Encode`. Ampliar el latente lo remuestrea directamente y pierde detalle que la segunda pasada no puede recuperar.
-  3. Alimenta al sampler con el latente codificado en lugar de `Empty Flux 2 Latent` y establece `denoise` en alrededor de 0.6 para un paso de 1.5x. Un valor más bajo mantiene intacta la primera pasada; uno más alto rehace la composición.
+  1. Genera la primera pasada a 1 MP o 2 MP.
+  2. Decodifica el resultado, redimensiónalo en el espacio de píxeles con `Upscale Image` y luego codifícalo de nuevo con `VAE Encode`. Ampliar el latente lo remuestrea directamente y hace perder detalle que la segunda pasada no puede recuperar.
+  3. Alimenta al sampler con el latente codificado en lugar de `Empty Flux 2 Latent` y ajusta `denoise` a aproximadamente 0.6 para un paso de 1.5x. Un valor más bajo mantiene intacta la primera pasada; uno más alto rehace la composición.
 
-Repite la redimensión y el nuevo render en lugar de saltar al tamaño final. Un solo salto de 2 MP a 8K tiende a repetir detalle en vez de agregarlo, y un lienzo de 8K necesita `VAE Decode (Tiled)`.
+Repite el redimensionado y la nueva renderización en lugar de saltar directamente al tamaño final. Un salto único de 2 MP a 8K tiende a repetir los detalles en lugar de agregarlos, y un lienzo de 8K necesita `VAE Decode (Tiled)`.
 
 ## 
 
 ​
 
-Imágenes de referencia y el mejorador de prompts
+Imágenes de referencia y el potenciador de prompt
 
-El nodo del subgrafo tiene una entrada opcional `ref_image (for llm)`. Llega al mejorador de prompts, no al modelo de difusión: MOSS-Image no tiene entrada de imagen, así que no puede copiar una referencia. Con el mejorador activado, la imagen da forma a la descripción que escribe; con el mejorador desactivado, la imagen se ignora. El mejorador de prompts se ejecuta sobre el codificador de texto Qwen3.5 que el modelo ya carga, mediante `Generate Text`, con un prompt de sistema escrito a partir de la skill oficial del mejorador de prompts de MOSS-Image. Su longitud de salida es `max_length`, 4096 tokens en las plantillas. En las plantillas `MOSS-Image: Text to Image` y `MOSS-Image Base: Text to Image`, `prompt_enhancer_seed` reproduce una descripción, y `Preview Any` muestra el texto que realmente llega al sampler.
+El nodo del subgrafo tiene una entrada opcional `ref_image (for llm)`. Esta llega al potenciador de prompt, no al modelo de difusión: MOSS-Image no tiene entrada de imagen, así que no puede copiar una referencia. Con el potenciador de prompt activado, la imagen da forma a la descripción que escribe; con el potenciador de prompt desactivado, la imagen se ignora. El potenciador de prompt se ejecuta en el codificador de texto Qwen3.5 que el modelo ya carga, mediante `Generate Text`, con un prompt de sistema escrito a partir de la skill oficial del potenciador de prompt de MOSS-Image. La longitud de su salida es `max_length`, 4096 tokens en las plantillas. En las plantillas `MOSS-Image: Text to Image` y `MOSS-Image Base: Text to Image`, `prompt_enhancer_seed` reproduce una descripción y `Preview Any` muestra el texto que realmente llega al sampler.
 
 ¿Esta página le ayudó?
 

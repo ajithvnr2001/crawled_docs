@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/veo/veo-3-1/
-title: Veo 3.1: texto a video - ComfyUI
+title: Veo 3.1 en ComfyUI: texto a video con audio nativo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:56.299635+00:00
+fetched_at: 2026-11-02T16:54:40.109459+00:00
 ---
 
-# Veo 3.1: texto a video - ComfyUI
+# Veo 3.1 en ComfyUI: texto a video con audio nativo - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/veo/veo-3-1/
 
@@ -13,37 +13,44 @@ fetched_at: 2026-10-26T14:03:56.299635+00:00
 
 Volver arriba
 
-  * Capacidades clave
-  * Flujos de trabajo disponibles
-    * Veo 3.1: texto a video (Estándar)
-    * Veo 3.1: texto a video (Fast)
+  * Nodos
+  * Ejecutar Veo 3.1
+  * Modelo retirado
 
 
 
 Veo
 
-# Veo 3.1: texto a video
+# Veo 3.1 en ComfyUI: texto a video con audio nativo
 
 Copiar páginaCopiar página
 
-Genera video 4K con audio nativo usando Veo 3.1 de Google DeepMind en ComfyUI, disponible en niveles Estándar y Fast.
+Ejecuta Veo 3.1 de Google en ComfyUI con el nodo asociado: video 4K con audio nativo, tres niveles de velocidad y cobro en créditos por segundo.
 
 Copiar páginaCopiar página
 
-Veo 3.1 es el modelo de texto a video insignia de Google DeepMind: genera video 4K de calidad cinematográfica con audio nativo sincronizado. Disponible en los niveles **Estándar** (calidad total) y **Fast** (velocidad optimizada), admite dirección de escena detallada, movimiento de cámara y control del estilo visual.
+Veo 3.1 es el modelo de texto a video de Google DeepMind. Genera video con audio sincronizado y, en ComfyUI, se ejecuta como nodo asociado: la generación ocurre en los servidores de Google, así que pagas con créditos de Comfy y no necesitas descargar modelos ni contar con una GPU local.
 
 ## 
 
 ​
 
-Capacidades clave
+Nodos
 
-  * **Video 4K de calidad cinematográfica** : genera video en resolución 4K con detalles nítidos, iluminación natural y física realista.
-  * **Sincronización de audio nativo** : la salida de video incluye audio sincronizado, lo que elimina la necesidad de alineación en posproducción.
-  * **Generación de texto a video** : crea video de alta calidad directamente a partir de prompts de texto con control creativo total.
-  * **Nivel rápido (Fast) optimizado** : una variante de inferencia más rápida que cambia un poco de calidad por un tiempo de generación mucho menor, ideal para iterar y producir borradores.
+Veo 3.1 se distribuye como dos nodos asociados. Agrega cualquiera de ellos desde la biblioteca de nodos:
 
+  * **Google Veo 3 Video Generation** : texto a video, con una entrada opcional de imagen de referencia.
+  * **Google Veo 3 First-Last-Frame to Video** : anima desde un primer fotograma hasta un último fotograma.
 
+Ambos nodos ofrecen las mismas tres opciones de modelo:
+
+Nivel| Opción de `model`| Resolución  
+---|---|---  
+Standard| `veo-3.1-generate`| 720p, 1080p, 4K  
+Fast| `veo-3.1-fast-generate`| 720p, 1080p, 4K  
+Lite| `veo-3.1-lite`| 720p, 1080p  
+  
+Los clips duran de 4 a 8 segundos con una relación de aspecto de 16:9 o 9:16. `generate_audio` conserva el audio sincronizado en la salida, y el nodo de primer y último fotograma lo trae activado por defecto.
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 
@@ -74,39 +81,17 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 ​
 
-Flujos de trabajo disponibles
+Ejecutar Veo 3.1
 
-### 
+Todavía no se incluye ningún flujo de trabajo de ejemplo para Veo 3.1, así que arma el gráfico alrededor del nodo: carga tu prompt, define el nivel en el widget `model` y luego pon el prompt en cola. Los créditos se cobran por segundo de video generado y varían según el nivel, la resolución y si se genera audio. Consulta [precios de los nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/pricing) para conocer las tarifas actuales.
 
-​
-
-Veo 3.1: texto a video (Estándar)
-
-Genera video 4K de calidad total con audio nativo a partir de un prompt de texto. Es la mejor opción para el resultado final de producción, donde la calidad es lo más importante.
-
-## Abrir en ComfyCloud
-
-Inicia el flujo de trabajo Veo 3.1 de calidad total en ComfyCloud
-
-## Descargar JSON
-
-Descarga el JSON del flujo de trabajo para ComfyUI local
-
-### 
+## 
 
 ​
 
-Veo 3.1: texto a video (Fast)
+Modelo retirado
 
-Una variante ligera de Veo 3.1 optimizada para la velocidad. Úsala para ideación rápida, generación de borradores y refinamiento iterativo de prompts.
-
-## Abrir en ComfyCloud
-
-Inicia el flujo de trabajo rápido de Veo 3.1 en ComfyCloud
-
-## Descargar JSON
-
-Descarga el JSON del flujo de trabajo para ComfyUI local
+Veo 2.0 ya no está disponible. Su nodo se eliminó de ComfyUI y su plantilla de flujo de trabajo se archivó; la [página de Veo 2.0](https://docs.comfy.org/es/tutorials/partner-nodes/veo/veo-2-0) se conserva solo como referencia.
 
 ¿Esta página le ayudó?
 

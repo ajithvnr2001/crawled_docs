@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/tutorials/image/moss-image/moss-image/
-title: MOSS-Image in ComfyUI: Text-to-Image and Layout Workflows - ComfyUI
+title: MOSS-Image in ComfyUI: Text-to-Image, Edit, and Layout Workflows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:10.729108+00:00
+fetched_at: 2026-11-02T16:54:34.756578+00:00
 ---
 
-# MOSS-Image in ComfyUI: Text-to-Image and Layout Workflows - ComfyUI
+# MOSS-Image in ComfyUI: Text-to-Image, Edit, and Layout Workflows - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/image/moss-image/moss-image/
 
@@ -23,6 +23,12 @@ Back to top
     * Get started
     * MOSS-Image Base: Layout-Guided Text to Image
     * Get started
+    * MOSS-Image: Image Edit
+    * Get started
+    * Tips on editing
+    * MOSS-Image: Color & Depth Control
+    * Get started
+    * Tips on control
   * MOSS-Image model downloads
   * Prompting tips
   * Going above 2 MP
@@ -32,11 +38,11 @@ Back to top
 
 MOSS-Image
 
-# MOSS-Image in ComfyUI: Text-to-Image and Layout Workflows
+# MOSS-Image in ComfyUI: Text-to-Image, Edit, and Layout Workflows
 
 Copy pageCopy page
 
-Run MOSS-Image locally in ComfyUI: a 5B open-weights text-to-image model with a prompt enhancer and layout-guided generation from drawn bounding boxes.
+Run MOSS-Image locally in ComfyUI: a 5B open-weights image model with a prompt enhancer, layout boxes, an edit LoRA, and depth control from a photo.
 
 Copy pageCopy page
 
@@ -52,7 +58,7 @@ MOSS-Image is OpenMOSS’s open-weights text-to-image model: a 5B single-stream 
   * Native layout guidance: draw boxes, give each box a caption, and text boxes render their own text
   * Prompt enhancer built into the text to image templates, so a one-line idea is enough
   * Two checkpoints: SFT for cleaner layouts, Base for fine-tuning and LoRA work
-  * Long prompts of roughly 4K tokens, and any aspect ratio in multiples of 16
+  * Long prompts of roughly 4K tokens, and canvas sizes in multiples of 16
 
 **License** : [Apache 2.0](https://github.com/OpenMOSS/MOSS-Image) **Related links:**
 
@@ -60,7 +66,7 @@ MOSS-Image is OpenMOSS’s open-weights text-to-image model: a 5B single-stream 
   * [Model guide (USERGUIDE)](https://github.com/OpenMOSS/MOSS-Image/blob/main/USERGUIDE.md)
   * [Hugging Face (Comfy-Org)](https://huggingface.co/Comfy-Org/MOSS-Image)
 
-**Version requirement** : MOSS-Image templates need ComfyUI 0.42.0 or later.
+**Version requirement** : the four text to image templates need ComfyUI 0.42.0 or later. The image edit and color/depth control templates need 0.43.0 or later.
 
   * Local users
 
@@ -91,7 +97,7 @@ So, if you find any core node missing in this document, it might be because the 
 
 MOSS-Image workflows
 
-All four templates run the same subgraph. Open it to reach the loaders, the sampler, and the canvas size.
+All four text to image templates run the same subgraph. Open it to reach the loaders, the sampler, and the canvas size. The edit and color/depth templates use their own graphs, described in their sections below.
 
 ## Learn about Subgraph
 
@@ -207,13 +213,103 @@ Get started
 
 
 
+### 
+
+​
+
+MOSS-Image: Image Edit
+
+Edit one photo with a short instruction. An edit LoRA runs on top of the SFT checkpoint, and your instruction is encoded together with the source image, so the sampler redraws the same frame and only the described change is applied. Colour, material, outfit and background swaps keep the face, hair, pose and framing intact. Requires ComfyUI 0.43.0 or later. ![MOSS-Image image edit workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_edit-1.webp)
+
+## Download Workflow
+
+Download JSON or search “MOSS-Image: Image Edit LoRA” in Template Library
+
+**Input material**
+
+## two_women_berets_floral_jackets.png
+
+Load into `Load Image`. Any photo works: the graph scales it to 1.0 MP and keeps its aspect ratio.
+
+#### 
+
+​
+
+Get started
+
+  1. Update ComfyUI to 0.43.0 or later
+  2. Go to **Template** and search for **MOSS-Image: Image Edit**
+  3. Download the models listed in model downloads, including `moss_image_edit_lora_rank_64_bf16.safetensors`
+  4. Load the photo you want to edit and describe only the change in the positive prompt
+  5. Click **Queue**
+
+
+
+#### 
+
+​
+
+Tips on editing
+
+  * **Phrase the change the way the LoRA was trained.** `Change only the X to Y. Keep the character, face, hair, pose, background and composition unchanged.` works best. A vague instruction like “improve it” gives the model too much freedom.
+  * **Keep`edit_format` on `Moss-Image-Edit`.** Both encode nodes must carry the value the LoRA was trained with. A different value still returns an image, but identity, framing and fine detail drift away from the source.
+  * **Keep CFG at 4.0.** The negative branch matters for this LoRA. Lower values can add accessories such as a necklace that were not in the source photo.
+  * **Connect up to four references.** The encode nodes grow extra slots when you connect them, so a garment, a face and a prop can each go in separately. State in the prompt what each one is for.
+
+
+
+### 
+
+​
+
+MOSS-Image: Color & Depth Control
+
+Re-pose and re-style a photo while its geometry stays put. The workflow estimates the reference’s geometry with MoGe 3 and passes it to the model through a control adapter LoRA, so pose, framing and silhouette are held by the map while the prompt decides character, wardrobe, setting and light. Requires ComfyUI 0.43.0 or later. ![MOSS-Image color and depth control workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_moss_image_color_depth_control-1.webp)
+
+## Download Workflow
+
+Download JSON or search “MOSS-Image: Color & Depth Control” in Template Library
+
+**Input material**
+
+## fashion_portrait_red_canyon.png
+
+Load into `Load Image`. The workflow estimates geometry from it, so any clearly lit portrait works.
+
+#### 
+
+​
+
+Get started
+
+  1. Update ComfyUI to 0.43.0 or later
+  2. Go to **Template** and search for **MOSS-Image: Color & Depth Control**
+  3. Download the models listed in model downloads, including `moss_image_color_depth_control.safetensors` and `moge_3_vitg_fp16.safetensors`
+  4. Load your reference photo and describe the character and scene you want
+  5. Click **Queue**
+
+
+
+#### 
+
+​
+
+Tips on control
+
+  * **`Render MoGe Geometry` uses the mask by default.** Only the silhouette is controlled. Switch it to `depth` when the face profile, shoulders and background falloff should follow the reference too: the pose gets tighter and the prompt has less room.
+  * **`end_percent` sets how long the map is held.** At 0.6 the last steps render surface and lighting freely. At 1.0 geometry stays pinned to the final step.
+  * **The LoRA is what makes the map work.** The control adapter is loaded just before the control node, and without it the node has no effect.
+  * **Paint a map by hand when the estimate is wrong.** `Painter` is already in the graph: connect its output to `depth_map`, white near and black far. `color_map` is unconnected by default, takes one flat colour per region, and must match the output size.
+
+
+
 ## 
 
 ​
 
 MOSS-Image model downloads
 
-All files are in [Comfy-Org/MOSS-Image](https://huggingface.co/Comfy-Org/MOSS-Image) on Hugging Face. The templates load the int8 checkpoints; bf16 builds of both checkpoints are in the same repository for more VRAM.
+Model files are in [Comfy-Org/MOSS-Image](https://huggingface.co/Comfy-Org/MOSS-Image) on Hugging Face, except the MoGe 3 geometry estimator, which is in [Comfy-Org/MoGe](https://huggingface.co/Comfy-Org/MoGe). The templates load the int8 checkpoints; bf16 builds of both checkpoints are in the same repository for more VRAM.
 
 ## moss_image_sft_int8_convrot.safetensors
 
@@ -225,11 +321,27 @@ Diffusion model, Base checkpoint. Loaded by both Base templates.
 
 ## qwen3.5_9b_w4a8_gptq.safetensors
 
-Text encoder for every template. Load it with `CLIPLoader` type `moss_image`.
+Text encoder for the four text to image templates and the image edit template. Load it with `CLIPLoader` type `moss_image`.
+
+## qwen3.5_9b_int8_convrot.safetensors
+
+Text encoder the color and depth control template loads. The other templates run on the w4a8 build above.
 
 ## flux2-vae_small.safetensors
 
 VAE for MOSS-Image.
+
+## moss_image_edit_lora_rank_64_bf16.safetensors
+
+Edit LoRA, 297 MB. Loaded by the image edit template.
+
+## moss_image_color_depth_control.safetensors
+
+Color/depth control adapter LoRA, 313 MB. Loaded at strength 1.0 by the color and depth control template.
+
+## moge_3_vitg_fp16.safetensors
+
+MoGe 3 geometry estimator, 2.50 GB. Used by the color and depth control template. Comes from [Comfy-Org/MoGe](https://huggingface.co/Comfy-Org/MoGe).
 
 **Model storage location**
     
@@ -240,9 +352,15 @@ VAE for MOSS-Image.
     │   │      ├── moss_image_sft_int8_convrot.safetensors
     │   │      └── moss_image_base_int8_convrot.safetensors
     │   ├── 📂 text_encoders/
-    │   │      └── qwen3.5_9b_w4a8_gptq.safetensors
-    │   └── 📂 vae/
-    │          └── flux2-vae_small.safetensors
+    │   │      ├── qwen3.5_9b_w4a8_gptq.safetensors
+    │   │      └── qwen3.5_9b_int8_convrot.safetensors
+    │   ├── 📂 vae/
+    │   │      └── flux2-vae_small.safetensors
+    │   ├── 📂 loras/
+    │   │      ├── moss_image_edit_lora_rank_64_bf16.safetensors
+    │   │      └── moss_image_color_depth_control.safetensors
+    │   └── 📂 geometry_estimation/
+    │          └── moge_3_vitg_fp16.safetensors
     
 
 The bf16 builds `moss_image_sft_bf16.safetensors` and `moss_image_base_bf16.safetensors` are in the same repository. Swap the checkpoint in `UNET Loader` if you have the VRAM for them.

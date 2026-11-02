@@ -1,44 +1,35 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/veo/veo-2-0/
-title: Veo 2.0 \u2014 Image-to-Video - ComfyUI
+title: Veo 2.0 in ComfyUI: Retired Image-to-Video Model - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.756732+00:00
+fetched_at: 2026-11-02T16:54:39.836776+00:00
 ---
 
-# Veo 2.0 — Image-to-Video - ComfyUI
+# Veo 2.0 in ComfyUI: Retired Image-to-Video Model - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/veo/veo-2-0/
 
 ## On this page
 
-  * Key capabilities
-  * Available workflows
+Back to top
+
+  * Archived workflow
 
 
 
 Veo
 
-# Veo 2.0 — Image-to-Video
+# Veo 2.0 in ComfyUI: Retired Image-to-Video Model
 
 Copy pageCopy page
 
-Animate static images into short video clips using Google DeepMind’s Veo 2.0 in ComfyUI.
+Veo 2.0 was Google’s video model in ComfyUI. The node is removed and the workflow archived; use Veo 3.1 for image-to-video instead.
 
 Copy pageCopy page
 
-Veo 2.0 is Google DeepMind’s lightweight image-to-video model in ComfyUI. It animates static images into short video clips, preserving the original composition while adding natural motion — ideal for breathing life into concept art, AI-generated images, or photographs.
+**Veo 2.0 is retired.** ComfyUI removed the Veo 2.0 node in #15883 and the example workflow now lives in `archived/`, so it no longer runs on current ComfyUI. Use [Veo 3.1](https://docs.comfy.org/tutorials/partner-nodes/veo/veo-3-1) instead: the **Google Veo 3 Video Generation** node takes an optional reference image and generates 720p to 4K video with native audio.
 
-## 
-
-​
-
-Key capabilities
-
-  * **Image-to-video animation** — Convert static images into short, natural-looking video clips.
-  * **Composition preservation** — Maintains the original image structure, colors, and layout while adding motion.
-  * **Natural motion generation** — Produces realistic movement that respects the source image’s content and style.
-
-
+Veo 2.0 generated short clips from a text prompt and accepted an optional image to anchor the first frame. The archived example below is the image-to-video variant, which animated a single still while keeping its composition.
 
 To use the Partner Nodes, you need to ensure that you are logged in properly and using a permitted network environment. Please refer to the [Partner Nodes Overview](https://docs.comfy.org/tutorials/partner-nodes/overview) section of the documentation to understand the specific requirements for using the Partner Nodes.
 
@@ -69,15 +60,15 @@ So, if you find any core node missing in this document, it might be because the 
 
 ​
 
-Available workflows
+Archived workflow
 
-## Open in ComfyCloud
+The Veo 2.0 image-to-video workflow is kept in the workflow templates archive for reference. It is not usable on current ComfyUI because the node it targets no longer exists.
 
-Launch the Veo 2.0 I2V workflow on ComfyCloud
+## Archived Workflow
 
-## Download JSON
+Download `api_veo2_i2v.json` from the workflow templates archive.
 
-Download the workflow JSON for local ComfyUI
+For a working image-to-video path, use [Veo 3.1](https://docs.comfy.org/tutorials/partner-nodes/veo/veo-3-1).
 
 Was this page helpful?
 

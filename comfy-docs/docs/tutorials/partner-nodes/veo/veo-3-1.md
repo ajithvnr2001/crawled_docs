@@ -1,47 +1,56 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/veo/veo-3-1/
-title: Veo 3.1 \u2014 Text-to-Video - ComfyUI
+title: Veo 3.1 in ComfyUI: Text-to-Video with Native Audio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.594642+00:00
+fetched_at: 2026-11-02T16:54:39.880166+00:00
 ---
 
-# Veo 3.1 — Text-to-Video - ComfyUI
+# Veo 3.1 in ComfyUI: Text-to-Video with Native Audio - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/veo/veo-3-1/
 
 ## On this page
 
-  * Key capabilities
-  * Available workflows
-    * Veo 3.1 — Text-to-Video (Standard)
-    * Veo 3.1 — Text-to-Video (Fast)
+Back to top
+
+  * Nodes
+  * Running Veo 3.1
+  * Retired model
 
 
 
 Veo
 
-# Veo 3.1 — Text-to-Video
+# Veo 3.1 in ComfyUI: Text-to-Video with Native Audio
 
 Copy pageCopy page
 
-Generate cinema-grade 4K video with native audio using Google DeepMind’s Veo 3.1 in ComfyUI — available in Standard and Fast tiers.
+Run Google Veo 3.1 in ComfyUI through the partner node: 4K video with native audio, three speed tiers, billed in credits per second.
 
 Copy pageCopy page
 
-Veo 3.1 is Google DeepMind’s flagship text-to-video model, delivering cinema-grade 4K video with synchronized native audio. Available in **Standard** (full quality) and **Fast** (optimized speed) tiers, it supports detailed scene direction, camera movement, and visual style control.
+Veo 3.1 is Google DeepMind’s text-to-video model. It generates video with synchronized audio, and in ComfyUI it runs as a partner node: the generation happens on Google’s servers, so you pay in Comfy credits and need no model downloads or local GPU.
 
 ## 
 
 ​
 
-Key capabilities
+Nodes
 
-  * **Cinema-grade 4K video** — Generates 4K resolution video with crisp detail, natural lighting, and realistic physics.
-  * **Native audio sync** — Video output includes synchronized audio, eliminating the need for post-production alignment.
-  * **Text-to-video generation** — Create high-quality video directly from text prompts with full creative control.
-  * **Optimized Fast tier** — A faster inference variant that trades slight quality for significantly reduced generation time, ideal for iteration and draft production.
+Veo 3.1 ships as two partner nodes. Add either one from the node library:
 
+  * **Google Veo 3 Video Generation** : text-to-video, with an optional reference image input.
+  * **Google Veo 3 First-Last-Frame to Video** : animates from a first frame to a last frame.
 
+Both nodes expose the same three model options:
+
+Tier| `model` option| Resolution  
+---|---|---  
+Standard| `veo-3.1-generate`| 720p, 1080p, 4K  
+Fast| `veo-3.1-fast-generate`| 720p, 1080p, 4K  
+Lite| `veo-3.1-lite`| 720p, 1080p  
+  
+Clips run 4 to 8 seconds at a 16:9 or 9:16 aspect ratio. `generate_audio` keeps synchronized audio in the output, and the first-last-frame node has it enabled by default.
 
 To use the Partner Nodes, you need to ensure that you are logged in properly and using a permitted network environment. Please refer to the [Partner Nodes Overview](https://docs.comfy.org/tutorials/partner-nodes/overview) section of the documentation to understand the specific requirements for using the Partner Nodes.
 
@@ -72,39 +81,17 @@ So, if you find any core node missing in this document, it might be because the 
 
 ​
 
-Available workflows
+Running Veo 3.1
 
-### 
+No example workflow ships for Veo 3.1 yet, so build the graph around the node: load your prompt, set the tier in the `model` widget, then queue the prompt. Credits are billed per second of generated video and vary by tier, resolution, and whether audio is generated. See [partner node pricing](https://docs.comfy.org/tutorials/partner-nodes/pricing) for current rates.
 
-​
-
-Veo 3.1 — Text-to-Video (Standard)
-
-Generate full-quality 4K video with native audio from a text prompt. Best for final production output where quality matters most.
-
-## Open in ComfyCloud
-
-Launch the full-quality Veo 3.1 workflow on ComfyCloud
-
-## Download JSON
-
-Download the workflow JSON for local ComfyUI
-
-### 
+## 
 
 ​
 
-Veo 3.1 — Text-to-Video (Fast)
+Retired model
 
-A lightweight variant of Veo 3.1 optimized for speed. Use this for rapid ideation, draft generation, and iterative prompt refinement.
-
-## Open in ComfyCloud
-
-Launch the fast Veo 3.1 workflow on ComfyCloud
-
-## Download JSON
-
-Download the workflow JSON for local ComfyUI
+Veo 2.0 is no longer available. Its node was removed from ComfyUI and its workflow template archived; the [Veo 2.0 page](https://docs.comfy.org/tutorials/partner-nodes/veo/veo-2-0) is kept for reference only.
 
 Was this page helpful?
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/price-a-model-call-before-running-it-without-running-it/
 title: Price a model call before running it, without running it. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:09:00.919152+00:00
+fetched_at: 2026-11-02T16:54:40.695058+00:00
 ---
 
 # Price a model call before running it, without running it. - ComfyUI
@@ -687,7 +687,7 @@ string<date-time>
 
 requerido
 
-When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor's published price list (a model billed the cost the vendor reports) carries the date that list was read instead; one whose billed quantity is predicted from that list and then priced from the rate card (a model billed the credits its vendor reports) carries the older of the two dates. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.
+When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor's published price list (a model billed the cost the vendor reports) carries the date that list was read instead. A quote whose billed quantity is predicted from a published vendor schedule and then priced from the rate card carries the older of that schedule's read date and the card's fetch time, for an `exact` answer and an `estimated` one alike (a model billed the credits its vendor reports is the `estimated` case). Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.
 
 ​
 

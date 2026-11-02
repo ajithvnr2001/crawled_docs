@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/snapshots/
 title: Instant\u00e1neas de Comfy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.731674+00:00
+fetched_at: 2026-11-02T16:54:39.973051+00:00
 ---
 
 # Instantáneas de Comfy Desktop - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.731674+00:00
 > Source: https://docs.comfy.org/es/installation/desktop/usage/snapshots/
 
 ## En esta página
+
+Volver arriba
 
   * Acceder a las Instantáneas
   * Descripción general de la pestaña Instantáneas
@@ -101,18 +103,18 @@ Los botones **Restaurar** , **Exportar** y **Eliminar** de esa instantánea tamb
 
 Restaurar desde una instantánea
 
-  1. En la pestaña **Snapshots** , busca la instantánea que quieres restaurar.
-  2. Haz clic en **Restaurar** : una vista previa muestra las diferencias (qué cambiará).
-  3. Revisa los cambios y haz clic en **Confirmar** para iniciar el proceso de restauración.
+  1. En la pestaña Snapshots, busca la instantánea que quieres restaurar.
+  2. Haz clic en **Restore** : una vista previa muestra las diferencias (qué cambiará).
+  3. Revisa los cambios y haz clic en **Restore** en el diálogo de confirmación para comenzar.
 
-Durante la restauración, Comfy Desktop hará lo siguiente:
+La restauración requiere que la instancia esté detenida. Si ComfyUI se está ejecutando al iniciar la restauración, el diálogo avisa de que la instancia se detendrá primero. Comfy Desktop la detiene, espera a que termine, ejecuta la restauración y la vuelve a iniciar cuando la restauración se completa correctamente. Durante la restauración, Comfy Desktop hará lo siguiente:
 
   1. **Cambiar a la versión registrada de ComfyUI** (commit de Git)
   2. **Instalar los nodos personalizados faltantes** , cambiar versiones y habilitar o deshabilitar nodos según sea necesario
   3. **Restaurar los paquetes de pip** : instalar los paquetes faltantes, actualizar o degradar a la versión registrada y eliminar los sobrantes
   4. **Ejecutar los scripts de posinstalación** de cualquier nodo personalizado recién instalado o al que se le haya cambiado la versión
 
-El proceso se puede cancelar en cualquier momento. Si se cancela o si falla la instalación de un paquete, el sistema revierte automáticamente al estado previo a la restauración usando una copia de seguridad integrada. Después de una restauración exitosa, Comfy Desktop crea automáticamente una instantánea `post-restore` para que puedas deshacer la restauración si es necesario.
+Comfy Desktop restaura primero los nodos personalizados (instalar un nodo puede añadir paquetes de Python) y después sincroniza los paquetes de Python. Antes de la sincronización hace una copia de seguridad de los paquetes que va a sobrescribir o eliminar. Si cancelas después de ese punto, o si falla la instalación de un paquete, esos paquetes vuelven a su estado anterior y ComfyUI vuelve al commit en el que estaba antes de la restauración. Si algún paquete no se pudo devolver, la restauración lo indica en lugar de dar la reversión por completa. Si cancelas durante el paso de los nodos, el commit se revierte pero las carpetas de nodo ya instaladas y los paquetes que añadieron se quedan. Si el entorno ya coincide con la instantánea, la restauración informa **No changes needed** y deja el entorno como está. Los nodos personalizados se tratan con un criterio de mejor esfuerzo. Un nodo que no se instala o no cambia de versión no detiene el resto de la restauración: la restauración termina mostrando los fallos y la entrada que escribe en la línea de tiempo lleva la etiqueta **Restore did not complete** junto a su etiqueta **Restored**. Corrige o elimina el nodo y vuelve a restaurar. La tarjeta en la parte superior de la línea de tiempo indica cómo terminó la última restauración: **Snapshot restored** o **Restore failed**. Si cancelas la restauración, la tarjeta se cierra sin resultado. Una restauración correcta también añade una entrada con la etiqueta **Restored** , que registra el estado resultante.
 
 ### 
 

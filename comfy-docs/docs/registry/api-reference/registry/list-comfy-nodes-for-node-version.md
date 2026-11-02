@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/list-comfy-nodes-for-node-version/
 title: list comfy-nodes for node version - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:55.842174+00:00
+fetched_at: 2026-11-02T16:54:37.393366+00:00
 ---
 
 # list comfy-nodes for node version - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-all-nodes-1/
 title: Retrieve all nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:53.958782+00:00
+fetched_at: 2026-11-02T16:54:35.896412+00:00
 ---
 
 # Retrieve all nodes - ComfyUI

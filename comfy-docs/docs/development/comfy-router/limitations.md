@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:52.771949+00:00
+fetched_at: 2026-11-02T16:54:40.153514+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -127,10 +127,10 @@ Models without a pre-flight estimate
 Router cannot yet reliably price a call to the models below before it runs, so expect `/estimate` and a queued submit’s `estimate` to answer `source: unknown` for them, though some may return a figure for a particular body. `unknown` means no figure was given, not that the run is free. The Comfy charges and usage rules still apply: a run on your own provider key is not billed by Comfy, and `X-Comfy-Credits-Used` is optional, so a missing header means the cost was not reported. A model not listed here can still answer `unknown` for a particular body, so read `source` on every estimate. This list shrinks as estimate coverage grows. It is generated from Router’s own pricing code, and models that are not publicly available are never listed.
 
   * **bfl** : `bfl/erase-v1`, `bfl/video-edit-v1`, `bfl/video-upscale-v1`, `bfl/vto-v1`
-  * **fal** : `fal/crystal-upscaler`, `fal/crystal-video-upscaler`, `fal/fal-seedance-2.0`, `fal/fal-seedance-2.5`, `fal/patina`
+  * **fal** : `fal/fal-seedance-2.0`, `fal/fal-seedance-2.5`
   * **freepik** : `freepik/ai-image-upscaler-precision-v2`, `freepik/ai-skin-enhancer-creative`, `freepik/ai-skin-enhancer-faithful`, `freepik/ai-skin-enhancer-flexible`
   * **heygen** : `heygen/starfish`
-  * **ideogram** : `ideogram/ideogram-v3`, `ideogram/ideogram-v4`, `ideogram/p-image-ideogram`
+  * **ideogram** : `ideogram/ideogram-v3`, `ideogram/ideogram-v4`
   * **kling** : `kling/kling-image-o1`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`, `kling/videos-video-extend`
   * **moonvalley** : `moonvalley/image-to-video`, `moonvalley/text-to-video`, `moonvalley/video-to-video`
   * **openai** : `openai/gpt-image-1.5`
@@ -138,7 +138,6 @@ Router cannot yet reliably price a call to the models below before it runs, so e
   * **pika** : `pika/pika-gpt-image-2`, `pika/pika-nano-banana-2`, `pika/pika-nano-banana-pro`
   * **runware** : `runware/runware-gpt-image-2`, `runware/runware-gpt-image-2.5-flare`, `runware/runware-gpt-image-2.5-sunburst`, `runware/runware-nano-banana-2`, `runware/runware-nano-banana-pro`, `runware/runware-seedance-2.0`, `runware/runware-seedance-2.5`
   * **synclabs** : `synclabs/sync-3`
-  * **veed** : `veed/clean-audio`, `veed/clean-audio-video`, `veed/fabric-1.0`, `veed/lipsync-2.0`, `veed/video-background-removal`, `veed/video-background-removal-fast`, `veed/video-background-removal-green-screen`
   * **wavespeed** : `wavespeed/wavespeed-gpt-image-2`, `wavespeed/wavespeed-gpt-image-2.5-flare`, `wavespeed/wavespeed-gpt-image-2.5-sunburst`
 
 Edits on `openai/gpt-image-2`, `openai/gpt-image-2.5-flare`, and `openai/gpt-image-2.5-sunburst` also have no pre-flight estimate. An edit call to one of these models, or a generation call that carries an input image, answers `source: unknown`. A text-only generation call to them is estimated, which is why they are not in the list above.

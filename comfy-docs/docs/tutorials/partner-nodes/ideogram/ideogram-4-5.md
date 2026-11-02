@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-4-5/
 title: Ideogram 4.5 in ComfyUI: Text to Image and Edit - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:32.190953+00:00
+fetched_at: 2026-11-02T16:54:39.925270+00:00
 ---
 
 # Ideogram 4.5 in ComfyUI: Text to Image and Edit - ComfyUI
@@ -11,9 +11,12 @@ fetched_at: 2026-10-17T10:51:32.190953+00:00
 
 ## On this page
 
+Back to top
+
   * Text to Image
   * Image Edit
   * Precise Edit
+    * Edit a single region
 
 
 
@@ -121,7 +124,7 @@ Up to five images can be connected in total. Inputs above roughly 4 MP are scale
 
 Precise Edit
 
-Change only what the prompt asks for. Untouched pixels stay identical and the output keeps the size of `image_1`. Accepts up to four reference images beyond the image being edited. ![Ideogram 4.5 precise edit workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_precise_image_edit-1.webp)
+Change only what the prompt asks for. Untouched pixels stay identical. Accepts up to four reference images beyond the image being edited. ![Ideogram 4.5 precise edit workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_precise_image_edit-1.webp)
 
 ## Run on Comfy Cloud
 
@@ -137,7 +140,23 @@ Download JSON or search “Ideogram 4.5: Precise Edit” in Template Library
 
 Load into the `image_1` slot on the Ideogram 4.5 Precise Edit node
 
-Precise Edit shares the reference slots, `@Image1` addressing, `quality`, and `seed` controls with Edit. It has no size control, because the output always matches the size of `image_1`. The template draws its instruction with the **Build JSON Prompt** node as well. Use it for product recolors, material swaps, and touch-ups that must leave the lighting, background, and framing of the rest of the photo alone.
+Precise Edit shares the reference slots, `@Image1` addressing, `quality`, and `seed` controls with Edit. It has no size control. With a region, the output keeps the size of `image_1`. Without a region (`context_window` at the default `none`), sources above about 4 MP are scaled down first, so the output may be smaller. The template draws its instruction with the **Build JSON Prompt** node as well.
+
+### 
+
+​
+
+Edit a single region
+
+Without a region the node re-renders the whole of `image_1`, and anything above about 4 MP (2048x2048) is scaled down first. Set `context_window` to edit one region instead: only that region is regenerated, and the output keeps the original size of `image_1`, from a source of up to 8192x8192 pixels. Outside the region, pixels are copied through unchanged while `image_1` stays a PNG. If `image_1` is converted to JPEG because the PNG exceeds the upload budget, pixels outside the region can change slightly.
+
+`context_window`| Extra input| Region that is edited  
+---|---|---  
+`none` (default)| none| The whole image, scaled down above about 4 MP  
+`auto`| `context_window_mask`| Placed around the white area of the mask  
+`custom`| `context_window_bboxes`| One enclosing rectangle around all connected boxes (space between separated boxes is included and may be edited), for example from the **Create Bounding Boxes** node  
+  
+The region can be 256 to 4608 pixels per side, up to about 4 MP, and at most 6:1. Regions or boxes under 256 pixels per side are padded to 256. For `auto`, keep the `context_window_mask` region within those same limits. A larger white area is not rejected: Ideogram may fall back to a whole-image edit, and a large image may be scaled down. Only the region has to be valid, so `image_1` itself can have any aspect ratio, and with `context_window_mask` you can connect three reference images instead of four. Use it for product recolors, material swaps, and touch-ups that must leave the lighting, background, and framing of the rest of the photo alone.
 
 Was this page helpful?
 
@@ -145,26 +164,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/ideogram/ideogram-4-5.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/ideogram/ideogram-4-5)
 
-[ComfyUI Ideogram 4.0 Partner Node TutorialPrevious](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-v4)[Ideogram P-Image - fast text-to-imageNext](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-p-image)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Ideogram Vector](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-vector)[Ideogram P Image](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-p-image)

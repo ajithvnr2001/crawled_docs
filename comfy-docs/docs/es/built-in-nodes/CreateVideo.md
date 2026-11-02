@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/CreateVideo/
 title: Crear video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:42.786786+00:00
+fetched_at: 2026-11-02T16:54:39.765558+00:00
 ---
 
 # Crear video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -38,6 +38,10 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 `color_space`| Espacio de color de las imágenes de entrada. HDR selecciona BT.2020/HLG y HDR PQ selecciona BT.2020/PQ. (predeterminado: “sRGB”)| COMBO| No| `"sRGB"`  
 `"HDR"`  
 `"HDR PQ"`  
+`chroma_subsampling`| 444 mantiene la resolución de color completa, 422 reduce a la mitad la resolución de color horizontal y 420 reduce a la mitad ambos ejes. `"auto"` usa el valor predeterminado del códec. Las opciones no compatibles usan el modo compatible más cercano e imprimen una advertencia en la consola. (predeterminado: “auto”)| COMBO| No| `"auto"`  
+`"444"`  
+`"422"`  
+`"420"`  
 `codec`| Opcionalmente, codifica el video de inmediato. La opción `"none"` mantiene las imágenes en forma de tensor; `"auto"` usa H.264. (predeterminado: “none”)| COMBO| No| `"none"`  
 Opciones de códec de video disponibles de la lista de códecs de video (p. ej. `"auto"` y otros códecs compatibles)  
   
@@ -57,7 +61,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `9274559caabbafbcaad47883bf017967f9685f155ea1031e66cf22ee8d0d14c3`
+**Source fingerprint (SHA-256):** `614285ac3a38eedb63fd72f8b70f776b441b1b043707f4b21f587f70e2e071fa`
 
 ¿Esta página le ayudó?
 

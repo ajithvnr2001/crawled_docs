@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/FluxVideoUpscaleNode/
 title: Ampliaci\u00f3n de v\u00eddeo Flux - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:49.255772+00:00
+fetched_at: 2026-11-02T16:54:39.690166+00:00
 ---
 
 # Ampliación de vídeo Flux - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ Flux Video Upscale aumenta la escala de un clip de video entre 1.5 y 3 veces med
 
 Copiar páginaCopiar página
 
-Flux Video Upscale aumenta la escala de un clip de video entre 1.5 y 3 veces mediante superresolución de FLUX. En el modo creativo restaura e inventa detalles finos; en el modo preciso mejora la nitidez de la fuente sin modificarla.
+Flux Video Upscale aumenta la escala de un clip de video entre 1.5 y 3 veces mediante superresolución de FLUX. En el modo creativo restaura e inventa detalles finos; en el modo preciso mejora la nitidez de la fuente sin modificarla. **Nota:** Este nodo está marcado como obsoleto en el código fuente.
 
 ## 
 
@@ -34,12 +34,12 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 `modo`| ’creative’ restaura e inventa detalles finos, ideal para metraje generado, texturas y paisajes. ‘precise’ mejora la nitidez de la fuente sin modificarla, para rostros, productos y metraje real. (predeterminado: “creative”)| COMBO| Sí| ”creative"  
 "precise”  
 `prompt`| Descripción opcional del clip que guía el detalle mejorado. Déjelo vacío para un aumento de escala neutro. (predeterminado: vacío)| STRING| Sí| Texto multilínea  
-`auto_downscale`| Reduce automáticamente la escala de fuentes con un área mayor a 3840x2160 píxeles para ajustarse al límite de entrada. Se conserva la relación de aspecto; los videos más pequeños no se modifican. (predeterminado: true)| BOOLEAN| Sí| true  
+`auto_downscale`| Reduce automáticamente la escala de fuentes con un área mayor a 2560x1440 píxeles para ajustarse al límite de entrada. Se conserva la relación de aspecto; los videos más pequeños no se modifican. (predeterminado: true)| BOOLEAN| Sí| true  
 false  
 `safety_tolerance`| Tolerancia de moderación; 0 es la más estricta. (predeterminado: 2, parámetro avanzado)| INT| Sí| 0 a 4  
 `seed`| Semilla para determinar si el nodo debe volver a ejecutarse; FLUX elige su propia semilla, por lo que los resultados reales son no deterministas independientemente de este valor. (predeterminado: 42)| INT| Sí| 0 a 4294967295  
   
-Nota: El video de origen debe durar entre 1 y 20 segundos, tener al menos 64x64 píxeles de tamaño y una relación de aspecto entre 1:4 y 4:1. Si `auto_downscale` está deshabilitado y el área del video supera los 3840x2160 píxeles, el nodo genera un error. El video de salida se renderiza a 24 fps y se limita a aproximadamente 14.4 megapíxeles por fotograma, por lo que las fuentes muy grandes pueden ampliarse menos que el factor solicitado.
+Nota: El video de origen debe durar entre 1 y 20 segundos, tener al menos 64x64 píxeles de tamaño y una relación de aspecto entre 1:4 y 4:1. Si `auto_downscale` está deshabilitado y el área del video supera los 2560x1440 píxeles, el nodo genera un error. El video de salida se renderiza a 24 fps y se limita a aproximadamente 14.4 megapíxeles por fotograma, por lo que las fuentes muy grandes pueden ampliarse menos que el factor solicitado.
 
 ## 
 
@@ -55,7 +55,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `22dcf7c176705ce21a9032b1c9f4fe82ee6aa153f5057b90dac653b37281a677`
+**Source fingerprint (SHA-256):** `2eeac17c04b4a2cde76a7e0d58b42ba5622cc22119b7ddc3c730463b2eb5d8c1`
 
 ¿Esta página le ayudó?
 

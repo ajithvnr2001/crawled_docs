@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/delete-a-specific-personal-access-token/
 title: Delete a specific personal access token - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:52.996362+00:00
+fetched_at: 2026-11-02T16:54:35.005855+00:00
 ---
 
 # Delete a specific personal access token - ComfyUI
