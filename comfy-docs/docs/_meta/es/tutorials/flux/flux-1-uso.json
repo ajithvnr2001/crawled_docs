@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/tutorials/flux/flux-1-uso/",
   "file": "es/tutorials/flux/flux-1-uso.md",
-  "title": "Ejemplo de flujo de trabajo nativo de ByteDance USO en ComfyUI - ComfyUI",
+  "title": "ByteDance USO en ComfyUI: flujos de trabajo de referencia de estilo y sujeto - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-26T14:03:43.229158+00:00"
+  "fetched_at": "2026-11-03T14:55:30.665133+00:00"
 }

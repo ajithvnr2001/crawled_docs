@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/manage/
 title: Administraci\u00f3n de instalaciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:03.021831+00:00
+fetched_at: 2026-11-03T14:55:27.374566+00:00
 ---
 
 # Administración de instalaciones - ComfyUI
@@ -44,13 +44,7 @@ Copiar páginaCopiar página
 
 El panel Administrar
 
-El contenido del panel Administrar varía según el tipo de instancia. Las capturas de pantalla de esta página muestran una **instalación local independiente**. Las instancias en la nube y remotas tienen menos pestañas y configuraciones. Selecciona **Administrar** en una instalación para abrir el panel de configuraciones. ![Panel Administrar de una instancia local: Actualizar, Argumentos de inicio, Instantáneas, Almacenamiento, Terminal, Acerca de](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_00.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=d5cd8f705d7b46b7145b50088f00f0e0)
-
-  * Abre la vista **Selector** (la pantalla de inicio que muestra todas tus instancias)
-  * Haz clic en el icono ⋮ de la tarjeta de una instancia
-  * Selecciona **Administrar** en el menú contextual
-
-El panel tiene seis pestañas: **Actualizar** , **Argumentos de inicio** , **Instantáneas** , **Almacenamiento** , **Terminal** y **Acerca de**.
+El contenido del panel Administrar varía según el tipo de instancia. Las capturas de pantalla de esta página muestran una **instalación local independiente**. Las instancias en la nube y remotas tienen menos pestañas y configuraciones. Para abrirlo, ve a la vista **Selector** (la pantalla de inicio que lista tus instancias), haz clic en el icono ⋮ de la tarjeta de una instancia y luego selecciona **Administrar**. ![Panel Administrar de una instancia local: Actualizar, Argumentos de inicio, Instantáneas, Almacenamiento, Terminal, Acerca de](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_00.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=d5cd8f705d7b46b7145b50088f00f0e0) El panel tiene seis pestañas: **Actualizar** , **Argumentos de inicio** , **Instantáneas** , **Almacenamiento** , **Terminal** y **Acerca de**.
 
 ### 
 
@@ -95,15 +89,15 @@ Las compilaciones nocturnas se marcan como inestables. El selector las ofrece du
 
 Pestaña Argumentos de inicio
 
-![Pestaña Argumentos de inicio del panel Administrar para los argumentos de lanzamiento de la instancia y los argumentos beta](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_02_startup_args.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=a37018a6b1b84ca859cc459ba056cffb) Configura argumentos CLI de inicio, la política ComfyUI Manager, el modo de lanzamiento, el uso compartido de la caché del navegador, el comportamiento ante conflictos de puertos y las variables de entorno.
+![Pestaña Argumentos de inicio del panel Administrar para los argumentos de lanzamiento de la instancia y los argumentos beta](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_02_startup_args.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=a37018a6b1b84ca859cc459ba056cffb) Configura los argumentos CLI de inicio, la política de ComfyUI Manager, el modo de lanzamiento, el uso compartido de la caché del navegador, el comportamiento ante conflictos de puerto y las variables de entorno.
 
   * **Argumentos de inicio** : Argumentos CLI personalizados para ComfyUI (por ejemplo, `--listen`). Haz clic en el icono de engranaje para ver las opciones categorizadas. Cuando las funciones beta están habilitadas, una etiqueta **+N beta** junto al campo enumera los argumentos beta que Comfy Desktop agregó para la sesión en ejecución, o los que son elegibles para el próximo lanzamiento.
-  * **Nivel de seguridad ComfyUI Manager** : Controla qué paquetes de nodos puede instalar ComfyUI-Manager para esta instancia. Se aplica la próxima vez que inicies. 
+  * **Nivel de seguridad de Manager** : Controla qué paquetes de nodos puede instalar ComfyUI-Manager para esta instancia. Se aplica la próxima vez que inicies. 
     * **Estricto** : Bloquea todas las instalaciones, actualizaciones y desinstalaciones de paquetes de nodos. El Administrador es de solo lectura.
     * **Estándar (RECOMENDADO)** : Permite paquetes de nodos registrados. Bloquea las instalaciones desde fuentes no registradas (por ejemplo, URL de git arbitrarias).
     * **Relajado** : Como Estándar, pero también permite instalaciones desde fuentes no registradas mientras ComfyUI solo sea accesible desde esta máquina. `--listen` las bloquea de nuevo.
     * **Permisivo** : Permite todos los niveles de riesgo. Si ComfyUI está expuesto con `--listen`, las instalaciones aún requieren el modo de red **Personal cloud**.
-  * **Modo de red ComfyUI Manager** : Cómo se comunica ComfyUI Manager con el registro de nodos. 
+  * **Modo de red de Manager** : Cómo se comunica Manager con el registro de nodos. 
     * **Público (predeterminado)** : Usa el registro público. `--listen` bloquea las instalaciones de paquetes de nodos en todos los niveles de seguridad.
     * **Privado** : Usa una base de datos de nodos privada que configuras tú mismo.
     * **Sin conexión** : Sin red externa. Las descargas no están disponibles.
@@ -156,7 +150,7 @@ Pestaña Almacenamiento
   * **Usar carpeta de entrada compartida** : Cuando está activada, esta instancia lee los archivos de entrada desde la carpeta de entrada compartida global. Desactívala para usar la carpeta de entrada propia de esta instancia.
   * **Usar carpeta de salida compartida** : Cuando está activada, esta instancia escribe las salidas generadas en la carpeta de salida compartida global. Desactívala para usar la carpeta de salida propia de esta instancia.
   * **Directorios de modelos** : Directorios de modelos adicionales solo para esta instancia, que se buscan además de los directorios de modelos compartidos.
-  * **Directorio de entrada** / **Directorio de salida** : Las carpetas propias de esta instancia cuando los interruptores compartidos de arriba están desactivados.
+  * **Directorio de entrada** / **Directorio de salida** : Las carpetas propias de esta instancia cuando los interruptores de carpetas compartidas de arriba están desactivados.
 
 
 
@@ -169,7 +163,7 @@ Pestaña Terminal
 ![Pestaña Terminal de Administrar que muestra la consola de la instancia](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_05_console.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=90ce6384fcacf5fef329b08dc1e080e3) Un shell interactivo en la carpeta de esta instancia. Funciona tanto si ComfyUI está en ejecución como si está detenido.
 
   * Úsalo para inspeccionar los registros de inicio, los errores y la salida de Python.
-  * Copiar, pegar y seleccionar todo siguen los atajos del sistema operativo. Haz clic derecho en la terminal para las mismas acciones.
+  * Copiar, pegar y seleccionar todo usan los atajos del sistema operativo. Haz clic derecho en la terminal para las mismas acciones.
 
 
 
@@ -179,12 +173,12 @@ Pestaña Terminal
 
 Pestaña Acerca de
 
-![Pestaña Acerca de de Administrar: el nombre de instancia editable, los datos de la instancia y la ruta de instalación](https://mintcdn.com/dripart/3_f2FbRYqX1I3CM-/images/desktop/usage/instance_settings_05_about.png?fit=max&auto=format&n=3_f2FbRYqX1I3CM-&q=85&s=6c609261816eb72a277d6e8118f36fe1) La pestaña Acerca de reúne lo que Comfy Desktop sabe sobre la instancia. Al hacer clic en una ruta, esta se abre en tu administrador de archivos, y el botón de copiar que está al lado copia la ruta. Los datos están agrupados, y un grupo solo aparece cuando tiene algo que mostrar:
+![Pestaña Acerca de de Administrar: el nombre de instancia editable, los datos de la instancia y la ruta de instalación](https://mintcdn.com/dripart/3_f2FbRYqX1I3CM-/images/desktop/usage/instance_settings_05_about.png?fit=max&auto=format&n=3_f2FbRYqX1I3CM-&q=85&s=6c609261816eb72a277d6e8118f36fe1) La pestaña Acerca de reúne lo que Comfy Desktop sabe sobre la instancia. Cuando haces clic en una ruta, esta se abre en tu administrador de archivos, y el botón de copiar que está al lado copia la ruta. Los datos están agrupados, y un grupo solo aparece cuando tiene algo que mostrar:
 
-  * **Detalles de la instancia** : Versión de ComfyUI, hardware, y las versiones de Python y PyTorch. Para una Conexión remota, este grupo contiene la URL de conexión y la fecha en que se agregó la conexión.
+  * **Detalles de la instancia** : la versión de ComfyUI, el hardware y las versiones de Python y PyTorch. En una Conexión remota, este grupo contiene la URL de conexión y la fecha en que se agregó la conexión.
   * **Detalles de ejecución** : el puerto en el que ComfyUI está escuchando. Aparece mientras la instancia está en ejecución.
   * **Ubicación y almacenamiento** : la ruta de instalación completa en el disco y cuánto espacio ocupa la instalación. Solo una instalación local guarda archivos en esta máquina, así que Comfy Cloud y las Conexiones remotas no tienen este grupo.
-  * **Linaje** : la instancia desde la que se copió esta, y cuándo. Aparece en una instancia que proviene de **Duplicar instancia** , de una copia que cambió su versión o PyTorch, de una migración desde Desktop clásico, o de una adopción in situ.
+  * **Linaje** : la instancia desde la que se copió esta y cuándo. Aparece en una instancia que proviene de **Duplicar instancia** , de una copia que cambió su versión o PyTorch, de una migración desde Desktop clásico o de una adopción in situ.
 
 
 

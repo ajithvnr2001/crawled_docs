@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-layered/",
   "file": "es/tutorials/image/qwen/qwen-image-layered.md",
-  "title": "Ejemplo de flujo de trabajo de Qwen-Image-Layered en ComfyUI - ComfyUI",
+  "title": "Qwen-Image-Layered en ComfyUI: descomposici\u00f3n en capas de imagen - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-26T14:03:44.631413+00:00"
+  "fetched_at": "2026-11-03T14:55:31.445020+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/audio/yue2/yue2/
 title: Gu\u00eda de generaci\u00f3n de m\u00fasica con YuE2 en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:41.273294+00:00
+fetched_at: 2026-11-03T14:55:28.229365+00:00
 ---
 
 # Guía de generación de música con YuE2 en ComfyUI - ComfyUI
@@ -21,11 +21,11 @@ Volver arriba
     * 5\. Planificación ABC
     * 6\. Duración máxima
     * 7\. Escala de orientación
-  * Versión de una canción existente (Music Cover)
+  * Cover musical
     * 1\. Pasos para ejecutar
-    * 2\. Descarga de modelos
-    * 3\. Cómo funciona la versión
-    * 4\. Escribir el Style y la letra
+    * 2\. Descargas de modelos
+    * 3\. Cómo funciona el cover
+    * 4\. Escribir el estilo y la letra
 
 
 
@@ -39,7 +39,7 @@ Genera canciones completas con voces en ComfyUI con el modelo de código abierto
 
 Copiar páginaCopiar página
 
-YuE2 es un modelo de generación musical de código abierto de Multimodal Art Projection (m-a-p) que convierte un prompt de estilo y una letra en una canción completa con voces y acompañamiento instrumental. Es un modelo de 3B de parámetros, genera estructuras de canción completas con secciones como intro, verso, estribillo, puente y outro, y admite varios idiomas de canto, incluidos el inglés, el chino y el japonés. Lo que distingue a YuE2 de la mayoría de los sistemas de texto a música es su paso de composición editable. Antes de generar el audio, YuE2 puede escribir primero un plan musical simbólico en notación ABC: una melodía, opcionalmente con acordes, que puedes inspeccionar y editar. La canción final se renderiza a partir de ese plan. Esto hace que los resultados sean más fáciles de dirigir que la generación de audio en una sola pasada, y también habilita el flujo de trabajo de cover que aparece más abajo, donde una canción de referencia se transcribe a la misma notación y se vuelve a cantar con un nuevo estilo y una nueva letra. YuE2 es compatible de forma nativa con ComfyUI. Actualiza a la última versión de [ComfyUI](https://github.com/comfyanonymous/ComfyUI) antes de empezar. Se requiere ComfyUI v0.36.0 o posterior.
+YuE2 es un modelo de generación musical de código abierto de Multimodal Art Projection (m-a-p) que convierte un prompt de estilo y una letra en una canción completa con voces y acompañamiento instrumental. Es un modelo de 3B de parámetros que genera estructuras de canción completas con secciones como intro, verso, estribillo, puente y outro, y admite varios idiomas de canto, incluidos el inglés, el chino y el japonés. Lo que distingue a YuE2 de la mayoría de los sistemas de texto a música es su paso de composición editable. Antes de generar el audio, YuE2 puede escribir primero un plan musical simbólico en notación ABC: una melodía, opcionalmente con acordes, que puedes inspeccionar y editar. La canción final se renderiza a partir de ese plan. Esto hace que los resultados sean más fáciles de dirigir que la generación de audio en una sola pasada, y también habilita el flujo de trabajo de cover que aparece más abajo, donde una canción de referencia se transcribe a la misma notación y se vuelve a cantar con un nuevo estilo y una nueva letra. YuE2 es compatible de forma nativa con ComfyUI. Actualiza a la última versión de [ComfyUI](https://github.com/comfyanonymous/ComfyUI) antes de empezar. Se requiere ComfyUI v0.36.0 o posterior.
 
   * Usuarios locales
 
@@ -64,7 +64,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-YuE2 aún no está disponible en Comfy Cloud. Ambos flujos de trabajo de esta página se ejecutan en una instalación local de ComfyUI, así que no hay ninguna plantilla de Cloud que abrir para ellos.
+YuE2 aún no está disponible en Comfy Cloud. Ambos flujos de trabajo de esta página se ejecutan en una instalación local de ComfyUI, así que no hay ninguna plantilla de Cloud que abrir para ninguno de los dos.
 
 ## 
 
@@ -189,9 +189,9 @@ El nodo **YuE2 Generate Music** tiene una opción avanzada `cfg_scale` (de 0 a 1
 
 ​
 
-Versión de una canción existente (Music Cover)
+Cover musical
 
-Crea una nueva versión de una canción existente. Este flujo de trabajo usa SheetSage2 para transcribir la melodía de un audio de referencia a una partitura ABC editable y luego usa YuE2 para regenerar la canción con un estilo y una letra nuevos. ![Vista previa del flujo de trabajo de Music Cover de YuE2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/audio_yue2_music_cover-1.webp)
+Crea una nueva versión de una canción existente. Este flujo de trabajo usa SheetSage2 para transcribir la melodía de un audio de referencia a una partitura ABC editable, y luego usa YuE2 para regenerar la canción con un nuevo estilo y letra. ![Vista previa del flujo de trabajo de cover musical de YuE2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/audio_yue2_music_cover-1.webp)
 
 ## Descargar flujo de trabajo
 
@@ -201,7 +201,7 @@ Descarga el JSON o busca “YuE2: Music Cover” en la Biblioteca de plantillas
 
 ## yue2_reference_song.flac
 
-Nodo `LoadAudio` · `yue2_reference_song.flac`
+nodo `LoadAudio` · `yue2_reference_song.flac`
 
 ### 
 
@@ -211,22 +211,22 @@ Nodo `LoadAudio` · `yue2_reference_song.flac`
 
   1. Carga una canción de referencia en **Audio**
   2. Describe la nueva dirección musical en **Style**
-  3. Introduce la letra que quieres que se cante en **Lyrics**
-  4. Encola el flujo de trabajo para generar una nueva versión
+  3. Introduce la letra que quieres cantar en **Lyrics**
+  4. Pon en cola el flujo de trabajo para generar una nueva versión de cover
 
-El audio de referencia aporta la melodía, mientras que YuE2 crea una nueva interpretación y un nuevo arreglo a partir de tu Style y tu Lyrics.
+El audio de referencia proporciona la melodía, mientras que YuE2 crea una nueva interpretación y arreglo basados en tu Style y Lyrics.
 
 ### 
 
 ​
 
-2\. Descarga de modelos
+2\. Descargas de modelos
 
-## checkpoint de YuE2
+## YuE2 checkpoint
 
 yue2_3b_int8_convrot.safetensors
 
-## codificador de audio SheetSage2
+## Codificador de audio SheetSage2
 
 sheetsage2_bf16.safetensors
 
@@ -245,9 +245,9 @@ Coloca los archivos en los siguientes directorios:
 
 ​
 
-3\. Cómo funciona la versión
+3\. Cómo funciona el cover
 
-El flujo de trabajo no pasa el audio de referencia directamente a YuE2. En su lugar:
+El flujo de trabajo no alimenta directamente el audio de referencia a YuE2. En su lugar:
     
     
     Reference Audio
@@ -259,19 +259,19 @@ El flujo de trabajo no pasa el audio de referencia directamente a YuE2. En su lu
     YuE2 (generation with new Style and Lyrics)
     
 
-Como el vínculo con la canción original es la melodía, las versiones funcionan mejor cuando la letra nueva se mantiene razonablemente cerca de la frase y del número de sílabas del original.
+Dado que la conexión con la canción original es la melodía, los covers funcionan mejor cuando la nueva letra se mantiene razonablemente cerca de la fraseología y el número de sílabas originales.
 
 ### 
 
 ​
 
-4\. Escribir el Style y la letra
+4\. Escribir el estilo y la letra
 
-Describe con claridad el estilo musical objetivo. Los elementos útiles incluyen género, tipo de voz, idioma, tempo, instrumentos y ambiente:
+Describe claramente el estilo musical objetivo. Los elementos útiles incluyen género, tipo de voz, idioma, tempo, instrumentos y estado de ánimo:
 
-> English, soulful jazz-pop, expressive male vocal, relaxed 88 BPM, Rhodes piano, upright bass, brushed drums, warm saxophone, intimate late-night atmosphere
+> Inglés, jazz-pop con alma, voz masculina expresiva, 88 BPM relajado, piano Rhodes, contrabajo, batería con escobillas, saxofón cálido, ambiente íntimo de madrugada
 
-Usa las mismas etiquetas de sección `[Verse]` / `[Chorus]` / `[Bridge]` / `[Outro]` que en el flujo de trabajo de texto a música. Para que la melodía encaje mejor, mantén la letra nueva con una longitud similar a la de los versos originales.
+Usa las mismas etiquetas de sección `[Verse]` / `[Chorus]` / `[Bridge]` / `[Outro]` que el flujo de trabajo de texto a música. Para lograr una mejor coincidencia de la melodía, mantén la nueva letra con una longitud similar a las líneas originales.
 
 ¿Esta página le ayudó?
 

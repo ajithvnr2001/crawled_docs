@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-layered/
-title: Ejemplo de flujo de trabajo de Qwen-Image-Layered en ComfyUI - ComfyUI
+title: Qwen-Image-Layered en ComfyUI: descomposici\u00f3n en capas de imagen - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.631255+00:00
+fetched_at: 2026-11-03T14:55:31.444561+00:00
 ---
 
-# Ejemplo de flujo de trabajo de Qwen-Image-Layered en ComfyUI - ComfyUI
+# Qwen-Image-Layered en ComfyUI: descomposición en capas de imagen - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-layered/
 
@@ -18,7 +18,7 @@ Volver arriba
   * Enlaces de modelos
   * Versión FP8
   * Capas y salida
-    * Cómo se convierten las capas en imágenes separadas
+    * Cómo las capas se convierten en imágenes separadas
   * Configuraciones del flujo de trabajo
     * Configuraciones del sampler
     * Tamaño de entrada
@@ -28,17 +28,17 @@ Volver arriba
 
 Qwen
 
-# Ejemplo de flujo de trabajo de Qwen-Image-Layered en ComfyUI
+# Qwen-Image-Layered en ComfyUI: descomposición en capas de imagen
 
 Copiar páginaCopiar página
 
-Qwen-Image-Layered descompone una imagen en varias capas RGBA, lo que permite editarlas de forma inherente.
+Descompone una imagen en varias capas RGBA con Qwen-Image-Layered y luego recolorea, sustituye, redimensiona o reubica cada capa de forma independiente.
 
 Copiar páginaCopiar página
 
-**Qwen-Image-Layered** es un modelo desarrollado por el equipo Qwen de Alibaba que puede descomponer una imagen en varias capas RGBA. Esta representación por capas habilita una editabilidad inherente: cada capa se puede manipular de forma independiente sin afectar el contenido de las demás. **Características principales** :
+**Qwen-Image-Layered** es un modelo desarrollado por el equipo Qwen de Alibaba que puede descomponer una imagen en varias capas RGBA. Esta representación por capas habilita una capacidad de edición inherente: cada capa se puede manipular de forma independiente sin afectar el contenido de las demás. **Características principales** :
 
-  * **Editabilidad inherente** : cada capa se puede manipular de forma independiente sin afectar el contenido de las demás
+  * **Capacidad de edición inherente** : cada capa se puede manipular de forma independiente sin afectar el contenido de las demás
   * **Operaciones elementales de alta fidelidad** : admite cambiar el tamaño, la posición y el color con aislamiento físico de los componentes semánticos
   * **Descomposición en cantidad variable de capas** : no se limita a un número fijo de capas; descompón en 3, 4, 8 o más capas según lo necesites
   * **Descomposición recursiva** : cualquier capa se puede descomponer aún más, lo que permite una profundidad de descomposición infinita
@@ -86,7 +86,7 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Descomposición con Qwen-Image-Layered
 
-Descompón una imagen en capas RGBA editables para flujos de trabajo de recoloreado, reemplazo, redimensionado y reposicionado. ![Vista previa del flujo de trabajo Qwen-Image-Layered](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_layered-1.webp)
+Descompón una imagen en capas RGBA editables para recolorar, reemplazar, redimensionar y reposicionar. ![Vista previa del flujo de trabajo Qwen-Image-Layered](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_layered-1.webp)
 
 ## Descargar flujo de trabajo
 
@@ -141,11 +141,11 @@ Enlaces de modelos
 
 Versión FP8
 
-De forma predeterminada usamos bf16, que requiere mucha VRAM. Si quieres reducir el uso de VRAM, puedes usar la versión fp8:
+Por defecto usamos bf16, que requiere mucha VRAM. Si necesitas un uso de VRAM menor, puedes usar la versión fp8:
 
   * [qwen_image_layered_fp8mixed.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-Layered_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_layered_fp8mixed.safetensors)
 
-Luego, actualiza el nodo **Cargar modelo de difusión** dentro del [Subgraph](https://docs.comfy.org/es/interface/features/subgraph) para usarla.
+Después, actualiza el nodo **Load Diffusion model** dentro del [Subgraph](https://docs.comfy.org/es/interface/features/subgraph) para usarla.
 
 ## 
 
@@ -153,7 +153,7 @@ Luego, actualiza el nodo **Cargar modelo de difusión** dentro del [Subgraph](ht
 
 Capas y salida
 
-El número de capas lo define el widget `layers` del nodo **Empty Qwen Image Layered Latent** , dentro del [Subgraph](https://docs.comfy.org/es/interface/features/subgraph). Este modelo regenera la imagen completa además de las capas, así que una generación siempre se decodifica en `layers + 1` imágenes:
+El número de capas lo define el widget `layers` del nodo **Latente Qwen Image en capas vacío** , dentro del [Subgraph](https://docs.comfy.org/es/interface/features/subgraph). Este modelo regenera la imagen completa además de las capas, así que una generación siempre decodifica `layers + 1` imágenes:
 
 `layers`| Imágenes decodificadas| Contenido  
 ---|---|---  
@@ -161,15 +161,15 @@ El número de capas lo define el widget `layers` del nodo **Empty Qwen Image Lay
 `2` (valor predeterminado de la plantilla)| 3| La imagen completa y luego 2 capas  
 `5`| 6| La imagen completa y luego 5 capas  
   
-**La primera imagen es la imagen completa, no una capa.** El flujo de trabajo de imagen a capas la descarta automáticamente con un nodo `LatentCut` (`dim` `t`, `index` `1`) antes de la división del lote, de modo que la plantilla genera `layers` imágenes. Si construyes un gráfico personalizado sin ese nodo, descarta la primera imagen cuando solo quieras las capas. `layers` acepta `0`, lo que te da esa imagen por sí sola. **Si compones todas las capas de nuevo, vuelves a crear la imagen completa.** Úsalo como comprobación: si al apilar las capas no se reproduce la primera imagen, la descomposición no hizo lo que buscabas.
+**La primera imagen es la imagen completa, no una capa.** El flujo de trabajo de imagen a capas la descarta automáticamente con un nodo `Cortar latente` (`dim` `t`, `index` `1`) antes de la división del lote, por lo que la plantilla genera `layers` imágenes. Si construyes un gráfico personalizado sin ese nodo, descarta la primera imagen cuando solo quieras las capas. `layers` acepta `0`, lo que te da esa imagen por sí sola. **Recomponer todas las capas vuelve a crear la imagen completa.** Úsalo como comprobación: si al apilar las capas no se reproduce la primera imagen, la descomposición no hizo lo que querías.
 
 ### 
 
 ​
 
-Cómo se convierten las capas en imágenes separadas
+Cómo las capas se convierten en imágenes separadas
 
-El nodo **Empty Qwen Image Layered Latent** asigna un latente 5D con forma `[batch_size, 16, layers + 1, height // 8, width // 8]`. Las capas ocupan el tercer eje, el mismo eje temporal que los modelos de video usan para los fotogramas. El nodo **LatentCutToBatch** con `dim` en `t` mueve ese eje a la dimensión del lote, así que después de **VAE Decode** cada capa es una imagen separada dentro del lote. La plantilla inserta un nodo `LatentCut` (`dim` `t`, `index` `1`) antes de `LatentCutToBatch` para descartar la entrada de la imagen completa, de modo que el lote decodificado solo contiene las capas. Por lo tanto, la posición de una capa en la pila es su índice en el lote, contando desde la imagen completa en el índice 0. No hay campo de z-index ni metadatos por capa que lleven ese orden, así que reordenar o filtrar el lote reordena las capas. El VAE de Qwen-Image-Layered decodifica a 4 canales, así que las capas decodificadas llevan un canal alfa.
+El nodo **Latente Qwen Image en capas vacío** asigna un latente 5D con forma `[batch_size, 16, layers + 1, height // 8, width // 8]`. Las capas ocupan el tercer eje, el mismo eje temporal que los modelos de video usan para los fotogramas. El nodo **Cortar latente a lote** con `dim` en `t` mueve ese eje a la dimensión del lote, de modo que después de la **Decodificación VAE** cada capa es una imagen separada dentro del lote. La plantilla inserta un nodo `Cortar latente` (`dim` `t`, `index` `1`) antes de **Cortar latente a lote** para descartar la entrada de la imagen completa, así que el lote decodificado contiene solo las capas. La posición de una capa en la pila es, por lo tanto, su índice en el lote, contando desde la imagen completa en el índice 0. No existe un campo de z-index ni metadatos por capa que lleven ese orden, así que reordenar o filtrar el lote reordena las capas. El VAE de Qwen-Image-Layered decodifica a 4 canales, por lo que las capas decodificadas llevan un canal alfa.
 
 ## 
 
@@ -183,7 +183,7 @@ Configuraciones del flujo de trabajo
 
 Configuraciones del sampler
 
-Este modelo es lento. Las configuraciones de muestreo originales son steps: 50 y CFG: 4.0, lo que al menos duplicará el tiempo de generación.
+Este modelo es lento. Las configuraciones de muestreo originales son steps: 50 y CFG: 4.0, lo que como mínimo duplica el tiempo de generación.
 
 ### 
 
@@ -191,7 +191,7 @@ Este modelo es lento. Las configuraciones de muestreo originales son steps: 50 y
 
 Tamaño de entrada
 
-Para el tamaño de entrada, se recomienda 640px. Usa 1024px para una salida de alta resolución.
+Para el tamaño de entrada se recomienda 640px. Usa 1024px para una salida de alta resolución.
 
 ### 
 
@@ -199,7 +199,7 @@ Para el tamaño de entrada, se recomienda 640px. Usa 1024px para una salida de a
 
 Prompt (opcional)
 
-El prompt de texto está pensado para describir el contenido general de la imagen de entrada, incluidos los elementos que pueden estar parcialmente ocultos (por ejemplo, puedes especificar el texto que está detrás de un objeto en primer plano). No está diseñado para controlar explícitamente el contenido semántico de cada capa.
+El prompt de texto sirve para describir el contenido general de la imagen de entrada, incluidos los elementos que pueden estar parcialmente ocluidos (por ejemplo, puedes especificar el texto oculto detrás de un objeto en primer plano). No está diseñado para controlar de forma explícita el contenido semántico de cada capa.
 
 ¿Esta página le ayudó?
 
@@ -207,4 +207,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/image/qwen/qwen-image-layered.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/image/qwen/qwen-image-layered)
 
-[Qwen-Image-Edit](https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-edit)[Z-Image](https://docs.comfy.org/es/tutorials/image/z-image/z-image)
+[Qwen-Image-Edit-2511](https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-edit-2511)[Z-Image](https://docs.comfy.org/es/tutorials/image/z-image/z-image)

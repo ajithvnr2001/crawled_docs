@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/overview/
-title: PixVerse AI: Generaci\u00f3n de video | Nodos asociados de ComfyUI - ComfyUI
+title: PixVerse AI en ComfyUI: video de texto, imagen y plantilla - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:54.034041+00:00
+fetched_at: 2026-11-03T14:55:32.044090+00:00
 ---
 
-# PixVerse AI: Generación de video | Nodos asociados de ComfyUI - ComfyUI
+# PixVerse AI en ComfyUI: video de texto, imagen y plantilla - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/overview/
 
@@ -20,15 +20,15 @@ Volver arriba
 
 PixVerse
 
-# PixVerse AI: Generación de video | Nodos asociados de ComfyUI
+# PixVerse AI en ComfyUI: video de texto, imagen y plantilla
 
 Copiar páginaCopiar página
 
-Aprende a usar los nodos asociados de PixVerse en ComfyUI para generar video con IA a partir de prompts de texto, imágenes y plantillas.
+Genera video en ComfyUI con PixVerse V5.6, V6, C1 y R1, desde un prompt de texto, una sola imagen o una plantilla de movimiento.
 
 Copiar páginaCopiar página
 
-PixVerse es una plataforma de generación de video con IA que produce videos cinematográficos a partir de texto e imágenes, ahora integrada como nodos asociados en ComfyUI. Con soporte para los modelos **V5.6** , **V6** , **C1** y **R1** , habilita los modos **Texto a video** , **Imagen a video** y **Imagen a video con plantilla** para crear videos de forma rápida y repetible, sin necesidad de claves de API separadas ni configuración externa.
+PixVerse es una plataforma de generación de video con IA que produce videos cinematográficos a partir de texto e imágenes, ahora integrada como nodos asociados en ComfyUI. Con soporte para los modelos **V5.6** , **V6** , **C1** y **R1** , habilita los modos **Texto a video** , **Imagen a video** e **Imagen a video con plantilla** para crear videos de forma rápida y repetible, sin necesidad de claves de API separadas ni configuración externa.
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 

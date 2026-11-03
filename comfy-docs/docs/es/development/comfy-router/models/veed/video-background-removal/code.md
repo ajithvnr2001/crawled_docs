@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/veed/video-background-removal/code/
 title: Usa Video Background Removal con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:21.247492+00:00
+fetched_at: 2026-11-03T14:55:26.530681+00:00
 ---
 
 # Usa Video Background Removal con Comfy Router - ComfyUI
@@ -42,7 +42,7 @@ Referencia de API de `veed/video-background-removal`, servida por Comfy Router d
 
 Inicio rápido
 
-Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada por HTTP directo. **ID del modelo:** `veed/video-background-removal` **Endpoint:** `POST https://api.comfy.org/v2/models/veed/video-background-removal`
+Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada por HTTP sin procesar. **ID del modelo:** `veed/video-background-removal` **Endpoint:** `POST https://api.comfy.org/v2/models/veed/video-background-removal`
 
   * Esperar el resultado
 
@@ -60,8 +60,8 @@ cURL
     
     from comfy_sdk import Comfy
     
-    # Reads COMFY_API_KEY from the environment.
-    # The SDK automatically creates an idempotency key and reuses it for automatic retries.
+    # Lee COMFY_API_KEY del entorno.
+    # El SDK crea automáticamente una clave de idempotencia y la reutiliza para los reintentos automáticos.
     with Comfy() as client:
         result = client.models.run(
             "veed/video-background-removal",
@@ -79,8 +79,8 @@ cURL
     
     import { comfy } from "@comfyorg/sdk";
     
-    // Reads COMFY_API_KEY from the environment.
-    // The SDK automatically creates an idempotency key and reuses it for automatic retries.
+    // Lee COMFY_API_KEY del entorno.
+    // El SDK crea automáticamente una clave de idempotencia y la reutiliza para los reintentos automáticos.
     const { data } = await comfy.models.run("veed/video-background-removal", {
       output_codec: "vp9",
       refine_foreground_edges: true,
@@ -99,7 +99,7 @@ cURL
       -d "{\"output_codec\": \"vp9\", \"refine_foreground_edges\": true, \"subject_is_person\": true, \"video_url\": \"https://static-assets.veed.io/api-examples/bg-v2v-input.mp4\"}"
     
 
-El mismo cuerpo, enviado a `POST https://api.comfy.org/v2/models/veed/video-background-removal/requests`. Router responde `201` con un `request_id` en cuanto se admite la ejecución, y el resultado se recoge cuando está listo, desde este proceso o desde otro. [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue) explica el estado, la cancelación y la recogida.
+El mismo cuerpo, enviado a `POST https://api.comfy.org/v2/models/veed/video-background-removal/requests`. Router responde `201` con un `request_id` en cuanto se admite la ejecución, y puedes recoger el resultado cuando esté listo, desde este proceso o desde otro. [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue) recorre el estado, la cancelación y la recogida.
 
 Python
 
@@ -111,8 +111,8 @@ cURL
     import asyncio
     from comfy_sdk import AsyncComfy
     
-    # Reads COMFY_API_KEY from the environment.
-    # Each submit() call mints its own Idempotency-Key and reuses it for automatic retries.
+    # Lee COMFY_API_KEY del entorno.
+    # Cada llamada a submit() genera su propia Idempotency-Key y la reutiliza para los reintentos automáticos.
     async def main():
         async with AsyncComfy() as client:
             handle = await client.models.submit(
@@ -124,14 +124,14 @@ cURL
                     "video_url": "https://static-assets.veed.io/api-examples/bg-v2v-input.mp4",
                 },
             )
-            print("request_id:", handle.request_id)  # with the model ID, all another process needs
+            print("request_id:", handle.request_id)  # junto con el ID del modelo, es todo lo que necesita otro proceso
     
-            # Poll until the request completes, waiting the Retry-After the server names.
+            # Consulta hasta que la solicitud se complete, esperando el Retry-After que indica el servidor.
             async for update in handle.iter_events():
                 print(update.status, update.queue_position)
     
-            # The provider's own payload, the same value models.run() returns.
-            # A request that failed or was cancelled raises the typed Router error here.
+            # La carga propia del proveedor, el mismo valor que devuelve models.run().
+            # Una solicitud que falló o se canceló lanza aquí el error tipado de Router.
             result = await handle.get()
     
         print(result)
@@ -142,41 +142,41 @@ cURL
     
     import { comfy } from "@comfyorg/sdk";
     
-    // Reads COMFY_API_KEY from the environment.
-    // Each submit() call mints its own Idempotency-Key and reuses it for automatic retries.
+    // Lee COMFY_API_KEY del entorno.
+    // Cada llamada a submit() genera su propia Idempotency-Key y la reutiliza para los reintentos automáticos.
     const handle = await comfy.models.submit("veed/video-background-removal", {
       output_codec: "vp9",
       refine_foreground_edges: true,
       subject_is_person: true,
       video_url: "https://static-assets.veed.io/api-examples/bg-v2v-input.mp4",
     });
-    console.log("requestId:", handle.requestId); // with the model ID, all another process needs
+    console.log("requestId:", handle.requestId); // junto con el ID del modelo, es todo lo que necesita otro proceso
     
-    // Poll until the request completes, waiting the Retry-After the server names.
+    // Consulta hasta que la solicitud se complete, esperando el Retry-After que indica el servidor.
     for await (const update of handle.events()) {
       console.log(update.status, update.queuePosition);
     }
     
-    // The same result models.run() returns. A request that failed or was cancelled rejects here.
+    // El mismo resultado que devuelve models.run(). Una solicitud que falló o se canceló se rechaza aquí.
     const result = await handle.get();
     
     console.log(result.data);
     
     
     
-    # 1. Submit. Router answers 201 with request_id, status_url, response_url and cancel_url.
+    # 1. Envía. Router responde 201 con request_id, status_url, response_url y cancel_url.
     curl https://api.comfy.org/v2/models/veed/video-background-removal/requests \
       -H "X-API-Key: $COMFY_API_KEY" \
       -H "Idempotency-Key: $(uuidgen)" \
       -H "Content-Type: application/json" \
       -d "{\"output_codec\": \"vp9\", \"refine_foreground_edges\": true, \"subject_is_person\": true, \"video_url\": \"https://static-assets.veed.io/api-examples/bg-v2v-input.mp4\"}"
     
-    # 2. Poll until status is COMPLETED, waiting the Retry-After seconds each response names.
+    # 2. Consulta el estado hasta que sea COMPLETED, esperando los segundos de Retry-After que indica cada respuesta.
     REQUEST_ID="<request_id from the 201 body>"
     curl -i https://api.comfy.org/v2/models/veed/video-background-removal/requests/$REQUEST_ID/status \
       -H "X-API-Key: $COMFY_API_KEY"
     
-    # 3. Collect. 200 with the model's native output, 202 with the status body while it is still running.
+    # 3. Recoge el resultado. 200 con la salida nativa del modelo, 202 con el cuerpo de estado mientras sigue en ejecución.
     curl https://api.comfy.org/v2/models/veed/video-background-removal/requests/$REQUEST_ID \
       -H "X-API-Key: $COMFY_API_KEY"
     
@@ -221,7 +221,7 @@ boolean
 
 predeterminado:"true"
 
-Establécelo en falso cuando el sujeto no sea una persona.
+Establécelo en false cuando el sujeto no sea una persona.
 
 ​
 
@@ -231,7 +231,7 @@ string
 
 requerido
 
-URL http(s) pública del video de origen.
+URL pública http(s) del video de origen.
 
 Generado a partir del esquema que Router sirve en `GET /v2/models/veed/video-background-removal/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
@@ -253,7 +253,7 @@ data.credits_charged
 
 integer
 
-Créditos que VEED cobró por la tarea. Presente una vez que la tarea está COMPLETED.
+Créditos que VEED cobró por la tarea. Aparece cuando la tarea está COMPLETED.
 
 ​
 
@@ -261,7 +261,7 @@ data.credits_estimated
 
 integer
 
-Créditos que VEED cotizó antes de ejecutar la tarea. Presente solo en la respuesta de envío.
+Créditos que VEED cotizó antes de ejecutar la tarea. Aparece solo en la respuesta de envío.
 
 ​
 
@@ -269,7 +269,7 @@ data.error
 
 object
 
-Información del fallo. Presente una vez que la tarea está FAILED.
+Información del fallo. Aparece cuando la tarea está FAILED.
 
 ​
 
@@ -291,7 +291,7 @@ data.error.message
 
 string
 
-Mensaje de fallo legible por humanos.
+Mensaje de fallo legible por personas.
 
 ​
 
@@ -299,7 +299,7 @@ data.job_id
 
 string
 
-ID de trabajo usado para consultar el estado.
+ID de trabajo que se usa para consultar el estado.
 
 ​
 
@@ -307,7 +307,7 @@ data.result
 
 object
 
-Los medios producidos. Presente una vez que la tarea está COMPLETED. Las rutas de video responden `video`, Clean Audio responde `audio` y Video Background Removal responde `files`.
+El contenido multimedia producido. Aparece cuando la tarea está COMPLETED. Las rutas de video responden `video`, Clean Audio responde `audio` y Video Background Removal responde `files`.
 
 ​
 

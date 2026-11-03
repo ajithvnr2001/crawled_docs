@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/basic/text-to-image/
 title: Flujo de trabajo de texto a imagen en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:41.826290+00:00
+fetched_at: 2026-11-03T14:55:27.713608+00:00
 ---
 
 # Flujo de trabajo de texto a imagen en ComfyUI - ComfyUI
@@ -16,9 +16,9 @@ Volver arriba
   * ¿Qué es texto a imagen en ComfyUI?
   * Guía de ejemplo del flujo de trabajo Texto a imagen de ComfyUI
     * 1\. Preparación
-    * 2\. Cargar el flujo de trabajo de texto a imagen
+    * 2\. Cargar el flujo de trabajo Texto a imagen
     * 3\. Cargar el modelo y generar tu primera imagen
-    * 4\. Empieza a experimentar
+    * 4\. Comenzar a experimentar
   * ¿Cómo funciona el texto a imagen?
   * Explicación de los nodos del flujo de trabajo Texto a imagen de ComfyUI
     * A. Nodo Load Checkpoint
@@ -47,10 +47,10 @@ Esta guía tiene como objetivo presentarte el flujo de trabajo de texto a imagen
 
   * Completar un flujo de trabajo de texto a imagen
   * Obtener una comprensión básica de los principios de los modelos de difusión
-  * Conocer las funciones y los roles de los nodos del flujo de trabajo
+  * Conocer las funciones y el papel de los nodos del flujo de trabajo
   * Obtener una comprensión inicial del modelo SD1.5
 
-Comenzaremos ejecutando un flujo de trabajo de texto a imagen y, a continuación, explicaremos los conceptos relacionados. Elige las secciones relevantes según tus necesidades.
+Comenzaremos ejecutando un flujo de trabajo de texto a imagen y, a continuación, explicaremos los conceptos relacionados. Elige las secciones que necesites.
 
 ## 
 
@@ -78,17 +78,17 @@ Guía de ejemplo del flujo de trabajo Texto a imagen de ComfyUI
 
 1\. Preparación
 
-Asegúrate de tener al menos un archivo de modelo SD1.5 en tu carpeta `ComfyUI/models/checkpoints`, como [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) Si todavía no lo has instalado, consulta la sección de instalación de modelos en [Primeros pasos con la generación de arte con IA de ComfyUI](https://docs.comfy.org/es/get_started/first_generation).
+Asegúrate de tener al menos un archivo de modelo SD1.5 en tu carpeta `ComfyUI/models/checkpoints`, por ejemplo [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) Si aún no lo has instalado, consulta la sección de instalación de modelos en [Primeros pasos con la generación de arte con IA de ComfyUI](https://docs.comfy.org/es/get_started/first_generation).
 
 ### 
 
 ​
 
-2\. Cargar el flujo de trabajo de texto a imagen
+2\. Cargar el flujo de trabajo Texto a imagen
 
-Descarga la imagen de abajo y **arrástrala a ComfyUI** para cargar el flujo de trabajo: ![Flujo de trabajo de texto a imagen de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/text-to-image-workflow.png)
+Descarga la imagen que aparece a continuación y **arrástrala a ComfyUI** para cargar el flujo de trabajo: ![Flujo de trabajo Texto a imagen de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/text-to-image-workflow.png)
 
-Las imágenes que llevan el JSON del flujo de trabajo en sus metadatos se pueden arrastrar directamente a ComfyUI o cargar con el menú `Workflows` -> `Open (ctrl+o)`.
+Puedes arrastrar directamente a ComfyUI las imágenes que contengan el JSON del flujo de trabajo en sus metadatos, o cargarlas con el menú `Workflows` -> `Open (ctrl+o)`.
 
 ### 
 
@@ -96,31 +96,31 @@ Las imágenes que llevan el JSON del flujo de trabajo en sus metadatos se pueden
 
 3\. Cargar el modelo y generar tu primera imagen
 
-Después de instalar el modelo de imagen, sigue los pasos de la imagen de abajo para cargar el modelo y generar tu primera imagen ![Generación de imágenes](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/basic/text-to-image-workflow.png) Sigue estos pasos según los números de la imagen:
+Después de instalar el modelo de imagen, sigue los pasos de la imagen a continuación para cargar el modelo y generar tu primera imagen ![Generación de imagen](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/basic/text-to-image-workflow.png) Sigue estos pasos según los números de la imagen:
 
-  1. En el nodo **Load Checkpoint** , usa las flechas o haz clic en el área de texto para asegurarte de que **v1-5-pruned-emaonly-fp16.safetensors** está seleccionado y de que las flechas izquierda/derecha no muestran el texto **null**
-  2. Haz clic en el botón `Queue` o usa el atajo `Ctrl + Enter` para ejecutar la generación de imágenes
+  1. En el nodo **Load Checkpoint** , usa las flechas o haz clic en el área de texto para asegurarte de que **v1-5-pruned-emaonly-fp16.safetensors** esté seleccionado y de que las flechas izquierda/derecha no muestren el texto **null**
+  2. Haz clic en el botón `Queue` o usa el atajo `Ctrl + Enter` para ejecutar la generación de la imagen
 
-Cuando termine el proceso, deberías ver la imagen resultante en la interfaz del nodo **Save Image** , donde puedes hacer clic derecho para guardarla localmente ![Resultado de la primera generación de imágenes con ComfyUI](https://mintcdn.com/dripart/Y1vvksJIVhyGxEpl/images/tutorial/gettingstarted/result.png?fit=max&auto=format&n=Y1vvksJIVhyGxEpl&q=85&s=dd253cd626d72716f52322245c5526cc)
+Cuando el proceso termine, deberías ver la imagen resultante en la interfaz del nodo **Save Image** , y puedes hacer clic derecho sobre ella para guardarla localmente ![Resultado de la primera generación de imagen con ComfyUI](https://mintcdn.com/dripart/Y1vvksJIVhyGxEpl/images/tutorial/gettingstarted/result.png?fit=max&auto=format&n=Y1vvksJIVhyGxEpl&q=85&s=dd253cd626d72716f52322245c5526cc)
 
-Si no estás satisfecho con el resultado, prueba a ejecutar la generación varias veces. Cada vez que la ejecutes, **KSampler** usará una semilla aleatoria distinta según el parámetro `seed`, así que cada generación producirá resultados diferentes
+Si no estás satisfecho con el resultado, prueba a ejecutar la generación varias veces. Cada vez que la ejecutes, **KSampler** usará una semilla aleatoria diferente según el parámetro `seed`, así que cada generación producirá resultados distintos
 
 ### 
 
 ​
 
-4\. Empieza a experimentar
+4\. Comenzar a experimentar
 
-Prueba a modificar el texto del **CLIP Text Encoder** ![CLIP Text Encoder](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/conditioning/clip_text_encode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=94d83f96b628279b5b2fc865d522886e) La conexión `Positive` con el nodo KSampler representa los prompts positivos, mientras que la conexión `Negative` representa los prompts negativos Estos son algunos principios básicos para escribir prompts con el modelo SD1.5:
+Intenta modificar el texto en el **CLIP Text Encoder** ![CLIP Text Encoder](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/conditioning/clip_text_encode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=94d83f96b628279b5b2fc865d522886e) La conexión `Positive` al nodo KSampler representa los prompts positivos, mientras que la conexión `Negative` representa los prompts negativos Estos son algunos principios básicos para escribir prompts con el modelo SD1.5:
 
   * Usa inglés siempre que sea posible
   * Separa los prompts con comas en inglés `,`
   * Usa frases en lugar de oraciones largas
   * Usa descripciones específicas
-  * Usa expresiones como `(golden hour:1.2)` para aumentar el peso de una palabra clave concreta y hacer que aparezca más fácilmente en la imagen. `1.2` es el peso y `golden hour` es la palabra clave
+  * Usa expresiones como `(golden hour:1.2)` para aumentar el peso de palabras clave concretas y lograr que aparezcan con más probabilidad en la imagen. `1.2` es el peso y `golden hour` es la palabra clave
   * Usa palabras clave como `masterpiece, best quality, 4k` para mejorar la calidad de la generación
 
-Aquí tienes varios ejemplos de prompts que puedes probar, o usa tus propios prompts para generar: **1\. Estilo anime** Prompts positivos:
+Aquí tienes varios ejemplos de prompts que puedes probar, o puedes usar tus propios prompts para generar: **1\. Estilo anime** Prompts positivos:
     
     
     anime style, 1girl with long pink hair, cherry blossom background, studio ghibli aesthetic, soft lighting, intricate details
@@ -150,7 +150,7 @@ Prompts negativos:
     (deformed, cartoon, anime, doll, plastic skin, overexposed, blurry, extra fingers)
     
 
-**3\. Estilo de un artista concreto** Prompts positivos:
+**3\. Estilo de un artista específico** Prompts positivos:
     
     
     fantasy elf, detailed character, glowing magic, vibrant colors, long flowing hair, elegant armor, ethereal beauty, mystical forest, magical aura, high detail, soft lighting, fantasy portrait, Artgerm style
@@ -168,12 +168,12 @@ Prompts negativos:
 
 ¿Cómo funciona el texto a imagen?
 
-Todo el proceso de texto a imagen puede entenderse como un **proceso de difusión inversa**. El [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) que descargamos es un modelo preentrenado que puede **generar imágenes objetivo a partir de ruido gaussiano puro**. Solo hace falta introducir nuestros prompts y puede generar imágenes objetivo mediante la eliminación de ruido aleatorio. Necesitamos entender dos conceptos:
+Todo el proceso de texto a imagen se puede entender como un **proceso de difusión inversa**. El [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) que descargamos es un modelo preentrenado que puede **generar imágenes objetivo a partir de ruido gaussiano puro**. Solo tenemos que introducir nuestros prompts y puede generar imágenes objetivo eliminando el ruido aleatorio. Necesitamos entender dos conceptos:
 
-  1. **Espacio latente:** el espacio latente es un método abstracto de representación de datos en los modelos de difusión. Convertir las imágenes del espacio de píxeles al espacio latente reduce el espacio de almacenamiento, facilita el entrenamiento de los modelos de difusión y reduce la complejidad de la eliminación de ruido. Es como los arquitectos que usan planos (espacio latente) para diseñar en lugar de diseñar directamente sobre el edificio (espacio de píxeles): mantienen las características estructurales y a la vez reducen de forma significativa los costos de modificación.
-  2. **Espacio de píxeles:** el espacio de píxeles es el espacio de almacenamiento de las imágenes, es decir, la imagen final que vemos, y se usa para almacenar los valores de píxeles.
+  1. **Espacio latente:** el espacio latente es un método abstracto de representación de datos en los modelos de difusión. Convertir las imágenes del espacio de píxeles al espacio latente reduce el espacio de almacenamiento y facilita el entrenamiento de los modelos de difusión, además de reducir la complejidad del denoising. Es como los arquitectos que usan planos (espacio latente) para diseñar en lugar de diseñar directamente sobre el edificio (espacio de píxeles): mantienen las características estructurales y reducen significativamente los costos de modificación.
+  2. **Espacio de píxeles:** el espacio de píxeles es el espacio de almacenamiento de las imágenes, es decir, la imagen final que vemos, y se usa para almacenar los valores de los píxeles.
 
-Si quieres aprender más sobre los modelos de difusión, puedes leer estos artículos:
+Si quieres aprender más acerca de los modelos de difusión, puedes leer estos artículos:
 
   * [Denoising Diffusion Probabilistic Models (DDPM)](https://arxiv.org/pdf/2006.11239)
   * [Denoising Diffusion Implicit Models (DDIM)](https://arxiv.org/pdf/2010.02502)
@@ -197,9 +197,9 @@ A. Nodo Load Checkpoint
 
 ![Load Checkpoint](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/loaders/load_checkpoint.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=1a046abe89763dd49e42f2447974a1f8) Este nodo se usa normalmente para cargar el modelo de generación de imágenes. Un `checkpoint` suele contener tres componentes: `MODEL (UNet)`, `CLIP` y `VAE`
 
-  * `MODEL (UNet)`: el modelo UNet encargado de predecir el ruido y generar la imagen durante el proceso de difusión
-  * `CLIP`: el codificador de texto que convierte tus prompts en vectores que el modelo puede entender, ya que el modelo no comprende directamente los prompts de texto
-  * `VAE`: el AutoEncoder Variacional que convierte las imágenes entre el espacio de píxeles y el espacio latente, ya que los modelos de difusión trabajan en el espacio latente mientras que las imágenes están en el espacio de píxeles
+  * `MODEL (UNet)`: el modelo UNet responsable de la predicción del ruido y de la generación de la imagen durante el proceso de difusión
+  * `CLIP`: el codificador de texto que convierte nuestros prompts en vectores que el modelo puede entender, ya que el modelo no puede comprender directamente los prompts de texto
+  * `VAE`: el Variational AutoEncoder que convierte las imágenes entre el espacio de píxeles y el espacio latente, ya que los modelos de difusión trabajan en el espacio latente mientras que nuestras imágenes están en el espacio de píxeles
 
 
 
@@ -209,7 +209,7 @@ A. Nodo Load Checkpoint
 
 B. Nodo Empty Latent Image
 
-![Empty Latent Image](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/latent/empty_latent_image.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=e40da4b9e1953fa2488277c47a310187) Define un espacio latente que se envía al nodo KSampler. El nodo Empty Latent Image construye una **imagen latente de ruido puro** Puedes pensar en su función como la de definir el tamaño del lienzo, que determina las dimensiones de la imagen final generada
+![Empty Latent Image](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/latent/empty_latent_image.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=e40da4b9e1953fa2488277c47a310187) Define un espacio latente que se envía al nodo KSampler. El nodo Empty Latent Image construye un **espacio latente de ruido puro** Puedes pensar en su función como la de definir el tamaño del lienzo, que determina las dimensiones de la imagen final generada
 
 ### 
 
@@ -217,12 +217,12 @@ B. Nodo Empty Latent Image
 
 C. Nodo CLIP Text Encoder
 
-![CLIP Text Encoder](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/conditioning/clip_text_encode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=94d83f96b628279b5b2fc865d522886e) Sirve para codificar los prompts, es decir, tus requisitos para la imagen
+![CLIP Text Encoder](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/conditioning/clip_text_encode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=94d83f96b628279b5b2fc865d522886e) Se usa para codificar los prompts, que son tus requisitos para la imagen
 
-  * La entrada de acondicionamiento `Positive` conectada al nodo KSampler representa los prompts positivos (los elementos que quieres en la imagen)
-  * La entrada de acondicionamiento `Negative` conectada al nodo KSampler representa los prompts negativos (los elementos que no quieres en la imagen)
+  * La entrada de condición `Positive` conectada al nodo KSampler representa los prompts positivos (los elementos que quieres en la imagen)
+  * La entrada de condición `Negative` conectada al nodo KSampler representa los prompts negativos (los elementos que no quieres en la imagen)
 
-El componente `CLIP` del nodo `Load Checkpoint` codifica los prompts en vectores semánticos y los envía como acondicionamientos al nodo KSampler
+El componente `CLIP` del nodo `Load Checkpoint` codifica los prompts en vectores semánticos y los envía como condiciones al nodo KSampler
 
 ### 
 
@@ -230,23 +230,23 @@ El componente `CLIP` del nodo `Load Checkpoint` codifica los prompts en vectores
 
 D. Nodo KSampler
 
-![KSampler](https://mintcdn.com/dripart/7m9lukFrTCZs7Mhj/images/comfy_core/sampling/k_sampler.png?fit=max&auto=format&n=7m9lukFrTCZs7Mhj&q=85&s=5bb2412a6e137d0a0b630b14845944e1) El **KSampler** es el núcleo de todo el flujo de trabajo: en él ocurre todo el proceso de eliminación de ruido y, al final, entrega una imagen en el espacio latente Aquí tienes una explicación de los parámetros del nodo KSampler:
+![KSampler](https://mintcdn.com/dripart/7m9lukFrTCZs7Mhj/images/comfy_core/sampling/k_sampler.png?fit=max&auto=format&n=7m9lukFrTCZs7Mhj&q=85&s=5bb2412a6e137d0a0b630b14845944e1) El **KSampler** es el núcleo de todo el flujo de trabajo: en él ocurre todo el proceso de eliminación de ruido y al final genera una imagen en el espacio latente A continuación, se explican los parámetros del nodo KSampler:
 
 Nombre del parámetro| Descripción| Función  
 ---|---|---  
-**model**|  Modelo de difusión usado para eliminar ruido| Determina el estilo y la calidad de las imágenes generadas  
-**positive**|  Codificación del acondicionamiento positivo| Orienta la generación para incluir los elementos especificados  
-**negative**|  Codificación del acondicionamiento negativo| Suprime el contenido no deseado  
-**latent_image**|  Imagen en espacio latente a la que se quita el ruido| Actúa como soporte de entrada para inicializar el ruido  
+**model**|  Modelo de difusión usado para eliminar el ruido| Determina el estilo y la calidad de las imágenes generadas  
+**positive**|  Codificación de la condición del prompt positivo| Guía la generación para incluir los elementos especificados  
+**negative**|  Codificación de la condición del prompt negativo| Suprime el contenido no deseado  
+**latent_image**|  Imagen del espacio latente a la que se quitará el ruido| Sirve como soporte de entrada para la inicialización del ruido  
 **seed**|  Semilla aleatoria para generar el ruido| Controla la aleatoriedad de la generación  
-**control_after_generate**|  Modo de control de la semilla tras generar| Determina el patrón de variación de la semilla en la generación por lotes  
-**steps**|  Número de iteraciones de eliminación de ruido| Más pasos significan más detalles, pero también más tiempo de procesamiento  
+**control_after_generate**|  Modo de control de la semilla después de generar| Determina el patrón de variación de la semilla en la generación por lotes  
+**steps**|  Número de iteraciones de eliminación de ruido| Más pasos implican detalles más finos, pero mayor tiempo de procesamiento  
 **cfg**|  Escala de orientación sin clasificador| Controla la fuerza de la restricción del prompt (un valor demasiado alto provoca sobreajuste)  
 **sampler_name**|  Nombre del algoritmo de muestreo| Determina el método matemático de la trayectoria de eliminación de ruido  
-**scheduler**|  Tipo de scheduler| Controla la tasa de decaimiento del ruido y la asignación del tamaño del paso  
-**denoise**|  Coeficiente de fuerza de eliminación de ruido| Controla la fuerza del ruido añadido al espacio latente: 0.0 conserva las características originales de la entrada y 1.0 es ruido completo  
+**scheduler**|  Tipo de planificador| Controla la tasa de decaimiento del ruido y la asignación del tamaño de paso  
+**denoise**|  Coeficiente de fuerza de la eliminación de ruido| Controla la fuerza del ruido que se añade al espacio latente: 0.0 conserva las características de la entrada original y 1.0 es ruido completo  
   
-En el nodo KSampler, el espacio latente usa `seed` como parámetro de inicialización para construir el ruido aleatorio, y los vectores semánticos `Positive` y `Negative` se envían como acondicionamientos al modelo de difusión Después, según el número de pasos de eliminación de ruido indicado por el parámetro `steps`, se ejecuta la eliminación de ruido. Cada paso usa el coeficiente de fuerza de eliminación de ruido indicado por el parámetro `denoise` para quitar ruido al espacio latente y generar una nueva imagen en el espacio latente
+En el nodo KSampler, el espacio latente usa `seed` como parámetro de inicialización para construir ruido aleatorio, y los vectores semánticos `Positive` y `Negative` entran como condiciones al modelo de difusión Después, el nodo elimina ruido durante el número de pasos que indica el parámetro `steps`. Cada paso de eliminación de ruido usa el coeficiente de fuerza que especifica el parámetro `denoise` para eliminar el ruido del espacio latente y generar una nueva imagen en el espacio latente
 
 ### 
 
@@ -254,7 +254,7 @@ En el nodo KSampler, el espacio latente usa `seed` como parámetro de inicializa
 
 E. Nodo VAE Decode
 
-![VAE Decode](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/latent/vae_decode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=a9c0a75f0e442062a837289c5639a205) Convierte la imagen en espacio latente que entrega el **KSampler** en una imagen en el espacio de píxeles
+![VAE Decode](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/comfy_core/latent/vae_decode.jpg?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=a9c0a75f0e442062a837289c5639a205) Convierte la imagen del espacio latente que genera el **KSampler** en una imagen del espacio de píxeles
 
 ### 
 
@@ -270,7 +270,7 @@ F. Nodo Save Image
 
 Introducción al modelo SD1.5
 
-**SD1.5 (Stable Diffusion 1.5)** es un modelo de generación de imágenes con IA desarrollado por [Stability AI](https://stability.ai/). Es la versión fundacional de la serie Stable Diffusion, entrenada con imágenes de resolución **512×512** , lo que la hace especialmente buena generando imágenes a esa resolución. Con un tamaño de unos 4 GB, funciona sin problemas en **GPUs de consumo (por ejemplo, 6 GB de VRAM)**. Actualmente, SD1.5 cuenta con un ecosistema muy rico, con soporte para diversos plugins (como ControlNet, LoRA) y herramientas de optimización. Como modelo emblemático en la generación de arte con IA, SD1.5 sigue siendo la mejor opción para empezar gracias a su naturaleza de código abierto, su arquitectura ligera y su rico ecosistema. Aunque se han publicado versiones más recientes como SDXL/SD3, su valor para hardware de consumo sigue siendo inigualable.
+**SD1.5 (Stable Diffusion 1.5)** es un modelo de generación de imágenes con IA desarrollado por [Stability AI](https://stability.ai/). Es la versión fundacional de la serie Stable Diffusion, entrenada con imágenes de **512×512** de resolución, lo que la hace especialmente buena para generar imágenes a esa resolución. Con un tamaño de unos 4GB, funciona sin problemas en **GPUs de consumo (por ejemplo, 6GB de VRAM)**. Actualmente, SD1.5 cuenta con un ecosistema rico que admite varios plugins (como ControlNet, LoRA) y herramientas de optimización. Como modelo hito en la generación de arte con IA, SD1.5 sigue siendo la mejor opción de entrada gracias a su naturaleza de código abierto, su arquitectura ligera y su rico ecosistema. Aunque se han lanzado versiones más recientes como SDXL/SD3, su valor para el hardware de consumo sigue siendo inigualable.
 
 ### 
 
@@ -279,7 +279,7 @@ Introducción al modelo SD1.5
 Información básica
 
   * **Fecha de lanzamiento** : octubre de 2022
-  * **Arquitectura principal** : basada en Latent Diffusion Model (LDM)
+  * **Arquitectura principal** : basada en el modelo de difusión latente (LDM)
   * **Datos de entrenamiento** : conjunto de datos LAION-Aesthetics v2.5 (aproximadamente 590M pasos de entrenamiento)
   * **Características de código abierto** : modelo, código y datos de entrenamiento totalmente abiertos
 
@@ -293,7 +293,7 @@ Ventajas y limitaciones
 
 Ventajas del modelo:
 
-  * Ligero: tamaño pequeño, solo unos 4 GB, funciona sin problemas en GPUs de consumo
+  * Ligero: tamaño pequeño, solo unos 4GB, funciona sin problemas en GPUs de consumo
   * Barrera de entrada baja: admite una amplia gama de plugins y herramientas de optimización
   * Ecosistema maduro: amplio soporte de plugins y herramientas
   * Generación rápida: funcionamiento fluido en GPUs de consumo

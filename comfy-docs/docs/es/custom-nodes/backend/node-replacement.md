@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/backend/node-replacement/
 title: Reemplazo de nodos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.367237+00:00
+fetched_at: 2026-11-03T14:55:24.012826+00:00
 ---
 
 # Reemplazo de nodos - ComfyUI
@@ -16,16 +16,16 @@ Volver arriba
   * Cuándo usar
   * Dónde registrar los reemplazos
   * Ejemplo completo
-  * Ejemplos del núcleo
+  * Ejemplos principales
     * Fusión simple de nodos
-    * Corrección de errata
+    * Corrección de un error tipográfico
     * Renombrar entradas con valores predeterminados
-    * Mapeo de entradas Autogrow
+    * Asignación de entradas con Autogrow
   * Parámetros de NodeReplace
-  * Mapeo de entradas
-  * Mapeo de salidas
-  * Vinculación de IDs de widget
-  * API REST
+  * Asignación de entradas
+  * Asignación de salidas
+  * Vinculación de ID de widget
+  * REST API
   * Comportamiento del frontend
 
 
@@ -40,7 +40,7 @@ Registra reemplazos de nodos para que los usuarios migren de los nodos obsoletos
 
 Copiar páginaCopiar página
 
-La API de reemplazo de nodos permite a los desarrolladores de nodos personalizados definir rutas de migración desde nodos obsoletos hasta sus equivalentes más recientes. Cuando actualizas o renombras nodos, los usuarios pueden actualizar automáticamente sus flujos de trabajo.
+La API de reemplazo de nodos permite a los desarrolladores de nodos personalizados definir rutas de migración desde nodos obsoletos hasta sus equivalentes más recientes. Cuando actualizas o renombras nodos, los usuarios pueden mejorar automáticamente sus flujos de trabajo.
 
 ## 
 
@@ -48,7 +48,7 @@ La API de reemplazo de nodos permite a los desarrolladores de nodos personalizad
 
 Cuándo usar
 
-  * **Cambiar nombres de clase de nodo** : Cambiaste el nombre de clase de un nodo (usa `DISPLAY_NAME` para cambios de nombre para mostrar en su lugar)
+  * **Cambiar nombres de clase de nodo** : Cambiaste el nombre de clase de un nodo (en su lugar, usa `DISPLAY_NAME` para cambios de nombre para mostrar)
   * **Fusionar nodos** : Varios nodos consolidados en uno (p. ej., `Load3DAnimation` fusionado en `Load3D`)
   * **Refactorizar entradas** : Los nombres o tipos de las entradas cambiaron entre versiones
   * **Corregir errores tipográficos** : Corregir nombres de nodos sin romper los flujos de trabajo existentes
@@ -61,7 +61,7 @@ Cuándo usar
 
 Dónde registrar los reemplazos
 
-Registra los reemplazos durante el gancho de ciclo de vida `on_load` de tu extensión. Crea un archivo dedicado (p. ej., `node_replacements.py`) en el paquete de tu nodo personalizado:
+Registra los reemplazos durante el hook del ciclo de vida `on_load` de tu extensión. Crea un archivo dedicado (por ejemplo, `node_replacements.py`) en tu paquete de nodos personalizados:
     
     
     my_custom_nodes/
@@ -76,7 +76,7 @@ Registra los reemplazos durante el gancho de ciclo de vida `on_load` de tu exten
 
 Ejemplo completo
 
-Aquí tienes un ejemplo completo de cómo estructurar los reemplazos de nodos en un paquete de nodo personalizado:
+Aquí tienes un ejemplo completo que muestra cómo estructurar los reemplazos de nodos en un paquete de nodos personalizados:
     
     
     # node_replacements.py
@@ -127,9 +127,9 @@ Aquí tienes un ejemplo completo de cómo estructurar los reemplazos de nodos en
 
 ​
 
-Ejemplos del núcleo
+Ejemplos principales
 
-El núcleo de ComfyUI usa reemplazos de nodos para las migraciones de nodos integrados. Aquí tienes ejemplos reales de [`comfy_extras/nodes_replacements.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_replacements.py):
+El núcleo de ComfyUI usa reemplazos de nodos para las migraciones de nodos integrados. Aquí hay ejemplos reales de [`comfy_extras/nodes_replacements.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_replacements.py):
 
 ### 
 
@@ -137,7 +137,7 @@ El núcleo de ComfyUI usa reemplazos de nodos para las migraciones de nodos inte
 
 Fusión simple de nodos
 
-Cuando `Load3DAnimation` se fusionó en `Load3D`:
+Cuando `Load3DAnimation` se fusionó con `Load3D`:
     
     
     await api.node_replacement.register(io.NodeReplace(
@@ -150,9 +150,9 @@ Cuando `Load3DAnimation` se fusionó en `Load3D`:
 
 ​
 
-Corrección de errata
+Corrección de un error tipográfico
 
-Corrección de una errata en `SDV_img2vid_Conditioning` → `SVD_img2vid_Conditioning`:
+Cómo corregir un error tipográfico en `SDV_img2vid_Conditioning` → `SVD_img2vid_Conditioning`:
     
     
     await api.node_replacement.register(io.NodeReplace(
@@ -167,7 +167,7 @@ Corrección de una errata en `SDV_img2vid_Conditioning` → `SVD_img2vid_Conditi
 
 Renombrar entradas con valores predeterminados
 
-Sustituir `ImageScaleBy` por `ResizeImageMaskNode`:
+Cómo reemplazar `ImageScaleBy` por `ResizeImageMaskNode`:
     
     
     await api.node_replacement.register(io.NodeReplace(
@@ -187,9 +187,9 @@ Sustituir `ImageScaleBy` por `ResizeImageMaskNode`:
 
 ​
 
-Mapeo de entradas Autogrow
+Asignación de entradas con Autogrow
 
-Para los nodos que usan Autogrow (entradas dinámicas), usa la notación con puntos:
+Para los nodos que usan Autogrow (entradas dinámicas), usa la notación con punto:
     
     
     await api.node_replacement.register(io.NodeReplace(
@@ -212,7 +212,7 @@ Parámetro| Tipo| Descripción
 ---|---|---  
 `new_node_id`| str| Nombre de clase del nodo de reemplazo  
 `old_node_id`| str| Nombre de clase del nodo obsoleto  
-`old_widget_ids`| list[str] | None| Lista ordenada que vincula los IDs de widget con sus índices relativos  
+`old_widget_ids`| list[str] | None| Lista ordenada que vincula los ID de widget con sus índices relativos  
 `input_mapping`| list | None| Cómo asignar las entradas del nodo antiguo al nuevo  
 `output_mapping`| list | None| Cómo asignar las salidas del nodo antiguo al nuevo  
   
@@ -220,9 +220,9 @@ Parámetro| Tipo| Descripción
 
 ​
 
-Mapeo de entradas
+Asignación de entradas
 
-Cada entrada del mapeo define cómo se transfiere una entrada del nodo antiguo al nuevo. **Mapear desde una entrada antigua:**
+Cada entrada de la asignación define cómo se transfiere una entrada del nodo anterior al nuevo. **Asignar desde la entrada anterior:**
     
     
     {"new_id": "model", "old_id": "model"}
@@ -234,7 +234,7 @@ Cada entrada del mapeo define cómo se transfiere una entrada del nodo antiguo a
     {"new_id": "scheduler", "set_value": "normal"}
     
 
-**Mapear entradas dinámicas o autogrow (usa la notación con puntos):**
+**Asignar entradas dinámicas/autogrow (usa notación con punto):**
     
     
     {"new_id": "images.image0", "old_id": "image1"}
@@ -244,9 +244,9 @@ Cada entrada del mapeo define cómo se transfiere una entrada del nodo antiguo a
 
 ​
 
-Mapeo de salidas
+Asignación de salidas
 
-Los mapeos de salidas usan referencias basadas en índices:
+Las asignaciones de salidas usan referencias basadas en índices:
     
     
     {"new_idx": 0, "old_idx": 0}  # Map first output
@@ -257,9 +257,9 @@ Los mapeos de salidas usan referencias basadas en índices:
 
 ​
 
-Vinculación de IDs de widget
+Vinculación de ID de widget
 
-El campo `old_widget_ids` asigna los IDs de widget a sus índices posicionales. Esto es necesario porque el JSON del flujo de trabajo guarda los valores de los widgets por posición, no por ID.
+El campo `old_widget_ids` asigna los ID de widget a sus índices posicionales. Esto es requerido porque el JSON del flujo de trabajo almacena los valores de los widgets por posición, no por ID.
     
     
     old_widget_ids=["steps", "cfg", "sampler"]
@@ -272,7 +272,7 @@ El campo `old_widget_ids` asigna los IDs de widget a sus índices posicionales. 
 
 ​
 
-API REST
+REST API
 
 Recupera todos los reemplazos registrados:
     
@@ -312,15 +312,15 @@ Cuando un flujo de trabajo contiene un nodo obsoleto, el frontend:
 
   1. Obtiene los reemplazos desde `GET /api/node_replacements`
   2. Detecta los nodos que coinciden con `old_node_id`
-  3. Pide al usuario que los actualice
-  4. Aplica las asignaciones de entrada/salida automáticamente
+  3. Pide al usuario que actualice
+  4. Aplica las asignaciones de entrada y salida automáticamente
   5. Conserva las conexiones y los valores de los widgets
 
 Consulta la implementación del frontend:
 
-  * [PR #8364 de lógica de negocio](https://github.com/Comfy-Org/ComfyUI_frontend/pull/8364)
-  * [PR #8483 de lógica adicional](https://github.com/Comfy-Org/ComfyUI_frontend/pull/8483)
-  * [PR #8604 de vistas de UI](https://github.com/Comfy-Org/ComfyUI_frontend/pull/8604)
+  * [PR de lógica de negocio #8364](https://github.com/Comfy-Org/ComfyUI_frontend/pull/8364)
+  * [PR de lógica adicional #8483](https://github.com/Comfy-Org/ComfyUI_frontend/pull/8483)
+  * [PR de vistas de UI #8604](https://github.com/Comfy-Org/ComfyUI_frontend/pull/8604)
 
 
 
@@ -330,4 +330,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/backend/node-replacement.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/backend/node-replacement)
 
-[Migración del menú contextual](https://docs.comfy.org/es/custom-nodes/js/context-menu-migration)[Plantillas de flujos de trabajo](https://docs.comfy.org/es/custom-nodes/workflow_templates)
+[Migración del menú contextual](https://docs.comfy.org/es/custom-nodes/js/context-menu-migration)[Documentación de nodos](https://docs.comfy.org/es/custom-nodes/help_page)

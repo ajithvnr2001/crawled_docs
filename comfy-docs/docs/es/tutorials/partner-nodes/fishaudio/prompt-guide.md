@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/prompt-guide/
 title: Gu\u00eda de prompts de Fish Audio: c\u00f3mo escribir prompts para Fish Audio TTS en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:50.387999+00:00
+fetched_at: 2026-11-03T14:55:31.147989+00:00
 ---
 
 # Guía de prompts de Fish Audio: cómo escribir prompts para Fish Audio TTS en ComfyUI - ComfyUI
@@ -21,7 +21,7 @@ Volver arriba
   * Efectos de audio
   * Pausas y efectos especiales
   * Combinar etiquetas
-  * Mejores prácticas
+  * Buenas prácticas
   * Diálogo con varios hablantes
   * Control de fonemas
   * Ajuste de parámetros
@@ -40,7 +40,7 @@ Escribe prompts para los Nodos asociados de Fish Audio en ComfyUI: etiquetas de 
 
 Copiar páginaCopiar página
 
-Fish Audio TTS te da control directo sobre cómo suena el habla mediante etiquetas en línea escritas en el propio texto. Esta guía cubre todas las categorías de etiquetas que entiende el modelo, dónde colocarlas y cómo combinarlas. Las etiquetas siguientes se aplican a `s2.1-pro` y `s1`. Drama 3 usa instrucciones en lenguaje natural y etiquetas de palabras emparejadas en su lugar, descritas en la página [Fish Audio Drama 3](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/drama-3). Los ejemplos siguientes funcionan en el nodo Fish Audio Text to Speech. Escríbelos directamente en el campo `text`, reemplazando el guion de ejemplo por el tuyo. Para configurar el nodo, las plantillas de flujo de trabajo y los precios, consulta [Fish Audio: Texto a voz, clonación de voz y voz a texto](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/fish-audio).
+Fish Audio TTS te da control directo sobre cómo suena el habla mediante etiquetas en línea escritas en el propio texto. Esta guía cubre todas las categorías de etiquetas que entiende el modelo, dónde colocarlas y cómo combinarlas. Las etiquetas siguientes se aplican a `s2.1-pro` y `s1`. En cambio, Drama 3 usa instrucciones en lenguaje natural y etiquetas de palabras emparejadas, descritas en la página [Fish Audio Drama 3](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/drama-3). Los ejemplos siguientes funcionan en el nodo Fish Audio Text to Speech. Escríbelos directamente en el campo `text`, reemplazando el guion de ejemplo por el tuyo. Para configurar el nodo, las plantillas de flujo de trabajo y los precios, consulta [Fish Audio: Texto a voz, clonación de voz y voz a texto](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/fish-audio).
 
 ## 
 
@@ -58,11 +58,11 @@ Los modelos Fish Audio S2 interpretan indicaciones en lenguaje natural escritas 
 
 Tres propiedades hacen que este sistema sea flexible:
 
-  * **La posición determina el significado.** Una etiqueta actúa desde donde aparece hasta la siguiente etiqueta o el final de la oración. `[whispering] I didn't want to go inside` susurra toda la línea. `I didn't want to go [whispering] inside` empieza a susurrar en «inside».
-  * **Las descripciones de forma libre funcionan.** No estás limitado a un conjunto fijo de etiquetas. Si puedes describírselo a un actor de voz, escríbelo entre corchetes: `[tired, end of a long shift]`, `[voice rough from crying, trying to sound normal]`, `[professional broadcast tone]`.
+  * **La posición determina el significado.** Una etiqueta se aplica desde donde aparece hasta la siguiente etiqueta o el final de la oración. `[whispering] I didn't want to go inside` susurra toda la línea. `I didn't want to go [whispering] inside` empieza a susurrar en «inside».
+  * **Las descripciones libres funcionan.** No estás limitado a un conjunto fijo de etiquetas. Si puedes describírselo a un actor de voz, escríbelo entre corchetes: `[tired, end of a long shift]`, `[voice rough from crying, trying to sound normal]`, `[professional broadcast tone]`.
   * **Las etiquetas funcionan en tu idioma.** Escribe las indicaciones en el mismo idioma que tu guion: `[低声说] 不要让他们听见`, `[ため息をついて] もう一度やり直そう`.
 
-El modelo clásico `s1` usa los mismos nombres de emociones, pero los encierra entre paréntesis con un conjunto fijo de etiquetas: `(happy) What a beautiful day!` El modelo actual `s2.1-pro` acepta indicaciones entre corchetes y descripciones de forma libre.
+El modelo clásico `s1` usa los mismos nombres de emociones, pero los encierra entre paréntesis con un conjunto fijo de etiquetas: `(happy) What a beautiful day!` El modelo actual `s2.1-pro` acepta indicaciones entre corchetes y descripciones libres.
 
 ## 
 
@@ -83,7 +83,7 @@ Etiqueta| Expresión| Contexto común
 `[angry]`| Frustrado, agresivo| Quejas, advertencias  
 `[excited]`| Energético, entusiasta| Anuncios, celebraciones  
 `[calm]`| Tranquilo, relajado| Instrucciones, meditación  
-`[nervous]`| Ansioso, inseguro| Aclaraciones, disculpas  
+`[nervous]`| Ansioso, inseguro| Descargos de responsabilidad, disculpas  
 `[confident]`| Firme, seguro de sí mismo| Presentaciones, ventas  
 `[surprised]`| Sorprendido, asombrado| Reacciones, descubrimientos  
 `[satisfied]`| Satisfecho, contento| Confirmaciones, reseñas  
@@ -97,7 +97,7 @@ Etiqueta| Expresión| Contexto común
 `[embarrassed]`| Avergonzado, incómodo| Disculpas, errores  
 `[disgusted]`| Repugnado, asqueado| Reseñas negativas  
 `[moved]`| Conmovido emocionalmente| Momentos emotivos  
-`[proud]`| Realizado, satisfecho| Logros, elogios  
+`[proud]`| Con sentido de logro, satisfecho| Logros, elogios  
 `[relaxed]`| Relajado, informal| Conversación informal  
 `[grateful]`| Agradecido, reconocido| Agradecimientos, aprecio  
 `[curious]`| Inquisitivo, interesado| Preguntas, exploración  
@@ -132,8 +132,8 @@ Etiqueta| Expresión| Contexto común
 `[lonely]`| Aislado, solo| Contenido emocional  
 `[bored]`| Desinteresado, cansado| Desinterés  
 `[contemptuous]`| Muestra desprecio| Crítica fuerte  
-`[sympathetic]`| Muestra compasión| Condolencias  
-`[compassionate]`| Muestra cariño profundo| Soporte, ayuda  
+`[sympathetic]`| Muestra simpatía| Condolencias  
+`[compassionate]`| Muestra compasión profunda| Soporte, ayuda  
 `[determined]`| Resuelto, decidido| Objetivos, compromisos  
 `[resigned]`| Acepta la derrota| Rendición, aceptación  
   
@@ -143,7 +143,7 @@ Etiqueta| Expresión| Contexto común
 
 Marcadores de tono
 
-Los marcadores de tono controlan el volumen, la intensidad y el énfasis. Coloca `[emphasis]` justo antes de la palabra o frase que quieras enfatizar:
+Los marcadores de tono controlan el volumen, la intensidad y el énfasis. Coloca `[emphasis]` justo antes de la palabra o frase que quieras destacar:
     
     
     This is [emphasis] really important.
@@ -151,10 +151,10 @@ Los marcadores de tono controlan el volumen, la intensidad y el énfasis. Coloca
 
 Etiqueta| Interpretación| Cuándo usarla  
 ---|---|---  
-`[in a hurry tone]`| Apresurado, urgente| Información urgente  
-`[shouting]`| Fuerte, para llamar la atención| Captar la atención  
+`[in a hurry tone]`| Apresurado, urgente| Información con límite de tiempo  
+`[shouting]`| Fuerte, alzando la voz| Captar la atención  
 `[screaming]`| Muy fuerte, con pánico| Emergencias, miedo  
-`[whispering]`| Muy suave, sigiloso| Secretos, escenas tranquilas  
+`[whispering]`| Muy suave, sigiloso| Secretos, escenas silenciosas  
 `[soft tone]`| Suave, tranquilo| Consuelo, canciones de cuna  
 `[emphasis]`| Enfatizar una palabra o frase| Resaltar palabras clave  
   
@@ -164,20 +164,20 @@ Etiqueta| Interpretación| Cuándo usarla
 
 Efectos de audio
 
-Las etiquetas de efectos de audio añaden sonidos humanos naturales. A continuación de la etiqueta, incluye el texto correspondiente cuando se sugiera:
+Las etiquetas de efectos de audio agregan sonidos humanos naturales. Después de la etiqueta, incluye el texto correspondiente cuando se sugiera:
 
 Etiqueta| Descripción| Texto sugerido después de la etiqueta  
 ---|---|---  
-`[laughing]`| Carcajada| Ha, ha, ha  
-`[chuckling]`| Risa leve| Heh, heh  
-`[sobbing]`| Sollozos| Texto opcional  
+`[laughing]`| Risa a carcajadas| Ha, ha, ha  
+`[chuckling]`| Risa suave| Heh, heh  
+`[sobbing]`| Llanto intenso| Texto opcional  
 `[crying loudly]`| Llanto en voz alta| Texto opcional  
 `[sighing]`| Exhalación de alivio o frustración| sigh  
 `[groaning]`| Sonido de frustración| ugh  
 `[panting]`| Sin aliento| huff, puff  
 `[gasping]`| Inhalación brusca| gasp  
 `[yawning]`| Sonido de cansancio| yawn  
-`[snoring]`| Sonido de sueño| zzz  
+`[snoring]`| Sonido al dormir| zzz  
 `[clear throat]`| Sonido de carraspeo| ahem  
   
 ## 
@@ -190,7 +190,7 @@ Etiqueta| Descripción
 ---|---  
 `[break]`| Pausa breve en el habla  
 `[long-break]`| Pausa prolongada en el habla  
-`[short pause]`| Breve pausa entre líneas  
+`[short pause]`| Pausa breve entre líneas  
 `[long pause]`| Silencio prolongado  
 `[audience laughing]`| Sonido de público riendo  
 `[background laughter]`| Risa de fondo  
@@ -212,7 +212,7 @@ Combinar etiquetas
     [shouting] [angry] I told you this would happen!
     
 
-**Combina emociones en capas para expresiones complejas.** Limita las combinaciones a tres etiquetas o menos por oración:
+**Combina varias emociones para expresiones complejas.** Limita las combinaciones a tres etiquetas o menos por oración:
     
     
     [sad][whispering] I miss you so much.
@@ -220,7 +220,7 @@ Combinar etiquetas
     [excited][laughing] We won! Ha ha!
     
 
-**Escribe transiciones de emoción** como una progresión natural entre oraciones:
+**Escribe las transiciones de emoción** como una progresión natural entre oraciones:
     
     
     [happy] I got the promotion!
@@ -230,7 +230,7 @@ Combinar etiquetas
     [determined] I'm going to make it work!
     
 
-**Añade efectos de fondo** para dar atmósfera:
+**Agrega efectos de fondo** para crear ambiente:
     
     
     The comedy show was amazing [audience laughing]
@@ -248,25 +248,25 @@ Combinar etiquetas
 
 ​
 
-Mejores prácticas
+Buenas prácticas
 
-**Qué hacer:**
+**Sí:**
 
   * Usa una emoción principal por oración
   * Ajusta las emociones al contexto de forma lógica
-  * Agrega texto después de los efectos de sonido, por ejemplo “Ha ha” después de `[laughing]`
-  * Espacia los cambios emocionales para que suenen realistas
+  * Añade texto después de los efectos de sonido, por ejemplo “Ha ha” después de `[laughing]`
+  * Espacia los cambios emocionales para lograr realismo
   * Prueba distintas combinaciones con la misma voz
 
-**Qué evitar:**
+**No:**
 
-  * No abuses de las etiquetas en textos cortos
-  * No mezcles emociones en conflicto en una misma oración
-  * No escribas descripciones entre corchetes tan largas que interrumpan el flujo
-  * No dejes una etiqueta descriptiva sin texto después de ella
-  * No coloques las indicaciones de emoción de una oración lejos de la oración que controlan
+  * Abuses de las etiquetas en textos cortos
+  * Mezcles emociones en conflicto dentro de una misma oración
+  * Escribas descripciones entre corchetes tan largas que interrumpan el flujo
+  * Dejes una etiqueta descriptiva sin texto después de ella
+  * Alejes de la oración que controlan las indicaciones de emoción de nivel de oración
 
-Si el resultado suena poco natural, espacia los cambios emocionales, baja la intensidad o prueba con otra voz: la misma etiqueta funciona distinto en cada voz.
+Si la salida suena poco natural, espacia los cambios emocionales, baja la intensidad o prueba con otra voz: la misma etiqueta suena distinto en voces diferentes.
 
 ## 
 
@@ -274,7 +274,7 @@ Si el resultado suena poco natural, espacia los cambios emocionales, baja la int
 
 Diálogo con varios hablantes
 
-Conecta dos o más voces al nodo Fish Audio Text to Speech y luego marca los cambios de hablante en el texto con `@Voice1`, `@Voice2` y así sucesivamente. Cada voz conectada debe aparecer al menos una vez en el texto, o el nodo genera un error. Las conexiones de voz se explican en [Fish Audio: texto a voz, clonación de voz y voz a texto](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/fish-audio#conectar-voces).
+Conecta dos o más voces al nodo Fish Audio Texto a voz, luego marca los cambios de hablante en el texto con `@Voice1`, `@Voice2`, etc. Cada voz conectada debe aparecer en el texto al menos una vez; de lo contrario, el nodo genera un error. Las conexiones de voz se explican en [Fish Audio: Texto a voz, clonación de voz y voz a texto](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/fish-audio#conectar-voces).
     
     
     @Voice1 [nervous] You're sure no one followed you?
@@ -289,19 +289,19 @@ Conecta dos o más voces al nodo Fish Audio Text to Speech y luego marca los cam
 
 Control de fonemas
 
-Las etiquetas de fonemas especifican pronunciaciones exactas para nombres, homógrafos, siglas y términos técnicos. Envuelve la pronunciación de reemplazo entre las etiquetas `<|phoneme_start|>` y `<|phoneme_end|>`. Las etiquetas de fonemas se conservan durante la normalización del texto, así que mantén `normalize` activado. **Inglés** (CMU Arpabet, reemplaza una palabra):
+Las etiquetas de fonemas especifican pronunciaciones exactas para nombres, homógrafos, siglas y términos técnicos. Encierra la pronunciación de reemplazo entre las etiquetas `<|phoneme_start|>` y `<|phoneme_end|>`. La normalización de texto conserva las etiquetas de fonemas, así que mantén `normalize` activado. **Inglés** (CMU Arpabet, reemplaza una palabra):
     
     
     I am an <|phoneme_start|>EH1 N JH AH0 N IH1 R<|phoneme_end|>.
     
 
-**Chino** (pinyin con número de tono, reemplaza un carácter o una sílaba; útil para caracteres polifónicos y nombres):
+**Chino** (pinyin con número de tono, reemplaza un carácter o una sílaba, útil para caracteres polifónicos y nombres):
     
     
     我是一个<|phoneme_start|>gong1<|phoneme_end|><|phoneme_start|>cheng2<|phoneme_end|><|phoneme_start|>shi1<|phoneme_end|>。
     
 
-**Japonés** (romaji estilo OpenJTalk con dígitos de acento tonal):
+**Japonés** (romaji al estilo OpenJTalk con dígitos de acento tonal):
     
     
     <|phoneme_start|>ha0shi1ga0<|phoneme_end|>見えます。
@@ -319,17 +319,17 @@ El control de fonemas se combina con otras etiquetas en el mismo texto:
 
 Ajuste de parámetros
 
-Los valores predeterminados están bien calibrados. Ajusta solo cuando lo necesites:
+Los valores predeterminados están bien ajustados. Ajusta solo cuando lo necesites:
 
 Parámetro| Valor predeterminado| Efecto  
 ---|---|---  
 `temperature`| 0.7| Expresividad. Un valor más alto es más variado, uno más bajo es más consistente  
-`top_p`| 0.7| Diversidad mediante muestreo de núcleo  
+`top_p`| 0.7| Diversidad mediante muestreo de núcleo (nucleus sampling)  
 `speed`| 1.0| Velocidad del habla, de 0.5 a 2.0  
 `volume`| 0.0| Ajuste de volumen en decibelios, de -10 a 10  
-`normalize`| true| Expande números y fechas para una lectura natural. Mantenlo activado a menos que la normalización reescriba texto que quieres leer literalmente  
+`normalize`| true| Expande números y fechas para una lectura natural. Mantenlo activado a menos que la normalización reescriba texto que quieres leer de forma literal  
   
-La `seed` controla si el nodo se vuelve a ejecutar; los resultados no son deterministas independientemente del valor de la semilla.
+El parámetro `seed` controla si el nodo se vuelve a ejecutar; los resultados no son deterministas, independientemente del valor de la semilla.
 
 ## 
 
@@ -337,15 +337,15 @@ La `seed` controla si el nodo se vuelve a ejecutar; los resultados no son determ
 
 Calidad de la clonación de voz
 
-Para el nodo Fish Audio Instant Voice Clone, la calidad de la grabación de referencia determina el resultado. Consulta los límites de grabación en [Fish Audio: texto a voz, clonación de voz y voz a texto](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/fish-audio#l%C3%ADmites-de-la-clonaci%C3%B3n-de-voz):
+Para el nodo Clonación instantánea de voz de Fish Audio, la calidad de la grabación de referencia decide el resultado. Los límites de grabación se explican en [Fish Audio: Text to Speech, clonación de voz y Speech to Text](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/fish-audio#l%C3%ADmites-de-la-clonaci%C3%B3n-de-voz):
 
   * Graba de 2 a 3 clips de 15 a 20 segundos cada uno, con menos de 270 segundos en total
-  * Un solo hablante, volumen constante, tono y emoción consistentes
-  * Pausas pequeñas entre frases, de aproximadamente medio segundo
-  * Habitación silenciosa, micrófono a una mano de distancia de la boca
-  * Una grabadora de teléfono o un micrófono de auriculares son suficientes; evita la música de fondo, la televisión y el eco
+  * Un solo hablante, volumen estable, tono y emoción uniformes
+  * Pausas breves entre frases, de aproximadamente medio segundo
+  * Una habitación silenciosa, con el micrófono a una mano de distancia de la boca
+  * Sirve una grabadora de teléfono o el micrófono de unos auriculares; evita la música de fondo, la TV y el eco
 
-Si la voz clonada suena robótica, graba más material, de 30 a 60 segundos en total, y habla con naturalidad, con pausas. Clona solo las voces que tengas permiso de usar: tu propia voz o la de alguien que te haya dado permiso explícito.
+Si la voz clonada suena robótica, graba más material, de 30 a 60 segundos en total, y habla con naturalidad, haciendo pausas. Clona solo voces que tengas permiso de usar: la tuya propia, o la de alguien que te haya dado permiso explícito.
 
 ## 
 
@@ -353,8 +353,8 @@ Si la voz clonada suena robótica, graba más material, de 30 a 60 segundos en t
 
 Referencias
 
-  * [Documentación sobre el control de emociones de Fish Audio](https://docs.fish.audio/developer-guide/core-features/emotions)
-  * [Documentación sobre el control detallado de Fish Audio](https://docs.fish.audio/developer-guide/core-features/fine-grained-control)
+  * [Documentación de control de emociones de Fish Audio](https://docs.fish.audio/developer-guide/core-features/emotions)
+  * [Documentación de control detallado de Fish Audio](https://docs.fish.audio/developer-guide/core-features/fine-grained-control)
   * [Prácticas recomendadas para la clonación de voces de Fish Audio](https://docs.fish.audio/developer-guide/best-practices/voice-cloning)
 
 

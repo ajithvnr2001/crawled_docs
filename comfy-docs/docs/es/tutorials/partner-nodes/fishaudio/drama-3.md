@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/drama-3/
 title: Fish Audio Drama 3: direcciones, etiquetas de palabras y plantillas - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:48.609950+00:00
+fetched_at: 2026-11-03T14:55:31.374456+00:00
 ---
 
 # Fish Audio Drama 3: direcciones, etiquetas de palabras y plantillas - ComfyUI
@@ -178,7 +178,7 @@ Envuelve una frase en una etiqueta de idioma para cambiar el idioma solo en esas
 
 Combinarlas
 
-Las indicaciones, las etiquetas de palabra y las [etiquetas de fonemas](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/prompt-guide#phoneme-control) funcionan en el mismo guion, incluso dentro de un turno con varios hablantes:
+Las indicaciones, las etiquetas de palabra y las [etiquetas de fonemas](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/prompt-guide#control-de-fonemas) funcionan en el mismo guion, incluso dentro de un turno con varios hablantes:
     
     
     @Voice1 [calm and inviting] Welcome back to the studio.

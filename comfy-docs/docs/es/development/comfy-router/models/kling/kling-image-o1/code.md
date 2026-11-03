@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/kling-image-o1/code/
 title: Usa Kling Image O1 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:07.740935+00:00
+fetched_at: 2026-11-03T14:55:26.236105+00:00
 ---
 
 # Usa Kling Image O1 con Comfy Router - ComfyUI
@@ -209,7 +209,7 @@ callback_url
 
 string (uri)
 
-Dirección de notificación de callback para el resultado de esta tarea. Si se configura, el servidor notificará activamente cuando cambie el estado de la tarea.Formato: `uri`
+Dirección de notificación de callback para el resultado de esta tarea. Si se configura, el servidor notificará activamente cuando cambie el estado de la tarea. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.Formato: `uri`
 
 ​
 
@@ -235,7 +235,7 @@ external_task_id
 
 string
 
-ID de tarea personalizado. Debe ser único dentro de una misma cuenta de usuario.
+ID de tarea personalizado. Debe ser único dentro de una misma cuenta de usuario. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.
 
 ​
 

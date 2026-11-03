@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/flux/flux-1-uso/
-title: Ejemplo de flujo de trabajo nativo de ByteDance USO en ComfyUI - ComfyUI
+title: ByteDance USO en ComfyUI: flujos de trabajo de referencia de estilo y sujeto - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:43.229014+00:00
+fetched_at: 2026-11-03T14:55:30.664603+00:00
 ---
 
-# Ejemplo de flujo de trabajo nativo de ByteDance USO en ComfyUI - ComfyUI
+# ByteDance USO en ComfyUI: flujos de trabajo de referencia de estilo y sujeto - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/flux/flux-1-uso/
 
@@ -24,15 +24,15 @@ Volver arriba
 
 FLUX
 
-# Ejemplo de flujo de trabajo nativo de ByteDance USO en ComfyUI
+# ByteDance USO en ComfyUI: flujos de trabajo de referencia de estilo y sujeto
 
 Copiar páginaCopiar página
 
-Generación unificada por estilo y sujeto con el modelo USO de ByteDance
+Ejecuta ByteDance USO sobre FLUX.1-dev en ComfyUI para mantener la identidad de un sujeto, transferir un estilo de referencia o combinar ambos.
 
 Copiar páginaCopiar página
 
-**USO (Unified Style-Subject Optimized)** es un modelo desarrollado por el equipo UXO de ByteDance que unifica las tareas de generación guiadas por estilo y por sujeto. Construido sobre la arquitectura FLUX.1-dev, el modelo logra tanto similitud de estilo como consistencia del sujeto mediante aprendizaje desacoplado y aprendizaje con recompensa de estilo (SRL). USO admite tres enfoques principales:
+**USO (Unified Style-Subject Optimized)** es un modelo desarrollado por el equipo UXO de ByteDance que unifica las tareas de generación guiadas por estilo y por sujeto. Basado en la arquitectura FLUX.1-dev, el modelo logra tanto similitud de estilo como consistencia del sujeto mediante aprendizaje desacoplado y aprendizaje con recompensa de estilo (SRL). USO admite tres enfoques principales:
 
   * **Guiado por sujeto** : coloca al sujeto en escenas nuevas mientras mantienes la consistencia de su identidad
   * **Guiado por estilo** : aplica estilos artísticos a contenido nuevo basándote en imágenes de referencia
@@ -178,7 +178,7 @@ Descarga todos los modelos y colócalos en los siguientes directorios:
 
   1. Solo referencia de estilo:
 
-También incluimos una versión que solo usa la referencia de estilo dentro del mismo flujo de trabajo que proporcionamos. ![Flujo de trabajo](https://mintcdn.com/dripart/6BfRVG5RoFiMLPEQ/images/tutorial/flux/flux1_uso_reference_image_gen_style_reference_only.jpg?fit=max&auto=format&n=6BfRVG5RoFiMLPEQ&q=85&s=d5f16dbe97ac74b1bf01587aaabe12b8) La única diferencia es que reemplazamos el nodo `content reference` y solo usamos un nodo `Empty Latent Image`.
+También proporcionamos un flujo de trabajo que solo usa la referencia de estilo dentro del mismo flujo de trabajo que proporcionamos. ![Flujo de trabajo](https://mintcdn.com/dripart/6BfRVG5RoFiMLPEQ/images/tutorial/flux/flux1_uso_reference_image_gen_style_reference_only.jpg?fit=max&auto=format&n=6BfRVG5RoFiMLPEQ&q=85&s=d5f16dbe97ac74b1bf01587aaabe12b8) La única diferencia es que reemplazamos el nodo `content reference` y solo usamos un nodo `Empty Latent Image`.
 
   2. También puedes omitir todo el grupo `Style Reference` y usar el flujo de trabajo como un flujo de trabajo de texto a imagen, lo que significa que este flujo de trabajo tiene 4 variantes
 

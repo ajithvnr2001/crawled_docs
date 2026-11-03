@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_examples/
 title: Ejemplos anotados - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.775474+00:00
+fetched_at: 2026-11-03T14:55:24.258188+00:00
 ---
 
 # Ejemplos anotados - ComfyUI
@@ -14,11 +14,11 @@ fetched_at: 2026-10-26T14:02:50.775474+00:00
 Volver arriba
 
   * Menús de clic derecho
-    * Menú del fondo
-    * Menú del nodo
+    * Menú de fondo
+    * Menú de nodo
     * Submenús
-  * Capturar eventos de la UI
-  * Detectar cuándo empieza un flujo de trabajo
+  * Capturar eventos de UI
+  * Detectar cuándo inicia un flujo de trabajo
   * Detectar un flujo de trabajo interrumpido
   * Capturar clics en tu nodo
 
@@ -46,9 +46,9 @@ Menús de clic derecho
 
 ​
 
-Menú del fondo
+Menú de fondo
 
-El menú principal del fondo (clic derecho sobre el lienzo) se genera con una llamada a `LGraphCanvas.getCanvasMenuOptions`. La forma estándar de editarlo es implementar el método `getCanvasMenuItems` en tu extensión:
+El menú principal de fondo (clic derecho en el lienzo) se genera con una llamada a `LGraphCanvas.getCanvasMenuOptions`. La forma estándar de editarlo es implementar el método `getCanvasMenuItems` en tu extensión:
     
     
     app.registerExtension({
@@ -71,7 +71,7 @@ El menú principal del fondo (clic derecho sobre el lienzo) se genera con una ll
 
 ​
 
-Menú del nodo
+Menú de nodo
 
 Cuando haces clic derecho sobre un nodo, el menú se genera de forma similar mediante `node.getExtraMenuOptions`. La forma estándar es implementar el método `getNodeMenuItems` en tu extensión:
     
@@ -143,9 +143,9 @@ Si quieres un submenú, usa la propiedad `submenu` con un arreglo `options`:
 
 ​
 
-Capturar eventos de la UI
+Capturar eventos de UI
 
-Esto funciona tal como esperas: busca el elemento de la UI en el DOM y añade un eventListener. `setup()` es un buen lugar para hacerlo, ya que la página se ha cargado por completo. Por ejemplo, para detectar un clic en el botón ‘Queue’:
+Esto funciona tal como esperas: busca el elemento de la UI en el DOM y agrega un eventListener. `setup()` es un buen lugar para hacerlo, ya que la página se ha cargado por completo. Por ejemplo, para detectar un clic en el Botón de Cola:
     
     
     function queue_button_pressed() { console.log("Queue button was pressed!") }
@@ -156,7 +156,7 @@ Esto funciona tal como esperas: busca el elemento de la UI en el DOM y añade un
 
 ​
 
-Detectar cuándo empieza un flujo de trabajo
+Detectar cuándo inicia un flujo de trabajo
 
 Este es uno de los muchos eventos de `api`:
     
@@ -175,9 +175,9 @@ Este es uno de los muchos eventos de `api`:
 
 Detectar un flujo de trabajo interrumpido
 
-**Obsoleto:** El patrón de interceptación de la API que se muestra abajo está obsoleto y puede cambiar en cualquier momento en un futuro próximo. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales y los escuchadores de eventos de la API cuando estén disponibles.
+**Obsoleto:** El patrón de interceptación de la API que se muestra a continuación está obsoleto y está sujeto a cambios en cualquier momento en el futuro cercano. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales y los escuchadores de eventos de la API cuando estén disponibles.
 
-Un ejemplo sencillo de interceptación de la api:
+Un ejemplo simple de interceptación de la API:
     
     
     import { api } from "../../scripts/api.js";
@@ -196,9 +196,9 @@ Un ejemplo sencillo de interceptación de la api:
 
 Capturar clics en tu nodo
 
-**Obsoleto:** El patrón de interceptación de métodos de nodo que se muestra abajo está obsoleto y puede cambiar en cualquier momento en un futuro próximo. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales cuando estén disponibles.
+**Obsoleto:** El patrón de secuestro de métodos de nodo que se muestra a continuación está obsoleto y puede cambiar en cualquier momento en el futuro cercano. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales cuando estén disponibles.
 
-`node` tiene un método mouseDown que puedes interceptar. Esta vez tenemos cuidado de propagar cualquier valor de retorno.
+`node` tiene un método mouseDown que puedes secuestrar. Esta vez ten cuidado de propagar cualquier valor de retorno.
     
     
     async nodeCreated(node) {

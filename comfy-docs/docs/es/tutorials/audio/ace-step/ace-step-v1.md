@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/audio/ace-step/ace-step-v1/
 title: Ejemplo nativo de ACE-Step en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:41.007201+00:00
+fetched_at: 2026-11-03T14:55:29.208553+00:00
 ---
 
 # Ejemplo nativo de ACE-Step en ComfyUI - ComfyUI
@@ -14,20 +14,20 @@ fetched_at: 2026-10-26T14:03:41.007201+00:00
 Volver arriba
 
   * Ejemplo de flujo de trabajo de generación de texto a audio con ACE-Step en ComfyUI
-    * 1\. Descarga el flujo de trabajo y los modelos relacionados
-    * 2\. Completa el flujo de trabajo paso a paso
+    * 1\. Descargar el flujo de trabajo y los modelos relacionados
+    * 2\. Completar el flujo de trabajo paso a paso
   * Flujo de trabajo de audio a audio con ACE-Step en ComfyUI
     * 1\. Descargar el archivo del flujo de trabajo
     * 2\. Completar el flujo de trabajo paso a paso
     * 3\. Notas adicionales sobre el flujo de trabajo
   * Guía de prompts de ACE-Step
     * Etiquetas (prompt)
-    * Estilos musicales populares
+    * Estilos musicales convencionales
     * Tipos de escena
     * Elementos instrumentales
     * Tipos de voz
     * Términos profesionales
-    * Letras
+    * Letra
     * Etiquetas de estructura de la letra
     * Soporte multilingüe
   * Recursos relacionados con ACE-Step
@@ -44,7 +44,7 @@ Generación de música con ACE-Step en ComfyUI: flujos de texto a música y edic
 
 Copiar páginaCopiar página
 
-ACE-Step es un modelo fundacional de generación de música de código abierto desarrollado conjuntamente por el equipo chino StepFun y ACE Studio, cuyo objetivo es ofrecer a los creadores musicales herramientas de generación y edición de música eficientes, flexibles y de alta calidad. El modelo se publica bajo la [licencia Apache-2.0](https://github.com/ace-step/ACE-Step?tab=readme-ov-file#-license) y es gratis para uso comercial. Como potente base de generación musical, ACE-Step ofrece una gran extensibilidad. Mediante técnicas de ajuste fino como LoRA y ControlNet, los desarrolladores pueden personalizar el modelo según sus necesidades reales. Ya sea para edición de audio, síntesis vocal, producción de acompañamientos, clonación de voz o aplicaciones de transferencia de estilo, ACE-Step brinda un soporte técnico estable y confiable. Esta arquitectura flexible simplifica enormemente el proceso de desarrollo de aplicaciones de IA musical y permite que más creadores apliquen rápidamente la tecnología de IA a la creación musical. Actualmente, ACE-Step ha publicado el código de entrenamiento relacionado, incluido el entrenamiento de modelos LoRA, y el código de entrenamiento de ControlNet correspondiente se publicará en el futuro. Puedes visitar su [GitHub](https://github.com/ace-step/ACE-Step?tab=readme-ov-file#-roadmap) para aprender más detalles.
+ACE-Step es un modelo fundacional de generación musical de código abierto desarrollado conjuntamente por el equipo chino StepFun y ACE Studio, cuyo objetivo es ofrecer a los creadores musicales herramientas de generación y edición de música eficientes, flexibles y de alta calidad. El modelo se publica bajo la [licencia Apache-2.0](https://github.com/ace-step/ACE-Step?tab=readme-ov-file#-license) y es gratis para uso comercial. Como potente base de generación musical, ACE-Step ofrece una gran extensibilidad. Mediante técnicas de ajuste fino como LoRA y ControlNet, los desarrolladores pueden personalizar el modelo según sus necesidades reales. Ya sea para edición de audio, síntesis vocal, producción de acompañamientos, clonación de voz o aplicaciones de transferencia de estilo, ACE-Step brinda un soporte técnico estable y confiable. Esta arquitectura flexible simplifica enormemente el proceso de desarrollo de aplicaciones de IA musical y permite que más creadores apliquen rápidamente la tecnología de IA a la creación musical. Actualmente, ACE-Step ha publicado el código de entrenamiento relacionado, incluido el entrenamiento de modelos LoRA, y el código de entrenamiento de ControlNet correspondiente se publicará en el futuro. Puedes visitar su [GitHub](https://github.com/ace-step/ACE-Step?tab=readme-ov-file#-roadmap) para aprender más detalles.
 
   * Usuarios locales
 
@@ -79,25 +79,25 @@ Ejemplo de flujo de trabajo de generación de texto a audio con ACE-Step en Comf
 
 ​
 
-1\. Descarga el flujo de trabajo y los modelos relacionados
+1\. Descargar el flujo de trabajo y los modelos relacionados
 
-Haz clic en el botón de abajo para descargar el archivo del flujo de trabajo correspondiente. Arrástralo a ComfyUI para cargar la información del flujo de trabajo. El flujo de trabajo incluye la información de descarga de los modelos. [Descargar el archivo de flujo de trabajo en formato JSON](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/audio/ace-step/ace_step_1_t2m.json) También puedes descargar manualmente [ace_step_v1_3.5b.safetensors](https://huggingface.co/Comfy-Org/ACE-Step_ComfyUI_repackaged/blob/main/all_in_one/ace_step_v1_3.5b.safetensors) y guardarlo en la carpeta `ComfyUI/models/checkpoints`
+Haz clic en el botón de abajo para descargar el archivo de flujo de trabajo correspondiente. Arrástralo a ComfyUI para cargar la información del flujo de trabajo. El flujo de trabajo incluye la información de descarga de los modelos. [Descargar archivo de flujo de trabajo en formato Json](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/audio/ace-step/ace_step_1_t2m.json) También puedes descargar manualmente [ace_step_v1_3.5b.safetensors](https://huggingface.co/Comfy-Org/ACE-Step_ComfyUI_repackaged/blob/main/all_in_one/ace_step_v1_3.5b.safetensors) y guardarlo en la carpeta `ComfyUI/models/checkpoints`
 
 ### 
 
 ​
 
-2\. Completa el flujo de trabajo paso a paso
+2\. Completar el flujo de trabajo paso a paso
 
-![Guía de pasos](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/audio/ace_step/ace_step_1_t2a_step_guide.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=236a3db013af8dda09a7730916f24da0)
+![Step Guide](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/audio/ace_step/ace_step_1_t2a_step_guide.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=236a3db013af8dda09a7730916f24da0)
 
   1. Asegúrate de que el nodo `Load Checkpoints` haya cargado el modelo `ace_step_v1_3.5b.safetensors`
-  2. (Opcional) En el nodo `EmptyAceStepLatentAudio` puedes definir la duración de la música que se va a generar
-  3. (Opcional) En el nodo `LatentOperationTonemapReinhard` puedes ajustar el `multiplier` para controlar el volumen de la voz (valores más altos hacen que la voz destaque más)
-  4. (Opcional) Introduce los estilos musicales correspondientes, etc., en el campo `tags` de `TextEncodeAceStepAudio`
+  2. (Opcional) En el nodo `EmptyAceStepLatentAudio`, puedes establecer la duración de la música que se va a generar
+  3. (Opcional) En el nodo `LatentOperationTonemapReinhard`, puedes ajustar el `multiplier` para controlar el volumen de las voces (los números más altos dan como resultado voces más prominentes)
+  4. (Opcional) Introduce los estilos de música correspondientes, etc. en el campo `tags` de `TextEncodeAceStepAudio`
   5. (Opcional) Introduce la letra correspondiente en el campo `lyrics` de `TextEncodeAceStepAudio`
-  6. Haz clic en el botón `Run`, o usa el atajo `Ctrl(cmd) + Enter`, para ejecutar la generación de audio
-  7. Cuando el flujo de trabajo termine,, puedes escuchar el audio generado en el nodo `Save Audio`. Puedes hacer clic para reproducirlo, y el audio también se guardará en `ComfyUI/output/audio` (el subdirectorio lo determina el nodo `Save Audio`).
+  6. Haz clic en el botón `Run`, o usa el atajo `Ctrl(cmd) + Enter` para ejecutar la generación de audio
+  7. Cuando el flujo de trabajo termine, puedes previsualizar el audio generado en el nodo `Save Audio`. Puedes hacer clic para reproducirlo y escucharlo, y el audio también se guardará en `ComfyUI/output/audio` (el subdirectorio lo determina el nodo `Save Audio`).
 
 
 
@@ -107,7 +107,7 @@ Haz clic en el botón de abajo para descargar el archivo del flujo de trabajo co
 
 Flujo de trabajo de audio a audio con ACE-Step en ComfyUI
 
-De forma similar a los flujos de trabajo de imagen a imagen, puedes ingresar un fragmento de música y usar el flujo de trabajo de abajo para remuestrear y generar música. También puedes ajustar la diferencia respecto al audio original controlando el parámetro `denoise` en el `Ksampler`.
+De forma similar a los flujos de trabajo de imagen a imagen, puedes introducir una pieza musical y usar el flujo de trabajo de abajo para volver a muestrear y generar música. También puedes ajustar la diferencia respecto al audio original controlando el parámetro `denoise` del `Ksampler`.
 
 ### 
 
@@ -115,7 +115,7 @@ De forma similar a los flujos de trabajo de imagen a imagen, puedes ingresar un 
 
 1\. Descargar el archivo del flujo de trabajo
 
-Haz clic en el botón de abajo para descargar el archivo del flujo de trabajo correspondiente. Arrástralo a ComfyUI para cargar la información del flujo de trabajo. [Descargar archivo de flujo de trabajo en formato JSON](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/audio/ace-step/ace_step_1_m2m_editing.json) Descarga el siguiente archivo de audio como audio de entrada: [Descargar archivo de audio de ejemplo para la entrada](https://github.com/Comfy-Org/example_workflows/raw/refs/heads/main/audio/ace-step/input.mp3)
+Haz clic en el botón de abajo para descargar el archivo del flujo de trabajo correspondiente. Arrástralo a ComfyUI para cargar la información del flujo de trabajo. [Descargar el archivo de flujo de trabajo en formato JSON](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/audio/ace-step/ace_step_1_m2m_editing.json) Descarga el siguiente archivo de audio como audio de entrada: [Descargar el archivo de audio de ejemplo para la entrada](https://github.com/Comfy-Org/example_workflows/raw/refs/heads/main/audio/ace-step/input.mp3)
 
 ### 
 
@@ -123,16 +123,16 @@ Haz clic en el botón de abajo para descargar el archivo del flujo de trabajo co
 
 2\. Completar el flujo de trabajo paso a paso
 
-![Guía paso a paso de ACE-Step](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/audio/ace_step/ace_step_1_m2m_step_guide.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=74b041e1a727b4d4bfa22f6ae446d611)
+![Guía de pasos de ACE-Step](https://mintcdn.com/dripart/OltlUSVBSNcJsDMs/images/tutorial/audio/ace_step/ace_step_1_m2m_step_guide.jpg?fit=max&auto=format&n=OltlUSVBSNcJsDMs&q=85&s=74b041e1a727b4d4bfa22f6ae446d611)
 
   1. Asegúrate de que el nodo `Load Checkpoints` haya cargado el modelo `ace_step_v1_3.5b.safetensors`
   2. Sube el archivo de audio proporcionado en el nodo `LoadAudio`
-  3. (Opcional) Ingresa los estilos musicales y la letra correspondientes en los campos `tags` y `lyrics` de `TextEncodeAceStepAudio`. Proporcionar la letra es muy importante para la edición de audio
-  4. (Opcional) Modifica el parámetro `denoise` del nodo `Ksampler` para ajustar el ruido que se añade durante el muestreo y así controlar la similitud con el audio original (los valores más pequeños dan como resultado una mayor similitud con el audio original; establecerlo en `1.00` equivale aproximadamente a no tener entrada de audio)
+  3. (Opcional) Introduce los estilos musicales y la letra correspondientes en los campos `tags` y `lyrics` de `TextEncodeAceStepAudio`. Proporcionar la letra es muy importante para la edición de audio
+  4. (Opcional) Modifica el parámetro `denoise` del nodo `Ksampler` para ajustar el ruido añadido durante el muestreo y controlar la similitud con el audio original (los valores más pequeños dan como resultado una mayor similitud con el audio original; establecerlo en `1.00` equivale aproximadamente a no tener entrada de audio)
   5. Haz clic en el botón `Run` o usa el atajo `Ctrl(cmd) + Enter` para ejecutar la generación de audio
   6. Cuando el flujo de trabajo termine, puedes previsualizar el audio generado en el nodo `Save Audio`. Puedes hacer clic para reproducirlo y escucharlo, y el audio también se guardará en `ComfyUI/output/audio` (el subdirectorio lo determina el nodo `Save Audio`).
 
-También puedes usar la funcionalidad de modificación y edición de la letra de la página del proyecto ACE-Step, modificando la letra original para cambiar el efecto del audio.
+También puedes implementar la funcionalidad de modificación y edición de la letra de la página del proyecto ACE-Step, modificando la letra original para cambiar el efecto del audio.
 
 ### 
 
@@ -140,8 +140,8 @@ También puedes usar la funcionalidad de modificación y edición de la letra de
 
 3\. Notas adicionales sobre el flujo de trabajo
 
-  1. En el flujo de trabajo de ejemplo, puedes cambiar los `tags` de `TextEncodeAceStepAudio` de `male voice` a `female voice` para generar voces femeninas.
-  2. También puedes modificar los `lyrics` de `TextEncodeAceStepAudio` para cambiar la letra y, con ello, el audio generado. Consulta los ejemplos de la página del proyecto ACE-Step para más detalles.
+  1. En el flujo de trabajo de ejemplo, puedes cambiar `tags` en `TextEncodeAceStepAudio` de `male voice` a `female voice` para generar voces femeninas.
+  2. También puedes modificar `lyrics` en `TextEncodeAceStepAudio` para cambiar la letra y, con ello, el audio generado. Consulta los ejemplos de la página del proyecto ACE-Step para ver más detalles.
 
 
 
@@ -151,12 +151,12 @@ También puedes usar la funcionalidad de modificación y edición de la letra de
 
 Guía de prompts de ACE-Step
 
-Actualmente, ACE usa dos tipos de prompts: `tags` y `lyrics`.
+ACE actualmente usa dos tipos de prompts: `tags` y `lyrics`.
 
-  * `tags`: se usan principalmente para describir estilos musicales, escenas, etc. De forma similar a los prompts que usamos en otras generaciones, describen sobre todo el estilo general y los requisitos del audio, y se separan con comas en inglés.
-  * `lyrics`: se usan principalmente para describir la letra y admiten etiquetas de estructura como [verse], [chorus] y [bridge] para distinguir las distintas partes de la letra. También puedes escribir nombres de instrumentos para música puramente instrumental.
+  * `tags`: se usan principalmente para describir estilos musicales, escenas, etc. De forma similar a los prompts que usamos para otras generaciones, describen sobre todo el estilo general y los requisitos del audio, y se separan con comas en inglés.
+  * `lyrics`: se usan principalmente para describir la letra y admiten etiquetas de estructura como [verse], [chorus] y [bridge] para distinguir las distintas partes de la letra. También puedes introducir nombres de instrumentos para música puramente instrumental.
 
-Puedes encontrar abundantes ejemplos de `tags` y `lyrics` en la [página del modelo ACE-Step](https://ace-step.github.io/). Puedes consultar esos ejemplos para probar los prompts correspondientes. La guía de prompts de este documento está organizada a partir del proyecto para ayudarte a probar combinaciones rápidamente y lograr el efecto que buscas.
+Puedes encontrar abundantes ejemplos de `tags` y `lyrics` en la [página principal del modelo ACE-Step](https://ace-step.github.io/). Puedes consultar estos ejemplos para probar los prompts correspondientes. La guía de prompts de este documento está organizada a partir del proyecto para ayudarte a probar combinaciones rápidamente y conseguir el efecto que deseas.
 
 ### 
 
@@ -168,9 +168,9 @@ Etiquetas (prompt)
 
 ​
 
-Estilos musicales populares
+Estilos musicales convencionales
 
-Usa combinaciones cortas de etiquetas para generar estilos musicales concretos
+Usa combinaciones cortas de etiquetas para generar estilos musicales específicos
 
   * electronic
   * rock
@@ -230,9 +230,9 @@ Tipos de voz
 
 Términos profesionales
 
-Usa algunos términos habituales del mundo de la música para controlar con precisión el resultado musical
+Usa algunos términos profesionales habituales en la música para controlar con precisión el resultado musical
 
-  * 110 bpm (110 pulsaciones por minuto)
+  * 110 bpm (beats per minute is 110)
   * fast tempo
   * slow tempo
   * loops
@@ -246,7 +246,7 @@ Usa algunos términos habituales del mundo de la música para controlar con prec
 
 ​
 
-Letras
+Letra
 
 #### 
 
@@ -267,8 +267,8 @@ Etiquetas de estructura de la letra
 
 Soporte multilingüe
 
-  * ACE-Step V1 admite varios idiomas. Al usarlo, ACE-Step convierte los distintos idiomas a letras del alfabeto inglés y luego genera la música.
-  * En ComfyUI, todavía no hemos implementado por completo la conversión de todos los idiomas a letras del alfabeto inglés. Por ahora, solo están implementados los [caracteres japoneses hiragana y katakana](https://github.com/Comfy-Org/ComfyUI/commit/5d3cc85e13833aeb6ef9242cdae243083e30c6fc). Así que, si necesitas usar varios idiomas para generar música, primero debes convertir el idioma correspondiente a letras del alfabeto inglés y luego escribir la abreviatura del código de idioma al comienzo de `lyrics`, como el chino `[zh]`, el coreano `[ko]`, etc.
+  * ACE-Step V1 admite varios idiomas. Al usarlo, ACE-Step convierte los distintos idiomas a letras del alfabeto inglés y después genera la música.
+  * En ComfyUI no hemos implementado por completo la conversión de todos los idiomas a letras del alfabeto inglés. Actualmente solo están implementados los [caracteres japoneses hiragana y katakana](https://github.com/Comfy-Org/ComfyUI/commit/5d3cc85e13833aeb6ef9242cdae243083e30c6fc). Así que si necesitas usar varios idiomas para generar música, primero debes convertir el idioma correspondiente a letras del alfabeto inglés y luego introducir la abreviatura del código de idioma al principio de `lyrics`, por ejemplo chino `[zh]`, coreano `[ko]`, etc.
 
 Por ejemplo:
     
@@ -301,7 +301,7 @@ Por ejemplo:
     [fr]un amour profond qui ne s'éloignera jamais
     
 
-Actualmente, ACE-Step admite 19 idiomas, pero los siguientes diez tienen mejor soporte:
+Actualmente, ACE-Step admite 19 idiomas, pero los diez siguientes tienen mejor soporte:
 
   * Inglés
   * Chino: [zh]

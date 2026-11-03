@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/audio/minimax/minimax-music-3/
 title: MiniMax Music 3 en ComfyUI: generaci\u00f3n de m\u00fasica con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:41.417047+00:00
+fetched_at: 2026-11-03T14:55:28.088670+00:00
 ---
 
 # MiniMax Music 3 en ComfyUI: generación de música con IA - ComfyUI
@@ -16,7 +16,7 @@ Volver arriba
   * Características principales
   * Primeros pasos
   * Flujo de trabajo de texto a música de MiniMax Music 3
-    * Descarga de modelos
+    * Descargas de modelos
     * Consejos para escribir prompts
     * Guía para escribir prompts
   * Salida
@@ -33,7 +33,7 @@ Aprende a usar MiniMax Music 3 en ComfyUI para generar canciones completas de ha
 
 Copiar páginaCopiar página
 
-![MiniMax Music 3](https://raw.githubusercontent.com/MiniMax-AI/MiniMax-Music3/main/figures/Music3.png) [MiniMax Music 3](https://github.com/MiniMax-AI/MiniMax-Music3) es el modelo de generación musical de MiniMax para crear canciones completas de hasta **cinco minutos** de duración. Condicionado por una letra y una descripción musical detallada, produce canciones estructuralmente coherentes con voces expresivas, arreglos que evolucionan y una calidad de audio estable en formatos largos. Puedes explorar ejemplos generados en la [página de demostración oficial](https://minimax-ai.github.io/music3-demo/). MiniMax Music 3 utiliza una arquitectura autoregresiva jerárquica con un LLM global de 8B para la estructura musical de largo alcance, un LLM local de 0.6B para el detalle acústico a nivel de fotograma y un sistema de síntesis de estados ocultos continuos basado en Flow Matching y un Flow-VAE. Genera audio estéreo de 32 kHz y 16 bits. Los pesos del modelo están disponibles bajo la [Licencia Comunitaria de MiniMax-Music3](https://huggingface.co/MiniMaxAI/MiniMax-Music3/blob/main/LICENSE). ComfyUI es compatible de forma nativa con MiniMax Music 3 mediante un flujo de trabajo de ejemplo oficial: **MiniMax Music 3 Text to Music**.
+![MiniMax Music 3](https://raw.githubusercontent.com/MiniMax-AI/MiniMax-Music3/main/figures/Music3.png) [MiniMax Music 3](https://github.com/MiniMax-AI/MiniMax-Music3) es el modelo de generación musical de MiniMax para crear canciones completas de hasta **cinco minutos** de duración. Condicionado por una letra y una descripción musical detallada, produce canciones estructuralmente coherentes con voces expresivas, arreglos que evolucionan y una calidad de audio estable en piezas largas. Puedes explorar ejemplos generados en la [página de demostración oficial](https://minimax-ai.github.io/music3-demo/). MiniMax Music 3 utiliza una arquitectura autoregresiva jerárquica con un LLM global de 8B para la estructura musical de largo alcance, un LLM local de 0.6B para el detalle acústico a nivel de fotograma y un sistema de síntesis de estados ocultos continuos basado en Flow Matching y un Flow-VAE. Genera audio estéreo de 32 kHz y 16 bits. Los pesos del modelo están disponibles bajo la [Licencia Comunitaria de MiniMax-Music3](https://huggingface.co/MiniMaxAI/MiniMax-Music3/blob/main/LICENSE). ComfyUI es compatible de forma nativa con MiniMax Music 3 mediante un flujo de trabajo de ejemplo oficial: **MiniMax Music 3 Text to Music**.
 
   * Usuarios locales
 
@@ -69,7 +69,7 @@ Características principales
   * **Canciones completas** : Genera pistas completas de hasta 5 minutos con intro, verso, preestribillo, estribillo, puente, interludio instrumental y outro
   * **Control de dos entradas** : Una **Caption** estructurada define el estilo musical, el estado de ánimo, las voces y el arreglo, mientras que **Lyrics** , con etiquetas de sección (`[Intro]`, `[Verse]`, `[Chorus]`, `[Bridge]`, `[Instrumental]`, `[Outro]`), controla la estructura de la canción
   * **Coherencia de largo alcance** : Mantiene los temas musicales, el ritmo, la identidad vocal y la progresión del arreglo a lo largo de secuencias largas
-  * **Voces expresivas** : Síntesis vocal natural con control sobre la melodía, la pronunciación y las armonías superpuestas
+  * **Voces expresivas** : Síntesis vocal natural con control sobre la melodía, la pronunciación y las armonías por capas
   * **Pesos abiertos** : Ejecútalo localmente en ComfyUI con control total sobre cada parámetro
 
 
@@ -84,7 +84,7 @@ MiniMax Music 3 es compatible con ComfyUI con pesos abiertos. Para empezar:
 
   1. Actualiza ComfyUI a la última versión
   2. Ve a **Biblioteca de plantillas** > **Audio** > elige el flujo de trabajo **MiniMax Music 3**
-  3. Sigue la ventana emergente para descargar los modelos y ejecutar el flujo de trabajo
+  3. Sigue las indicaciones de la ventana emergente para descargar los modelos y ejecutar el flujo de trabajo
 
 Los archivos de modelo listos para ComfyUI (modelo de difusión reempaquetado, text encoder y VAE) están alojados en Hugging Face en el repositorio [Comfy-Org/MiniMax-Music-3](https://huggingface.co/Comfy-Org/MiniMax-Music-3). Los pesos originales del modelo están disponibles en el repositorio [MiniMaxAI/MiniMax-Music3](https://huggingface.co/MiniMaxAI/MiniMax-Music3).
 
@@ -94,7 +94,7 @@ Los archivos de modelo listos para ComfyUI (modelo de difusión reempaquetado, t
 
 Flujo de trabajo de texto a música de MiniMax Music 3
 
-Genera una canción completa a partir de un caption musical estructurado y una letra. ![Vista previa del flujo de trabajo de texto a música de MiniMax Music 3](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/thumbnail/audio_minimax_music_3.png)
+Genera una canción completa a partir de una descripción musical estructurada y una letra. ![Vista previa del flujo de trabajo de texto a música de MiniMax Music 3](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/thumbnail/audio_minimax_music_3.png)
 
 ## Ejecutar en Comfy Cloud
 
@@ -102,15 +102,15 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “MiniMax Music 3” en la Biblioteca de plantillas
+Descargar el JSON o buscar “MiniMax Music 3” en la biblioteca de plantillas
 
-El flujo de trabajo toma dos entradas de texto y produce una canción terminada. El text encoder genera la secuencia de conditioning acústico a partir del caption y la letra, el modelo de difusión sintetiza el latent de audio y el VAE de audio lo decodifica en una pista estéreo de 32 kHz guardada como MP3. **Controles del flujo de trabajo** :
+El flujo de trabajo toma dos entradas de texto y produce una canción finalizada. El codificador de texto genera la secuencia de acondicionamiento acústico a partir de la descripción y la letra, el modelo de difusión sintetiza el latente de audio y el VAE de audio lo decodifica en una pista estéreo de 32 kHz guardada como MP3. **Controles del flujo de trabajo** :
 
-  * **Caption** : La descripción musical. Escríbela en tres secciones: **Global Metadata** (género, BPM, tonalidad, escala, progresión emocional, contexto de escucha, perfil de producción), **Vocal Details** (género de la voz, timbre, estilo interpretativo, armonías, efectos vocales) y **Arrangement** (instrumentos principales y secundarios, groove, bajo, percusión, texturas, efectos espaciales). Cuanto más específico seas, más cerca quedará el resultado
-  * **Lyrics** : La letra que se va a cantar, con etiquetas de sección como `[Intro]`, `[Verse]`, `[Chorus]`, `[Bridge]`, `[Instrumental]` y `[Outro]`. Las etiquetas son las instrucciones estructurales; el texto de la letra transmite el estado de ánimo
-  * **max_duration** : Duración objetivo de la canción en segundos (la plantilla usa 60 segundos por defecto; el modelo admite hasta unos 300 segundos / 5 minutos). Las canciones más largas consumen más tiempo y VRAM
-  * **seed** : Semilla aleatoria de la generación. Mantenla fija para reproducir la misma canción; cámbiala para obtener otra versión
-  * **tiled_decode** : Decodifica el VAE de audio en mosaicos superpuestos para reducir el uso de VRAM, útil en canciones largas con GPU de poca VRAM. Es algo más lento y con un pequeño riesgo de costuras en los bordes de los mosaicos. Desactívalo en GPU con mucha VRAM para obtener la mejor calidad
+  * **Caption** : La descripción musical. Escríbela en tres secciones: **Global Metadata** (género, BPM, tonalidad, escala, progresión emocional, escenario de escucha, perfil de producción), **Vocal Details** (género vocal, timbre, estilo de interpretación, armonías, efectos vocales) y **Arrangement** (instrumentos principales y secundarios, groove, bajo, percusión, texturas, efectos espaciales). Cuanto más específica sea, más se acercará el resultado
+  * **Lyrics** : La letra que se cantará, con etiquetas de sección como `[Intro]`, `[Verse]`, `[Chorus]`, `[Bridge]`, `[Instrumental]` y `[Outro]`. Las etiquetas son las instrucciones estructurales; el texto de la letra transmite el estado de ánimo
+  * **max_duration** : Duración objetivo de la canción en segundos (la plantilla usa 60 segundos por defecto; el modelo admite hasta unos 300 segundos / 5 minutos). Las canciones más largas tardan más y consumen más VRAM
+  * **seed** : Semilla aleatoria para la generación. Mantenla fija para reproducir la misma canción; cámbiala para obtener una versión diferente
+  * **tiled_decode** : Decodifica el VAE de audio en mosaicos superpuestos para reducir el uso de VRAM, útil para canciones largas en GPU con poca VRAM. Es un poco más lento y tiene un pequeño riesgo de costuras en los límites de los mosaicos. Desactívalo en GPU con mucha VRAM para obtener la mejor calidad
 
 
 
@@ -118,7 +118,7 @@ El flujo de trabajo toma dos entradas de texto y produce una canción terminada.
 
 ​
 
-Descarga de modelos
+Descargas de modelos
 
 ## Modelo de difusión (FP16)
 
@@ -156,10 +156,10 @@ Coloca los archivos en los siguientes directorios:
 
 Consejos para escribir prompts
 
-  1. **Estructura el caption en tres secciones** : Global Metadata, Vocal Details y Arrangement. El modelo no solo sigue un estilo global, sino también el desarrollo musical de la canción a lo largo del tiempo
+  1. **Estructura la descripción en tres secciones** : Global Metadata, Vocal Details y Arrangement. El modelo sigue no solo un estilo global, sino también el desarrollo musical de la canción a lo largo del tiempo
   2. **Usa etiquetas de sección en la letra** : `[Intro]`, `[Verse]`, `[Pre-Chorus]`, `[Chorus]`, `[Post-Chorus]`, `[Bridge]`, `[Instrumental]`, `[Solo]` y `[Outro]` le dan al modelo un control estructural explícito
-  3. **Deja las etiquetas como las únicas instrucciones estructurales** : las etiquetas son ejecutables; el texto de la letra por sí mismo transmite el estado de ánimo, no la estructura
-  4. **Equilibra duración y recursos** : las canciones más largas consumen más tiempo y VRAM. Usa el modelo de difusión INT8 y la decodificación por mosaicos para canciones largas en GPU de poca VRAM
+  3. **Mantén las etiquetas como las únicas instrucciones estructurales** : Las etiquetas son ejecutables; el texto de la letra en sí transmite el estado de ánimo, no la estructura
+  4. **Equilibra la duración y los recursos** : Las canciones más largas tardan más y consumen más VRAM. Usa el modelo de difusión INT8 y la decodificación en mosaicos para canciones largas en GPU con poca VRAM
 
 
 
@@ -169,7 +169,7 @@ Consejos para escribir prompts
 
 Guía para escribir prompts
 
-La [página de demos oficial](https://minimax-ai.github.io/music3-demo/) muestra 26 pistas de ejemplo de 11 géneros (pop, rock, R&B, hip-hop, dance pop, country, soul, funk, blues, bossa nova y urbano), cada una con su caption estructurado completo escrito en el formato Global Metadata / Vocal Details / Arrangement. Úsalas como referencia para escribir tus propios captions. MiniMax también publica una [skill oficial de reescritura de captions musicales](https://github.com/MiniMax-AI/MiniMax-Music3) que convierte una descripción musical breve y una letra con etiquetas opcional en un caption estructurado detallado de Music 3.0. La skill construye un arreglo coherente sección por sección, con metadatos globales, detalles vocales y descripciones del arreglo, y respeta las restricciones musicales explícitas mientras mantiene el texto de la letra en la entrada de lyrics. Instálala con:
+La [página de demostración oficial](https://minimax-ai.github.io/music3-demo/) muestra 26 pistas de ejemplo de 11 géneros (pop, rock, R&B, hip-hop, dance pop, country, soul, funk, blues, bossa nova y urbano), cada una con su descripción estructurada completa escrita en el formato Global Metadata / Vocal Details / Arrangement. Úsalas como referencia para escribir tus propias descripciones. MiniMax también publica una [habilidad oficial de reescritura de descripciones musicales](https://github.com/MiniMax-AI/MiniMax-Music3) que convierte una breve descripción musical y una letra etiquetada opcional en una descripción estructurada detallada de Music 3.0. La habilidad construye un arreglo coherente sección por sección con metadatos globales, detalles vocales y descripciones del arreglo, preservando las restricciones musicales explícitas y manteniendo el texto de la letra en la entrada de letra. Instálala con:
     
     
     npx skills add MiniMax-AI/MiniMax-Music3 --skill music-caption-rewriter
@@ -181,7 +181,7 @@ La [página de demos oficial](https://minimax-ai.github.io/music3-demo/) muestra
 
 Salida
 
-La canción generada se guarda en `ComfyUI/output/audio/audio_minimax_music3.mp3` (o con el nombre de archivo definido en el nodo SaveAudioAdvanced).
+ComfyUI guarda la canción generada en `ComfyUI/output/audio/audio_minimax_music3.mp3` (o con el nombre de archivo definido en el nodo SaveAudioAdvanced).
 
 ¿Esta página le ayudó?
 

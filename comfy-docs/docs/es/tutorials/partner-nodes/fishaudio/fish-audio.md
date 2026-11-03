@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/fish-audio/
 title: Fish Audio: texto a voz, clonaci\u00f3n de voz y voz a texto en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:48.696697+00:00
+fetched_at: 2026-11-03T14:55:31.294120+00:00
 ---
 
 # Fish Audio: texto a voz, clonación de voz y voz a texto en ComfyUI - ComfyUI
@@ -97,7 +97,7 @@ La documentación del modelo más reciente, `drama-3`, está en su propia págin
 
 Conectar voces
 
-La salida `voice` del Voice Selector o del Instant Voice Clone se conecta al nodo Text to Speech. El nombre de la entrada depende del modelo: `s2.1-pro` (recomendado) expone la entrada `voices`, que puede crecer (hasta 5 espacios de voz), mientras que `s1` tiene una única entrada `voice` opcional. Con una voz conectada, el nodo la pasa internamente como `reference_id`. Con dos o más, el texto debe marcar a los hablantes con `@Voice1`, `@Voice2`, etc., y cada voz conectada debe aparecer al menos una vez en el texto; de lo contrario, el nodo genera un error. Consulta [Diálogo con varios hablantes](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/prompt-guide#multi-speaker-dialogue) en la guía de prompts.
+La salida `voice` del Voice Selector o del Instant Voice Clone se conecta al nodo Text to Speech. El nombre de la entrada depende del modelo: `s2.1-pro` (recomendado) expone la entrada `voices`, que puede crecer (hasta 5 espacios de voz), mientras que `s1` tiene una única entrada `voice` opcional. Con una voz conectada, el nodo la pasa internamente como `reference_id`. Con dos o más, el texto debe marcar a los hablantes con `@Voice1`, `@Voice2`, etc., y cada voz conectada debe aparecer al menos una vez en el texto; de lo contrario, el nodo genera un error. Consulta [Diálogo con varios hablantes](https://docs.comfy.org/es/tutorials/partner-nodes/fishaudio/prompt-guide#di%C3%A1logo-con-varios-hablantes) en la guía de prompts.
 
 ### 
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/serverless/overview/
 title: Gu\u00eda de despliegue de Comfy API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:28.136043+00:00
+fetched_at: 2026-11-03T14:55:27.094740+00:00
 ---
 
 # Guía de despliegue de Comfy API - ComfyUI
@@ -14,8 +14,8 @@ fetched_at: 2026-10-26T14:03:28.136043+00:00
 Volver arriba
 
   * Conceptos de la plataforma
-  * El archivo Build
-  * Actualizar y publicar
+  * El archivo de Build
+  * Actualizar y publicar una versión
   * Regiones y disponibilidad de GPU
   * Límites del espacio de trabajo
   * Supervisar y llamar a un despliegue
@@ -63,9 +63,9 @@ Para las instantáneas de Desktop y las importaciones de flujos de trabajo en JS
 
 ​
 
-El archivo Build
+El archivo de Build
 
-`comfy-build.yaml` guarda la definición del Build y el último estado remoto conocido. La CLI usa ese estado para detectar cuándo ha cambiado el Build remoto. Mantén el archivo junto al proyecto. Describe el entorno, pero no contiene archivos de modelos. Comprueba cómo se compara el Build local con la instalación y con la versión remota antes de publicar cambios:
+`comfy-build.yaml` almacena la definición del Build y el último estado remoto conocido. La CLI usa ese estado para detectar cuándo ha cambiado el Build remoto. Mantén el archivo junto al proyecto. Describe el entorno, pero no contiene archivos de modelo. Comprueba cómo se compara el Build local con la instalación y la versión remota antes de subir cambios:
     
     
     comfy build status
@@ -75,15 +75,15 @@ El archivo Build
 
 ​
 
-Actualizar y publicar
+Actualizar y publicar una versión
 
-Después de cambiar la instalación local, actualiza la definición del Build:
+Después de cambiar la instalación local, actualiza la definición de Build:
     
     
     comfy build update --yes
     
 
-Para crear otra versión a partir de un Build existente, consulta los destinos admitidos y selecciona uno:
+Para crear otra versión a partir de un Build existente, consulta los objetivos admitidos y elige uno:
     
     
     comfy build refs build-targets
@@ -102,13 +102,13 @@ Sigue el registro de compilación de una versión con:
 
 Regiones y disponibilidad de GPU
 
-La capacidad de las regiones cambia, así que consulta el catálogo de la plataforma al elegir un objetivo de implementación. Filtra los resultados con `--region <region>`:
+La capacidad de las regiones cambia, así que consulta el catálogo de la plataforma cuando elijas un objetivo de despliegue. Filtra los resultados con `--region <region>`:
     
     
     comfy deploy refs compute --region <region>
     
 
-El catálogo es la fuente de verdad sobre qué clases de GPU están disponibles en cada región al momento de la implementación.
+El catálogo es la fuente de referencia sobre qué clases de GPU están disponibles en cada región en el momento del despliegue.
 
 ## 
 
@@ -116,7 +116,7 @@ El catálogo es la fuente de verdad sobre qué clases de GPU están disponibles 
 
 Límites del espacio de trabajo
 
-Consulta [Limits](https://platform.comfy.org/profile/limits) para ver el uso y los límites de tu plan de tu espacio de trabajo. Mantén `--max` dentro del límite de workers por despliegue.
+Consulta [Limits](https://platform.comfy.org/profile/limits) para ver el uso y los límites de tu plan de espacio de trabajo. Mantén `--max` dentro del límite de workers por despliegue.
 
 ## 
 
@@ -124,7 +124,7 @@ Consulta [Limits](https://platform.comfy.org/profile/limits) para ver el uso y l
 
 Supervisar y llamar a un despliegue
 
-Las opciones `--min` y `--max` establecen los límites de workers. Ejecuta `comfy deploy status --watch` para seguir el estado del despliegue, la vigencia de las versiones y la actividad de servicio. También puedes llamar al endpoint con los [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks). Establece `COMFY_BASE_URL` en la URL del despliegue y proporciona una clave API. Consulta [Elegir una URL base](https://docs.comfy.org/es/development/api-development/sdks#elegir-una-url-base).
+Las opciones `--min` y `--max` establecen los límites de workers. Ejecuta `comfy deploy status --watch` para seguir el estado del despliegue, la vigencia de las versiones y la actividad de servicio. También puedes llamar al endpoint con los [Comfy SDKs](https://docs.comfy.org/es/development/api-development/sdks). Establece `COMFY_BASE_URL` con la URL del despliegue y proporciona una clave API. Consulta [Elegir una URL base](https://docs.comfy.org/es/development/api-development/sdks#elegir-una-url-base).
 
 ## 
 
@@ -133,10 +133,10 @@ Las opciones `--min` y `--max` establecen los límites de workers. Ejecuta `comf
 Operar un despliegue
     
     
-    # Cambiar los límites de workers
+    # Change the worker bounds
     comfy deploy scale --deployment dep_123456 --min 2 --max 5
     
-    # Pausar o reanudar conservando el registro del despliegue
+    # Pause or resume while retaining the deployment record
     comfy deploy stop --deployment dep_123456
     comfy deploy start --deployment dep_123456
     
@@ -148,7 +148,7 @@ Operar un despliegue
 Inspeccionar y limpiar
     
     
-    # Estado del build
+    # Estado de Build
     comfy build ls
     comfy build show --id bld_123456
     comfy build release ls
@@ -160,7 +160,7 @@ Inspeccionar y limpiar
     comfy deploy events --deployment dep_123456
     
 
-Eliminar un despliegue y eliminar un Build son operaciones irreversibles e independientes. Confirma el objetivo antes de usar `comfy deploy delete --yes` o `comfy build delete --id bld_123456 --yes`.
+Eliminar un despliegue y eliminar un Build son operaciones irreversibles independientes. Confirma el objetivo antes de usar `comfy deploy delete --yes` o `comfy build delete --id bld_123456 --yes`.
 
 ## 
 
@@ -168,31 +168,31 @@ Eliminar un despliegue y eliminar un Build son operaciones irreversibles e indep
 
 Preguntas frecuentes
 
-¿Un solo Build puede provenir de varios flujos de trabajo?
+¿Un mismo Build puede provenir de varios flujos de trabajo?
 
-Sí. En el Builder, sube uno o más flujos de trabajo para preseleccionar sus modelos y nodos personalizados. Incluye las dependencias que necesitan todos los flujos de trabajo que planeas ejecutar y luego envía cada flujo de trabajo en formato API al endpoint desplegado.Cada despliegue usa un solo tipo de GPU. Para ejecutar flujos de trabajo en distintos tipos de GPU, crea despliegues separados del mismo Build.
+Sí. En el Builder, sube uno o más flujos de trabajo para preseleccionar sus modelos y nodos personalizados. Incluye las dependencias que necesitan todos los flujos de trabajo que planeas ejecutar y después envía cada flujo de trabajo en formato API al endpoint desplegado.Cada despliegue usa un solo tipo de GPU. Para ejecutar flujos de trabajo en distintos tipos de GPU, crea despliegues separados del mismo Build.
 
-¿Se me cobra por almacenar Builds que no están desplegados?
+¿Me cobran por almacenar Builds que no están desplegados?
 
-No. Los Builds y sus releases se guardan en tu cuenta sin costo. No se te factura el espacio de almacenamiento de un Build hasta que lo despliegas.La facturación de almacenamiento comienza con un despliegue:
+No. Los Builds y sus releases se guardan en tu cuenta sin cargo. No se te factura el espacio de almacenamiento de un Build hasta que lo despliegas.La facturación de almacenamiento comienza con un despliegue:
 
-  * Cuando despliegas un release, sus modelos se preparan en almacenamiento de red compartido por los workers del despliegue. El almacenamiento es de solo lectura después del despliegue y se factura por GB-mes mientras exista cualquier despliegue del Build en esa región, incluso mientras un despliegue está en pausa con `comfy deploy stop`.
+  * Cuando despliegas un release, sus modelos se preparan en el almacenamiento en red que comparten los workers del despliegue. Ese almacenamiento es de solo lectura después del despliegue y se factura por GB-mes mientras exista cualquier despliegue del Build en esa región, incluso mientras un despliegue está en pausa con `comfy deploy stop`.
   * Cada worker también recibe un disco de contenedor fijo de 50 GB. Es efímero y solo se factura mientras el worker está en ejecución, como parte del costo de cómputo del worker.
-  * Eliminar un despliegue libera su cómputo. El almacenamiento de red preparado se limpia poco después de que se elimine el último despliegue que lo usa en esa región, y su facturación termina.
+  * Eliminar un despliegue libera su cómputo. El almacenamiento en red preparado se limpia poco después de eliminar el último despliegue que lo usa en esa región, y la facturación correspondiente termina.
 
-Para conocer las tarifas de almacenamiento vigentes, consulta la [página de precios de Comfy](https://www.comfy.org/pricing). El catálogo de cómputo (`comfy deploy refs compute`) y el diálogo de despliegue también muestran las tarifas que aplican a un despliegue.
+Para conocer las tarifas de almacenamiento actuales, consulta la [página de precios de Comfy](https://www.comfy.org/pricing). El catálogo de cómputo (`comfy deploy refs compute`) y el diálogo de despliegue también muestran las tarifas que se aplican a un despliegue.
 
-¿Cómo se factura a los workers activos y a qué tarifas por hora?
+¿Cómo se factura a los workers activos y con qué tarifas por hora?
 
-`--min` define la cantidad de **workers activos** : workers que permanecen en ejecución todo el tiempo para que las solicitudes nunca esperen un inicio en frío. Un worker activo se factura por segundo durante todo el tiempo que está en ejecución, procese tareas o no.Los workers por encima de `--min`, hasta `--max`, son **workers flexibles**. Un worker flexible se factura por segundo desde el momento en que inicia (incluido el arranque y la carga de modelos), durante el procesamiento de tareas, más una breve ventana de inactividad (actualmente 30 segundos) antes de reducirse. Cuando los workers flexibles se reducen, no cuestan nada. Con `--min 0`, todo el despliegue se reduce a cero y no factura cómputo mientras está inactivo, a cambio de un inicio en frío en la primera solicitud.La facturación mide el uso real por segundo de los workers, multiplicado por la cantidad de workers en ejecución. Si tu espacio de trabajo se queda sin créditos, los despliegues se detienen automáticamente.Para conocer las tarifas vigentes por worker de GPU, consulta la [página de precios de Comfy](https://www.comfy.org/pricing). Las tarifas se expresan por hora de worker y se facturan por segundo. La disponibilidad de GPU por región proviene del catálogo de cómputo: ejecuta `comfy deploy refs compute` para ver la lista actual.
+`--min` establece el número de **workers activos** : workers que permanecen en ejecución en todo momento para que las solicitudes nunca esperen un inicio en frío. Un worker activo se factura por segundo durante todo el tiempo que está en ejecución, procese o no tareas.Los workers por encima de `--min`, hasta `--max`, son **workers flexibles**. Un worker flexible se factura por segundo desde el momento en que arranca (incluidos el arranque y la carga de modelos), durante todo el procesamiento de tareas, más una breve ventana de inactividad (actualmente 30 segundos) antes de reducirse. Cuando los workers flexibles se reducen, no cuestan nada. Con `--min 0`, todo el despliegue se reduce a cero y no factura cómputo mientras está inactivo, a cambio de un inicio en frío en la primera solicitud.La facturación mide el uso real por segundo de los workers, multiplicado por el número de workers en ejecución. Si tu espacio de trabajo se queda sin créditos, los despliegues se detienen automáticamente.Para conocer las tarifas actuales de GPU por worker, consulta la [página de precios de Comfy](https://www.comfy.org/pricing). Las tarifas se expresan por hora de worker y se facturan por segundo. La disponibilidad de GPU por región proviene del catálogo de cómputo: ejecuta `comfy deploy refs compute` para ver la lista actual.
 
 ¿Cómo maneja un despliegue varias solicitudes?
 
-Un despliegue distribuye automáticamente las solicitudes entre sus workers y escala dentro de los límites configurados de `--min` y `--max`. Las solicitudes que no pueden ejecutarse de inmediato quedan en cola y se procesan a medida que haya capacidad de workers disponible.
+Un despliegue distribuye automáticamente las solicitudes entre sus workers y escala dentro de los límites configurados de `--min` y `--max`. Las solicitudes que no pueden ejecutarse de inmediato se ponen en cola y se procesan a medida que hay capacidad de workers disponible.
 
-¿Qué debo hacer si el aprovisionamiento tarda mucho?
+¿Qué hago si el aprovisionamiento tarda mucho?
 
-Sigue el estado del despliegue y luego revisa sus registros y eventos para encontrar la causa:
+Sigue el estado del despliegue y después revisa sus registros y eventos para encontrar la causa:
     
     
     comfy deploy status --deployment <deployment-id> --watch
@@ -200,11 +200,11 @@ Sigue el estado del despliegue y luego revisa sus registros y eventos para encon
     comfy deploy events --deployment <deployment-id>
     
 
-Si la GPU o la región seleccionada no tiene capacidad, reintenta más tarde o ejecuta `comfy deploy refs compute` y elige un par de región y GPU disponible. Incluye los ID del Build, del release y del despliegue cuando pidas ayuda.
+Si la GPU o la región seleccionada no tiene capacidad, reintenta más tarde o ejecuta `comfy deploy refs compute` y elige un par de región y GPU disponible. Incluye los IDs del Build, del release y del despliegue cuando pidas ayuda.
 
-¿Qué sucede cuando elimino un despliegue?
+¿Qué pasa cuando elimino un despliegue?
 
-Eliminar un despliegue quita su endpoint y libera su cómputo. No elimina el Build ni sus releases. Después de que elimines el último despliegue que usa ese Build en una región, el almacenamiento de red preparado se limpia y la facturación de almacenamiento termina poco después.Eliminar el Build es una operación aparte: `comfy build delete --id <build-id> --yes`.
+Eliminar un despliegue quita su endpoint y libera su cómputo. No elimina el Build ni sus releases. Después de eliminar el último despliegue que usa ese Build en una región, su almacenamiento en red preparado se limpia y la facturación de almacenamiento termina poco después.Eliminar el Build es una operación aparte: `comfy build delete --id <build-id> --yes`.
 
 ## 
 
@@ -212,19 +212,19 @@ Eliminar un despliegue quita su endpoint y libera su cómputo. No elimina el Bui
 
 Próximos pasos
 
-## SDKs de Comfy
+## Comfy SDKs
 
 Úsalos desde una aplicación de Python o TypeScript para enviar flujos de trabajo y gestionar entradas, progreso y salidas.
 
 ## Comfy API v2
 
-Úsala desde cualquier lenguaje cuando llames directamente a la API HTTP o quieras consultar sus formatos de solicitud y respuesta.
+Úsala desde cualquier lenguaje cuando llames directamente a la API HTTP o cuando revises sus formatos de solicitud y respuesta.
 
-## Formato de API de flujo de trabajo
+## Workflow API Format
 
-Úsalo cuando prepares un JSON de flujo de trabajo para una solicitud a la API o para solucionar problemas con sus entradas y salidas.
+Úsalo cuando prepares un JSON de flujo de trabajo para una solicitud a la API o cuando diagnostiques sus entradas y salidas.
 
-## Referencia de Comfy CLI
+## Comfy CLI Reference
 
 Úsala para automatizar los comandos de compilación, publicación, despliegue y flujos de trabajo desde una terminal.
 

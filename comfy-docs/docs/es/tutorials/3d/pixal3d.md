@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/3d/pixal3d/
 title: Pixal3D en ComfyUI: modelos 3D PBR desde una sola imagen - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:11.847959+00:00
+fetched_at: 2026-11-03T14:55:28.830481+00:00
 ---
 
 # Pixal3D en ComfyUI: modelos 3D PBR desde una sola imagen - ComfyUI
@@ -32,7 +32,7 @@ Convierte una imagen en un modelo 3D con textura en ComfyUI con Pixal3D, el mode
 
 Copiar páginaCopiar página
 
-**Pixal3D** es un modelo abierto de imagen a 3D de Tencent ARC, presentado en SIGGRAPH 2026. Convierte una sola imagen en un recurso 3D de alta fidelidad con materiales PBR completos. La mayoría de los generadores nativos 3D sintetizan formas en un espacio canónico e inyectan señales de la imagen mediante atención, lo que deja ambiguas las asociaciones entre píxeles y 3D. Pixal3D, en cambio, usa generación alineada a píxeles: establece una correspondencia directa entre píxeles y 3D mediante retroproyección, de modo que el frente del modelo generado coincide 1:1 con tu imagen de entrada, sin texturas deformadas ni desalineadas.
+**Pixal3D** es un modelo de imagen a 3D de código abierto de Tencent ARC, presentado en SIGGRAPH 2026. Convierte una sola imagen en un recurso 3D de alta fidelidad con materiales PBR completos. La mayoría de los generadores nativos 3D sintetizan formas en un espacio canónico e inyectan señales de la imagen mediante atención, lo que deja ambiguas las asociaciones entre píxeles y 3D. Pixal3D, en cambio, usa generación alineada a píxeles: establece una correspondencia directa entre píxeles y 3D mediante retroproyección, de modo que el frente del modelo generado coincide 1:1 con tu imagen de entrada, sin texturas deformadas ni desalineadas.
 
 ### 
 
@@ -133,12 +133,12 @@ Cómo funciona
 
 Pixal3D combina una generación consciente de la cámara y alineada por píxeles con un pipeline completo de posprocesamiento de malla:
 
-  1. **Eliminación de fondo** : BiRefNet elimina el fondo de la imagen de entrada y el flujo de trabajo recorta el sujeto a un lienzo centrado. Un interruptor te permite saltar la eliminación de fondo
-  2. **Estimación de cámara** : MoGe estima la geometría y el campo de visión de la cámara a partir de la imagen. El campo de visión impulsa el acondicionamiento alineado por píxeles
-  3. **Generación de estructura** : se muestrea un latente de estructura dispersa y se decodifica en vóxeles, que luego se convierten en una malla aproximada
-  4. **Refinamiento de forma** : la etapa de forma y la etapa de upsampling refinan la malla hasta la resolución objetivo (1536)
-  5. **Generación de texturas** : una etapa de difusión de texturas produce vóxeles de material PBR (color base, metalicidad, rugosidad)
-  6. **Posprocesamiento** : remesh DC, decimación QEM, desplegado UV y horneado de mapas de color base, normales y oclusión ambiental en la malla texturizada final
+  1. **Eliminación de fondo** : BiRefNet elimina el fondo de la imagen de entrada y el flujo de trabajo recorta el sujeto a un lienzo centrado. Un interruptor te permite saltar la eliminación de fondo.
+  2. **Estimación de la cámara** : MoGe estima la geometría y el campo de visión de la cámara a partir de la imagen. El campo de visión determina el acondicionamiento alineado por píxeles.
+  3. **Generación de la estructura** : se muestrea un latente de estructura dispersa y se decodifica en vóxeles, que luego se convierten en una malla aproximada.
+  4. **Refinamiento de la forma** : la etapa de forma y la etapa de upsampling refinan la malla hasta la resolución objetivo (1536).
+  5. **Generación de texturas** : una etapa de difusión de texturas produce vóxeles de material PBR (color base, metalicidad, rugosidad).
+  6. **Posprocesamiento** : remesh DC, decimación QEM, desplegado UV y horneado de mapas de color base, normales y oclusión ambiental en la malla texturizada final.
 
 
 
@@ -148,10 +148,10 @@ Pixal3D combina una generación consciente de la cámara y alineada por píxeles
 
 Pasos para ejecutar
 
-  1. **Carga una imagen** : usa el nodo `LoadImage` para cargar una sola imagen del objeto.
-  2. **Pon el flujo de trabajo en cola** : presiona Ctrl (Cmd en macOS) + Enter.
-  3. **Espera a que se complete el pipeline** : las etapas de estructura, forma y textura se ejecutan en secuencia, seguidas del posprocesamiento.
-  4. **Consulta el resultado** : revisa la malla en el nodo `Preview3DAdvanced`. El modelo 3D se guarda en `ComfyUI/output/3d/ComfyUI/`.
+  1. **Carga una imagen** : usa el nodo `LoadImage` para cargar una sola imagen del objeto
+  2. **Pon el flujo de trabajo en cola** : presiona Ctrl (Cmd en macOS) + Enter
+  3. **Espera a que se ejecute el pipeline** : las etapas de estructura, forma y textura se ejecutan en secuencia, seguidas del posprocesamiento
+  4. **Consulta el resultado** : revisa la malla en el nodo `Preview3DAdvanced`. El modelo 3D se guarda en `ComfyUI/output/3d/ComfyUI/`
 
 
 
@@ -161,31 +161,31 @@ Pasos para ejecutar
 
 Descargas de modelos
 
-Descarga los modelos que usa este flujo de trabajo. Los dos checkpoints de difusión son obligatorios: el interruptor elige cuál se ejecuta. Colócalos en los subdirectorios correspondientes de `models/`.
+Descarga los modelos que usa este flujo de trabajo. Ambos checkpoints de difusión son requeridos: el selector determina cuál se ejecuta. Colócalos en los subdirectorios correspondientes de `models/`.
 
 ## Pixal3D UNet
 
-pixal3d_int8_convrot.safetensors: modelo de difusión de Pixal3D, cargado de forma predeterminada
+pixal3d_int8_convrot.safetensors: modelo de difusión Pixal3D, que se carga de forma predeterminada
 
 ## TRELLIS.2 UNet
 
-trellis_2_int8_convrot.safetensors: modelo de difusión de TRELLIS.2, cargado cuando el interruptor está en `true`
+trellis_2_int8_convrot.safetensors: modelo de difusión TRELLIS.2, que se carga cuando el selector está en `true`
 
-## VAE de forma
+## Shape VAE
 
-trellis_2_shape_vae_bf16.safetensors: VAE para la decodificación de estructura y forma
+trellis_2_shape_vae_bf16.safetensors: VAE para decodificar estructura y forma
 
-## VAE de textura
+## Texture VAE
 
-trellis_2_texture_vae_bf16.safetensors: VAE para la decodificación de texturas
+trellis_2_texture_vae_bf16.safetensors: VAE para decodificar texturas
 
 ## DINOv3 CLIP vision
 
-dino_v3_L_naf_fp32.safetensors: codificador de visión CLIP para el acondicionamiento de imágenes
+dino_v3_L_naf_fp32.safetensors: codificador de visión CLIP para el acondicionamiento de imagen
 
-## MoGe Geometry
+## MoGe geometry
 
-moge_2_vitl_normal_fp16.safetensors: estimación de profundidad y de cámara para el acondicionamiento alineado por píxeles
+moge_2_vitl_normal_fp16.safetensors: estimación de profundidad y cámara para el acondicionamiento alineado a píxeles
 
 ## BiRefNet eliminación de fondo
 

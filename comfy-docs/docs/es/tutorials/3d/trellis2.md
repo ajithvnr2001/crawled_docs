@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/3d/trellis2/
-title: Ejemplo de flujo de trabajo de ComfyUI para convertir una imagen en un modelo 3D con TRELLIS.2 - ComfyUI
+title: TRELLIS.2 en ComfyUI: imagen a modelos 3D con texturas PBR - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:40.738723+00:00
+fetched_at: 2026-11-03T14:55:28.671537+00:00
 ---
 
-# Ejemplo de flujo de trabajo de ComfyUI para convertir una imagen en un modelo 3D con TRELLIS.2 - ComfyUI
+# TRELLIS.2 en ComfyUI: imagen a modelos 3D con texturas PBR - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/3d/trellis2/
 
@@ -16,22 +16,22 @@ Volver arriba
   * TRELLIS.2: modelo 3D a partir de una imagen
   * Cómo funciona
   * Pasos para ejecutar
-  * Descarga de modelos
+  * Descargas de modelos
     * Ubicación de almacenamiento de los modelos
 
 
 
 3D
 
-# Ejemplo de flujo de trabajo de ComfyUI para convertir una imagen en un modelo 3D con TRELLIS.2
+# TRELLIS.2 en ComfyUI: imagen a modelos 3D con texturas PBR
 
 Copiar páginaCopiar página
 
-Genera modelos 3D de alta fidelidad con texturas PBR completas desde una sola imagen con TRELLIS.2, el modelo abierto de Microsoft de 4B parámetros para imagen a 3D.
+Convierte una sola imagen en un modelo 3D con textura en ComfyUI con TRELLIS.2, el modelo open source de 4B de Microsoft, junto a Pixal3D en un mismo flujo.
 
 Copiar páginaCopiar página
 
-**TRELLIS.2** es un modelo de imagen a 3D de código abierto de Microsoft Research y el sucesor de TRELLIS. Es un modelo de 4B parámetros construido sobre VAE 3D nativos con compresión espacial de 16× y una representación de vóxeles dispersos llamada O-Voxel, que produce recursos 3D detallados con materiales PBR completos a partir de una sola imagen. TRELLIS.2 comparte su arquitectura base con Pixal3D: ambos usan el mismo codificador de imágenes DINOv3, los mismos VAE de forma y textura, y las mismas etapas de generación de estructura, forma y textura. Solo cambian el modelo de difusión principal y el formato de acondicionamiento. Si ya has ejecutado el [flujo de trabajo de Pixal3D](https://docs.comfy.org/es/tutorials/3d/pixal3d), la configuración del modelo es casi idéntica.
+**TRELLIS.2** es un modelo de código abierto de imagen a 3D de Microsoft Research y el sucesor de TRELLIS. Es un modelo de 4B parámetros construido sobre VAE 3D nativos con compresión espacial de 16× y una representación de vóxeles dispersos llamada O-Voxel, que produce recursos 3D detallados con materiales PBR completos a partir de una sola imagen. TRELLIS.2 comparte su arquitectura base con Pixal3D: ambos usan el mismo codificador de imágenes DINOv3, los mismos VAE de forma y textura, y las mismas etapas de generación de estructura, forma y textura. Solo difieren el modelo de difusión principal y el formato de acondicionamiento. Si ya has ejecutado el [flujo de trabajo de Pixal3D](https://docs.comfy.org/es/tutorials/3d/pixal3d), la configuración del modelo es casi idéntica.
 
 ### 
 
@@ -86,7 +86,7 @@ nodo `LoadImage` 122 · `viking_wolf_rune_axe.png`
 
 Cómo funciona
 
-TRELLIS.2 genera un recurso 3D en tres etapas de difusión y luego ejecuta un pipeline completo de posprocesamiento de la malla:
+TRELLIS.2 genera un recurso 3D en tres etapas de difusión y después ejecuta un pipeline completo de posprocesamiento de la malla:
 
   1. **Eliminación de fondo** : BiRefNet elimina el fondo de la imagen de entrada y el flujo de trabajo recorta el sujeto a un lienzo centrado. Un interruptor te permite saltar la eliminación de fondo
   2. **Generación de estructura** : se muestrea un latente de estructura dispersa y se decodifica en vóxeles, que luego se convierten en una malla aproximada
@@ -105,8 +105,8 @@ Pasos para ejecutar
   1. **Carga una imagen** : usa el nodo `LoadImage` para cargar una sola imagen del objeto
   2. **Cambia al pipeline de TRELLIS.2** : establece `Boolean (Switch to Trellis2)` en `true`. El flujo de trabajo carga el checkpoint de TRELLIS.2 automáticamente
   3. **Envía el flujo de trabajo a la cola** : presiona Ctrl (Cmd en macOS) + Enter
-  4. **Espera al pipeline** : las etapas de estructura, forma y textura se ejecutan en secuencia, seguidas del posprocesamiento
-  5. **Visualiza el resultado** : revisa la malla en el nodo `Preview3DAdvanced`. El modelo 3D se guarda en `ComfyUI/output/3d/ComfyUI/`
+  4. **Espera a que termine el pipeline** : las etapas de estructura, forma y textura se ejecutan en secuencia, seguidas del posprocesamiento
+  5. **Revisa el resultado** : inspecciona la malla en el nodo `Preview3DAdvanced`. El modelo 3D se guarda en `ComfyUI/output/3d/ComfyUI/`
 
 
 
@@ -114,17 +114,17 @@ Pasos para ejecutar
 
 ​
 
-Descarga de modelos
+Descargas de modelos
 
-Descarga los modelos que usa este flujo de trabajo. Los dos checkpoints de difusión son obligatorios: el interruptor elige cuál se ejecuta. Colócalos en los subdirectorios correspondientes de `models/`.
+Descarga los modelos que usa este flujo de trabajo. Los dos checkpoints de diffusion son requeridos: el interruptor selecciona cuál se ejecuta. Colócalos en los subdirectorios correspondientes de `models/`.
 
 ## TRELLIS.2 UNet
 
-trellis_2_int8_convrot.safetensors: modelo de difusión de TRELLIS.2, cargado cuando el interruptor está en `true`
+trellis_2_int8_convrot.safetensors: modelo de diffusion de TRELLIS.2, se carga cuando el interruptor está en `true`
 
 ## Pixal3D UNet
 
-pixal3d_int8_convrot.safetensors: modelo de difusión de Pixal3D, cargado de forma predeterminada
+pixal3d_int8_convrot.safetensors: modelo de diffusion de Pixal3D, se carga por defecto
 
 ## VAE de forma
 
@@ -136,7 +136,7 @@ trellis_2_texture_vae_bf16.safetensors: VAE para la decodificación de texturas
 
 ## DINOv3 CLIP vision
 
-dino_v3_L_naf_fp32.safetensors: codificador de visión CLIP para el conditioning de imágenes. El dino_v3_vit_l.safetensors equivalente del repositorio TRELLIS.2 también funciona
+dino_v3_L_naf_fp32.safetensors: codificador de visión CLIP para el acondicionamiento de imagen. El archivo equivalente dino_v3_vit_l.safetensors del repositorio de TRELLIS.2 también funciona
 
 ## BiRefNet eliminación de fondo
 

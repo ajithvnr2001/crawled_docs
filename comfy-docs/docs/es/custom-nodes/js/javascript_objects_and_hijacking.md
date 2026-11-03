@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_objects_and_hijacking/
 title: Objetos de Comfy - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:51.294232+00:00
+fetched_at: 2026-11-03T14:55:23.374900+00:00
 ---
 
 # Objetos de Comfy - ComfyUI
@@ -22,13 +22,13 @@ Volver arriba
   * ComfyNode
     * Propiedades
     * Funciones
-    * Entradas, salidas, widgets
+    * Entradas, salidas y widgets
     * Conexiones
     * Visualización
     * Otros
   * Entradas y widgets
     * Tipos de widget
-    * Widgets vinculados
+    * Widgets enlazados
   * Prompt
     * output
     * workflow
@@ -51,7 +51,7 @@ Copiar páginaCopiar página
 
 LiteGraph
 
-La interfaz de Comfy UI se construye sobre [LiteGraph](https://github.com/jagenjo/litegraph.js). Gran parte de la funcionalidad de Comfy la proporciona LiteGraph, así que si desarrollas nodos más complejos, probablemente te resulte útil clonar ese repositorio y explorar la documentación, que se encuentra en `doc/index.html`.
+La interfaz de Comfy UI está construida sobre [LiteGraph](https://github.com/jagenjo/litegraph.js). Gran parte de la funcionalidad de Comfy la proporciona LiteGraph, así que si desarrollas nodos más complejos, probablemente te resulte útil clonar ese repositorio y explorar la documentación, que se encuentra en `doc/index.html`.
 
 ## 
 
@@ -104,7 +104,7 @@ registerExtension| Ya lo has visto: se usa para agregar una extensión
 
 LGraph
 
-El objeto `LGraph` forma parte del framework LiteGraph y representa el estado lógico actual del gráfico (nodos y conexiones). Si quieres manipular el gráfico, la documentación de LiteGraph (en `doc/index.html` si clonas `https://github.com/jagenjo/litegraph.js`) describe las funciones que necesitarás. Puedes usar `graph` para obtener los detalles de nodos y conexiones, por ejemplo:
+El objeto `LGraph` forma parte del framework LiteGraph y representa el estado lógico actual del gráfico (nodos y conexiones). Si quieres manipular el gráfico, la documentación de LiteGraph (en `doc/index.html` si clonas `https://github.com/jagenjo/litegraph.js`) describe las funciones que necesitarás. Puedes usar `graph` para obtener detalles de nodos y conexiones, por ejemplo:
     
     
     const ComfyNode_object_for_my_node = app.graph._nodes_by_id(my_node_id) 
@@ -124,9 +124,9 @@ El objeto `LGraph` forma parte del framework LiteGraph y representa el estado l�
 
 LLink
 
-El objeto `LLink`, accesible a través de `graph.links`, representa una conexión individual en el gráfico, desde el nodo `link.origin_id` en la ranura de salida `link.origin_slot` hasta el nodo `link.target_id` en la ranura `link.target_slot`. También tiene una cadena que representa el tipo de datos, en `link.type`, y `link.id`. Los `LLink` se crean en el método `connect` de un `LGraphNode` (del cual `ComfyNode` es una subclase).
+El objeto `LLink`, accesible a través de `graph.links`, representa un enlace individual del gráfico, desde el slot de salida `link.origin_slot` del nodo `link.origin_id` hasta el slot `link.target_slot` del nodo `link.target_id`. También incluye una cadena que representa el tipo de dato en `link.type`, además de `link.id`. Los `LLink` se crean en el método `connect` de un `LGraphNode` (del cual `ComfyNode` es una subclase).
 
-Evita crear tus propios objetos LLink; usa las funciones de LiteGraph en su lugar.
+Evita crear tus propios objetos LLink: usa las funciones de LiteGraph en su lugar.
 
 ## 
 
@@ -134,15 +134,15 @@ Evita crear tus propios objetos LLink; usa las funciones de LiteGraph en su luga
 
 ComfyNode
 
-`ComfyNode` es una subclase de `LGraphNode`, por lo que la documentación de LiteGraph resulta útil para operaciones más genéricas. Sin embargo, Comfy ha ampliado significativamente el comportamiento del núcleo de LiteGraph y tampoco hace uso de toda la funcionalidad de LiteGraph.
+`ComfyNode` es una subclase de `LGraphNode`, por lo que la documentación de LiteGraph resulta útil para operaciones más genéricas. Sin embargo, Comfy ha ampliado de forma significativa el comportamiento del núcleo de LiteGraph y tampoco hace uso de toda la funcionalidad de LiteGraph.
 
 La descripción que sigue se aplica a un nodo normal. Los nodos de grupo, los nodos primitivos, las notas y los nodos de redirección tienen propiedades diferentes.
 
-Un objeto `ComfyNode` representa un nodo del flujo de trabajo actual. Tiene varias propiedades importantes que quizás quieras aprovechar, y una gran cantidad de funciones que puedes usar o sobrescribir para modificar su comportamiento.
+Un objeto `ComfyNode` representa un nodo del flujo de trabajo actual. Tiene una serie de propiedades importantes que quizá quieras aprovechar, además de una gran cantidad de funciones que puedes usar o interceptar para modificar su comportamiento.
 
-**Obsoleto:** Sobrescribir los métodos del prototipo en `ComfyNode` o `LGraphNode` está obsoleto y puede cambiar en cualquier momento en un futuro próximo. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales cuando estén disponibles, como `getNodeMenuItems` para los menús contextuales. Consulta la [guía de migración del menú contextual](https://docs.comfy.org/es/custom-nodes/js/context-menu-migration) para ver ejemplos.
+**Obsoleto:** Interceptar los métodos del prototipo en `ComfyNode` o `LGraphNode` está obsoleto y puede cambiar en cualquier momento en un futuro próximo. Usa los [ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks) oficiales cuando estén disponibles, como `getNodeMenuItems` para los menús contextuales. Consulta la [Guía de migración del menú contextual](https://docs.comfy.org/es/custom-nodes/js/context-menu-migration) para ver ejemplos.
 
-Para hacerte una idea más completa del objeto nodo, quizás te resulte útil insertar el siguiente código en tu extensión y colocar un punto de interrupción en el comando `console.log`. Cuando después crees un nodo nuevo, podrás usar tu depurador favorito para inspeccionar el nodo.
+Para hacerte una idea más completa del objeto nodo, puede resultarte útil insertar el siguiente código en tu extensión y colocar un punto de interrupción en el comando `console.log`. Cuando crees un nodo nuevo, podrás usar tu depurador favorito para inspeccionar el nodo.
     
     
     async nodeCreated(node) {
@@ -156,24 +156,24 @@ Para hacerte una idea más completa del objeto nodo, quizás te resulte útil in
 
 Propiedades
 
-Propiedad| Contenido  
+propiedad| contenido  
 ---|---  
 `bgcolor`| El color de fondo del nodo, o undefined para el valor predeterminado  
 `comfyClass`| La clase de Python que representa el nodo  
-`flags`| Un diccionario que puede contener indicadores relacionados con el estado del nodo. En particular, `flags.collapsed` es verdadero para los nodos contraídos.  
+`flags`| Un diccionario que puede contener indicadores relacionados con el estado del nodo. En particular, `flags.collapsed` es verdadero en los nodos contraídos.  
 `graph`| Una referencia al objeto LGraph  
 `id`| Un id único  
-`input_type`| Una lista de los tipos de entrada (p. ej., “STRING”, “MODEL”, “CLIP”, etc.). Por lo general, coincide con los INPUT_TYPES de Python  
-`inputs`| Una lista de entradas (que se describen a continuación)  
-`mode`| Normalmente 0; se establece en 2 si el nodo está silenciado y en 4 si está en bypass. Comfy no usa los valores 1 y 3  
+`input_type`| Una lista de los tipos de entrada (por ejemplo, “STRING”, “MODEL”, “CLIP”, etc.). Por lo general, coincide con INPUT_TYPES de Python  
+`inputs`| Una lista de entradas (se describe más abajo)  
+`mode`| Normalmente 0; se establece en 2 si el nodo está en silencio y en 4 si está en bypass. Comfy no usa los valores 1 y 3  
 `order`| La posición del nodo en el orden de ejecución. La establece `LGraph.computeExecutionOrder()` cuando se envía el prompt  
 `pos`| La posición [x,y] del nodo en el lienzo  
-`properties`| Un diccionario que contiene `"Node name for S&R"`, que usa LiteGraph  
+`properties`| Un diccionario que contiene `"Node name for S&R"`, usado por LiteGraph  
 `properties_info`| El tipo y el valor predeterminado de las entradas de `properties`  
 `size`| El ancho y el alto del nodo en el lienzo  
-`title`| Título visible  
+`title`| Título mostrado  
 `type`| El nombre único (de Python) de la clase del nodo  
-`widgets`| Una lista de widgets (que se describen a continuación)  
+`widgets`| Una lista de widgets (se describe más abajo)  
 `widgets_values`| Una lista de los valores actuales de los widgets  
   
 ### 
@@ -182,24 +182,24 @@ Propiedad| Contenido
 
 Funciones
 
-Hay una cantidad muy grande de funciones (85, la última vez que las conté). A continuación se muestra una selección. La mayoría de estas funciones no tienen modificaciones respecto al código central de LiteGraph.
+Hay una cantidad muy grande de funciones (85, la última vez que las conté). A continuación se muestra una selección. La mayoría de estas funciones no presentan modificaciones respecto al código central de LiteGraph.
 
 #### 
 
 ​
 
-Entradas, salidas, widgets
+Entradas, salidas y widgets
 
 función| notas  
 ---|---  
 Entradas / Salidas| La mayoría tiene métodos de salida con nombres equivalentes: s/In/Out/  
 `addInput`| Crea una nueva entrada, definida por nombre y tipo  
-`addInputs`| Versión de array de `addInput`  
+`addInputs`| Versión en arreglo de `addInput`  
 `findInputSlot`| Encuentra el índice de la ranura a partir del nombre de la entrada  
-`findInputSlotByType`| Encuentra una entrada que coincida con el tipo. Opciones para preferir, o usar solo, ranuras libres  
+`findInputSlotByType`| Encuentra una entrada que coincida con el tipo. Opciones para preferir ranuras libres o usar solo ranuras libres  
 `removeInput`| Por índice de ranura  
-`getInputNode`| Obtén el nodo conectado a esta entrada. El equivalente de salida es `getOutputNodes` y devuelve una lista  
-`getInputLink`| Obtén el LLink conectado a esta entrada. Sin equivalente de salida  
+`getInputNode`| Obtiene el nodo conectado a esta entrada. El equivalente de salida es `getOutputNodes` y devuelve una lista  
+`getInputLink`| Obtiene el LLink conectado a esta entrada. No hay equivalente de salida  
 Widgets|   
 `addWidget`| Agrega un widget estándar de Comfy  
 `addCustomWidget`| Agrega un widget personalizado (definido en el hook `getComfyWidgets`)  
@@ -215,12 +215,12 @@ Conexiones
 función| notas  
 ---|---  
 `connect`| Conecta la salida de este nodo a la entrada de otro nodo  
-`connectByType`| Conecta la salida a otro nodo especificando el tipo; se conecta a la primera ranura coincidente disponible  
+`connectByType`| Conecta la salida a otro nodo especificando el tipo: se conecta a la primera ranura disponible que coincida  
 `connectByTypeOutput`| Conecta la entrada a la salida de otro nodo por tipo  
 `disconnectInput`| Elimina cualquier conexión hacia la entrada (especificada por nombre o índice)  
 `disconnectOutput`| Desconecta una salida de la entrada de un nodo especificado  
 `onConnectionChange`| Se llama en cada nodo. `side==1` si es una entrada en este nodo  
-`onConnectInput`| Se llama _antes_ de que se realice una conexión. Si devuelve `false`, se rechaza la conexión  
+`onConnectInput`| Se llama _antes_ de que se realice una conexión. Si devuelve `false`, la conexión se rechaza  
   
 #### 
 
@@ -236,7 +236,7 @@ función| notas
 `getTitle`| El título que se mostrará.  
 `collapse`| Alterna el estado contraído del nodo.  
   
-El nombre de `collapse` es poco adecuado; _alterna_ el estado contraído. Recibe un parámetro booleano que se puede usar para anular `node.collapsable === false`.
+`collapse` tiene un nombre poco adecuado: _alterna_ el estado contraído. Recibe un parámetro booleano, que se puede usar para anular `node.collapsable === false`.
 
 #### 
 
@@ -246,7 +246,7 @@ Otros
 
 función| notas  
 ---|---  
-`changeMode`| Se usa para establecer el nodo en modo bypass (`mode == 4`) o no (`mode == 0`)  
+`changeMode`| Se usa para poner el nodo en modo bypass (`mode == 4`) o no (`mode == 0`)  
   
 ## 
 
@@ -254,14 +254,14 @@ función| notas
 
 Entradas y widgets
 
-Las entradas y los widgets representan las dos formas en que se pueden introducir datos en un nodo. En general, un widget se puede convertir en entrada, pero no todas las entradas se pueden convertir en widget (ya que muchos tipos de datos no se pueden introducir mediante un elemento de la UI). `node.inputs` es una lista de las entradas actuales (los puntos de color en el lado izquierdo del nodo), que especifica su `.name`, `.type` y `.link` (una referencia al `LLink` conectado en `app.graph.links`). Si una entrada es un widget que se ha convertido, también contiene una referencia al widget, ahora inactivo, en `.widget`. `node.widgets` es una lista de todos los widgets, se hayan convertido o no en entrada. Un widget tiene:
+Las entradas y los widgets representan las dos formas de introducir datos en un nodo. Por lo general, puedes convertir un widget en una entrada, pero no todas las entradas pueden convertirse en un widget (ya que muchos tipos de datos no se pueden introducir mediante un elemento de la interfaz). `node.inputs` es una lista de las entradas actuales (los puntos de colores del lado izquierdo del nodo), que especifica su `.name`, `.type` y `.link` (una referencia al `LLink` conectado en `app.graph.links`). Si una entrada es un widget que se ha convertido, también guarda una referencia al widget, ahora inactivo, en `.widget`. `node.widgets` es una lista de todos los widgets, tanto si se han convertido en una entrada como si no. Un widget tiene:
 
 propiedad/función| notas  
 ---|---  
 `callback`| Una función que se llama cuando cambia el valor del widget  
 `last_y`| La posición vertical del widget en el nodo  
 `name`| El nombre del widget (único dentro de un nodo)  
-`options`| Según lo especificado en el código de Python (como default, mín y máx)  
+`options`| Tal como se especifican en el código de Python (como default, min y max)  
 `type`| El nombre del tipo de widget (ver abajo) en minúsculas  
 `value`| El valor actual del widget. Es una propiedad con métodos `get` y `set`  
   
@@ -271,15 +271,15 @@ propiedad/función| notas
 
 Tipos de widget
 
-`app.widgets` es un diccionario de los tipos de widget registrados actualmente, indexado por la versión en MAYÚSCULAS del nombre del tipo. Los tipos de widget integrados de Comfy incluyen los autoexplicativos `BOOLEAN`, `INT` y `FLOAT`, además de `STRING` (que viene en dos variantes, de una línea y multilínea), `COMBO` para la selección desplegable de una lista, e `IMAGEUPLOAD`, usado en los nodos Load Image. Puedes agregar tipos de widget personalizados proporcionando un método `getCustomWidgets` en tu extensión.
+`app.widgets` es un diccionario de los tipos de widget registrados actualmente, indexado por la versión en MAYÚSCULAS del nombre del tipo. Entre los tipos de widget integrados de Comfy se incluyen los obvios `BOOLEAN`, `INT` y `FLOAT`, así como `STRING` (que tiene dos variantes, de una línea y de varias líneas), `COMBO` para seleccionar de una lista desplegable, e `IMAGEUPLOAD`, que se usa en los nodos Load Image. Puedes agregar tipos de widget personalizados proporcionando un método `getCustomWidgets` en tu extensión.
 
 ### 
 
 ​
 
-Widgets vinculados
+Widgets enlazados
 
-También puedes vincular widgets, como ocurre con el comportamiento integrado de `seed` y `control_after_generate`, por ejemplo. Un widget vinculado tiene `.type = 'base_widget_type:base_widget_name'`; así, `control_after_generate` puede tener el tipo `int:seed`.
+También puedes enlazar widgets, como ocurre con el comportamiento integrado de `seed` y `control_after_generate`, por ejemplo. Un widget enlazado tiene `.type = 'base_widget_type:base_widget_name'`; así, `control_after_generate` puede tener el tipo `int:seed`.
 
 ## 
 
@@ -287,7 +287,7 @@ También puedes vincular widgets, como ocurre con el comportamiento integrado de
 
 Prompt
 
-Cuando pulsas el botón `Queue Prompt` en Comfy, se llama al método `app.graphToPrompt()` para convertir el gráfico actual en un prompt que se puede enviar al servidor. `app.graphToPrompt` devuelve un objeto (al que aquí llamamos `prompt`) con dos propiedades, `output` y `workflow`.
+Cuando presionas el botón `Queue Prompt` en Comfy, se llama al método `app.graphToPrompt()` para convertir el gráfico actual en un prompt que se pueda enviar al servidor. `app.graphToPrompt` devuelve un objeto (al que aquí llamamos `prompt`) con dos propiedades, `output` y `workflow`.
 
 ### 
 
@@ -300,13 +300,13 @@ output
   * `prompt.output[node_id].class_type`, el nombre único de la clase del nodo personalizado, tal como se define en el código de Python
   * `prompt.output[node_id].inputs`, que contiene el valor de cada entrada (o widget) como un mapa del nombre de la entrada a: 
     * el valor seleccionado, si es un widget, o
-    * un array que contiene (`upstream_node_id`, `upstream_node_output_slot`) si hay una conexión en la entrada, o
+    * un arreglo que contiene (`upstream_node_id`, `upstream_node_output_slot`) si hay una conexión en la entrada, o
     * undefined, si es un widget que se ha convertido en entrada y no está conectado
     * las demás entradas no conectadas no se incluyen en `.inputs`
 
 
 
-Ten en cuenta que el `upstream_node_id` del array que describe una entrada conectada se representa como una cadena, no como un entero.
+Ten en cuenta que el `upstream_node_id` del arreglo que describe una entrada conectada se representa como una cadena, no como un entero.
 
 ### 
 
@@ -316,27 +316,27 @@ workflow
 
 `prompt.workflow` contiene las siguientes propiedades:
 
-  * `config`: un diccionario de opciones de configuración adicionales (vacío de forma predeterminada)
-  * `extra`: un diccionario con información adicional sobre el flujo de trabajo. De forma predeterminada contiene: 
-    * `extra.ds`: describe la vista actual del gráfico (`scale` y `offset`)
-  * `groups`: todos los grupos del flujo de trabajo
-  * `last_link_id`: el id de la última conexión agregada
-  * `last_node_id`: el id del último nodo agregado
-  * `links`: una lista de todas las conexiones del gráfico. Cada entrada es un array de cinco enteros y una cadena: 
-    * (`link_id`, `upstream_node_id`, `upstream_node_output_slot`, `downstream_node_id`, `downstream_node_input_slot`, `tipo de datos`)
-  * `nodes`: una lista de todos los nodos del gráfico. Cada entrada es un mapa con un subconjunto de las propiedades del nodo descritas arriba
+  * `config` \- un diccionario de opciones de configuración adicionales (vacío de forma predeterminada)
+  * `extra` \- un diccionario con información adicional sobre el flujo de trabajo. De forma predeterminada contiene: 
+    * `extra.ds` \- describe la vista actual del gráfico (`scale` y `offset`)
+  * `groups` \- todos los grupos del flujo de trabajo
+  * `last_link_id` \- el id del último enlace agregado
+  * `last_node_id` \- el id del último nodo agregado
+  * `links` \- una lista de todos los enlaces del gráfico. Cada entrada es un arreglo de cinco enteros y una cadena: 
+    * (`link_id`, `upstream_node_id`, `upstream_node_output_slot`, `downstream_node_id`, `downstream_node_input_slot`, `data type`)
+  * `nodes` \- una lista de todos los nodos del gráfico. Cada entrada es un mapa de un subconjunto de las propiedades del nodo como se describe arriba
     * Se incluyen las siguientes propiedades: `flags`, `id`, `inputs`, `mode`, `order`, `pos`, `properties`, `size`, `type`, `widgets_values`
-    * Además, salvo que un nodo no tenga salidas, hay una propiedad `outputs`, que es una lista de las salidas del nodo, cada una con: 
-      * `name`: el nombre de la salida
-      * `type`: el tipo de datos de la salida
-      * `links`: una lista con el `link_id` de todas las conexiones desde esta salida (si no hay conexiones, puede ser una lista vacía o null)
-      * `shape`: la forma usada para dibujar la salida (3 por defecto para un punto)
-      * `slot_index`: el número de ranura de la salida
-  * `version`: el número de versión de LiteGraph (al momento de escribir, `0.4`)
+    * Además, a menos que un nodo no tenga salidas, existe una propiedad `outputs`, que es una lista de las salidas del nodo, y cada una contiene: 
+      * `name` \- el nombre de la salida
+      * `type` \- el tipo de dato de la salida
+      * `links` \- una lista de los `link_id` de todos los enlaces desde esta salida (si no hay conexiones, puede ser una lista vacía o null),
+      * `shape` \- la forma usada para dibujar la salida (3 de forma predeterminada para un punto)
+      * `slot_index` \- el número de ranura de la salida
+  * `version` \- el número de versión de LiteGraph (al momento de escribir esto, `0.4`)
 
 
 
-La propiedad `nodes.output` no existe en los nodos sin salidas; no es una lista vacía.
+`nodes.output` no existe en los nodos sin salidas, no es una lista vacía.
 
 ¿Esta página le ayudó?
 

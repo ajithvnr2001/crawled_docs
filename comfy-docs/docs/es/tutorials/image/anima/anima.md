@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/anima/anima/
 title: Ejemplo de flujo de trabajo de Anima Base v1 en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:43.154049+00:00
+fetched_at: 2026-11-03T14:55:30.100081+00:00
 ---
 
 # Ejemplo de flujo de trabajo de Anima Base v1 en ComfyUI - ComfyUI
@@ -14,11 +14,11 @@ fetched_at: 2026-10-26T14:03:43.154049+00:00
 Volver arriba
 
   * Flujos de trabajo disponibles
-    * Anima Base v1: Texto a imagen
+    * Anima Base v1: texto a imagen
     * Empezar
-    * Anima Preview: Generación de texto a imagen de anime
+    * Anima Preview: generación de texto a imagen de anime
     * Empezar
-  * Descargas de modelos de Anima
+  * Descargas del modelo Anima
     * Modelo de vista previa
   * Limitaciones
 
@@ -57,13 +57,13 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-**Anima** es un modelo abierto de texto a imagen de [CircleStone Labs](https://huggingface.co/circlestone-labs/Anima) en colaboración con Comfy Org. Con **2 mil millones** de parámetros, está diseñado para generar imágenes de **anime y no fotorrealistas** de alta calidad, ideales para personajes, escenas y arte conceptual. **Aspectos destacados del modelo** :
+**Anima** es un modelo abierto de texto a imagen de [CircleStone Labs](https://huggingface.co/circlestone-labs/Anima) en colaboración con Comfy Org. Con **2 mil millones** de parámetros, está diseñado para generar imágenes de alta calidad de **anime y no fotorrealistas** , ideal para personajes, escenas y arte conceptual. **Aspectos destacados del modelo** :
 
   * **Enfoque en anime e ilustración artística** : ajustado para estilos de arte no fotorrealistas
-  * **Compatibilidad nativa con ComfyUI** : se carga con los nodos estándar UNETLoader, CLIPLoader y VAELoader
-  * **Codificador de texto Qwen-3 0.6B** : ofrece una sólida comprensión del lenguaje y adherencia al prompt
+  * **Soporte nativo en ComfyUI** : usa los nodos estándar UNETLoader, CLIPLoader y VAELoader
+  * **Codificador de texto Qwen-3 0.6B** : ofrece una sólida comprensión del lenguaje y una fuerte adherencia al prompt
   * **No se necesita imagen de entrada** : generación pura de texto a imagen
-  * **Tamaño compacto** : modelo de difusión de 2B, funciona sin problemas en GPUs de consumo
+  * **Tamaño compacto** : modelo de 2B basado en diffusion, funciona sin problemas en GPUs de consumo
 
 **Enlaces relacionados** :
 
@@ -87,7 +87,7 @@ Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta
 
 ​
 
-Anima Base v1: Texto a imagen
+Anima Base v1: texto a imagen
 
 Introduce un prompt de texto que describa una ilustración de anime o artística. Genera una imagen no fotorrealista centrada en conceptos, personajes o estilos de anime. ![Vista previa del flujo de trabajo de texto a imagen Anima Base v1](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_anima_base_v1-1.webp)
 
@@ -97,7 +97,7 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “Anima Base v1” en la biblioteca de plantillas
+Descarga el JSON o busca “Anima Base v1” en la Biblioteca de plantillas
 
 **Salida de ejemplo** ![Salida de ejemplo de Anima Base v1](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_anima_base_v1.png)
 
@@ -118,7 +118,7 @@ Empezar
 
 ​
 
-Anima Preview: Generación de texto a imagen de anime
+Anima Preview: generación de texto a imagen de anime
 
 Introduce un prompt de texto para generar una imagen de estilo anime con el modelo Anima. Configura ajustes como los pasos y la escala CFG para controlar la salida. ![Vista previa del flujo de trabajo de texto a imagen Anima Preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_anima_preview-1.webp)
 
@@ -128,7 +128,7 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “Anima Preview” en la biblioteca de plantillas
+Descarga el JSON o busca “Anima Preview” en la Biblioteca de plantillas
 
 **Salida de ejemplo** ![Salida de ejemplo de Anima Preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_anima_preview.png)
 
@@ -149,9 +149,9 @@ Empezar
 
 ​
 
-Descargas de modelos de Anima
+Descargas del modelo Anima
 
-Puedes encontrar todos los archivos del modelo en [circlestone-labs/Anima](https://huggingface.co/circlestone-labs/Anima), en Hugging Face.
+Puedes encontrar todos los archivos del modelo en [circlestone-labs/Anima](https://huggingface.co/circlestone-labs/Anima) en Hugging Face.
 
 ## anima-base-v1.0.safetensors
 
@@ -159,11 +159,11 @@ Modelo de difusión (2B) para Anima Base v1.
 
 ## qwen_3_06b_base.safetensors
 
-Codificador de texto (Qwen-3 0.6B) compartido por los dos flujos de trabajo.
+Codificador de texto (Qwen-3 0.6B) compartido por ambos flujos de trabajo.
 
 ## qwen_image_vae.safetensors
 
-VAE compartido por los dos flujos de trabajo.
+VAE compartido por ambos flujos de trabajo.
 
 **Ubicación de almacenamiento de los modelos**
     
@@ -184,7 +184,7 @@ VAE compartido por los dos flujos de trabajo.
 
 Modelo de vista previa
 
-Si usas el flujo de trabajo Preview, descarga en su lugar el modelo de difusión de vista previa:
+Si usas el flujo de trabajo de Preview, descarga en su lugar el modelo de difusión de vista previa:
 
 ## anima-preview3-base.safetensors
 

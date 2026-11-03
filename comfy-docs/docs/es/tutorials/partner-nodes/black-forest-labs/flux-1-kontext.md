@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/black-forest-labs/flux-1-kontext/
 title: FLUX.1 Kontext en ComfyUI: edici\u00f3n de im\u00e1genes con Pro y Max - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:46.215825+00:00
+fetched_at: 2026-11-03T14:55:29.453522+00:00
 ---
 
 # FLUX.1 Kontext en ComfyUI: edición de imágenes con Pro y Max - ComfyUI
@@ -15,15 +15,15 @@ Volver arriba
 
   * En qué destaca FLUX.1 Kontext
   * Salidas de ejemplo
-  * Úsalo
+  * Usarlo
   * Flujo de trabajo con múltiples imágenes de entrada de FLUX.1 Kontext
     * 1\. Descargar el archivo del flujo de trabajo
     * 2\. Completar el flujo de trabajo paso a paso
   * Flujo de trabajo de nodos asociados de FLUX.1 Kontext Pro Image
     * 1\. Descargar el archivo de flujo de trabajo
     * 2\. Completar el flujo de trabajo paso a paso
-  * Flujo de trabajo de nodos asociados de FLUX.1 Kontext Max Image
-    * 1\. Descargar el archivo de flujo de trabajo
+  * Flujo de trabajo con Nodos asociados de FLUX.1 Kontext Max Image
+    * 1\. Descargar el archivo del flujo de trabajo
     * 2\. Completar el flujo de trabajo paso a paso
   * Técnicas de prompts para FLUX Kontext
     * 1\. Modificaciones básicas
@@ -63,7 +63,7 @@ FLUX.1 Kontext es un modelo profesional de edición de imagen a imagen desarroll
 En qué destaca FLUX.1 Kontext
 
   * **Edición versátil sin descripciones complejas** : modificación de objetos, transferencia de estilo, reemplazo de fondo, edición con consistencia de personaje y edición de texto
-  * **Comprensión del contexto** : la comprensión inteligente del contexto de la imagen permite realizar ediciones precisas y específicas
+  * **Comprensión del contexto** : la comprensión inteligente del contexto de la imagen permite hacer ediciones precisas y específicas
   * **Consistencia de personaje** : las características del personaje y la disposición de la composición se mantienen estables incluso después de varias iteraciones de edición
   * **Entrada de varias imágenes** : el nodo `Image Stitch` combina varias imágenes en una sola para editarla con FLUX.1 Kontext
   * **Dos niveles de modelo** : Kontext Pro para editar, componer y remezclar; Kontext Max para tipografía, precisión del prompt y velocidad
@@ -82,13 +82,13 @@ Edición de una entrada de varias imágenes unidas (una niña, un perro y un sof
 
 ​
 
-Úsalo
+Usarlo
 
-## Llámalo desde código
+## Llamarlo desde código
 
 Llama a Kontext Pro o Max por HTTP a través de Comfy Router, con fragmentos de Python, TypeScript, Swift y cURL listos para pegar
 
-Esto se ejecuta en la misma cuenta de Comfy y se factura con los mismos créditos que ejecutarlo en ComfyUI más abajo. Consulta [Precios de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/pricing) para ver las tarifas por modelo y [Límites de concurrencia](https://docs.comfy.org/es/tutorials/partner-nodes/concurrency-limits) para saber cuántas solicitudes puedes tener en curso.
+Esto se ejecuta en la misma cuenta de Comfy y se factura con los mismos créditos que ejecutarlo en ComfyUI más abajo. Consulta [Créditos de Nodos de Socio](https://docs.comfy.org/es/tutorials/partner-nodes/pricing) para ver las tarifas por modelo y [Límites de concurrencia](https://docs.comfy.org/es/tutorials/partner-nodes/concurrency-limits) para saber cuántas solicitudes puedes tener en curso.
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 
@@ -121,7 +121,7 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Flujo de trabajo con múltiples imágenes de entrada de FLUX.1 Kontext
 
-Recientemente actualizamos el soporte para flujos de trabajo con múltiples imágenes de entrada. Con el nuevo nodo `Image Stitch`, puedes unir varias imágenes en una sola y editarla con FLUX.1 Kontext.
+Hace poco actualizamos el soporte para flujos de trabajo con múltiples imágenes de entrada. Con el nuevo nodo `Image Stitch`, puedes unir varias imágenes en una sola y editarla con FLUX.1 Kontext.
 
 ### 
 
@@ -163,7 +163,7 @@ Flujo de trabajo de nodos asociados de FLUX.1 Kontext Pro Image
 
 1\. Descargar el archivo de flujo de trabajo
 
-Los `metadata` de la imagen a continuación contienen la información del flujo de trabajo. Descárgala y arrástrala a ComfyUI para cargar el flujo de trabajo correspondiente. ![Flujo de trabajo de nodos asociados de FLUX.1 Kontext Pro Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_pro_image.png) Descarga la imagen a continuación como entrada o usa tu propia imagen: ![Flujo de trabajo de nodos asociados de FLUX.1 Kontext Pro Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_pro_image_input.png)
+Los metadatos (`metadata`) de la imagen a continuación contienen la información del flujo de trabajo. Descárgala y arrástrala a ComfyUI para cargar el flujo de trabajo correspondiente. ![Flujo de trabajo de nodos asociados de FLUX.1 Kontext Pro Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_pro_image.png) Descarga la imagen a continuación como entrada o usa tu propia imagen: ![Flujo de trabajo de nodos asociados de FLUX.1 Kontext Pro Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_pro_image_input.png)
 
 ### 
 
@@ -184,15 +184,15 @@ Los `metadata` de la imagen a continuación contienen la información del flujo 
 
 ​
 
-Flujo de trabajo de nodos asociados de FLUX.1 Kontext Max Image
+Flujo de trabajo con Nodos asociados de FLUX.1 Kontext Max Image
 
 ### 
 
 ​
 
-1\. Descargar el archivo de flujo de trabajo
+1\. Descargar el archivo del flujo de trabajo
 
-Los `metadata` de la imagen a continuación contienen la información del flujo de trabajo. Descárgala y arrástrala a ComfyUI para cargar el flujo de trabajo correspondiente. ![Flujo de trabajo de nodos asociados de FLUX.1 Kontext Max Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_max_image.png) Descarga la imagen a continuación como entrada o usa tu propia imagen como demostración: ![Flujo de trabajo de nodos asociados de FLUX.1 Kontext Max Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_max_image_input.png)
+La `metadata` de la imagen a continuación contiene la información del flujo de trabajo. Descárgala y arrástrala a ComfyUI para cargar el flujo de trabajo correspondiente. ![Flujo de trabajo con Nodos asociados de FLUX.1 Kontext Max Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_max_image.png) Descarga la imagen a continuación como entrada o usa tu propia imagen para la demostración: ![Flujo de trabajo con Nodos asociados de FLUX.1 Kontext Max Image de ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/api_nodes/bfl/flux_1_kontext_max_image_input.png)
 
 ### 
 
@@ -200,7 +200,7 @@ Los `metadata` de la imagen a continuación contienen la información del flujo 
 
 2\. Completar el flujo de trabajo paso a paso
 
-![Pasos del flujo de trabajo de nodos asociados de FLUX.1 Kontext Max Image de ComfyUI](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/api_nodes/bfl/flux_1_kontext_max_image_step_guide.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=3f91d4f54822bef88bca4e7024170950) Puedes seguir los pasos numerados de la imagen para completar el flujo de trabajo:
+![Pasos del flujo de trabajo con Nodos asociados de FLUX.1 Kontext Max Image de ComfyUI](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/api_nodes/bfl/flux_1_kontext_max_image_step_guide.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=3f91d4f54822bef88bca4e7024170950) Puedes seguir los pasos numerados de la imagen para completar el flujo de trabajo:
 
   1. Carga la imagen que quieres editar en el nodo `Load Image`
   2. (Opcional) Modifica los parámetros necesarios en `Flux.1 Kontext Max Image`

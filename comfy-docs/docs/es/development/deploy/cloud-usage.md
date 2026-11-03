@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/deploy/cloud-usage/
 title: Uso y l\u00edmites - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:27.573425+00:00
+fetched_at: 2026-11-03T14:55:26.870118+00:00
 ---
 
 # Uso y límites - ComfyUI
@@ -14,7 +14,7 @@ fetched_at: 2026-10-26T14:03:27.573425+00:00
 Volver arriba
 
   * Créditos y uso
-  * Tareas simultáneas
+  * Límites de simultaneidad
   * Límites de ejecución y de cola
   * Integraciones existentes de v1
   * Próximos pasos
@@ -39,13 +39,13 @@ Los flujos de trabajo enviados a través de la API de Comfy Cloud usan los mismo
 
 Créditos y uso
 
-Las solicitudes a la API consumen la misma asignación mensual de créditos que la interfaz web de Comfy Cloud. No hay un grupo de créditos independiente para la API. Los créditos incluidos en cada plan, las opciones de recarga y los límites de tiempo de ejecución por flujo de trabajo se aplican a las tareas de la API igual que a las tareas de la interfaz. Consulta la [página de precios](https://www.comfy.org/cloud/pricing?utm_source=docs&utm_campaign=cloud-api) para ver los importes mensuales de créditos y las opciones de recarga. Puedes comprar recargas desde el panel de tu cuenta.
+Las solicitudes a la API consumen la misma asignación mensual de créditos que la interfaz web de Comfy Cloud. No hay un grupo de créditos independiente para la API. Los créditos incluidos en cada plan, las opciones de recarga y los límites de tiempo de ejecución por flujo de trabajo se aplican a las tareas de la API igual que a las tareas de la interfaz. Consulta la [página de precios](https://www.comfy.org/cloud/pricing?utm_source=docs&utm_campaign=cloud-api) para ver los montos mensuales de créditos y las opciones de recarga. Puedes comprar recargas desde el panel de tu cuenta.
 
 ## 
 
 ​
 
-Tareas simultáneas
+Límites de simultaneidad
 
 Puedes enviar varios flujos de trabajo sin esperar a que terminen las tareas anteriores. Las tareas se ejecutan en paralelo hasta el límite de tu plan de suscripción:
 

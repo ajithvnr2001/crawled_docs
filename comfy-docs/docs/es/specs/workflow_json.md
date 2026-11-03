@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/specs/workflow_json/
 title: Workflow JSON - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:39.350494+00:00
+fetched_at: 2026-11-03T14:55:28.595954+00:00
 ---
 
 # Workflow JSON - ComfyUI
@@ -13,7 +13,7 @@ fetched_at: 2026-10-26T14:03:39.350494+00:00
 
 Volver arriba
 
-  * Versión 1.0 (más reciente)
+  * Versión 1.0 (última)
   * Versiones anteriores
 
 
@@ -28,13 +28,13 @@ Esquema JSON del formato de archivo de flujo de trabajo de ComfyUI (v1.0 y clás
 
 Copiar páginaCopiar página
 
-El JSON del flujo de trabajo se define con [JSON Schema](https://json-schema.org/). Los cambios en este esquema se tratarán en el [repositorio de rfcs](https://github.com/comfy-org/rfcs).
+El JSON del flujo de trabajo se define con [JSON Schema](https://json-schema.org/). Los cambios en este esquema se debatirán en el [repositorio rfcs](https://github.com/comfy-org/rfcs).
 
 ## 
 
 ​
 
-Versión 1.0 (más reciente)
+Versión 1.0 (última)
 
 ComfyUI Workflow v1.0
     
@@ -780,4 +780,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/specs/workflow_json.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/specs/workflow_json)
 
-[Solución de problemas](https://docs.comfy.org/es/comfy-cli/troubleshooting)[Descripción general](https://docs.comfy.org/es/custom-nodes/intro)
+[Solución de problemas](https://docs.comfy.org/es/comfy-cli/troubleshooting)[Workflow JSON 0.4](https://docs.comfy.org/es/specs/workflow_json_0.4)

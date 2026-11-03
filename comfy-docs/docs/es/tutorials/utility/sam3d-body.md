@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/utility/sam3d-body/
 title: SAM 3D Body: extraer una malla 3D humana desde un video en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:58.434164+00:00
+fetched_at: 2026-11-03T14:55:32.739744+00:00
 ---
 
 # SAM 3D Body: extraer una malla 3D humana desde un video en ComfyUI - ComfyUI
@@ -31,7 +31,7 @@ Extrae una malla 3D del cuerpo humano desde un video con SAM 3D Body: pose y for
 
 Copiar páginaCopiar página
 
-**SAM 3D Body** es un modelo de código abierto que recupera una malla humana 3D de cuerpo completo a partir de un solo video. Combina seguimiento de video, detección de personas y predicción de malla para reconstruir el cuerpo humano con pose, forma y expresiones faciales, y luego renderiza el rig recuperado de vuelta sobre el video. El flujo de trabajo es útil para prototipos de captura de movimiento, análisis biomecánico y previsualización de animación de personajes.
+**SAM 3D Body** es un modelo de código abierto que recupera una malla humana 3D de cuerpo completo a partir de un solo video. Combina seguimiento de video, detección de personas y predicción de malla para reconstruir el cuerpo humano con pose, forma y expresiones faciales, y luego renderiza el rig recuperado de vuelta sobre el video. Este flujo de trabajo es útil para la creación de prototipos de captura de movimiento, el análisis biomecánico y la previsualización de animación de personajes.
 
 ### 
 
@@ -84,12 +84,12 @@ nodo `LoadVideo` 85 · `woman_holding_water_glass.mp4`
 
 Cómo funciona
 
-  1. **Seguimiento de video** : SAM3 rastrea a la persona a lo largo de los fotogramas del video. El seguimiento es prácticamente obligatorio cuando aparecen varias personas en el clip, y en general mejora la precisión de la detección
+  1. **Seguimiento en el video** : SAM3 rastrea a la persona a lo largo de los fotogramas del video. El seguimiento es prácticamente obligatorio cuando aparecen varias personas en el clip y, en general, mejora la precisión de la detección
   2. **Detección de personas** : RT-DETR detecta las cajas delimitadoras de la persona, guiado por el prompt de texto (`person`)
-  3. **Predicción de la malla** : SAM 3D Body predice la malla 3D de cuerpo completo a partir de los fotogramas rastreados, con un FOV de cámara MoGe opcional para una alineación más precisa con el video fuente
+  3. **Predicción de la malla** : SAM 3D Body predice la malla 3D de cuerpo completo a partir de los fotogramas rastreados, con un campo de visión de cámara MoGe opcional para lograr una alineación más precisa con el video fuente
   4. **Expresiones faciales** : un paso basado en MediaPipe añade las expresiones faciales, que el modelo base no detecta
   5. **Suavizado** : la secuencia de mallas se suaviza a lo largo del tiempo
-  6. **Renderizado** : se construye un archivo de pose (GLB), la malla se renderiza de vuelta sobre el video y luego se guarda como video de salida
+  6. **Renderizado** : se construye un archivo de pose (GLB), la malla se renderiza de nuevo sobre el video y luego se guarda como video de salida
 
 
 
@@ -112,17 +112,17 @@ Pasos para ejecutar
 
 Descargas de modelos
 
-Descarga el modelo SAM 3D Body y los archivos necesarios. Colócalos en los subdirectorios correspondientes de `models/`.
+Descarga el modelo SAM 3D Body y los archivos requeridos. Colócalos en las subcarpetas correspondientes de `models/`.
 
 ## Checkpoint multiplex de SAM3
 
-sam3.1_multiplex_fp16.safetensors: checkpoint multiplex de SAM3 para el seguimiento en video
+sam3.1_multiplex_fp16.safetensors: checkpoint multiplex de SAM3 para seguimiento de video
 
 ## Detección de SAM 3D Body
 
-sam_3d_body_dinov3_bf16.safetensors: modelo de detección de SAM 3D Body (con backbone DINOv3)
+sam_3d_body_dinov3_bf16.safetensors: modelo de detección de SAM 3D Body (backbone DINOv3)
 
-## Geometría MoGe
+## Geometría de MoGe
 
 moge_2_vitl_normal_fp16.safetensors: estimación opcional del campo de visión de la cámara para la alineación
 

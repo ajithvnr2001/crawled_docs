@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_commands_keybindings/
 title: Comandos y atajos de teclado - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.696058+00:00
+fetched_at: 2026-11-03T14:55:25.392683+00:00
 ---
 
 # Comandos y atajos de teclado - ComfyUI
@@ -15,7 +15,7 @@ Volver arriba
 
   * Uso básico
   * Configuración de comandos
-  * Configuración de las combinaciones de teclas
+  * Configuración de combinaciones de teclas
     * Teclas especiales
   * Ejemplos de comandos
   * Ejemplos de atajos de teclado
@@ -33,7 +33,7 @@ Domina los comandos y atajos de teclado de Comfy para registrar acciones y atajo
 
 Copiar páginaCopiar página
 
-La API de Commands y Keybindings permite que las extensiones registren comandos personalizados y los asocien a atajos de teclado. Así, los usuarios pueden activar acciones rápidamente sin usar el mouse.
+La API de Commands and Keybindings permite que las extensiones registren comandos personalizados y los asocien a atajos de teclado. Así, los usuarios pueden activar acciones rápidamente sin usar el ratón.
 
 ## 
 
@@ -70,7 +70,7 @@ Uso básico
 
 Configuración de comandos
 
-Cada comando requiere un `id`, un `label` y una `function`:
+Cada comando requiere un `id`, una `label` y una `function`:
     
     
     {
@@ -84,7 +84,7 @@ Cada comando requiere un `id`, un `label` y una `function`:
 
 ​
 
-Configuración de las combinaciones de teclas
+Configuración de combinaciones de teclas
 
 Cada combinación de teclas requiere un `combo` y un `commandId`:
     
@@ -97,7 +97,7 @@ Cada combinación de teclas requiere un `combo` y un `commandId`:
         alt?: boolean,         // Requiere la tecla Alt (opcional)
         meta?: boolean         // Requiere la tecla Meta/Command (opcional)
       },
-      commandId: string        // ID del comando que se va a activar
+      commandId: string        // ID del comando que se activará
     }
     
 
@@ -109,8 +109,8 @@ Teclas especiales
 
 Para las teclas que no son caracteres, usa uno de estos valores:
 
-  * Flechas: `"ArrowUp"`, `"ArrowDown"`, `"ArrowLeft"`, `"ArrowRight"`
-  * Teclas de función: `"F1"` hasta `"F12"`
+  * Teclas de flecha: `"ArrowUp"`, `"ArrowDown"`, `"ArrowLeft"`, `"ArrowRight"`
+  * Teclas de función: `"F1"` a `"F12"`
   * Otras teclas especiales: `"Escape"`, `"Tab"`, `"Enter"`, `"Backspace"`, `"Delete"`, `"Home"`, `"End"`, `"PageUp"`, `"PageDown"`
 
 
@@ -203,12 +203,12 @@ Ejemplos de atajos de teclado
 
 Notas y limitaciones
 
-  * Las extensiones no pueden sobrescribir los atajos de teclado definidos en el núcleo de ComfyUI. Revisa los atajos de teclado del núcleo en estos archivos fuente:
+  * Las extensiones no pueden sobrescribir los atajos de teclado definidos en el núcleo de ComfyUI. Consulta los atajos de teclado del núcleo en estos archivos fuente:
     * [Comandos del núcleo](https://github.com/Comfy-Org/ComfyUI_frontend/blob/e76e9ec61a068fd2d89797762f08ee551e6d84a0/src/composables/useCoreCommands.ts)
     * [Comandos del menú del núcleo](https://github.com/Comfy-Org/ComfyUI_frontend/blob/e76e9ec61a068fd2d89797762f08ee551e6d84a0/src/constants/coreMenuCommands.ts)
     * [Atajos de teclado del núcleo](https://github.com/Comfy-Org/ComfyUI_frontend/blob/e76e9ec61a068fd2d89797762f08ee551e6d84a0/src/constants/coreKeybindings.ts)
     * [Combinaciones de teclas reservadas](https://github.com/Comfy-Org/ComfyUI_frontend/blob/e76e9ec61a068fd2d89797762f08ee551e6d84a0/src/constants/reservedKeyCombos.ts)
-  * Algunas combinaciones de teclas están reservadas por el navegador (como Ctrl+F para buscar) y no se pueden sobrescribir
+  * El navegador reserva algunas combinaciones de teclas (como Ctrl+F para Buscar) y no se pueden sobrescribir
   * Si varias extensiones registran la misma combinación de teclas, el comportamiento no está definido
 
 

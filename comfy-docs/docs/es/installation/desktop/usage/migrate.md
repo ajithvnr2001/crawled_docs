@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/migrate/
 title: Migrar desde Legacy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:02.925225+00:00
+fetched_at: 2026-11-03T14:55:27.621238+00:00
 ---
 
 # Migrar desde Legacy Desktop - ComfyUI
@@ -17,7 +17,7 @@ Volver arriba
   * Qué cambia después de la migración
   * ¿Mi enlace anterior sigue funcionando?
   * Migración paso a paso
-  * Migrar desde el Selector
+  * Migrar desde el Chooser
   * Solución de problemas
     * Legacy Desktop no se detecta automáticamente
     * La migración falla
@@ -135,15 +135,15 @@ Inicia tu nueva instalación y confirma:
 
 ​
 
-Migrar desde el Selector
+Migrar desde el Chooser
 
-Si ya finalizaste la configuración inicial, o si la instalación de Legacy Desktop ya aparece en el Selector, inicia la migración desde la tarjeta de la instancia:
+Si ya finalizaste la configuración inicial, o la instalación de Legacy Desktop ya aparece en el Chooser, inicia la migración desde la tarjeta de la instancia:
 
-  1. Busca la tarjeta de la instancia de Legacy Desktop. Lleva una etiqueta **Migrar**. ![Tarjeta de la instancia de Legacy Desktop en el Selector con la etiqueta Migrar](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_02_pill.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=4702c975020e33915ace8d2e436bf4da)
-  2. Haz clic en la etiqueta, o abre el menú **⋮** de la tarjeta y selecciona **Migrar a Standalone**. ![Menú de la tarjeta de instancia con Migrar a Standalone](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_03_menu.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=e0f6be51b85de1e36568c2f28355d698)
-  3. Revisa la confirmación y luego selecciona **Iniciar migración**. ![Confirmación para migrar Legacy Desktop a Standalone con Iniciar migración](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_04_confirm.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=360a2ea369225b102b438a04aafc4b71)
+  1. Busca la tarjeta de instancia de Legacy Desktop. Incluye un distintivo **Migrate**. ![Tarjeta de instancia de Legacy Desktop en el Chooser con el distintivo Migrate](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_02_pill.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=4702c975020e33915ace8d2e436bf4da)
+  2. Haz clic en el distintivo o abre el menú **⋮** de la tarjeta y selecciona **Migrate to Standalone**. ![Menú de la tarjeta de instancia con Migrate to Standalone](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_03_menu.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=e0f6be51b85de1e36568c2f28355d698)
+  3. Revisa la confirmación y luego selecciona **Start Migration**. ![Confirmación para migrar Legacy Desktop a Standalone con Start Migration](https://mintcdn.com/dripart/Fvwq2bstPeiMyOy0/images/desktop/usage/migrate_04_confirm.png?fit=max&auto=format&n=Fvwq2bstPeiMyOy0&q=85&s=360a2ea369225b102b438a04aafc4b71)
 
-Una instalación de Legacy Desktop se adopta en el mismo lugar, así que la instancia que aparece es tu configuración existente bajo la administración de Comfy Desktop. En cambio, migrar una instalación de Git rastreada o una instalación portátil crea una nueva instancia Standalone y deja la instalación rastreada en su lugar. En ambos casos, los archivos de modelo no se copian, se leen desde donde ya están. Una actualización pendiente tiene prioridad en esas tarjetas: muestran la etiqueta de actualización en lugar de **Migrar**.
+Una instalación de Legacy Desktop se adopta en su ubicación actual, por lo que la instancia que aparece es tu configuración existente bajo la gestión de Comfy Desktop. En cambio, migrar una instalación registrada de Git o portable crea una nueva instancia Standalone y deja la instalación registrada en su lugar. En ambos casos, la aplicación no copia los archivos de modelo; los lee desde donde ya están. Una actualización pendiente tiene prioridad en esas tarjetas: muestran el distintivo de actualización en lugar de **Migrate**.
 
 ## 
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/z-image/z-image-turbo/
-title: Ejemplo de flujo de trabajo de Z-Image-Turbo en ComfyUI - ComfyUI
+title: Z-Image-Turbo en ComfyUI: texto a imagen en 8 pasos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:45.185066+00:00
+fetched_at: 2026-11-03T14:55:29.525669+00:00
 ---
 
-# Ejemplo de flujo de trabajo de Z-Image-Turbo en ComfyUI - ComfyUI
+# Z-Image-Turbo en ComfyUI: texto a imagen en 8 pasos - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/z-image/z-image-turbo/
 
@@ -13,10 +13,10 @@ fetched_at: 2026-10-26T14:03:45.185066+00:00
 
 Volver arriba
 
-  * Flujo de trabajo de texto a imagen de Z-Image-Turbo
-    * Z-Image-Turbo: Text to Image
-    * Descargas de modelos de Z-Image-Turbo
-  * Flujo de trabajo de ControlNet Fun Union de Z-Image-Turbo
+  * Flujo de trabajo de texto a imagen con Z-Image-Turbo
+    * Z-Image-Turbo: Texto a imagen
+    * Descargas del modelo Z-Image-Turbo
+  * Flujo de trabajo de Z-Image-Turbo Fun Union ControlNet
     * Z-Image-Turbo Fun Union ControlNet
     * Modelo adicional para ControlNet
 
@@ -24,19 +24,19 @@ Volver arriba
 
 Z-Image
 
-# Ejemplo de flujo de trabajo de Z-Image-Turbo en ComfyUI
+# Z-Image-Turbo en ComfyUI: texto a imagen en 8 pasos
 
 Copiar páginaCopiar página
 
-Z-Image-Turbo es un modelo destilado y eficiente de 6B parámetros con latencia de inferencia inferior a un segundo.
+Un modelo destilado de texto a imagen de 6B que renderiza en 8 pasos con 16GB de VRAM, con renderizado preciso de texto en chino e inglés en ComfyUI.
 
 Copiar páginaCopiar página
 
 **Z-Image (造相)** es un modelo de generación de imágenes potente y muy eficiente con **6B** parámetros, desarrollado por Tongyi Lab de Alibaba. Utiliza una arquitectura **Scalable Single-Stream DiT** (S3-DiT) en la que los tokens de texto, los tokens semánticos visuales y los tokens del VAE de imagen se concatenan a nivel de secuencia para formar un único flujo de entrada, maximizando la eficiencia de los parámetros. **Variantes del modelo** :
 
-  * 🚀 **Z-Image-Turbo** : una versión destilada que iguala o supera a los principales competidores con solo **8 NFE** (Number of Function Evaluations). Ofrece una **latencia de inferencia inferior a un segundo** en GPUs H800 de clase empresarial y cabe en **dispositivos de consumo con 16 GB de VRAM**.
+  * 🚀 **Z-Image-Turbo** : una versión destilada que iguala o supera a los principales competidores con solo **8 NFE** (Number of Function Evaluations). Ofrece una **latencia de inferencia inferior a un segundo** en GPUs H800 de clase empresarial y cabe en **dispositivos de consumo con 16GB de VRAM**.
   * 🧱 **Z-Image-Base** : el modelo base sin destilar, pensado para el ajuste fino impulsado por la comunidad y el desarrollo personalizado.
-  * ✍️ **Z-Image-Edit** : una variante ajustada para tareas de edición de imágenes, con una capacidad notable para seguir instrucciones.
+  * ✍️ **Z-Image-Edit** : una variante ajustada para tareas de edición de imágenes, con una notable capacidad para seguir instrucciones.
 
 **Aspectos destacados del modelo** :
 
@@ -79,15 +79,15 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 ​
 
-Flujo de trabajo de texto a imagen de Z-Image-Turbo
+Flujo de trabajo de texto a imagen con Z-Image-Turbo
 
 ### 
 
 ​
 
-Z-Image-Turbo: Text to Image
+Z-Image-Turbo: Texto a imagen
 
-Un modelo fundacional eficiente de generación de imágenes con Single-Stream Diffusion Transformer; admite inglés y chino. ![Vista previa del flujo de trabajo de texto a imagen de Z-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_z_image_turbo-1.webp)
+Un modelo fundacional eficiente de generación de imágenes con Diffusion Transformer de flujo único, compatible con inglés y chino. ![Vista previa del flujo de trabajo de texto a imagen con Z-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_z_image_turbo-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -95,15 +95,15 @@ Ejecuta este flujo de trabajo directamente en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el archivo JSON del flujo de trabajo de texto a imagen de Z-Image-Turbo
+Descarga el archivo JSON del flujo de trabajo de texto a imagen con Z-Image-Turbo
 
-**Ejemplo de salida** ![Ejemplo de salida de Z-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_z_image_turbo.png)
+**Salida de ejemplo** ![Salida de ejemplo de Z-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_z_image_turbo.png)
 
 ### 
 
 ​
 
-Descargas de modelos de Z-Image-Turbo
+Descargas del modelo Z-Image-Turbo
 
 ## qwen_3_4b.safetensors
 
@@ -117,7 +117,7 @@ Modelo de difusión para Z-Image-Turbo.
 
 VAE para Z-Image-Turbo.
 
-**Ubicación de almacenamiento de los modelos de Z-Image-Turbo**
+**Ubicación de almacenamiento del modelo Z-Image-Turbo**
     
     
     📂 ComfyUI/
@@ -134,7 +134,7 @@ VAE para Z-Image-Turbo.
 
 ​
 
-Flujo de trabajo de ControlNet Fun Union de Z-Image-Turbo
+Flujo de trabajo de Z-Image-Turbo Fun Union ControlNet
 
 ### 
 
@@ -142,7 +142,7 @@ Flujo de trabajo de ControlNet Fun Union de Z-Image-Turbo
 
 Z-Image-Turbo Fun Union ControlNet
 
-ControlNet multi-control compatible con Canny, HED, Depth, Pose y MLSD para Z-Image-Turbo. ![Vista previa del flujo de trabajo de ControlNet Fun Union de Z-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_z_image_turbo_fun_union_controlnet-1.webp)
+ControlNet de control múltiple compatible con Canny, HED, Depth, Pose y MLSD para Z-Image-Turbo. ![Vista previa del flujo de trabajo de Z-Image-Turbo Fun Union ControlNet](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_z_image_turbo_fun_union_controlnet-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -150,13 +150,13 @@ Ejecuta este flujo de trabajo directamente en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el archivo JSON del flujo de trabajo de ControlNet Fun Union de Z-Image-Turbo
+Descarga el archivo JSON del flujo de trabajo de Z-Image-Turbo Fun Union ControlNet
 
 **Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
 
 ## image_z_image_turbo_fun_union_controlnet_input_image.png
 
-Nodo `LoadImage` 58 · `image_z_image_turbo_fun_union_controlnet_input_image.png`
+`LoadImage` nodo 58 · `image_z_image_turbo_fun_union_controlnet_input_image.png`
 
 ![image_z_image_turbo_fun_union_controlnet_input_image.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/image_z_image_turbo_fun_union_controlnet_input_image.png)
 

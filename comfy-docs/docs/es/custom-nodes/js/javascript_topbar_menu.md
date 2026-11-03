@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_topbar_menu/
 title: API del men\u00fa de la barra superior de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:51.525856+00:00
+fetched_at: 2026-11-03T14:55:25.233230+00:00
 ---
 
 # API del menú de la barra superior de ComfyUI - ComfyUI
@@ -18,7 +18,7 @@ Volver arriba
   * Configuración del menú
   * Ejemplos de menú
     * Agregar a menús existentes
-    * Crear una estructura de submenú
+    * Crear una estructura de submenús
     * Varias ubicaciones de menú
 
 
@@ -33,7 +33,7 @@ Agrega comandos personalizados al menú de la barra superior de ComfyUI: añáde
 
 Copiar páginaCopiar página
 
-La API Topbar Menu permite a las extensiones agregar elementos de menú personalizados a la barra de menú superior de ComfyUI. Resulta útil para dar acceso a funciones avanzadas o a comandos que se usan con menos frecuencia.
+La API Topbar Menu permite que las extensiones agreguen elementos de menú personalizados a la barra de menú superior de ComfyUI. Resulta útil para dar acceso a funciones avanzadas o a comandos que se usan con menos frecuencia.
 
 ## 
 
@@ -142,7 +142,7 @@ Agregar a menús existentes
 
 ​
 
-Crear una estructura de submenú
+Crear una estructura de submenús
     
     
     app.registerExtension({
@@ -184,7 +184,7 @@ Crear una estructura de submenú
 
 Varias ubicaciones de menú
 
-Puedes agregar el mismo comando en varias ubicaciones de menú:
+Puedes agregar el mismo comando en varias ubicaciones del menú:
     
     
     app.registerExtension({
@@ -211,7 +211,7 @@ Puedes agregar el mismo comando en varias ubicaciones de menú:
     });
     
 
-Los comandos pueden funcionar con otras API de ComfyUI, como las configuraciones. Para obtener más información sobre la API de configuraciones, consulta la documentación de la [API de configuraciones](https://docs.comfy.org/es/custom-nodes/js/javascript_settings).
+Los comandos pueden trabajar con otras API de ComfyUI, como las configuraciones. Para obtener más información sobre la API de configuraciones, consulta la documentación de la [API de Configuraciones](https://docs.comfy.org/es/custom-nodes/js/javascript_settings).
 
 ¿Esta página le ayudó?
 

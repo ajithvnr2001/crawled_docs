@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/backend/images_and_masks/
 title: Im\u00e1genes, latentes y m\u00e1scaras - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:11.753417+00:00
+fetched_at: 2026-11-03T14:55:24.066362+00:00
 ---
 
 # Imágenes, latentes y máscaras - ComfyUI
@@ -18,7 +18,7 @@ Volver arriba
   * Máscaras
     * Máscaras desde el nodo Load Image
     * Entender las formas de las máscaras
-  * Latents
+  * Latentes
 
 
 
@@ -28,13 +28,13 @@ Python (backend)
 
 Copiar páginaCopiar página
 
-Domina el manejo de datos de imágenes y máscaras en el backend de nodos personalizados de Comfy: formas de tensores de PyTorch, conversiones PIL y latentes.
+Domina el manejo de datos en el backend de Comfy: tensores de PyTorch, conversiones PIL y latentes para imágenes y máscaras.
 
 Copiar páginaCopiar página
 
 Cuando trabajes con estos tipos de datos, necesitarás conocer la clase `torch.Tensor`. La documentación completa está [aquí](https://pytorch.org/docs/stable/tensors.html), o una introducción a los conceptos clave requeridos para Comfy [aquí](https://docs.comfy.org/es/custom-nodes/backend/tensors).
 
-Si tu nodo tiene una sola salida que es un tensor, recuerda devolver `(image,)` no `(image)`
+Si tu nodo tiene una sola salida que es un tensor, recuerda devolver `(image,)` y no `(image)`
 
 La mayoría de los conceptos a continuación se ilustran en los [fragmentos de código de ejemplo](https://docs.comfy.org/es/custom-nodes/backend/snippets).
 
@@ -86,9 +86,9 @@ En bibliotecas como `numpy`, `PIL` y muchas otras, las imágenes de un solo cana
 
 ​
 
-Latents
+Latentes
 
-Un LATENT es un `dict`; la muestra de latent se referencia con la clave `samples` y tiene forma `[B,C,H,W]`, con `C=4`.
+Un LATENT es un `dict`; la muestra del latente se referencia con la clave `samples` y tiene forma `[B,C,H,W]`, con `C=4`.
 
 LATENT tiene el canal primero, IMAGE tiene el canal al final
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/settings/overview/
 title: Descripci\u00f3n general de las configuraciones de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:30.753670+00:00
+fetched_at: 2026-11-03T14:55:27.433479+00:00
 ---
 
 # Descripción general de las configuraciones de ComfyUI - ComfyUI
@@ -23,11 +23,11 @@ Configuraciones de ComfyUI
 
 Copiar páginaCopiar página
 
-Índice de las categorías de Configuraciones: cuenta, interfaz, editor y ajustes de Desktop, cada una con enlace a su guía.
+Índice de las categorías de configuraciones de ComfyUI: cuenta, interfaz, editor y Comfy Desktop, con enlaces a sus guías.
 
 Copiar páginaCopiar página
 
-Esta sección cubre las descripciones detalladas de las configuraciones en el menú de configuraciones del frontend de ComfyUI. Todas las configuraciones de usuario se guardan automáticamente en el archivo `ComfyUI/user/default/comfy.settings.json`. Puedes usar el atajo de teclado `Ctrl + ,` para abrir el panel de configuraciones y luego hacer clic en las opciones de configuración correspondientes para ajustarlas. Dado que los nodos personalizados también pueden registrar sus propias categorías de configuración en el menú, nuestra documentación oficial actualmente solo incluye el contenido de las configuraciones nativas. Además, algunas opciones de configuración **solo tienen efecto en Comfy Desktop** , lo cual hemos señalado en las páginas correspondientes.
+Esta sección describe en detalle las configuraciones del menú de configuraciones del frontend de ComfyUI. Todas las configuraciones de usuario se guardan automáticamente en el archivo `ComfyUI/user/default/comfy.settings.json`. Puedes usar el atajo de teclado `Ctrl + ,` para abrir el panel de configuraciones y luego hacer clic en las opciones de configuración correspondientes para ajustarlas. Dado que los nodos personalizados también pueden registrar sus propias categorías de configuración en el menú, nuestra documentación oficial actualmente solo incluye el contenido de las configuraciones nativas. Además, algunas opciones de configuración **solo tienen efecto en Comfy Desktop** , lo cual hemos señalado en las páginas correspondientes.
 
 ## 
 
@@ -65,7 +65,7 @@ Algunas opciones de configuración para la inicialización de nodos 3D
 
 ## Comfy Desktop
 
-Configuraciones de actualización del escritorio, configuraciones de espejo, etc. (solo tienen efecto en Comfy Desktop)
+Configuraciones de actualización de Comfy Desktop, configuraciones de espejo, etc. (solo tienen efecto en Comfy Desktop)
 
 ## Editor de máscara
 

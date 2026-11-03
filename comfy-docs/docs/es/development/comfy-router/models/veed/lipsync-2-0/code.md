@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/veed/lipsync-2-0/code/
 title: Usa Lipsync 2.0 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:20.544041+00:00
+fetched_at: 2026-11-03T14:55:26.720167+00:00
 ---
 
 # Usa Lipsync 2.0 con Comfy Router - ComfyUI
@@ -193,7 +193,7 @@ string
 
 requerido
 
-URL http(s) pública de la nueva pista de audio con la que sincronizar los labios del video.
+URL http(s) pública de la nueva pista de audio con la que sincronizar los labios del video. Se rechaza con 400 cuando el audio supera el límite de entrada por llamada.
 
 ​
 

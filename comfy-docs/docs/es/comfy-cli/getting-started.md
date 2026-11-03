@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/comfy-cli/getting-started/
 title: Empezar con Comfy CLI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:48.947581+00:00
+fetched_at: 2026-11-03T14:55:23.500548+00:00
 ---
 
 # Empezar con Comfy CLI - ComfyUI
@@ -28,14 +28,14 @@ Volver arriba
     * Generación de video (tareas asíncronas)
     * Salida JSON para scripts
   * Ejecutar flujos de trabajo
-  * Comenzar desde una plantilla
+  * Iniciar desde una plantilla
   * Editar flujos de trabajo en su lugar
   * Descubrir nodos y modelos
   * Subir y descargar archivos
   * Administrar nodos personalizados
   * Administrar modelos (local)
   * Salida JSON para scripts y agentes
-  * Habilidades de agente
+  * Habilidades de agentes
   * Contribuir
   * Analítica
 
@@ -59,7 +59,7 @@ Descripción general
 
 `comfy-cli` es una [herramienta de línea de comandos](https://github.com/Comfy-Org/comfy-cli) que simplifica la instalación y la administración de Comfy y te da acceso programable con un solo comando a todo el ecosistema de ComfyUI, ya sea de forma local o en la nube. Cumple tres funciones principales:
 
-  1. **Administrar una instalación local de ComfyUI** : instalar, iniciar, actualizar, crear instantáneas y bisecar ComfyUI y los Nodos personalizados.
+  1. **Administrar una instalación local de ComfyUI** : instalar, iniciar, actualizar, crear instantáneas y bisecar ComfyUI y los Nodos Personalizados.
   2. **Acceder a los Nodos asociados alojados** : generar imágenes, video, audio y 3D con proveedores como Seedance, Nano Banana (Gemini), Grok, Flux, Ideogram, DALL·E, Recraft, Stability, Kling, Luma, Runway, Pika, Vidu, Hailuo, Moonvalley y otros, con un solo comando.
   3. **Ejecutar flujos de trabajo completos en Comfy Cloud** : enviar grafos de flujo de trabajo, explorar la galería de plantillas seleccionadas, editar los slots de los flujos de trabajo y seguir las tareas hasta que terminen, sin necesidad de una GPU local.
 
@@ -224,7 +224,7 @@ Generar con nodos asociados
 
 **`comfy generate` está en beta.** Los nombres de los flags, los alias de modelos y los formatos de salida pueden cambiar. Los endpoints de los socios subyacentes son estables. Envía tu retroalimentación en el [repositorio de GitHub de comfy-cli](https://github.com/Comfy-Org/comfy-cli/issues).
 
-La forma más rápida de llamar a los [nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de Comfy desde una terminal o un script. Usa los mismos endpoints alojados que los flujos de trabajo de ComfyUI, pero como llamadas individuales de la CLI. Es ideal para trabajos por lotes, experimentos rápidos y automatización donde un gráfico completo de ComfyUI no es necesario.
+La forma más rápida de llamar a los [nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de Comfy desde una terminal o un script. Usa los mismos endpoints alojados que los flujos de trabajo de ComfyUI, pero como llamadas individuales de CLI. Es ideal para trabajos por lote, experimentos rápidos y automatización donde no hace falta un gráfico completo de ComfyUI.
 
 ### 
 
@@ -253,7 +253,7 @@ Primera generación
 
 La CLI sube los archivos locales, envía la tarea, consulta su estado hasta que finaliza y guarda los resultados.
 
-Descubre primero los parámetros reales de un modelo. Los nombres de las flags varían según el modelo (por ejemplo, `flux-ultra` acepta `--width`/`--height`; `seedance` acepta `--ratio`/`--resolution`/`--duration`). Verifica siempre antes de crear un script:
+Descubre primero los parámetros reales de un modelo. Los nombres de los flags varían según el modelo (por ejemplo, `flux-ultra` usa `--width`/`--height`; `seedance` usa `--ratio`/`--resolution`/`--duration`). Verifica siempre antes de escribir un script:
     
     
     comfy generate schema flux-ultra
@@ -401,7 +401,7 @@ Regresa de inmediato con `--async` y continúa después:
 
 Salida JSON para scripts
 
-Emite las respuestas sin procesar de la API para integrarlas en pipelines:
+Emite respuestas sin procesar de la API para integrarlas en tu pipeline:
     
     
     comfy generate dalle --prompt "a watercolor whale" --json | jq '.data[0].url'
@@ -415,14 +415,14 @@ Consulta la [referencia](https://docs.comfy.org/es/comfy-cli/reference) para ver
 
 Ejecutar flujos de trabajo
 
-Más allá de las llamadas individuales a socios, `comfy run` envía un gráfico de flujo de trabajo completo de ComfyUI. Acepta JSON tanto en formato API como en formato UI exportado (los flujos de trabajo de UI se convierten a formato API en el lado del cliente) y enruta a local o a la nube como cualquier otro comando. Es **asíncrono de forma predeterminada**. Devuelve un `prompt_id` en milisegundos mientras un proceso de vigilancia en segundo plano sigue el progreso. Usa `--wait` si prefieres bloquear.
+Más allá de las llamadas individuales a socios, `comfy run` envía un gráfico de flujo de trabajo completo de ComfyUI. Acepta JSON en formato API y JSON exportado en formato UI (los flujos de trabajo de UI se convierten a formato API en el lado del cliente), y se dirige a local o a la nube como cualquier otro comando. Es **asíncrono por defecto**. Devuelve un `prompt_id` en milisegundos mientras un vigilante en segundo plano hace seguimiento del progreso. Pasa `--wait` para bloquear en su lugar.
     
     
-    # Envía; devuelve de inmediato un prompt_id
+    # Envía; devuelve de inmediato con un prompt_id
     RES=$(comfy --json run --workflow my_workflow.json)
     PROMPT_ID=$(echo "$RES" | jq -r .data.prompt_id)
     
-    # Vigila hasta el estado terminal y luego recopila las salidas
+    # Observa hasta el estado terminal y luego recopila las salidas
     comfy --json jobs watch "$PROMPT_ID" | comfy download
     
 
@@ -432,16 +432,16 @@ Más allá de las llamadas individuales a socios, `comfy run` envía un gráfico
     comfy run --workflow my_workflow.json --wait | comfy download
     
 
-Sigue y administra las tareas:
+Haz seguimiento y administra las tareas:
     
     
     comfy jobs ls                 # envíos asíncronos locales + cola/historial del servidor
-    comfy jobs status <prompt_id> # una sola tarea
+    comfy jobs status <prompt_id> # una tarea
     comfy jobs wait <id1> <id2>   # bloquea hasta que TODAS lleguen a un estado terminal
     comfy jobs cancel <prompt_id> # idempotente
     
 
-Valida antes de enviar. Detecta nodos desconocidos, modelos faltantes y conexiones incorrectas antes de consumir cómputo en la nube:
+Valida antes de enviar. Detecta nodos desconocidos, modelos faltantes y conexiones incorrectas antes de gastar cómputo en la nube:
     
     
     comfy validate --workflow my_workflow.json
@@ -451,17 +451,17 @@ Valida antes de enviar. Detecta nodos desconocidos, modelos faltantes y conexion
 
 ​
 
-Comenzar desde una plantilla
+Iniciar desde una plantilla
 
-La galería curada `Comfy-Org/workflow_templates` es la forma más rápida de obtener un flujo de trabajo que ya funciona para una tarea determinada. No necesitas construirlo desde cero.
+La galería seleccionada `Comfy-Org/workflow_templates` es la forma más rápida de obtener un flujo de trabajo confiable para una tarea determinada. No necesitas construirlo desde cero.
     
     
     comfy templates ls --type image --tag "Text to Image"   # explorar
     comfy templates show <name>                              # metadatos completos
-    comfy templates fetch <name> --out my.json               # obtén el JSON del flujo de trabajo
+    comfy templates fetch <name> --out my.json               # obtener el JSON del flujo de trabajo
     
 
-El JSON descargado está en formato del frontend. `comfy run --where cloud` lo convierte automáticamente a formato API al enviarlo.
+El JSON descargado está en formato de frontend. `comfy run --where cloud` lo convierte automáticamente a formato API al enviarlo.
 
 ## 
 
@@ -469,7 +469,7 @@ El JSON descargado está en formato del frontend. `comfy run --where cloud` lo c
 
 Editar flujos de trabajo en su lugar
 
-`comfy workflow` expone los slots editables por el agente en cualquier flujo de trabajo en formato frontend y te permite sobrescribirlos. Sin cirugía manual de JSON.
+`comfy workflow` expone las ranuras que un agente puede modificar en cualquier flujo de trabajo en formato de frontend y te permite sobrescribirlas. Sin cirugía manual del JSON.
     
     
     comfy workflow slots my.json                 # list addressable slots
@@ -488,7 +488,7 @@ Flujos de trabajo guardados en Comfy Cloud:
     comfy workflow delete <id>
     
 
-Para canalizaciones complejas de varios pasos, combina fragmentos pequeños y reutilizables en un solo gráfico:
+Para pipelines complejos de varios pasos, compón fragmentos pequeños y reutilizables en un solo gráfico:
     
     
     comfy workflow compose blueprints/my_pipeline.yaml -o workflows/my_pipeline.json
@@ -501,7 +501,7 @@ Para canalizaciones complejas de varios pasos, combina fragmentos pequeños y re
 
 Descubrir nodos y modelos
 
-Inspecciona todo lo que esté disponible en el backend resuelto. **Nodos:**
+Inspecciona todo lo disponible en el backend resuelto. **Nodos:**
     
     
     comfy nodes search "checkpoint"              # fuzzy search
@@ -525,17 +525,17 @@ Inspecciona todo lo que esté disponible en el backend resuelto. **Nodos:**
 Subir y descargar archivos
     
     
-    comfy upload photo.png video.mp4             # → directorio de entrada del servidor
+    comfy upload photo.png video.mp4             # → server input directory
     comfy download <prompt_id>                   # → ./outputs/
     
 
-**La tubería idiomática:**
+**El pipe idiomático:**
     
     
      comfy run --workflow flux.json --wait | comfy download
     
 
-`comfy download` lee el prompt_id y las URLs de salida desde el stdin canalizado de forma automática. Sin extracción manual de claves, sin `jq`.
+`comfy download` lee el prompt_id y las URLs de salida desde stdin canalizado automáticamente. Sin extracción manual de claves, sin `jq`.
 
 ## 
 
@@ -567,7 +567,7 @@ Descarga modelos fácilmente:
 
 Salida JSON para scripts y agentes
 
-Todos los comandos aceptan `--json` y emiten la misma estructura de envoltura, lo que hace que la CLI se pueda usar por completo en scripts y sea cómoda para los agentes:
+Todos los comandos aceptan `--json` y emiten la misma forma de envoltura, lo que hace que la CLI sea totalmente compatible con scripts y fácil de usar para agentes:
     
     
     {
@@ -586,7 +586,7 @@ Cuando `error` está presente, lee el `hint` y actúa en consecuencia:
     comfy --json run --workflow my.json | jq '.error.hint'
     
 
-La superficie orientada a agentes se describe a sí misma por completo. Vuelca todo el árbol de comandos, los esquemas de salida y los códigos de error:
+La superficie orientada a agentes es completamente autodescriptiva. Vuelca todo el árbol de comandos, los esquemas de salida y los códigos de error:
     
     
     comfy --json discover
@@ -596,7 +596,7 @@ La superficie orientada a agentes se describe a sí misma por completo. Vuelca t
 
 ​
 
-Habilidades de agente
+Habilidades de agentes
 
 Instala en Claude Code, Cursor y cualquier herramienta compatible con AGENTS.md las habilidades del agente incluidas con Comfy, para que tu agente de programación pueda controlar la CLI directamente:
     
@@ -614,7 +614,7 @@ Estas son **habilidades CLI incluidas** que se instalan con `comfy skills instal
 
 Contribuir
 
-Las contribuciones son bienvenidas. Abre un problema o envía un pull request en el [repositorio de GitHub de comfy-cli](https://github.com/Comfy-Org/comfy-cli/issues). Consulta la [Guía para desarrolladores](https://github.com/Comfy-Org/comfy-cli/blob/main/CONTRIBUTING.md) para más detalles.
+Las contribuciones son bienvenidas. Abre problemas o envía pull requests en el [repositorio de GitHub de comfy-cli](https://github.com/Comfy-Org/comfy-cli/issues). Consulta la [Guía para desarrolladores](https://github.com/Comfy-Org/comfy-cli/blob/main/CONTRIBUTING.md) para más detalles.
 
 ## 
 
@@ -628,13 +628,13 @@ El seguimiento de uso ayuda a mejorar la CLI. Desactívalo con:
     comfy tracking disable
     
 
-Vuelve a activar el seguimiento:
+Vuelve a activar el seguimiento con:
     
     
     comfy tracking enable
     
 
-También puedes optar por desactivarlo de forma definitiva mediante las variables de entorno `DO_NOT_TRACK` o `COMFY_NO_TELEMETRY`.
+También puedes desactivarlo por completo mediante las variables de entorno `DO_NOT_TRACK` o `COMFY_NO_TELEMETRY`.
 
 ¿Esta página le ayudó?
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/topaz/video-enhance-starlight-precise-2-5/
 title: Topaz Starlight Precise 2.5 - Ampliaci\u00f3n de video con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:55.970625+00:00
+fetched_at: 2026-11-03T14:55:32.121521+00:00
 ---
 
 # Topaz Starlight Precise 2.5 - Ampliación de video con IA - ComfyUI
@@ -13,7 +13,7 @@ fetched_at: 2026-10-26T14:03:55.970625+00:00
 
 Volver arriba
 
-  * Para qué sirve Topaz Starlight Precise 2.5
+  * En qué destaca Topaz Starlight Precise 2.5
   * Salidas de ejemplo
   * Topaz Starlight Precise 2.5
     * Resumen del flujo de trabajo
@@ -28,7 +28,7 @@ Topaz
 
 Copiar páginaCopiar página
 
-Amplía videos hasta 4K con Topaz Starlight Precise 2.5 en ComfyUI: resultados más nítidos y menos artefactos en video de acción real
+Amplía videos con Topaz Starlight Precise 2.5 en ComfyUI: salida 4K más nítida y con menos artefactos para material de acción real.
 
 Copiar páginaCopiar página
 
@@ -38,11 +38,11 @@ Topaz Starlight Precise 2.5 es un modelo de ampliación de video disponible en C
 
 ​
 
-Para qué sirve Topaz Starlight Precise 2.5
+En qué destaca Topaz Starlight Precise 2.5
 
   * **Ampliación a 4K** : amplía videos MP4 hasta resolución 4K
   * **Mayor nitidez** : una salida más nítida con menos artefactos
-  * **Metraje de acción real** : los pocos artefactos lo hacen ideal para video de acción real
+  * **Metraje de acción real** : la reducción de artefactos lo hace ideal para video de acción real
   * **Opciones de resolución** : salida en FullHD (1080p) o 4K (2160p)
 
 

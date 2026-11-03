@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs/
 title: Pesta\u00f1as de la barra lateral - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:51.204523+00:00
+fetched_at: 2026-11-03T14:55:23.120131+00:00
 ---
 
 # Pestañas de la barra lateral - ComfyUI
@@ -18,7 +18,7 @@ Volver arriba
   * Opciones de iconos
   * Ejemplo de pestaña con estado
   * Usar componentes de React
-  * Actualizaciones dinámicas de contenido
+  * Actualizaciones dinámicas del contenido
 
 
 
@@ -63,7 +63,7 @@ Cada pestaña requiere varias propiedades:
     
     
     {
-      id: string,              // Identificador único para la pestaña
+      id: string,              // Identificador único de la pestaña
       icon: string,            // Clase de icono para el botón de la pestaña
       title: string,           // Texto del título de la pestaña
       tooltip?: string,        // Texto de tooltip al pasar el cursor (opcional)
@@ -80,11 +80,11 @@ La función `render` recibe un elemento DOM donde debes insertar el contenido de
 
 Opciones de iconos
 
-Los iconos de las pestañas de la barra lateral pueden usar distintos conjuntos de iconos:
+Los iconos de las pestañas de la barra lateral pueden usar varios conjuntos de iconos:
 
-  * Iconos PrimeVue: `pi pi-[icon-name]` (por ejemplo, `pi pi-home`)
-  * Iconos Material Design: `mdi mdi-[icon-name]` (por ejemplo, `mdi mdi-robot`)
-  * Iconos Font Awesome: `fa-[style] fa-[icon-name]` (por ejemplo, `fa-solid fa-star`)
+  * Iconos de PrimeVue: `pi pi-[icon-name]` (por ejemplo, `pi pi-home`)
+  * Iconos de Material Design: `mdi mdi-[icon-name]` (por ejemplo, `mdi mdi-robot`)
+  * Iconos de Font Awesome: `fa-[style] fa-[icon-name]` (por ejemplo, `fa-solid fa-star`)
 
 Asegúrate de que la biblioteca de iconos correspondiente esté cargada antes de usar estos iconos.
 
@@ -94,7 +94,7 @@ Asegúrate de que la biblioteca de iconos correspondiente esté cargada antes de
 
 Ejemplo de pestaña con estado
 
-Puedes crear pestañas que mantengan su estado:
+Puedes crear pestañas que conservan su estado:
     
     
     app.extensionManager.registerSidebarTab({
@@ -154,7 +154,7 @@ Puedes montar componentes de React en las pestañas de la barra lateral:
         container.id = "react-sidebar-container";
         el.appendChild(container);
         
-        // Define un componente de React simple
+        // Define un componente de React sencillo
         function SidebarContent() {
           const [count, setCount] = React.useState(0);
           
@@ -185,7 +185,7 @@ Para ver un ejemplo real de una aplicación de React integrada como pestaña de 
 
 ​
 
-Actualizaciones dinámicas de contenido
+Actualizaciones dinámicas del contenido
 
 Puedes actualizar el contenido de la barra lateral en respuesta a cambios en el gráfico:
     
@@ -237,4 +237,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_sidebar_tabs.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_sidebar_tabs)
 
-[Insignias del panel Acerca de](https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges)[Selection Toolbox](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)
+[Pestañas del panel inferior](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)[Selection Toolbox](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)

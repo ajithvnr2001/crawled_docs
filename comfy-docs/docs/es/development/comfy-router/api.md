@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/api/
 title: Descripci\u00f3n general de la API de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:53.438957+00:00
+fetched_at: 2026-11-03T14:55:24.390469+00:00
 ---
 
 # Descripción general de la API de Comfy Router - ComfyUI
@@ -51,7 +51,7 @@ Envía una ejecución ahora y luego consúltala, recógela o cancélala más tar
 
 ## Errores y reintentos
 
-Lee las respuestas de error y reintenta sin un segundo cargo.
+Lee las respuestas de error y reintenta sin un segundo cobro.
 
 ## Facturación
 
@@ -85,6 +85,7 @@ Próximos pasos
   * [Modelos](https://docs.comfy.org/es/development/comfy-router/models): explora el catálogo y consulta ejemplos de solicitud específicos de cada modelo.
   * [Encabezados](https://docs.comfy.org/es/development/comfy-router/headers): autenticación, idempotencia, IDs de solicitud y ritmo de reintentos.
   * [Referencia de la API](https://docs.comfy.org/es/development/comfy-router/reference): parámetros de los endpoints, esquemas y códigos de respuesta.
+  * [Voz en tiempo real](https://docs.comfy.org/es/development/comfy-router/realtime): abre una sesión de WebSocket de Grok Voice, facturada por segundo.
 
 
 

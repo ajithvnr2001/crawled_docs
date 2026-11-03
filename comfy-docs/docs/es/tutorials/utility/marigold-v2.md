@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/utility/marigold-v2/
 title: Gu\u00eda de estimaci\u00f3n de profundidad, normales y albedo con Marigold V2 en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:58.103298+00:00
+fetched_at: 2026-11-03T14:55:32.677169+00:00
 ---
 
 # Guía de estimación de profundidad, normales y albedo con Marigold V2 en ComfyUI - ComfyUI
@@ -37,7 +37,7 @@ Estima profundidad, normales y albedo de una sola imagen en ComfyUI con Marigold
 
 Copiar páginaCopiar página
 
-Marigold V2 es una familia de modelos de estimación monocular de Huawei Bayer Lab que reutilizan un diffusion transformer (Qwen-Image Edit 2509) para la estimación de geometría e imágenes intrínsecas. A partir de una sola imagen RGB, los modelos predicen un mapa de profundidad, normales de superficie o albedo, dando continuidad al Marigold original (CVPR 2024), que reutilizó Stable Diffusion para esa misma tarea. Los modelos V2 se distribuyen como LoRA sobre un modelo de difusión base compartido, lo que mantiene pequeña cada descarga y hace que la estructura del flujo de trabajo sea idéntica en las tres tareas. En comparación con las redes de profundidad clásicas, el enfoque basado en difusión produce predicciones nítidas y conscientes de los bordes, y generaliza a imágenes de dominio abierto sin reentrenamiento. Entre los usos típicos están el control guiado por profundidad para la generación de imágenes y video, los pipelines de reconstrucción de escenas 3D, el relighting y la edición de materiales a partir del albedo estimado. Marigold V2 es compatible de forma nativa con ComfyUI. Actualiza a la última versión de [ComfyUI](https://github.com/comfyanonymous/ComfyUI) antes de empezar.
+Marigold V2 es una familia de modelos de estimación monocular de Huawei Bayer Lab que reutilizan un diffusion transformer (Qwen-Image Edit 2509) para la estimación de geometría e imágenes intrínsecas. A partir de una sola imagen RGB, los modelos predicen un mapa de profundidad, normales de superficie o albedo, dando continuidad al Marigold original (CVPR 2024), que reutilizó Stable Diffusion para esa misma tarea. Los modelos V2 se distribuyen como LoRAs sobre un modelo de difusión base compartido, lo que mantiene pequeña cada descarga y hace que la estructura del flujo de trabajo sea idéntica en las tres tareas. En comparación con las redes de profundidad clásicas, el enfoque basado en difusión produce predicciones nítidas y conscientes de los bordes, y generaliza a imágenes de dominio abierto sin reentrenamiento. Entre los usos típicos están el control guiado por profundidad para la generación de imágenes y video, los pipelines de reconstrucción de escenas 3D, el relighting y la edición de materiales a partir del albedo estimado. Marigold V2 es compatible de forma nativa con ComfyUI. Actualiza a la última versión de [ComfyUI](https://github.com/comfyanonymous/ComfyUI) antes de empezar.
 
   * Usuarios locales
 
@@ -82,7 +82,7 @@ Si planeas ejecutar las tres tareas, descarga los LoRA, VAE y embeddings de acon
 
 Estimación de profundidad
 
-Predice un mapa de profundidad a partir de una sola imagen. La predicción decodificada se normaliza para que las superficies cercanas aparezcan claras. ![Vista previa del flujo de trabajo de estimación de profundidad de Marigold V2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_marigold_v2_depth_estimation-1.webp)
+Predice un mapa de profundidad a partir de una sola imagen. La predicción decodificada se normaliza para que las superficies cercanas aparezcan brillantes. ![Vista previa del flujo de trabajo de estimación de profundidad de Marigold V2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_marigold_v2_depth_estimation-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -105,7 +105,7 @@ Nodo `LoadImage` · `ev_suv_gold_desert_pavilion.png`
 1\. Pasos para ejecutar
 
   1. Carga tu imagen de entrada en el nodo `LoadImage`
-  2. Encola el flujo de trabajo: el modelo base se ejecuta con la LoRA de profundidad y el nodo Marigold V2 Post-Process normaliza la predicción decodificada
+  2. Pon en cola el flujo de trabajo: el modelo base se ejecuta con el LoRA de profundidad y el nodo Posprocesado de Marigold V2 normaliza la predicción decodificada
   3. Guarda o previsualiza el mapa de profundidad resultante
 
 
@@ -124,7 +124,7 @@ marigold_v2_depth_log_stage2.safetensors → ComfyUI/models/loras/
 
 marigold_v2_depth_log_stage2_vae.safetensors → ComfyUI/models/vae/
 
-## Embedding de condicionamiento de profundidad
+## Embedding de acondicionamiento de profundidad
 
 marigold_v2_depth_conditioning.safetensors → ComfyUI/models/embeddings/
     
@@ -145,7 +145,7 @@ marigold_v2_depth_conditioning.safetensors → ComfyUI/models/embeddings/
 
 Estimación de normales de superficie
 
-Predice normales de superficie por píxel a partir de una sola imagen. La salida asigna a cada píxel la dirección hacia la que mira la superficie, algo útil para el relighting y el análisis de geometría. ![Vista previa del flujo de trabajo de estimación de normales de superficie de Marigold V2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_marigold_v2_surface_normal_estimation-1.webp)
+Predice las normales de superficie por píxel a partir de una sola imagen. La salida asigna a cada píxel la dirección hacia la que mira la superficie, lo que resulta útil para volver a iluminar la escena y para el análisis de geometría. ![Vista previa del flujo de trabajo de estimación de normales de superficie de Marigold V2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_marigold_v2_surface_normal_estimation-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -168,7 +168,7 @@ Nodo `LoadImage` · `greek_statue_orange_cloth.png`
 1\. Pasos para ejecutar
 
   1. Carga tu imagen de entrada en el nodo `LoadImage`
-  2. Encola el flujo de trabajo con la LoRA de normales cargada
+  2. Encola el flujo de trabajo con el LoRA de normales cargado
   3. Guarda o previsualiza el mapa de normales resultante
 
 
@@ -187,7 +187,7 @@ marigold_v2_normals.safetensors → ComfyUI/models/loras/
 
 marigold_v2_normals_vae.safetensors → ComfyUI/models/vae/
 
-## Embedding de condicionamiento de normales
+## Embedding de acondicionamiento de normales
 
 marigold_v2_normals_conditioning.safetensors → ComfyUI/models/embeddings/
     
@@ -208,7 +208,7 @@ marigold_v2_normals_conditioning.safetensors → ComfyUI/models/embeddings/
 
 Estimación de albedo
 
-Predice el albedo (el color intrínseco) de una sola imagen, separando el color del material de la iluminación y el sombreado. El nodo Marigold V2 Post-Process convierte la salida a sRGB. ![Vista previa del flujo de trabajo de estimación de albedo de Marigold V2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_marigold_v2_albedo_estimation-1.webp)
+Predice el albedo (color intrínseco) de una sola imagen, separando el color del material de la iluminación y el sombreado. La salida se convierte a sRGB con el nodo Marigold V2 Post-Process. ![Vista previa del flujo de trabajo de estimación de albedo de Marigold V2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_marigold_v2_albedo_estimation-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -231,7 +231,7 @@ Nodo `LoadImage` · `flower_with_texture.png`
 1\. Pasos para ejecutar
 
   1. Carga tu imagen de entrada en el nodo `LoadImage`
-  2. Encola el flujo de trabajo con la LoRA de albedo cargada
+  2. Pon el flujo de trabajo en cola con el LoRA de albedo cargado
   3. Guarda o previsualiza la imagen de albedo resultante
 
 
@@ -250,7 +250,7 @@ marigold_v2_albedo.safetensors → ComfyUI/models/loras/
 
 marigold_v2_albedo_vae.safetensors → ComfyUI/models/vae/
 
-## Embedding de condicionamiento de albedo
+## Embedding de acondicionamiento de albedo
 
 marigold_v2_albedo_conditioning.safetensors → ComfyUI/models/embeddings/
     
@@ -271,9 +271,9 @@ marigold_v2_albedo_conditioning.safetensors → ComfyUI/models/embeddings/
 
 Nodo de posprocesado de Marigold V2
 
-Todos los flujos de trabajo terminan en el nodo **Marigold V2 Post-Process** , que convierte la predicción decodificada sin procesar en una imagen que puedes ver. La opción **prediction** debe coincidir con la tarea:
+Todos los flujos de trabajo terminan en el nodo **Posprocesado de Marigold V2** , que convierte la predicción decodificada sin procesar en una imagen que puedes ver. La opción **prediction** debe coincidir con la tarea:
 
-  * **depth** : normaliza la predicción para que las superficies cercanas aparezcan claras
+  * **depth** : normaliza la predicción para que las superficies cercanas se vean brillantes
   * **normals** : asigna los valores sin procesar a normales de superficie unitarias
   * **albedo** : convierte la predicción a sRGB
 

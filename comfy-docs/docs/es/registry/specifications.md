@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/specifications/
 title: pyproject.toml - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:39.204843+00:00
+fetched_at: 2026-11-03T14:55:27.812761+00:00
 ---
 
 # pyproject.toml - ComfyUI
@@ -22,7 +22,7 @@ Volver arriba
     * repository (requerido)
     * urls (recomendado)
     * requires-python (recomendado)
-    * Compatibilidad de versión del frontend (opcional)
+    * Compatibilidad de versiones del frontend (opcional)
     * classifiers (recomendado)
   * Sección [tool.comfy]
     * PublisherId (requerido)
@@ -65,7 +65,7 @@ Sección [project]
 
 name (requerido)
 
-El id del nodo identifica de forma única el nodo personalizado y se usará en las URL del registro. Los usuarios pueden instalar el nodo haciendo referencia a este nombre:
+El id del nodo identifica de forma única al nodo personalizado y se usará en las URL del registry. Los usuarios pueden instalar el nodo haciendo referencia a este nombre:
     
     
     comfy node install <node-id>
@@ -76,14 +76,14 @@ El id del nodo identifica de forma única el nodo personalizado y se usará en l
   * Debe tener menos de 100 caracteres
   * Solo puede contener caracteres alfanuméricos, guiones, guiones bajos y puntos
   * No puede tener caracteres especiales consecutivos
-  * No puede empezar por un número ni por un carácter especial
-  * La comparación no distingue entre mayúsculas y minúsculas
+  * No puede comenzar con un número ni con un carácter especial
+  * La comparación no distingue mayúsculas de minúsculas
 
-**Prácticas recomendadas:**
+**Buenas prácticas:**
 
   * Usa un nombre corto y descriptivo
   * No incluyas “ComfyUI” en el nombre
-  * Haz que sea fácil de recordar y de escribir
+  * Hazlo fácil de recordar y de escribir
 
 **Ejemplos:**
     
@@ -94,7 +94,7 @@ El id del nodo identifica de forma única el nodo personalizado y se usará en l
     name = "123-tool"            # ❌ Bad: Starts with number
     
 
-Consulta la [documentación oficial de Python](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#name) para obtener más detalles.
+Consulta la [documentación oficial de python](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#name) para obtener más detalles.
 
 ### 
 
@@ -102,11 +102,11 @@ Consulta la [documentación oficial de Python](https://packaging.python.org/en/l
 
 version (requerido)
 
-Usa el [versionado semántico](https://semver.org/) con un número de versión de tres dígitos X.Y.Z:
+Usa [versionado semántico](https://semver.org/) con un número de versión de tres dígitos X.Y.Z:
 
-  * X (**MAJOR**): cambios que rompen la compatibilidad
-  * Y (**MINOR**): nuevas funcionalidades (compatibles hacia atrás)
-  * Z (**PATCH**): correcciones de errores
+  * X (**MAJOR**): Cambios incompatibles
+  * Y (**MINOR**): Funciones nuevas (compatibles con versiones anteriores)
+  * Z (**PATCH**): Correcciones de errores
 
 **Ejemplos:**
     
@@ -123,7 +123,7 @@ Usa el [versionado semántico](https://semver.org/) con un número de versión d
 
 license (opcional)
 
-Especifica la licencia de tu nodo personalizado. Se puede indicar de dos formas:
+Especifica la licencia de tu nodo personalizado. Puedes especificarla de dos maneras:
 
   1. **Referencia a un archivo:**
 
@@ -203,13 +203,13 @@ Especifica las versiones de Python que admite tu nodo:
 
 ​
 
-Compatibilidad de versión del frontend (opcional)
+Compatibilidad de versiones del frontend (opcional)
 
-Si tu nodo tiene requisitos específicos sobre qué versiones del frontend de ComfyUI admite, puedes indicarlo con la dependencia `comfyui-frontend-package`. Este paquete se publica en [PyPI](https://pypi.org/project/comfyui-frontend-package/). Por ejemplo, usa este campo cuando:
+Si tu nodo tiene requisitos específicos sobre qué versiones del frontend de ComfyUI admite, puedes especificarlo con la dependencia `comfyui-frontend-package`. Este paquete se publica en [PyPI](https://pypi.org/project/comfyui-frontend-package/). Por ejemplo, usa este campo cuando:
 
-  * Tu nodo personalizado usa API del frontend introducidas en una versión concreta
-  * Has identificado incompatibilidades entre tu nodo y determinadas versiones del frontend
-  * Tu nodo requiere funciones de interfaz específicas que solo están disponibles en versiones más recientes del frontend
+  * Tu nodo personalizado usa API del frontend que se introdujeron en una versión específica
+  * Has identificado incompatibilidades entre tu nodo y ciertas versiones del frontend
+  * Tu nodo requiere funciones de UI específicas que solo están disponibles en versiones más recientes del frontend
 
 
     
@@ -230,7 +230,7 @@ Si tu nodo tiene requisitos específicos sobre qué versiones del frontend de Co
 
 classifiers (recomendado)
 
-Usa los classifiers para especificar la compatibilidad con el sistema operativo y con los aceleradores de GPU. Esta información ayuda a los usuarios a encontrar el nodo adecuado para su sistema.
+Usa los clasificadores para especificar la compatibilidad con el sistema operativo y los aceleradores GPU. Esta información ayuda a los usuarios a encontrar el nodo adecuado para su sistema.
     
     
     [project]
@@ -277,7 +277,7 @@ Tu identificador único de editor, que normalmente coincide con tu nombre de usu
 
 DisplayName (opcional)
 
-Un nombre fácil de reconocer para tu nodo personalizado.
+Un nombre fácil de leer y reconocer para tu nodo personalizado.
     
     
     DisplayName = "Super Resolution Node"
@@ -289,7 +289,7 @@ Un nombre fácil de reconocer para tu nodo personalizado.
 
 Icon (opcional)
 
-URL del icono de tu nodo personalizado que se mostrará en ComfyUI Registry y ComfyUI-Manager. **Requisitos:**
+URL al icono de tu nodo personalizado que se mostrará en ComfyUI Registry y ComfyUI-Manager. **Requisitos:**
 
   * Tipos de archivo: SVG, PNG, JPG o GIF
   * Resolución máxima: 400px × 400px
@@ -307,7 +307,7 @@ URL del icono de tu nodo personalizado que se mostrará en ComfyUI Registry y Co
 
 Banner (opcional)
 
-URL de una imagen de banner más grande que se mostrará en ComfyUI Registry y ComfyUI-Manager. **Requisitos:**
+URL a una imagen de banner más grande que se mostrará en ComfyUI Registry y ComfyUI-Manager. **Requisitos:**
 
   * Tipos de archivo: SVG, PNG, JPG o GIF
   * Relación de aspecto: 21:9
@@ -324,13 +324,13 @@ URL de una imagen de banner más grande que se mostrará en ComfyUI Registry y C
 
 requires-comfyui (opcional)
 
-Especifica con qué versión de ComfyUI es compatible tu nodo. Esto ayuda a los usuarios a asegurarse de que tengan instalada la versión correcta de ComfyUI. **Operadores admitidos:** `<`, `>`, `<=`, `>=`, `~=`, `<>`, `!=` y rangos
+Especifica con qué versión de ComfyUI es compatible tu nodo. Esto ayuda a los usuarios a asegurarse de que tienen instalada la versión correcta de ComfyUI. **Operadores admitidos:** `<`, `>`, `<=`, `>=`, `~=`, `<>`, `!=` y rangos
     
     
     requires-comfyui = ">=1.0.0"        # ComfyUI 1.0.0 o superior
-    requires-comfyui = ">=1.0.0,<2.0.0"  # ComfyUI 1.0.0 hasta (sin incluir) 2.0.0
-    requires-comfyui = "~=1.0.0"         # Versión compatible: 1.0.0 o posterior, pero no la 2.0.0
-    requires-comfyui = "!=1.2.3"         # Cualquier versión excepto la 1.2.3
+    requires-comfyui = ">=1.0.0,<2.0.0"  # ComfyUI 1.0.0 hasta 2.0.0 (sin incluirlo)
+    requires-comfyui = "~=1.0.0"         # Versión compatible: 1.0.0 o posterior, pero no la versión 2.0.0
+    requires-comfyui = "!=1.2.3"         # Cualquier versión excepto 1.2.3
     requires-comfyui = ">0.1.3,<1.0.0"   # Mayor que 0.1.3 y menor que 1.0.0
     
 
@@ -340,7 +340,7 @@ Especifica con qué versión de ComfyUI es compatible tu nodo. Esto ayuda a los 
 
 includes (opcional)
 
-Especifica si deseas forzar la inclusión de ciertas carpetas específicas. En algunas situaciones, como los nodos personalizados en proyectos de frontend, la carpeta de salida final empaquetada puede estar incluida en .gitignore. En esos casos, debemos forzar su inclusión para poder usarla en el registro.
+Indica si quieres forzar la inclusión de determinadas carpetas concretas. En algunas situaciones, como los nodos personalizados en proyectos de frontend, la carpeta de salida final empaquetada puede estar incluida en .gitignore. En esos casos, necesitamos forzar su inclusión para poder usar el registro.
     
     
     includes = ['dist']

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/quickstart/
 title: Inicio r\u00e1pido de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:26.449537+00:00
+fetched_at: 2026-11-03T14:55:26.605474+00:00
 ---
 
 # Inicio rápido de Comfy Router - ComfyUI
@@ -16,7 +16,7 @@ Volver arriba
   * Crear una clave API
   * Encolar una solicitud
   * Imagen a video y referencia a video
-  * Próximos pasos
+  * Siguientes pasos
 
 
 
@@ -147,7 +147,7 @@ TypeScript
     console.log("result:", result.data);
     
 
-Cada llamada de envío del SDK crea una clave de idempotencia y la reutiliza para los reintentos automáticos. El ejemplo de cURL crea una con `uuidgen`. Si no está disponible, usa otro generador de UUID. Para obtener detalles sobre el estado, la cancelación y la recopilación, consulta [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue).
+Cada llamada de envío del SDK crea una clave de idempotencia y la reutiliza para los reintentos automáticos. El ejemplo de cURL genera una con `uuidgen`. Si no está disponible, usa otro generador de UUID. Para detalles sobre el estado, la cancelación y la recopilación del resultado, consulta [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue).
 
 ## 
 
@@ -155,18 +155,18 @@ Cada llamada de envío del SDK crea una clave de idempotencia y la reutiliza par
 
 Imagen a video y referencia a video
 
-La misma solicitud de Seedance acepta entradas de imagen, video y audio. Agrega elementos a `content` y define el `role` de cada uno. Los roles que envías deciden la operación que ejecuta Router. El precio sigue los tipos de medio de `content`, no los roles: una solicitud con cualquier entrada de video se factura como video a video; si no, una con cualquier imagen se factura como imagen a video, y una solicitud solo de texto se factura como texto a video. Algunos modelos cobran la misma tarifa para texto a video y para imagen a video.
+La misma solicitud de Seedance acepta entradas de imagen, video y audio. Agrega elementos a `content` y define el `role` de cada uno. Los roles que envías determinan la operación que ejecuta Router. El precio sigue los tipos de medio en `content`, no los roles: una solicitud con cualquier entrada de video se cobra como video a video; si no, una con cualquier imagen se cobra como imagen a video; y una solicitud solo de texto se cobra como texto a video. Algunos modelos cobran la misma tarifa para texto a video e imagen a video.
 
 Operación| Elementos de `content`  
 ---|---  
 Texto a video| un elemento `text`  
 Imagen a video| un elemento `text` más un elemento `image_url` con `role: first_frame`  
 Primer y último fotograma| lo anterior más un segundo elemento `image_url` con `role: last_frame`  
-Referencia a video| un elemento `text` más elementos `image_url` con `role: reference_image`, y en Seedance 2.0 y 2.5, elementos `video_url` con `role: reference_video` y elementos `audio_url` con `role: reference_audio`  
+Referencia a video| un elemento `text` más elementos `image_url` con `role: reference_image` y, en Seedance 2.0 y 2.5, elementos `video_url` con `role: reference_video` y elementos `audio_url` con `role: reference_audio`  
   
-Una `url` de imagen puede ser una URL pública o una cadena `data:image/<format>;base64,<content>`. Envía, consulta y recoge exactamente como en el inicio rápido de arriba. Solo cambia el cuerpo.
+La `url` de una imagen puede ser una URL pública o una cadena `data:image/<format>;base64,<content>`. Envía, consulta el estado y recoge el resultado exactamente como en la guía de inicio anterior. Solo cambia el cuerpo.
 
-Imagen a video
+Image-to-video
     
     
     curl https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628/requests \
@@ -183,7 +183,7 @@ Imagen a video
       }'
     
 
-Referencia a video
+Reference-to-video
     
     
     curl https://api.comfy.org/v2/models/byteplus/dreamina-seedance-2-5-260628/requests \
@@ -202,21 +202,21 @@ Referencia a video
       }'
     
 
-En Seedance 2.5, las solicitudes de primer fotograma y de primer y último fotograma toman la relación de aspecto de salida del primer fotograma. Omite `ratio` o envía `adaptive`, porque una relación concreta se rechaza con un `400`. El esquema de la solicitud es compartido en toda la familia Seedance y puede listar roles que un modelo ignora, así que revisa el campo `x-comfy-router-input-modalities` en el [esquema de entrada](https://docs.comfy.org/es/development/comfy-router/models) de cada modelo para conocer los tipos de entrada que ese modelo acepta. Por ejemplo, `reference_video` y `reference_audio` necesitan un modelo que liste `video` o `audio` ahí.
+En Seedance 2.5, las solicitudes de primer fotograma y de primer y último fotograma toman la relación de aspecto de salida del primer fotograma. Omite `ratio` o envía `adaptive`, porque una relación concreta se rechaza con un `400`. El esquema de la solicitud es compartido por toda la familia Seedance y puede listar roles que un modelo ignora, así que revisa el campo `x-comfy-router-input-modalities` en el [esquema de entrada](https://docs.comfy.org/es/development/comfy-router/models) de cada modelo para conocer los tipos de entrada que ese modelo acepta. Por ejemplo, `reference_video` y `reference_audio` necesitan un modelo que liste `video` o `audio` ahí.
 
 ## 
 
 ​
 
-Próximos pasos
+Siguientes pasos
 
 ## Explorar modelos
 
-Explora los modelos disponibles y encuentra ejemplos de solicitudes para cada modelo.
+Explora los modelos disponibles y encuentra ejemplos de solicitudes específicos para cada modelo.
 
-## Usar la API del Router
+## Usar la API de Router
 
-Conoce cómo funciona el descubrimiento de modelos, los esquemas, las solicitudes en cola, los errores y la facturación.
+Conoce el descubrimiento de modelos, los esquemas, las solicitudes en cola, los errores y la facturación.
 
 ¿Esta página le ayudó?
 

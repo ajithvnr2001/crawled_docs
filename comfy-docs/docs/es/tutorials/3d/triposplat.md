@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/3d/triposplat/
-title: Ejemplo de flujo de trabajo de TripoSplat de imagen a Gaussian splat en ComfyUI - ComfyUI
+title: TripoSplat en ComfyUI: imagen a Gaussian splat 3D - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:40.854305+00:00
+fetched_at: 2026-11-03T14:55:27.899198+00:00
 ---
 
-# Ejemplo de flujo de trabajo de TripoSplat de imagen a Gaussian splat en ComfyUI - ComfyUI
+# TripoSplat en ComfyUI: imagen a Gaussian splat 3D - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/3d/triposplat/
 
@@ -27,14 +27,14 @@ Volver arriba
     * CreateVideo
   * Pasos para ejecutar
   * Opciones de salida
-  * Descarga de modelos
+  * Descargas de modelos
     * Ubicación de almacenamiento de los modelos
 
 
 
 3D
 
-# Ejemplo de flujo de trabajo de TripoSplat de imagen a Gaussian splat en ComfyUI
+# TripoSplat en ComfyUI: imagen a Gaussian splat 3D
 
 Copiar páginaCopiar página
 
@@ -97,12 +97,12 @@ Nodo `LoadImage` 99 · `white-hotel-on-rocky-island.png`
 
 Cómo funciona
 
-TripoSplat usa una **arquitectura feed-forward** que toma una sola imagen RGB y predice directamente un conjunto de primitivas Gaussianas 3D. El pipeline implica:
+TripoSplat usa una **arquitectura feed-forward** que toma una única imagen RGB y predice directamente un conjunto de primitivas gaussianas 3D. El pipeline incluye:
 
   1. **Codificación de imagen** : la imagen de entrada se procesa con un codificador visual (DINOv2).
   2. **Generación de triplanos** : las características se decodifican en una representación de triplanos.
-  3. **Predicción de Gaussianas** : se muestrea el triplano para producir los parámetros de las Gaussianas (posición, escala, rotación, opacidad, color).
-  4. **Renderizado** : las Gaussianas se renderizan desde puntos de vista arbitrarios mediante splatting diferenciable.
+  3. **Predicción de gaussianas** : se muestrea el triplano para producir los parámetros de las gaussianas (posición, escala, rotación, opacidad, color).
+  4. **Renderizado** : las gaussianas se renderizan desde puntos de vista arbitrarios mediante splatting diferenciable.
 
 
 
@@ -133,16 +133,16 @@ LoadImage
 
 TripoSplat (subgrafo)
 
-El nodo de subgrafo principal procesa la imagen y genera el splat gaussiano 3D. Parámetros expuestos:
+El nodo principal del subgrafo procesa la imagen y genera el splat gaussiano 3D. Parámetros expuestos:
 
 Parámetro| Predeterminado| Descripción  
 ---|---|---  
 `switch`| N/D| Habilita o deshabilita el subgrafo  
-`num_gaussians`| N/D| Número de primitivas gaussianas a generar (controla calidad/rendimiento)  
-`seed`| N/D| Semilla aleatoria para reproducibilidad  
+`num_gaussians`| N/D| Número de primitivas gaussianas a generar (controla la calidad y el rendimiento)  
+`seed`| N/D| Semilla aleatoria para la reproducibilidad  
 `unet_name`| N/D| Checkpoint del modelo diffusion TripoSplat  
 `clip_name`| N/D| Modelo codificador de visión CLIP  
-`vae_name`| N/D| VAE para codificar/decodificar (2 entradas: una para el VAE principal y otra para el codificador)  
+`vae_name`| N/D| VAE para codificar y decodificar (2 entradas: una para el VAE principal y otra para el codificador)  
 `bg_removal_name`| N/D| Modelo de eliminación de fondo  
   
 ### 
@@ -164,7 +164,7 @@ CreateCameraInfo
 RenderSplat
 
   * Renderiza el splat gaussiano en una imagen 2D desde el ángulo de cámara definido
-  * Parámetros: resolución de salida (predeterminado 1024×1024), configuraciones de calidad de imagen
+  * Parámetros: resolución de salida (predeterminada: 1024×1024), configuraciones de calidad de imagen
 
 
 
@@ -227,7 +227,7 @@ Pasos para ejecutar
 
   1. **Carga una imagen** : usa el nodo **LoadImage** para cargar una sola imagen 2D
   2. **Ejecuta el subgrafo TripoSplat** : el modelo generará una representación Gaussian splat
-  3. **Elige el formato de salida** : exporta como GLB, SPZ, video o renderiza a malla
+  3. **Elige el formato de salida** : exporta como GLB, SPZ, video o renderiza a una malla
   4. **Consulta los resultados** : usa el archivo 3D creado o la vista previa renderizada
 
 
@@ -241,7 +241,7 @@ Opciones de salida
 Nodo| Formato| Caso de uso  
 ---|---|---  
 **SaveGLB**| `.glb`| Formato de archivo 3D estándar, importable en software 3D  
-**SplatToFile3D**| `.spz`| Formato comprimido de Gaussian splat para un almacenamiento eficiente  
+**SplatToFile3D**| `.spz`| Formato comprimido de Gaussian splat para almacenamiento eficiente  
 **RenderSplat**|  Imagen 2D| Vista previa rápida del resultado desde cualquier ángulo  
 **SplatToMesh**|  Malla| Convierte a una malla tradicional para seguir editando  
   
@@ -249,27 +249,27 @@ Nodo| Formato| Caso de uso
 
 ​
 
-Descarga de modelos
+Descargas de modelos
 
-Descarga el modelo de TripoSplat y los archivos necesarios. Colócalos en los subdirectorios correspondientes de `models/`.
+Descarga el modelo TripoSplat y los archivos requeridos. Colócalos en las subcarpetas correspondientes de `models/`.
 
 ## TripoSplat diffusion
 
-triposplat_fp16.safetensors: checkpoint del modelo de difusión de TripoSplat
+triposplat_fp16.safetensors: checkpoint del modelo diffusion TripoSplat
 
-## TripoSplat VAE decoder
+## Decodificador VAE de TripoSplat
 
 triposplat_vae_decoder_fp16.safetensors: decodificador VAE
 
-## Flux2 VAE
+## VAE de Flux2
 
 flux2-vae.safetensors: VAE de FLUX.2 para la codificación latente
 
-## DINOv2 CLIP
+## CLIP de DINOv2
 
 dino_v3_vit_h.safetensors: codificador de visión CLIP (DINOv2)
 
-## BiRefNet bg removal
+## Eliminación de fondo con BiRefNet
 
 birefnet.safetensors: modelo de eliminación de fondo para el preprocesamiento
 

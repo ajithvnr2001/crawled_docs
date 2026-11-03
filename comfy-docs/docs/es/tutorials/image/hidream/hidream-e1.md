@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/hidream/hidream-e1/
 title: HiDream-E1 y E1.1 en ComfyUI: edici\u00f3n de im\u00e1genes por instrucciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:43.647412+00:00
+fetched_at: 2026-11-03T14:55:29.600349+00:00
 ---
 
 # HiDream-E1 y E1.1 en ComfyUI: edición de imágenes por instrucciones - ComfyUI
@@ -13,8 +13,8 @@ fetched_at: 2026-10-26T14:03:43.647412+00:00
 
 Volver arriba
 
-  * Modelos relacionados con los flujos de trabajo de HiDream E1 y E1.1
-  * Ejemplo de flujo de trabajo nativo de HiDream E1.1 en ComfyUI
+  * Modelos relacionados para los flujos de trabajo de HiDream E1 y E1.1
+  * Ejemplo de flujo de trabajo nativo de ComfyUI con HiDream E1.1
     * Edición de imágenes con HiDream E1.1
     * 1\. Flujo de trabajo de HiDream E1.1 y materiales relacionados
     * 2\. Guía paso a paso para ejecutar el flujo de trabajo de HiDream-e1
@@ -22,7 +22,7 @@ Volver arriba
   * Ejemplo de flujo de trabajo nativo de HiDream E1 en ComfyUI
     * Edición de imágenes con HiDream E1
     * 1\. Flujo de trabajo de HiDream-e1
-    * 2\. Completar el flujo de trabajo de HiDream-e1 paso a paso
+    * 2\. Completa el flujo de trabajo de HiDream-e1 paso a paso
     * Notas adicionales sobre el flujo de trabajo de HiDream-e1 en ComfyUI
 
 
@@ -37,7 +37,7 @@ Edita imágenes con lenguaje natural con HiDream-E1 y E1.1 en ComfyUI. E1.1 mejo
 
 Copiar páginaCopiar página
 
-![Demostración de HiDream-E1](https://raw.githubusercontent.com/HiDream-ai/HiDream-E1/refs/heads/main/assets/demo.jpg) HiDream-E1 es un gran modelo interactivo de edición de imágenes que HiDream-ai publicó oficialmente como código abierto, construido a partir de HiDream-I1. Te permite editar imágenes usando lenguaje natural. El modelo se distribuye bajo la [Licencia MIT](https://github.com/HiDream-ai/HiDream-E1?tab=MIT-1-ov-file), lo que permite usarlo en proyectos personales, investigación científica y aplicaciones comerciales. Combinado con el [hidream-i1](https://docs.comfy.org/es/tutorials/image/hidream/hidream-i1) publicado anteriormente, habilita **capacidades creativas que van desde la generación de imágenes hasta la edición**.
+![Demostración de HiDream-E1](https://raw.githubusercontent.com/HiDream-ai/HiDream-E1/refs/heads/main/assets/demo.jpg) HiDream-E1 es un modelo grande e interactivo de edición de imágenes que HiDream-ai publicó oficialmente como código abierto, construido a partir de HiDream-I1. Te permite editar imágenes usando lenguaje natural. El modelo se distribuye bajo la [Licencia MIT](https://github.com/HiDream-ai/HiDream-E1?tab=MIT-1-ov-file), lo que permite usarlo en proyectos personales, investigación científica y aplicaciones comerciales. Combinado con el [hidream-i1](https://docs.comfy.org/es/tutorials/image/hidream/hidream-i1) publicado anteriormente, habilita **capacidades creativas que van desde la generación de imágenes hasta la edición**.
 
 Nombre| Fecha de actualización| Pasos de inferencia| Resolución| Repositorio de HuggingFace  
 ---|---|---|---|---  
@@ -73,9 +73,9 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 ​
 
-Modelos relacionados con los flujos de trabajo de HiDream E1 y E1.1
+Modelos relacionados para los flujos de trabajo de HiDream E1 y E1.1
 
-Todos los modelos que intervienen en esta guía están disponibles [aquí](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files). Salvo el modelo de difusión, E1 y E1.1 usan los mismos modelos. Los archivos de flujo de trabajo correspondientes también incluyen la información de modelo pertinente. Puedes elegir descargar y guardar los modelos manualmente, o seguir las indicaciones del flujo de trabajo para descargarlos después de cargarlo. Se recomienda usar E1.1. Este modelo necesita una gran cantidad de VRAM para ejecutarse. Consulta las secciones correspondientes para conocer los requisitos concretos de VRAM. **Modelo de difusión** No es necesario descargar los dos modelos. Como E1.1 es una versión iterativa basada en E1, nuestras pruebas muestran que su calidad y rendimiento mejoran notablemente en comparación con E1.
+Todos los modelos que se usan en esta guía están disponibles [aquí](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files). Excepto por el modelo de difusión, E1 y E1.1 usan los mismos modelos. Los archivos de flujo de trabajo correspondientes también incluyen la información de los modelos relevantes. Puedes descargar y guardar los modelos manualmente, o seguir las indicaciones del flujo de trabajo para descargarlos después de cargarlo. Se recomienda usar E1.1. Este modelo requiere una gran cantidad de VRAM para ejecutarse. Consulta las secciones correspondientes para conocer los requisitos de VRAM específicos. **Modelo de difusión** No necesitas descargar ambos modelos. Como E1.1 es una versión iterativa basada en E1, nuestras pruebas muestran que su calidad y rendimiento mejoran significativamente en comparación con E1.
 
   * [hidream_e1_1_bf16.safetensors (Recomendado)](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_e1_1_bf16.safetensors) 34.2GB
   * [hidream_e1_full_bf16.safetensors](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_e1_full_bf16.safetensors) 34.2GB
@@ -93,9 +93,9 @@ Todos los modelos que intervienen en esta guía están disponibles [aquí](https
 
 
 
-> Este es el modelo VAE de FLUX. Si ya has usado antes el flujo de trabajo de FLUX, es posible que ya tengas descargado este archivo.
+> Este es el modelo VAE de FLUX. Si ya has usado el flujo de trabajo de FLUX, es posible que ya hayas descargado este archivo.
 
-Ubicación de almacenamiento de los modelos
+Ubicación donde guardar los modelos
     
     
     📂 ComfyUI/
@@ -116,7 +116,7 @@ Ubicación de almacenamiento de los modelos
 
 ​
 
-Ejemplo de flujo de trabajo nativo de HiDream E1.1 en ComfyUI
+Ejemplo de flujo de trabajo nativo de ComfyUI con HiDream E1.1
 
 ### 
 
@@ -148,7 +148,7 @@ Nodo `LoadImage` 13 · `hidream_e1_1_input_image.jpg`
 
 1\. Flujo de trabajo de HiDream E1.1 y materiales relacionados
 
-Descarga la imagen de abajo y arrástrala a ComfyUI con el flujo de trabajo y los modelos correspondientes cargados: ![Flujo de trabajo de HiDream E1.1](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/hidream/e1.1/hidream_e1_1.png) Descarga la imagen de abajo como entrada: ![Entrada del flujo de trabajo de HiDream E1.1](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/hidream/e1.1/input.webp)
+Descarga la imagen a continuación y arrástrala a ComfyUI con el flujo de trabajo y los modelos correspondientes cargados: ![Flujo de trabajo de HiDream E1.1](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/hidream/e1.1/hidream_e1_1.png) Descarga la imagen a continuación como entrada: ![Entrada del flujo de trabajo de HiDream E1.1](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/hidream/e1.1/input.webp)
 
 ### 
 
@@ -165,10 +165,10 @@ Descarga la imagen de abajo y arrástrala a ComfyUI con el flujo de trabajo y lo
      * t5xxl_fp8_e4m3fn_scaled.safetensors
      * llama_3.1_8b_instruct_fp8_scaled.safetensors
   3. Asegúrate de que el nodo `Load VAE` use el archivo `ae.safetensors`.
-  4. En el nodo `Load Image`, carga la imagen de entrada proporcionada o la imagen que desees.
-  5. En el nodo `Empty Text Encoder(Positive)`, escribe **las modificaciones que quieres hacer a la imagen**.
-  6. En el nodo `Empty Text Encoder(Negative)`, escribe **el contenido que no quieres que aparezca en la imagen**.
-  7. Haz clic en el botón `Run` o usa el atajo `Ctrl(cmd) + Enter` para ejecutar la generación de la imagen.
+  4. En el nodo `Load Image`, carga la entrada proporcionada o la imagen que desees.
+  5. En el nodo `Empty Text Encoder(Positive)`, ingresa **las modificaciones que quieres hacer a la imagen**.
+  6. En el nodo `Empty Text Encoder(Negative)`, ingresa **el contenido que no quieres que aparezca en la imagen**.
+  7. Haz clic en el botón `Run` o usa el atajo `Ctrl(cmd) + Enter` para ejecutar la generación de imágenes.
 
 
 
@@ -178,8 +178,8 @@ Descarga la imagen de abajo y arrástrala a ComfyUI con el flujo de trabajo y lo
 
 3\. Notas adicionales sobre el flujo de trabajo
 
-  * Como HiDream E1.1 admite entrada dinámica con un total de 1 millón de píxeles, el flujo de trabajo usa `Scale Image to Total Pixels` para procesar y convertir todas las imágenes de entrada, lo que puede hacer que la relación de aspecto difiera de la imagen de entrada original.
-  * Al usar la versión fp16 del modelo, en las pruebas reales la versión completa agotó la memoria tanto en una A100 de 40 GB como en una 4090D de 24 GB, por lo que el flujo de trabajo está configurado por defecto para usar `fp8_e4m3fn_fast` en la inferencia.
+  * Como HiDream E1.1 admite entradas dinámicas con un total de 1 millón de píxeles, el flujo de trabajo usa `Scale Image to Total Pixels` para procesar y convertir todas las imágenes de entrada, lo que puede hacer que la relación de aspecto difiera de la imagen de entrada original.
+  * Al usar la versión fp16 del modelo, en pruebas reales la versión completa se quedó sin memoria tanto en una A100 de 40 GB como en una 4090D de 24 GB, así que el flujo de trabajo está configurado por defecto para usar `fp8_e4m3fn_fast` en la inferencia.
 
 
 
@@ -203,7 +203,7 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “HiDream E1 Full” en la biblioteca de plantillas
+Descarga el JSON o busca “HiDream E1 Full” en la Biblioteca de plantillas
 
 **Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
 
@@ -219,7 +219,7 @@ Nodo `LoadImage` 13 · `hidream_e1_full_input_image.jpg`
 
 E1 es un modelo publicado el 28 de abril de 2025.
 
-Como referencia, este flujo de trabajo tarda unos 500s en la primera ejecución y 370s en la segunda, con 28 pasos de muestreo en Google Colab L4 con 22.5GB de VRAM.
+A modo de referencia, este flujo de trabajo tarda unos 500 s en la primera ejecución y 370 s en la segunda, con 28 pasos de muestreo en Google Colab L4 con 22.5 GB de VRAM.
 
 ### 
 
@@ -227,13 +227,13 @@ Como referencia, este flujo de trabajo tarda unos 500s en la primera ejecución 
 
 1\. Flujo de trabajo de HiDream-e1
 
-Descarga la imagen de abajo y arrástrala a ComfyUI. El flujo de trabajo ya contiene la información de descarga de los modelos y, tras cargarla, te pedirá que descargues los modelos correspondientes. ![Flujo de trabajo nativo de HiDream-e1 en ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hidream_e1/hidream_e1_full.png) Descarga esta imagen a continuación como entrada: ![Entrada del flujo de trabajo nativo de HiDream-e1 en ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hidream_e1/input.webp)
+Descarga la imagen de abajo y arrástrala a ComfyUI. El flujo de trabajo ya incluye la información de descarga de los modelos y, después de cargarlo, te pedirá que descargues los modelos correspondientes. ![Flujo de trabajo nativo de HiDream-e1 en ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hidream_e1/hidream_e1_full.png) Descarga esta imagen de abajo para usarla como entrada: ![Entrada del flujo de trabajo nativo de HiDream-e1 en ComfyUI](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hidream_e1/input.webp)
 
 ### 
 
 ​
 
-2\. Completar el flujo de trabajo de HiDream-e1 paso a paso
+2\. Completa el flujo de trabajo de HiDream-e1 paso a paso
 
 ![hidream_e1_full_step_guide](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/tutorial/advanced/hidream/hidream_e1_full_step_guide.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=c218858bea510e5fd5ab71f7885cd7db) Sigue estos pasos para completar el flujo de trabajo:
 
@@ -244,9 +244,9 @@ Descarga la imagen de abajo y arrástrala a ComfyUI. El flujo de trabajo ya cont
      * t5xxl_fp8_e4m3fn_scaled.safetensors
      * llama_3.1_8b_instruct_fp8_scaled.safetensors
   3. Asegúrate de que el nodo `Load VAE` use el archivo `ae.safetensors`
-  4. Carga la imagen de entrada que descargamos antes en el nodo `Load Image`
-  5. (Importante) Introduce **el prompt para indicar cómo quieres modificar la imagen** en el nodo `Empty Text Encoder(Positive)`
-  6. Haz clic en el botón `Run` o usa el atajo `Ctrl(cmd) + Enter` para generar la imagen
+  4. Carga en el nodo `Load Image` la imagen de entrada que descargamos antes
+  5. (Importante) Introduce **el prompt de cómo quieres modificar la imagen** en el nodo `Empty Text Encoder(Positive)`
+  6. Haz clic en el botón `Run`, o usa el atajo `Ctrl(cmd) + Enter`, para generar la imagen
 
 
 
@@ -257,8 +257,8 @@ Descarga la imagen de abajo y arrástrala a ComfyUI. El flujo de trabajo ya cont
 Notas adicionales sobre el flujo de trabajo de HiDream-e1 en ComfyUI
 
   * Es posible que tengas que modificar el prompt varias veces o generar varias veces para obtener mejores resultados
-  * Este modelo tiene dificultades para mantener la consistencia al cambiar el estilo de las imágenes, así que intenta que tus prompts sean lo más completos posible
-  * Como el modelo admite una resolución de 768*768, en las pruebas reales con otras dimensiones el rendimiento de la imagen es deficiente o incluso notablemente distinto en otras dimensiones
+  * Este modelo tiene dificultades para mantener la coherencia al cambiar el estilo de la imagen, así que intenta que tus prompts sean lo más completos posible
+  * Como el modelo admite una resolución de 768*768, en pruebas reales con otras dimensiones el rendimiento de la imagen es deficiente o incluso notablemente distinto con otras dimensiones
 
 
 

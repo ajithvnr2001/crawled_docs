@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/3d/hunyuan3D-2/
 title: Hunyuan3D 2.0 y 2.1 en ComfyUI: flujos de imagen a malla 3D - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:11.667238+00:00
+fetched_at: 2026-11-03T14:55:28.001914+00:00
 ---
 
 # Hunyuan3D 2.0 y 2.1 en ComfyUI: flujos de imagen a malla 3D - ComfyUI
@@ -22,7 +22,7 @@ Volver arriba
   * Flujo de trabajo Hunyuan3D-2mv-turbo
     * HY 3D 2.0 MV Turbo
     * 1\. Flujo de trabajo
-    * 2\. Instalación manual del modelo
+    * 2\. Instalar el modelo manualmente
     * 3\. Pasos para ejecutar el flujo de trabajo
   * Flujo de trabajo de vista única de Hunyuan3D-2
     * HY 3D 2.0
@@ -54,7 +54,7 @@ Copiar páginaCopiar página
 
 Introducción a Hunyuan3D 2.0
 
-![Hunyuan 3D 2](https://raw.githubusercontent.com/Tencent/Hunyuan3D-2/main/assets/images/e2e-1.gif) ![Hunyuan 3D 2](https://raw.githubusercontent.com/Tencent/Hunyuan3D-2/main/assets/images/e2e-2.gif) [Hunyuan3D 2.0](https://github.com/Tencent/Hunyuan3D-2) es un modelo de generación de recursos 3D de código abierto publicado por Tencent, capaz de generar modelos 3D de alta fidelidad con mapas de textura de alta resolución a partir de texto o imágenes. Hunyuan3D 2.0 adopta un enfoque de generación en dos etapas: primero genera un modelo de geometría sin texturas y después sintetiza mapas de textura de alta resolución. Así separa de forma efectiva la complejidad de la generación de forma y de textura. A continuación se presentan los dos componentes principales de Hunyuan3D 2.0:
+![Hunyuan 3D 2](https://raw.githubusercontent.com/Tencent/Hunyuan3D-2/main/assets/images/e2e-1.gif) ![Hunyuan 3D 2](https://raw.githubusercontent.com/Tencent/Hunyuan3D-2/main/assets/images/e2e-2.gif) [Hunyuan3D 2.0](https://github.com/Tencent/Hunyuan3D-2) es un modelo de generación de recursos 3D de código abierto publicado por Tencent, capaz de generar modelos 3D de alta fidelidad con mapas de textura de alta resolución a partir de texto o imágenes. Hunyuan3D 2.0 adopta un enfoque de generación en dos etapas: primero genera un modelo de geometría sin texturas y después sintetiza mapas de textura de alta resolución. Esto separa de forma efectiva la complejidad de la generación de forma y textura. A continuación se presentan los dos componentes principales de Hunyuan3D 2.0:
 
   1. **Modelo de generación de geometría (Hunyuan3D-DiT)** : basado en una arquitectura Transformer de difusión por flujo, genera modelos geométricos sin textura que coinciden con precisión con las condiciones de entrada.
   2. **Modelo de generación de texturas (Hunyuan3D-Paint)** : combina condiciones geométricas y técnicas de difusión multivista para añadir texturas de alta resolución a los modelos, con soporte para materiales PBR.
@@ -154,7 +154,7 @@ Nodo `LoadImage` 87 · vista derecha
 
 Descarga las imágenes de abajo y arrástralas a ComfyUI para cargar el flujo de trabajo. ![Flujo de trabajo de Hunyuan3D-2mv](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/3d/hunyuan3d-2/hunyuan3d_2mv_elf/hunyuan-3d-multiview-elf.webp) Descarga las imágenes de abajo, las usaremos como imágenes de entrada. ![imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/3d/hunyuan3d-2/hunyuan3d_2mv_elf/front.png) ![imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/3d/hunyuan3d-2/hunyuan3d_2mv_elf/left.png) ![imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/3d/hunyuan3d-2/hunyuan3d_2mv_elf/back.png)
 
-En este ejemplo, las imágenes de entrada ya vienen preprocesadas para eliminar el exceso de fondo. En el uso real, puedes usar Nodos personalizados como [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) para eliminar automáticamente el exceso de fondo.
+En este ejemplo, las imágenes de entrada ya vienen preprocesadas para eliminar el exceso de fondo. En la práctica, puedes usar nodos personalizados como [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) para eliminar automáticamente el exceso de fondo.
 
 ### 
 
@@ -243,7 +243,7 @@ Descarga las siguientes imágenes y arrástralas a ComfyUI para cargar el flujo 
 
 ​
 
-2\. Instalación manual del modelo
+2\. Instalar el modelo manualmente
 
 Descarga el siguiente modelo y guárdalo en la carpeta correspondiente de ComfyUI
 
@@ -337,7 +337,7 @@ Descarga el modelo de abajo y guárdalo en la carpeta correspondiente de ComfyUI
 
 ![ComfyUI hunyuan3d_2](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/tutorial/3d/hunyuan3d-2mv/hunyuan3d_2_non_multiview.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=33c158fcfb133560674aa56bfdb5087d)
 
-  1. Asegúrate de que el nodo `Image Only Checkpoint Loader(img2vid model)` haya cargado el modelo `hunyuan3d-dit-v2.safetensors` que renombramos
+  1. Asegúrate de que el nodo `Image Only Checkpoint Loader(img2vid model)` haya cargado nuestro modelo `hunyuan3d-dit-v2.safetensors` renombrado
   2. Carga la imagen en el nodo `Load Image`
   3. Haz clic en el botón `Queue`, o usa el atajo `Ctrl(cmd) + Enter` para ejecutar el flujo de trabajo
 
@@ -349,7 +349,7 @@ Descarga el modelo de abajo y guárdalo en la carpeta correspondiente de ComfyUI
 
 Flujo de trabajo de vista única de Hunyuan3D 2.1
 
-Hunyuan3D 2.1 es el modelo de forma posterior de Tencent, lanzado en junio de 2025. Refina la calidad geométrica de Hunyuan3D 2.0, y el checkpoint de ComfyUI reempaqueta el pipeline de forma en un solo archivo, así que este flujo de trabajo necesita una sola descarga de modelo en lugar de archivos DiT y VAE separados. Al igual que los otros flujos de trabajo de esta página, genera una malla sin textura.
+Hunyuan3D 2.1 es el modelo de forma sucesor de Tencent, lanzado en junio de 2025. Refina la calidad geométrica de Hunyuan3D 2.0, y el checkpoint de ComfyUI reempaqueta el pipeline de forma en un solo archivo, así que este flujo de trabajo necesita una sola descarga de modelo en lugar de archivos DiT y VAE separados. Al igual que los otros flujos de trabajo de esta página, genera una malla sin textura.
 
 ### 
 
@@ -426,7 +426,7 @@ A continuación, encontrarás recursos de la comunidad de ComfyUI relacionados c
 
 Serie de modelos de código abierto Hunyuan3D 2.0
 
-Actualmente, Hunyuan3D 2.0 ha publicado como código abierto varios modelos que cubren todo el proceso de generación 3D. Puedes visitar [Hunyuan3D-2](https://github.com/Tencent/Hunyuan3D-2) para obtener más información. **Serie Hunyuan3D-2mini**
+Actualmente, Hunyuan3D 2.0 tiene varios modelos de código abierto que cubren el proceso completo de generación 3D. Puedes visitar [Hunyuan3D-2](https://github.com/Tencent/Hunyuan3D-2) para obtener más información. **Serie Hunyuan3D-2mini**
 
 Modelo| Descripción| Fecha| Parámetros| Huggingface  
 ---|---|---|---|---  
@@ -436,17 +436,17 @@ Hunyuan3D-DiT-v2-mini| Modelo mini de imagen a forma| 2025-03-18| 0.6B| [Visitar
 
 Modelo| Descripción| Fecha| Parámetros| Huggingface  
 ---|---|---|---|---  
-Hunyuan3D-DiT-v2-mv-Fast| Versión de destilación de guía; puede reducir a la mitad el tiempo de inferencia del DIT| 2025-03-18| 1.1B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2mv/tree/main/hunyuan3d-dit-v2-mv-fast)  
-Hunyuan3D-DiT-v2-mv| Modelo de imagen multivista a forma, adecuado para la creación 3D que requiere varios ángulos para entender la escena| 2025-03-18| 1.1B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2mv/tree/main/hunyuan3d-dit-v2-mv)  
+Hunyuan3D-DiT-v2-mv-Fast| Versión de destilación de orientación, puede reducir a la mitad el tiempo de inferencia del DIT| 2025-03-18| 1.1B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2mv/tree/main/hunyuan3d-dit-v2-mv-fast)  
+Hunyuan3D-DiT-v2-mv| Modelo de imagen a forma multivista, adecuado para creaciones 3D que requieren varios ángulos para entender la escena| 2025-03-18| 1.1B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2mv/tree/main/hunyuan3d-dit-v2-mv)  
   
 **Serie Hunyuan3D-2**
 
 Modelo| Descripción| Fecha| Parámetros| Huggingface  
 ---|---|---|---|---  
-Hunyuan3D-DiT-v2-0-Fast| Modelo de destilación de guía| 2025-02-03| 1.1B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2/tree/main/hunyuan3d-dit-v2-0-fast)  
+Hunyuan3D-DiT-v2-0-Fast| Modelo de destilación de orientación| 2025-02-03| 1.1B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2/tree/main/hunyuan3d-dit-v2-0-fast)  
 Hunyuan3D-DiT-v2-0| Modelo de imagen a forma| 2025-01-21| 1.1B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2/tree/main/hunyuan3d-dit-v2-0)  
 Hunyuan3D-Paint-v2-0| Modelo de generación de texturas| 2025-01-21| 1.3B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2/tree/main/hunyuan3d-paint-v2-0)  
-Hunyuan3D-Delight-v2-0| Modelo Delight de imagen| 2025-01-21| 1.3B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2/tree/main/hunyuan3d-delight-v2-0)  
+Hunyuan3D-Delight-v2-0| Modelo de delight de imagen| 2025-01-21| 1.3B| [Visitar](https://huggingface.co/tencent/Hunyuan3D-2/tree/main/hunyuan3d-delight-v2-0)  
   
 ¿Esta página le ayudó?
 

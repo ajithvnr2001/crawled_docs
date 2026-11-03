@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/context-menu-migration/
 title: Gu\u00eda de migraci\u00f3n del men\u00fa contextual - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.883510+00:00
+fetched_at: 2026-11-03T14:55:25.051420+00:00
 ---
 
 # Guía de migración del menú contextual - ComfyUI
@@ -23,14 +23,14 @@ Volver arriba
     * Diferencias clave
   * Patrones comunes
     * Elementos de menú condicionales
-    * Añadir separadores
+    * Agregar separadores
     * Crear submenús
     * Acceder al estado
   * Solución de problemas
     * Cómo identificar el uso de la API antigua
     * Entender las advertencias de obsolescencia
-    * Verificar que la migración funcionó
-    * Ejemplo de migración completo
+    * Verificar el éxito de la migración
+    * Ejemplo completo de migración
   * Recursos adicionales
 
 
@@ -127,7 +127,7 @@ Enfoque anterior| Enfoque nuevo
 Modificado en `setup()`| Usa el hook `getCanvasMenuItems()`  
 Envuelve la función existente| Devuelve los elementos del menú directamente  
 Modifica el arreglo `options`| Devuelve un arreglo nuevo  
-Acceso al lienzo mediante `this`| Lienzo recibido como parámetro  
+Acceso al lienzo mediante `this`| El lienzo se pasa como parámetro  
   
 ## 
 
@@ -150,7 +150,7 @@ El enfoque anterior modificaba el prototipo del tipo de nodo:
       name: "MyExtension",
       async beforeRegisterNodeDef(nodeType, nodeData, app) {
         if (nodeType.comfyClass === "KSampler") {
-          // ❌ ANTERIOR: modificar el prototipo del nodo
+          // ❌ ANTERIOR: parchear el prototipo del nodo
           const original = nodeType.prototype.getExtraMenuOptions
           nodeType.prototype.getExtraMenuOptions = function(canvas, options) {
             original?.apply(this, arguments)
@@ -216,7 +216,7 @@ Enfoque anterior| Enfoque nuevo
 Se modificaba en `beforeRegisterNodeDef()`| Usa el hook `getNodeMenuItems()`  
 Específico por tipo mediante una comprobación `if`| Específico por tipo mediante una comprobación `if` en el hook  
 Modifica el array `options`| Devuelve un array nuevo  
-Se accede al nodo mediante `this`| El nodo se pasa como parámetro  
+Acceso al nodo mediante `this`| El nodo se pasa como parámetro  
   
 ## 
 
@@ -254,9 +254,9 @@ Ambos enfoques admiten elementos condicionales, pero la nueva API es más limpia
 
 ​
 
-Añadir separadores
+Agregar separadores
 
-Los separadores se añaden de la misma forma en ambos enfoques:
+Los separadores se agregan de la misma forma en ambos enfoques:
     
     
     getCanvasMenuItems(canvas) {
@@ -294,9 +294,9 @@ La forma recomendada de crear submenús es usar la propiedad declarativa `submen
     }
     
 
-Este enfoque declarativo es más limpio y coincide con los patrones que se usan en todo el código de ComfyUI.
+Este enfoque declarativo es más limpio y coincide con los patrones usados en todo el código base de ComfyUI.
 
-Aunque también se admite un enfoque basado en callbacks con `has_submenu: true` y `new LiteGraph.ContextMenu()`, se prefiere la propiedad declarativa `submenu` porque es más fácil de mantener.
+Aunque también se admite un enfoque basado en callbacks con `has_submenu: true` y `new LiteGraph.ContextMenu()`, se prefiere la propiedad declarativa `submenu` por su mejor mantenibilidad.
 
 ### 
 
@@ -358,19 +358,19 @@ Si ves esta advertencia en la consola:
     See: https://docs.comfy.org/custom-nodes/js/context-menu-migration
     
 
-Tu extensión está usando el enfoque antiguo y deberías migrarla.
+Tu extensión está usando el enfoque anterior y debes migrarla.
 
 ### 
 
 ​
 
-Verificar que la migración funcionó
+Verificar el éxito de la migración
 
 Después de la migración:
 
-  1. Elimina todas las modificaciones de prototipos de `setup()` y `beforeRegisterNodeDef()`
-  2. Añade los hooks `getCanvasMenuItems()` y/o `getNodeMenuItems()`
-  3. Comprueba que tus elementos de menú siguen apareciendo correctamente
+  1. Elimina todas las modificaciones de prototipo de `setup()` y `beforeRegisterNodeDef()`
+  2. Agrega los ganchos `getCanvasMenuItems()` y/o `getNodeMenuItems()`
+  3. Verifica que tus elementos del menú sigan apareciendo correctamente
   4. Verifica que no aparezcan advertencias de obsolescencia en la consola
 
 
@@ -379,9 +379,9 @@ Después de la migración:
 
 ​
 
-Ejemplo de migración completo
+Ejemplo completo de migración
 
-**Antes:**
+**ANTES:**
     
     
     app.registerExtension({
@@ -406,7 +406,7 @@ Ejemplo de migración completo
     })
     
 
-**Después:**
+**DESPUÉS:**
     
     
     app.registerExtension({
@@ -433,9 +433,9 @@ Ejemplo de migración completo
 
 Recursos adicionales
 
-  * [Ejemplos comentados](https://docs.comfy.org/es/custom-nodes/js/javascript_examples): más ejemplos con la nueva API
-  * [Ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks): lista completa de los ganchos de extensión disponibles
-  * [Comandos y atajos de teclado](https://docs.comfy.org/es/custom-nodes/js/javascript_commands_keybindings): agrega atajos de teclado a las acciones de tu menú
+  * [Ejemplos anotados](https://docs.comfy.org/es/custom-nodes/js/javascript_examples): Más ejemplos con la nueva API
+  * [Ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks): Lista completa de los ganchos de extensión disponibles
+  * [Comandos y atajos de teclado](https://docs.comfy.org/es/custom-nodes/js/javascript_commands_keybindings): Agrega atajos de teclado a las acciones de tu menú
 
 
 

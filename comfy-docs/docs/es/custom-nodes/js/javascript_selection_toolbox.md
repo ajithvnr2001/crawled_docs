@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox/
 title: Selection Toolbox - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:51.434134+00:00
+fetched_at: 2026-11-03T14:55:25.317191+00:00
 ---
 
 # Selection Toolbox - ComfyUI
@@ -14,10 +14,10 @@ fetched_at: 2026-10-26T14:02:51.434134+00:00
 Volver arriba
 
   * Uso básico
-  * Definición de comando
+  * Definición de comandos
   * Opciones de iconos
   * Visibilidad dinámica de comandos
-  * Trabajar con los elementos seleccionados
+  * Trabajar con elementos seleccionados
   * Ejemplo completo
   * Notas
 
@@ -33,7 +33,7 @@ Añade comandos de acción personalizados a Selection Toolbox de ComfyUI para no
 
 Copiar páginaCopiar página
 
-La API Selection Toolbox permite a las extensiones agregar botones de acción personalizados que aparecen al seleccionar nodos en el lienzo. Esto brinda acceso rápido a comandos contextuales para los elementos seleccionados (nodos, grupos, etc.).
+La API de Selection Toolbox permite a las extensiones agregar botones de acción personalizados que aparecen al seleccionar nodos en el lienzo. Esto brinda acceso rápido a comandos contextuales para los elementos seleccionados (nodos, grupos, etc.).
 
 ## 
 
@@ -41,12 +41,12 @@ La API Selection Toolbox permite a las extensiones agregar botones de acción pe
 
 Uso básico
 
-Para añadir comandos al cuadro de herramientas de selección, tu extensión debe:
+Para agregar comandos al cuadro de herramientas de selección, tu extensión necesita:
 
-  1. Definir los comandos con la [interfaz de comandos](https://docs.comfy.org/es/custom-nodes/js/javascript_commands_keybindings) estándar
+  1. Definir los comandos con la [interfaz de comandos](https://docs.comfy.org/custom-nodes/js/javascript_commands_keybindings) estándar
   2. Implementar el método `getSelectionToolboxCommands` para especificar qué comandos aparecen en el cuadro de herramientas
 
-Nota: el método `getSelectionToolboxCommands` se llama para cada elemento del conjunto de selección cada vez que se realiza una nueva selección.
+Nota: el método `getSelectionToolboxCommands` se llama para cada elemento del conjunto de selección cada vez que haces una nueva selección.
     
     
     app.registerExtension({
@@ -73,16 +73,16 @@ Nota: el método `getSelectionToolboxCommands` se llama para cada elemento del c
 
 ​
 
-Definición de comando
+Definición de comandos
 
 Los comandos del cuadro de herramientas de selección usan la interfaz de comandos estándar de ComfyUI:
     
     
     {
-      id: string,          // Unique identifier for the command
-      label: string,       // Display text for the button tooltip
-      icon?: string,       // Icon class for the button (optional)
-      function: (selectedItem) => void  // Function executed when clicked
+      id: string,          // Identificador único para el comando
+      label: string,       // Texto a mostrar en la información sobre herramientas del botón
+      icon?: string,       // Clase de icono para el botón (opcional)
+      function: (selectedItem) => void  // Función que se ejecuta al hacer clic
     }
     
 
@@ -107,7 +107,7 @@ Los botones del cuadro de herramientas de selección admiten las mismas bibliote
 
 Visibilidad dinámica de comandos
 
-El método `getSelectionToolboxCommands` se llama cada vez que cambia la selección, lo que te permite mostrar comandos distintos según lo que esté seleccionado:
+Cada vez que cambia la selección se llama al método `getSelectionToolboxCommands`, lo que te permite mostrar comandos diferentes según lo que esté seleccionado:
     
     
     app.registerExtension({
@@ -151,9 +151,9 @@ El método `getSelectionToolboxCommands` se llama cada vez que cambia la selecci
 
 ​
 
-Trabajar con los elementos seleccionados
+Trabajar con elementos seleccionados
 
-Accede a la información de los elementos seleccionados a través del objeto canvas de la app. La propiedad `selectedItems` es un Set que incluye nodos, grupos y otros elementos del lienzo:
+Accede a la información sobre los elementos seleccionados a través del objeto canvas de la aplicación. La propiedad `selectedItems` es un Set que incluye nodos, grupos y otros elementos del lienzo:
     
     
     app.registerExtension({
@@ -189,7 +189,7 @@ Accede a la información de los elementos seleccionados a través del objeto can
 
 Ejemplo completo
 
-Aquí tienes un ejemplo sencillo que muestra varias características del cuadro de herramientas de selección:
+Aquí tienes un ejemplo sencillo que muestra varias funciones del cuadro de herramientas de selección:
     
     
     app.registerExtension({
@@ -271,9 +271,9 @@ Aquí tienes un ejemplo sencillo que muestra varias características del cuadro 
 
 Notas
 
-  * La cuadro de herramientas de selección debe estar habilitada en las configuraciones: `Comfy.Canvas.SelectionToolbox`
+  * El cuadro de herramientas de selección debe estar habilitado en las configuraciones: `Comfy.Canvas.SelectionToolbox`
   * Los comandos deben definirse en el arreglo `commands` antes de referenciarlos en `getSelectionToolboxCommands`
-  * La cuadro de herramientas se actualiza automáticamente cuando cambia la selección
+  * El cuadro de herramientas se actualiza automáticamente cuando cambia la selección
   * El método `getSelectionToolboxCommands` se llama para cada elemento del conjunto de selección cada vez que se realiza una nueva selección
   * Usa `app.canvas.selectedItems` (un Set) para acceder a todos los elementos seleccionados, incluidos nodos, grupos y otros elementos del lienzo
   * Por compatibilidad con versiones anteriores, `app.canvas.selected_nodes` todavía existe, pero solo contiene nodos

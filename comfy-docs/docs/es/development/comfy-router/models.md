@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/
 title: Modelos de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:54.089483+00:00
+fetched_at: 2026-11-03T14:55:23.831828+00:00
 ---
 
 # Modelos de Comfy Router - ComfyUI
@@ -70,7 +70,7 @@ Todos los modelos que aparecen a continuación se sirven por la misma ruta, `POS
 
 Buscar por salida
 
-Video (78)
+Video (76)
 
   * [SwitchX](https://docs.comfy.org/es/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/es/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -106,8 +106,6 @@ Video (78)
   * [LTX 2.5 Fast](https://docs.comfy.org/es/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/es/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
   * [Ray 3.2](https://docs.comfy.org/es/development/comfy-router/models/luma_2/ray-3-2/code): `luma_2/ray-3.2`
-  * [Ray 2](https://docs.comfy.org/es/development/comfy-router/models/luma/ray-2/code): `luma/ray-2`
-  * [Ray Flash 2](https://docs.comfy.org/es/development/comfy-router/models/luma/ray-flash-2/code): `luma/ray-flash-2`
   * [MiniMax H3](https://docs.comfy.org/es/development/comfy-router/models/minimax/minimax-h3/code): `minimax/minimax-h3`
   * [Image To Video](https://docs.comfy.org/es/development/comfy-router/models/moonvalley/image-to-video/code): `moonvalley/image-to-video`
   * [Text To Video](https://docs.comfy.org/es/development/comfy-router/models/moonvalley/text-to-video/code): `moonvalley/text-to-video`
@@ -153,7 +151,7 @@ Video (78)
 
 
 
-Imagen (92)
+Imagen (91)
 
   * [SwitchX](https://docs.comfy.org/es/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [Erase V1](https://docs.comfy.org/es/development/comfy-router/models/black-forest-labs/erase-v1/code): `bfl/erase-v1`
@@ -216,7 +214,6 @@ Imagen (92)
   * [Photon 1](https://docs.comfy.org/es/development/comfy-router/models/luma/photon-1/code): `luma/photon-1`
   * [Photon Flash 1](https://docs.comfy.org/es/development/comfy-router/models/luma/photon-flash-1/code): `luma/photon-flash-1`
   * [GPT Image 1.5](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-1-5/code): `openai/gpt-image-1.5`
-  * [GPT Image 1](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-1/code): `openai/gpt-image-1`
   * [GPT Image 2.5 Flare](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code): `openai/gpt-image-2.5-flare`
   * [GPT Image 2.5 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code): `openai/gpt-image-2.5-sunburst`
   * [GPT Image 2](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2/code): `openai/gpt-image-2`
@@ -296,7 +293,7 @@ Audio (41)
 
 
 
-3D (11)
+3D (10)
 
   * [Animations](https://docs.comfy.org/es/development/comfy-router/models/meshy/animations/code): `meshy/animations`
   * [Meshy 6](https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-6/code): `meshy/meshy-6`
@@ -311,7 +308,7 @@ Audio (41)
 
 
 
-Texto (46)
+Texto (42)
 
   * [Claude Fable 5.1](https://docs.comfy.org/es/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
   * [Claude Fable 5](https://docs.comfy.org/es/development/comfy-router/models/anthropic/claude-fable-5/code): `anthropic/claude-fable-5`
@@ -340,7 +337,6 @@ Texto (46)
   * [Nano Banana 2](https://docs.comfy.org/es/development/comfy-router/models/google/nano-banana-2/code): `vertexai/gemini-3.1-flash-image`
   * [Nano Banana Pro](https://docs.comfy.org/es/development/comfy-router/models/google/nano-banana-pro/code): `vertexai/gemini-3-pro-image`
   * [GPT 4.1 Mini](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1-mini/code): `openai/gpt-4.1-mini`
-  * [GPT 4.1 Nano](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1-nano/code): `openai/gpt-4.1-nano`
   * [GPT 4.1](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1/code): `openai/gpt-4.1`
   * [GPT 4o](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4o/code): `openai/gpt-4o`
   * [GPT 5.5 Pro](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5-5-pro/code): `openai/gpt-5.5-pro`
@@ -354,10 +350,7 @@ Texto (46)
   * [GPT 6 Astra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-astra/code): `openai/gpt-6-astra`
   * [GPT 6 Luna](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-luna/code): `openai/gpt-6-luna`
   * [GPT 6 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-sol/code): `openai/gpt-6-sol`
-  * [o1-pro](https://docs.comfy.org/es/development/comfy-router/models/openai/o1-pro/code): `openai/o1-pro`
-  * [o1](https://docs.comfy.org/es/development/comfy-router/models/openai/o1/code): `openai/o1`
   * [o3](https://docs.comfy.org/es/development/comfy-router/models/openai/o3/code): `openai/o3`
-  * [o4-mini](https://docs.comfy.org/es/development/comfy-router/models/openai/o4-mini/code): `openai/o4-mini`
   * [Chat Completions](https://docs.comfy.org/es/development/comfy-router/models/openrouter/chat-completions/code): `openrouter/chat-completions`
 
 
@@ -496,7 +489,7 @@ Modelo| ID| Entrada| Salida
 [Crystal Upscaler](https://docs.comfy.org/es/development/comfy-router/models/fal/crystal-upscaler/code)| `fal/crystal-upscaler`| Imagen| Imagen  
 [Crystal Video Upscaler](https://docs.comfy.org/es/development/comfy-router/models/fal/crystal-video-upscaler/code)| `fal/crystal-video-upscaler`| Video| Video  
 [FLUX 3 Max](https://docs.comfy.org/es/development/comfy-router/models/fal/flux-3-max/code)| `fal/flux-3-max`| Texto, Imagen| Video + Audio  
-[H3 Max Turbo](https://docs.comfy.org/es/development/comfy-router/models/fal/h3-max-turbo/code)| `fal/h3-max-turbo`| Texto, Imagen| Video + Audio  
+[H3 Max Turbo](https://docs.comfy.org/es/development/comfy-router/models/fal/h3-max-turbo/code)| `fal/h3-max-turbo`| Texto, Imagen, Video, Audio| Video + Audio  
 [H3 Max](https://docs.comfy.org/es/development/comfy-router/models/fal/h3-max/code)| `fal/h3-max`| Texto, Imagen, Video, Audio| Video + Audio  
 [Patina](https://docs.comfy.org/es/development/comfy-router/models/fal/patina/code)| `fal/patina`| Imagen| Imagen  
   
@@ -631,8 +624,6 @@ Modelo| ID| Entrada| Salida
 ---|---|---|---  
 [Photon 1](https://docs.comfy.org/es/development/comfy-router/models/luma/photon-1/code)| `luma/photon-1`| Texto| Imagen  
 [Photon Flash 1](https://docs.comfy.org/es/development/comfy-router/models/luma/photon-flash-1/code)| `luma/photon-flash-1`| Texto| Imagen  
-[Ray 2](https://docs.comfy.org/es/development/comfy-router/models/luma/ray-2/code)| `luma/ray-2`| Texto, Imagen| Video  
-[Ray Flash 2](https://docs.comfy.org/es/development/comfy-router/models/luma/ray-flash-2/code)| `luma/ray-flash-2`| Texto, Imagen| Video  
   
 ## 
 
@@ -655,9 +646,9 @@ Meshy
 Modelo| ID| Entrada| Salida  
 ---|---|---|---  
 [Animations](https://docs.comfy.org/es/development/comfy-router/models/meshy/animations/code)| `meshy/animations`| 3D| 3D  
-[Meshy 6](https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-6/code)| `meshy/meshy-6`| Text| 3D  
-[Meshy 7.1](https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-7-1/code)| `meshy/meshy-7.1`| Text| 3D  
-[Meshy 7](https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-7/code)| `meshy/meshy-7`| Text| 3D  
+[Meshy 6](https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-6/code)| `meshy/meshy-6`| Texto| 3D  
+[Meshy 7.1](https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-7-1/code)| `meshy/meshy-7.1`| Texto| 3D  
+[Meshy 7](https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-7/code)| `meshy/meshy-7`| Texto| 3D  
 [Remesh](https://docs.comfy.org/es/development/comfy-router/models/meshy/remesh/code)| `meshy/remesh`| 3D| 3D  
 [Rigging](https://docs.comfy.org/es/development/comfy-router/models/meshy/rigging/code)| `meshy/rigging`| 3D| 3D  
   
@@ -692,7 +683,6 @@ OpenAI
 Modelo| ID| Entrada| Salida  
 ---|---|---|---  
 [GPT 4.1 Mini](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1-mini/code)| `openai/gpt-4.1-mini`| Texto, Imagen| Texto  
-[GPT 4.1 Nano](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1-nano/code)| `openai/gpt-4.1-nano`| Texto, Imagen| Texto  
 [GPT 4.1](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1/code)| `openai/gpt-4.1`| Texto, Imagen| Texto  
 [GPT 4o](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4o/code)| `openai/gpt-4o`| Texto, Imagen| Texto  
 [GPT 5.5 Pro](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5-5-pro/code)| `openai/gpt-5.5-pro`| Texto, Imagen| Texto  
@@ -707,14 +697,10 @@ Modelo| ID| Entrada| Salida
 [GPT 6 Luna](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-luna/code)| `openai/gpt-6-luna`| Texto, Imagen| Texto  
 [GPT 6 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-sol/code)| `openai/gpt-6-sol`| Texto, Imagen| Texto  
 [GPT Image 1.5](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-1-5/code)| `openai/gpt-image-1.5`| Texto, Imagen| Imagen  
-[GPT Image 1](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-1/code)| `openai/gpt-image-1`| Texto, Imagen| Imagen  
 [GPT Image 2.5 Flare](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-flare/code)| `openai/gpt-image-2.5-flare`| Texto, Imagen| Imagen  
 [GPT Image 2.5 Sunburst](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)| `openai/gpt-image-2.5-sunburst`| Texto, Imagen| Imagen  
 [GPT Image 2](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-image-2/code)| `openai/gpt-image-2`| Texto, Imagen| Imagen  
-[o1-pro](https://docs.comfy.org/es/development/comfy-router/models/openai/o1-pro/code)| `openai/o1-pro`| Texto, Imagen| Texto  
-[o1](https://docs.comfy.org/es/development/comfy-router/models/openai/o1/code)| `openai/o1`| Texto, Imagen| Texto  
 [o3](https://docs.comfy.org/es/development/comfy-router/models/openai/o3/code)| `openai/o3`| Texto, Imagen| Texto  
-[o4-mini](https://docs.comfy.org/es/development/comfy-router/models/openai/o4-mini/code)| `openai/o4-mini`| Texto, Imagen| Texto  
   
 ## 
 

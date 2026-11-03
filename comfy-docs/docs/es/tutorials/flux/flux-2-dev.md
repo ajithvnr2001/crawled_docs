@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/flux/flux-2-dev/
 title: FLUX.2 Dev en ComfyUI: texto a imagen y mockups de producto - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:43.078378+00:00
+fetched_at: 2026-11-03T14:55:29.115964+00:00
 ---
 
 # FLUX.2 Dev en ComfyUI: texto a imagen y mockups de producto - ComfyUI
@@ -37,17 +37,17 @@ Copiar páginaCopiar página
 
 Acerca de FLUX.2
 
-[FLUX.2](https://bfl.ai/blog/flux-2) es un modelo de imágenes de nueva generación de [Black Forest Labs](https://blackforestlabs.ai/), que ofrece resultados fotorrealistas de hasta 4MP con una mejora considerable en iluminación, piel, telas y detalle de las manos. Añade una consistencia fiable con múltiples referencias (hasta 10 imágenes), una precisión de edición mejorada, una mejor comprensión visual y un renderizado de texto de nivel profesional. **Características principales:**
+[FLUX.2](https://bfl.ai/blog/flux-2) es un modelo de imágenes de nueva generación de [Black Forest Labs](https://blackforestlabs.ai/) que ofrece resultados fotorrealistas de hasta 4MP con una mejora considerable en iluminación, piel, telas y detalle de las manos. Añade una consistencia fiable con múltiples referencias (hasta 10 imágenes), mayor precisión de edición, una mejor comprensión visual y un renderizado de texto de nivel profesional. **Características principales:**
 
   * **Consistencia con múltiples referencias:** Mantiene de forma fiable la identidad, la geometría del producto, las texturas, los materiales, el vestuario y la intención de composición en múltiples salidas
-  * **Fotorrealismo de alta resolución:** Genera imágenes de hasta 4MP con un comportamiento realista de la iluminación, razonamiento espacial y detalles que tienen en cuenta la física
+  * **Fotorrealismo de alta resolución:** Genera imágenes de hasta 4MP con un comportamiento de iluminación realista, razonamiento espacial y detalles que tienen en cuenta la física
   * **Control de nivel profesional:** Control exacto de la pose, colores de marca precisos según el código hex, cualquier relación de aspecto y prompts estructurados para flujos de trabajo programáticos
   * **Renderizado de texto utilizable:** Produce texto limpio y legible en pantallas de interfaz, infografías y contenido en varios idiomas
 
 **Modelos disponibles:**
 
-  * **FLUX.2 Dev:** Modelo de código abierto (utilizado en este tutorial)
-  * **FLUX.2 Pro:** Versión API de Black Forest Labs
+  * **FLUX.2 Dev:** Modelo de código abierto (el que se usa en este tutorial)
+  * **FLUX.2 Pro:** Versión de API de Black Forest Labs
 
 
 

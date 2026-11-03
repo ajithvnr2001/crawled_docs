@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/subgraphs/
 title: Subgrafos de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:51.667424+00:00
+fetched_at: 2026-11-03T14:55:24.179454+00:00
 ---
 
 # Subgrafos de ComfyUI - ComfyUI
@@ -14,18 +14,18 @@ fetched_at: 2026-10-26T14:02:51.667424+00:00
 Volver arriba
 
   * Descripción general
-  * Identificadores de nodo
-  * Recorrer los nodos
+  * Identificadores de nodos
+  * Recorrer nodos
     * Solo la capa actual
     * Todos los nodos de forma recursiva
-  * Grafo raíz vs grafo activo
+  * Gráfico raíz frente a gráfico activo
   * Eventos
-    * Eventos de nivel de subgrafo
-    * Eventos de nivel de lienzo
+    * Eventos a nivel de subgrafo
+    * Eventos a nivel de lienzo
     * Patrón de escucha
   * Promoción de widgets
   * Limpieza
-  * Véase también
+  * Ver también
 
 
 
@@ -51,17 +51,17 @@ Los subgrafos permiten agrupar nodos en componentes reutilizables y anidables. C
 
 ​
 
-Identificadores de nodo
+Identificadores de nodos
 
-ComfyUI usa tres tipos distintos de identificador de nodo. Usar el equivocado provoca fallos silenciosos.
+ComfyUI usa tres tipos distintos de identificadores de nodos. Usar el incorrecto causa fallos silenciosos.
 
 Tipo| Formato| Se usa para  
 ---|---|---  
-`node.id`| `42` (número)| Local a su nivel inmediato del grafo. `graph.getNodeById(id)`  
+`node.id`| `42` (número)| Local al nivel inmediato de su gráfico. `graph.getNodeById(id)`  
 ID de ejecución| `"1:2:3"` (cadena separada por dos puntos)| Mensajes de progreso del backend, `UNIQUE_ID`  
 ID de localizador| `"<uuid>:<localId>"` o `"<localId>"`| Estado de la UI: insignias, errores, imágenes  
   
-Para construir el ID de localizador de un nodo desde dentro de una extensión:
+Para construir el ID de localizador de un nodo desde una extensión:
     
     
     function getLocatorId(node) {
@@ -74,7 +74,7 @@ Para construir el ID de localizador de un nodo desde dentro de una extensión:
 
 ​
 
-Recorrer los nodos
+Recorrer nodos
 
 ### 
 
@@ -94,7 +94,7 @@ Solo la capa actual
 
 Todos los nodos de forma recursiva
 
-Para entrar en subgrafos anidados, usa un helper recursivo que llame a un callback en cada nodo:
+Para entrar en los subgrafos anidados, usa un auxiliar recursivo que llame a un callback en cada nodo:
     
     
     function walkGraph(graph, callback) {
@@ -131,12 +131,12 @@ Ejemplo completo:
 
 ​
 
-Grafo raíz vs grafo activo
+Gráfico raíz frente a gráfico activo
 
-Quieres…| Usa  
+Lo que quieres hacer| Usa  
 ---|---  
-Operar sobre todos los nodos del flujo de trabajo| `app.graph` (raíz)  
-Operar solo sobre la capa visible| `app.canvas?.graph`  
+Operar en todos los nodos del flujo de trabajo| `app.graph` (raíz)  
+Operar solo en la capa visible| `app.canvas?.graph`  
 Acceder a un subgrafo específico| `someNode.subgraph`  
       
     
@@ -157,17 +157,17 @@ Eventos
 
 ​
 
-Eventos de nivel de subgrafo
+Eventos a nivel de subgrafo
 
-Se emiten en `subgraph.events`:
+Se despachan en `subgraph.events`:
 
 Evento| Carga útil| Cuándo  
 ---|---|---  
 `widget-promoted`| `{ widget, subgraphNode }`| Widget promovido al nodo padre  
 `widget-demoted`| `{ widget, subgraphNode }`| Widget eliminado del nodo padre  
-`input-added`| `{ input }`| Ranura de entrada añadida  
+`input-added`| `{ input }`| Ranura de entrada agregada  
 `removing-input`| `{ input, index }`| Ranura de entrada en proceso de eliminación  
-`output-added`| `{ output }`| Ranura de salida añadida  
+`output-added`| `{ output }`| Ranura de salida agregada  
 `removing-output`| `{ output, index }`| Ranura de salida en proceso de eliminación  
 `renaming-input`| `{ input, index, oldName, newName }`| Ranura de entrada renombrada  
 `renaming-output`| `{ output, index, oldName, newName }`| Ranura de salida renombrada  
@@ -176,14 +176,14 @@ Evento| Carga útil| Cuándo
 
 ​
 
-Eventos de nivel de lienzo
+Eventos a nivel de lienzo
 
-Se emiten en `app.canvas.canvas` (el elemento canvas de HTML):
+Se despachan en `app.canvas.canvas` (el elemento HTML canvas):
 
 Evento| Carga útil| Cuándo  
 ---|---|---  
-`subgraph-opened`| `{ subgrafo, closingGraph, fromNode }`| El usuario navega dentro de un subgrafo  
-`subgraph-converted`| `{ subgraphNode }`| Una selección se convierte en un subgrafo  
+`subgraph-opened`| `{ subgraph, closingGraph, fromNode }`| El usuario navega hacia un subgrafo  
+`subgraph-converted`| `{ subgraphNode }`| La selección se convierte en un subgrafo  
   
 ### 
 
@@ -211,9 +211,9 @@ Patrón de escucha
 
 Promoción de widgets
 
-Cuando un `SubgraphInput` se conecta a un widget dentro de un subgrafo, aparece una copia de ese widget en el nodo de subgrafo padre. Esto dispara `widget-promoted`. Eliminar la conexión dispara `widget-demoted`.
+Cuando un `SubgraphInput` se conecta a un widget dentro de un subgrafo, aparece una copia de ese widget en el nodo del subgrafo padre. Esto dispara `widget-promoted`. Al eliminar la conexión se dispara `widget-demoted`.
 
-El comportamiento de la promoción de widgets todavía está en evolución y puede cambiar en versiones futuras.
+El comportamiento de la promoción de widgets todavía está en evolución y puede cambiar en futuras versiones.
     
     
     import { app } from "../../scripts/app.js"
@@ -259,7 +259,7 @@ El comportamiento de la promoción de widgets todavía está en evolución y pue
 
 Limpieza
 
-Usa un `AbortController` para limpiar todos los listeners de eventos cuando se elimina un nodo.
+Usa un `AbortController` para limpiar todos los detectores de eventos cuando se elimina un nodo.
     
     
     import { app } from "../../scripts/app.js"
@@ -289,13 +289,13 @@ Usa un `AbortController` para limpiar todos los listeners de eventos cuando se e
     })
     
 
-`onRemoved` también puede dispararse durante la conversión de un subgrafo, no solo al eliminar. Protege la lógica de desmontaje si necesitas conservar el estado durante la reestructuración.
+`onRemoved` también puede dispararse durante la conversión de un subgraph, no solo al eliminar. Protege la lógica de limpieza si necesitas conservar el estado durante la reestructuración.
 
 ## 
 
 ​
 
-Véase también
+Ver también
 
   * [Subgrafos (guía del usuario)](https://docs.comfy.org/es/interface/features/subgraph)
   * [Ganchos de extensión](https://docs.comfy.org/es/custom-nodes/js/javascript_hooks)

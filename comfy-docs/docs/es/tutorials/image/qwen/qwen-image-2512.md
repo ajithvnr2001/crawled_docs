@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-2512/
-title: Ejemplo de flujo de trabajo nativo de ComfyUI con Qwen-Image-2512 - ComfyUI
+title: Qwen-Image-2512 en ComfyUI: texto a imagen fotorrealista - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:45.098349+00:00
+fetched_at: 2026-11-03T14:55:29.283105+00:00
 ---
 
-# Ejemplo de flujo de trabajo nativo de ComfyUI con Qwen-Image-2512 - ComfyUI
+# Qwen-Image-2512 en ComfyUI: texto a imagen fotorrealista - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-2512/
 
@@ -14,20 +14,20 @@ fetched_at: 2026-10-26T14:03:45.098349+00:00
 Volver arriba
 
   * Relaciones de aspecto compatibles
-  * Ejemplo de flujo de trabajo nativo de ComfyUI para Qwen-Image-2512
+  * Ejemplo de flujo de trabajo nativo de Qwen-Image-2512 en ComfyUI
     * Qwen Image 2512
     * 1\. Archivo del flujo de trabajo
-    * 2\. Descarga del modelo
+    * 2\. Descarga de modelos
 
 
 
 Qwen
 
-# Ejemplo de flujo de trabajo nativo de ComfyUI con Qwen-Image-2512
+# Qwen-Image-2512 en ComfyUI: texto a imagen fotorrealista
 
 Copiar páginaCopiar página
 
-Genera imágenes con Qwen-Image-2512 en ComfyUI, la actualización de diciembre de Qwen-Image con más realismo humano, detalles naturales más finos y mejor texto.
+Genera imágenes en 7 relaciones de aspecto en ComfyUI con la actualización de diciembre de Qwen-Image, para realismo humano, detalle natural y texto preciso.
 
 Copiar páginaCopiar página
 
@@ -67,7 +67,7 @@ Relación de aspecto| Resolución
 
 ​
 
-Ejemplo de flujo de trabajo nativo de ComfyUI para Qwen-Image-2512
+Ejemplo de flujo de trabajo nativo de Qwen-Image-2512 en ComfyUI
 
   * Usuarios locales
 
@@ -98,7 +98,7 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Qwen Image 2512
 
-Modelo de texto a imagen con mayor realismo humano, detalles naturales más finos y mejor renderizado de texto. ![Vista previa del flujo de trabajo de Qwen-Image-2512](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_Image_2512-1.webp)
+Modelo de texto a imagen con realismo humano mejorado, detalles naturales más finos y mejor representación de texto. ![Vista previa del flujo de trabajo Qwen-Image-2512](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_Image_2512-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -108,7 +108,7 @@ Abrir en Comfy Cloud
 
 Descarga el JSON o busca “Qwen-Image-2512” en la Biblioteca de plantillas
 
-**Ejemplo de salida** ![Ejemplo de salida de Qwen-Image-2512](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_qwen_Image_2512.png)
+**Salida de ejemplo** ![Salida de ejemplo de Qwen-Image-2512](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_qwen_Image_2512.png)
 
 ### 
 
@@ -118,8 +118,8 @@ Descarga el JSON o busca “Qwen-Image-2512” en la Biblioteca de plantillas
 
 Después de actualizar ComfyUI, puedes encontrar el archivo del flujo de trabajo en las plantillas, o arrastrar la vista previa del flujo de trabajo de arriba a ComfyUI para cargarlo. El flujo de trabajo incluye dos subgrafos:
 
-  * **Text to Image (Qwen-Image 2512)** : generación estándar de 50 pasos
-  * **Text to Image (Qwen-Image 2512 4steps)** : generación acelerada de 4 pasos usando el LoRA Lightning
+  * **Texto a imagen (Qwen-Image 2512)** : generación estándar de 50 pasos
+  * **Texto a imagen (Qwen-Image 2512 4steps)** : generación acelerada de 4 pasos con Lightning LoRA
 
 
 
@@ -127,7 +127,7 @@ Después de actualizar ComfyUI, puedes encontrar el archivo del flujo de trabajo
 
 ​
 
-2\. Descarga del modelo
+2\. Descarga de modelos
 
 **Codificadores de texto**
 
@@ -139,7 +139,7 @@ Después de actualizar ComfyUI, puedes encontrar el archivo del flujo de trabajo
 
 **Modelos de difusión**
 
-  * [qwen_image_2512_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors) (Recomendado para la mayoría de usuarios)
+  * [qwen_image_2512_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors) (Recomendado para la mayoría de los usuarios)
   * [qwen_image_2512_bf16.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_2512_bf16.safetensors) (Si tienes suficiente VRAM y quieres mejor calidad)
 
 **VAE**

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/walkthrough/
 title: Crear nodos personalizados en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:52.176348+00:00
+fetched_at: 2026-11-03T14:55:23.286616+00:00
 ---
 
 # Crear nodos personalizados en ComfyUI - ComfyUI
@@ -19,7 +19,7 @@ Volver arriba
     * Definir el nodo
     * La función principal
     * Registrar el nodo
-  * Añadir algunas opciones
+  * Agregar algunas opciones
   * Ajustar la interfaz
     * Enviar un mensaje desde el servidor
     * Escribir una extensión de cliente
@@ -37,7 +37,7 @@ Guía paso a paso para crear un nodo personalizado en ComfyUI: define CATEGORY, 
 
 Copiar páginaCopiar página
 
-Esta página te guiará paso a paso por el proceso de crear un nodo personalizado. Nuestro ejemplo tomará un lote de imágenes y devolverá una de las imágenes. Inicialmente, el nodo devolverá la imagen que, en promedio, sea la más clara de color; luego lo extenderemos para que tenga una variedad de criterios de selección y, finalmente, agregaremos algo de código del lado del cliente. Esta página asume muy poco conocimiento de Python o Javascript. Después de este recorrido, profundiza en los detalles del [código del backend](https://docs.comfy.org/es/custom-nodes/backend/server_overview) y el [código del frontend](https://docs.comfy.org/es/custom-nodes/js/javascript_overview).
+Esta página te guiará paso a paso por el proceso de crear un nodo personalizado. Nuestro ejemplo tomará un lote de imágenes y devolverá una de ellas. Inicialmente, el nodo devolverá la imagen que, en promedio, sea la más clara de color; luego lo extenderemos para que tenga una serie de criterios de selección y, finalmente, agregaremos algo de código del lado del cliente. Esta página asume muy poco conocimiento de Python o Javascript. Después de este recorrido, profundiza en los detalles del [código del backend](https://docs.comfy.org/es/custom-nodes/backend/server_overview) y el [código del frontend](https://docs.comfy.org/es/custom-nodes/js/javascript_overview).
 
 ## 
 
@@ -116,7 +116,7 @@ La estructura básica de un nodo personalizado se describe en detalle [aquí](ht
 
 Un nodo personalizado se define con una clase de Python, que debe incluir estas cuatro cosas: `CATEGORY`, que especifica en qué parte del menú de agregar nuevo nodo se ubicará el nodo personalizado, `INPUT_TYPES`, que es un método de clase que define qué entradas recibirá el nodo (consulta [más adelante](https://docs.comfy.org/es/custom-nodes/backend/server_overview#input_types) los detalles del diccionario que devuelve), `RETURN_TYPES`, que define qué salidas producirá el nodo, y `FUNCTION`, el nombre de la función que se llamará cuando se ejecute el nodo.
 
-Observa que el tipo de dato de entrada y salida es `IMAGE` (singular) aunque esperamos recibir un lote de imágenes y devolver solo una. En Comfy, `IMAGE` significa lote de imágenes, y una sola imagen se trata como un lote de tamaño 1.
+Observa que el tipo de dato de entrada y salida es `IMAGE` (singular) aunque esperamos recibir un lote de imágenes y devolver solo una. En Comfy, `IMAGE` significa lote de imágenes, y una imagen individual se considera un lote de tamaño 1.
 
 ### 
 
@@ -130,7 +130,7 @@ La función principal, `choose_image`, recibe argumentos con nombre tal como se 
     import torch
     
 
-Luego agrega la función a tu clase. El tipo de dato de la imagen es `torch.Tensor` con forma `[B,H,W,C]`, donde `B` es el tamaño del lote y `C` es el número de canales: 3, para RGB. Si iteramos sobre ese tensor, obtendremos una serie de `B` tensores con forma `[H,W,C]`. El método `.flatten()` lo convierte en un tensor unidimensional de longitud `H*W*C`, `torch.mean()` toma la media y `.item()` convierte un tensor de un solo valor en un float de Python.
+Luego agrega la función a tu clase. El tipo de dato de la imagen es `torch.Tensor` con forma `[B,H,W,C]`, donde `B` es el tamaño del lote y `C` es el número de canales: 3, para RGB. Si iteramos sobre ese tensor, obtendremos una serie de `B` tensores con forma `[H,W,C]`. El método `.flatten()` lo convierte en un tensor unidimensional de longitud `H*W*C`, `torch.mean()` toma la media y `.item()` convierte un tensor de un solo valor en un `float` de Python.
     
     
     def choose_image(self, images):
@@ -142,8 +142,8 @@ Luego agrega la función a tu clase. El tipo de dato de la imagen es `torch.Tens
 
 Notas sobre esas dos últimas líneas:
 
-  * `images[brightest]` devolverá un tensor con forma `[H,W,C]`. `unsqueeze` se usa para insertar una dimensión (de longitud 1), en este caso, en la dimensión cero, y obtener `[B,H,W,C]` con `B=1`: una sola imagen.
-  * en `return (result,)`, la coma final es esencial para asegurar que devuelves una tupla.
+  * `images[brightest]` devolverá un tensor con forma `[H,W,C]`. `unsqueeze` inserta una dimensión (de longitud 1), en este caso, en la dimensión cero, para darnos `[B,H,W,C]` con `B=1`: una sola imagen.
+  * en `return (result,)`, la coma final es esencial para garantizar que devuelves una tupla.
 
 
 
@@ -176,9 +176,9 @@ Para una explicación detallada de cómo ComfyUI descubre y carga los nodos pers
 
 ​
 
-Añadir algunas opciones
+Agregar algunas opciones
 
-Ese nodo quizá sea un poco aburrido, así que podríamos añadir algunas opciones: un widget que te permita elegir la imagen más brillante, o la más roja, la más azul o la más verde. Edita tu `INPUT_TYPES` para que quede así:
+Ese nodo quizá sea un poco aburrido, así que podríamos agregar algunas opciones: un widget que te permita elegir la imagen más brillante, o la más roja, la más azul o la más verde. Edita tu `INPUT_TYPES` para que se vea así:
     
     
     @classmethod    
@@ -187,7 +187,7 @@ Ese nodo quizá sea un poco aburrido, así que podríamos añadir algunas opcion
                                 "mode": (["brightest", "reddest", "greenest", "bluest"],)} }
     
 
-Después, actualiza la función principal. Usaremos una definición bastante ingenua de ‘reddest’ (lo más rojo) como el valor medio de `R` de los píxeles dividido por la media de los tres colores. Así:
+Luego actualiza la función principal. Usaremos una definición bastante ingenua de “la más roja” como el valor promedio de `R` de los píxeles dividido entre el promedio de los tres colores. Así:
     
     
     def choose_image(self, images, mode):
@@ -210,7 +210,7 @@ Después, actualiza la función principal. Usaremos una definición bastante ing
 
 Ajustar la interfaz
 
-Quizá queramos algo de retroalimentación visual, así que enviemos un pequeño mensaje de texto para que se muestre.
+Tal vez queramos un poco de retroalimentación visual, así que enviemos un pequeño mensaje de texto para mostrarlo.
 
 ### 
 
@@ -218,13 +218,13 @@ Quizá queramos algo de retroalimentación visual, así que enviemos un pequeño
 
 Enviar un mensaje desde el servidor
 
-Esto requiere agregar dos líneas al código Python:
+Esto requiere agregar dos líneas al código de Python:
     
     
     from server import PromptServer
     
 
-y, al final del método `choose_image`, agrega una línea para enviar un mensaje al front end (`send_sync` recibe un tipo de mensaje, que debe ser único, y un diccionario)
+y, al final del método `choose_image`, agrega una línea para enviar un mensaje al frontend (`send_sync` recibe un tipo de mensaje, que debe ser único, y un diccionario)
     
     
     PromptServer.instance.send_sync("example.imageselector.textmessage", {"message":f"Picked image {best+1}"})
@@ -237,14 +237,14 @@ y, al final del método `choose_image`, agrega una línea para enviar un mensaje
 
 Escribir una extensión de cliente
 
-Para agregar algo de JavaScript al cliente, crea un subdirectorio, `web/js`, en el directorio de tu nodo personalizado y modifica el final de `__init__.py` para informarle a Comfy sobre él exportando `WEB_DIRECTORY`:
+Para agregar un poco de JavaScript al cliente, crea un subdirectorio, `web/js`, en el directorio de tu nodo personalizado y modifica el final de `__init__.py` para avisarle a Comfy sobre ello exportando `WEB_DIRECTORY`:
     
     
     WEB_DIRECTORY = "./web/js"
     __all__ = ['NODE_CLASS_MAPPINGS', 'WEB_DIRECTORY']
     
 
-La extensión de cliente se guarda como un archivo `.js` en el subdirectorio `web/js`, así que crea `image_selector/web/js/imageSelector.js` con el código a continuación. (Para más información, consulta [client side coding](https://docs.comfy.org/es/custom-nodes/js/javascript_overview)).
+La extensión de cliente se guarda como un archivo `.js` en el subdirectorio `web/js`, así que crea `image_selector/web/js/imageSelector.js` con el código de abajo. (Para más información, consulta [programación del lado del cliente](https://docs.comfy.org/es/custom-nodes/js/javascript_overview)).
     
     
     import { app } from "../../scripts/app.js";
@@ -257,7 +257,7 @@ La extensión de cliente se guarda como un archivo `.js` en el subdirectorio `we
     })
     
 
-Lo único que hicimos fue registrar una extensión y agregar un detector para el tipo de mensaje que enviamos en el método `setup()`. Esto lee el diccionario que enviamos (que se almacena en `event.detail`). Detén el servidor de Comfy, inícialo de nuevo, recarga la página web y ejecuta tu flujo de trabajo.
+Lo único que hemos hecho es registrar una extensión y agregar un receptor de eventos para el tipo de mensaje que enviamos en el método `setup()`. Esto lee el diccionario que enviamos (que se almacena en `event.detail`). Detén el servidor de Comfy, inícialo de nuevo, recarga la página web y ejecuta tu flujo de trabajo.
 
 ### 
 
@@ -275,4 +275,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/walkthrough.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/walkthrough)
 
-[Tipos de nodos y arquitectura](https://docs.comfy.org/es/custom-nodes/overview)[Ciclo de vida del nodo](https://docs.comfy.org/es/custom-nodes/backend/lifecycle)
+[Tipos de nodos y arquitectura](https://docs.comfy.org/es/custom-nodes/overview)[Propiedades del nodo](https://docs.comfy.org/es/custom-nodes/backend/server_overview)

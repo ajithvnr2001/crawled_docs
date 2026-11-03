@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfyui-server/startup-flags/
 title: Flags de inicio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:27.379937+00:00
+fetched_at: 2026-11-03T14:55:26.411133+00:00
 ---
 
 # Flags de inicio - ComfyUI
@@ -28,8 +28,8 @@ Volver arriba
   * Atención
   * VRAM y memoria
   * Rendimiento y depuración
-  * ComfyUI Manager
-  * Nodos personalizados y nodos de API
+  * Administrador de ComfyUI
+  * Nodos personalizados y Nodos API
   * Frontend y API
   * Registro y varios
 
@@ -45,11 +45,11 @@ Referencia de flags de inicio de ComfyUI: argumentos de main.py en comfy/cli_arg
 
 Copiar páginaCopiar página
 
-ComfyUI acepta argumentos de línea de comandos cuando se inicia con `python main.py`. Esta página documenta todos los flags definidos en [`comfy/cli_args.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/cli_args.py).
+ComfyUI acepta argumentos de línea de comandos cuando se inicia con `python main.py`. Esta página documenta cada flag definido en [`comfy/cli_args.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/cli_args.py).
 
-Los usuarios de **Windows Portable** pueden añadir flags a los archivos `.bat` de inicio (por ejemplo, `run_nvidia_gpu.bat`). Consulta la [guía de Windows Portable](https://docs.comfy.org/es/installation/comfyui_portable_windows) para ver los detalles.
+Los usuarios de **Windows Portable** pueden agregar flags a los archivos de inicio `.bat` (por ejemplo, `run_nvidia_gpu.bat`). Consulta la [guía de Windows Portable](https://docs.comfy.org/es/installation/comfyui_portable_windows) para obtener más detalles.
 
-Ejecuta `python main.py --help` en tu directorio de ComfyUI para ver el texto de ayuda integrado. Combina varios flags según necesites:
+Ejecuta `python main.py --help` en tu directorio de ComfyUI para ver el texto de ayuda integrado. Combina varios flags según sea necesario:
     
     
     python main.py --listen 0.0.0.0 --port 8288 --disable-auto-launch --lowvram
@@ -63,19 +63,19 @@ Red y servidor
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
-`--listen` `[IP]`| `127.0.0.1`| Dirección IP en la que escuchar. Se admite una lista separada por comas (p. ej. `127.2.2.2,127.3.3.3`). Si se indica sin valor, toma `0.0.0.0,::` por defecto (todas las interfaces IPv4 e IPv6).  
+`--listen` `[IP]`| `127.0.0.1`| Dirección IP en la que escuchar. Se admite una lista separada por comas (por ejemplo, `127.2.2.2,127.3.3.3`). Si se indica sin valor, se usa `0.0.0.0,::` de forma predeterminada (todas las interfaces IPv4 e IPv6).  
 `--port`| `8188`| Puerto en el que escuchar.  
-`--tls-keyfile` `PATH`| Ninguno| Ruta al archivo de clave TLS (SSL). Habilita HTTPS. Requiere `--tls-certfile`.  
-`--tls-certfile` `PATH`| Ninguno| Ruta al archivo de certificado TLS (SSL). Habilita HTTPS. Requiere `--tls-keyfile`.  
-`--enable-cors-header` `[ORIGIN]`| deshabilitado| Habilita CORS. Origen opcional, o `*` para todos los orígenes cuando no se indica un valor.  
+`--tls-keyfile` `PATH`| —| Ruta al archivo de clave TLS (SSL). Habilita HTTPS. Requiere `--tls-certfile`.  
+`--tls-certfile` `PATH`| —| Ruta al archivo de certificado TLS (SSL). Habilita HTTPS. Requiere `--tls-keyfile`.  
+`--enable-cors-header` `[ORIGIN]`| deshabilitado| Habilita CORS. Origen opcional, o `*` para todos los orígenes cuando no se indica ningún valor.  
 `--max-upload-size`| `100`| Tamaño máximo de subida en MB.  
 `--enable-compress-response-body`| deshabilitado| Habilita la compresión del cuerpo de la respuesta HTTP.  
       
     
-    # Escuchar en todas las interfaces (acceso a la LAN)
+    # Escucha en todas las interfaces (acceso a la LAN)
     python main.py --listen
     
-    # Escuchar en una IP específica
+    # Escucha en una IP específica
     python main.py --listen 0.0.0.0
     
     # Puerto personalizado con HTTPS
@@ -88,11 +88,11 @@ Flag| Predeterminado| Descripción
 
 Directorios
 
-Opción| Predeterminado| Descripción  
+Flag| Predeterminado| Descripción  
 ---|---|---  
 `--base-directory` `PATH`| Raíz de ComfyUI| Directorio base para los directorios de modelos, custom_nodes, entrada, salida, temp y usuario.  
-`--models-directory` `PATH`| Raíz de ComfyUI/models| Directorio de modelos. Anula la carpeta de modelos en `--base-directory`.  
-`--extra-model-paths-config` `PATH`| —| Carga uno o más archivos `extra_model_paths.yaml`. Se puede especificar varias veces.  
+`--models-directory` `PATH`| Raíz de ComfyUI/models| Directorio de modelos. Anula la carpeta de modelos de `--base-directory`.  
+`--extra-model-paths-config` `PATH`| —| Carga uno o más archivos `extra_model_paths.yaml`. Puedes especificarlo varias veces.  
 `--output-directory` `PATH`| —| Directorio de salida. Anula `--base-directory`.  
 `--temp-directory` `PATH`| —| Directorio temporal. Anula `--base-directory`.  
 `--input-directory` `PATH`| —| Directorio de entrada. Anula `--base-directory`.  
@@ -104,13 +104,13 @@ Opción| Predeterminado| Descripción
 
 Inicio y navegador
 
-Flag| Predeterminado| Descripción  
+Opción| Predeterminado| Descripción  
 ---|---|---  
-`--auto-launch`| deshabilitado| Abre ComfyUI automáticamente en el navegador predeterminado al iniciar.  
-`--disable-auto-launch`| deshabilitado| Deshabilita la apertura automática del navegador.  
-`--windows-standalone-build`| deshabilitado| Modo de comodidad de la compilación portable de Windows. Habilita la apertura automática al iniciar (equivale a `--auto-launch`) y activa el sistema de recursos.  
+`--auto-launch`| desactivado| Abre ComfyUI automáticamente en el navegador predeterminado al iniciar.  
+`--disable-auto-launch`| desactivado| Desactiva la apertura automática del navegador.  
+`--windows-standalone-build`| desactivado| Modo de conveniencia para la compilación portable de Windows. Habilita la apertura automática al iniciar (equivalente a `--auto-launch`) y activa el sistema de recursos.  
   
-`--windows-standalone-build` establece `auto_launch` en `true` y habilita el sistema de recursos. `--disable-auto-launch` anula la apertura del navegador y `--disable-assets` anula el sistema de recursos. Para ejecutar como servidor sin abrir un navegador, usa `--disable-auto-launch`.
+`--windows-standalone-build` establece `auto_launch` en `true` y activa el sistema de recursos. `--disable-auto-launch` anula la apertura del navegador y `--disable-assets` anula el sistema de recursos. Para ejecutar como servidor sin abrir un navegador, usa `--disable-auto-launch`.
     
     
     # Run server without opening browser
@@ -125,12 +125,12 @@ Dispositivos y CUDA
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
-`--cuda-device` `DEVICE_ID`| Ninguno| IDs de dispositivo CUDA que se usarán, separados por comas (p. ej. `0` o `0,1`), o `all` para conservar todos los dispositivos visibles en ese momento. Los demás dispositivos quedan ocultos.  
-`--default-device` `ID`| Ninguno| ID del dispositivo predeterminado. Todos los demás dispositivos permanecen visibles.  
-`--cuda-malloc`| automático (torch 2.0+)| Habilita cudaMallocAsync. Es mutuamente excluyente con `--disable-cuda-malloc`.  
+`--cuda-device` `DEVICE_ID`| Ninguno| IDs de dispositivo CUDA que se usarán, separados por comas (p. ej., `0` o `0,1`), o `all` para mantener todos los dispositivos visibles actualmente. Los demás dispositivos quedan ocultos.  
+`--default-device` `ID`| Ninguno| ID de dispositivo predeterminado. Todos los demás dispositivos permanecen visibles.  
+`--cuda-malloc`| Automático (torch 2.0+)| Habilita cudaMallocAsync. Es mutuamente excluyente con `--disable-cuda-malloc`.  
 `--disable-cuda-malloc`| Ninguno| Deshabilita cudaMallocAsync. Es mutuamente excluyente con `--cuda-malloc`.  
-`--directml` `[DEVICE]`| Ninguno| Usa torch-directml. Índice de dispositivo opcional; si no se indica un valor, se usa `-1` de forma predeterminada.  
-`--oneapi-device-selector` `STRING`| Ninguno| Cadena selectora de dispositivo oneAPI para dispositivos Intel.  
+`--directml` `[DEVICE]`| Ninguno| Usa torch-directml. Índice de dispositivo opcional; el valor predeterminado es `-1` cuando no se proporciona ningún valor.  
+`--oneapi-device-selector` `STRING`| Ninguno| Cadena selectora de dispositivos oneAPI para dispositivos Intel.  
   
 En Windows, ComfyUI usa solo la GPU 0 de forma predeterminada. Para restaurar todas las GPU, pasa `--cuda-device all`.
 
@@ -140,7 +140,7 @@ En Windows, ComfyUI usa solo la GPU 0 de forma predeterminada. Para restaurar to
 
 Precisión e inferencia
 
-Los flags de los grupos **Global** , **UNET** , **VAE** y **Text Encoder** que aparecen a continuación son mutuamente excluyentes dentro de cada grupo. Solo puedes usar un flag por grupo a la vez.
+Los flags de los grupos **Global** , **UNET** , **VAE** y **Text Encoder** que aparecen abajo son mutuamente excluyentes dentro de cada grupo. Solo puedes usar un flag por grupo a la vez.
 
 ### 
 
@@ -161,18 +161,18 @@ Precisión de UNET
 
 Flag| Descripción  
 ---|---  
-`--fp32-unet`| Ejecuta el modelo de difusión en fp32.  
-`--fp64-unet`| Ejecuta el modelo de difusión en fp64.  
-`--bf16-unet`| Ejecuta el modelo de difusión en bf16.  
-`--fp16-unet`| Ejecuta el modelo de difusión en fp16.  
+`--fp32-unet`| Ejecuta el modelo de diffusion en fp32.  
+`--fp64-unet`| Ejecuta el modelo de diffusion en fp64.  
+`--bf16-unet`| Ejecuta el modelo de diffusion en bf16.  
+`--fp16-unet`| Ejecuta el modelo de diffusion en fp16.  
 `--fp8_e4m3fn-unet`| Almacena los pesos de UNET en fp8 (e4m3fn).  
 `--fp8_e5m2-unet`| Almacena los pesos de UNET en fp8 (e5m2).  
 `--fp8_e8m0fnu-unet`| Almacena los pesos de UNET en fp8 (e8m0fnu).  
   
-Cada sufijo de flag de FP8 indica un formato de coma flotante de 8 bits de la especificación FP8 de la industria (ONNX / OCP):
+Cada sufijo de flag FP8 corresponde a un formato de coma flotante de 8 bits de la especificación FP8 de la industria (ONNX / OCP):
 
   * **e4m3fn** : 4 bits de exponente, 3 bits de mantisa. Buen equilibrio entre precisión y alcance para los pesos del modelo en GPU NVIDIA Ada Lovelace y posteriores.
-  * **e5m2** : 5 bits de exponente, 2 bits de mantisa. Mayor rango dinámico pero menor precisión que e4m3fn. Útil cuando las magnitudes de los pesos varían mucho.
+  * **e5m2** : 5 bits de exponente, 2 bits de mantisa. Mayor rango dinámico pero menor precisión que e4m3fn. Útil cuando la magnitud de los pesos varía mucho.
   * **e8m0fnu** : 8 bits de exponente, 0 bits de mantisa. Máximo rango dinámico sin precisión fraccionaria. Normalmente se usa como factor de escala por bloques (solo potencias de dos).
 
 
@@ -214,11 +214,11 @@ Otras opciones de inferencia
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
-`--fp16-intermediates`| deshabilitado| Experimental: usa fp16 para los tensores intermedios entre nodos en lugar de fp32.  
-`--force-channels-last`| deshabilitado| Fuerza el formato de memoria de canales al final durante la inferencia.  
-`--supports-fp8-compute`| deshabilitado| Actúa como si el dispositivo admitiera cómputo fp8.  
-`--enable-triton-backend`| deshabilitado| Habilita el backend Triton en comfy-kitchen. Deshabilitado de forma predeterminada al iniciar.  
-`--disable-triton-backend`| deshabilitado| Fuerza la deshabilitación del backend Triton de comfy-kitchen, anulando `--enable-triton-backend`.  
+`--fp16-intermediates`| disabled| Experimental: usa fp16 para los tensores intermedios entre nodos en lugar de fp32.  
+`--force-channels-last`| disabled| Fuerza el formato de memoria de los canales al final durante la inferencia.  
+`--supports-fp8-compute`| disabled| Actúa como si el dispositivo admitiera cómputo fp8.  
+`--enable-triton-backend`| disabled| Habilita el backend Triton en comfy-kitchen. Deshabilitado de forma predeterminada al iniciar.  
+`--disable-triton-backend`| disabled| Fuerza la desactivación del backend Triton de comfy-kitchen, anulando `--enable-triton-backend`.  
   
 ## 
 
@@ -228,7 +228,7 @@ Vista previa
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
-`--preview-method`| `none`| Método de vista previa para nodos sampler. Opciones: `none`, `auto`, `latent2rgb`, `taesd`.  
+`--preview-method`| `none`| Método de vista previa para los nodos sampler. Opciones: `none`, `auto`, `latent2rgb`, `taesd`.  
 `--preview-size`| `512`| Tamaño máximo de la vista previa de imagen en píxeles.  
   
 ## 
@@ -237,17 +237,17 @@ Flag| Predeterminado| Descripción
 
 Caché
 
-Los flags de modo de caché son mutuamente excluyentes. Solo debes usar uno de `--cache-ram`, `--cache-classic`, `--high-ram`, `--cache-lru` o `--cache-none`.
+Las flags de modo de caché son mutuamente excluyentes. Solo debes usar una de `--cache-ram`, `--cache-classic`, `--high-ram`, `--cache-lru` o `--cache-none`.
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
-`--cache-ram` `[GB] [GB]`| habilitado (modo predeterminado)| Caché por presión de RAM. Primer valor: umbral de caché activa en GB. Segundo valor opcional: umbral de caché inactiva/anclaje en GB. Si no se dan valores: activa = 10 % de la RAM del sistema (mín. 2 GB, máx. 10 GB); inactiva = 100 % de la RAM del sistema (máx. 128 GB). Acepta como máximo dos valores.  
-`--cache-classic`| —| Usa el antiguo estilo de caché agresiva.  
+`--cache-ram` `[GB] [GB]`| habilitado (modo predeterminado)| Caché por presión de RAM. Primer valor: umbral de caché activa en GB. Segundo valor opcional: umbral de caché inactiva/anclaje en GB. Cuando no se indican valores: activa = 10 % de la RAM del sistema (mín. 2 GB, máx. 10 GB); inactiva = 100 % de la RAM del sistema (máx. 128 GB). Acepta como máximo dos valores.  
+`--cache-classic`| Ninguno| Usar el antiguo estilo de caché agresivo.  
 `--high-ram`| deshabilitado| Puede mejorar ligeramente el rendimiento en sistemas con abundante RAM o donde se prefiere usar el archivo de paginación antes que recargar modelos. También habilita la caché clásica.  
-`--cache-lru` `N`| `0` (deshabilitado)| Caché LRU con un máximo de N resultados de nodo en caché. Sin límite superior estricto; está acotada por la RAM/VRAM disponible. Puede usar más RAM/VRAM.  
-`--cache-none`| —| Menor uso de RAM/VRAM; vuelve a ejecutar cada nodo en cada ejecución.  
+`--cache-lru` `N`| `0` (deshabilitado)| Caché LRU con un máximo de N resultados de nodo en caché. Sin límite superior estricto; está limitada por la RAM/VRAM disponible. Puede consumir más RAM/VRAM.  
+`--cache-none`| Ninguno| Menor uso de RAM/VRAM; vuelve a ejecutar todos los nodos en cada ejecución.  
   
-ComfyUI reutiliza los resultados de nodo en caché entre ejecuciones de la misma sesión, y eso es lo que hace más rápidas las ejecuciones repetidas. Usa `--cache-none` cuando prefieras que cada ejecución comience con una caché limpia, por ejemplo mientras depuras un flujo de trabajo o descartas la reutilización de la caché entre ejecuciones. Cada nodo se vuelve a ejecutar, así que las generaciones tardan más. Es un flag de inicio, por lo que debes reiniciar ComfyUI para que tenga efecto.
+ComfyUI reutiliza los resultados de nodo en caché entre ejecuciones de la misma sesión, y eso es lo que hace más rápidas las ejecuciones repetidas. Usa `--cache-none` cuando prefieras que cada ejecución empiece con una caché limpia, por ejemplo, al depurar un flujo de trabajo o al descartar la reutilización de caché entre ejecuciones. Todos los nodos se vuelven a ejecutar, así que las generaciones tardan más. Es una flag de inicio, así que reinicia ComfyUI para que surta efecto.
 
 ## 
 
@@ -255,19 +255,19 @@ ComfyUI reutiliza los resultados de nodo en caché entre ejecuciones de la misma
 
 Atención
 
-Las flags de método de atención cruzada son mutuamente excluyentes. La atención dividida y la atención quad se ignoran cuando se usa xformers.
+Las flags del método de cross-attention son mutuamente excluyentes. Las atenciones split y quad se ignoran cuando se usa xformers.
 
 Flag| Descripción  
 ---|---  
-`--use-split-cross-attention`| Usar la optimización de atención cruzada dividida.  
-`--use-quad-cross-attention`| Usar la optimización de atención cruzada subcuadrática.  
-`--use-pytorch-cross-attention`| Usar la atención cruzada de PyTorch 2.0.  
-`--use-sage-attention`| Usar la atención Sage.  
-`--use-flash-attention`| Usar FlashAttention.  
-`--use-ck-attention`| Usar la atención de Comfy Kitchen. Requiere soporte de hardware para sus kernels INT8.  
-`--disable-xformers`| Desactivar xformers.  
-`--force-upcast-attention`| Forzar el upcasting de atención. Reporta si esto soluciona las imágenes negras. Es mutuamente excluyente con `--dont-upcast-attention`.  
-`--dont-upcast-attention`| Desactivar todo el upcasting de atención. Solo para depuración.  
+`--use-split-cross-attention`| Usa la optimización de atención cruzada split.  
+`--use-quad-cross-attention`| Usa la optimización de atención cruzada subcuadrática.  
+`--use-pytorch-cross-attention`| Usa la atención cruzada de PyTorch 2.0.  
+`--use-sage-attention`| Usa Sage attention.  
+`--use-flash-attention`| Usa FlashAttention.  
+`--use-ck-attention`| Usa la atención de Comfy Kitchen. Requiere soporte de hardware para sus kernels INT8.  
+`--disable-xformers`| Desactiva xformers.  
+`--force-upcast-attention`| Fuerza el upcasting de atención. Reporta si esto corrige las imágenes negras. Mutuamente excluyente con `--dont-upcast-attention`.  
+`--dont-upcast-attention`| Desactiva todo el upcasting de atención. Solo para depuración.  
   
 ## 
 
@@ -275,31 +275,31 @@ Flag| Descripción
 
 VRAM y memoria
 
-La descarga asíncrona de pesos está activada por defecto en GPU Nvidia y AMD, y la VRAM dinámica se habilita automáticamente donde es compatible. Los flags siguientes anulan esos valores predeterminados.
+La descarga asíncrona de pesos está activada de forma predeterminada en GPUs Nvidia y AMD, y la VRAM dinámica se habilita automáticamente donde es compatible. Las flags siguientes anulan esos valores predeterminados.
 
-Los flags de modo de VRAM (`--gpu-only`, `--highvram`, `--lowvram`, `--novram`, `--cpu`) son mutuamente excluyentes.
+Las flags de modo de VRAM (`--gpu-only`, `--highvram`, `--lowvram`, `--novram`, `--cpu`) son mutuamente excluyentes.
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
-`--gpu-only`| —| Almacena y ejecuta todo en la GPU (codificadores de texto, CLIP, etc.).  
-`--highvram`| —| Mantiene los modelos en la memoria de la GPU en lugar de descargarlos a la CPU después de usarlos.  
-`--lowvram`| —| No tiene efecto cuando la VRAM dinámica está habilitada. De lo contrario, ejecuta los codificadores de texto en la CPU.  
-`--novram`| —| Uso mínimo de VRAM cuando `--lowvram` no es suficiente.  
-`--cpu`| —| Usa la CPU para todo (lento).  
-`--reserve-vram` `GB`| Depende del sistema operativo| VRAM en GB que se reserva para el sistema operativo y otro software.  
-`--vram-headroom` `GB`| `0`| VRAM adicional en GB que la VRAM dinámica mantiene libre por encima del margen predeterminado. ComfyUI intenta mantener esa cantidad de VRAM completamente libre y sin usar, incluso contando la VRAM que usan otras aplicaciones.  
+`--gpu-only`| N/A| Almacena y ejecuta todo en la GPU (codificadores de texto, CLIP, etc.).  
+`--highvram`| N/A| Mantiene los modelos en la memoria de la GPU en lugar de descargarlos a la CPU después de usarlos.  
+`--lowvram`| N/A| No tiene efecto cuando la VRAM dinámica está habilitada. De lo contrario, ejecuta los codificadores de texto en la CPU.  
+`--novram`| N/A| Uso mínimo de VRAM cuando `--lowvram` no es suficiente.  
+`--cpu`| N/A| Usa la CPU para todo (lento).  
+`--reserve-vram` `GB`| según el SO| VRAM en GB que se reserva para el SO y otro software.  
+`--vram-headroom` `GB`| `0`| VRAM adicional en GB que la VRAM dinámica debe mantener libre por encima del margen predeterminado. ComfyUI intenta mantener esta cantidad de VRAM completamente libre y sin usar, incluso contando la VRAM que usan otras aplicaciones.  
 `--disable-nvml-pressure`| deshabilitado| Usa CUDA en lugar de NVML para reportar la presión de memoria de la VRAM dinámica.  
-`--async-offload` `[NUM_STREAMS]`| habilitado en Nvidia y AMD| Descarga asíncrona de pesos. Cantidad de streams opcional (predeterminado: 2).  
-`--disable-async-offload`| —| Deshabilita la descarga asíncrona de pesos.  
-`--disable-dynamic-vram`| —| Deshabilita la VRAM dinámica; usa la carga de modelos basada en estimaciones.  
-`--enable-dynamic-vram`| automático en Nvidia, ROCm 7.14+| Habilita la VRAM dinámica en sistemas donde no está habilitada por defecto.  
-`--fast-disk`| falso| Fuerza la carga y descarga dinámicas respaldadas por disco en lugar de la RAM no fijada. Útil con NVMe rápido. Cuando no se establece ni este flag ni `--disable-fast-disk`, la carga y descarga respaldadas por disco se habilitan automáticamente si todos los archivos de modelos están en almacenamiento detectado como rápido.  
-`--disable-fast-disk`| deshabilitado| Deshabilita la carga y descarga dinámicas respaldadas por disco, de modo que se usa la RAM no fijada en su lugar. Anula `--fast-disk` y la detección automática.  
-`--disable-cuda-graphs`| deshabilitado| Deshabilita los CUDA graphs.  
-`--disable-comfy-compiler`| deshabilitado| Deshabilita el compilador de modelos de Comfy, incluida su subfunción de CUDA graphs.  
-`--assert-graph-breaks`| deshabilitado| Falla cuando el compilador de modelos de Comfy produce interrupciones del gráfico.  
+`--async-offload` `[NUM_STREAMS]`| habilitado en Nvidia y AMD| Descarga asíncrona de pesos. Cantidad opcional de flujos (predeterminado: 2).  
+`--disable-async-offload`| N/A| Deshabilita la descarga asíncrona de pesos.  
+`--disable-dynamic-vram`| N/A| Deshabilita la VRAM dinámica; usa carga de modelos basada en estimaciones.  
+`--enable-dynamic-vram`| automático en Nvidia, ROCm 7.14+| Habilita la VRAM dinámica en sistemas donde no está habilitada de forma predeterminada.  
+`--fast-disk`| false| Fuerza la carga dinámica y la descarga respaldadas por disco en lugar de la RAM no fijada. Útil con NVMe rápido. Cuando no se establece esta flag ni `--disable-fast-disk`, la carga y la descarga respaldadas por disco se habilitan automáticamente si todos los archivos de modelo están en un almacenamiento detectado como rápido.  
+`--disable-fast-disk`| deshabilitado| Deshabilita la carga dinámica y la descarga respaldadas por disco, por lo que se usa la RAM no fijada en su lugar. Anula `--fast-disk` y la detección automática.  
+`--disable-cuda-graphs`| deshabilitado| Deshabilita los grafos CUDA.  
+`--disable-comfy-compiler`| deshabilitado| Deshabilita el compilador de modelos de Comfy, incluida su subcaracterística de grafos CUDA.  
+`--assert-graph-breaks`| deshabilitado| Falla ante roturas de grafo del compilador de modelos de Comfy.  
 `--force-non-blocking`| deshabilitado| Fuerza operaciones de tensor no bloqueantes. Puede ayudar en sistemas que no son Nvidia; puede romper algunos flujos de trabajo.  
-`--disable-smart-memory`| deshabilitado| Descarga de forma agresiva a la RAM en lugar de mantener los modelos en la VRAM.  
+`--disable-smart-memory`| deshabilitado| Descarga agresivamente a la RAM en lugar de mantener los modelos en la VRAM.  
 `--disable-pinned-memory`| deshabilitado| Deshabilita el uso de memoria fijada.  
 `--mmap-torch-files`| deshabilitado| Usa mmap al cargar archivos ckpt/pt.  
 `--disable-mmap`| deshabilitado| No usa mmap al cargar safetensors.  
@@ -310,12 +310,12 @@ Flag| Predeterminado| Descripción
 
 Rendimiento y depuración
 
-Flag| Predeterminado| Descripción  
+Opción| Predeterminado| Descripción  
 ---|---|---  
-`--fast` `[OPT...]`| deshabilitado| Habilita optimizaciones experimentales que pueden afectar a la calidad o a la estabilidad. `--fast` por sí solo las habilita todas. Opciones específicas: `fp16_accumulation`, `fp8_matrix_mult`, `cublas_ops`, `autotune`.  
-`--deterministic`| deshabilitado| Usa algoritmos deterministas de PyTorch, más lentos, cuando es posible. No garantiza imágenes idénticas en todos los casos.  
-`--default-hashing-function`| `sha256`| Función hash para comparar nombres y contenidos de archivos duplicados. Opciones: `md5`, `sha1`, `sha256`, `sha512`.  
-`--debug-hang`| deshabilitado| Habilita el volcado de trazas de pila con Ctrl-C para depurar bloqueos.  
+`--fast` `[OPT...]`| deshabilitado| Habilita optimizaciones experimentales que pueden afectar la calidad o la estabilidad. `--fast` por sí solo habilita todas. Opciones específicas: `fp16_accumulation`, `fp8_matrix_mult`, `cublas_ops`, `autotune`.  
+`--deterministic`| deshabilitado| Usa algoritmos deterministas de PyTorch más lentos cuando sea posible. No garantiza imágenes idénticas en todos los casos.  
+`--default-hashing-function`| `sha256`| Función hash para la comparación de nombres de archivo y contenido duplicados. Opciones: `md5`, `sha1`, `sha256`, `sha512`.  
+`--debug-hang`| deshabilitado| Habilita volcados de seguimiento de pila al pulsar Ctrl-C para depurar bloqueos.  
       
     
     # Enable all fast optimizations (experimental)
@@ -329,33 +329,33 @@ Flag| Predeterminado| Descripción
 
 ​
 
-ComfyUI Manager
+Administrador de ComfyUI
 
-Consulta [ComfyUI-Manager Installation](https://docs.comfy.org/es/manager/install) para ver las instrucciones de configuración.
+Consulta [Instalación de ComfyUI-Manager](https://docs.comfy.org/es/manager/install) para las instrucciones de configuración.
 
-Opción| Descripción  
+Flag| Descripción  
 ---|---  
-`--enable-manager`| Habilita ComfyUI-Manager.  
-`--disable-manager-ui`| Deshabilita solo la UI y los endpoints ComfyUI Manager. Las tareas en segundo plano (instalaciones programadas, etc.) continúan. Requiere `--enable-manager`.  
-`--enable-manager-legacy-ui`| Usa la UI clásica ComfyUI Manager. Implica `--enable-manager`. Es mutuamente excluyente con `--disable-manager-ui`.  
+`--enable-manager`| Habilita el Administrador de ComfyUI.  
+`--disable-manager-ui`| Deshabilita solo la interfaz y los endpoints del Administrador. Las tareas en segundo plano (instalaciones programadas, etc.) continúan. Requiere `--enable-manager`.  
+`--enable-manager-legacy-ui`| Usa la interfaz clásica del Administrador. Implica `--enable-manager`. Es mutuamente excluyente con `--disable-manager-ui`.  
   
 ## 
 
 ​
 
-Nodos personalizados y nodos de API
+Nodos personalizados y Nodos API
 
-Flag| Predeterminado| Descripción  
+Bandera| Predeterminado| Descripción  
 ---|---|---  
-`--disable-all-custom-nodes`| deshabilitado| Deshabilita la carga de todos los nodos personalizados.  
-`--whitelist-custom-nodes` `FOLDER...`| —| Carpetas de nodos personalizados que se cargan incluso cuando `--disable-all-custom-nodes` está establecido.  
-`--disabled-nodes-config` `PATH`| —| Ruta a un archivo YAML que enumera los IDs de nodo a deshabilitar. El archivo debe contener una lista `disabled_nodes` con cadenas de IDs de nodo.  
-`--disable-partner-nodes`| deshabilitado| Deshabilita la carga de Nodos asociados (los nodos de API de pago). El frontend conserva su acceso a internet.  
-`--offline`| deshabilitado| Impide que el frontend se comunique con internet añadiendo una Content-Security-Policy restrictiva. También deshabilita los Nodos asociados.  
-`--disable-api-nodes`| deshabilitado| Alias obsoleto de `--offline`. Usa `--offline`, o `--disable-partner-nodes` para deshabilitar solo los Nodos asociados.  
-`--disable-metadata`| deshabilitado| Deshabilita el guardado de los metadatos del prompt en los archivos de salida.  
+`--disable-all-custom-nodes`| disabled| Desactiva la carga de todos los nodos personalizados.  
+`--whitelist-custom-nodes` `FOLDER...`| —| Carpetas de nodos personalizados que se cargan incluso cuando `--disable-all-custom-nodes` está activado.  
+`--disabled-nodes-config` `PATH`| —| Ruta a un archivo YAML que enumera los ID de nodo que se van a desactivar. El archivo debe contener una lista `disabled_nodes` con cadenas de ID de nodo.  
+`--disable-partner-nodes`| disabled| Desactiva la carga de los Nodos asociados (los nodos API de pago). El frontend conserva su acceso a internet.  
+`--offline`| disabled| Impide que el frontend se comunique con internet agregando una Content-Security-Policy restrictiva. También desactiva los Nodos asociados.  
+`--disable-api-nodes`| disabled| Alias obsoleto de `--offline`. Usa `--offline`, o `--disable-partner-nodes` para desactivar solo los Nodos asociados.  
+`--disable-metadata`| disabled| Desactiva el guardado de los metadatos del prompt en los archivos de salida.  
   
-`--offline` también cambia lo que el navegador puede cargar. El flag añade una Content-Security-Policy que mantiene la página en recursos servidos por el propio ComfyUI, así que las imágenes, fuentes, medios, fotogramas y solicitudes de red de otros orígenes quedan bloqueados, y los Nodos asociados (nodos de API) no se registran en absoluto. Si una vista previa o una miniatura que normalmente se carga desaparece después de un reinicio, revisa los argumentos de inicio en busca de este flag antes de depurar el nodo. `--disable-partner-nodes` solo impide que se carguen los Nodos asociados y deja intacto el resto del acceso a internet del frontend.
+`--offline` también cambia lo que el navegador puede cargar. La opción agrega una Content-Security-Policy que mantiene la página en recursos servidos por el propio ComfyUI, por lo que se bloquean las imágenes, las fuentes, los medios, los frames y las solicitudes de red de otros orígenes, y los Nodos asociados (nodos API) no se registran en absoluto. Si después de reiniciar desaparece una vista previa o una miniatura que normalmente se carga, revisa los argumentos de inicio en busca de esta opción antes de solucionar problemas del nodo. `--disable-partner-nodes` solo impide que se carguen los Nodos asociados y deja intacto el resto del acceso a internet del frontend.
     
     
     # Troubleshoot custom node issues
@@ -373,15 +373,15 @@ Frontend y API
 
 Flag| Predeterminado| Descripción  
 ---|---|---  
-`--front-end-version`| `comfyanonymous/ComfyUI@latest`| Versión del frontend con el formato `[owner]/[repo]@[version]`. Requiere internet para descargarla desde las releases de GitHub. La versión puede ser `latest` o una versión semver (p. ej. `1.0.0`).  
+`--front-end-version`| `comfyanonymous/ComfyUI@latest`| Versión del frontend en formato `[owner]/[repo]@[version]`. Requiere internet para descargarla desde las releases de GitHub. La versión puede ser `latest` o una versión semver (por ejemplo, `1.0.0`).  
 `--front-end-root` `PATH`| —| Ruta del sistema de archivos local al directorio del frontend. Anula `--front-end-version`.  
 `--comfy-api-base`| `https://api.comfy.org`| URL base de la API de ComfyUI.  
-`--database-url`| `sqlite:///<ComfyUI>/user/comfyui.db`| URL de la base de datos. Usa `sqlite:///:memory:` para usar la memoria.  
-`--enable-assets`| deshabilitado| Habilita el sistema de recursos (rutas de API, sincronización con la base de datos, escaneo en segundo plano).  
+`--database-url`| `sqlite:///<ComfyUI>/user/comfyui.db`| URL de la base de datos. Usa `sqlite:///:memory:` para memoria en RAM.  
+`--enable-assets`| deshabilitado| Habilita el sistema de recursos (rutas de la API, sincronización con la base de datos, escaneo en segundo plano).  
 `--disable-assets`| deshabilitado| Deshabilita el sistema de recursos, incluso cuando `--enable-assets` o `--windows-standalone-build` están activados.  
-`--enable-asset-hashing`| deshabilitado| Calcula hashes de contenido blake3 al escanear recursos. Habilita futuras funciones de portabilidad de recursos, como la deduplicación y la resolución de modelos entre máquinas, a costa del tiempo de inicio y del hashing en cada salida con directorios de modelos grandes. Desactivado de forma predeterminada; requiere el sistema de recursos (`--enable-assets` o `--windows-standalone-build`).  
-`--feature-flag` `KEY[=VALUE]`| —| Establece un feature flag del servidor. `KEY` por sí solo establece verdadero. Se puede repetir. Los booleanos y los números se convierten automáticamente.  
-`--list-feature-flags`| —| Imprime como JSON los feature flags conocidos que se pueden establecer desde la CLI y sale.  
+`--enable-asset-hashing`| deshabilitado| Calcula hashes de contenido blake3 al escanear recursos. Habilita futuras funciones de portabilidad de recursos, como la deduplicación y la resolución de modelos entre máquinas, a costa del tiempo de inicio y del hashing de cada salida en directorios de modelos grandes. Desactivado de forma predeterminada; requiere el sistema de recursos (`--enable-assets` o `--windows-standalone-build`).  
+`--feature-flag` `KEY[=VALUE]`| —| Establece una flag de funcionalidad del servidor. Una `KEY` sin valor la establece en verdadero. Se puede repetir. Los booleanos y los números se convierten automáticamente.  
+`--list-feature-flags`| —| Imprime en JSON las flags de funcionalidad conocidas que se pueden establecer desde la CLI y sale.  
       
     
     # List available feature flags
@@ -402,13 +402,13 @@ Flag| Predeterminado| Descripción
 `--verbose` `[LEVEL] [FILE]`| `INFO`| Nivel de registro. Opciones: `DEBUG`, `DETAIL`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. `--verbose` por sí solo establece `DEBUG`. Agrega un nivel seguido de una ruta de archivo para escribir ese nivel también en un archivo; el flag se puede repetir para configurar juntas las salidas de consola y de archivo.  
 `--log-stdout`| deshabilitado| Envía la salida normal del proceso a stdout en lugar de stderr.  
 `--dont-print-server`| deshabilitado| No imprime la salida del servidor en la consola.  
-`--disable-product-tips`| deshabilitado| Oculta los consejos de la consola acerca de los productos comerciales y los despliegues de Comfy-Org. Equivale a establecer `COMFYUI_DISABLE_PRODUCT_TIPS=1`. Los consejos también se omiten con `CI`, `--dont-print-server` o `--windows-standalone-build`.  
+`--disable-product-tips`| deshabilitado| Oculta los consejos de la consola sobre productos comerciales y despliegues de Comfy-Org. Equivale a establecer `COMFYUI_DISABLE_PRODUCT_TIPS=1`. Los consejos también se omiten con `CI`, `--dont-print-server` o `--windows-standalone-build`.  
 `--multi-user`| deshabilitado| Habilita el almacenamiento por usuario.  
-`--quick-test-for-ci`| deshabilitado| Prueba de inicio rápida para CI. Sale inmediatamente después de la inicialización.  
+`--quick-test-for-ci`| deshabilitado| Prueba rápida de inicio para CI. Sale inmediatamente después de la inicialización.  
   
 * * *
 
-Esta referencia se basa en ComfyUI [`comfy/cli_args.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/cli_args.py). Al actualizar ComfyUI, ejecuta `python main.py --help` o compara tu [`cli_args.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/cli_args.py) local con esta página para comprobar si hay flags nuevos o modificados.
+Esta referencia se basa en [`comfy/cli_args.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/cli_args.py) de ComfyUI. Al actualizar ComfyUI, ejecuta `python main.py --help` o compara tu [`cli_args.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/cli_args.py) local con esta página para comprobar si hay flags nuevos o modificados.
 
 ¿Esta página le ayudó?
 
@@ -416,4 +416,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/comfyui-server/startup-flags.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/comfyui-server/startup-flags)
 
-[Ejemplos de API](https://docs.comfy.org/es/development/comfyui-server/api-examples)[Autenticación de Nodos asociados](https://docs.comfy.org/es/development/comfyui-server/api-key-integration)
+[Mensajes de WebSocket](https://docs.comfy.org/es/development/comfyui-server/comms_messages)[Integración de clave API](https://docs.comfy.org/es/development/comfyui-server/api-key-integration)

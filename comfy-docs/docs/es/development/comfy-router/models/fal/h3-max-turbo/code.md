@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/fal/h3-max-turbo/code/
 title: Usa H3 Max Turbo con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:04.003441+00:00
+fetched_at: 2026-11-03T14:55:25.727120+00:00
 ---
 
 # Usa H3 Max Turbo con Comfy Router - ComfyUI
@@ -34,7 +34,7 @@ Llama a fal/h3-max-turbo con Comfy Router: endpoint, forma de la solicitud y res
 
 Copiar páginaCopiar página
 
-Referencia de API para `fal/h3-max-turbo`, servida por Comfy Router desde fal. **Entrada:** Texto, Imagen · **Salida:** Video + Audio
+Referencia de API para `fal/h3-max-turbo`, servida por Comfy Router desde fal. **Entrada:** Texto, Imagen, Video, Audio · **Salida:** Video + Audio
 
 ## 
 

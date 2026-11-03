@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code/
 title: Usa Kling 3.0 Turbo con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:07.455115+00:00
+fetched_at: 2026-11-03T14:55:26.128031+00:00
 ---
 
 # Usa Kling 3.0 Turbo con Comfy Router - ComfyUI
@@ -355,7 +355,15 @@ data[].billing[].amount
 
 string
 
-Cantidad consumida, con precisión de dos decimales.
+Importe de consumo, con precisión de dos decimales.
+
+​
+
+data[].billing[].cash_type
+
+string
+
+Cuenta de efectivo de la que se cobró (solo presente cuando charge_type es “cash”), por ejemplo “balance”. Algunas tareas lo devuelven; otras pueden omitirlo.
 
 ​
 
@@ -363,7 +371,23 @@ data[].billing[].charge_type
 
 string
 
-Tipo de cuenta de consumo. “cash” para saldo, “unit” para un paquete de recursos.
+Tipo de cuenta de consumo. “cash” para el saldo, “unit” para un paquete de recursos.
+
+​
+
+data[].billing[].currency
+
+string
+
+Código de moneda ISO 4217 de `amount` y `list_price`, por ejemplo “USD”. Algunas tareas lo devuelven; otras pueden omitirlo.
+
+​
+
+data[].billing[].list_price
+
+string
+
+Precio de lista de la tarea antes de cualquier descuento, como cadena decimal. Algunas tareas lo devuelven; otras pueden omitirlo.
 
 ​
 

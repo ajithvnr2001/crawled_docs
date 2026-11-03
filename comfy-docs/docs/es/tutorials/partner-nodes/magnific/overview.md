@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/magnific/overview/
-title: Magnific AI: mejora de im\u00e1genes y herramientas creativas | Nodos asociados de ComfyUI - ComfyUI
+title: Magnific AI en ComfyUI: ampliaci\u00f3n y herramientas creativas - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:52.226100+00:00
+fetched_at: 2026-11-03T14:55:31.820012+00:00
 ---
 
-# Magnific AI: mejora de imágenes y herramientas creativas | Nodos asociados de ComfyUI - ComfyUI
+# Magnific AI en ComfyUI: ampliación y herramientas creativas - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/magnific/overview/
 
@@ -20,15 +20,15 @@ Volver arriba
 
 Magnific
 
-# Magnific AI: mejora de imágenes y herramientas creativas | Nodos asociados de ComfyUI
+# Magnific AI en ComfyUI: ampliación y herramientas creativas
 
 Copiar páginaCopiar página
 
-Aprende a usar los nodos asociados de Magnific en ComfyUI para mejora de imágenes con IA, ampliación, transferencia de estilo, relight y retoque de piel.
+Amplía imágenes hasta 16x con los modos Precise o Creative y aplica transferencia de estilo, Relight y mejora de piel en ComfyUI.
 
 Copiar páginaCopiar página
 
-Magnific AI es una plataforma de mejora de imágenes de nivel profesional, ahora integrada de forma nativa en ComfyUI. Ofrece ampliación **Precise** y **Creative** (hasta 16x), transferencia de estilo, relight y mejora de piel, lo que lleva el posprocesado con calidad de estudio directamente a tu flujo de trabajo.
+Magnific AI es una plataforma de mejora de imágenes de nivel profesional, ahora integrada de forma nativa en ComfyUI. Ofrece ampliación **Precise** y **Creative** (hasta 16x), transferencia de estilo, Relight y mejora de piel, lo que lleva el posprocesado con calidad de estudio directamente a tu flujo de trabajo.
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 

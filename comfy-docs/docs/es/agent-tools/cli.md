@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/agent-tools/cli/
 title: Comfy CLI: ejecuta ComfyUI desde la terminal - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:22.045854+00:00
+fetched_at: 2026-11-03T14:55:23.582430+00:00
 ---
 
 # Comfy CLI: ejecuta ComfyUI desde la terminal - ComfyUI
@@ -13,7 +13,7 @@ fetched_at: 2026-10-26T14:01:22.045854+00:00
 
 Volver arriba
 
-  * Cómo encaja con MCP
+  * Cómo se integra con MCP
   * Qué hace el CLI
   * Instalar y configurar
   * Requisitos previos para comfy generate
@@ -49,14 +49,14 @@ Copiar páginaCopiar página
 
 ​
 
-Cómo encaja con MCP
+Cómo se integra con MCP
 
 | Comfy MCP (cloud)| Comfy CLI  
 ---|---|---  
 **Interfaz**|  Chat con un cliente MCP (Claude Code, Claude Desktop, …)| Comandos de terminal y scripts  
 **Ideal para**|  Flujos de trabajo interactivos con agentes en el chat| Automatización, ejecuciones por lote, CI, canalizaciones de shell  
 **Autenticación**|  OAuth en clientes MCP, o clave API (sin interfaz)| `comfy cloud login` (OAuth) o clave API (CI)  
-**Salida**|  Devuelta en la sesión de chat| Guardada en disco (`--download`) o en JSON (`--json`)  
+**Salida**|  Se devuelve en la sesión de chat| Se guarda en disco (`--download`) o en JSON (`--json`)  
   
 Para la configuración de MCP, la instalación, las listas de herramientas y los métodos de autenticación, consulta [Comfy MCP](https://docs.comfy.org/es/agent-tools/mcp).
 
@@ -103,7 +103,7 @@ Para obtener sugerencias de autocompletado en la shell:
     comfy setup
     
 
-Pasa `-y` para instalaciones no interactivas en CI o scripts. Consulta [Primeros pasos con Comfy CLI](https://docs.comfy.org/es/comfy-cli/getting-started#configuraci%C3%B3n-r%C3%A1pida-recomendado) para ver la tabla completa de flags de `comfy setup`. Inicia sesión en Comfy Cloud:
+Usa `-y` para instalaciones no interactivas en CI o scripts. Consulta [Primeros pasos de Comfy CLI](https://docs.comfy.org/es/comfy-cli/getting-started#configuraci%C3%B3n-r%C3%A1pida-recomendado) para ver la tabla completa de opciones de `comfy setup`. Inicia sesión en Comfy Cloud:
     
     
     comfy cloud login
@@ -143,7 +143,7 @@ La CLI sube los archivos locales, envía la tarea, consulta su estado hasta que 
 
 Modelos disponibles
 
-`comfy generate` abarca modelos de socios para imagen y video. Descubre qué hay disponible en tu versión de la CLI:
+`comfy generate` cubre modelos de socios para imagen y video. Descubre qué hay disponible en tu versión de CLI:
     
     
     comfy generate list                            # todos los modelos
@@ -260,9 +260,9 @@ Más allá de `comfy generate`
 Todo lo anterior es el resumen enfocado en agentes. La guía completa recorre cada comando en profundidad:
 
   * `comfy run`, `comfy jobs` y `comfy validate` para flujos de trabajo completos
-  * `comfy templates` y la edición de slots de `comfy workflow`
-  * Descubrimiento con `comfy nodes` / `comfy models`
-  * Sobres `--json` y `comfy --json discover` para agentes
+  * Edición de slots con `comfy templates` y `comfy workflow`
+  * Descubrimiento de `comfy nodes` / `comfy models`
+  * Sobres JSON de `--json` y `comfy --json discover` para agentes
 
 → [Primeros pasos de Comfy CLI](https://docs.comfy.org/es/comfy-cli/getting-started) (documentación completa)
 
@@ -290,10 +290,10 @@ Recursos relacionados
 
 Recurso| Para qué sirve  
 ---|---  
-[Primeros pasos con Comfy CLI](https://docs.comfy.org/es/comfy-cli/getting-started)| Guía de instalación **completa** y recorrido por los comandos  
+[Primeros pasos de Comfy CLI](https://docs.comfy.org/es/comfy-cli/getting-started)| Guía de instalación **completa** y recorrido por los comandos  
 [Referencia de Comfy CLI](https://docs.comfy.org/es/comfy-cli/reference)| Comandos, flags y alias de modelos  
 [Comfy MCP](https://docs.comfy.org/es/agent-tools/mcp)| Conecta agentes mediante MCP para generar desde el chat  
-[comfy-cli en GitHub](https://github.com/Comfy-Org/comfy-cli)| Repositorio fuente, problemas y el comportamiento más reciente  
+[comfy-cli en GitHub](https://github.com/Comfy-Org/comfy-cli)| Repositorio fuente, problemas y comportamiento más reciente  
   
 ## 
 
@@ -301,7 +301,7 @@ Recurso| Para qué sirve
 
 Retroalimentación
 
-  * **GitHub** : [problemas de comfy-cli](https://github.com/Comfy-Org/comfy-cli/issues)
+  * **GitHub** : [Problemas de comfy-cli](https://github.com/Comfy-Org/comfy-cli/issues)
   * **Discord** : [#comfy-mcp-and-cli](https://discord.gg/xWJn6nhE3R)
 
 

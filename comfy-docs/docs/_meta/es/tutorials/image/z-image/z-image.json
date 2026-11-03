@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/tutorials/image/z-image/z-image/",
   "file": "es/tutorials/image/z-image/z-image.md",
-  "title": "Ejemplo de flujo de trabajo de ComfyUI con Z-Image - ComfyUI",
+  "title": "Z-Image en ComfyUI: modelo base de texto a imagen de 6B - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-26T14:03:45.475705+00:00"
+  "fetched_at": "2026-11-03T14:55:30.172016+00:00"
 }

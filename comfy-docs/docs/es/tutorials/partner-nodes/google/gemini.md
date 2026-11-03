@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/google/gemini/
 title: Google Gemini en ComfyUI: chat y comprensi\u00f3n de im\u00e1genes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:49.014020+00:00
+fetched_at: 2026-11-03T14:55:31.594577+00:00
 ---
 
 # Google Gemini en ComfyUI: chat y comprensión de imágenes - ComfyUI
@@ -16,7 +16,7 @@ Volver arriba
   * Para qué sirve Google Gemini
   * Usarlo
   * Google Gemini
-  * Completar la ejecución del flujo de trabajo paso a paso
+  * Completa la ejecución del flujo de trabajo paso a paso
   * Notas adicionales
 
 
@@ -56,7 +56,7 @@ Usarlo
 
 Llámalo por HTTP a través de Comfy Router, con fragmentos de Python, TypeScript, Swift y cURL listos para copiar y pegar
 
-Esto se ejecuta en la misma cuenta de Comfy y se factura con los mismos créditos que ejecutarlo en ComfyUI más abajo. Consulta [Precios de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/pricing) para ver las tarifas por modelo y [Límites de concurrencia](https://docs.comfy.org/es/tutorials/partner-nodes/concurrency-limits) para saber cuántas solicitudes puedes tener en curso.
+Esto se ejecuta en la misma cuenta de Comfy y se factura con los mismos créditos que ejecutarlo en ComfyUI más abajo. Consulta [Créditos de Nodos de Socio](https://docs.comfy.org/es/tutorials/partner-nodes/pricing) para ver las tarifas por modelo y [Límites de concurrencia](https://docs.comfy.org/es/tutorials/partner-nodes/concurrency-limits) para saber cuántas solicitudes puedes tener en curso.
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 
@@ -89,7 +89,7 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Google Gemini
 
-Experimenta con la IA multimodal de Google y las capacidades de razonamiento de Gemini. ![Google Gemini workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_google_gemini-1.webp)
+Experimenta con la IA multimodal de Google y las capacidades de razonamiento de Gemini. ![Vista previa del flujo de trabajo de Google Gemini](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_google_gemini-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -111,7 +111,7 @@ nodo `LoadImage` 2 · `example.png`
 
 ​
 
-Completar la ejecución del flujo de trabajo paso a paso
+Completa la ejecución del flujo de trabajo paso a paso
 
 ![Guía paso a paso de OpenAI Chat](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/api_nodes/google/tripo_image_to_model_step_guide.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=f5069d4edbc353783cf79fc1898df568)
 
@@ -120,8 +120,8 @@ En la plantilla correspondiente, hemos creado un prompt para analizar y generar 
 Puedes guiarte por los números de la imagen para completar la ejecución básica del flujo de trabajo de texto a imagen:
 
   1. En el nodo `Load Image`, carga la imagen que necesitas que la IA interprete
-  2. (Opcional) Si es necesario, puedes modificar el prompt en `Google Gemini` para que la IA ejecute tareas específicas
-  3. Haz clic en el botón `Run` o usa el atajo `Ctrl(cmd) + Enter` para ejecutar la conversación.
+  2. (Opcional) Si lo necesitas, puedes modificar el prompt en `Google Gemini` para que la IA ejecute tareas específicas
+  3. Haz clic en el botón `Run`, o usa el atajo `Ctrl(cmd) + Enter` para ejecutar la conversación.
   4. Después de esperar a que la API devuelva los resultados, puedes ver el contenido correspondiente devuelto por la IA en el nodo `Preview Any`.
 
 
@@ -132,8 +132,8 @@ Puedes guiarte por los números de la imagen para completar la ejecución básic
 
 Notas adicionales
 
-  * Actualmente, el nodo de entrada de archivos `Gemini Input Files` requiere que primero cargues los archivos en el directorio `ComfyUI/input/`. Este nodo está en proceso de mejora y modificaremos la plantilla después de las actualizaciones
-  * El flujo de trabajo incluye un ejemplo que usa `Batch Images` como entrada. Si tienes varias imágenes que necesitan interpretación de la IA, puedes consultar el diagrama de pasos y usar el clic derecho para establecer el modo del nodo correspondiente en `Always` y habilitarlo
+  * Actualmente, el nodo de entrada de archivos `Gemini Input Files` requiere que primero cargues los archivos en el directorio `ComfyUI/input/`. Este nodo se está mejorando y modificaremos la plantilla después de las actualizaciones.
+  * El flujo de trabajo incluye un ejemplo que usa `Batch Images` como entrada. Si tienes varias imágenes que necesitan la interpretación de la IA, puedes consultar el diagrama de pasos y usar el clic derecho para establecer el modo del nodo correspondiente en `Always` y habilitarlo.
 
 
 

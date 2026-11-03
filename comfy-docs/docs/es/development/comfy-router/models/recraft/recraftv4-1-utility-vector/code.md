@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/recraft/recraftv4-1-utility-vector/code/
 title: Usa Recraft V4.1 Utility Vector con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:18.142907+00:00
+fetched_at: 2026-11-03T14:55:27.562993+00:00
 ---
 
 # Usa Recraft V4.1 Utility Vector con Comfy Router - ComfyUI
@@ -46,7 +46,7 @@ Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/pr
 
   * Esperar el resultado
 
-  * Encolar y recoger más tarde
+  * Poner en cola y recoger más tarde
 
 
 
@@ -60,8 +60,8 @@ cURL
     
     from comfy_sdk import Comfy
     
-    # Reads COMFY_API_KEY from the environment.
-    # The SDK automatically creates an idempotency key and reuses it for automatic retries.
+    # Lee COMFY_API_KEY del entorno.
+    # El SDK crea automáticamente una clave de idempotencia y la reutiliza para los reintentos automáticos.
     with Comfy() as client:
         result = client.models.run(
             "recraft/recraftv4_1_utility_vector",
@@ -77,8 +77,8 @@ cURL
     
     import { comfy } from "@comfyorg/sdk";
     
-    // Reads COMFY_API_KEY from the environment.
-    // The SDK automatically creates an idempotency key and reuses it for automatic retries.
+    // Lee COMFY_API_KEY del entorno.
+    // El SDK crea automáticamente una clave de idempotencia y la reutiliza para los reintentos automáticos.
     const { data } = await comfy.models.run("recraft/recraftv4_1_utility_vector", {
       n: 1,
       prompt: "A single red maple leaf on a plain white background.",
@@ -95,7 +95,7 @@ cURL
       -d "{\"n\": 1, \"prompt\": \"A single red maple leaf on a plain white background.\"}"
     
 
-El mismo cuerpo, enviado a `POST https://api.comfy.org/v2/models/recraft/recraftv4_1_utility_vector/requests`. Router responde `201` con un `request_id` en cuanto se admite la ejecución, y el resultado se recoge cuando está listo, desde este proceso o desde otro. [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue) explica el estado, la cancelación y la recogida.
+El mismo cuerpo, enviado a `POST https://api.comfy.org/v2/models/recraft/recraftv4_1_utility_vector/requests`. Router responde `201` con un `request_id` en cuanto se admite la ejecución, y puedes recoger el resultado cuando esté listo, desde este proceso o desde otro. [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue) explica el estado, la cancelación y la recogida.
 
 Python
 
@@ -107,8 +107,8 @@ cURL
     import asyncio
     from comfy_sdk import AsyncComfy
     
-    # Reads COMFY_API_KEY from the environment.
-    # Each submit() call mints its own Idempotency-Key and reuses it for automatic retries.
+    # Lee COMFY_API_KEY del entorno.
+    # Cada llamada a submit() genera su propia Idempotency-Key y la reutiliza para los reintentos automáticos.
     async def main():
         async with AsyncComfy() as client:
             handle = await client.models.submit(
@@ -118,14 +118,14 @@ cURL
                     "prompt": "A single red maple leaf on a plain white background.",
                 },
             )
-            print("request_id:", handle.request_id)  # with the model ID, all another process needs
+            print("request_id:", handle.request_id)  # junto con el ID del modelo, es todo lo que otro proceso necesita
     
-            # Poll until the request completes, waiting the Retry-After the server names.
+            # Consulta hasta que la solicitud se complete, esperando el Retry-After que indica el servidor.
             async for update in handle.iter_events():
                 print(update.status, update.queue_position)
     
-            # The provider's own payload, the same value models.run() returns.
-            # A request that failed or was cancelled raises the typed Router error here.
+            # La carga útil propia del proveedor, el mismo valor que devuelve models.run().
+            # Una solicitud que falló o se canceló lanza aquí el error tipado de Router.
             result = await handle.get()
     
         print(result)
@@ -136,39 +136,39 @@ cURL
     
     import { comfy } from "@comfyorg/sdk";
     
-    // Reads COMFY_API_KEY from the environment.
-    // Each submit() call mints its own Idempotency-Key and reuses it for automatic retries.
+    // Lee COMFY_API_KEY del entorno.
+    // Cada llamada a submit() genera su propia Idempotency-Key y la reutiliza para los reintentos automáticos.
     const handle = await comfy.models.submit("recraft/recraftv4_1_utility_vector", {
       n: 1,
       prompt: "A single red maple leaf on a plain white background.",
     });
-    console.log("requestId:", handle.requestId); // with the model ID, all another process needs
+    console.log("requestId:", handle.requestId); // junto con el ID del modelo, es todo lo que otro proceso necesita
     
-    // Poll until the request completes, waiting the Retry-After the server names.
+    // Consulta hasta que la solicitud se complete, esperando el Retry-After que indica el servidor.
     for await (const update of handle.events()) {
       console.log(update.status, update.queuePosition);
     }
     
-    // The same result models.run() returns. A request that failed or was cancelled rejects here.
+    // El mismo resultado que devuelve models.run(). Una solicitud que falló o se canceló se rechaza aquí.
     const result = await handle.get();
     
     console.log(result.data);
     
     
     
-    # 1. Submit. Router answers 201 with request_id, status_url, response_url and cancel_url.
+    # 1. Envía. Router responde 201 con request_id, status_url, response_url y cancel_url.
     curl https://api.comfy.org/v2/models/recraft/recraftv4_1_utility_vector/requests \
       -H "X-API-Key: $COMFY_API_KEY" \
       -H "Idempotency-Key: $(uuidgen)" \
       -H "Content-Type: application/json" \
       -d "{\"n\": 1, \"prompt\": \"A single red maple leaf on a plain white background.\"}"
     
-    # 2. Poll until status is COMPLETED, waiting the Retry-After seconds each response names.
+    # 2. Consulta hasta que el estado sea COMPLETED, esperando los segundos de Retry-After que indica cada respuesta.
     REQUEST_ID="<request_id from the 201 body>"
     curl -i https://api.comfy.org/v2/models/recraft/recraftv4_1_utility_vector/requests/$REQUEST_ID/status \
       -H "X-API-Key: $COMFY_API_KEY"
     
-    # 3. Collect. 200 with the model's native output, 202 with the status body while it is still running.
+    # 3. Recoge. 200 con la salida nativa del modelo, 202 con el cuerpo de estado mientras sigue en ejecución.
     curl https://api.comfy.org/v2/models/recraft/recraftv4_1_utility_vector/requests/$REQUEST_ID \
       -H "X-API-Key: $COMFY_API_KEY"
     
@@ -223,7 +223,7 @@ controls.colors
 
 object[]
 
-Un arreglo de colores preferidos
+Un arreglo de colores preferibles
 
 ​
 
@@ -247,7 +247,7 @@ model
 
 string
 
-El modelo que se usará para generar (por ejemplo, “recraftv3”). Este campo NO está restringido a una enumeración: el proxy reenvía lo que envíe quien llama. Las grafías que incluye Comfy (el conjunto al que Comfy Router se refiere como `recraft/<model>`) son recraftv2, recraftv3, recraftv4, recraftv4_pro, recraftv4_1, recraftv4_1_utility, recraftv4_1_pro, recraftv4_1_utility_pro, recraftv4_styles, recraftv4_styles_pro, recraftv4_1_vector, recraftv4_1_utility_vector, recraftv4_1_pro_vector, recraftv4_1_utility_pro_vector, recraftv4_styles_vector y recraftv4_styles_pro_vector. Se escriben aquí en lugar de nombrarlas por referencia porque nada referencia con `$ref` al componente RecraftGenerationModel que las declara, y por eso se elimina de la especificación que se sirve en GET /openapi, de modo que un puntero hacia él quedaría huérfano en el documento servido. Las cuatro grafías `recraftv4_styles*` además requieren `style_id`; consulta ese campo.
+El modelo que se usa para la generación (p. ej., “recraftv3”). Este campo NO está restringido a un enum: el proxy reenvía lo que envíe quien llama. Las grafías que incluye Comfy, el conjunto que Comfy Router direcciona como `recraft/<model>`, son recraftv2, recraftv3, recraftv4, recraftv4_pro, recraftv4_1, recraftv4_1_utility, recraftv4_1_pro, recraftv4_1_utility_pro, recraftv4_styles, recraftv4_styles_pro, recraftv4_1_vector, recraftv4_1_utility_vector, recraftv4_1_pro_vector, recraftv4_1_utility_pro_vector, recraftv4_styles_vector y recraftv4_styles_pro_vector. Se escriben aquí en lugar de nombrarse por referencia porque el componente RecraftGenerationModel que las declara no recibe `$ref` desde ningún otro lugar y, por lo tanto, se elimina del spec que se sirve en GET /openapi, de modo que un puntero a él quedaría colgando en el documento servido. Las cuatro grafías `recraftv4_styles*` además requieren `style_id`: consulta ese campo.
 
 ​
 
@@ -281,7 +281,7 @@ size
 
 string
 
-El tamaño de la imagen generada (por ejemplo, “1024x1024”)
+El tamaño de la imagen generada (p. ej., “1024x1024”)
 
 ​
 
@@ -289,7 +289,7 @@ style
 
 string
 
-El estilo que se aplicará a la imagen generada (por ejemplo, “digital_illustration”)
+El estilo que se aplica a la imagen generada (p. ej., “digital_illustration”)
 
 ​
 
@@ -297,7 +297,7 @@ style_id
 
 string
 
-El ID de estilo que se aplicará a la imagen generada (por ejemplo, “123e4567-e89b-12d3-a456-426614174000”). Si se proporciona style_id, no se debería proporcionar style. Es REQUERIDO por los cuatro modelos `recraftv4_styles*`: Recraft los rechaza si no incluyen un style_id o una referencia de estilo. Crea uno con `POST /proxy/recraft/styles`, que este mismo proxy sirve con las mismas credenciales. Nada en esta ruta valida esa combinación: el cuerpo se reenvía a Recraft sin cambios, así que una llamada a `recraftv4_styles*` sin él llega al socio y regresa con un 4xx.
+El ID de estilo que se aplica a la imagen generada (p. ej., “123e4567-e89b-12d3-a456-426614174000”). Si proporcionas style_id, no debes proporcionar style. Los cuatro modelos `recraftv4_styles*` lo REQUIEREN: Recraft rechaza esas llamadas sin un style_id o una referencia de estilo. Genera uno con `POST /proxy/recraft/styles`, que este mismo proxy sirve con las mismas credenciales. Nada en esta ruta exige el emparejamiento: el cuerpo se reenvía a Recraft sin cambios, así que una llamada a `recraftv4_styles*` sin él llega al socio y regresa con 4xx.
 
 Generado a partir del esquema que Router sirve en `GET /v2/models/recraft/recraftv4_1_utility_vector/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
 
@@ -343,7 +343,7 @@ data[].b64_json
 
 string
 
-Datos de imagen codificados en base64 (presentes en lugar de `url` cuando la solicitud estableció `response_format: b64_json`)
+Datos de imagen codificados en Base64 (se incluyen en lugar de `url` cuando la solicitud estableció `response_format: b64_json`)
 
 ​
 
@@ -359,7 +359,7 @@ data[].url
 
 string
 
-URL para acceder a la imagen generada (presente cuando `response_format` es `url`, el valor predeterminado)
+URL para acceder a la imagen generada (se incluye cuando `response_format` es `url`, el valor predeterminado)
 
 ​
 

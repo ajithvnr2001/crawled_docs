@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/troubleshooting/overview/
 title: C\u00f3mo solucionar problemas de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:40.503464+00:00
+fetched_at: 2026-11-03T14:55:28.353242+00:00
 ---
 
 # Cómo solucionar problemas de ComfyUI - ComfyUI
@@ -14,19 +14,19 @@ fetched_at: 2026-10-26T14:03:40.503464+00:00
 Volver arriba
 
   * Problemas comunes y soluciones rápidas
-    * ComfyUI no se inicia
+    * ComfyUI no inicia
     * La generación falla o produce errores
     * Rendimiento lento
-  * Problemas específicos de la instalación
+  * Problemas específicos de instalación
     * Problemas de la aplicación de escritorio
     * Problemas de la instalación manual
     * Problemas específicos de Linux
   * Problemas relacionados con los modelos
   * Problemas de red y API
-    * Nodos asociados que no funcionan
+    * Los nodos asociados no funcionan
     * Problemas de conexión
     * Problemas del frontend
-  * Problemas específicos del hardware
+  * Problemas específicos de hardware
     * Problemas con GPU NVIDIA
     * Problemas con GPU AMD
     * Problemas con Apple Silicon (M1/M2/M3)
@@ -35,7 +35,7 @@ Volver arriba
     * ¿Cómo ejecuto ComfyUI con Docker?
   * Obtener ayuda y reportar errores
     * Antes de reportar un error
-    * Cómo reportar errores de forma efectiva
+    * Cómo reportar errores de forma eficaz
     * Para problemas del núcleo de ComfyUI
     * Para problemas de la aplicación de escritorio
     * Para problemas del frontend
@@ -55,7 +55,7 @@ Guía de solución de problemas de ComfyUI: descarta primero los nodos personali
 
 Copiar páginaCopiar página
 
-Recibimos muchos reportes de problemas y notamos que la mayoría de los enviados están relacionados con nodos personalizados. Por eso, asegúrate de haber leído la [guía de solución de problemas de nodos personalizados](https://docs.comfy.org/es/troubleshooting/custom-node-issues) antes de enviar un reporte de error, para confirmar que el problema no se debe a fallas del núcleo de ComfyUI.
+Recibimos muchos comentarios sobre problemas y hemos notado que la mayoría de los que se envían están relacionados con nodos personalizados. Por eso, asegúrate de haber leído la [guía de solución de problemas de nodos personalizados](https://docs.comfy.org/es/troubleshooting/custom-node-issues) antes de enviar un reporte de error, para confirmar que el problema no se debe a fallas del núcleo de ComfyUI.
 
 ## Guía de solución de problemas de nodos personalizados
 
@@ -67,17 +67,17 @@ Consulta cómo solucionar los problemas causados por nodos personalizados.
 
 Problemas comunes y soluciones rápidas
 
-Antes de entrar en la solución de problemas detallada, prueba estas soluciones comunes:
+Antes de entrar en la solución de problemas detallada, prueba estas soluciones habituales:
 
 ### 
 
 ​
 
-ComfyUI no se inicia
+ComfyUI no inicia
 
-**Síntomas:** la aplicación se bloquea al iniciar, se queda en pantalla negra o no termina de cargar **Soluciones rápidas:**
+**Síntomas:** la aplicación se cierra al iniciar, muestra una pantalla negra o no carga **Soluciones rápidas:**
 
-  1. **Verifica los requisitos del sistema** \- Asegúrate de que tu sistema cumpla los [requisitos mínimos](https://docs.comfy.org/es/installation/system_requirements)
+  1. **Revisa los requisitos del sistema** \- Asegúrate de que tu sistema cumpla los [requisitos mínimos](https://docs.comfy.org/es/installation/system_requirements)
   2. **Actualiza los controladores de la GPU** \- Descarga los controladores más recientes de NVIDIA/AMD/Intel
 
 
@@ -88,12 +88,12 @@ ComfyUI no se inicia
 
 La generación falla o produce errores
 
-**Síntomas:** aparece el diálogo “Prompt execution failed” con el botón “Show report” y el flujo de trabajo deja de ejecutarse **Soluciones rápidas:**
+**Síntomas:** aparece el diálogo “La ejecución del prompt falló” con el botón “Mostrar informe” y el flujo de trabajo deja de ejecutarse **Soluciones rápidas:**
 
-  1. **Haz clic en “Show report”** \- Lee el mensaje de error detallado para identificar el problema concreto
-  2. **Comprueba si es un problema de nodos personalizados** \- [Sigue nuestra guía de solución de problemas de nodos personalizados](https://docs.comfy.org/es/troubleshooting/custom-node-issues)
+  1. **Haz clic en “Mostrar informe”** \- Lee el mensaje de error detallado para identificar el problema concreto
+  2. **Comprueba si es un problema de un nodo personalizado** \- [Sigue nuestra guía de solución de problemas de nodos personalizados](https://docs.comfy.org/es/troubleshooting/custom-node-issues)
   3. **Verifica los archivos de modelo** \- Consulta la [documentación de modelos](https://docs.comfy.org/es/basic-concepts/models) para configurar los modelos
-  4. **Revisa el uso de VRAM** \- Cierra otras aplicaciones que estén usando la memoria de la GPU
+  4. **Revisa el uso de VRAM** \- Cierra otras aplicaciones que estén usando memoria de la GPU
 
 
 
@@ -105,12 +105,12 @@ Rendimiento lento
 
 **Síntomas:** tiempos de generación muy lentos, el sistema se congela, errores de memoria insuficiente **Soluciones rápidas:**
 
-  1. **Reduce la resolución o el tamaño del lote** \- Disminuye el tamaño de la imagen o el número de imágenes
-  2. **Usa las opciones de optimización de memoria** \- Consulta la sección de optimización de rendimiento de más abajo
+  1. **Reduce la resolución o el tamaño del lote** \- Disminuye el tamaño de la imagen o la cantidad de imágenes
+  2. **Usa las opciones de optimización de memoria** \- Consulta la sección de optimización del rendimiento más abajo
   3. **Cierra las aplicaciones innecesarias** \- Libera RAM y VRAM
   4. **Revisa el uso de CPU/GPU** \- Usa el Administrador de tareas para identificar los cuellos de botella
 
-**Comandos de optimización de rendimiento:** Para sistemas con poca VRAM:
+**Comandos de optimización del rendimiento:** Para sistemas con poca VRAM:
     
     
     # Low VRAM mode (uses cpu for text encoder)
@@ -120,7 +120,7 @@ Rendimiento lento
     python main.py --cpu
     
 
-Para obtener un mejor rendimiento:
+Para obtener mejor rendimiento:
     
     
     # Disable previews (saves VRAM and processing)
@@ -153,7 +153,7 @@ Para la gestión de memoria:
 
 ​
 
-Problemas específicos de la instalación
+Problemas específicos de instalación
 
 ### 
 
@@ -161,7 +161,7 @@ Problemas específicos de la instalación
 
 Problemas de la aplicación de escritorio
 
-Para una solución de problemas completa de la instalación de escritorio, consulta la [Guía de instalación de escritorio](https://docs.comfy.org/es/installation/desktop/windows).
+Para una guía completa de solución de problemas de instalación en escritorio, consulta la [Guía de instalación de escritorio](https://docs.comfy.org/es/installation/desktop/windows).
 
   * Windows
 
@@ -172,21 +172,21 @@ Para una solución de problemas completa de la instalación de escritorio, consu
 
 
 
-  * **Dispositivo no compatible** : Comfy Desktop para Windows solo admite GPUs NVIDIA con CUDA. Usa [ComfyUI Portable](https://docs.comfy.org/es/installation/comfyui_portable_windows) o la [instalación manual](https://docs.comfy.org/es/installation/manual_install) para otras GPUs
-  * **La instalación falla** : ejecuta el instalador como administrador y asegúrate de tener al menos 15 GB de espacio en disco
-  * **Página de mantenimiento** : revisa la [configuración de espejos](https://docs.comfy.org/es/installation/desktop/usage/settings#avanzado) si las descargas fallan
-  * **Modelos faltantes** : los modelos no se copian durante la migración, solo se enlazan. Verifica las rutas de los modelos
+  * **Dispositivo no compatible** : Comfy Desktop para Windows solo admite GPU NVIDIA con CUDA. Usa [ComfyUI Portable](https://docs.comfy.org/es/installation/comfyui_portable_windows) o la [instalación manual](https://docs.comfy.org/es/installation/manual_install) para otras GPU
+  * **La instalación falla** : Ejecuta el instalador como administrador y asegúrate de tener al menos 15 GB de espacio en disco
+  * **Página de Mantenimiento** : Revisa las [Configuraciones de Espejo](https://docs.comfy.org/es/installation/desktop/usage/settings#avanzado) si fallan las descargas
+  * **Modelos faltantes** : Los modelos no se copian durante la migración, solo se vinculan. Verifica las rutas de los modelos
 
 
 
-  * **“La app está dañada”** : permite la app en la configuración de Seguridad y privacidad
-  * **Problemas de rendimiento** : concede Acceso completo al disco en la configuración de Privacidad
-  * **Cierres inesperados** : revisa la app Consola para ver los informes de fallos
+  * **“La aplicación está dañada”** : Permite la aplicación en las configuraciones de Seguridad y Privacidad
+  * **Problemas de rendimiento** : Otorga Acceso total al disco en las configuraciones de Privacidad
+  * **Cierres inesperados** : Revisa la aplicación Consola para ver los informes de fallos
 
 
 
-  * **Bibliotecas faltantes** : instala las dependencias con el gestor de paquetes
-  * **Errores de LD_LIBRARY_PATH** : problemas con la ruta de las bibliotecas de PyTorch (ver más abajo)
+  * **Librerías faltantes** : Instala las dependencias con el gestor de paquetes
+  * **Errores de LD_LIBRARY_PATH** : Problemas con la ruta de las librerías de PyTorch (ver abajo)
 
 
 
@@ -196,7 +196,7 @@ Para una solución de problemas completa de la instalación de escritorio, consu
 
 Problemas de la instalación manual
 
-Es posible que la documentación esté ligeramente desactualizada. Si surge algún problema, verifica manualmente si existe una versión estable más reciente de PyTorch o de cualquiera de las bibliotecas indicadas. Consulta recursos como la [matriz de instalación de PyTorch](https://pytorch.org/get-started/locally/) o el [sitio web de ROCm](https://rocm.docs.amd.com/projects/install-on-linux/en/develop/install/3rd-party/pytorch-install.html#using-a-wheels-package).
+Es posible que la documentación esté un poco desactualizada. Si surge un problema, verifica manualmente si existe una versión estable más reciente de pytorch o de cualquiera de las librerías mencionadas. Consulta recursos como la [matriz de instalación de pytorch](https://pytorch.org/get-started/locally/) o el [sitio web de ROCm](https://rocm.docs.amd.com/projects/install-on-linux/en/develop/install/3rd-party/pytorch-install.html#using-a-wheels-package).
 
 **Conflictos de versión de Python:**
     
@@ -210,7 +210,7 @@ Es posible que la documentación esté ligeramente desactualizada. Si surge alg�
     comfyui_env\Scripts\activate     # Windows
     
 
-**Fallos al instalar paquetes:**
+**Fallos en la instalación de paquetes:**
     
     
     # Update pip first
@@ -260,7 +260,7 @@ Problemas específicos de Linux
     export LD_LIBRARY_PATH=$PYTHON_PATH/nvidia/cublas/lib:$LD_LIBRARY_PATH
     
 
-  2. **Averigua qué bibliotecas tienes:**
+  2. **Averigua qué librerías tienes:**
 
 
     
@@ -302,7 +302,7 @@ Problemas específicos de Linux
     sudo ldconfig
     
 
-  5. **Depura la carga de bibliotecas:**
+  5. **Depura la carga de librerías:**
 
 
     
@@ -320,7 +320,7 @@ Problemas específicos de Linux
 
 Problemas relacionados con los modelos
 
-Para una resolución de problemas de modelos completa, que incluye desajustes de arquitectura, modelos faltantes y errores de carga, consulta la página dedicada [Problemas de modelos](https://docs.comfy.org/es/troubleshooting/model-issues).
+Para un diagnóstico completo de problemas con modelos, incluidas las incompatibilidades de arquitectura, los modelos faltantes y los errores de carga, consulta la página dedicada [Problemas de modelos](https://docs.comfy.org/es/troubleshooting/model-issues).
 
 ## 
 
@@ -332,14 +332,14 @@ Problemas de red y API
 
 ​
 
-Nodos asociados que no funcionan
+Los nodos asociados no funcionan
 
-**Síntomas:** las llamadas a la API fallan, errores de tiempo de espera, cuota excedida **Soluciones:**
+**Síntomas:** fallos en las llamadas a la API, errores de tiempo de espera, cuota excedida **Soluciones:**
 
-  1. **Verifica la validez de la clave API** \- Comprueba las claves en [configuraciones de usuario](https://docs.comfy.org/es/interface/user)
-  2. **Revisa los créditos de la cuenta** \- Asegúrate de tener suficientes [créditos de API](https://docs.comfy.org/es/interface/credits)
-  3. **Verifica la conexión a internet** \- Prueba con otros servicios en línea
-  4. **Revisa el estado del servicio** \- Es posible que el proveedor esté sufriendo una interrupción
+  1. **Verifica la validez de la clave API** : revisa las claves en [configuraciones de usuario](https://docs.comfy.org/es/interface/user)
+  2. **Verifica los créditos de la cuenta** : asegúrate de tener suficientes [créditos de API](https://docs.comfy.org/es/interface/credits)
+  3. **Verifica la conexión a internet** : prueba con otros servicios en línea
+  4. **Verifica el estado del servicio** : es posible que el proveedor tenga una interrupción del servicio
 
 
 
@@ -349,12 +349,12 @@ Nodos asociados que no funcionan
 
 Problemas de conexión
 
-**Síntomas:** “Failed to connect to server”, errores de tiempo de espera **Soluciones:**
+**Síntomas:** “No se pudo conectar al servidor”, errores de tiempo de espera **Soluciones:**
 
-  1. **Revisa la configuración del firewall** \- Permite que ComfyUI pase a través del firewall
-  2. **Prueba con otro puerto** \- El predeterminado es 8188, prueba con 8189 o 8190
-  3. **Desactiva la VPN temporalmente** \- La VPN puede estar bloqueando las conexiones
-  4. **Revisa la configuración del proxy** \- Desactiva el proxy si no es necesario
+  1. **Verifica la configuración del firewall** : permite que ComfyUI pase por el firewall
+  2. **Prueba con un puerto diferente** : el predeterminado es 8188; prueba 8189 o 8190
+  3. **Desactiva la VPN temporalmente** : es posible que la VPN esté bloqueando las conexiones
+  4. **Verifica la configuración del proxy** : desactiva el proxy si no es necesario
 
 
 
@@ -367,20 +367,20 @@ Problemas del frontend
 **“El paquete de frontend o de plantillas no está actualizado”:**
     
     
-    # Después de actualizar ComfyUI vía Git, actualiza las dependencias del frontend
+    # Después de actualizar ComfyUI mediante Git, actualiza las dependencias del frontend
     pip install -r requirements.txt
     
 
-**“No se encuentra el nodo personalizado”:**
+**“No se puede encontrar el nodo personalizado”:**
 
   * Desactiva la validación de nodos en las configuraciones de ComfyUI
 
-**“Aviso de error sobre un flujo de trabajo que no pasa la validación”:**
+**“Notificación de error sobre un flujo de trabajo que no supera la validación”:**
 
   * Desactiva temporalmente la validación del flujo de trabajo en las configuraciones
   * Reporta el problema al equipo de ComfyUI
 
-**Problemas de inicio de sesión fuera de localhost:**
+**Problemas de inicio de sesión cuando no estás en localhost:**
 
   * El inicio de sesión normal solo funciona cuando accedes desde localhost
   * Para acceso por LAN o remoto: genera una clave API en [platform.comfy.org/login](https://platform.comfy.org/login)
@@ -392,7 +392,7 @@ Problemas del frontend
 
 ​
 
-Problemas específicos del hardware
+Problemas específicos de hardware
 
 ### 
 
@@ -426,13 +426,13 @@ Problemas con GPU NVIDIA
     nvidia-smi --query-gpu=driver_version --format=csv
     
 
-**GPUs Blackwell (`sm_103`): la generación falla en la primera capa de atención:** En las GPUs NVIDIA de generación Blackwell, la atención de producto escalar escalada (SDPA) que PyTorch usa de forma predeterminada puede seleccionar el backend de cuDNN, que no tiene ningún plan válido para esta arquitectura:
+**GPU Blackwell (`sm_103`): la generación falla en la primera capa de atención:** En las GPU NVIDIA de generación Blackwell, la atención de producto escalar escalado (SDPA) predeterminada de PyTorch puede seleccionar el backend cuDNN, que no tiene un plan válido para esta arquitectura:
     
     
     cuDNN Frontend error: No valid execution plans built
     
 
-Con FLUX esto afecta al primer bloque de atención de la UNet, así que nunca se llega a producir ninguna imagen.
+Con FLUX, esto afecta al primer bloque de atención de la UNet, por lo que nunca se genera una imagen.
     
     
     # Use a hand-written attention implementation that bypasses SDPA and cuDNN
@@ -442,9 +442,9 @@ Con FLUX esto afecta al primer bloque de atención de la UNet, así que nunca se
     # builds compiled against cu121 will not run on these cards at all
     
 
-Desactivar el backend cuDNN de SDPA mediante código antes del arranque — por ejemplo, llamando a `torch.backends.cuda.enable_cudnn_sdp(False)` desde un `sitecustomize.py` — no funciona, porque el flag no se conserva a través de la inicialización de CUDA. El flag de arranque es la solución fiable.
+Deshabilitar el backend SDPA de cuDNN mediante programación antes del inicio, por ejemplo llamando a `torch.backends.cuda.enable_cudnn_sdp(False)` desde un `sitecustomize.py`, no funciona, porque el indicador no se conserva durante la inicialización de CUDA. La opción de inicio es la solución fiable.
 
-_Esta entrada se añadió en el[PR #1491](https://github.com/Comfy-Org/docs/pull/1491)._
+_Esta entrada se añadió en[PR #1491](https://github.com/Comfy-Org/docs/pull/1491)._
 
 ### 
 
@@ -452,7 +452,7 @@ _Esta entrada se añadió en el[PR #1491](https://github.com/Comfy-Org/docs/pull
 
 Problemas con GPU AMD
 
-**Compatibilidad con ROCm (solo Linux):**
+**Soporte de ROCm (solo Linux):**
     
     
     # Install stable ROCm PyTorch (7.2 at the time of writing)
@@ -462,7 +462,7 @@ Problemas con GPU AMD
     pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm7.2
     
 
-**GPUs AMD no compatibles:**
+**GPU AMD no compatibles:**
     
     
     # For RDNA2 or older (6700, 6600)
@@ -472,7 +472,7 @@ Problemas con GPU AMD
     HSA_OVERRIDE_GFX_VERSION=11.0.0 python main.py
     
 
-**Optimización de rendimiento:**
+**Optimización del rendimiento:**
     
     
     # Enable experimental memory efficient attention (no longer necessary with PyTorch 2.4)
@@ -488,7 +488,7 @@ Problemas con GPU AMD
 
 Problemas con Apple Silicon (M1/M2/M3)
 
-Los pasos de esta sección se aplican a una instalación manual o desde el código fuente, en la que ComfyUI se ejecuta en un entorno de Python que configuras tú mismo. Consulta los [Requisitos del sistema](https://docs.comfy.org/es/installation/system_requirements) para ver las versiones de Python compatibles y la [Instalación manual](https://docs.comfy.org/es/installation/manual_install) para los pasos de configuración.**Comfy Desktop** en Apple silicon no necesita una instalación de Python aparte: la app gestiona su propio entorno de Python para cada instancia. Consulta [Comfy Desktop para macOS](https://docs.comfy.org/es/installation/desktop/macos).
+Los pasos de esta sección se aplican a una instalación manual o desde el código fuente, donde ComfyUI se ejecuta en un entorno de Python que configuras tú mismo. Consulta [Requisitos del sistema](https://docs.comfy.org/es/installation/system_requirements) para conocer las versiones de Python compatibles y [Instalación manual](https://docs.comfy.org/es/installation/manual_install) para los pasos de configuración.**Comfy Desktop** en Apple Silicon no necesita una instalación separada de Python: la aplicación gestiona su propio entorno de Python para cada instancia. Consulta [Comfy Desktop para macOS](https://docs.comfy.org/es/installation/desktop/macos).
 
 **Configuración del backend MPS:**
     
@@ -519,7 +519,7 @@ Los pasos de esta sección se aplican a una instalación manual o desde el códi
 
 Problemas con GPU Intel
 
-**Error “Torch not compiled with CUDA enabled”:** En las GPUs Intel este error significa que ComfyUI intentó usar CUDA porque el backend XPU no estaba disponible. No sigas los pasos de reinstalación de CUDA para NVIDIA indicados arriba. Las GPUs Intel usan XPU, no CUDA. Comprueba si PyTorch puede ver la GPU Intel:
+**Error “Torch not compiled with CUDA enabled”:** En las GPU Intel, este error significa que ComfyUI intentó usar CUDA porque el backend XPU no estaba disponible. No sigas los pasos de reinstalación de CUDA para NVIDIA indicados arriba. Las GPU Intel usan XPU, no CUDA. Comprueba si PyTorch puede detectar la GPU Intel:
     
     
     python -c "import torch; print('XPU available:', hasattr(torch, 'xpu') and torch.xpu.is_available())"
@@ -527,11 +527,11 @@ Problemas con GPU Intel
 
 Si imprime `True`, ComfyUI usa el backend XPU automáticamente. Si imprime `False`:
 
-  1. Confirma que tienes una GPU Intel Arc compatible (Arc serie A, Arc serie B o un procesador Core Ultra con Arc Graphics).
+  1. Confirma que tienes una GPU Intel Arc compatible (Arc serie A, Arc serie B o un procesador Core Ultra con gráficos Arc).
   2. Instala o actualiza el [controlador de GPU Intel](https://www.intel.com/content/www/us/en/developer/articles/tool/pytorch-prerequisites-for-intel-gpu.html).
-  3. Instala una versión de PyTorch con soporte XPU usando una de las opciones de abajo. No instales un wheel de CUDA.
+  3. Instala una compilación de PyTorch habilitada para XPU usando una de las opciones siguientes. No instales un wheel de CUDA.
 
-**Opción 1: soporte XPU nativo de PyTorch (Windows/Linux):**
+**Opción 1: Soporte nativo de XPU en PyTorch (Windows/Linux):**
     
     
     # Stable XPU wheels (recommended)
@@ -566,7 +566,7 @@ Preguntas frecuentes
 
 **Docker:** ComfyUI no proporciona una imagen oficial de Docker. Si quieres ejecutar ComfyUI en un contenedor, puedes usar las imágenes mantenidas por la comunidad en [Docker Hub](https://hub.docker.com/search?q=comfyui). Estas imágenes **no están mantenidas oficialmente por Comfy-Org** y no cuentan con el soporte del equipo de ComfyUI. Úsalas bajo tu propio riesgo.
 
-Para la instalación local en Linux, sigue la [Guía de instalación manual](https://docs.comfy.org/es/installation/manual_install). Para el uso en la nube, consulta [Comfy Cloud](https://docs.comfy.org/es/get_started/cloud).
+Para instalar localmente en Linux, sigue la [Guía de instalación manual](https://docs.comfy.org/es/installation/manual_install). Para usarlo en la nube, consulta [Comfy Cloud](https://docs.comfy.org/es/get_started/cloud).
 
 ## 
 
@@ -580,14 +580,14 @@ Obtener ayuda y reportar errores
 
 Antes de reportar un error
 
-  1. **Verifica si es un problema conocido:**
-     * Busca en [Problemas de GitHub](https://github.com/Comfy-Org/ComfyUI/issues)
+  1. **Comprueba si es un problema conocido:**
+     * Busca en los [Problemas de GitHub](https://github.com/Comfy-Org/ComfyUI/issues)
      * Revisa el [Foro de ComfyUI](https://forum.comfy.org/)
-     * Consulta las [discusiones de Discord](https://discord.com/invite/comfyorg)
+     * Consulta las [discusiones en Discord](https://discord.com/invite/comfyorg)
   2. **Prueba la solución de problemas básica:**
      * Prueba con el [flujo de trabajo predeterminado](https://docs.comfy.org/es/get_started/first_generation)
      * Desactiva todos los nodos personalizados (consulta [solución de problemas de nodos personalizados](https://docs.comfy.org/es/troubleshooting/custom-node-issues))
-     * Revisa la consola/terminal en busca de mensajes de error
+     * Revisa la consola/terminal para ver los mensajes de error
      * Si usas comfy-cli, intenta actualizar: `comfy node update all`
 
 
@@ -596,7 +596,7 @@ Antes de reportar un error
 
 ​
 
-Cómo reportar errores de forma efectiva
+Cómo reportar errores de forma eficaz
 
 #### 
 
@@ -649,14 +649,14 @@ Información del sistema
 
 
 
-**Información del sistema (la puedes encontrar en la página Acerca de, en configuraciones):**
+**Información del sistema (se encuentra en la página Acerca de en las configuraciones):**
 
   * Sistema operativo (Windows 11, macOS 14.1, Ubuntu 22.04, etc.)
-  * Versión de ComfyUI (revisa la página Acerca de en configuraciones)
+  * Versión de ComfyUI (consulta la página Acerca de en las configuraciones)
   * Versión de Python: `python --version`
   * Versión de PyTorch: `python -c "import torch; print(torch.__version__)"`
   * Modelo de GPU y versión del controlador
-  * Método de instalación (Desktop, Portable, Manual, comfy-cli) ![Página Acerca de en configuraciones](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/troubleshooting/menu-about.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=c5bbb54ba0d54a908d76ea3e863680d8)
+  * Método de instalación (Desktop, Portable, Manual, comfy-cli) ![Página Acerca de en las configuraciones](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/troubleshooting/menu-about.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=c5bbb54ba0d54a908d76ea3e863680d8)
 
 
 
@@ -712,13 +712,13 @@ Detalles del problema
 
   * Descripción clara del problema
   * Pasos para reproducir el problema
-  * Comportamiento esperado vs. real
+  * Comportamiento esperado frente al real
   * Capturas de pantalla o videos si corresponde
 
 **Mensajes de error:**
 
   * Texto completo del error de la consola/terminal
-  * Errores de la consola del navegador (F12 → pestaña Consola)
+  * Errores de la consola del navegador (F12 → pestaña Console)
   * Cualquier registro de fallos o diálogo de error
 
 

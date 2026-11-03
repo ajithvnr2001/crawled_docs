@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/topaz/image-enhance-bloom-2/
 title: Topaz Image Enhance Bloom 2: ampliaci\u00f3n creativa de im\u00e1genes con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:55.517147+00:00
+fetched_at: 2026-11-03T14:55:32.340312+00:00
 ---
 
 # Topaz Image Enhance Bloom 2: ampliación creativa de imágenes con IA - ComfyUI
@@ -13,9 +13,9 @@ fetched_at: 2026-10-26T14:03:55.517147+00:00
 
 Volver arriba
 
-  * Para qué es bueno Topaz Image Enhance Bloom 2
+  * Para qué sirve Topaz Image Enhance Bloom 2
   * Salidas de ejemplo
-  * Topaz Image Enhance Bloom 2
+  * Mejorar imagen con Topaz Bloom 2
     * Resumen del flujo de trabajo
     * Pasos para ejecutar
   * Empezar
@@ -38,10 +38,10 @@ Topaz Image Enhance Bloom 2 es un modelo de ampliación creativa disponible en C
 
 ​
 
-Para qué es bueno Topaz Image Enhance Bloom 2
+Para qué sirve Topaz Image Enhance Bloom 2
 
   * **Ampliación creativa** : Agrega nuevos detalles, texturas y elementos visuales a tus imágenes
-  * **Creatividad ajustable** : Un control de 1 para una mejora contenida hasta 9 para una reinterpretación pronunciada
+  * **Creatividad ajustable** : Un control que va de 1 para una mejora contenida a 9 para una reinterpretación pronunciada
   * **Prompt automático** : Si el prompt está vacío, el modelo crea uno automáticamente
   * **Salida flexible** : Conserva la relación de aspecto de la entrada y admite factores de ampliación de 1x a 6x
 
@@ -53,7 +53,7 @@ Para qué es bueno Topaz Image Enhance Bloom 2
 
 Salidas de ejemplo
 
-Ampliación creativa de una imagen generada por IA, con nuevos detalles y texturas añadidos: ![Salida de Topaz Image Enhance Bloom 2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/Upscaled_topaz_bloom2.png)
+Ampliación creativa de una imagen generada por IA, con nuevo detalle y textura añadidos: ![Salida de Topaz Image Enhance Bloom 2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/Upscaled_topaz_bloom2.png)
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 
@@ -84,9 +84,9 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 ​
 
-Topaz Image Enhance Bloom 2
+Mejorar imagen con Topaz Bloom 2
 
-Mejora imágenes generadas por IA con el modelo de ampliación creativa de Bloom 2, que añade nuevo detalle, textura y elementos visuales. El control de Creatividad va de 1, para una mejora contenida, a 9, para una reinterpretación marcada. Si el prompt está vacío, el modelo crea uno automáticamente. ![Vista previa del flujo de trabajo Topaz Image Enhance Bloom 2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_topaz_image_enhance_bloom2-1.webp)
+Mejora las imágenes generadas por IA con el modelo de ampliación creativa de Bloom 2, que añade nuevo detalle, textura y elementos visuales. El control Creatividad va de 1, para una mejora contenida, a 9, para una reinterpretación marcada. Si el prompt está vacío, el modelo crea uno automáticamente. ![Vista previa del flujo de trabajo Mejorar imagen con Topaz Bloom 2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_topaz_image_enhance_bloom2-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -96,7 +96,7 @@ Abrir en Comfy Cloud
 
 Descarga el JSON o busca “Topaz Image Enhance Bloom 2” en la Biblioteca de plantillas
 
-![Salida de Topaz Image Enhance Bloom 2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/Upscaled_topaz_bloom2.png)
+![Salida de Mejorar imagen con Topaz Bloom 2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/Upscaled_topaz_bloom2.png)
 
 ### 
 
@@ -107,7 +107,7 @@ Resumen del flujo de trabajo
 Este flujo de trabajo usa cuatro nodos:
 
   * **LoadImage** : proporciona la imagen de origen
-  * **TopazImageEnhanceV2** : el nodo principal, configurado con el modelo de ampliación `Bloom 2`
+  * **TopazImageEnhanceV2** : el nodo principal, configurado con el modelo de mejora `Bloom 2`
   * **SaveImageAdvanced** : guarda la salida mejorada como PNG
   * **ImageCompare** : muestra el resultado mejorado junto al original para compararlos
 
@@ -121,7 +121,7 @@ Pasos para ejecutar
 
   1. **Carga una imagen** : sube o selecciona tu imagen de entrada en el nodo **LoadImage**
   2. **Selecciona el modelo** : mantén `Bloom 2` en el nodo **TopazImageEnhanceV2**
-  3. **Establece la creatividad** : de 1 para una mejora contenida a 9 para una reinterpretación marcada
+  3. **Ajusta la creatividad** : de 1 para una mejora contenida a 9 para una reinterpretación marcada
   4. **Prompt opcional** : déjalo vacío para que el modelo cree uno automáticamente
   5. **Haz clic en Queue** : pulsa `Ctrl+Enter` para generar
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfyui-server/api-key-integration/
 title: Integraci\u00f3n de la clave API de la cuenta de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:11.922117+00:00
+fetched_at: 2026-11-03T14:55:26.300467+00:00
 ---
 
 # Integración de la clave API de la cuenta de ComfyUI - ComfyUI
@@ -14,7 +14,7 @@ fetched_at: 2026-10-27T13:04:11.922117+00:00
 Volver arriba
 
   * Requisitos previos
-  * Ejemplo en Python
+  * Ejemplo de Python
   * Documentación relacionada
 
 
@@ -29,13 +29,13 @@ Usa la clave API de tu cuenta de ComfyUI para llamar a nodos asociados de pago e
 
 Copiar páginaCopiar página
 
-A partir de [PR #8041](https://github.com/Comfy-Org/ComfyUI/pull/8041), ComfyUI permite usar directamente los Nodos asociados de pago integrados mediante la Clave API de tu cuenta de ComfyUI, sin necesidad de una interfaz de frontend específica (incluso puedes ejecutarlo sin frontend). Esto significa que puedes crear flujos de trabajo que combinen:
+A partir de [PR #8041](https://github.com/Comfy-Org/ComfyUI/pull/8041), ComfyUI permite usar directamente los Nodos asociados de pago integrados mediante la Clave API de tu cuenta de ComfyUI, sin necesidad de una interfaz de frontend específica (incluso puedes ejecutarlo sin ningún frontend). Esto significa que puedes crear flujos de trabajo que combinen:
 
-  * modelos locales del sistema operativo
+  * modelos OS locales
   * herramientas de la comunidad de nodos personalizados
   * modelos de pago populares
 
-Y luego ejecutar todo junto simplemente enviando el prompt a la API del servidor web de Comfy, dejando que se encargue de toda la orquestación. Esto es útil para los usuarios que quieren usar Comfy como servicio backend, mediante la línea de comandos, con su propio frontend, etc.
+Luego puedes ejecutar todo junto simplemente enviando el prompt a la API del servidor web de Comfy, y dejar que se encargue de toda la orquestación. Esto es útil para quienes quieren usar Comfy como servicio backend, mediante la línea de comandos, con su propio frontend, etc.
 
 ## 
 
@@ -56,15 +56,15 @@ Para usar tu Clave API de la cuenta de ComfyUI y llamar a los Nodos asociados de
 
 ## Créditos
 
-Consulta la sección Créditos para aprender a Comprar créditos para tu cuenta
+Consulta la sección Créditos para saber cómo comprar créditos para tu cuenta
 
 ## 
 
 ​
 
-Ejemplo en Python
+Ejemplo de Python
 
-Aquí tienes un ejemplo de cómo enviar un flujo de trabajo que contiene Nodos asociados a la API de ComfyUI usando código Python:
+Aquí tienes un ejemplo de cómo enviar un flujo de trabajo que contiene Nodos asociados a la API de ComfyUI usando código de Python:
     
     
     """Using Partner Nodes when running ComfyUI headless or with alternative frontend

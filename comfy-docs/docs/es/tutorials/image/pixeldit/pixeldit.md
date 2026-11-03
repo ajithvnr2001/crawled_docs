@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/pixeldit/pixeldit/
-title: Ejemplo de flujo de trabajo de PixelDiT en ComfyUI - ComfyUI
+title: PixelDiT en ComfyUI: texto a imagen en espacio de p\u00edxeles de NVIDIA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.719347+00:00
+fetched_at: 2026-11-03T14:55:29.672180+00:00
 ---
 
-# Ejemplo de flujo de trabajo de PixelDiT en ComfyUI - ComfyUI
+# PixelDiT en ComfyUI: texto a imagen en espacio de píxeles de NVIDIA - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/pixeldit/pixeldit/
 
@@ -22,11 +22,11 @@ Volver arriba
 
 PixelDiT
 
-# Ejemplo de flujo de trabajo de PixelDiT en ComfyUI
+# PixelDiT en ComfyUI: texto a imagen en espacio de píxeles de NVIDIA
 
 Copiar páginaCopiar página
 
-PixelDiT es el transformer de difusión en espacio de píxeles de NVIDIA para generar imágenes de 1024px a partir de texto, sin codificación VAE.
+Ejecuta NVIDIA PixelDiT en ComfyUI para generar imágenes de texto a 1024px directamente en el espacio de píxeles, sin codificación ni decodificación VAE.
 
 Copiar páginaCopiar página
 
@@ -86,8 +86,8 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 El flujo de trabajo consta de tres nodos principales:
 
-  1. **ResolutionSelector** : elige la resolución de salida deseada
-  2. **Subgrafo Text to Image (PixelDiT)** : el nodo de generación principal con controles expuestos para el prompt, la semilla, la selección del modelo y la resolución
+  1. **ResolutionSelector** : elige la resolución de salida que quieras
+  2. **Subgrafo Text to Image (PixelDiT)** : el nodo de generación principal, con controles expuestos para el prompt, la semilla, la selección del modelo y la resolución
   3. **SaveImage** : guarda la imagen generada
 
 
@@ -118,7 +118,7 @@ Control| Descripción
 
 Descargas de modelos
 
-PixelDiT usa dos archivos de modelo: un codificador de texto y el modelo de difusión.
+PixelDiT usa dos archivos de modelo: un codificador de texto y el modelo de diffusion.
 
 ## Codificador de texto
 
@@ -126,7 +126,7 @@ gemma_2_2b_it_elm_bf16.safetensors: codificador de texto Gemma-2-2B-IT
 
 ## Modelo de difusión
 
-pixeldit_1300m_1024px_bf16.safetensors: modelo de difusión PixelDiT 1300M 1024px
+pixeldit_1300m_1024px_bf16.safetensors: modelo de diffusion PixelDiT 1300M 1024px
 
 ### 
 

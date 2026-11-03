@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/black-forest-labs/flux-pro-1-0-expand/code/
 title: Usa FLUX Pro 1.0 Expand con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:56.797040+00:00
+fetched_at: 2026-11-03T14:55:25.154741+00:00
 ---
 
 # Usa FLUX Pro 1.0 Expand con Comfy Router - ComfyUI
@@ -34,7 +34,7 @@ Llama a bfl/flux-pro-1.0-expand con Comfy Router: endpoint, forma de la solicitu
 
 Copiar páginaCopiar página
 
-Referencia de API de `bfl/flux-pro-1.0-expand`, que Comfy Router ofrece desde Black Forest Labs. **Entrada:** Imagen, Texto · **Salida:** Imagen
+Referencia de la API de `bfl/flux-pro-1.0-expand`, que Comfy Router ofrece desde Black Forest Labs. **Entrada:** Imagen, Texto · **Salida:** Imagen
 
 ## 
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_settings/
 title: API de configuraciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:51.118268+00:00
+fetched_at: 2026-11-03T14:55:25.514221+00:00
 ---
 
 # API de configuraciones - ComfyUI
@@ -14,20 +14,20 @@ fetched_at: 2026-10-26T14:02:51.118268+00:00
 Volver arriba
 
   * Funcionamiento básico
-    * Añadir una configuración
+    * Agregar una configuración
     * Leer una configuración
     * Reaccionar a los cambios
     * Escribir una configuración
     * Configuración adicional
   * Tipos
-    * Booleano (Boolean)
-    * Texto (Text)
-    * Número (Number)
-    * Slider
+    * Booleano
+    * Texto
+    * Número
+    * Control deslizante
     * Combo
     * Color
-    * Imagen (Image)
-    * Oculto (Hidden)
+    * Imagen
+    * Oculto
   * Otros
     * Categorías
     * Tooltips
@@ -56,7 +56,7 @@ Funcionamiento básico
 
 ​
 
-Añadir una configuración
+Agregar una configuración
     
     
     import { app } from "../../scripts/app.js";
@@ -139,7 +139,7 @@ Escribir una configuración
 
 Configuración adicional
 
-Los tipos de configuración se basan en componentes de [PrimeVue](https://primevue.org/). Las props descritas en la documentación de PrimeVue se pueden definir para las configuraciones de ComfyUI añadiéndolas en un campo `attrs`. Por ejemplo, esto añade botones de incremento y decremento a una entrada numérica:
+Los tipos de configuración se basan en componentes de [PrimeVue](https://primevue.org/). Puedes definir las props descritas en la documentación de PrimeVue para las configuraciones de ComfyUI agregándolas en un campo `attrs`. Por ejemplo, esto agrega botones de incremento y decremento a una entrada de número:
     
     
     {
@@ -166,9 +166,9 @@ Tipos
 
 ​
 
-Booleano (Boolean)
+Booleano
 
-Muestra un interruptor de activado y desactivado. Basado en el [componente ToggleSwitch de PrimeVue](https://primevue.org/toggleswitch/).
+Muestra un interruptor de activado/desactivado. Basado en el [componente ToggleSwitch de PrimeVue](https://primevue.org/toggleswitch/).
     
     
     {
@@ -186,9 +186,9 @@ Muestra un interruptor de activado y desactivado. Basado en el [componente Toggl
 
 ​
 
-Texto (Text)
+Texto
 
-Es texto libre. Basado en el [componente InputText de PrimeVue](https://primevue.org/inputtext/).
+Es texto de forma libre. Basado en el [componente InputText de PrimeVue](https://primevue.org/inputtext/).
     
     
     {
@@ -206,7 +206,7 @@ Es texto libre. Basado en el [componente InputText de PrimeVue](https://primevue
 
 ​
 
-Número (Number)
+Número
 
 Sirve para introducir números. Para permitir decimales, establece el atributo `maxFractionDigits` en un número mayor que cero. Basado en el [componente InputNumber de PrimeVue](https://primevue.org/inputnumber/).
     
@@ -230,9 +230,9 @@ Sirve para introducir números. Para permitir decimales, establece el atributo `
 
 ​
 
-Slider
+Control deslizante
 
-Permite al usuario introducir un número directamente o mediante un slider. Basado en el [componente Slider de PrimeVue](https://primevue.org/slider/). No se admiten rangos.
+Permite al usuario introducir un número directamente o mediante un control deslizante. Basado en el [componente Slider de PrimeVue](https://primevue.org/slider/). No se admiten rangos.
     
     
     {
@@ -257,7 +257,7 @@ Permite al usuario introducir un número directamente o mediante un slider. Basa
 
 Combo
 
-Permite al usuario elegir de una lista desplegable de valores. Puedes proporcionar las opciones como una cadena simple o como un objeto con los campos `text` y `value`. Si solo proporcionas una cadena simple, se usará para ambos. Puedes permitir que el usuario introduzca texto libre con el atributo `editable: true`, o que busque con el atributo `filter: true`. Basado en el [componente Select de PrimeVue](https://primevue.org/select/). No se admiten grupos.
+Permite al usuario elegir de una lista desplegable de valores. Puedes proporcionar las opciones como una cadena simple o como un objeto con los campos `text` y `value`. Si solo proporcionas una cadena simple, se usará tanto como texto como valor. Puedes permitir que el usuario introduzca texto libre aportando el atributo `editable: true`, o que busque aportando el atributo `filter: true`. Basado en el [componente Select de PrimeVue](https://primevue.org/select/). No se admiten grupos.
     
     
     {
@@ -285,7 +285,7 @@ Permite al usuario elegir de una lista desplegable de valores. Puedes proporcion
 
 Color
 
-Permite al usuario seleccionar un color en un selector de color o escribir una referencia hexadecimal. Ten en cuenta que el formato requiere seis dígitos hexadecimales completos; la forma abreviada de tres dígitos no funciona. Basado en el [componente ColorPicker de PrimeVue](https://primevue.org/colorpicker/).
+Permite al usuario seleccionar un color desde un selector de color o escribir una referencia hexadecimal. Ten en cuenta que el formato requiere seis dígitos hexadecimales completos: la forma abreviada de tres dígitos no funciona. Basado en el [componente ColorPicker de PrimeVue](https://primevue.org/colorpicker/).
     
     
     {
@@ -303,9 +303,9 @@ Permite al usuario seleccionar un color en un selector de color o escribir una r
 
 ​
 
-Imagen (Image)
+Imagen
 
-Permite al usuario subir una imagen. La configuración se guardará como una [URL de datos](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data). Basado en el [componente FileUpload de PrimeVue](https://primevue.org/fileupload/).
+Permite al usuario subir una imagen. La configuración se guarda como [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data). Basado en el [componente FileUpload de PrimeVue](https://primevue.org/fileupload/).
     
     
     {
@@ -322,9 +322,9 @@ Permite al usuario subir una imagen. La configuración se guardará como una [UR
 
 ​
 
-Oculto (Hidden)
+Oculto
 
-Las configuraciones ocultas no se muestran en el panel de configuraciones, pero puedes leerlas y escribirlas desde tu código.
+Las configuraciones ocultas no se muestran en el panel de configuraciones, pero puedes leerlas y escribir en ellas desde tu código.
     
     
     {
@@ -346,7 +346,7 @@ Otros
 
 Categorías
 
-Puedes especificar la categorización de tu configuración de forma independiente del `id`. Esto significa que puedes cambiar la categorización y los nombres sin cambiar el `id` y sin perder los valores que los usuarios ya hayan establecido.
+Puedes especificar la categorización de tu ajuste de forma independiente al `id`. Esto significa que puedes cambiar la categorización y el nombre sin cambiar el `id` y perder los valores que los usuarios ya hayan establecido.
     
     
     {
@@ -364,7 +364,7 @@ Puedes especificar la categorización de tu configuración de forma independient
 
 Tooltips
 
-Puedes añadir ayuda contextual adicional con el campo `tooltip`. Esto añade un pequeño icono ℹ︎ después del nombre del campo que mostrará el texto de ayuda cuando el usuario pase el cursor por encima.
+Puedes añadir ayuda contextual adicional con el campo `tooltip`. Esto añade un pequeño icono ℹ︎ después del nombre del campo que mostrará el texto de ayuda cuando el usuario pase el cursor sobre él.
     
     
     {

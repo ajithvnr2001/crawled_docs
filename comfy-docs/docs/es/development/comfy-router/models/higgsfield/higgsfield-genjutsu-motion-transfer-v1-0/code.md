@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/higgsfield/higgsfield-genjutsu-motion-transfer-v1-0/code/
 title: Usa Higgsfield Genjutsu Motion Transfer V1.0 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:06.806100+00:00
+fetched_at: 2026-11-03T14:55:25.844507+00:00
 ---
 
 # Usa Higgsfield Genjutsu Motion Transfer V1.0 con Comfy Router - ComfyUI
@@ -209,7 +209,7 @@ prompt
 
 string
 
-Orientación opcional para el recambio de reparto.
+Orientación opcional para el cambio de reparto.
 
 ​
 
@@ -245,7 +245,7 @@ cancel_url
 
 string
 
-URL absoluta que se usa para cancelar una solicitud antes de que empiece el procesamiento.
+URL absoluta para cancelar una solicitud antes de que empiece el procesamiento.
 
 ​
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/utility/pose-detection-sdpose/
 title: SDPose: detecci\u00f3n de poses en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:57.775699+00:00
+fetched_at: 2026-11-03T14:55:33.438999+00:00
 ---
 
 # SDPose: detección de poses en ComfyUI - ComfyUI
@@ -15,17 +15,17 @@ Volver arriba
 
   * Puntos fuertes
   * Flujos de trabajo de SDPose
-    * 1\. Descargar los flujos de trabajo
-    * SDPose: Image Multi-Person Detection
-    * SDPose: Video Multi-Person Detection
-    * SDPose-OOD: Image to Pose Map
-    * SDPose-OOD: Video to Pose Map
-    * 2\. Descargar los modelos
+    * 1\. Descargar flujos de trabajo
+    * SDPose: detección de varias personas en una imagen
+    * SDPose: detección de varias personas en video
+    * SDPose-OOD: de imagen a mapa de pose
+    * SDPose-OOD: De video a mapa de pose
+    * 2\. Descargar modelos
     * 3\. Usar los flujos de trabajo
-    * Multi-Person (Image)
-    * Multi-Person (Video)
-    * OOD Image to Pose
-    * OOD Video to Pose Map
+    * Multipersona (imagen)
+    * Multipersona (video)
+    * OOD de imagen a pose
+    * OOD de video a mapa de pose
   * Notas adicionales
 
 
@@ -63,7 +63,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-SDPose es un modelo de detección de pose de cuerpo completo que extrae keypoints humanos de imágenes y videos. Combinado con el detector de objetos RT-DETRv4, admite detección de varias personas y estimación de pose fuera de dominio (OOD), lo que lo convierte en una herramienta versátil para pipelines de animación, generación guiada por pose y flujos de trabajo de seguimiento de movimiento. SDPose + RT-DETRv4 son compatibles de forma nativa con ComfyUI (PR [#12748](https://github.com/Comfy-Org/ComfyUI/pull/12748)). Los pesos del modelo están disponibles en Hugging Face. [Modelo SDPose en Hugging Face](https://huggingface.co/Comfy-Org/SDPose) | [Artículo de RT-DETRv4 (arXiv)](https://arxiv.org/abs/2510.25257) | [Artículo de SDPose (arXiv)](https://arxiv.org/abs/2509.24980)
+SDPose es un modelo de detección de pose de cuerpo completo que extrae keypoints humanos de imágenes y videos. Combinado con el detector de objetos RT-DETRv4, admite la detección de varias personas y la estimación de pose fuera de dominio (OOD), lo que lo convierte en una herramienta versátil para pipelines de animación, generación guiada por pose y flujos de trabajo de seguimiento de movimiento. SDPose + RT-DETRv4 son compatibles de forma nativa con ComfyUI (PR [#12748](https://github.com/Comfy-Org/ComfyUI/pull/12748)). Los pesos del modelo están disponibles en Hugging Face. [Modelo SDPose en Hugging Face](https://huggingface.co/Comfy-Org/SDPose) | [Artículo de RT-DETRv4 (arXiv)](https://arxiv.org/abs/2510.25257) | [Artículo de SDPose (arXiv)](https://arxiv.org/abs/2509.24980)
 
 ### 
 
@@ -100,7 +100,7 @@ OOD Video to Pose Map| Video| Mapa de pose por fotograma| Animación de video a 
 
 ​
 
-1\. Descargar los flujos de trabajo
+1\. Descargar flujos de trabajo
 
 Actualiza tu ComfyUI a la última versión, luego ve a `Workflow` -> `Browse Templates` y busca los flujos de trabajo de SDPose en la categoría Utility.
 
@@ -108,9 +108,9 @@ Actualiza tu ComfyUI a la última versión, luego ve a `Workflow` -> `Browse Tem
 
 ​
 
-SDPose: Image Multi-Person Detection
+SDPose: detección de varias personas en una imagen
 
-Sube una imagen para detectar poses humanas. Admite la detección de una sola persona y de varias personas en la misma escena. ![Vista previa del flujo de trabajo de detección de varias personas en imagen de SDPose](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_multi_person-1.webp)
+Sube una imagen para detectar poses humanas. Admiten detección tanto para una sola persona como para varias personas dentro de la misma escena. ![Vista previa del flujo de trabajo de detección de varias personas en una imagen con SDPose](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_multi_person-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -132,9 +132,9 @@ Nodo `LoadImage` 679 · `group_photo.png`
 
 ​
 
-SDPose: Video Multi-Person Detection
+SDPose: detección de varias personas en video
 
-Sube un video para detectar poses humanas. Admite la detección de una sola persona y de varias personas en la misma escena. ![Vista previa del flujo de trabajo de detección de varias personas en video de SDPose](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_multi_person_video-1.webp)
+Sube un video para detectar poses humanas. Admite la detección tanto de una sola persona como de varias personas dentro de la misma escena. ![Vista previa del flujo de trabajo de detección de varias personas en video con SDPose](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_multi_person_video-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -142,21 +142,21 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “SDPose: Video Multi-Person Detection” en la Biblioteca de plantillas
+Descarga el JSON o busca “SDPose: Video Multi-Person Detection” en la biblioteca de plantillas
 
 **Materiales de entrada** Sube este archivo al nodo `LoadVideo` correspondiente:
 
 ## man_playing_violin.mp4
 
-Nodo `LoadVideo` 694 · `man_playing_violin.mp4`
+nodo `LoadVideo` 694 · `man_playing_violin.mp4`
 
 ### 
 
 ​
 
-SDPose-OOD: Image to Pose Map
+SDPose-OOD: de imagen a mapa de pose
 
-Sube una imagen para extraer los keypoints de la pose y generar el mapa de pose correspondiente con el modelo SDPose-OOD. ![Vista previa del flujo de trabajo de imagen a mapa de pose de SDPose-OOD](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_ood_image_to_pose-1.webp)
+Sube una imagen para extraer los puntos clave de la pose y generar un mapa de pose correspondiente con el modelo SDPose-OOD. ![Vista previa del flujo de trabajo de imagen a mapa de pose con SDPose-OOD](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_ood_image_to_pose-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -164,7 +164,7 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “SDPose-OOD: Image to Pose Map” en la Biblioteca de plantillas
+Descarga el JSON o busca “SDPose-OOD: Image to Pose Map” en la biblioteca de plantillas
 
 **Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
 
@@ -174,15 +174,15 @@ Nodo `LoadImage` 667 · `dancer.png`
 
 **Salida de ejemplo**
 
-![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/dancer.png)![Ejemplo de salida del mapa de pose de SDPose-OOD](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_sdpose_ood_image_to_pose.png)
+![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/dancer.png)![Salida de ejemplo del flujo de trabajo de imagen a mapa de pose con SDPose-OOD](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_sdpose_ood_image_to_pose.png)
 
 ### 
 
 ​
 
-SDPose-OOD: Video to Pose Map
+SDPose-OOD: De video a mapa de pose
 
-Sube un video para extraer los keypoints de la pose y generar un mapa de pose. El flujo de trabajo admite la detección de varias personas y usa un modelo SDPose mejorado para extraer las características de todo el cuerpo con precisión. ![Vista previa del flujo de trabajo de video a mapa de pose de SDPose-OOD](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_ood_video_to_pose_map-1.webp)
+Sube un video para extraer los puntos clave de la pose y generar un mapa de pose. El flujo de trabajo admite la detección de varias personas y usa un modelo SDPose mejorado para una extracción precisa de las características de todo el cuerpo. ![Vista previa del flujo de trabajo de video a mapa de pose con SDPose-OOD](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_sdpose_ood_video_to_pose_map-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -196,7 +196,7 @@ Descarga el JSON o busca “SDPose-OOD: Video to Pose Map” en la Biblioteca de
 
 ## man_in_the_rain.mp4
 
-Nodo `LoadVideo` 679 · `man_in_the_rain.mp4`
+nodo `LoadVideo` 679 · `man_in_the_rain.mp4`
 
 **Salida de ejemplo**
 
@@ -204,9 +204,9 @@ Nodo `LoadVideo` 679 · `man_in_the_rain.mp4`
 
 ​
 
-2\. Descargar los modelos
+2\. Descargar modelos
 
-Los checkpoints de los modelos SDPose y RT-DETRv4 están en el [repositorio del modelo SDPose de Comfy-Org](https://huggingface.co/Comfy-Org/SDPose). **checkpoints** (modelo SDPose):
+Los checkpoints de los modelos SDPose y RT-DETRv4 están alojados en el [repositorio de modelos Comfy-Org SDPose](https://huggingface.co/Comfy-Org/SDPose). **checkpoints** (modelo SDPose):
 
   * [sdpose_wholebody_fp16.safetensors](https://huggingface.co/Comfy-Org/SDPose/blob/main/checkpoints/sdpose_wholebody_fp16.safetensors)
 
@@ -215,7 +215,7 @@ Los checkpoints de los modelos SDPose y RT-DETRv4 están en el [repositorio del 
   * [rt_detr_v4-x-hgnet_fp16.safetensors](https://huggingface.co/Comfy-Org/SDPose/blob/main/diffusion_models/rt_detr_v4-x-hgnet_fp16.safetensors) (recomendado)
   * [rt_detr_v4-x-hgnet_fp32.safetensors](https://huggingface.co/Comfy-Org/SDPose/blob/main/diffusion_models/rt_detr_v4-x-hgnet_fp32.safetensors) (precisión completa, más grande)
 
-Colócalos con la siguiente estructura de directorios:
+Colócalos en la siguiente estructura de directorios:
     
     
     📂 ComfyUI/
@@ -237,21 +237,21 @@ Colócalos con la siguiente estructura de directorios:
 
 ​
 
-Multi-Person (Image)
+Multipersona (imagen)
 
-  * **Entrada** : carga una imagen con el nodo `Load Image`. Usa una imagen con una o varias personas (ejemplo: `group_photo.png`).
-  * **Detección** : el subgrafo `Image to Pose Map (SDPose Multi-Person)` procesa la imagen y genera: 
-    * **IMAGE** : visualización del esqueleto de la pose superpuesto a la imagen
-    * **keypoints** : datos brutos de los keypoints de todo el cuerpo
-    * **bboxes** : coordenadas de las cajas delimitadoras
-  * **Opciones de dibujo** : configura qué partes del cuerpo se dibujan: 
-    * `draw_body`, `draw_hands`, `draw_face`, `draw_feet`: activan o desactivan la visibilidad
-    * `stick_width`, `face_point_size`: ajustan el estilo visual
-    * `score_threshold`: confianza mínima para mostrar los keypoints
+  * **Entrada** : Carga una imagen mediante el nodo `Load Image`. Usa una imagen con una o más personas (ejemplo: `group_photo.png`).
+  * **Detección** : El subgrafo `Image to Pose Map (SDPose Multi-Person)` procesa la imagen y produce: 
+    * **IMAGE** : visualización del esqueleto de la pose superpuesta a la imagen
+    * **keypoints** : datos de puntos clave del cuerpo completo sin procesar
+    * **bboxes** : coordenadas de la caja delimitadora
+  * **Opciones de dibujo** : Configura qué partes del cuerpo dibujar: 
+    * `draw_body`, `draw_hands`, `draw_face`, `draw_feet`: alternar visibilidad
+    * `stick_width`, `face_point_size`: ajustar el estilo visual
+    * `score_threshold`: confianza mínima para mostrar los puntos clave
   * **Opciones de detección** : 
-    * `resize_type.longer_size`: escala el lado más largo antes de la detección
+    * `resize_type.longer_size`: escalar la dimensión más larga antes de la detección
     * `max_detections`: número máximo de personas a detectar
-    * `detect_threshold`: umbral de confianza de la detección
+    * `detect_threshold`: umbral de confianza de detección
     * `detect_class`: clase de objeto a detectar (predeterminado: person)
 
 
@@ -260,27 +260,27 @@ Multi-Person (Image)
 
 ​
 
-Multi-Person (Video)
+Multipersona (video)
 
-Igual que el flujo de trabajo de imagen, pero procesa los fotogramas del video uno tras otro. Usa `Load Video` para introducir un archivo de video y `Save Video` para exportar el resultado.
-
-#### 
-
-​
-
-OOD Image to Pose
-
-Usa el modelo SDPose para generar un mapa de pose limpio a partir de una imagen, sin visualización de cajas delimitadoras. Resulta útil para la transferencia de estilo, cuando quieres extraer la pose del esqueleto de una imagen y aplicarla a otra.
+Igual que el flujo de trabajo de imagen, pero procesa los fotogramas de video de forma secuencial. Usa `Load Video` para cargar un archivo de video y `Save Video` para exportar el resultado.
 
 #### 
 
 ​
 
-OOD Video to Pose Map
+OOD de imagen a pose
 
-Genera mapas de pose por fotograma a partir de un video. La salida es un archivo de video en el que cada fotograma contiene el esqueleto de la pose extraído, apto para animación posterior o para flujos de trabajo de ControlNet.
+Usa el modelo SDPose para generar un mapa de pose limpio a partir de una imagen, sin visualización de la caja delimitadora. Esto es útil para la transferencia de estilo, donde quieres extraer la pose del esqueleto de una imagen y aplicarla a otra.
 
-## Aprende sobre Subgraph
+#### 
+
+​
+
+OOD de video a mapa de pose
+
+Genera mapas de pose por fotograma a partir de un video. La salida es un archivo de video en el que cada fotograma contiene el esqueleto de la pose extraído, adecuado para animación o flujos de trabajo de ControlNet posteriores.
+
+## Acerca de Subgraph
 
 Estos flujos de trabajo usan nodos Subgraph para el procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y ampliar los flujos de trabajo.
 
@@ -292,8 +292,8 @@ Notas adicionales
 
   * **Directorio de modelos** : el checkpoint de SDPose va en `models/checkpoints/`, y el detector RT-DETRv4 va en `models/diffusion_models/`
   * **Ejemplo de imagen de entrada** : el archivo `group_photo.png` está disponible en el directorio `input/` de la plantilla del flujo de trabajo para hacer pruebas
-  * **Salida de puntos clave** : el tipo POSE_KEYPOINT se puede conectar a nodos posteriores que aceptan datos de pose para la generación condicional
-  * **Actualización necesaria** : el soporte de SDPose + RT-DETRv4 está disponible en versiones recientes de ComfyUI. Asegúrate de que tu ComfyUI esté actualizado.
+  * **Salida de keypoints** : el tipo POSE_KEYPOINT se puede conectar a nodos posteriores que aceptan datos de pose para la generación condicional
+  * **Actualización requerida** : el soporte de SDPose + RT-DETRv4 está disponible en versiones recientes de ComfyUI. Asegúrate de que tu ComfyUI esté actualizado.
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/cloud/api-reference/
 title: Referencia de la API de Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:53.146547+00:00
+fetched_at: 2026-11-03T14:55:24.909758+00:00
 ---
 
 # Referencia de la API de Cloud - ComfyUI
@@ -333,7 +333,7 @@ Ejecutar flujos de trabajo
 
 Envía un flujo de trabajo para ejecutarlo.
 
-**Envíos simultáneos admitidos:** Según tu nivel de suscripción, puedes enviar varios flujos de trabajo sin esperar a que terminen las tareas anteriores. Las tareas se ejecutan en paralelo hasta el límite de tu nivel. Las tareas adicionales se ponen en cola automáticamente. Consulta [Tareas simultáneas](https://docs.comfy.org/es/development/deploy/cloud-usage#tareas-simult%C3%A1neas) para ver los detalles y los límites de simultaneidad.
+**Envíos simultáneos admitidos:** Según tu nivel de suscripción, puedes enviar varios flujos de trabajo sin esperar a que terminen las tareas anteriores. Las tareas se ejecutan en paralelo hasta el límite de tu nivel. Las tareas adicionales se ponen en cola automáticamente. Consulta [Tareas simultáneas](https://docs.comfy.org/es/development/deploy/cloud-usage#l%C3%ADmites-de-simultaneidad) para ver los detalles.
 
 ### 
 

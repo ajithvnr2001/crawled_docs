@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-prompt-guide/
 title: Gu\u00eda de prompts de ComfyUI MiniMax H3: gu\u00edas oficiales, consejos y embeddings de prompt - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:00.018143+00:00
+fetched_at: 2026-11-03T14:55:32.407127+00:00
 ---
 
 # Guía de prompts de ComfyUI MiniMax H3: guías oficiales, consejos y embeddings de prompt - ComfyUI
@@ -42,7 +42,7 @@ Guías oficiales
   * [Modos base](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md) (T2VA, I2VA, FL2VA, L2VA): planos con marcas de tiempo, cámara, audio
   * [Modo de referencia completa](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_ref_en.md) (R2V): estructura de reescritura, etiquetas de referencia, marcadores de retención
 
-El paquete instalable de [habilidades H3](https://github.com/MiniMax-AI/MiniMax-H3/tree/main/skills) reúne estos contenidos para los agentes. Aplicado por plantilla: [T2V/I2V](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-native), [R2V](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-native#minimax-h3-referencia-a-video-r2v), [Multiframe](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-multiframe#gu%C3%ADa-para-escribir-prompts), [Fun ControlNet](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-fun-controlnet#consejos-para-los-prompts).
+El paquete instalable de [habilidades H3](https://github.com/MiniMax-AI/MiniMax-H3/tree/main/skills) reúne estos contenidos para los agentes. Aplicado por plantilla: [T2V/I2V](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-native), [R2V](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-native#minimax-h3-referencia-a-video-r2v), [Multiframe](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-multiframe#gu%C3%ADa-para-escribir-prompts), [Fun ControlNet](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-fun-controlnet#consejos-para-escribir-prompts).
 
 ## 
 
@@ -62,11 +62,11 @@ Escribe los prompts en **inglés**. Los diálogos y las letras de canciones van 
 
   1. **Primero la escena** : la escena general, luego los planos cronometrados dentro de `[Shot 1]` de `integrated_multimodal_description`
   2. **Un solo bloque** : planos, cámara y audio juntos
-  3. **Resolución** : nativa **1344×768** en 16:9; múltiplos de **32** ([detalles](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3#setting-the-output-resolution))
+  3. **Resolución** : nativa **1344×768** en 16:9; múltiplos de **32**
   4. **Longitud** : `length` son fotogramas a 24fps (predeterminado **124** ≈ 5s), ajustado a **17k+5**
   5. **Texto en pantalla** : comillas dobles en inglés para cada cadena, literal (p. ej., `A red neon sign reading "营业中"`). Las líneas habladas usan `<d>`, no comillas
   6. **Marcadores de audio de R2V** : en el análisis de retención, marca cada referencia de audio como `fully_copy`, `partially_copy`, `reference` o `weak_reference` según cómo se use el clip (consulta la tabla de la guía oficial de referencias)
-  7. **Campos de audio** : `overall_soundscape` = sonido ambiente/SFX/no verbal (1–4 frases; `N/A` solo si hay silencio real). Los diálogos y la música diegética se mantienen en los planos. `non_diegetic_music` = solo banda sonora (1–3 frases; `N/A` si no hay). Si aparece habla no deseada, rellena ambos campos de forma explícita
+  7. **Campos de audio** : `overall_soundscape` = sonido ambiente/SFX/no verbal (1–4 frases; `N/A` solo si hay silencio real). Los diálogos y la música diegética se mantienen en los planos. `non_diegetic_music` = solo banda sonora musical (1–3 frases; `N/A` si no hay). Si aparece habla no deseada, rellena ambos campos de forma explícita
   8. **Sin negativos** : `BasicGuider` funciona con `cfg` 1 y sin rama negativa. Las listas de prohibiciones añaden conceptos no deseados. Indica lo que debería aparecer (o usa los campos de retención de R2V: `fully_preserved`, `partially_preserved`, etc.)
   9. **Hojas de referencia (R2V)** : una imagen puede contener varios paneles. Asigna a la hoja su propio `<Picture N>` (no solo dentro de `<Subject N>`), describe los paneles y dirige los planos a un panel (p. ej., vista frontal completa de `<Picture 2>`). Etiqueta los paneles con claridad
 
@@ -131,4 +131,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/video/minimax/minimax-h3-prompt-guide.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/video/minimax/minimax-h3-prompt-guide)
 
-[Fun ControlNet Union](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-fun-controlnet)[LTX-2.5 DFR](https://docs.comfy.org/es/tutorials/video/ltx/ltx-2-5-dfr)
+[Fun ControlNet Union](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3-fun-controlnet)[Pika H3 Flex](https://docs.comfy.org/es/tutorials/video/pika/pika-h3-flex)

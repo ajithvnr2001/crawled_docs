@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/flux/flux-1-kontext-dev/
-title: Ejemplo de flujo de trabajo nativo de FLUX Kontext Dev para ComfyUI - ComfyUI
+title: FLUX.1 Kontext Dev en ComfyUI: edici\u00f3n de im\u00e1genes en local - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:42.629210+00:00
+fetched_at: 2026-11-03T14:55:28.755240+00:00
 ---
 
-# Ejemplo de flujo de trabajo nativo de FLUX Kontext Dev para ComfyUI - ComfyUI
+# FLUX.1 Kontext Dev en ComfyUI: edición de imágenes en local - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/flux/flux-1-kontext-dev/
 
@@ -14,11 +14,11 @@ fetched_at: 2026-10-26T14:03:42.629210+00:00
 Volver arriba
 
   * Acerca de FLUX.1 Kontext Dev
-    * Información de las versiones
+    * Información de versiones
   * Descarga de modelos
-  * Flujo de trabajo de FLUX.1 Kontext Dev
+  * Flujo de trabajo FLUX.1 Kontext Dev
     * Edición de imágenes con FLUX Kontext Dev
-    * 1\. Descargar el flujo de trabajo y la imagen de entrada
+    * 1\. Descarga del flujo de trabajo y de la imagen de entrada
     * 2\. Completar el flujo de trabajo paso a paso
   * Técnicas de prompts para FLUX Kontext
     * 1\. Modificaciones básicas
@@ -36,11 +36,11 @@ Volver arriba
 
 FLUX
 
-# Ejemplo de flujo de trabajo nativo de FLUX Kontext Dev para ComfyUI
+# FLUX.1 Kontext Dev en ComfyUI: edición de imágenes en local
 
 Copiar páginaCopiar página
 
-Flujo de trabajo FLUX.1 Kontext Dev para ComfyUI: edita imágenes con entrada de texto e imagen usando el modelo de edición multimodal abierto de 12B de Black Forest Labs.
+Edita imágenes en local en ComfyUI con FLUX.1 Kontext Dev, el modelo de 12B de Black Forest Labs para ediciones consistentes, estilo y refinado iterativo.
 
 Copiar páginaCopiar página
 
@@ -50,26 +50,26 @@ Copiar páginaCopiar página
 
 Acerca de FLUX.1 Kontext Dev
 
-FLUX.1 Kontext es un modelo revolucionario de edición de imágenes multimodal de Black Forest Labs que admite entrada simultánea de texto e imagen, comprende de forma inteligente el contexto de la imagen y realiza ediciones precisas. Su versión de desarrollo es un modelo diffusion transformer de código abierto con 12 mil millones de parámetros, que ofrece una excelente comprensión del contexto y un gran mantenimiento de la consistencia de los personajes, lo que garantiza que elementos clave como los rasgos del personaje y la composición se mantengan estables incluso después de múltiples ediciones iterativas. Comparte las mismas capacidades principales que la suite FLUX.1 Kontext:
+FLUX.1 Kontext es un modelo revolucionario de edición de imágenes multimodal de Black Forest Labs que admite entrada simultánea de texto e imagen, comprende de forma inteligente el contexto de la imagen y realiza ediciones precisas. Su versión de desarrollo es un modelo transformer de diffusion de código abierto con 12 mil millones de parámetros, que ofrece una excelente comprensión del contexto y mantiene la consistencia de los personajes, lo que garantiza que elementos clave como los rasgos del personaje y la composición se mantengan estables incluso después de múltiples ediciones iterativas. Comparte las mismas capacidades principales que la suite FLUX.1 Kontext:
 
-  * Consistencia de personajes: conserva los elementos únicos de las imágenes a través de múltiples escenas y entornos, como personajes u objetos de referencia en la imagen.
-  * Edición: realiza modificaciones específicas en elementos concretos de la imagen sin afectar a las demás partes.
-  * Referencia de estilo: genera escenas nuevas conservando el estilo único de la imagen de referencia según el prompt de texto.
+  * Consistencia de personajes: conserva los elementos únicos de las imágenes a través de múltiples escenas y entornos, como los personajes u objetos de referencia de la imagen.
+  * Edición: realiza modificaciones específicas en elementos concretos de la imagen sin afectar al resto.
+  * Referencia de estilo: genera escenas nuevas conservando el estilo único de la imagen de referencia a partir del prompt de texto.
   * Velocidad interactiva: latencia mínima en la generación y edición de imágenes.
 
-Si bien la versión API publicada anteriormente ofrece la máxima fidelidad y velocidad, FLUX.1 Kontext [Dev] se ejecuta por completo en equipos locales, lo que brinda una flexibilidad inigualable a desarrolladores, investigadores y usuarios avanzados que desean experimentar.
+Si bien la versión API publicada anteriormente ofrece la máxima fidelidad y velocidad, FLUX.1 Kontext [Dev] se ejecuta por completo en equipos locales, lo que ofrece una flexibilidad inigualable a desarrolladores, investigadores y usuarios avanzados que desean experimentar.
 
 ### 
 
 ​
 
-Información de las versiones
+Información de versiones
 
   * **[FLUX.1 Kontext [pro]** : versión comercial, centrada en la edición iterativa rápida
   * **FLUX.1 Kontext [max]** : versión experimental con mayor adherencia al prompt
   * **FLUX.1 Kontext [dev]** : versión de código abierto (la que se usa en este tutorial), 12B de parámetros, principalmente para investigación
 
-Actualmente en ComfyUI puedes usar todas estas versiones: las [versiones Pro y Max](https://docs.comfy.org/es/tutorials/partner-nodes/black-forest-labs/flux-1-kontext) están disponibles a través de los Nodos asociados, mientras que para la versión de código abierto Dev, consulta las instrucciones de esta guía.
+Actualmente, en ComfyUI puedes usar todas estas versiones: las [versiones Pro y Max](https://docs.comfy.org/es/tutorials/partner-nodes/black-forest-labs/flux-1-kontext) están disponibles a través de los nodos asociados, mientras que para la versión de código abierto Dev, consulta las instrucciones de esta guía.
 
   * Usuarios locales
 
@@ -100,13 +100,13 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Descarga de modelos
 
-Para ejecutar correctamente los flujos de trabajo de esta guía, primero necesitas descargar los siguientes archivos de modelo. También puedes obtener directamente los enlaces de descarga de los modelos desde los flujos de trabajo correspondientes, que ya incluyen la información de descarga de los archivos de modelo. **Modelo de difusión**
+Para ejecutar los flujos de trabajo de esta guía correctamente, primero necesitas descargar los siguientes archivos de modelo. También puedes obtener directamente los enlaces de descarga de los modelos desde los flujos de trabajo correspondientes, que ya incluyen la información de descarga de los archivos de modelo. **Modelo de difusión**
 
   * [flux1-dev-kontext_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/blob/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors)
 
 
 
-Si quieres usar los pesos originales, puedes visitar el repositorio correspondiente de Black Forest Labs para obtener y usar los pesos originales del modelo.
+Si quieres usar los pesos originales, puedes visitar el repositorio correspondiente de Black Forest Labs para obtener y usar los pesos del modelo original.
 
 **VAE**
 
@@ -117,7 +117,7 @@ Si quieres usar los pesos originales, puedes visitar el repositorio correspondie
   * [clip_l.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.safetensors)
   * [t5xxl_fp16.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp16.safetensors) o [t5xxl_fp8_e4m3fn_scaled.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp8_e4m3fn_scaled.safetensors)
 
-Ubicación de guardado de los archivos
+Ubicación donde guardar los modelos
     
     
     📂 ComfyUI/
@@ -135,7 +135,7 @@ Ubicación de guardado de los archivos
 
 ​
 
-Flujo de trabajo de FLUX.1 Kontext Dev
+Flujo de trabajo FLUX.1 Kontext Dev
 
 ### 
 
@@ -143,7 +143,7 @@ Flujo de trabajo de FLUX.1 Kontext Dev
 
 Edición de imágenes con FLUX Kontext Dev
 
-Edición inteligente de imágenes que mantiene la consistencia de los personajes, edita partes específicas sin afectar a las demás y conserva los estilos originales. ![Vista previa del flujo de trabajo de FLUX Kontext Dev](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_kontext_dev_basic-1.webp)
+Edición inteligente de imágenes que mantiene la consistencia de los personajes, edita partes concretas sin afectar al resto y conserva los estilos originales. ![Vista previa del flujo de trabajo FLUX Kontext Dev](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_kontext_dev_basic-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -151,7 +151,7 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “FLUX Kontext Dev” en la Biblioteca de plantillas
+Descarga el JSON o busca “FLUX Kontext Dev” en la biblioteca de plantillas
 
 **Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
 
@@ -161,17 +161,17 @@ Nodo `LoadImage` 190 · `flux_kontext_dev_basic_input_image.jpg`
 
 ![flux_kontext_dev_basic_input_image.jpg](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/flux_kontext_dev_basic_input_image.jpg)
 
-**Salida de ejemplo**
+**Ejemplo de salida**
 
-![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/flux_kontext_dev_basic_input_image.jpg)![Salida de ejemplo de FLUX Kontext Dev](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/flux_kontext_dev_basic.png)
+![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/flux_kontext_dev_basic_input_image.jpg)![Ejemplo de salida de FLUX Kontext Dev](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/flux_kontext_dev_basic.png)
 
-Este flujo de trabajo usa el nodo `Load Image(from output)` para cargar la imagen que se va a editar, lo que hace más cómodo acceder a la imagen editada para varias rondas de edición.
+Este flujo de trabajo usa el nodo `Load Image(from output)` para cargar la imagen que se va a editar, lo que te facilita el acceso a la imagen editada para hacer varias rondas de edición.
 
 ### 
 
 ​
 
-1\. Descargar el flujo de trabajo y la imagen de entrada
+1\. Descarga del flujo de trabajo y de la imagen de entrada
 
 ### 
 
@@ -182,10 +182,10 @@ Este flujo de trabajo usa el nodo `Load Image(from output)` para cargar la image
 ![Guía paso a paso del flujo de trabajo](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flux_1_kontext_dev_basic_step_guide.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=90995e36fa39a53693aeff3b560c60ef) Puedes guiarte por los números de la imagen para completar la ejecución del flujo de trabajo:
 
   1. En el nodo `Load Diffusion Model`, carga el modelo `flux1-dev-kontext_fp8_scaled.safetensors`
-  2. En el nodo `DualCLIP Load`, asegúrate de que estén cargados `clip_l.safetensors` y `t5xxl_fp16.safetensors` o `t5xxl_fp8_e4m3fn_scaled.safetensors`
+  2. En el nodo `DualCLIP Load`, asegúrate de que `clip_l.safetensors` y `t5xxl_fp16.safetensors` o `t5xxl_fp8_e4m3fn_scaled.safetensors` estén cargados
   3. En el nodo `Load VAE`, asegúrate de que el modelo `ae.safetensors` esté cargado
   4. En el nodo `Load Image(from output)`, carga la imagen de entrada proporcionada
-  5. En el nodo `CLIP Text Encode`, modifica los prompts; solo se admite inglés
+  5. En el nodo `CLIP Text Encode`, modifica los prompts; solo admite inglés
   6. Haz clic en el botón `Queue` o usa el atajo `Ctrl(cmd) + Enter` para ejecutar el flujo de trabajo
 
 

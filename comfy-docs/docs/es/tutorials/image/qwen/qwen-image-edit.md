@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-edit/
 title: Ejemplo de flujo de trabajo nativo de ComfyUI para Qwen-Image-Edit - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.810302+00:00
+fetched_at: 2026-11-03T14:55:30.333434+00:00
 ---
 
 # Ejemplo de flujo de trabajo nativo de ComfyUI para Qwen-Image-Edit - ComfyUI
@@ -20,7 +20,7 @@ Volver arriba
     * 2\. Descarga de modelos
     * 3\. Seguir los pasos para completar el flujo de trabajo
   * Qwen Image Edit 2509
-    * Descarga de modelos
+    * Descargar el modelo
 
 
 
@@ -34,11 +34,11 @@ Qwen-Image-Edit es la versión de edición de Qwen-Image, entrenada sobre el mod
 
 Copiar páginaCopiar página
 
-**Qwen-Image-Edit** es la versión de edición de imágenes de Qwen-Image. Está entrenado adicionalmente a partir del modelo Qwen-Image de 20B, y logra extender las capacidades únicas de renderizado de texto de Qwen-Image a las tareas de edición, lo que permite una edición precisa del texto. Además, Qwen-Image-Edit introduce la imagen de entrada tanto en Qwen2.5-VL (para el control semántico visual) como en el VAE Encoder (para el control de apariencia visual), y así consigue capacidades de edición tanto semántica como de apariencia. **Características del modelo** Las características incluyen:
+**Qwen-Image-Edit** es la versión de edición de imágenes de Qwen-Image. Se entrena adicionalmente sobre el modelo Qwen-Image de 20B y extiende con éxito las capacidades únicas de renderizado de texto de Qwen-Image a las tareas de edición, lo que permite una edición precisa del texto. Además, Qwen-Image-Edit alimenta la imagen de entrada tanto en Qwen2.5-VL (para el control semántico visual) como en el VAE Encoder (para el control de apariencia visual), logrando así capacidades de edición tanto semánticas como de apariencia. **Características del modelo** Las características incluyen:
 
   * Edición precisa de texto: Qwen-Image-Edit admite la edición de texto bilingüe (chino e inglés), lo que permite añadir, eliminar y modificar texto directamente en las imágenes conservando el tamaño, la fuente y el estilo originales.
-  * Edición dual semántica y de apariencia: Qwen-Image-Edit admite no solo la edición visual de bajo nivel (como la transferencia de estilo, la adición, la eliminación o la modificación de elementos), sino también la edición semántica visual de alto nivel (como la creación de IP, la rotación de objetos, etc.).
-  * Rendimiento sólido en múltiples benchmarks: las evaluaciones en varios benchmarks públicos muestran que Qwen-Image-Edit alcanza el estado del arte (SOTA) en tareas de edición, lo que lo convierte en un modelo base potente para la generación de imágenes.
+  * Edición dual semántica y de apariencia: Qwen-Image-Edit admite no solo la edición visual de bajo nivel (como transferencia de estilo, adición, eliminación, modificación, etc.), sino también la edición semántica visual de alto nivel (como creación de IP, rotación de objetos, etc.).
+  * Rendimiento sólido en múltiples benchmarks: las evaluaciones en varios benchmarks públicos muestran que Qwen-Image-Edit alcanza SOTA en tareas de edición, lo que lo convierte en un modelo base potente para la generación de imágenes.
 
 **Enlaces oficiales** :
 
@@ -167,7 +167,7 @@ Ubicación de almacenamiento de los modelos
      * Asegúrate de que el nodo `Load CLIP` cargue `qwen_2.5_vl_7b_fp8_scaled.safetensors`
      * Asegúrate de que el nodo `Load VAE` cargue `qwen_image_vae.safetensors`
   2. Carga de imagen 
-     * Asegúrate de que el nodo `Load Image` tenga subida la imagen que quieres editar
+     * Asegúrate de que en el nodo `Load Image` subas la imagen que quieres editar
   3. Configuración del prompt 
      * Define el prompt en el nodo `CLIP Text Encoder`
   4. El nodo `Scale Image to Total Pixels` escalará tu imagen de entrada a un total de un millón de píxeles, 
@@ -185,7 +185,7 @@ Ubicación de almacenamiento de los modelos
 
 Qwen Image Edit 2509
 
-Qwen-Image-Edit-2509 es la siguiente iteración de Qwen-Image-Edit. Mantiene la edición precisa de texto bilingüe del modelo original y agrega entrada de varias imágenes, ediciones más consistentes a lo largo de una serie de imágenes y compatibilidad con ControlNet, así que puedes editar una imagen tomando otras como referencia. ![Vista previa del flujo de trabajo de Qwen Image Edit 2509](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_edit_2509-1.webp)
+Qwen-Image-Edit-2509 es la siguiente iteración de Qwen-Image-Edit. Mantiene la edición de texto bilingüe precisa del modelo original y añade entrada de varias imágenes, ediciones más consistentes en una serie de imágenes y soporte de ControlNet, para que puedas editar una imagen mientras haces referencia a otras. ![Vista previa del flujo de trabajo de Qwen Image Edit 2509](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_edit_2509-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -193,9 +193,9 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “Qwen Image Edit 2509” en la biblioteca de plantillas
+Descargar JSON o buscar “Qwen Image Edit 2509” en la biblioteca de plantillas
 
-**Materiales de entrada** Sube este archivo al nodo `LoadImage` que corresponda:
+**Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
 
 ## image_qwen_image_edit_2509_input_image.png
 
@@ -205,7 +205,7 @@ Nodo `LoadImage` 78 · `image_qwen_image_edit_2509_input_image.png`
 
 ​
 
-Descarga de modelos
+Descargar el modelo
 
 **Modelo de difusión**
 
@@ -223,7 +223,7 @@ Descarga de modelos
 
   * [qwen_image_vae.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/vae/qwen_image_vae.safetensors)
 
-Ubicación de almacenamiento de los modelos
+**Ubicación de almacenamiento de los modelos**
     
     
     📂 ComfyUI/
@@ -244,4 +244,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/image/qwen/qwen-image-edit.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/image/qwen/qwen-image-edit)
 
-[Qwen-Image-2512](https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-2512)[Qwen-Image-Layered](https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-layered)
+[Qwen-Image-2512](https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-2512)[Qwen-Image-Edit-2511](https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-edit-2511)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/veed/fabric-1-0/code/
 title: Usa Fabric 1.0 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:20.766234+00:00
+fetched_at: 2026-11-03T14:55:27.294936+00:00
 ---
 
 # Usa Fabric 1.0 con Comfy Router - ComfyUI
@@ -197,7 +197,7 @@ string
 
 requerido
 
-URL http(s) pública de la pista de voz a la que sincronizar los labios. El video dura lo mismo que el audio.
+URL http(s) pública de la pista de voz a la que sincronizar los labios. El video dura lo mismo que el audio. Devuelve 400 cuando el audio es más largo que el límite de entrada por llamada.
 
 ​
 
@@ -331,7 +331,7 @@ data.result.audio.url
 
 string
 
-URL desde la que se puede descargar el archivo.
+URL de descarga del archivo.
 
 ​
 
@@ -371,7 +371,7 @@ data.result.files[].url
 
 string
 
-URL desde la que se puede descargar el archivo.
+URL de descarga del archivo.
 
 ​
 
@@ -409,7 +409,7 @@ data.result.video.url
 
 string
 
-URL desde la que se puede descargar el archivo.
+URL de descarga del archivo.
 
 ​
 

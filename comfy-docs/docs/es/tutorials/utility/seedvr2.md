@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/utility/seedvr2/
 title: SeedVR2: ampliaci\u00f3n de im\u00e1genes y video en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:58.341101+00:00
+fetched_at: 2026-11-03T14:55:31.977865+00:00
 ---
 
 # SeedVR2: ampliación de imágenes y video en ComfyUI - ComfyUI
@@ -15,12 +15,12 @@ Volver arriba
 
   * Introducción a ComfyUI SeedVR2
   * Instalación del modelo
-  * Flujos de trabajo de ejemplo
+  * Ejemplos de flujos de trabajo
     * SeedVR2 3B Int8: Ampliar imagen
     * 1.1 Pasos para ejecutar
-    * SeedVR2 7B Int8: Ampliar imagen
+    * SeedVR2 7B Int8: ampliar imagen
     * 2.1 Pasos para ejecutar
-    * SeedVR2 3B Int8: Escalar video
+    * SeedVR2 3B Int8: Aumentar la resolución de video
     * 3.1 Pasos para ejecutar
     * Rendimiento
   * Solución de problemas
@@ -83,16 +83,16 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Instalación del modelo
 
-Descarga los checkpoints de SeedVR2 del [repositorio SeedVR2 de Comfy-Org](https://huggingface.co/Comfy-Org/SeedVR2) y guárdalos en la carpeta correspondiente de ComfyUI:
+Descarga los checkpoint(s) de SeedVR2 desde el [repositorio SeedVR2 de Comfy-Org](https://huggingface.co/Comfy-Org/SeedVR2) y guárdalos en la carpeta correspondiente de ComfyUI:
 
-  * [seedvr2_3b_fp16.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_3b_fp16.safetensors): modelo base 3B FP16, requiere menos VRAM
-  * [seedvr2_3b_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_3b_fp8_e4m3fn.safetensors): 3B FP8 cuantizado, reduce aún más la VRAM
+  * [seedvr2_3b_fp16.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_3b_fp16.safetensors): modelo base 3B FP16, menor requisito de VRAM
+  * [seedvr2_3b_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_3b_fp8_e4m3fn.safetensors): 3B FP8 cuantizado, VRAM aún más reducida
   * [seedvr2_3b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_3b_int8_convrot.safetensors): 3B INT8 con convrot
   * [seedvr2_7b_fp16.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_7b_fp16.safetensors): modelo base 7B FP16, mayor calidad
   * [seedvr2_7b_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_7b_fp8_e4m3fn.safetensors): 7B FP8 cuantizado, equilibrio entre calidad y VRAM
   * [seedvr2_7b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_7b_int8_convrot.safetensors): 7B INT8 con convrot
-  * [seedvr2_7b_sharp_fp16.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_7b_sharp_fp16.safetensors): variante 7B FP16 sharp para más detalle
-  * [seedvr2_ema_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/vae/seedvr2_ema_vae_fp16.safetensors): checkpoint VAE (compartido por todas las variantes del modelo)
+  * [seedvr2_7b_sharp_fp16.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/diffusion_models/seedvr2_7b_sharp_fp16.safetensors): variante sharp 7B FP16 para un detalle mejorado
+  * [seedvr2_ema_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/SeedVR2/blob/main/vae/seedvr2_ema_vae_fp16.safetensors): checkpoint VAE (compartido entre todas las variantes del modelo)
 
 Coloca los archivos en los siguientes directorios:
     
@@ -115,7 +115,7 @@ Coloca los archivos en los siguientes directorios:
 
 ​
 
-Flujos de trabajo de ejemplo
+Ejemplos de flujos de trabajo
 
 ### 
 
@@ -123,21 +123,21 @@ Flujos de trabajo de ejemplo
 
 SeedVR2 3B Int8: Ampliar imagen
 
-Amplía imágenes con SeedVR2 3B Int8, un modelo de restauración de video basado en difusión de un solo paso que produce resultados de alta calidad con una mejor consistencia temporal. ![Vista previa del flujo de trabajo para ampliar imágenes con SeedVR2 3B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_3b_int8_upscale_image-1.webp)
+Amplía imágenes con SeedVR2 3B Int8, un modelo de restauración de video basado en diffusion de un solo paso que produce resultados de alta calidad con una mejor consistencia temporal. ![Vista previa del flujo de trabajo de ampliación de imagen con SeedVR2 3B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_3b_int8_upscale_image-1.webp)
 
-## Ejecutar en Comfy Cloud
+## Run en Comfy Cloud
 
 Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “SeedVR2 3B Int8: Upscale Image” en la Biblioteca de plantillas
+Descarga el JSON o busca “SeedVR2 3B Int8: Upscale Image” en la biblioteca de plantillas
 
 **Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
 
 ## watch_macro_shot.png
 
-nodo `LoadImage` 1 · `watch_macro_shot.png`
+Nodo `LoadImage` 1 · `watch_macro_shot.png`
 
 **Salida de ejemplo**
 
@@ -151,7 +151,7 @@ nodo `LoadImage` 1 · `watch_macro_shot.png`
 
   1. Coloca tu imagen en la carpeta `ComfyUI/input/` y selecciónala en el nodo `Load Image`
   2. Selecciona el checkpoint `seedvr2_3b_int8_convrot.safetensors` en el cargador de modelos de SeedVR2
-  3. Haz clic en `Queue` o usa `Ctrl(cmd) + Enter` para ejecutar
+  3. Haz clic en `Queue` o usa `Ctrl(cmd) + Enter` para ejecutarlo
 
 
 
@@ -159,9 +159,9 @@ nodo `LoadImage` 1 · `watch_macro_shot.png`
 
 ​
 
-SeedVR2 7B Int8: Ampliar imagen
+SeedVR2 7B Int8: ampliar imagen
 
-Amplía imágenes con SeedVR2 7B Int8, un modelo de difusión de un solo paso que mejora la resolución mediante entrenamiento adversarial y atención de ventana adaptativa. ![Vista previa del flujo de trabajo para ampliar imagen con SeedVR2 7B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_7b_int8_upscale_image-1.webp)
+Amplía imágenes con SeedVR2 7B Int8, un modelo de difusión de un solo paso que mejora la resolución mediante entrenamiento adversario y atención de ventana adaptativa. ![Vista previa del flujo de trabajo para ampliar imágenes con SeedVR2 7B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_7b_int8_upscale_image-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -179,7 +179,7 @@ Nodo `LoadImage` 1 · `indoor_portrait.png`
 
 **Salida de ejemplo**
 
-![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/indoor_portrait.png)![Salida de ejemplo de la ampliación con SeedVR2 7B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_seedvr2_7b_int8_upscale_image.png)
+![Imagen de entrada](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/indoor_portrait.png)![Ejemplo de salida de ampliación con SeedVR2 7B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_seedvr2_7b_int8_upscale_image.png)
 
 ### 
 
@@ -188,8 +188,8 @@ Nodo `LoadImage` 1 · `indoor_portrait.png`
 2.1 Pasos para ejecutar
 
   1. Coloca tu imagen en la carpeta `ComfyUI/input/` y selecciónala en el nodo `Load Image`
-  2. Selecciona el checkpoint `seedvr2_7b_int8_convrot.safetensors` en el cargador de modelos de SeedVR2
-  3. Haz clic en `Queue` o usa `Ctrl(cmd) + Enter` para ejecutar
+  2. Selecciona el checkpoint `seedvr2_7b_int8_convrot.safetensors` en el cargador de modelos SeedVR2
+  3. Haz clic en `Queue` o usa `Ctrl(cmd) + Enter` para ejecutarlo
 
 
 
@@ -197,9 +197,9 @@ Nodo `LoadImage` 1 · `indoor_portrait.png`
 
 ​
 
-SeedVR2 3B Int8: Escalar video
+SeedVR2 3B Int8: Aumentar la resolución de video
 
-Escala y restaura metraje de video con SeedVR2 3B Int8, un modelo de difusión de un solo paso que mejora la resolución y mantiene la consistencia temporal entre fotogramas. ![Vista previa del flujo de trabajo para escalar video con SeedVR2 3B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_3b_int8_upscale_video-1.webp)
+Aumenta la resolución y restaura metraje de video con SeedVR2 3B Int8, un modelo de difusión de un solo paso que mejora la resolución manteniendo la consistencia temporal entre fotogramas. ![Vista previa del flujo de trabajo para aumentar la resolución de video con SeedVR2 3B Int8](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_seedvr2_3b_int8_upscale_video-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -251,14 +251,14 @@ Solución de problemas
 
 La imagen ampliada sale completamente negra
 
-Los backends de atención pueden devolver de forma silenciosa resultados negros o corruptos con checkpoints cuantizados. Si los flujos de trabajo SeedVR2 INT8 producen una imagen totalmente negra, prueba lo siguiente en este orden:
+Los backends de atención pueden devolver resultados negros o corruptos sin previo aviso con checkpoints cuantizados. Si los flujos de trabajo de SeedVR2 INT8 producen una imagen totalmente negra, prueba lo siguiente en orden:
 
-  1. **Ejecutar sin FlashAttention:** si la habilitaste con `--use-flash-attention` o con un paquete de nodos personalizado, inicia ComfyUI con el backend de atención predeterminado y vuelve a ejecutar. Desactivar FlashAttention ha resuelto la salida totalmente negra en los flujos de trabajo INT8 de 3B y 7B en una RTX 3090.
-  2. **Cambiar el checkpoint:** usa el archivo FP16 o FP8 del mismo tamaño. Si esos se generan correctamente, el punto donde falla es la ruta de cuantización INT8.
-  3. **Verificar los archivos:** tanto el modelo de difusión como `seedvr2_ema_vae_fp16.safetensors` deben estar descargados por completo y colocados como se indica en Instalación del modelo. Una descarga truncada falla del mismo modo.
-  4. **Desactivar la vista previa en vivo:** en algunos casos solo la vista previa aparece negra mientras que el archivo guardado es correcto, así que desactivar la vista previa en vivo elimina la ambigüedad.
+  1. **Ejecuta sin FlashAttention:** si la habilitaste mediante `--use-flash-attention` o un paquete de nodos personalizado, inicia ComfyUI con el backend de atención predeterminado y vuelve a ejecutar. Deshabilitar FlashAttention ha resuelto la salida totalmente negra en los flujos de trabajo INT8 de 3B y 7B en una RTX 3090.
+  2. **Cambia el checkpoint:** usa el archivo FP16 o FP8 del mismo tamaño. Si esos se renderizan correctamente, la ruta de cuantización INT8 es donde falla.
+  3. **Verifica los archivos:** tanto el modelo de difusión como `seedvr2_ema_vae_fp16.safetensors` deben estar completamente descargados y colocados como se muestra en Instalación de modelos. Una descarga truncada falla de la misma manera.
+  4. **Desactiva la vista previa en vivo:** en algunos casos solo la vista previa está negra mientras el archivo guardado es correcto, así que desactivar la vista previa en vivo elimina la ambigüedad.
 
-Si el resultado sigue siendo negro, publica en la discusión del tutorial con tu GPU, la versión de ComfyUI, el método de instalación (Desktop, portable o manual) y la salida de la consola, además de indicar si los flujos de trabajo de 3B y 7B fallan de forma idéntica.
+Si el resultado sigue siendo negro, publica en la discusión del tutorial con tu GPU, la versión de ComfyUI, el método de instalación (Desktop, portable o manual) y la salida de la consola, además de si los flujos de trabajo de 3B y 7B fallan de forma idéntica.
 
 ## 
 
@@ -267,8 +267,8 @@ Si el resultado sigue siendo negro, publica en la discusión del tutorial con tu
 Recursos de la comunidad
 
   * [Página del proyecto SeedVR2](https://iceclear.github.io/projects/seedvr2/): Sitio web oficial del proyecto
-  * [Código de ByteDance SeedVR (GitHub)](https://github.com/ByteDance-Seed/SeedVR): Código de investigación original y artículo
-  * [Comfy-Org/SeedVR2 (HuggingFace)](https://huggingface.co/Comfy-Org/SeedVR2): Pesos oficiales del modelo para ComfyUI
+  * [Código base de ByteDance SeedVR (GitHub)](https://github.com/ByteDance-Seed/SeedVR): Código de investigación original y artículo
+  * [Comfy-Org/SeedVR2 (HuggingFace)](https://huggingface.co/Comfy-Org/SeedVR2): Pesos oficiales del modelo de ComfyUI
   * [ByteDance-Seed/SeedVR2-3B (HuggingFace)](https://huggingface.co/ByteDance-Seed/SeedVR2-3B): Pesos originales del modelo 3B
   * [ByteDance-Seed/SeedVR2-7B (HuggingFace)](https://huggingface.co/ByteDance-Seed/SeedVR2-7B): Pesos originales del modelo 7B
   * [Artículo (arXiv)](https://arxiv.org/abs/2506.05301)

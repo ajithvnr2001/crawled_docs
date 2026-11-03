@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfyui-server/api-examples/
 title: Ejemplos de API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:26.665328+00:00
+fetched_at: 2026-11-03T14:55:27.189066+00:00
 ---
 
 # Ejemplos de API - ComfyUI
@@ -14,7 +14,7 @@ fetched_at: 2026-10-26T14:03:26.665328+00:00
 Volver arriba
 
   * Método 1: Enviar y olvidar (solo HTTP)
-  * Método 2: WebSocket + historial (monitorizar la finalización)
+  * Método 2: WebSocket + historial (supervisar la finalización)
   * Método 3: WebSocket con SaveImageWebsocket (imágenes en tiempo real)
   * ¿Qué método debería usar?
 
@@ -32,7 +32,7 @@ Copiar páginaCopiar página
 
 Esta página muestra tres formas de interactuar con la API del servidor de ComfyUI, desde un envío HTTP simple hasta una integración completa con WebSocket y salida de imágenes en tiempo real. Todos los ejemplos usan el [flujo de trabajo predeterminado de SD1.5](https://github.com/Comfy-Org/ComfyUI/blob/master/script_examples) a modo de ilustración. Antes de usar la API, debes exportar tu flujo de trabajo en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format).
 
-Estos ejemplos usan Python con la biblioteca estándar y el paquete `websocket-client` (`pip install websocket-client`). El protocolo subyacente de la API es el mismo independientemente del lenguaje. Consulta la [Referencia de la API de Cloud](https://docs.comfy.org/es/development/cloud/api-reference) para ver los equivalentes en TypeScript y curl.
+Estos ejemplos usan Python con la biblioteca estándar y el paquete `websocket-client` (`pip install websocket-client`). El protocolo subyacente de la API es el mismo independientemente del idioma. Consulta la [Referencia de la API de Cloud](https://docs.comfy.org/es/development/cloud/api-reference) para ver los equivalentes en TypeScript y curl.
 
 * * *
 
@@ -121,12 +121,12 @@ Este método usa el nodo `SaveImage`, que guarda las imágenes en el disco del s
 
 ​
 
-Método 2: WebSocket + historial (monitorizar la finalización)
+Método 2: WebSocket + historial (supervisar la finalización)
 
 Fuente: [`websockets_api_example.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/script_examples/websockets_api_example.py) Usa WebSocket para esperar a que finalice la ejecución y luego obtén las salidas a través del endpoint `/history`. Este es el patrón recomendado para la mayoría de los casos de uso.
     
     
-    """websockets_api_example.py: monitorea la ejecución por WebSocket y descarga mediante /history."""
+    """websockets_api_example.py: supervisa la ejecución por WebSocket y descarga mediante /history."""
     
     import websocket  # pip install websocket-client
     import uuid
@@ -232,10 +232,10 @@ Los frames binarios del WebSocket contienen imágenes de vista previa del progre
 
 Método 3: WebSocket con SaveImageWebsocket (imágenes en tiempo real)
 
-Fuente: [`websockets_api_example_ws_images.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/script_examples/websockets_api_example_ws_images.py) Para los casos en los que no quieres que las imágenes se guarden en disco, usa el nodo `SaveImageWebsocket`. Las imágenes se entregan directamente mediante mensajes binarios del WebSocket.
+Fuente: [`websockets_api_example_ws_images.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/script_examples/websockets_api_example_ws_images.py) Para casos en los que no quieres que las imágenes se guarden en el disco, usa el nodo `SaveImageWebsocket`. Las imágenes llegan directamente mediante frames binarios de WebSocket.
     
     
-    """websockets_api_example_ws_images.py — Receive images directly via WebSocket."""
+    """websockets_api_example_ws_images.py: recibe imágenes directamente por WebSocket."""
     
     import websocket  # pip install websocket-client
     import uuid
@@ -269,13 +269,13 @@ Fuente: [`websockets_api_example_ws_images.py`](https://github.com/Comfy-Org/Com
                     data = message["data"]
                     if data["prompt_id"] == prompt_id:
                         if data["node"] is None:
-                            break  # Execution done
+                            break  # Ejecución terminada
                         current_node = data["node"]
             else:
-                # Binary frame — image data from SaveImageWebsocket
+                # Frame binario: datos de imagen de SaveImageWebsocket
                 if current_node == "save_image_websocket_node":
                     images_output = output_images.get(current_node, [])
-                    # The first 8 bytes are type/meta, rest is image data
+                    # Los primeros 8 bytes son tipo/meta, el resto son datos de imagen
                     images_output.append(out[8:])
                     output_images[current_node] = images_output
     
@@ -301,7 +301,7 @@ Fuente: [`websockets_api_example_ws_images.py`](https://github.com/Comfy-Org/Com
     
         print(f"Received {len(images)} image(s) via WebSocket.")
     
-        # Display (requires Pillow):
+        # Mostrar (requiere Pillow):
         # for image_data in images.get("save_image_websocket_node", []):
         #     from PIL import Image
         #     import io
@@ -319,19 +319,19 @@ El flujo de trabajo debe usar un nodo con `class_type: "SaveImageWebsocket"` (un
 
 ¿Qué método debería usar?
 
-## Método 1: Solo HTTP
+## Método 1: solo HTTP
 
-**Envía y olvida.** Úsalo cuando no necesites resultados inmediatos o cuando puedas recuperar los resultados más tarde.
+**Envía y olvídate.** Úsalo cuando no necesites la salida de inmediato o cuando obtener los resultados más tarde sea aceptable.
 
-## Método 2: WebSocket + Historial
+## Método 2: WebSocket + History
 
-**RECOMENDADO.** Espera a que termine y luego descarga las salidas. El mejor equilibrio entre simplicidad y fiabilidad.
+**Recomendado.** Espera a que termine y luego descarga las salidas. Es el mejor equilibrio entre simplicidad y fiabilidad.
 
 ## Método 3: SaveImageWebsocket
 
-**Imágenes en tiempo real.** Lo mejor para aplicaciones interactivas en las que quieres recibir imágenes sin escribir en disco.
+**Imágenes en tiempo real.** Ideal para aplicaciones interactivas en las que quieres recibir las imágenes sin escribir en disco.
 
-Para ver la referencia completa de la API (endpoints, formatos de payload, manejo de errores), consulta las páginas [Server Routes](https://docs.comfy.org/es/development/comfyui-server/comms_routes) y [Server Messages](https://docs.comfy.org/es/development/comfyui-server/comms_messages).
+Para consultar la referencia completa de la API (endpoints, formatos de payload y manejo de errores), revisa las páginas [Server Routes](https://docs.comfy.org/es/development/comfyui-server/comms_routes) y [Server Messages](https://docs.comfy.org/es/development/comfyui-server/comms_messages).
 
 ¿Esta página le ayudó?
 
@@ -339,4 +339,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/comfyui-server/api-examples.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/comfyui-server/api-examples)
 
-[Descripción general del servidor](https://docs.comfy.org/es/development/comfyui-server/comms_overview)[Flags de inicio](https://docs.comfy.org/es/development/comfyui-server/startup-flags)
+[Descripción general del servidor](https://docs.comfy.org/es/development/comfyui-server/comms_overview)[Rutas HTTP y WebSocket](https://docs.comfy.org/es/development/comfyui-server/comms_routes)

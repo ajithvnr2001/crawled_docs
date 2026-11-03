@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-uni-1/
 title: Gu\u00eda de Luma Uni-1 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:52.162124+00:00
+fetched_at: 2026-11-03T14:55:31.761893+00:00
 ---
 
 # Guía de Luma Uni-1 - ComfyUI
@@ -23,18 +23,18 @@ Volver arriba
   * Trabajar con imágenes de referencia
     * Ejemplos del modo Create
     * Ejemplos del modo Modify
-  * Pautas para el prompt
+  * Pautas para los prompts
   * Relaciones de aspecto
   * Semillas: control y reproducibilidad
   * Técnicas avanzadas
     * Consistencia de personaje
-    * Arquitectura de múltiples referencias
+    * Arquitectura con múltiples referencias
     * Cadena Create → Modify
     * Refinamiento iterativo
   * Solución de problemas
   * Referencia rápida
   * Las reglas de oro
-  * Punto clave
+  * Idea clave
 
 
 
@@ -48,7 +48,7 @@ Usa los nodos asociados de Luma Uni-1 en ComfyUI para flujos de trabajo de image
 
 Copiar páginaCopiar página
 
-En **ComfyUI** , Luma **Uni-1** aparece como **Nodos asociados** para el trabajo unificado con imágenes: los grafos **Create** generan imágenes nuevas a partir de prompts (con referencias opcionales); los grafos **Modify** toman una imagen existente como entrada y la editan en el mismo sitio. Ambos se manejan con el flujo de trabajo habitual: conecta **Load Image** y **Save Image** , define prompts, semillas, relación de aspecto y ranuras de referencia en el nodo de Luma, y luego pon el grafo en cola de forma local o abre una plantilla en **Comfy Cloud**. Luma describe Uni-1 como un modelo autorregresivo que no usa diffusion y que solo tiene decodificador, y que razona sobre tu prompt antes de dibujar. En el lienzo, lo más importante es elegir entre **Create** y **Modify** , etiquetar las referencias con claridad e iterar con semillas.
+En **ComfyUI** , Luma **Uni-1** aparece como **Nodos asociados** (Partner Nodes) de Luma para el trabajo unificado con imágenes: los grafos **Create** generan imágenes nuevas a partir de prompts (con referencias opcionales); los grafos **Modify** toman una imagen existente como entrada y la editan en el mismo sitio. Ambos se manejan con el flujo de trabajo habitual: conecta **Load Image** y **Save Image** , define prompts, semillas, relación de aspecto y ranuras de referencia en el nodo de Luma, y luego pon el grafo en cola de forma local o abre una plantilla en **Comfy Cloud**. Luma describe Uni-1 como un modelo autorregresivo sin diffusion y solo con decodificador, que razona sobre tu prompt antes de dibujar. En el lienzo, lo más importante es elegir entre **Create** y **Modify** , etiquetar las referencias con claridad e iterar con semillas.
 
 ## 
 
@@ -58,13 +58,13 @@ Qué hace diferente a Uni-1
 
   * **Dos modos claros** : Create Image (generar algo nuevo) y Modify Image (editar algo existente)
   * **Hasta 9 imágenes de referencia** , cada una con un rol definido
-  * **Control sólido sobre estilos visuales específicos y de nicho**
+  * **Control sólido sobre estilos visuales de nicho y muy específicos**
   * **Soporte de semilla** para reproducibilidad e iteración controlada
   * **Nueve relaciones de aspecto** , de ultra vertical a ultra horizontal
-  * **Renderizado de texto** que sea realmente legible
-  * **Anclaje en búsqueda web** para contexto del mundo real
+  * **Renderizado de texto** que realmente es legible
+  * **Fundamentado en búsqueda web** para contexto del mundo real
   * **Prompts multilingües**
-  * **Salida multipanel** con consistencia temporal
+  * **Salida de varios paneles** con consistencia temporal
 
 Si entiendes los modos y cómo controlar las referencias, entiendes Uni-1.
 
@@ -83,7 +83,7 @@ Uni-1 sobresale en una amplia variedad de tareas:
   * **Renderizado de texto** : texto legible dentro de las imágenes, ideal para infografías y carteles
   * **Edición de imágenes** y refinamiento en varios turnos
   * **Generación guiada por referencias** con preservación de la identidad
-  * **Salida de varios paneles** : personajes y escenas coherentes entre paneles
+  * **Salida de varios paneles** : personajes y escenas coherentes en varios cuadros
 
 
 
@@ -152,7 +152,7 @@ Prueba el flujo de trabajo Image Create al instante en Comfy Cloud.
 
 ## Descargar el flujo de trabajo Image Create
 
-Descarga el JSON o busca “Luma UNI-1 Image Create” en Biblioteca de plantillas
+Descarga el JSON o busca “Luma UNI-1 Image Create” en la Biblioteca de plantillas
 
 ### 
 
@@ -168,7 +168,7 @@ Prueba el flujo de trabajo Image Edit al instante en Comfy Cloud.
 
 ## Descargar el flujo de trabajo Image Edit
 
-Descarga el JSON o busca “Luma UNI-1 Image Edit” en Biblioteca de plantillas
+Descarga el JSON o busca “Luma UNI-1 Image Edit” en la Biblioteca de plantillas
 
 El flujo de trabajo es simple: **prompt → evaluar → refinar**. Deja la semilla en blanco mientras exploras. Cuando encuentres algo bueno, fija la semilla e itera a partir de ahí.
 
@@ -182,9 +182,9 @@ Parámetro| Descripción
 ---|---  
 **Prompt**|  Tu control principal. Hasta 6,000 caracteres. Sé preciso.  
 **Relación de aspecto**|  Controla el encuadre, no la calidad. Elige según el caso de uso.  
-**Semilla**|  Misma semilla + mismo prompt → mismo resultado. Misma semilla + prompt cambiado → variación controlada. Sin semilla → exploración.  
+**Semilla**|  Misma semilla + mismo prompt → mismo resultado. Misma semilla + prompt modificado → variación controlada. Sin semilla → exploración.  
 **Imágenes de referencia** (Create)| Hasta 9 imágenes para guiar distintos aspectos.  
-**Imagen de origen** (Modify)| La imagen que estás editando. Las dimensiones se conservan automáticamente.  
+**Imagen fuente** (Modify)| La imagen que estás editando. Conserva las dimensiones automáticamente.  
   
 ## 
 
@@ -192,13 +192,13 @@ Parámetro| Descripción
 
 Trabajar con imágenes de referencia
 
-Las referencias solo funcionan si le dices al modelo para qué sirven. Usa esta estructura:
+Las referencias solo funcionan si le dices al modelo para qué son. Usa esta estructura:
     
     
     Use IMAGE1 ([description]) as a [ROLE] reference.
     
 
-Roles posibles: **Style** , **Character** , **Composition** , **Color palette** , **Lighting** , **Texture** , **Mood**. Sin roles, el modelo adivina, y las conjeturas no son fiables.
+Roles posibles: **Style** , **Character** , **Composition** , **Color palette** , **Lighting** , **Texture** , **Mood**. Sin roles, el modelo adivina, y las conjeturas no son confiables.
 
 ### 
 
@@ -237,7 +237,7 @@ Ejemplos del modo Create
 
 Ejemplos del modo Modify
 
-En el modo Modify, la claridad lo es todo. Indica siempre **qué cambiar** y **qué debe quedar intacto**.
+En el modo Modify, la claridad lo es todo. Especifica siempre **qué cambiar** y **qué debe permanecer intacto**.
     
     
     Change the time of day to golden hour. Update sky, light direction,
@@ -254,20 +254,20 @@ En el modo Modify, la claridad lo es todo. Indica siempre **qué cambiar** y **q
 
 ​
 
-Pautas para el prompt
+Pautas para los prompts
 
 Longitudes recomendadas:
 
   * **Texto a imagen** → 80–250 palabras
   * **Guiado por referencia** → 100–300 palabras
-  * **Modificar** → 30–100 palabras
+  * **Modify** → 30–100 palabras
 
-Evita términos vagos (“hermoso”, “asombroso”), frases redundantes e instrucciones en conflicto. En su lugar, usa estéticas específicas y con nombre:
+Evita términos vagos (“hermoso”, “increíble”), frases redundantes e instrucciones en conflicto. En su lugar, usa estéticas específicas y con nombre propio:
 
   * `Golden hour, 85mm lens, shallow depth of field`
   * `1970s Italian giallo film poster, high-contrast color blocking`
 
-La precisión supera a la generalidad.
+La precisión vence a la generalidad.
 
 ## 
 
@@ -279,12 +279,12 @@ Elige según dónde se mostrará la imagen:
 
 Relación| Caso de uso  
 ---|---  
-1:1| Publicaciones para redes sociales  
-9:16| video vertical  
+1:1| Publicaciones en redes sociales  
+9:16| Video vertical  
 16:9| Pantalla ancha  
 3:2 / 2:3| Fotografía  
-2:1 / 3:1| Cinemático / panorámico  
-1:2 / 1:3| Ultra alto  
+2:1 / 3:1| Cinematográfico / panorámico  
+1:2 / 1:3| Ultra vertical  
   
 En el modo Modify, la relación de aspecto queda fijada a la imagen de origen.
 
@@ -302,9 +302,9 @@ Las semillas convierten la experimentación en sistemas.
 Flujo de trabajo:
 
   1. Explora sin semilla
-  2. Encuentra un buen resultado
+  2. Encuentra un resultado sólido
   3. Fija la semilla
-  4. Cambia una sola variable a la vez
+  4. Cambia una variable a la vez
 
 Guarda tu prompt y tu semilla juntos. Esa es tu receta reutilizable.
 
@@ -330,7 +330,7 @@ Consistencia de personaje
 
 ​
 
-Arquitectura de múltiples referencias
+Arquitectura con múltiples referencias
 
 Asigna un rol por imagen:
 
@@ -351,7 +351,7 @@ Termina el prompt con:
 
 Cadena Create → Modify
 
-Usa Create para explorar composiciones y luego Modify para refinar detalles. Este es uno de los flujos de trabajo más potentes.
+Usa Create para explorar composiciones y luego Modify para refinar los detalles. Este es uno de los flujos de trabajo más potentes.
 
 ### 
 
@@ -361,7 +361,7 @@ Refinamiento iterativo
 
   1. Explora (sin semilla)
   2. Fija la semilla
-  3. Cambia una sola variable por generación
+  3. Cambia una variable por generación
   4. Documenta los resultados
 
 Parece más lento, pero en realidad es más rápido, porque siempre sabes qué cambió.
@@ -374,12 +374,12 @@ Solución de problemas
 
 Problema| Solución  
 ---|---  
-Referencias ignoradas| Etiqueta cada una claramente  
+Se ignoran las referencias| Etiqueta cada una claramente  
 Modify cambia demasiado| Indica explícitamente qué debe permanecer sin cambios  
 Salidas inconsistentes| Fija la semilla  
-El prompt se ignora parcialmente| Elimina los conflictos o divide en pasos  
-La salida se parece a la imagen de referencia| Es posible que estés en el modo Modify  
-Inconsistencia del personaje| Reutiliza una imagen de referencia canónica  
+El prompt se ignora parcialmente| Elimina los conflictos o divídelo en pasos  
+La salida se parece a la imagen de referencia| Puede que estés en modo Modify  
+Inconsistencia de personajes| Reutiliza una imagen de referencia canónica  
   
 ## 
 
@@ -408,9 +408,9 @@ Referencia rápida
 Las reglas de oro
 
   1. Etiqueta cada referencia
-  2. En el modo Modify, indica siempre qué **no** debe cambiar
-  3. Cambia una sola variable a la vez al refinar
-  4. Guarda el prompt y la semilla para poder reproducirlo
+  2. En el modo Modify, indica siempre lo que **no** debe cambiar
+  3. Cambia una sola variable a la vez cuando refines
+  4. Guarda el prompt + la semilla para poder reproducir el resultado
   5. Create = escenas nuevas, Modify = ediciones
 
 
@@ -419,9 +419,9 @@ Las reglas de oro
 
 ​
 
-Punto clave
+Idea clave
 
-Dominar Uni-1 se reduce a tres cosas: **elige el modo correcto → controla tus referencias → itera con intención**. Una vez que tengas eso en su lugar, ya no estarás adivinando, estarás dirigiendo.
+Dominar Uni-1 se reduce a tres cosas: **elige el modo correcto → controla tus referencias → itera con intención**. Cuando tengas eso claro, ya no estarás adivinando: estarás dirigiendo.
 
 ¿Esta página le ayudó?
 

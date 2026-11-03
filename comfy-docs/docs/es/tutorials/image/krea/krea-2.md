@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/krea/krea-2/
 title: Ejemplo de flujo de trabajo de Krea-2 en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.177657+00:00
+fetched_at: 2026-11-03T14:55:30.765671+00:00
 ---
 
 # Ejemplo de flujo de trabajo de Krea-2 en ComfyUI - ComfyUI
@@ -15,7 +15,7 @@ Volver arriba
 
   * Mira el evento de lanzamiento
   * Pesos de modelo disponibles
-  * Flujo de trabajo de texto a imagen de Krea-2 Turbo
+  * Flujo de trabajo de texto a imagen con Krea-2 Turbo
     * Krea-2: Texto a imagen
     * Generación con un solo clic
     * Controles del flujo de trabajo
@@ -38,9 +38,9 @@ Krea 2 es un modelo de texto a imagen diseñado para lograr alta calidad estéti
 
 Copiar páginaCopiar página
 
-**Krea 2** es un modelo de generación de imágenes de [Krea AI](https://www.krea.ai), entrenado desde cero y enfocado en la exploración creativa y estilística. Krea 2 se distribuye como dos modelos diseñados para trabajar juntos: **entrena LoRAs en RAW y ejecuta la inferencia en Turbo** :
+**Krea 2** es un modelo de generación de imágenes de [Krea AI](https://www.krea.ai), entrenado desde cero y enfocado en la exploración creativa y estilística. Krea 2 se distribuye como dos modelos diseñados para trabajar juntos: **entrena tus LoRA en RAW y ejecuta la inferencia en Turbo** :
 
-  * **Krea 2 RAW** : el modelo base con muestreo de pasos completos (52 pasos). Sin destilación, diverso y altamente moldeable, ideal para ajuste fino y entrenamiento de LoRA.
+  * **Krea 2 RAW** : el modelo base con muestreo de pasos completos (52 pasos). Sin destilación, diverso y muy moldeable, ideal para el ajuste fino y el entrenamiento de LoRA.
   * **Krea 2 Turbo** : un checkpoint destilado de 8 pasos para una generación rápida y de alta calidad. Los LoRA entrenados en RAW se aplican sin problemas a Turbo.
 
 **Licencia** : [Krea AI Community License](https://www.krea.ai/krea-2-licensing)
@@ -61,8 +61,8 @@ Pesos de modelo disponibles
 
 Krea 2 está disponible en dos variantes:
 
-  * **Krea 2 RAW** : el modelo base con muestreo de pasos completos (52 pasos). Diseñado para ofrecer diversidad y flexibilidad; ideal para fine-tuning y entrenamiento de LoRA.
-  * **Krea 2 Turbo** : un checkpoint destilado de 8 pasos creado para una generación rápida y de alta calidad. Los LoRA entrenados en RAW se aplican sin problemas en Turbo.
+  * **Krea 2 RAW** : el modelo base con muestreo de pasos completos (52 pasos). Diseñado para la diversidad y la maleabilidad; ideal para fine-tuning y entrenamiento de LoRA.
+  * **Krea 2 Turbo** : un checkpoint destilado de 8 pasos creado para una generación rápida y de alta calidad. Los LoRA entrenados en RAW se aplican sin problemas a Turbo.
 
 **Enlaces relacionados** :
 
@@ -79,7 +79,7 @@ Krea 2 está disponible en dos variantes:
 
 ​
 
-Flujo de trabajo de texto a imagen de Krea-2 Turbo
+Flujo de trabajo de texto a imagen con Krea-2 Turbo
 
 ### 
 
@@ -87,7 +87,7 @@ Flujo de trabajo de texto a imagen de Krea-2 Turbo
 
 Krea-2: Texto a imagen
 
-Genera imágenes a partir de prompts de texto con Krea 2, un modelo fundacional pensado para la calidad estética y el control creativo. Se centra en generar imágenes expresivas y estilísticamente diversas. ![Vista previa del flujo de trabajo de texto a imagen de Krea-2 Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_krea2_turbo_t2i-1.webp)
+Genera imágenes a partir de prompts de texto con Krea 2, un modelo fundacional creado para la calidad estética y el control creativo. Se enfoca en generar imágenes expresivas y estilísticamente diversas. ![Vista previa del flujo de trabajo de texto a imagen con Krea-2 Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_krea2_turbo_t2i-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -122,16 +122,16 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 El flujo de trabajo se organiza en varias partes:
 
-  1. **Text to Image (Krea-2 Turbo) subgrafo** : el pipeline de generación principal, que incluye la carga de modelos, el manejo del prompt, el muestreo y la decodificación del VAE
-  2. **ResolutionSelector** : elige la resolución de salida que quieras. Krea 2 admite salidas de 1K a 2K. Establece el valor de megapíxeles en 2.0 para obtener resolución 2K.
-  3. **CustomCombo (selector de LoRA)** : un selector de palabras de activación ya preparado para las LoRA de estilo disponibles. Si descargas LoRA adicionales, puedes personalizar este selector y emparejarlas con los archivos de LoRA correspondientes.
+  1. **Text to Image (Krea-2 Turbo) subgraph** : el pipeline principal de generación, que contiene la carga del modelo, el manejo del prompt, el muestreo y la decodificación VAE
+  2. **ResolutionSelector** : elige la resolución de salida deseada. Krea 2 admite salidas de 1K a 2K. Establece el valor de megapíxeles en 2.0 para obtener una resolución de 2K.
+  3. **CustomCombo (selector de LoRA)** : un selector de palabras de activación predefinido para las LoRA de estilo disponibles. Si descargas LoRA adicionales, puedes personalizar este selector y emparejarlas con los archivos LoRA correspondientes.
   4. **SaveImage** : guarda la imagen generada
 
 
 
-## Aprende sobre Subgraph
+## Acerca de Subgraph
 
-Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y ampliar el flujo de trabajo.
+Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y extender el flujo de trabajo.
 
 ### 
 
@@ -139,7 +139,7 @@ Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta
 
 Generación con un solo clic
 
-En el caso más simple, basta con introducir un prompt de texto en el subgrafo, elegir una resolución y hacer clic en **Queue Prompt**. Los valores predeterminados (8 pasos, mejora del prompt activada, sin LoRA) producen una imagen de alta calidad con una configuración mínima.
+En el caso más sencillo, solo introduce un prompt de texto en el subgrafo, selecciona una resolución y haz clic en **Queue Prompt**. Los valores predeterminados (8 pasos, mejora del prompt activada, sin LoRA) producen una imagen de alta calidad con una configuración mínima.
 
 ### 
 
@@ -152,13 +152,13 @@ El subgrafo **Text to Image (Krea-2 Turbo)** expone los siguientes controles:
 Control| Descripción  
 ---|---  
 **Text String (User Prompt)**|  El prompt de texto que describe la imagen que quieres generar  
-**prompt_enhance**|  Activa o desactiva la expansión del prompt con un LLM  
-**LLM_max_token**|  Longitud máxima en tokens para la mejora del prompt  
+**prompt_enhance**|  Activa o desactiva la expansión del prompt con LLM  
+**LLM_max_token**|  Longitud máxima de tokens para la mejora del prompt  
 **Width / Height**|  Resolución de salida (controlada por ResolutionSelector)  
-**Seed**|  Semilla aleatoria para poder reproducir el resultado  
+**Seed**|  Semilla aleatoria para la reproducibilidad  
 **enable_lora?**|  Activa o desactiva la LoRA de estilo  
 **LoRA Strength**|  Fuerza de la LoRA de estilo aplicada  
-**LoRA Trigger Word**|  Palabra de activación que se rellena automáticamente para la LoRA seleccionada  
+**LoRA Trigger Word**|  Palabra de activación rellenada automáticamente para la LoRA seleccionada  
   
 ### 
 
@@ -166,21 +166,21 @@ Control| Descripción
 
 LoRA de estilo
 
-Krea también publicó una colección de LoRA de estilo para Krea 2. Selecciona una en el nodo **CustomCombo** y activa `enable_lora?` en el subgrafo para aplicar el estilo:
+Krea también lanzó una colección de LoRA de estilo para Krea 2. Selecciona una en el nodo **CustomCombo** y activa `enable_lora?` en el subgrafo para aplicar el estilo:
 
-LoRA| Palabra de activación| Fuerza recomendada| Descarga  
+LoRA| Palabra de activación| Fuerza recomendada| Descargar  
 ---|---|---|---  
-krea2_darkbrush| estilo de aguada de tinta monocroma| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_darkbrush.safetensors)  
-krea2_dotmatrix| estilo de punteado monocromo| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_dotmatrix.safetensors)  
+krea2_darkbrush| estilo de aguada monocromática| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_darkbrush.safetensors)  
+krea2_dotmatrix| estilo de punteado monocromático| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_dotmatrix.safetensors)  
 krea2_kidsdrawing| estilo de boceto expresivo naíf| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_kidsdrawing.safetensors)  
 krea2_neondrip| estilo abstracto texturizado| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_neondrip.safetensors)  
 krea2_rainywindow| estilo de ventana lluviosa| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_rainywindow.safetensors)  
-krea2_retroanime| estilo retro anime púrpura| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_retroanime.safetensors)  
+krea2_retroanime| estilo de anime retro morado| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_retroanime.safetensors)  
 krea2_softwatercolor| estilo de acuarela art déco| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_softwatercolor.safetensors)  
 krea2_sunsetblur| estilo de desenfoque de movimiento etéreo| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_sunsetblur.safetensors)  
 krea2_vintagetarot| estilo de tarot vintage| 1.0| [Descargar](https://huggingface.co/Comfy-Org/Krea-2/blob/main/loras/krea2_vintagetarot.safetensors)  
   
-Guarda los archivos `.safetensors` en `ComfyUI/models/loras/`.
+Coloca los archivos `.safetensors` en `ComfyUI/models/loras/`.
 
 ### 
 
@@ -204,9 +204,9 @@ qwen_image_vae.safetensors
 
 ## LoRA de estilo
 
-Consulta todas las LoRA de estilo en Hugging Face
+Ver todas las LoRA de estilo en Hugging Face
 
-También hay otras variantes del modelo (BF16, NVFP4, MXFP8) para usuarios con hardware de gama alta.
+También hay otras variantes del modelo (BF16, NVFP4, MXFP8) disponibles para usuarios con hardware de gama alta.
 
 #### 
 
@@ -239,7 +239,7 @@ Flujo de trabajo de referencia de estilo de Krea-2 Turbo
 
 Krea-2 Int8: referencia de estilo de imagen
 
-Genera imágenes con el modelo Krea-2 Turbo tomando como referencia el estilo de 1–2 imágenes subidas, con el formato Int8 Convrot de alto rendimiento para una inferencia rápida. ![Vista previa del flujo de trabajo de referencia de estilo de Krea-2 Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_krea2_turbo_int8_image_style_reference-1.webp)
+Genera imágenes con el modelo Krea-2 Turbo tomando como referencia el estilo de 1 o 2 imágenes subidas, usando el formato Int8 Convrot de alto rendimiento para una inferencia rápida. ![Vista previa del flujo de trabajo de referencia de estilo de Krea-2 Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_krea2_turbo_int8_image_style_reference-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -247,7 +247,7 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “Krea-2 Style Reference” en la Biblioteca de plantillas
+Descarga el JSON o busca “Krea-2 Style Reference” en la biblioteca de plantillas
 
 **Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
 
@@ -257,9 +257,9 @@ Nodo `LoadImage` 69 · `krea2_reference_image.png`
 
 ![krea2_reference_image.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/krea2_reference_image.png)
 
-**Salida de ejemplo** ![Ejemplo de salida de la referencia de estilo de Krea-2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_krea2_turbo_int8_image_style_reference.png) El flujo de trabajo con referencia de estilo se basa en el pipeline de Krea-2 Turbo añadiendo el condicionamiento por imagen de referencia. Sube una o más imágenes de referencia para influir en el estilo estético, el ambiente y la dirección visual del resultado generado. El flujo de trabajo se organiza en varias partes:
+**Salida de ejemplo** ![Salida de ejemplo de referencia de estilo de Krea-2](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_krea2_turbo_int8_image_style_reference.png) El flujo de trabajo de referencia de estilo se basa en la pipeline de Krea-2 Turbo y añade el acondicionamiento con imágenes de referencia. Sube una o más imágenes de referencia para influir en el estilo estético, el ambiente y la dirección visual de la salida generada. El flujo de trabajo se organiza en varias partes:
 
-  1. **Image Style Reference (Krea-2 Turbo) subgrafo** : el pipeline de generación principal con soporte para referencia de estilo, que incluye la carga de modelos, el condicionamiento por imagen de referencia, el manejo del prompt y el muestreo
+  1. **Subgrafo Image Style Reference (Krea-2 Turbo)** : la pipeline de generación principal con soporte de referencia de estilo, que incluye la carga del modelo, el acondicionamiento de las imágenes de referencia, el manejo del prompt y el muestreo
   2. **LoadImage** : sube tus imágenes de referencia de estilo
   3. **ResolutionSelector** : elige la resolución de salida que quieras. Krea 2 admite salidas de 1K a 2K.
   4. **SaveImage** : guarda la imagen generada
@@ -273,12 +273,12 @@ Nodo `LoadImage` 69 · `krea2_reference_image.png`
 Usar la referencia de estilo
 
   1. **Sube las imágenes de referencia** : usa el nodo **LoadImage** para cargar una o más imágenes de referencia de estilo
-  2. **Escribe tu prompt** : introduce una descripción de texto en la entrada de prompt del usuario del subgrafo
-  3. **Selecciona una variante del modelo** : elige el checkpoint en el selector de modelo del subgrafo
-  4. **Ajusta la configuración** : establece la resolución, la semilla y, si quieres, activa la mejora del prompt
+  2. **Introduce tu prompt** : escribe una descripción de texto en la entrada de prompt del usuario del subgrafo
+  3. **Selecciona una variante del modelo** : elige el checkpoint del modelo en el selector de modelo del subgrafo
+  4. **Ajusta las configuraciones** : configura la resolución, la semilla y, de forma opcional, activa la mejora del prompt
   5. **Haz clic en Queue** : pulsa `Ctrl+Enter` para generar
 
-Este flujo de trabajo de referencia de estilo usa un modelo de difusión y una LoRA dedicados. El codificador de texto y el VAE se comparten con el flujo de trabajo de texto a imagen.
+Este flujo de trabajo de referencia de estilo usa un modelo de difusión y un LoRA dedicados. El codificador de texto y el VAE se comparten con el flujo de trabajo de texto a imagen.
 
 ## Modelo de difusión (INT8)
 
@@ -296,7 +296,7 @@ qwen_image_vae.safetensors
 
 krea2_style_reference.safetensors
 
-Guarda los archivos en los siguientes directorios:
+Coloca los archivos en los siguientes directorios:
     
     
     📂 ComfyUI/

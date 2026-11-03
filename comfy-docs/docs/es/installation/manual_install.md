@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/manual_install/
 title: Instalar ComfyUI manualmente (Windows, macOS, Linux) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:03.221685+00:00
+fetched_at: 2026-11-03T14:55:26.809906+00:00
 ---
 
 # Instalar ComfyUI manualmente (Windows, macOS, Linux) - ComfyUI
@@ -164,7 +164,7 @@ Las GPU Intel Arc (Arc serie A, Arc serie B y procesadores Core Ultra con Arc Gr
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/xpu
     
 
-Asegúrate de que tu [controlador de GPU Intel](https://www.intel.com/content/www/us/en/developer/articles/tool/pytorch-prerequisites-for-intel-gpu.html) esté instalado y actualizado. No instales los wheels de CUDA. Si ComfyUI sigue sin detectar la GPU, consulta [solución de problemas de GPU Intel](https://docs.comfy.org/es/troubleshooting/overview#intel-gpu-issues).
+Asegúrate de que tu [controlador de GPU Intel](https://www.intel.com/content/www/us/en/developer/articles/tool/pytorch-prerequisites-for-intel-gpu.html) esté instalado y actualizado. No instales los wheels de CUDA. Si ComfyUI sigue sin detectar la GPU, consulta [solución de problemas de GPU Intel](https://docs.comfy.org/es/troubleshooting/overview#problemas-con-gpu-intel).
 
 2
 

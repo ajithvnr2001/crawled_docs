@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/mage-flow/mage-flow/
 title: Mage-Flow en ComfyUI: texto a imagen y edici\u00f3n por instrucciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:13.538900+00:00
+fetched_at: 2026-11-03T14:55:29.365193+00:00
 ---
 
 # Mage-Flow en ComfyUI: texto a imagen y edición por instrucciones - ComfyUI
@@ -34,7 +34,7 @@ Ejecuta el stack Mage-Flow de 4B de Microsoft en ComfyUI: texto a imagen y edici
 
 Copiar páginaCopiar página
 
-**Mage-Flow** es un stack generativo compacto de escala 4B de Microsoft Research para la generación eficiente de imágenes a partir de texto y la edición de imágenes basada en instrucciones. El stack se construye a partir de dos componentes codiseñados: [Mage-VAE](https://huggingface.co/microsoft/Mage-VAE), un tokenizer latente ligero de alta fidelidad, y un Native-Resolution Multimodal Diffusion Transformer (NR-MMDiT) entrenado con rectified flow matching. Junto con el empaquetado a resolución nativa, este stack compartido impulsa dos instancias del modelo: Mage-Flow para texto a imagen y Mage-Flow-Edit para la edición de imágenes basada en instrucciones. Cada una se distribuye en variantes Base, alineada con RL y Turbo de 4 pasos. Mage-Flow admite resoluciones nativas de 512 a 2048 píxeles por lado en cualquier relación de aspecto, incluidas dimensiones extremas como 4:1. **Licencia** : [MIT](https://github.com/microsoft/Mage/blob/main/LICENSE) **Enlaces relacionados** :
+**Mage-Flow** es un conjunto generativo compacto de escala 4B de Microsoft Research para la generación eficiente de texto a imagen y la edición de imágenes basada en instrucciones. El conjunto se construye a partir de dos componentes codiseñados: [Mage-VAE](https://huggingface.co/microsoft/Mage-VAE), un tokenizer latente ligero de alta fidelidad, y un Native-Resolution Multimodal Diffusion Transformer (NR-MMDiT) entrenado con rectified flow matching. Junto con el empaquetado a resolución nativa, este conjunto compartido impulsa dos instancias del modelo: Mage-Flow para la generación de texto a imagen y Mage-Flow-Edit para la edición de imágenes basada en instrucciones. Cada una se distribuye en variantes Base, alineada con RL y Turbo de 4 pasos. Mage-Flow admite resoluciones nativas de 512 a 2048 píxeles por lado en cualquier relación de aspecto, incluidas dimensiones extremas como 4:1. **Licencia** : [MIT](https://github.com/microsoft/Mage/blob/main/LICENSE) **Enlaces relacionados** :
 
   * [Hugging Face: microsoft/Mage-Flow](https://huggingface.co/microsoft/Mage-Flow)
   * [Hugging Face: Comfy-Org/Mage-Flow (modelos para ComfyUI)](https://huggingface.co/Comfy-Org/Mage-Flow)
@@ -108,7 +108,7 @@ En el caso más simple, solo escribe un prompt de texto en el subgrafo, define l
 Usar el flujo de trabajo
 
   1. **Escribe un prompt** : escribe una descripción de texto en la entrada de prompt del subgrafo
-  2. **Define la resolución** : ajusta el ancho y el alto según el tamaño de salida que quieras. Mage-Flow admite resoluciones nativas de 512 a 2048 píxeles por lado.
+  2. **Define la resolución** : ajusta el ancho y el alto según el tamaño de salida que quieras. Mage-Flow admite resoluciones nativas de 512 a 2048 píxeles por lado
   3. **Ajusta las configuraciones** : configura la semilla y el prompt negativo según sea necesario
   4. **Haz clic en Queue** : presiona `Ctrl+Enter` para generar
 
@@ -130,7 +130,7 @@ Abrir en Comfy Cloud
 
 Descarga el JSON o busca “Mage-Flow Turbo” en la Biblioteca de plantillas
 
-La variante Turbo usa un checkpoint destilado de 4 pasos para generar más rápido sin perder calidad. La estructura y los controles del flujo de trabajo son idénticos a los del flujo de trabajo base de texto a imagen, pero utiliza el modelo de difusión Turbo para una inferencia con menor latencia.
+La variante Turbo usa un checkpoint destilado de 4 pasos para generar más rápido sin perder calidad. La estructura y los controles del flujo de trabajo son idénticos a los del flujo de trabajo base de texto a imagen, pero utiliza el modelo diffusion Turbo para una inferencia con menor latencia.
 
 ## 
 
@@ -155,8 +155,8 @@ Obtén la imagen de entrada de ejemplo para este flujo de trabajo
 El flujo de trabajo de edición de imágenes usa Mage-Flow-Edit, un modelo basado en instrucciones que edita imágenes a partir de descripciones en lenguaje natural. Sube una o más imágenes de referencia y describe la edición que deseas. El flujo de trabajo se organiza en varias partes:
 
   1. **LoadImage** : sube tus imágenes de referencia (hasta 3)
-  2. **Subgrafo Image Edit (Mage-Flow-Edit)** : el pipeline principal de edición que contiene la carga del modelo, el acondicionamiento de las imágenes de referencia, el manejo del prompt y el muestreo
-  3. **ImageCompare** : una comparación lado a lado de la imagen original y la editada
+  2. **Subgrafo Image Edit (Mage-Flow-Edit)** : el pipeline principal de edición, que contiene la carga del modelo, el acondicionamiento de las imágenes de referencia, el manejo del prompt y el muestreo
+  3. **ImageCompare** : una comparación lado a lado de la imagen original y la imagen editada
   4. **SaveImage** : guarda el resultado editado
 
 
@@ -188,13 +188,13 @@ Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “Mage-Flow-Edit Turbo” en la Biblioteca de plantillas
+Descargar JSON o buscar “Mage-Flow-Edit Turbo” en la biblioteca de plantillas
 
 ## Descargar imagen de ejemplo
 
-Descarga la imagen de entrada de ejemplo de este flujo de trabajo
+Obtén la imagen de entrada de ejemplo para este flujo de trabajo
 
-La variante Turbo del flujo de trabajo de edición usa un checkpoint destilado de 4 pasos para editar más rápido. La estructura y los controles coinciden con el flujo de trabajo de edición principal, pero con menos pasos de muestreo.
+La variante Turbo del flujo de trabajo de edición usa un checkpoint destilado de 4 pasos para editar más rápido. La estructura y los controles coinciden con el flujo de trabajo de edición base, pero con menos pasos de muestreo.
 
 ### 
 
@@ -214,11 +214,11 @@ mage_flow_vae_bf16.safetensors
 
 ## Modelo de difusión (Base Int8)
 
-mage_flow_int8_convrot.safetensors: modelo base usado en el flujo de trabajo de texto a imagen
+mage_flow_int8_convrot.safetensors: modelo base usado en el flujo de trabajo T2I
 
 ## Modelo de difusión (Turbo Int8)
 
-mage_flow_turbo_int8_convrot.safetensors: modelo Turbo usado en el flujo de trabajo de texto a imagen Turbo
+mage_flow_turbo_int8_convrot.safetensors: modelo Turbo usado en el flujo de trabajo T2I Turbo
 
 ## Modelo de difusión (Edit Int8)
 
@@ -228,7 +228,7 @@ mage_flow_edit_int8_convrot.safetensors: modelo Edit usado en el flujo de trabaj
 
 mage_flow_edit_turbo_int8_convrot.safetensors: modelo Edit Turbo usado en el flujo de trabajo de edición Turbo
 
-También hay otras variantes del modelo (BF16, FP8) para usuarios con configuraciones de hardware distintas. Coloca los archivos en los siguientes directorios:
+También hay otras variantes del modelo (BF16, FP8) disponibles para usuarios con distintas configuraciones de hardware. Coloca los archivos en los siguientes directorios:
     
     
     📂 ComfyUI/

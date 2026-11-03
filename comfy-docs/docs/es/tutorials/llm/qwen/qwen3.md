@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/llm/qwen/qwen3/
-title: Ejemplo de flujo de trabajo de Qwen 3.0 en ComfyUI - ComfyUI
+title: Qwen 3.0 en ComfyUI: generaci\u00f3n de texto LLM con TextGenerate - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:45.780013+00:00
+fetched_at: 2026-11-03T14:55:30.581856+00:00
 ---
 
-# Ejemplo de flujo de trabajo de Qwen 3.0 en ComfyUI - ComfyUI
+# Qwen 3.0 en ComfyUI: generación de texto LLM con TextGenerate - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/llm/qwen/qwen3/
 
@@ -22,11 +22,11 @@ Volver arriba
 
 LLM
 
-# Ejemplo de flujo de trabajo de Qwen 3.0 en ComfyUI
+# Qwen 3.0 en ComfyUI: generación de texto LLM con TextGenerate
 
 Copiar páginaCopiar página
 
-Qwen 3.0 es el LLM de código abierto de Alibaba Cloud, con gran capacidad de razonamiento; disponible en 4B para texto y razonamiento estructurado.
+Ejecuta Qwen3 4B Thinking en ComfyUI con TextGenerate para reescritura de prompts, razonamiento con cadena de pensamiento y análisis de texto estructurado.
 
 Copiar páginaCopiar página
 
@@ -53,12 +53,12 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-**Qwen 3.0** (también conocido como Qwen3) es un potente LLM de código abierto de Alibaba Cloud diseñado para la generación de texto, el razonamiento y el análisis estructurado. Es compatible de forma nativa con ComfyUI mediante el nodo integrado `TextGenerate`. **Aspectos destacados del modelo** :
+**Qwen 3.0** (también conocido como Qwen3) es un potente LLM de código abierto de Alibaba Cloud creado para la generación de texto, el razonamiento y el análisis estructurado. ComfyUI lo admite de forma nativa mediante el nodo integrado `TextGenerate`. **Aspectos destacados del modelo** :
 
   * **Razonamiento sólido** : Qwen3-4B-Thinking admite razonamiento paso a paso con cadena de pensamiento
   * **Enfocado en la generación de texto** : optimizado para la salida de texto estructurado, el análisis y las tareas de programación
-  * **Nativo en ComfyUI** : funciona con el nodo integrado `TextGenerate`, sin necesidad de Nodos personalizados
-  * **Ligero** : comparte el mismo formato de codificador de texto que Qwen3.5, disponible en variantes de 2B, 4B y 9B para ajustarse a diferentes configuraciones de hardware
+  * **Nativo en ComfyUI** : funciona con el nodo integrado `TextGenerate`, sin necesidad de nodos personalizados
+  * **Ligero** : comparte el mismo formato de codificador de texto que Qwen3.5 y está disponible en variantes de 2B, 4B y 9B para ajustarse a distintas configuraciones de hardware
 
 
 
@@ -68,12 +68,12 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 Casos de uso
 
-Qwen 3.0 es adecuado para tareas que requieren generación de texto estructurado y razonamiento inteligente dentro de un flujo de trabajo de ComfyUI:
+Qwen 3.0 es ideal para tareas que requieren generación de texto estructurado y razonamiento inteligente dentro de un flujo de trabajo de ComfyUI:
 
   * **Optimización de prompts** : pasa prompts existentes a Qwen 3.0 y pídele que los reescriba, los expanda o los refine para obtener mejores resultados de generación de imágenes. Por ejemplo, convierte un prompt corto de palabras clave en descripciones detalladas y estructuradas con detalles de estilo, iluminación y composición.
   * **Razonamiento sobre la lógica del flujo de trabajo** : usa el modelo para analizar los parámetros del flujo de trabajo, sugerir pasos de procesamiento o generar instrucciones estructuradas que alimenten otros nodos.
   * **Análisis basado en texto** : extrae información, clasifica contenido o genera informes estructurados a partir de entradas de texto.
-  * **Razonamiento de cadena de pensamiento** : activa el modo de pensamiento para tareas complejas de varios pasos que se benefician de un razonamiento intermedio antes de producir la salida final.
+  * **Razonamiento en cadena de pensamiento** : activa el modo de pensamiento para tareas complejas de varios pasos que se benefician de un razonamiento intermedio antes de producir la salida final.
 
 
 
@@ -107,7 +107,7 @@ Este flujo de trabajo demuestra las capacidades fundamentales de **generación d
 
   * **Longitud máxima** : número máximo de tokens a generar (predeterminado 256)
   * **Modo de muestreo** : activa o desactiva el muestreo y ajusta la temperatura, top-k, top-p, la penalización por repetición y la semilla
-  * **Modo de razonamiento** : habilita el razonamiento paso a paso antes de la respuesta final
+  * **Modo de pensamiento** : habilita el razonamiento paso a paso antes de la respuesta final
   * **Usar plantilla predeterminada** : aplica el prompt de sistema integrado del modelo
 
 **Salida** :
@@ -116,7 +116,7 @@ Este flujo de trabajo demuestra las capacidades fundamentales de **generación d
 
 
 
-## Aprende sobre Subgraph
+## Acerca de Subgraph
 
 Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y extender el flujo de trabajo.
 
@@ -126,7 +126,7 @@ Este flujo de trabajo usa nodos Subgraph para el procesamiento modular. Consulta
 
 Descarga del modelo
 
-Los modelos Qwen 3.0 se cargan como codificadores de texto en ComfyUI. Los archivos de modelo se comparten con Qwen3.5. Descarga la variante que mejor se adapte a tu hardware:
+Los modelos Qwen 3.0 se cargan como text encoders en ComfyUI. Los archivos del modelo son compartidos con Qwen3.5. Descarga la variante que mejor se adapte a tu hardware:
 
 ## Qwen3.5 2B (bf16)
 
@@ -134,11 +134,11 @@ Ligero, ~4.5 GB. Ideal para configuraciones con poca VRAM y descargas rápidas.
 
 ## Qwen3.5 4B (bf16)
 
-Equilibrio entre tamaño y calidad. Recomendado para la mayoría de GPU de consumo.
+Tamaño y calidad equilibrados. RECOMENDADO para la mayoría de las GPU de consumo.
 
 ## Qwen3.5 9B (bf16)
 
-La variante más grande, ~19 GB. Salida de mayor calidad, requiere más VRAM.
+La variante más grande, ~19 GB. Mayor calidad de salida, requiere más VRAM.
 
 Coloca el archivo `.safetensors` descargado en:
     

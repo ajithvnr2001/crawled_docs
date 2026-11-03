@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/wavespeed/overview/
 title: WaveSpeed en ComfyUI: ampliaci\u00f3n de imagen y video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:12.807982+00:00
+fetched_at: 2026-11-03T14:55:32.194502+00:00
 ---
 
 # WaveSpeed en ComfyUI: ampliación de imagen y video - ComfyUI
@@ -36,7 +36,7 @@ WaveSpeed es una plataforma de mejora de contenido multimedia con IA de alto ren
 
 Funciones principales
 
-  * **Ampliación de video con FLSH-VSR** : superresolución de video con IA y coherencia temporal que mantiene un detalle uniforme entre fotogramas, ideal para archivo, mejora de video con IA y conversión de SD a HD.
+  * **Ampliación de video con FLSH-VSR** : superresolución de video con IA y coherencia temporal que mantiene un detalle uniforme entre fotogramas, ideal para archivado, mejora de video con IA y conversión de SD a HD.
   * **Ampliación general de imágenes** : aumento de tamaño y mejora de calidad para múltiples propósitos, que abarca fotografías, arte digital, renders y capturas de pantalla.
   * **SeedVR2 AI image fix** : modelo de restauración basado en diffusion para recuperar imágenes dañadas, degradadas o de baja calidad, incluida la reparación de fotos antiguas, la eliminación de ruido y artefactos, y la reconstrucción de detalles perdidos.
   * **Sin necesidad de GPU local** : todo el procesamiento se ejecuta en la infraestructura de ComfyCloud, lo que mantiene tu hardware local libre para la generación y la composición.

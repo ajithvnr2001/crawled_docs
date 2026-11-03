@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/lens/lens/
 title: Lens en ComfyUI: modelo open source de texto a imagen de 3.8B - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:12.645307+00:00
+fetched_at: 2026-11-03T14:55:30.406542+00:00
 ---
 
 # Lens en ComfyUI: modelo open source de texto a imagen de 3.8B - ComfyUI
@@ -18,7 +18,7 @@ Volver arriba
     * Empezar
     * Lens Turbo: Texto a imagen
     * Empezar
-  * Descargas de modelos de Lens
+  * Descargas de modelos Lens
   * Modelos disponibles
 
 
@@ -33,13 +33,13 @@ Ejecuta Lens, el modelo open source de texto a imagen de 3.8B de Microsoft en Co
 
 Copiar páginaCopiar página
 
-**Lens** es un modelo de texto a imagen abierto de **Microsoft** , con licencia MIT. Con **3800 millones** de parámetros, usa una arquitectura **MMDiT de doble flujo** con características del codificador de texto **GPT-OSS-20B** y el **VAE semántico de FLUX.2** para ofrecer una calidad de imagen competitiva con mucho menos cómputo de entrenamiento que modelos T2I más grandes. **Aspectos destacados del modelo** :
+**Lens** es un modelo abierto de texto a imagen de **Microsoft** , con licencia MIT. Con **3800 millones** de parámetros, usa una arquitectura **MMDiT de doble flujo** con características del codificador de texto **GPT-OSS-20B** y el **VAE semántico de FLUX.2** para ofrecer una calidad de imagen competitiva con mucho menos cómputo de entrenamiento que modelos T2I más grandes. **Aspectos destacados del modelo** :
 
   * **Arquitectura MMDiT de doble flujo** : procesamiento conjunto de imagen y texto para una generación coherente
   * **Características de texto multicapa de GPT-OSS-20B** : comprensión avanzada del texto para seguir con precisión el prompt
   * **VAE semántico de FLUX.2** : representación latente de alta fidelidad
   * **Entrenamiento con resolución mixta** : admite varias relaciones de aspecto sin recortar
-  * **Tamaño compacto de 3.8B** : se ejecuta en GPU de consumo con 24 GB de VRAM
+  * **Tamaño compacto de 3.8B** : funciona en GPU de consumo con 24 GB de VRAM
 
 **Enlaces relacionados** :
 
@@ -72,9 +72,9 @@ Ingresa un prompt de texto y selecciona la resolución y la relación de aspecto
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “Lens” en Biblioteca de plantillas
+Descarga el JSON o busca “Lens” en la Biblioteca de plantillas
 
-**Salida de ejemplo** ![Salida de ejemplo del flujo de trabajo de texto a imagen de Lens](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_lens_t2i.png)
+**Salida de ejemplo** ![Salida de ejemplo de texto a imagen de Lens](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_lens_t2i.png)
 
   * Usuarios locales
 
@@ -122,9 +122,9 @@ Ingresa un prompt de texto y selecciona la resolución, la relación de aspecto 
 
 ## Descargar flujo de trabajo
 
-Descarga el JSON o busca “Lens Turbo” en Biblioteca de plantillas
+Descarga el JSON o busca “Lens Turbo” en la Biblioteca de plantillas
 
-**Salida de ejemplo** ![Salida de ejemplo del flujo de trabajo de texto a imagen de Lens Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_lens_turbo_t2i.png)
+**Salida de ejemplo** ![Salida de ejemplo de texto a imagen de Lens Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_lens_turbo_t2i.png)
 
 #### 
 
@@ -143,9 +143,9 @@ Empezar
 
 ​
 
-Descargas de modelos de Lens
+Descargas de modelos Lens
 
-Puedes encontrar todos los archivos del modelo en [Comfy-Org/Lens](https://huggingface.co/Comfy-Org/Lens), en Hugging Face.
+Puedes encontrar todos los archivos de modelo en [Comfy-Org/Lens](https://huggingface.co/Comfy-Org/Lens) en Hugging Face.
 
 ## lens_bf16.safetensors
 
@@ -157,7 +157,7 @@ Modelo de difusión para Lens Turbo (BF16).
 
 ## gpt_oss_20b_nvfp4.safetensors
 
-Codificador de texto (GPT-OSS-20B) compartido por Lens y Lens Turbo.
+Text encoder (GPT-OSS-20B) compartido por Lens y Lens Turbo.
 
 ## flux2-vae.safetensors
 
@@ -185,7 +185,7 @@ Modelos disponibles
 
 Modelo| Descripción| Pasos de inferencia| Enlace  
 ---|---|---|---  
-Lens| Modelo estándar de 3.8B: mayor calidad, más pasos| ~50| [Hugging Face](https://huggingface.co/microsoft/Lens)  
+Lens| Modelo estándar de 3.8B: mayor calidad y más pasos| ~50| [Hugging Face](https://huggingface.co/microsoft/Lens)  
 Lens Turbo| Variante destilada: generación más rápida con menos pasos| ~8| [Hugging Face](https://huggingface.co/microsoft/Lens)  
   
 ¿Esta página le ayudó?

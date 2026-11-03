@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/ernie-image/ernie-image/
 title: Ejemplo de flujo de trabajo de ERNIE-Image en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:43.521374+00:00
+fetched_at: 2026-11-03T14:55:30.856904+00:00
 ---
 
 # Ejemplo de flujo de trabajo de ERNIE-Image en ComfyUI - ComfyUI
@@ -13,16 +13,16 @@ fetched_at: 2026-10-26T14:03:43.521374+00:00
 
 Volver arriba
 
-  * Flujo de trabajo de texto a imagen de ERNIE-Image
-    * Ernie Image: Text to Image
+  * Flujo de trabajo texto a imagen de ERNIE-Image
+    * Ernie Image: texto a imagen
     * Empezar
     * Descargas de modelos de ERNIE-Image
   * ERNIE-Image-Turbo
-    * Ernie Image Turbo: Text To Image
-    * Descargas de modelos de ERNIE-Image-Turbo
+    * ERNIE-Image-Turbo: texto a imagen
+    * Descargas del modelo ERNIE-Image-Turbo
   * Modelos disponibles
   * Ejemplos
-    * Renderizado de texto y diseños
+    * Renderizado de texto y composiciones de diseño
     * Estética cinematográfica y estilizada
     * Composiciones de varios paneles
 
@@ -38,14 +38,14 @@ ERNIE-Image es el modelo texto a imagen Diffusion Transformer 8B de Baidu para C
 
 Copiar páginaCopiar página
 
-**ERNIE-Image** es un modelo de texto a imagen abierto de Baidu, con licencia Apache-2.0. Construido sobre un Diffusion Transformer (DiT) de **8B** parámetros, ofrece generación de imágenes de alta calidad con renderizado de texto preciso, un sólido seguimiento de instrucciones y generación visual estructurada. El modelo incluye un **Prompt Enhancer** integrado (3B) que amplía entradas cortas y las convierte en prompts más ricos para obtener mejores resultados. **Aspectos destacados del modelo** :
+**ERNIE-Image** es un modelo de texto a imagen abierto de Baidu, con licencia Apache-2.0. Construido sobre un Diffusion Transformer (DiT) de **8B** parámetros, ofrece generación de imágenes de alta calidad con renderizado de texto preciso, un sólido seguimiento de instrucciones y generación visual estructurada. El modelo incluye un **Prompt Enhancer** integrado (3B) que amplía las entradas cortas y las convierte en prompts más ricos para obtener mejores resultados. **Aspectos destacados del modelo** :
 
-  * **Renderizado de texto preciso** : texto denso y sensible al diseño en inglés, chino y más idiomas
-  * **Sólido seguimiento de instrucciones** : maneja prompts complejos, relaciones entre varios objetos y descripciones con mucho conocimiento
+  * **Renderizado de texto preciso** : texto denso y sensible al diseño en inglés, chino y otros idiomas
+  * **Sólido seguimiento de instrucciones** : maneja prompts complejos, relaciones entre varios objetos y descripciones con mucho conocimiento específico
   * **Generación visual estructurada** : pósteres, storyboards de manga/anime, composiciones de varios paneles
   * **Amplio alcance estilístico** : desde fotografía realista hasta estética cinematográfica
-  * **Compacto y desplegable** : 8B parámetros, funciona con 24 GB de VRAM
-  * **Prompt Enhancer integrado** : modelo de 3B que amplía entradas cortas y las convierte en prompts más ricos
+  * **Compacto y fácil de desplegar** : 8B parámetros, funciona con 24 GB de VRAM
+  * **Prompt Enhancer integrado** : modelo de 3B que amplía las entradas cortas y las convierte en prompts más ricos
 
 **Enlaces relacionados** :
 
@@ -58,7 +58,7 @@ Copiar páginaCopiar página
 
 ​
 
-Flujo de trabajo de texto a imagen de ERNIE-Image
+Flujo de trabajo texto a imagen de ERNIE-Image
 
   * Usuarios locales
 
@@ -87,9 +87,9 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 
 ​
 
-Ernie Image: Text to Image
+Ernie Image: texto a imagen
 
-Genera imágenes a partir de prompts de texto con el modelo ERNIE-Image. Introduce una descripción de texto para producir imágenes detalladas y estructuradas con una amplia variedad estilística. ![Vista previa del flujo de trabajo de texto a imagen de ERNIE-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ernie_image-1.webp)
+Genera imágenes a partir de prompts de texto con el modelo ERNIE-Image. Ingresa una descripción de texto para producir visuales detallados y estructurados con una amplia variedad estilística. ![Vista previa del flujo de trabajo texto a imagen de ERNIE-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ernie_image-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -97,9 +97,9 @@ Ejecuta este flujo de trabajo directamente en Comfy Cloud
 
 ## Descargar flujo de trabajo
 
-Descarga el archivo JSON del flujo de trabajo de texto a imagen de ERNIE-Image
+Descarga el archivo JSON del flujo de trabajo texto a imagen de ERNIE-Image
 
-**Salida de ejemplo** ![Ejemplo de salida de ERNIE-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ernie_image.png)
+**Ejemplo de salida** ![Ejemplo de salida de ERNIE-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ernie_image.png)
 
 ### 
 
@@ -108,9 +108,9 @@ Descarga el archivo JSON del flujo de trabajo de texto a imagen de ERNIE-Image
 Empezar
 
   1. Actualiza ComfyUI a la última versión o usa [Comfy Cloud](https://cloud.comfy.org/?template=image_ernie_image&utm_source=docs&utm_medium=referral&utm_campaign=ernie-image)
-  2. Ve a **Template** y busca **ERNIE-Image**
+  2. Ve a **Plantillas** y busca **ERNIE-Image**
   3. Selecciona el flujo de trabajo **ERNIE-Image**
-  4. Descarga los modelos que falten, actualiza el prompt y haz clic en **Run**
+  4. Descarga los modelos faltantes, actualiza el prompt y haz clic en **Run**
 
 
 
@@ -120,7 +120,7 @@ Empezar
 
 Descargas de modelos de ERNIE-Image
 
-Todos los archivos de modelo reempaquetados están en [Comfy-Org/ERNIE-Image](https://huggingface.co/Comfy-Org/ERNIE-Image) en Hugging Face.
+Puedes encontrar todos los archivos de modelo reempaquetados en [Comfy-Org/ERNIE-Image](https://huggingface.co/Comfy-Org/ERNIE-Image) en Hugging Face.
 
 ## ernie-image.safetensors
 
@@ -158,15 +158,15 @@ VAE para ERNIE-Image.
 
 ERNIE-Image-Turbo
 
-[ERNIE-Image-Turbo](https://huggingface.co/Baidu/ERNIE-Image-Turbo) es una variante más rápida, optimizada con DMD y RL, que genera imágenes en solo **8 pasos** frente a los ~50 pasos que necesita el modelo estándar.
+[ERNIE-Image-Turbo](https://huggingface.co/Baidu/ERNIE-Image-Turbo) es una variante más rápida optimizada con DMD y RL, que genera imágenes en solo **8 pasos** frente a los ~50 pasos que requiere el modelo estándar.
 
 ### 
 
 ​
 
-Ernie Image Turbo: Text To Image
+ERNIE-Image-Turbo: texto a imagen
 
-Genera imágenes a partir de prompts de texto con el modelo turbo ERNIE-Image. Introduce una descripción de texto y obtén una imagen de alta calidad con un renderizado de texto preciso. ![Vista previa del flujo de trabajo de texto a imagen de ERNIE-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ernie_image_turbo-1.webp)
+Genera imágenes a partir de prompts de texto con el modelo turbo ERNIE-Image. Introduce una descripción de texto y recibe una imagen de alta calidad con un renderizado de texto preciso. ![Vista previa del flujo de trabajo de texto a imagen de ERNIE-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ernie_image_turbo-1.webp)
 
 ## Ejecutar en Comfy Cloud
 
@@ -176,13 +176,13 @@ Ejecuta este flujo de trabajo directamente en Comfy Cloud
 
 Descarga el archivo JSON del flujo de trabajo de texto a imagen de ERNIE-Image-Turbo
 
-**Salida de ejemplo** ![Ejemplo de salida de ERNIE-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ernie_image_turbo.png)
+**Salida de ejemplo** ![Salida de ejemplo de ERNIE-Image-Turbo](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ernie_image_turbo.png)
 
 ### 
 
 ​
 
-Descargas de modelos de ERNIE-Image-Turbo
+Descargas del modelo ERNIE-Image-Turbo
 
 ## ernie-image-turbo.safetensors
 
@@ -194,7 +194,7 @@ Codificador de texto para ERNIE-Image-Turbo.
 
 ## ernie-image-prompt-enhancer.safetensors
 
-Codificador de texto del Prompt Enhancer para ERNIE-Image-Turbo.
+Codificador de texto Prompt Enhancer para ERNIE-Image-Turbo.
 
 ## flux2-vae.safetensors
 
@@ -222,8 +222,8 @@ Modelos disponibles
 
 Modelo| Descripción| Pasos de inferencia| Enlace  
 ---|---|---|---  
-ERNIE-Image| Modelo SFT principal: mayor calidad y fidelidad a las instrucciones| ~50| [Hugging Face](https://huggingface.co/Baidu/ERNIE-Image)  
-ERNIE-Image-Turbo| Modelo Turbo optimizado con DMD y RL: generación más rápida| 8| [Hugging Face](https://huggingface.co/Baidu/ERNIE-Image-Turbo)  
+ERNIE-Image| Modelo SFT principal: mejor calidad y fidelidad a las instrucciones| ~50| [Hugging Face](https://huggingface.co/Baidu/ERNIE-Image)  
+ERNIE-Image-Turbo| Modelo turbo optimizado con DMD y RL: generación más rápida| 8| [Hugging Face](https://huggingface.co/Baidu/ERNIE-Image-Turbo)  
   
 ## 
 
@@ -235,9 +235,9 @@ Ejemplos
 
 ​
 
-Renderizado de texto y diseños
+Renderizado de texto y composiciones de diseño
 
-![Infografía del proceso de preparación del café](https://substack-post-media.s3.amazonaws.com/public/images/1cc1c3e6-e556-45b4-b6a9-205e5610d022_1360x768.png)
+![Infografía del proceso de elaboración del café](https://substack-post-media.s3.amazonaws.com/public/images/1cc1c3e6-e556-45b4-b6a9-205e5610d022_1360x768.png)
 
 Prompt
     
@@ -254,7 +254,7 @@ Prompt
     The four corners of the image are decorated with hand-drawn coffee leaves and coffee beans. The overall color palette consists of warm brown, caramel, cream, deep red and olive green, with delicate lines and clear layout.
     
 
-![Ficha de aprendizaje de idioma con estilo ukiyo-e japonés](https://substack-post-media.s3.amazonaws.com/public/images/913c7f5e-f1fe-4f19-b811-ad777ed430b7_768x1360.png)
+![Tarjeta de aprendizaje de idioma japonés estilo Ukiyo-e](https://substack-post-media.s3.amazonaws.com/public/images/913c7f5e-f1fe-4f19-b811-ad777ed430b7_768x1360.png)
 
 Prompt
     
@@ -280,7 +280,7 @@ Prompt
 
 Estética cinematográfica y estilizada
 
-![Escena de calle urbana de noche](https://substack-post-media.s3.amazonaws.com/public/images/d4f27467-4d1f-4f6d-8c15-ebc92983c29d_1360x768.png)
+![Escena callejera urbana nocturna](https://substack-post-media.s3.amazonaws.com/public/images/d4f27467-4d1f-4f6d-8c15-ebc92983c29d_1360x768.png)
 
 Prompt
     
@@ -327,7 +327,7 @@ Prompt
     Panel 5: Monarch butterfly on a flower. Header: "MONARCH BUTTERFLY" Fact: "Migrates 3,000 miles each year." Arrow → wings: "Warning colors"
     
 
-![Página de cómic de 6 viñetas](https://substack-post-media.s3.amazonaws.com/public/images/adc8fe73-f431-4bdd-8578-1a18d717d4d7_1360x768.png)
+![Página de cómic de 6 paneles](https://substack-post-media.s3.amazonaws.com/public/images/adc8fe73-f431-4bdd-8578-1a18d717d4d7_1360x768.png)
 
 Prompt
     
