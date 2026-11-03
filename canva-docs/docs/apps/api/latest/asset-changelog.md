@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/latest/asset-changelog/
 title: Changelog for @canva/asset - GA API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:54:39.780269+00:00
+fetched_at: 2026-11-03T17:24:26.665298+00:00
 ---
 
 # Changelog for @canva/asset - GA API reference - Canva Developers SDK Documentation
@@ -15,7 +15,7 @@ Latest (GA)
 
 Asset
 
-[getTemporaryUrl](https://www.canva.dev/docs/apps/api/latest/asset-get-temporary-url/)[findFonts](https://www.canva.dev/docs/apps/api/latest/asset-find-fonts/)[openColorSelector](https://www.canva.dev/docs/apps/api/latest/asset-open-color-selector/)[requestFontSelection](https://www.canva.dev/docs/apps/api/latest/asset-request-font-selection/)[upload](https://www.canva.dev/docs/apps/api/latest/asset-upload/)[Changelog](https://www.canva.dev/docs/apps/api/latest/asset-changelog/)
+[getTemporaryUrl](https://www.canva.dev/docs/apps/api/latest/asset-get-temporary-url/)[findFonts](https://www.canva.dev/docs/apps/api/latest/asset-find-fonts/)[openColorSelector](https://www.canva.dev/docs/apps/api/latest/asset-open-color-selector/)[requestFontSelection](https://www.canva.dev/docs/apps/api/latest/asset-request-font-selection/)[searchFonts](https://www.canva.dev/docs/apps/api/latest/asset-search-fonts/)[upload](https://www.canva.dev/docs/apps/api/latest/asset-upload/)[Changelog](https://www.canva.dev/docs/apps/api/latest/asset-changelog/)
 
 Asset: Test
 
@@ -23,7 +23,7 @@ Asset: Test
 
 Design
 
-[addAudioTrack](https://www.canva.dev/docs/apps/api/latest/design-add-audio-track/)[addElementAtCursor](https://www.canva.dev/docs/apps/api/latest/design-add-element-at-cursor/)[addElementAtPoint](https://www.canva.dev/docs/apps/api/latest/design-add-element-at-point/)[addNativeElement](https://www.canva.dev/docs/apps/api/latest/design-add-native-element/)[addPage](https://www.canva.dev/docs/apps/api/latest/design-add-page/)[bulkCreate.launch](https://www.canva.dev/docs/apps/api/latest/design-bulk-create-launch/)[createRichtextRange](https://www.canva.dev/docs/apps/api/latest/design-create-richtext-range/)[editContent](https://www.canva.dev/docs/apps/api/latest/design-edit-content/)[getBrandKitColors](https://www.canva.dev/docs/apps/api/latest/design-get-brand-kit-colors/)[getCurrentPageContext](https://www.canva.dev/docs/apps/api/latest/design-get-current-page-context/)[getCurrentPageMetadata](https://www.canva.dev/docs/apps/api/latest/design-get-current-page-metadata/)[getDefaultPageDimensions](https://www.canva.dev/docs/apps/api/latest/design-get-default-page-dimensions/)[getDesignColors](https://www.canva.dev/docs/apps/api/latest/design-get-design-colors/)[getDesignMetadata](https://www.canva.dev/docs/apps/api/latest/design-get-design-metadata/)[getDesignTemplateMetadata](https://www.canva.dev/docs/apps/api/latest/design-get-design-template-metadata/)[getDesignToken](https://www.canva.dev/docs/apps/api/latest/design-get-design-token/)[initAppElement](https://www.canva.dev/docs/apps/api/latest/design-init-app-element/)[openDesign](https://www.canva.dev/docs/apps/api/latest/design-open-design/)[overlay.registerOnCanOpen](https://www.canva.dev/docs/apps/api/latest/design-overlay-register-on-can-open/)[publish.launch](https://www.canva.dev/docs/apps/api/latest/design-publish-launch/)[requestExport](https://www.canva.dev/docs/apps/api/latest/design-request-export/)[selection.registerOnChange](https://www.canva.dev/docs/apps/api/latest/design-selection-register-on-change/)[setCurrentPageBackground](https://www.canva.dev/docs/apps/api/latest/design-set-current-page-background/)[ui.startDragToCursor](https://www.canva.dev/docs/apps/api/latest/design-ui-start-drag-to-cursor/)[ui.startDragToPoint](https://www.canva.dev/docs/apps/api/latest/design-ui-start-drag-to-point/)[ui.startDrag](https://www.canva.dev/docs/apps/api/latest/design-ui-start-drag/)[Changelog](https://www.canva.dev/docs/apps/api/latest/design-changelog/)
+[addAudioTrack](https://www.canva.dev/docs/apps/api/latest/design-add-audio-track/)[addElementAtCursor](https://www.canva.dev/docs/apps/api/latest/design-add-element-at-cursor/)[addElementAtPoint](https://www.canva.dev/docs/apps/api/latest/design-add-element-at-point/)[addNativeElement](https://www.canva.dev/docs/apps/api/latest/design-add-native-element/)[addPage](https://www.canva.dev/docs/apps/api/latest/design-add-page/)[applyTemplate](https://www.canva.dev/docs/apps/api/latest/design-apply-template/)[autofillDesign](https://www.canva.dev/docs/apps/api/latest/design-autofill-design/)[bulkCreate.launch](https://www.canva.dev/docs/apps/api/latest/design-bulk-create-launch/)[createRichtextRange](https://www.canva.dev/docs/apps/api/latest/design-create-richtext-range/)[editContent](https://www.canva.dev/docs/apps/api/latest/design-edit-content/)[getBrandKitColors](https://www.canva.dev/docs/apps/api/latest/design-get-brand-kit-colors/)[getBrandTemplateMetadata](https://www.canva.dev/docs/apps/api/latest/design-get-brand-template-metadata/)[getCurrentPageContext](https://www.canva.dev/docs/apps/api/latest/design-get-current-page-context/)[getCurrentPageMetadata](https://www.canva.dev/docs/apps/api/latest/design-get-current-page-metadata/)[getDefaultPageDimensions](https://www.canva.dev/docs/apps/api/latest/design-get-default-page-dimensions/)[getDesignColors](https://www.canva.dev/docs/apps/api/latest/design-get-design-colors/)[getDesignMetadata](https://www.canva.dev/docs/apps/api/latest/design-get-design-metadata/)[getDesignTemplateMetadata](https://www.canva.dev/docs/apps/api/latest/design-get-design-template-metadata/)[getDesignToken](https://www.canva.dev/docs/apps/api/latest/design-get-design-token/)[initAppElement](https://www.canva.dev/docs/apps/api/latest/design-init-app-element/)[openDesign](https://www.canva.dev/docs/apps/api/latest/design-open-design/)[overlay.registerOnCanOpen](https://www.canva.dev/docs/apps/api/latest/design-overlay-register-on-can-open/)[publish.launch](https://www.canva.dev/docs/apps/api/latest/design-publish-launch/)[requestApplyPublicTemplate](https://www.canva.dev/docs/apps/api/latest/design-request-apply-public-template/)[requestBrandTemplates](https://www.canva.dev/docs/apps/api/latest/design-request-brand-templates/)[requestDataFieldMatching](https://www.canva.dev/docs/apps/api/latest/design-request-data-field-matching/)[requestExport](https://www.canva.dev/docs/apps/api/latest/design-request-export/)[selection.registerOnChange](https://www.canva.dev/docs/apps/api/latest/design-selection-register-on-change/)[setCurrentPageBackground](https://www.canva.dev/docs/apps/api/latest/design-set-current-page-background/)[setDataFieldLabelVisibility](https://www.canva.dev/docs/apps/api/latest/design-set-data-field-label-visibility/)[ui.startDragToCursor](https://www.canva.dev/docs/apps/api/latest/design-ui-start-drag-to-cursor/)[ui.startDragToPoint](https://www.canva.dev/docs/apps/api/latest/design-ui-start-drag-to-point/)[ui.startDrag](https://www.canva.dev/docs/apps/api/latest/design-ui-start-drag/)[Changelog](https://www.canva.dev/docs/apps/api/latest/design-changelog/)
 
 Design: Test
 
@@ -47,7 +47,7 @@ Intents: Content
 
 Intents: Data
 
-[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)
+[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)[requestDataTable](https://www.canva.dev/docs/apps/api/latest/intents-data-request-data-table/)
 
 Intents: Design
 
@@ -86,6 +86,14 @@ Test
 The latest changes for the Canva Apps SDK @canva/asset package.
 
 Copy page
+
+## 2.4.0 - 2026-11-03
+
+### Added
+
+  * Added new `searchFonts` API which was previously in Preview. This API returns fonts by fuzzy search.
+
+
 
 ## 2.3.1 - 2026-09-21
 

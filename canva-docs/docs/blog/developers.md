@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/
 title: Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T16:27:54.481214+00:00
+fetched_at: 2026-11-03T17:24:26.590775+00:00
 ---
 
 # Canva Developers Blog
@@ -21,6 +21,15 @@ All the latest announcements, insights, and best practices for the developers bu
 
 ![](https://www.canva.dev/_next/static/media/graphic.906444fc.png)
 
+[![](https://www.canva.dev/_next/static/media/thumbnail.3524a884.jpg)](https://www.canva.dev/blog/developers/image-gen-with-craft/)
+
+[Generative AIBuild AI image generation into your app with Canva CraftGenerate visual assets with Canva Craft (`craft_v1_2k`) using Canva’s preview Image generation API, then download the result or save it to a user’s Canva account.](https://www.canva.dev/blog/developers/image-gen-with-craft/)
+
+  * 
+
+
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 28, 2026
+
 [![](https://www.canva.dev/_next/static/media/thumbnail.0b616771.jpg)](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
 [MCPHow to use Canva MCP in your AI applicationLearn how to connect your AI assistant or platform to Canva's design capabilities with the Canva MCP server.](https://www.canva.dev/blog/developers/canva-mcp-ga/)
@@ -33,9 +42,6 @@ All the latest announcements, insights, and best practices for the developers bu
 [![](https://www.canva.dev/_next/static/media/thumbnail.b5a49b24.png)](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
 
 [Autofill platformAutomate Canva with n8n using the official Canva nodeTurn structured data into editable Canva designs with Autofill, then review, share, export, and deliver creative work across your stack.](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
-
-  * 
-
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Aug 26, 2026
 
@@ -55,6 +61,9 @@ All the latest announcements, insights, and best practices for the developers bu
 
 [Content Publisher intentSimplebooklet partner solutionHow Simplebooklet achieved a 10x user increase with Canva's Content Publisher Intent.](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
 
+  * 
+
+
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 19, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.02a1ad94.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
@@ -70,9 +79,6 @@ All the latest announcements, insights, and best practices for the developers bu
 
 [Developer showcaseHow Image Upscaler became the top app in the Canva Apps MarketplaceWhat developers can learn from their success.](https://www.canva.dev/blog/developers/image-upscaler/)
 
-  * 
-
-
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 1, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.66d17e97.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
@@ -86,11 +92,5 @@ All the latest announcements, insights, and best practices for the developers bu
 [Content Publisher intentMeet the Content Publisher Intent - Part 1Understanding data flow and structure for publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 19, 2026
-
-[![](https://www.canva.dev/_next/static/media/thumbnail.050298fa.jpg)](https://www.canva.dev/blog/developers/launching-new-ways-to-build/)
-
-[Apps SDKUnlock new ways to build for Canva Apps MarketplaceLaunching Data Connectors and Design Editing to enable more complex app use cases.](https://www.canva.dev/blog/developers/launching-new-ways-to-build/)
-
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 25, 2025
 
 See more

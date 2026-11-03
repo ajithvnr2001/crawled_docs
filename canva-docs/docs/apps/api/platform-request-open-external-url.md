@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/platform-request-open-external-url/
 title: requestOpenExternalUrl - GA API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T16:18:43.003292+00:00
+fetched_at: 2026-11-03T17:24:27.365144+00:00
 ---
 
 # requestOpenExternalUrl - GA API reference - Canva Developers SDK Documentation
@@ -15,7 +15,7 @@ Latest (GA)
 
 Asset
 
-[getTemporaryUrl](https://www.canva.dev/docs/apps/api/latest/asset-get-temporary-url/)[findFonts](https://www.canva.dev/docs/apps/api/latest/asset-find-fonts/)[openColorSelector](https://www.canva.dev/docs/apps/api/latest/asset-open-color-selector/)[requestFontSelection](https://www.canva.dev/docs/apps/api/latest/asset-request-font-selection/)[upload](https://www.canva.dev/docs/apps/api/latest/asset-upload/)[Changelog](https://www.canva.dev/docs/apps/api/latest/asset-changelog/)
+[getTemporaryUrl](https://www.canva.dev/docs/apps/api/latest/asset-get-temporary-url/)[findFonts](https://www.canva.dev/docs/apps/api/latest/asset-find-fonts/)[openColorSelector](https://www.canva.dev/docs/apps/api/latest/asset-open-color-selector/)[requestFontSelection](https://www.canva.dev/docs/apps/api/latest/asset-request-font-selection/)[searchFonts](https://www.canva.dev/docs/apps/api/latest/asset-search-fonts/)[upload](https://www.canva.dev/docs/apps/api/latest/asset-upload/)[Changelog](https://www.canva.dev/docs/apps/api/latest/asset-changelog/)
 
 Asset: Test
 
