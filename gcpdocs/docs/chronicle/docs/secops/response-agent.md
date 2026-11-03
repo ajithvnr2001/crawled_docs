@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/response-agent/
 title: Contain threats with the SecOps Response Agent \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:33.569461+00:00
+fetched_at: 2026-11-03T08:19:00.920778+00:00
 ---
 
 # Contain threats with the SecOps Response Agent  |  Google Security Operations  |  Google Cloud Documentation
@@ -62,13 +62,120 @@ When you use the Response Agent, you can reduce manual response overhead and eli
 
 Make sure you have or do the following:
 
-  * **Permissions:** Configuring agent settings and managing exclusions requires administrator permissions, managed in **SIEM Settings > Gemini Investigations**. Reviewing alerts and executing plans is performed by security analysts. Specific Identity and Access Management (IAM) roles may be required to modify these settings.
+  * **Permissions:** Grant users the required roles and permissions to view, generate, and execute response plans. Configuring agent settings and managing exclusions in **SIEM Settings > Gemini Investigations** requires administrator permissions.
   * **Execution pathways:** Verify that your preferred execution pathway is configured:
 
     * **Triage Agent (TIN) path:** Requires **Auto-Investigate Alerts in Gemini** to be enabled under **SIEM Settings > Gemini Investigations > Triage Agent**. Response plans are generated automatically for alerts evaluated as true positives.
     * **Playbooks path:** Does not require TIN. You can drag the **Response Agent** step into a playbook to run dynamically alongside deterministic steps when an alert triggers. 
 **Note:** When using the Playbooks path, it is recommended to ensure that relevant enrichment steps (such as GTI or Active Directory lookups) have completed before the Response Agent runs, ensuring it has sufficient context to build a valid plan.
   * **Environment check:** Ensure your response and endpoint tools (such as EDRs, firewalls, or Identity Providers) are installed and active as integrations in your Google SecOps environment under **Available Tools**.
+
+
+
+
+### Required roles and permissions
+
+Before loading response plans on cases and alerts, the Google SecOps console checks whether the signed-in user has the `chronicle.remediationPlans.get` Identity and Access Management (IAM) permission. If this permission is missing, the console displays an error message instead of the response plan.
+
+To view, generate, or execute response plans, users need the following `chronicle.remediation*` IAM permissions in addition to standard case management permissions.
+
+#### Read-only permissions
+
+Grant these three permissions to analysts and viewers who need to view response plans, recommended actions, and action execution results on cases and alerts:
+
+IAM permission | API methods | Description  
+---|---|---  
+`chronicle.remediationPlans.get` | `remediationPlans.get`  
+`remediationPlans.list` | View response plans, plan summaries, reasoning, and status on cases and alerts.  
+`chronicle.remediationActions.get` | `remediationActions.get`  
+`remediationActions.list` | View recommended and manual response actions, parameters, and target entities within a response plan.  
+`chronicle.remediationActionExecutions.get` | `remediationActionExecutions.get`  
+`remediationActionExecutions.list` | View execution history, run status, and output results for response actions.  
+  
+#### Read-write permissions
+
+Grant all five permissions to responders and SOC engineers who need to view response plans, generate new plans, customize actions or parameters before execution, and execute response plans:
+
+IAM permission | API methods | Description  
+---|---|---  
+`chronicle.remediationPlans.get` | `remediationPlans.get`  
+`remediationPlans.list` | View response plans, plan summaries, reasoning, and status on cases and alerts.  
+`chronicle.remediationActions.get` | `remediationActions.get`  
+`remediationActions.list` | View recommended and manual response actions, parameters, and target entities within a response plan.  
+`chronicle.remediationActionExecutions.get` | `remediationActionExecutions.get`  
+`remediationActionExecutions.list` | View execution history, run status, and output results for response actions.  
+`chronicle.remediationPlans.create` | `remediationPlans.generate` | Trigger the Response Agent to generate a new response plan.  
+`chronicle.remediationPlans.execute` | `remediationPlans.execute` | Approve and execute a response plan, including adding manual actions, modifying action parameters, or skipping actions at execution time.  
+  
+#### Predefined and custom roles
+
+The predefined Chronicle API Viewer (`roles/chronicle.viewer`) role already includes the three read-only permissions, and the predefined Chronicle API Editor (`roles/chronicle.editor`) and Chronicle API Admin (`roles/chronicle.admin`) roles already include all five read-write permissions. As an alternative to modifying custom roles, you can grant users `roles/chronicle.viewer` or `roles/chronicle.editor`.
+
+If your organization uses custom IAM roles (such as `SOAR_Custom_*` roles created during [SOAR permission migration](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-permissions-iam)) or predefined roles that don't include these permissions (such as `roles/chronicle.soarAdmin` or `roles/chronicle.limitedViewer`), add the permissions to your custom roles using the Google Cloud CLI or Terraform.
+
+**Note:** During Private Preview, the `chronicle.remediation*` permissions might not appear in the Google Cloud console custom role picker search results, and gcloud CLI might display a `TESTING` stage notice. Both gcloud CLI and Terraform accept these permissions.
+
+#### Add permissions using the gcloud CLI
+
+Use `gcloud iam roles update` with `--add-permissions` to append the permissions to an existing project-level or organization-level custom role without overwriting its current permissions.
+
+  * **Project-level custom role:**
+        
+        # Read-only access (3 permissions)
+        gcloud iam roles update ROLE_ID \
+            --project=PROJECT_ID \
+            --add-permissions=chronicle.remediationPlans.get,chronicle.remediationActions.get,chronicle.remediationActionExecutions.get
+        
+        # Read-write access (5 permissions)
+        gcloud iam roles update ROLE_ID \
+            --project=PROJECT_ID \
+            --add-permissions=chronicle.remediationPlans.get,chronicle.remediationActions.get,chronicle.remediationActionExecutions.get,chronicle.remediationPlans.create,chronicle.remediationPlans.execute
+        
+
+  * **Organization-level custom role:**
+        
+        # Read-only access (3 permissions)
+        gcloud iam roles update ROLE_ID \
+            --organization=ORGANIZATION_ID \
+            --add-permissions=chronicle.remediationPlans.get,chronicle.remediationActions.get,chronicle.remediationActionExecutions.get
+        
+        # Read-write access (5 permissions)
+        gcloud iam roles update ROLE_ID \
+            --organization=ORGANIZATION_ID \
+            --add-permissions=chronicle.remediationPlans.get,chronicle.remediationActions.get,chronicle.remediationActionExecutions.get,chronicle.remediationPlans.create,chronicle.remediationPlans.execute
+        
+
+
+
+
+Replace the following:
+
+  * `ROLE_ID`: the ID of your custom role (for example, `SOAR_Custom_Analyst`), without the `projects/.../roles/` or `organizations/.../roles/` prefix.
+  * `PROJECT_ID`: the ID of your Google SecOps-bound Google Cloud project.
+  * `ORGANIZATION_ID`: your numeric Google Cloud organization ID.
+
+
+
+#### Add permissions using Terraform
+
+If you manage custom roles with Terraform, add the three read-only or five read-write `chronicle.remediation*` permissions to the `permissions` list of your `google_project_iam_custom_role` or `google_organization_iam_custom_role` resource.
+
+**Caution:** If your custom roles were generated using the [Migrate SOAR permissions to IAM](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-permissions-iam) scripts or are managed in Terraform, update your stored role definitions to include these permissions. Re-applying an older generated role definition overwrites the custom role and removes any permissions added manually with gcloud CLI.
+
+#### Verify permissions
+
+  1. Run `gcloud iam roles describe` to confirm that `includedPermissions` lists the `chronicle.remediation*` permissions on your custom role:
+         
+         # Project-level custom role
+         gcloud iam roles describe ROLE_ID --project=PROJECT_ID
+         
+         # Organization-level custom role
+         gcloud iam roles describe ROLE_ID --organization=ORGANIZATION_ID
+         
+
+  2. Optional: Use [Policy Troubleshooter](https://docs.cloud.google.com/iam/docs/troubleshooting-access) to verify that the user or workforce pool principal has `chronicle.remediationPlans.get` on the Google SecOps-bound project.
+
+  3. Wait a few minutes for IAM changes to propagate, reload the Google SecOps console, and open a case or alert with a response plan.
 
 
 
@@ -153,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

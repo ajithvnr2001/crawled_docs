@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/tutorials/configure-address-groups/
 title: Configure address groups for firewall policies \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:35:40.034733+00:00
+fetched_at: 2026-11-03T08:19:01.403353+00:00
 ---
 
 # Configure address groups for firewall policies  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -509,29 +509,28 @@ To allow IAP access to all VM instances in the `vpc-consumer` and the `vpc-produ
 
   2. Click **Create firewall policy**.
 
-  3. In the **Configure policy** section, for **Policy name** , enter `fw-policy-addressgrp`.
+  3. In the **Configure policy** step, for **Policy name** , enter `fw-policy-addressgrp`.
 
   4. For **Deployment scope** , select **Global** and click **Continue**.
 
-  5. To create rules for your policy, in the **Add rules** section, click **Add rule**.
+  5. In the **Add rules** step, click **Create firewall rule**.
 
      1. For **Priority** , enter `100`.
-     2. For **Direction of traffic** , select **Ingress**.
-     3. For **Action on match** , select **Allow**.
-     4. In the **Target** section, for **Target type** , select **All instances in the network**.
-     5. In the **Source** section, for **IP ranges** , enter `35.235.240.0/20`.
-     6. In the **Protocol and ports** section, select **Specified protocols and ports**.
-     7. Select the **TCP** checkbox, and for **Ports** , enter `22`.
-     8. Click **Create**.
+     2. In the **Source** section, for **IP ranges** , enter `35.235.240.0/20`.
+     3. In the **Protocols and ports** section, select **Specified protocols and ports**.
+     4. Select the **TCP** checkbox, and for **Ports** , enter `22`.
+     5. Click **Create**.
   6. Click **Continue**.
 
-  7. To associate a VPC network with the policy, in the **Associate policy with VPC networks** section, click **Associate**.
+  7. In the **Add mirroring rules** step, click **Continue**.
 
-  8. Select the checkboxes of **`vpc-producer`** and **`vpc-consumer`** , and then click **Associate**.
+  8. In the **Associate policy with networks** step, click **Associate**.
 
-  9. Click **Continue**.
+  9. In the **Associate policy with VPC networks** pane, select the checkboxes of **`vpc-producer`** and **`vpc-consumer`** , and then click **Associate**.
 
-  10. Click **Create**.
+  10. Click **Continue**.
+
+  11. Click **Create**.
 
 
 
@@ -594,7 +593,7 @@ For more information about the project-scoped address groups, see [Use address g
 
   3. In the **Name** field, enter `address-group-pc`.
 
-  4. For **Scope** , choose **Global**.
+  4. For **Scope** , select **Global**.
 
   5. For **Type** , select **IPv4**.
 
@@ -645,23 +644,17 @@ To allow ingress connections from the `vm-consumer-allowed` VM, create a firewal
 
   2. In the **Network firewall policies** section, click **`fw-policy-addressgrp`**.
 
-  3. Click **Create rule**.
+  3. Click **Create firewall rule**.
 
   4. For **Priority** , enter `150`.
 
-  5. For **Direction of traffic** , select **Ingress**.
+  5. For **Logs** , select **Enabled**.
 
-  6. For **Action on match** , select **Allow**.
-
-  7. For **Logs** , select **On**.
-
-  8. In the **Target** section, for **Target type** , select **All instances in the network**.
-
-  9. In the **Source** section, for **Address group** , select **`address-group-pc ( PROJECT_ID)`** and click **OK**.
+  6. In the **Source** section, in the **Address group** list, select **`address-group-pc ( PROJECT_ID)`**, and then click **OK**.
 
 Remember, the `address-group-pc` IP address group has an IP range of `192.168.10.0/29` which is assigned to the subnet `subnet-consumer-allowed` of the consumer VPC network.
 
-  10. Click **Create**.
+  7. Click **Create**.
 
 
 
@@ -1124,6 +1117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

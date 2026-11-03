@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-sign-in-microsoft-entra-id-scalable-groups/
 title: Configure Workforce Identity Federation with Microsoft Entra ID \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:26:08.405627+00:00
+fetched_at: 2026-11-03T08:19:17.716377+00:00
 ---
 
 # Configure Workforce Identity Federation with Microsoft Entra ID  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -432,7 +432,7 @@ You can configure an existing Microsoft Entra ID application or create a new one
      1. Go to **API permissions**.
      2. Click **Add a permission**.
      3. Select **Microsoft Graph**.
-     4. Select **Application permissions**.
+     4. Select **Delegated permissions**.
      5. In the search field, enter `User.ReadBasic.All`.
      6. Select `User.ReadBasic.All`, and then click **Add permissions**.
   4. You can retrieve Microsoft Entra ID groups using a group object identifier (ID), a group email address for email-enabled groups, or a group display name. 
@@ -441,7 +441,7 @@ If you retrieve groups as group email addresses or display names, do the followi
 
      1. In **API permissions** , click **Add a permission**.
      2. Select **Microsoft Graph**.
-     3. Select **Application permissions**.
+     3. Select **Delegated permissions**.
      4. In the search field, enter `GroupMember.Read.All`.
      5. Select `GroupMember.Read.All`, and then click **Add permissions**.
   5. Grant admin consent for the configured API permissions: 
@@ -1239,6 +1239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

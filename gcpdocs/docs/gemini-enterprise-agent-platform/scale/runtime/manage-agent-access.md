@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access/
 title: Managing access for deployed agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:13.353556+00:00
+fetched_at: 2026-11-03T05:46:13.862817+00:00
 ---
 
 # Managing access for deployed agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -619,7 +619,7 @@ To enable CMEK for your agent, you need to specify the `encryption_spec` with yo
 
 The following limitations apply when using CMEK with Agent Runtime:
 
-  * **Multi-region keys are not allowed:** Only single-region keys are supported. The region of the key ring and the key has to be the same as your Agent Platform instance.
+  * **Multi-regional and global endpoint restrictions:** Deployed agents on Agent Runtime support only single-region keys in Cloud Key Management Service, where the key ring and key region match the region of your Agent Platform instance. Deploying an agent runtime with CMEK isn't supported on multi-regional endpoints (`us` or `eu`). However, if you create a standalone parent Agent Platform instance without deploying agent runtime code (to store [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#cmek) or [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#cmek) data), you can configure CMEK in both regional and multi-regional locations (`us` with a `us` key, or `eu` with a `europe` key). The `global` endpoint doesn't support CMEK for any resource.
 
   * **Encryption key cannot be updated for CMEK instances:** Once an agent is deployed with a CMEK key, the encryption key cannot be changed for that deployment. To use a new key, you must deploy a new Agent Platform instance.
 
@@ -651,16 +651,28 @@ Available deployment options are listed in [Deploy an agent](https://docs.cloud.
 
 
 
-### Limitations
+### Use VPC Service Controls with Agent Gateway
 
-VPC Service Controls isn't supported with Agent Gateway.
+VPC Service Controls is supported with Agent Gateway for Agent-to-Anywhere (egress) deployments created after September 8, 2026. To run Agent Runtime with Agent Gateway inside a VPC Service Controls service perimeter, your deployment must meet the following requirements:
 
-However, you can use custom organization policy constraints to restrict which gateways can be associated with your agents. For more information, see [Route traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy).
+  * The gateway must use an agent connectivity template (`AgentConnectivityTemplate`) with `vpcEgress` set to `ALL_TRAFFIC` so that all outbound agent traffic routes through your VPC network.
+  * Your VPC network must configure private Cloud DNS zones and DNS peering for `googleapis.com.` that resolve Google API traffic to `restricted.googleapis.com` (`199.36.153.4/30`) or internal Private Service Connect endpoints.
+  * If your agent is bound to an enforcing gateway, you must allowlist the required regional and mTLS `Agent Platform API` endpoints in Agent Registry.
+
+
+
+For step-by-step configuration instructions, see the following resources:
+
+  * [VPC Service Controls compliance for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance)
+  * [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
+  * [VPC Service Controls for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#vpc-sc)
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/hierarchical-policies-using/
 title: Configure hierarchical security policies \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:05:13.427605+00:00
+fetched_at: 2026-11-03T08:19:03.174678+00:00
 ---
 
 # Configure hierarchical security policies  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ The following operations require that you have the Identity and Access Managemen
   * Modify a hierarchical security policy by adding, updating, or deleting rules
   * Delete a hierarchical security policy
 
-
+**Note:** The **Edit** and **Delete** buttons for hierarchical security policies might appear active in the Google Cloud console even if you have view-only permissions. Clicking these buttons without the required folder or organization administrator roles results in a permission error because the backend enforces all access rules.
 
 The following operations require that you have the IAM [Compute Organization Resource Admin role](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.orgSecurityResourceAdmin) (`roles/compute.orgSecurityResourceAdmin`) on the target resource hierarchy node, in addition to either the [Compute Organization Security Policy Admin role](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.orgSecurityPolicyAdmin) (`roles/compute.orgSecurityPolicyAdmin`) or the [Compute Organization Security Policy User role](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.orgSecurityPolicyUser) (`roles/compute.orgSecurityPolicyUser`) on either the target resource hierarchy node or on the policy itself:
 
@@ -278,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

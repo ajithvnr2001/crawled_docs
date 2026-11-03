@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images/
 title: Inspect images for sensitive data \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:56.457893+00:00
+fetched_at: 2026-11-03T08:19:26.472933+00:00
 ---
 
 # Inspect images for sensitive data  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 This document describes how to use the Cloud Data Loss Prevention API to detect sensitive text and objects in an image. Sensitive Data Protection returns the location of any sensitive data that it detects.
 
-**Notes:** Sensitive Data Protection can inspect many image types for sensitive data, including JPEG, BMP, PNG, and SVG. Sensitive Data Protection can also inspect other file formats such as PDF, DOCX, XLSX, and PPTX, but may generate mixed findings—including byte offsets and bounding boxes—depending on the contents of each specific file. For more information, see [Supported file types](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types).
+**Notes:** Sensitive Data Protection can inspect many image types for sensitive data, including JPEG, BMP, PNG, SVG, and TIFF. For multi-page TIFF images, see Inspect a multi-page TIFF image. Sensitive Data Protection can also inspect other file formats such as PDF, DOCX, XLSX, and PPTX, but may generate mixed findings—including byte offsets and bounding boxes—depending on the contents of each specific file. For more information, see [Supported file types](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types).
 
 Inspecting files using the method described in this document is subject to file size limits. For larger files, consider using Sensitive Data Protection to [scan a storage repository](https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage) containing the files. To learn more about file size limits and Sensitive Data Protection, see [Usage limits](https://docs.cloud.google.com/sensitive-data-protection/limits).
 
@@ -1407,6 +1407,86 @@ The output is similar to the following:
 
 See the [JSON quickstart](https://docs.cloud.google.com/sensitive-data-protection/docs/quickstart-json) for more information about using the DLP API with JSON.
 
+## Inspect a multi-page TIFF image
+
+Sensitive Data Protection can inspect TIFF images, including multi-page TIFF images that have up to 50 pages. It inspects every page of the image and returns the findings from all pages in a single response.
+
+To inspect a TIFF image, follow these steps:
+
+  1. Encode the TIFF image as base64.
+  2. Submit a request to the [`content.inspect`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/inspect) method of the DLP API. In the request, set the [`type`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/ByteContentItem#BytesType) of the byte item to `IMAGE_TIFF`.
+
+
+
+**Important:** Before sending this request, use a base64 utility to encode the image into ASCII text data, and then replace the `BASE64_ENCODED_IMAGE` placeholder with the base64-encoded image. Most development environments contain a native `base64` utility. To encode an image file: 
+
+  * Linux: `base64 input.jpg > output.txt`
+  * macOS: `base64 -i input.jpg -o output.txt`
+  * PowerShell: `[Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt`
+
+
+
+For example, to inspect a TIFF image for default infoTypes, send the following JSON request body to the [`content.inspect`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/inspect) method:
+    
+    
+    {
+      "item": {
+        "byteItem": {
+          "data": "BASE64_ENCODED_IMAGE",
+          "type": "IMAGE_TIFF"
+        }
+      }
+    }
+
+In the response, the [`imageLocation`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult#ImageLocation) of each finding includes a `pageNumber` field that identifies the page that contains the finding. Page numbers start at 0. The output is similar to the following:
+    
+    
+    {
+      "result": {
+        "findings": [
+          {
+            "infoType": {
+              "name": "EMAIL_ADDRESS",
+              "sensitivityScore": {
+                "score": "SENSITIVITY_MODERATE"
+              }
+            },
+            "likelihood": "LIKELY",
+            "location": {
+              "contentLocations": [
+                {
+                  "imageLocation": {
+                    "boundingBoxes": [
+                      {
+                        "top": 213,
+                        "left": 128,
+                        "width": 345,
+                        "height": 40
+                      }
+                    ],
+                    "pageNumber": 1
+                  }
+                }
+              ]
+            },
+            "createTime": "2026-10-23T10:15:03.730Z",
+            "findingId": "2026-10-23T10:15:03.731510Z4997664074931396457"
+          }
+        ]
+      }
+    }
+
+In this example, Sensitive Data Protection found an `EMAIL_ADDRESS` on the second page of the image.
+
+Consider the following points when you inspect TIFF images:
+
+  * A TIFF image can have up to 50 pages. If a TIFF image has more pages, the request fails. For more information, see [TIFF scanning limits](https://docs.cloud.google.com/sensitive-data-protection/limits#tiff-limits).
+  * [Image-based exclusion rules and adjustment rules](https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-rules)—`ExcludeByImageFindings` and `AdjustByImageFindings`—aren't supported for TIFF images. If your inspection configuration includes these rules, the request fails.
+  * You can inspect TIFF images, but you can't [redact them](https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images).
+  * As with other image types, you can inspect TIFF images only in [locations that support image scanning](https://docs.cloud.google.com/sensitive-data-protection/docs/locations#image-limitations).
+
+
+
 ## Code examples
 
 Following is sample code in several languages that demonstrates how to use Sensitive Data Protection to inspect an image for sensitive data.
@@ -1887,6 +1967,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

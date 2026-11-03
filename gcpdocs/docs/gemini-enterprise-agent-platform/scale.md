@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/
 title: Scale your agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:58.317407+00:00
+fetched_at: 2026-11-03T05:46:14.373047+00:00
 ---
 
 # Scale your agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ Bringing AI agents into production requires a high-performance runtime and a sys
   * **Serverless efficiency:** Utilizing a fully managed Agent Runtime to deploy and scale agents efficiently without the need to manage underlying infrastructure, ensuring reliable performance with built-in observability.
   * **Context management:** Utilizing Agent Platform Sessions and an Agent Platform Memory Bank to maintain the state of continuous conversations and retrieve persistent, long-term memories, enabling highly personalized and natural user interactions.
   * **Continuous quality improvement:** Leveraging the Example Store and Evaluation Service to test, monitor, and trace agent behavior, creating a continuous feedback loop and data flywheel to iteratively refine agent performance over time.
-  * **Secure sandbox execution:** Empowering agents to safely solve complex computational problems and automate workflows through dynamic Code Execution and Computer Use, allowing them to run scripts or mimic human-like interactions with graphical interfaces.
+  * **Secure sandbox execution:** Empowering agents to safely solve complex computational problems and automate workflows through dynamic Code Execution and Agent Platform Computer Use, allowing them to run scripts or mimic human-like interactions with graphical interfaces.
 
 
 
@@ -302,12 +302,12 @@ Security feature | Agent Runtime | Agent evaluation | Sessions | Memory Bank | E
 [HIPAA](https://cloud.google.com/security/compliance/hipaa) | Yes | Yes | Yes | Yes | Yes | Yes  
 [Access Transparency in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-transparency) | Yes | No | Yes | Yes | No | No  
 Access Approval | Yes | No | Yes | Yes | No | No  
-**Note:** Agent Platform Memory Bank uses Generative AI models to generate memories. [Machine learning (ML) processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) occurs within the specific region or multi-region of the [model endpoint used by Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config).
+**Note:** For deployed agents on Agent Runtime, CMEK is supported only on single-region endpoints and isn't supported on multi-regional endpoints (`us` or `eu`). For standalone parent instances created without a deployed runtime to store [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#cmek) or [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank#cmek) data, CMEK is supported on both regional and multi-regional endpoints (`us` with a `us` key, or `eu` with a `europe` key), and isn't supported on the `global` endpoint. For details, see [Supported locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#multi-regional-and-global-endpoints).**Note:** Agent Platform Memory Bank uses Generative AI models to generate memories. [Machine learning (ML) processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) occurs within the specific region or multi-region of the [model endpoint used by Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/legacy/in-cluster/cloud-service-mesh-prerequisites/
 title: In-cluster Cloud Service Mesh prerequisites \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:15.621685+00:00
+fetched_at: 2026-11-03T05:47:01.768553+00:00
 ---
 
 # In-cluster Cloud Service Mesh prerequisites  |  Google Cloud Documentation
@@ -80,7 +80,7 @@ Cloud Service Mesh is available with GKE Enterprise or as a standalone service. 
 
   * GKE Workload Identity is required. We recommend that you enable [Workload Identity](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) before installing Cloud Service Mesh. Enabling Workload Identity changes the way calls from your workloads to Google APIs are secured, as described in [Workload Identity limitations](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#limitations). Note that you do not need to enable the [GKE Metadata Server](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/workload-identity#metadata_server) on [existing node pools](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#migrate_applications_to).
 
-  * Optional but recommended, enroll the cluster in a [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels). We recommend that you enroll in the Regular release channel because other channels might be based on a GKE version that isn't supported with Cloud Service Mesh 1.31.1. For more information, see [Supported platforms](https://docs.cloud.google.com/service-mesh/docs/supported-platforms). Follow the instructions in [Enrolling an existing cluster in a release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels#enrolling_an_existing_cluster_in_a_release_channel) if you have a static GKE version.
+  * Optional but recommended, enroll the cluster in a [release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels). We recommend that you enroll in the Regular release channel because other channels might be based on a GKE version that isn't supported with Cloud Service Mesh 1.31.3. For more information, see [Supported platforms](https://docs.cloud.google.com/service-mesh/docs/supported-platforms). Follow the instructions in [Enrolling an existing cluster in a release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels#enrolling_an_existing_cluster_in_a_release_channel) if you have a static GKE version.
 
   * If you are installing Cloud Service Mesh on a private cluster, you must open port 15017 in the firewall to get the webhooks used for [automatic sidecar injection](https://docs.cloud.google.com/service-mesh/docs/anthos-service-mesh-proxy-injection) and configuration validation to work. For more information, see [Opening a port on a private cluster](https://docs.cloud.google.com/service-mesh/docs/private-cluster-open-port).
 
@@ -117,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/tutorials/configure-fwpolicy-deny-egress-geolocation/
 title: Configure global network firewall policy to deny egress connections to specific geolocations \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:48:18.755350+00:00
+fetched_at: 2026-11-03T08:19:01.221538+00:00
 ---
 
 # Configure global network firewall policy to deny egress connections to specific geolocations  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -318,30 +318,29 @@ To allow IAP access to all VM instances in the `vpc-geo-location` network, follo
 
   2. Click **Create firewall policy**.
 
-  3. In the **Configure policy** section, for **Policy name** , enter `fw-policy`.
+  3. In the **Configure policy** step, for **Policy name** , enter `fw-policy`.
 
   4. For **Deployment scope** , select **Global** and click **Continue**.
 
-  5. To create rules for your policy, in the **Add rules** section, click **Add rule**.
+  5. In the **Add rules** step, click **Create firewall rule**.
 
      1. For **Priority** , enter `100`.
-     2. For **Direction of traffic** , select **Ingress**.
-     3. For **Action on match** , select **Allow**.
-     4. For **Logs** , select **On**.
-     5. In the **Target** section, for **Target type** , select **All instances in the network**.
-     6. In the **Source** section, for **IP ranges** , enter `35.235.240.0/20`.
-     7. In the **Protocol and ports** section, select **Specified protocols and ports**.
-     8. Select the **TCP** checkbox, and for **Ports** , enter `22`.
-     9. Click **Create**.
+     2. For **Logs** , select **Enabled**.
+     3. In the **Source** section, for **IP ranges** , enter `35.235.240.0/20`.
+     4. In the **Protocols and ports** section, select **Specified protocols and ports**.
+     5. Select the **TCP** checkbox, and for **Ports** , enter `22`.
+     6. Click **Create**.
   6. Click **Continue**.
 
-  7. To associate a VPC network with the policy, in the **Associate policy with VPC networks** section, click **Associate**.
+  7. In the **Add mirroring rules** step, click **Continue**.
 
-  8. Select the checkbox of **`vpc-geo-location`** and click **Associate**.
+  8. In the **Associate policy with networks** step, click **Associate**.
 
-  9. Click **Continue**.
+  9. In the **Associate policy with VPC networks** pane, select the checkbox of **`vpc-geo-location`** and click **Associate**.
 
-  10. Click **Create**.
+  10. Click **Continue**.
+
+  11. Click **Create**.
 
 
 
@@ -393,23 +392,17 @@ In this section, you create a firewall rule to allow ingress connection on the `
 
   2. In the **Network firewall policies** section, click `fw-policy`.
 
-  3. Click **Create rule**.
+  3. Click **Create firewall rule**.
 
   4. For **Priority** , enter `500`.
 
-  5. For **Direction of traffic** , select **Ingress**.
+  5. For **Logs** , select **Enabled**.
 
-  6. For **Action on match** , select **Allow**.
-
-  7. For **Logs** , select **On**.
-
-  8. In the **Target** section, for **Target type** , select **All instances in the network**.
-
-  9. In the **Source** section, for **IP ranges** , enter NAT_IP_ADDRESS.
+  6. In the **Source** section, for **IP ranges** , enter NAT_IP_ADDRESS.
 
 Replace `NAT_IP_ADDRESS` with the IP address assigned to your Cloud NAT. For more information, see Create a Cloud Router and a Cloud NAT gateway.
 
-  10. Click **Create**.
+  7. Click **Create**.
 
 
 
@@ -598,7 +591,7 @@ To add a new rule in the **`fw-policy`** that you created in the Create a global
 
   2. In the **Network firewall policies** section, click **`fw-policy`**.
 
-  3. Click **Create rule**.
+  3. Click **Create firewall rule**.
 
   4. For **Priority** , enter `200`.
 
@@ -606,13 +599,11 @@ To add a new rule in the **`fw-policy`** that you created in the Create a global
 
   6. For **Action on match** , select **Deny**.
 
-  7. For **Logs** , select **On**.
+  7. For **Logs** , select **Enabled**.
 
-  8. In the **Destination** section, for **Geolocations** , select **Singapore (SG)** , **Poland (PL)** , and **Italy (IT)**.
+  8. In the **Destination** section, in the **Geolocations** list, select **Singapore (SG)** , **Poland (PL)** , and **Italy (IT)** , and then click **OK**.
 
-  9. Click **OK**.
-
-  10. Click **Create**.
+  9. Click **Create**.
 
 
 
@@ -930,6 +921,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

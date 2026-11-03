@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/
 title: Agent Platform Memory Bank \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:32.634073+00:00
+fetched_at: 2026-11-03T05:46:13.693553+00:00
 ---
 
 # Agent Platform Memory Bank  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -178,6 +178,21 @@ To prevent cross-border contamination and maintain regulatory compliance, you ca
 
 For more information on implementing conditional access policies, see [Control access to Agent Platform Memory Bank with IAM Conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions).
 
+### Customer-managed encryption keys (CMEK)
+
+By default, Google Cloud encrypts memories and memory revisions at rest using Google-owned and Google-managed encryption keys. To protect your Memory Bank data using encryption keys that you manage in Cloud Key Management Service (Cloud KMS), specify the `encryption_spec` (`kms_key_name`) when you create the parent Agent Runtime instance. For project and key setup requirements, see [CMEK for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
+
+The following limitations apply when using CMEK with Memory Bank:
+
+  * **Global endpoint and deployed runtime restrictions** : You can't use CMEK when Memory Bank (or Sessions) is configured to use the `global` endpoint (`location="global"`), because Cloud Key Management Service requires encryption keys to reside within a geographic data residency boundary. To use CMEK, create a standalone parent instance (without deploying agent runtime code) in a [supported regional or multi-regional location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) with a matching Cloud KMS key (for multi-regional instances, use a `us` key for `us` or a `europe` key for `eu`). If the parent instance also deploys an agent on Agent Runtime, you must use a single-region location, because deployed runtimes don't support CMEK on multi-regional endpoints (`us` or `eu`).
+  * **Encryption key can't be updated** : Once an instance is created with a Cloud KMS key, you can't change the encryption key for that instance. To use a different key, create a new instance.
+
+
+
+### VPC Service Controls (VPC Service Controls)
+
+Memory Bank supports [VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) to protect your stored memories against data exfiltration. Add the Agent Platform API (`aiplatform.googleapis.com`) to your VPC Service Controls service perimeter and add your project to the perimeter before creating your Memory Bank instance. If your deployed agent routes outbound traffic through Agent Gateway inside a service perimeter, see [VPC Service Controls compliance for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#vpc-sc-compliance) and [VPC Service Controls for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#vpc-sc).
+
 ## What's next
 
 Quickstart 
@@ -202,6 +217,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

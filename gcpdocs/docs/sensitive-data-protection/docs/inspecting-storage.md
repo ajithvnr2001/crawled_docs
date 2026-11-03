@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage/
 title: Inspect Google Cloud storage and databases for sensitive data \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:04.180267+00:00
+fetched_at: 2026-11-03T08:19:30.248820+00:00
 ---
 
 # Inspect Google Cloud storage and databases for sensitive data  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -3346,7 +3346,7 @@ You can enable sampling in Cloud Storage by limiting the amount of data that is 
     * `TOP`: Scanning starts from the top.
     * `RANDOM_START`: For each file larger than the size specified in `bytesLimitPerFile`, randomly pick the offset to start scanning. The scanned bytes are contiguous.
 
-**Note:** Because you must scan the entire image when inspecting for sensitive data, sampling is not supported for image file types. Any images scanned will be billed according to the size of the image file.
+**Note:** Because you must scan the entire image when inspecting for sensitive data, sampling is not supported for image file types. Any images scanned will be billed according to the size of the image file. The `IMAGE` file type includes TIFF images, which are subject to the [TIFF scanning limits](https://docs.cloud.google.com/sensitive-data-protection/limits#tiff-limits).
 
 The following examples demonstrate using the DLP API to scan a 90% subset of a Cloud Storage bucket for person names. The scan starts from a random location in the dataset, and only includes text files under 200 bytes.
 
@@ -5438,6 +5438,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

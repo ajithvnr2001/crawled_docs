@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/legacy/in-cluster/operate-and-maintain/gateways/
 title: Installing and upgrading gateways \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:58.744019+00:00
+fetched_at: 2026-11-03T05:46:59.761181+00:00
 ---
 
 # Installing and upgrading gateways  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ To support users with existing deployment tools, Cloud Service Mesh supports the
 
   2. To enable auto-injection, you label your namespaces with the _[default injection labels](https://istio.io/latest/docs/setup/upgrade/canary/#default-tag)_ if the default tag is set up, or with the [revision label](https://docs.cloud.google.com/service-mesh/docs/revisions-overview) to your namespace.
 
-For in-cluster control planes, the `istiod` Service and Deployment typically have a revision label similar to `istio.io/rev=asm-1311-19`, where `asm-1311-19` identifies the Cloud Service Mesh version. The revision becomes part of the `istiod` Service name, for example: `istiod-asm-1311-19.istio-system`
+For in-cluster control planes, the `istiod` Service and Deployment typically have a revision label similar to `istio.io/rev=asm-1313-3`, where `asm-1313-3` identifies the Cloud Service Mesh version. The revision becomes part of the `istiod` Service name, for example: `istiod-asm-1313-3.istio-system`
 
 Use the following command to locate the revision label on `istiod` for the in-cluster control plane:
          
@@ -250,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

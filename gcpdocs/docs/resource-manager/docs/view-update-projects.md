@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/view-update-projects/
 title: View and update projects \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:49.217101+00:00
+fetched_at: 2026-11-03T08:19:02.406893+00:00
 ---
 
 # View and update projects  |  Resource Manager  |  Google Cloud Documentation
@@ -53,8 +53,11 @@ To find the project number, ID, or name, use the [`gcloud projects describe`](ht
 To retrieve only the project number as a value, use the `--format` flag:
     
     
-    gcloud projects describe PROJECT_ID --format="value(projectNumber)"
+    gcloud projects describe PROJECT_ID \
+        --format="value(projectNumber)"
     
+
+Replace `PROJECT_ID` with the ID of the project you want to view.
 
 ## Get an existing project
 
@@ -235,16 +238,16 @@ You should receive a JSON response similar to the following:
 
 ## Search for projects
 
-To find projects that match specific criteria, such as a display name prefix or a specific lifecycle state, use the [`projects.search`](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/search) method or the [`gcloud alpha resource-manager projects search`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/projects/search) command.
+To find projects that match specific criteria, such as a display name prefix or a specific lifecycle state, use the [`projects.search`](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/search) method or the [`gcloud alpha projects search`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/projects/search) command.
 
 The scope of the search includes all projects for which you have the `resourcemanager.projects.get` permission.
 
 **Query syntax**
 
-You can filter your search using the `--query` flag (gcloud) or the `query` parameter (API). Common search filters include the following:
+You can filter your search using the `--query` flag in the gcloud CLI or the `query` parameter in the API. Common search filters include the following:
 
   * `displayName`: the user-friendly name of the project.
-  * `state`: the lifecycle state of the project, for example, `ACTIVE` or `DELETE_REQUESTED`
+  * `state`: the lifecycle state of the project, for example, `ACTIVE` or `DELETE_REQUESTED`.
   * `parent.type` and `parent.id`: filters results by a specific organization or folder.
 
 
@@ -367,6 +370,18 @@ You should receive a JSON response similar to the following:
     }
     
 
+### Understand the Last accessed timestamp
+
+On the **Manage resources** page in the Google Cloud console, the **Last accessed** column shows when you last visited a page for a resource in the Google Cloud console. The **Last accessed** timestamp has the following behavior:
+
+  * **User-specific activity** : The timestamp tracks your individual account activity in the Google Cloud console, so different users see different dates for the same resource. If you haven't accessed a resource in the Google Cloud console, the column displays an em dash (—).
+  * **Console-only updates** : Visiting a Google Cloud console page for a project updates the timestamp even if you don't modify any underlying resources. Accessing a project or its resources through the Google Cloud CLI, client libraries, or REST APIs doesn't update the **Last accessed** timestamp.
+  * **Folders and organizations** : For a folder or organization resource, the column shows the most recent **Last accessed** timestamp across the resource and its active descendants.
+  * **Resources pending deletion** : For a project in the `DELETE_REQUESTED` lifecycle state, the column displays the project's last modified time. Parent folders and organizations exclude resources pending deletion from their **Last accessed** timestamps.
+  * **Console display only** : The Google Cloud console stores the **Last accessed** timestamp for display only, and you can't retrieve it using the Cloud Resource Manager API or the Google Cloud CLI. This timestamp differs from the `updateTime` field on project, folder, and organization resources, which records when the resource metadata last changed.
+
+
+
 ## Update projects
 
 You can update the project name, labels, and tags. For more information about updating projects, see the [project API reference page](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects). To update projects, use one of the following methods:
@@ -405,7 +420,7 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
          
          gcloud alpha projects update PROJECT_ID \
             --name=NAME \
-            --update-labels=KEY=VALUE, ...
+            --update-labels=KEY=VALUE
 
 Replace the following:
 
@@ -486,6 +501,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

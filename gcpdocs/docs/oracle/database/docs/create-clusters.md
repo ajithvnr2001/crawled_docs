@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/create-clusters/
 title: Create Exadata VM Cluster \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:06.919486+00:00
+fetched_at: 2026-11-03T08:19:15.553141+00:00
 ---
 
 # Create Exadata VM Cluster  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ Only database servers that are available in the Exadata Infrastructure can be se
 
      3. Check the box for **Allocate storage for local backups** to allow your cluster storage to be used for local backups. This setting can't be changed after the Exadata VM Cluster has been created.
 
-  11. In the **Networking** section, define the network configuration for the Exadata VM Cluster by completing the following:
+  11. In the **Networking** section, do the following:
 
      1. From the **Network project** list, select the project that contains your ODB Network.
 
@@ -125,19 +125,27 @@ Only database servers that are available in the Exadata Infrastructure can be se
 
      4. Select a **Backup subnet**.
 
-     5. In the **Hostname prefix** , specify a prefix you want to use to generate hostnames for the Exadata VM Cluster virtual machines. This prefix can only contain letters, numbers, or hyphens, and must start with a letter. The maximum allowed length is 12 characters.
+  12. In the **DNS domain** section, do the following:
 
-  12. In the **SSH keys** section, add the public SSH keys you'd like to use for the cluster. To add a key, enter the SSH key name in the **SSH Key 1** field. For each additional key, click **ADD ITEM**.
+     1. From the **Domain name** list, select your domain.
+
+     2. In the **Hostname prefix** , specify a prefix you want to use to generate hostnames for the Exadata VM Cluster virtual machines.
+
+The prefix can contain only letters, numbers, or hyphens, and must start with a letter. The maximum allowed length is 12 characters.
+
+After you enter the prefix, the full **Host and domain URL** displays next to the field.
+
+  13. In the **SSH keys** section, add the public SSH keys you'd like to use for the cluster. To add a key, enter the SSH key name in the **SSH Key 1** field. For each additional key, click **ADD ITEM**.
 
 For more information on how to generate SSH keys, see [Generate SSH keys](https://docs.cloud.google.com/oracle/database/docs/generate-ssh-keys).
 
-  13. In the **License type** section, select the type of Oracle license you're using for your cluster. Select one of the following:
+  14. In the **License type** section, select the type of Oracle license you're using for your cluster. Select one of the following:
 
      1. **License included** if you use a new license purchased as part of the Google Cloud marketplace order.
 
      2. **Bring your own license (BYOL)** if you use an existing Oracle license.
 
-  14. In the **Diagnostics collection** section, do the following to configure monitoring for your Exadata VM Cluster:
+  15. In the **Diagnostics collection** section, do the following to configure monitoring for your Exadata VM Cluster:
 
      1. Select the **Enable diagnostic events** checkbox to track all cluster diagnostic events.
 
@@ -145,13 +153,13 @@ For more information on how to generate SSH keys, see [Generate SSH keys](https:
 
      3. Select the **Enable incident logs and trace collection** checkbox to enable incident logging for your cluster.
 
-  15. In the **Advanced fields** section, do the following:
+  16. In the **Advanced fields** section, do the following:
 
      1. From the **Timezone** drop-down, select the timezone you'd like to use for diagnostic collection. This timezone is used for event timestamps.
 
      2. In the **SCAN Listener Port (TCP/IP)** field, enter a value to assign a SCAN listener port to your cluster. The port value can range from 1,024 to 8,000, and the default value is 1,521.
 
-  16. Click **Create** to create the Exadata VM Cluster.
+  17. Click **Create** to create the Exadata VM Cluster.
 
 
 
@@ -168,6 +176,7 @@ Use the `gcloud oracle-database cloud-vm-clusters create` command to create a cl
         --display-name="DISPLAY_NAME" \
         --odb-subnet=projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/CLIENT_SUBNET_ID \
         --backup-odb-subnet=projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/BACKUP_SUBNET_ID \
+        --odb-dns-zone=projects/PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbDnsZones/DOMAIN_ID \
         --properties-license-type=LICENSE_TYPE \
         --properties-ssh-public-keys="SSH_KEYS" \
         --properties-gi-version=GI_VERSION \
@@ -187,12 +196,13 @@ Replace the following:
   * PROJECT_ID: the ID of your Google Cloud project.
   * REGION: the region for your cluster. The region is permanent and can't be changed later. The region must match the region used to create the Exadata Infrastructure instance. For a list of available regions, see [Available configurations](https://docs.cloud.google.com/oracle/database/docs/available-configurations).
   * DISPLAY_NAME: a name to identify your cluster and is displayed in the Google Cloud console. The name must be unique within your Google Cloud project.
-  * For `odb-subnet` and `backup-odb-subnet` parameters, replace the following: 
+  * For `odb-subnet`, `backup-odb-subnet`, and `odb-dns-zone` parameters, replace the following: 
     * ODB_NETWORK_PROJECT_ID: the ID of your Google Cloud project which contains your ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
     * REGION: the region of your ODB Network.
     * ODB_NETWORK_ID: the ID of your ODB Network.
     * CLIENT_SUBNET_ID: the ID of your client ODB Subnet.
     * BACKUP_SUBNET_ID: the ID of your backup ODB Subnet.
+    * DOMAIN_ID: the ID of your DNS domain.
   * LICENSE_TYPE: the license type associated with your Oracle Database@Google Cloud order. Only accepted values are `bring-your-own-license` or `license-included`.
 
   * SSH_KEYS: the public SSH keys you want stored with your cluster. You can enter a single value for a single key, or an array of values for multiple keys.
@@ -233,6 +243,7 @@ To create an Exadata VM Cluster, run the following `curl` command:
         "odb_network": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID",
         "odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/CLIENT_SUBNET_ID",
         "backup_odb_subnet": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbSubnets/BACKUP_SUBNET_ID",
+        "odb_dns_zone": "projects/ODB_NETWORK_PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbDnsZones/DOMAIN_ID",
         "licenseType": "LICENSE_TYPE",
         "ssh_public_keys": ["SSH_PUBLIC_KEY"],
         "cpu_core_count": CPU_CORE_COUNT,
@@ -242,6 +253,10 @@ To create an Exadata VM Cluster, run the following `curl` command:
         "vm_backup_storage_type": "VM_BACKUP_STORAGE_TYPE"
        }
     }'
+    
+    
+    
+    --odb-dns-zone=projects/PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID/odbDnsZones/DOMAIN_ID \
     
 
 Replace the following:
@@ -254,12 +269,13 @@ Replace the following:
     * REGION: the region of your Exadata Database.
     * EXADATA_INSTANCE_ID: the ID of your Exadata Database.
   * DISPLAY_NAME: a name for your Exadata VM Cluster to be displayed in the Google Cloud console.
-  * For `odb_network`, `odb_subnet`, and `backup_odb_subnet` properties, replace the following: 
+  * For `odb_network`, `odb_subnet`, `backup_odb_subnet`, and `odb_dns_zone` properties, replace the following: 
     * ODB_NETWORK_PROJECT_ID: the ID of your Google Cloud project which contains your ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
     * REGION: the region of your ODB Network.
     * ODB_NETWORK_ID: the ID of your ODB Network.
     * CLIENT_SUBNET_ID: the ID of your client ODB Subnet.
     * BACKUP_SUBNET_ID: the ID of your backup ODB Subnet.
+    * DOMAIN_ID: the ID of your DNS domain.
   * LICENSE_TYPE: the license type associated with your Oracle Database@Google Cloud order. Only accepted values are `bring-your-own-license` or `license-included`.
   * SSH_PUBLIC_KEY: the SSH public keys for your cluster. You can enter a single value for a single key, or an array of values for multiple keys.
   * CPU_CORE_COUNT: the number of enabled CPU cores required for your cluster.
@@ -369,7 +385,7 @@ Replace the following:
     import com.google.cloud.oracledatabase.v1.[CreateCloudVmClusterRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CreateCloudVmClusterRequest.html);
     import com.google.cloud.oracledatabase.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.LocationName.html);
     import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncCreateCloudVmCluster {
     
@@ -394,7 +410,7 @@ Replace the following:
           ApiFuture<Operation> future =
               oracleDatabaseClient.[createCloudVmClusterCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html#com_google_cloud_oracledatabase_v1_OracleDatabaseClient_createCloudVmClusterCallable__)().futureCall(request);
           // Do something.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) response = future.get();
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) response = future.get();
         }
       }
     }
@@ -819,6 +835,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

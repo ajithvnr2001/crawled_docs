@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/
 title: REST Resource: projects \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:08:30.077122+00:00
+fetched_at: 2026-11-03T05:47:42.667012+00:00
 ---
 
 # REST Resource: projects  |  Resource Manager  |  Google Cloud Documentation
@@ -22,6 +22,7 @@ Send feedback
   * Resource: Project
     * JSON representation
   * State
+  * ManagementType
   * Methods
 
 
@@ -54,7 +55,9 @@ JSON representation
       },
       "configuredCapabilities": [
         string
-      ]
+      ],
+      "isManagementProject": boolean,
+      "managementType": enum ([ManagementType](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects#ManagementType))
     }  
   
 Fields  
@@ -71,6 +74,8 @@ Fields
 `labels` |  `map (key: string, value: string)` Optional. The labels associated with this project.Label keys must be between 1 and 63 characters long and must conform to the following regular expression: [a-z]([-a-z0-9]*[a-z0-9])?.Label values must be between 0 and 63 characters long and must conform to the regular expression ([a-z]([-a-z0-9]*[a-z0-9])?)?.No more than 64 labels can be associated with a given resource.Clients should store labels in a representation such as JSON that does not depend on specific characters being disallowed.Example: `"myBusinessDimension" : "businessValue"`  
 `tags` |  `map (key: string, value: string)` Optional. Input only. Immutable. Tag keys/values directly bound to this project. Each item in the map must be expressed as " : ". For example: "123/environment" : "production", "123/costCenter" : "marketing"Note: Currently this field is in Preview.  
 `configuredCapabilities[]` |  `string` Output only. If this project is a Management Project, list of capabilities configured on the parent folder. Note, presence of any capability implies that this is a Management Project. Example: `folders/123/capabilities/app-management`. OUTPUT ONLY.  
+`isManagementProject` |  `boolean` Output only. If `true`, this project is a Management Project. A Management Project manages dedicated project groups for specific purposes (e.g., agent management or app management).  
+`managementType` |  `enum (`[ManagementType](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects#ManagementType)`)` Output only. The type of Management Project. This field is only populated if `isManagementProject` is `true`.  
   
 ## State
 
@@ -81,6 +86,16 @@ Enums
 `STATE_UNSPECIFIED` | Unspecified state. This is only used/useful for distinguishing unset values.  
 `ACTIVE` | The normal and active state.  
 `DELETE_REQUESTED` | The project has been marked for deletion by the user (by invoking `[projects.delete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/delete#google.cloud.resourcemanager.v3.Projects.DeleteProject)`) or by the system (Google Cloud Platform). This can generally be reversed by invoking `[projects.undelete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/undelete#google.cloud.resourcemanager.v3.Projects.UndeleteProject)`.  
+  
+## ManagementType
+
+Enum to specify the type of Management Project.
+
+Enums  
+---  
+`MANAGEMENT_TYPE_UNSPECIFIED` | Unspecified type.  
+`SELF_MANAGED` | The Management Project is a self-managed project that constitutes its own boundary.  
+`HUB` | The Management Project is a hub project that manages resources across a boundary.  
   
 ## Methods  
   
@@ -134,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-02-09 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-02-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

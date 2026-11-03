@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cdn/docs/setting-up-cdn-with-bucket/
 title: Set up a backend bucket \u00a0|\u00a0 Cloud CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:45.048621+00:00
+fetched_at: 2026-11-03T08:19:02.313356+00:00
 ---
 
 # Set up a backend bucket  |  Cloud CDN  |  Google Cloud Documentation
@@ -75,8 +75,6 @@ Backend bucket | Static (such as images) |
 
 ###  Console 
 
-**Note:** For global external Application Load Balancers, the Google Cloud console isn't supported.
-
   1. In the Google Cloud console, go to the **Home** page. 
 
 [Go to the Google Cloud home page](https://console.cloud.google.com/home/)
@@ -108,8 +106,6 @@ This step is optional, but recommended, because a static external IP address pro
 **Note:** You can skip this step and have Google Cloud associate an ephemeral IP address with your load balancer's forwarding rule. An ephemeral IP address remains constant while the forwarding rule exists. If you need to delete the forwarding rule and re-add it, the forwarding rule might receive a new IP address.
 
 ###  Console 
-
-**Note:** For global external Application Load Balancers, the Google Cloud console isn't supported.
 
   1. In the Google Cloud console, go to the **External IP addresses** page. 
 
@@ -166,8 +162,6 @@ If you have an existing Cloud Storage bucket that isn't already assigned to a lo
 When you create a Cloud Storage bucket to use as the backend for an external Application Load Balancer with Cloud CDN, we recommend that you choose a [multi-region bucket](https://docs.cloud.google.com/storage/docs/locations#location-mr), which automatically replicates objects across multiple Google Cloud regions. This can improve the availability of your content and improve failure tolerance across your application.
 
 ###  Console 
-
-**Note:** For global external Application Load Balancers, the Google Cloud console isn't supported.
 
   1. In the Google Cloud console, open the **Cloud Storage Buckets** page. 
 
@@ -500,8 +494,6 @@ The following procedure grants all users access to view objects in your Cloud St
 
 ###  Console 
 
-**Note:** For global external Application Load Balancers, the Google Cloud console isn't supported.
-
   1. In the Google Cloud console, open the **Cloud Storage Buckets** page. 
 
 [Open the Buckets page](https://console.cloud.google.com/storage/browser)
@@ -588,8 +580,6 @@ After creating the global forwarding rule, it can take several minutes for your 
 
 ###  Console 
 
-**Note:** For global external Application Load Balancers, the Google Cloud console isn't supported.
-
   1. In the Google Cloud console, go to the **Load balancing** page. 
 
 [Go to the Load balancing page](https://console.cloud.google.com/networking/loadbalancing/)
@@ -673,8 +663,6 @@ The following log entry shows a cache hit. You can view cache hits in the Google
 
 ###  Console 
 
-**Note:** For global external Application Load Balancers, the Google Cloud console isn't supported.
-
   1. In the Google Cloud console, go to the **Load balancing** page. 
 
 [Go to the Load balancing page](https://console.cloud.google.com/networking/loadbalancing/)
@@ -715,8 +703,6 @@ Content that needs to be refreshed earlier than the TTL can be [invalidated](htt
 ## Disable Cloud CDN
 
 ###  Console 
-
-**Note:** For global external Application Load Balancers, the Google Cloud console isn't supported.
 
 #### Disable Cloud CDN for a single backend bucket
 
@@ -765,6 +751,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

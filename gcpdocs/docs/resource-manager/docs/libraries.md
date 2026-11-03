@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/libraries/
 title: Install client libraries \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:31.885579+00:00
+fetched_at: 2026-11-03T05:46:01.872719+00:00
 ---
 
 # Install client libraries  |  Resource Manager  |  Google Cloud Documentation
@@ -60,18 +60,18 @@ See [all versions available on the Maven Central Repository](http://search.maven
 
 Read the client library's [developer's guide](https://docs.cloud.google.com/api-client-library/javascript/start/start-js).
 
-### .NET
+### C#
 
 This page contains information about getting started with the Cloud Resource Manager API by using the Google API Client Library for .NET. For more information, see the following documentation:
 
-  * Browse the [.NET reference documentation for the Cloud Resource Manager API](https://googleapis.dev/dotnet/Google.Apis/latest/api/Google.Apis.html).
+  * Browse the [.NET reference documentation for the Cloud Resource Manager API](https://googleapis.dev/dotnet/Google.Apis.CloudResourceManager.v3/latest/api/Google.Apis.CloudResourceManager.v3.html).
   * Read the [Developer's guide for the Google API Client Library for .NET](https://docs.cloud.google.com/api-client-library/dotnet/get_started).
 
 
 
 ## Downloading the library
 
-Install the NuGet package: [Google.Apis](https://www.nuget.org/packages/Google.Apis).
+Install the NuGet package: [Google.Apis.CloudResourceManager.v3](https://www.nuget.org/packages/Google.Apis.CloudResourceManager.v3).
 
 ### Node.js
 
@@ -87,56 +87,19 @@ Get the latest [Cloud Resource Manager API client library for PHP](https://githu
 
 ### Python
 
-This page contains information about getting started with the Cloud Resource Manager API by using the Google API Client Library for Python (v1/v2). For more information, see the following documentation:
+This page contains information about getting started with the Cloud Resource Manager API by using the Cloud Client Libraries for Python. For more information, see the following documentation:
 
-  * Browse the [PyDoc reference for the Cloud Resource Manager API](https://googleapis.github.io/google-api-python-client/docs/dyn/cloudresourcemanager_v1.html).
-  * Read the [Developer's guide for the Google API Client Library for Python (v1/v2)](https://docs.cloud.google.com/api-client-library/python).
-
-
-
-## System requirements
-
-  * Operating systems: 
-    * Linux
-    * macOS X
-    * Windows
-  * [The v1 client library requires Python 2.7 or higher. The v2 client library requires 3.7 or higher.](http://python.org/download/)
+  * Browse the [Python client library reference documentation for the Cloud Resource Manager API](https://docs.cloud.google.com/python/docs/reference/cloudresourcemanager/latest).
+  * View the [`google-cloud-resource-manager` package on PyPI](https://pypi.org/project/google-cloud-resource-manager/).
 
 
 
 ## Install the client library
 
-You can either use a package manager or manually download and install the Python client library:
-
-### Managed install
-
-Use pip or setuptools to manage your installation. You might need to run `sudo` first.
-
-  * [pip](http://pypi.python.org/pypi/pip) (preferred): 
-        
-        pip install --upgrade google-api-python-client
-
-  * [Setuptools](http://pypi.python.org/pypi/setuptools): 
-        
-        easy_install --upgrade google-api-python-client
-
-
-
-
-### Manual install
-
-  1. [Download the latest client library for Python](https://pypi.python.org/pypi/google-api-python-client/).
-  2. Unpack the code.
-  3. Install: 
-         
-         python setup.py install
-
-
-
-
-### App Engine
-
-Because the Python client libraries aren't installed in the [App Engine Python runtime environment](https://cloud.google.com/appengine/docs/python/), you must [ copy them into your application](https://cloud.google.com/appengine/docs/python/tools/libraries27#vendoring) just like third-party libraries.
+Install the client library in a virtual environment by using `pip`:
+    
+    
+    pip install google-cloud-resource-manager
 
 ### Ruby
 
@@ -180,6 +143,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

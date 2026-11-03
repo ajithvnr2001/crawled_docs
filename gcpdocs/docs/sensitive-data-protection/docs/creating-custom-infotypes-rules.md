@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-rules/
 title: Modifying infoType detectors to refine scan results \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:48.453684+00:00
+fetched_at: 2026-11-03T08:19:28.719009+00:00
 ---
 
 # Modifying infoType detectors to refine scan results  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -86,6 +86,8 @@ If the finding is within the set proximity, that finding is excluded from the re
     * An [`ImageContainmentType`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig#imagecontainmenttype) object that specifies the required spatial relationship between the bounding boxes of the target and context findings. If this requirement isn't met, Sensitive Data Protection doesn't exclude the target infoType finding.
 
 Sensitive Data Protection excludes a target infoType finding if the bounding box of a context infoType has the specified relationship with the target infoType finding. When using [`ExcludeByImageFindings`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig#excludebyimagefindings), you must set the [`matchingType`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig#matchingtype) field to `MATCHING_TYPE_RULE_SPECIFIC`.
+
+`ExcludeByImageFindings` isn't supported for TIFF images. A `content.inspect` request that includes this rule for a TIFF image fails.
 
 
 
@@ -5316,6 +5318,8 @@ Sensitive Data Protection defines an adjustment rule in the [`AdjustmentRule`](h
 
       * A `min_likelihood` value for the context infoTypes. If the likelihood value of any detected context finding is lower than this value, Sensitive Data Protection doesn't adjust the likelihood of the target finding.
 
+`AdjustByImageFindings` isn't supported for TIFF images. A `content.inspect` request that includes this rule for a TIFF image fails.
+
   * A [`likelihood_adjustment`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig#likelihoodadjustment) object, which specifies the new likelihood as either a fixed value or a relative adjustment.
 
 
@@ -6322,6 +6326,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

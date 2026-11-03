@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/images/workload/aci-images/
 title: Overview of Advanced Compute Images \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:30.054323+00:00
+fetched_at: 2026-11-03T05:46:06.113494+00:00
 ---
 
 # Overview of Advanced Compute Images  |  Compute Engine  |  Google Cloud Documentation
@@ -97,7 +97,7 @@ ACI supports three primary hardware platforms:
 
     * Are optimized for compute-intensive workloads
     * Support Rocky Linux 8 and Rocky Linux 9
-    * Come with pre-integrated CUDA 13.2 and NVIDIA 595 drivers
+    * CPU images containing Slurm come pre-integrated with CUDA 13.2 and NVIDIA 595 drivers to support hybrid clusters
     * Come with RDMA drivers and utilities to support Cloud RDMA
     * Come with pre-integrated MPI libraries, including Open MPI and configurable Intel MPI
   * **GPU (AI/ML/HPC)** : support GPU workloads and have the following characteristics:
@@ -110,9 +110,9 @@ ACI supports three primary hardware platforms:
     * Are the default images installed when you deploy Slurm cluster blueprints for A4X, A4, and A3 Ultra machine types in Cluster Toolkit
   * **TPU (AI/ML/HPC)** : support TPU workloads and have the following characteristics:
 
-    * Designed for use with TPU v7x instances
+    * Designed for use with TPU v5e, TPU v5p, TPU v6e, and TPU v7x instances
     * Optimized for Google's Cloud TPU accelerators
-    * Support Ubuntu LTS 24.04
+    * Support Ubuntu LTS 22.04 and Ubuntu LTS 24.04
     * Include the required packages to run Docker, Cloud Storage FUSE, Lustre client, gcloud CLI, and the [Ops Agent](https://docs.cloud.google.com/monitoring/agent/ops-agent)
 
 
@@ -128,7 +128,7 @@ GPU | Ubuntu LTS 24.04 | Slurm 25.11 |
   * CUDA 13.0
   * NVIDIA 580
 
-| AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2404-slurm-2511-cuda-130-nvidia-580-amd64`  
+| Intel and AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2404-slurm-2511-cuda-130-nvidia-580-amd64`  
 GPU | Ubuntu LTS 24.04 | Slurm 25.11 | 
 
   * CUDA 13.0
@@ -140,7 +140,7 @@ GPU | Ubuntu LTS 24.04 | Slurm 26.05 |
   * CUDA 13.2
   * NVIDIA 595
 
-| AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2404-slurm-2605-cuda-132-nvidia-595-amd64`  
+| Intel and AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2404-slurm-2605-cuda-132-nvidia-595-amd64`  
 GPU | Ubuntu LTS 24.04 | Slurm 26.05 | 
 
   * CUDA 13.2
@@ -152,19 +152,19 @@ GPU | Ubuntu LTS 24.04 | none |
   * CUDA 13.0
   * NVIDIA 580
 
-| AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2404-cuda-130-nvidia-580-amd64`  
+| Intel and AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2404-cuda-130-nvidia-580-amd64`  
 GPU | Ubuntu LTS 22.04 | Slurm 25.11 | 
 
   * CUDA 13.0
   * NVIDIA 580
 
-| AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2204-slurm-2511-cuda-130-nvidia-580-amd64`  
+| Intel and AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2204-slurm-2511-cuda-130-nvidia-580-amd64`  
 GPU | Ubuntu LTS 22.04 | none | 
 
   * CUDA 13.0
   * NVIDIA 580
 
-| AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2204-cuda-130-nvidia-580-amd64`  
+| Intel and AMD x86_64 | A3 Ultra, A4 | `aci-gpu-u2204-cuda-130-nvidia-580-amd64`  
   
 ### Advanced Compute Images for CPU instances
 
@@ -176,16 +176,12 @@ CPU | Rocky Linux 9 | none |
 
   * RDMA
   * OpenMPI,IntelMPI
-  * CUDA 13.2
-  * NVIDIA 595
 
 | Intel and AMD x86_64 | C2D, H3, H4D | `aci-cpu-rocky-linux-9-amd64`  
 CPU | Rocky Linux 8 | none | 
 
   * RDMA
   * OpenMPI,IntelMPI
-  * CUDA 13.2
-  * NVIDIA 595
 
 | Intel and AMD x86_64 | C2D, H3, H4D | `aci-cpu-rocky-linux-8-amd64`  
 CPU | Rocky Linux 9 | Slurm 26.05 | 
@@ -217,7 +213,14 @@ TPU | Ubuntu LTS 24.04 | Slurm 26.05 |
   * Cloud Storage FUSE
   * Lustre client, gcloud CLI, Ops Agent support
 
-| AMD x86_64 | TPU v7x | `ubuntu-accel-2404-amd64-tpu-tpu7x`  
+| Intel and AMD x86_64 | TPU v7x | `aci-tpu-tpu7x-u2404-slurm-2605-amd64`  
+TPU | Ubuntu LTS 22.04 | Slurm 26.05 | 
+
+  * NVIDIA Pyxis
+  * Cloud Storage FUSE
+  * Lustre client, gcloud CLI, Ops Agent support
+
+| Intel and AMD x86_64 | TPU v5e, TPU v5p, TPU v6e | `aci-tpu-v5e-v5p-v6e-u2204-slurm-2605-amd64`  
   
 ### Pre-installed packages (or RPMs)
 
@@ -250,8 +253,6 @@ Lifecycle phase | Support status | Description and impact
 **Obsolete** | Unsupported | After the deprecated phase ends, the image family becomes obsolete. You can no longer create compute instances by using this image family. Existing compute instances continue to run, but risk incompatibility with the Slurm controller.   
 **Deletion** | Unsupported | Three months after an image family becomes obsolete, the underlying Advanced Compute Images image resource is permanently deleted. Existing compute instances continue to run, but risk incompatibility with the Slurm controller and vulnerabilities.  
   
-For information about the exact end of support dates for an image family, see Supported hardware and image families.
-
 ## Pricing
 
 Advanced Compute Images are available at no additional cost. Because Advanced Compute Images run on Compute Engine, you might incur charges for Compute Engine resources such as vCPUs, GPUs, TPUs, disks, and memory. To learn more, see [Compute Engine pricing](https://docs.cloud.google.com/compute/vm-instance-pricing).
@@ -271,6 +272,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

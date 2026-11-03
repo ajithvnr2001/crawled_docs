@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/enable-optional-features-in-cluster/
 title: Enable optional features on an in-cluster control plane \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:50:53.941517+00:00
+fetched_at: 2026-11-03T05:47:16.863308+00:00
 ---
 
 # Enable optional features on an in-cluster control plane  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -138,10 +138,10 @@ You can use a custom overlay for custom registries, such as if you need to insta
 
 The following is a list of images for Cloud Service Mesh that you need to mirror to the custom container registry:
 
-  * Install-cni - `gke.gcr.io/asm/install-cni:1.31.1-asm.19`
-  * Managed Data Plane - `gke.gcr.io/asm/mdp:1.31.1-asm.19`
-  * Pilot - `gke.gcr.io/asm/pilot:1.31.1-asm.19`
-  * Proxyv2 - `gke.gcr.io/asm/proxyv2:1.31.1-asm.19`
+  * Install-cni - `gke.gcr.io/asm/install-cni:1.31.3-asm.3`
+  * Managed Data Plane - `gke.gcr.io/asm/mdp:1.31.3-asm.3`
+  * Pilot - `gke.gcr.io/asm/pilot:1.31.3-asm.3`
+  * Proxyv2 - `gke.gcr.io/asm/proxyv2:1.31.3-asm.3`
 
 **Note:** If you use a [Canonical Service](https://docs.cloud.google.com/service-mesh/docs/canonical-service), then you also need to mirror the custom container registries `gcr.io/kubebuilder/kube-rbac-proxy:v0.13.1` and `gke.gcr.io/asm/canonical-service-controller:1.10.3-asm.16`.
 
@@ -153,9 +153,9 @@ To push Cloud Service Mesh images to a private registry, complete the following 
 
   1. Pull the Cloud Service Mesh images: 
          
-         docker pull gke.gcr.io/asm/install-cni:1.31.1-asm.19
-         docker pull gke.gcr.io/asm/pilot:1.31.1-asm.19
-         docker pull gke.gcr.io/asm/proxyv2:1.31.1-asm.19
+         docker pull gke.gcr.io/asm/install-cni:1.31.3-asm.3
+         docker pull gke.gcr.io/asm/pilot:1.31.3-asm.3
+         docker pull gke.gcr.io/asm/proxyv2:1.31.3-asm.3
          
 
   2. Create a variable for your private registry URL: 
@@ -166,19 +166,19 @@ To push Cloud Service Mesh images to a private registry, complete the following 
 Replace `PRIVATE_REGISTRY_URL` with your private registry URL. 
   3. Tag the images with your private registry URL: 
          
-         docker tag gke.gcr.io/asm/install-cni:1.31.1-asm.19 \
-          ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/install-cni:1.31.1-asm.19
-         docker tag gke.gcr.io/asm/mdp:1.31.1-asm.19 \
-          ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/pilot:1.31.1-asm.19
-         docker tag gke.gcr.io/asm/proxyv2:1.31.1-asm.19 \
-          ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/proxyv2:1.31.1-asm.19
+         docker tag gke.gcr.io/asm/install-cni:1.31.3-asm.3 \
+          ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/install-cni:1.31.3-asm.3
+         docker tag gke.gcr.io/asm/mdp:1.31.3-asm.3 \
+          ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/pilot:1.31.3-asm.3
+         docker tag gke.gcr.io/asm/proxyv2:1.31.3-asm.3 \
+          ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/proxyv2:1.31.3-asm.3
          
 
   4. Push the tagged images to your private registry: 
          
-         docker push ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/install-cni:1.31.1-asm.19
-         docker push ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/pilot:1.31.1-asm.19
-         docker push ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/proxyv2:1.31.1-asm.19
+         docker push ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/install-cni:1.31.3-asm.3
+         docker push ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/pilot:1.31.3-asm.3
+         docker push ${PRIVATE_REGISTRY_URL}/gke.gcr.io/asm/proxyv2:1.31.3-asm.3
          
 
   5. (Optional) If you use a [canonical service](https://docs.cloud.google.com/service-mesh/docs/canonical-service), then add the canonical service images to your private registry. 
@@ -362,6 +362,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

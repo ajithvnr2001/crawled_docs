@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/reference/rest/v1/projects/
 title: REST Resource: projects \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:08:20.392551+00:00
+fetched_at: 2026-11-03T05:47:43.707636+00:00
 ---
 
 # REST Resource: projects  |  Resource Manager  |  Google Cloud Documentation
@@ -24,6 +24,7 @@ Send feedback
   * LifecycleState
   * ResourceId
     * JSON representation
+  * ManagementType
   * Methods
 
 
@@ -55,7 +56,9 @@ JSON representation
       },
       "configuredCapabilities": [
         string
-      ]
+      ],
+      "isManagementProject": boolean,
+      "managementType": enum ([ManagementType](https://docs.cloud.google.com/resource-manager/reference/rest/v1/projects#ManagementType))
     }  
   
 Fields  
@@ -65,10 +68,12 @@ Fields
 `lifecycleState` |  `enum (`[LifecycleState](https://docs.cloud.google.com/resource-manager/reference/rest/v1/projects#LifecycleState)`)` The Project lifecycle state.Read-only.  
 `name` |  `string` The optional user-assigned display name of the Project. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point.Example: `My Project`Read-write.  
 `createTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Creation time.Read-only.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
-`labels` |  `map (key: string, value: string)` The labels associated with this Project.Label keys must be between 1 and 63 characters long and must conform to the following regular expression: [a-z][a-z0-9_-]{0,62}.Label values must be between 0 and 63 characters long and must conform to the regular expression [a-z0-9_-]{0,63}. A label value can be empty.No more than 256 labels can be associated with a given resource.Clients should store labels in a representation such as JSON that does not depend on specific characters being disallowed.Example:  `"environment" : "dev"` Read-write.  
+`labels` |  `map (key: string, value: string)` The labels associated with this Project.Label keys must be between 1 and 63 characters long and must conform to the following regular expression: [a-z][a-z0-9_-]{0,62}.Label values must be between 0 and 63 characters long and must conform to the regular expression [a-z0-9_-]{0,63}. A label value can be empty.No more than 256 labels can be associated with a given resource.Clients should store labels in a representation such as JSON that does not depend on specific characters being disallowed.Example: `"environment" : "dev"`Read-write.  
 `parent` |  `object (`[ResourceId](https://docs.cloud.google.com/resource-manager/reference/rest/v1/projects#ResourceId)`)` An optional reference to a parent Resource.Supported parent types include "organization" and "folder". Once set, the parent cannot be cleared. The `parent` can be set on creation or using the `projects.update` method; the end user must have the `resourcemanager.projects.create` permission on the parent.  
 `tags` |  `map (key: string, value: string)` Optional. Input only. Immutable. Tag keys/values directly bound to this project. Each item in the map must be expressed as " : ". For example: "123/environment" : "production", "123/costCenter" : "marketing"Note: Currently this field is in Preview.  
 `configuredCapabilities[]` |  `string` Output only. If this project is a Management Project, list of capabilities configured on the parent folder. Note, presence of any capability implies that this is a Management Project. Example: `folders/123/capabilities/app-management`. OUTPUT ONLY.  
+`isManagementProject` |  `boolean` Output only. If `true`, this project is a Management Project. A Management Project manages dedicated project groups for specific purposes (e.g., agent management or app management).  
+`managementType` |  `enum (`[ManagementType](https://docs.cloud.google.com/resource-manager/reference/rest/v1/projects#ManagementType)`)` Output only. The type of Management Project. This field is only populated if `isManagementProject` is `true`.  
   
 ## LifecycleState
 
@@ -98,6 +103,16 @@ Fields
 ---  
 `type` |  `string` The resource type this id is for. At present, the valid types are: "organization", "folder", and "project".  
 `id` |  `string` The type-specific id. This should correspond to the id used in the type-specific API's.  
+  
+## ManagementType
+
+Enum to specify the type of Management Project.
+
+Enums  
+---  
+`MANAGEMENT_TYPE_UNSPECIFIED` | Unspecified type.  
+`SELF_MANAGED` | The Management Project is a self-managed project that constitutes its own boundary.  
+`HUB` | The Management Project is a hub project that manages resources across a boundary.  
   
 ## Methods  
   
@@ -171,6 +186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-02-09 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-02-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

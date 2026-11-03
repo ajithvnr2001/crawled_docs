@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:36:46.834334+00:00
+fetched_at: 2026-11-03T05:46:05.912168+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -26,6 +26,211 @@ The following security bulletins are related to Google Cloud products.
 
 [ Use this XML feed to subscribe to security bulletins for this page. ![Subscribe](https://docs.cloud.google.com/static/docs/images/feed-icon.png)](https://cloud.google.com/feeds/google-cloud-security-bulletins.xml)
 
+## GCP-2026-076
+
+**Published:** 2026-11-02
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+A security vulnerability was discovered in Istio ([ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)). For instructions and more details, see the [Cloud Service Mesh security bulletin](https://docs.cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-076).  | Medium | 
+
+  * [CVE-2026-111943](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111943)
+
+  
+  
+## GCP-2026-075
+
+**Published:** 2026-11-02
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+On Saturday, October 17, 2026, Google received a report from a security researcher regarding the compromise of private keys associated with eight eMudhra subordinate Certification Authority (CA) certificates, including those cross-signed by AAA Certificate Services. Consequently, these CA certificates are no longer trusted and are being revoked. Google Cloud infrastructure has not been breached. Security telemetry shows no evidence of exploitation against Google Cloud workloads. Applications built with the Google Cloud SDK Libraries are affected if their TLS trust store still accepts `emSign ECC Root CA - G3`, `emSign Root TLS CA - G3`, or `AAA Certificate Services`. The Google Cloud SDK Libraries themselves don't bundle CA certificates, with one exception: Java's `com.google.api-client:google-api-client` before 2.9.2. In all other cases, the trust store comes from a transport dependency (including the Google-maintained gRPC packages), the language runtime, or the operating system, so the fix is an update to those rather than to the Google Cloud SDK Libraries. In Java, Ruby, and PHP, upgrading the Google client libraries also pulls the fix in. The sections below give the action for each language.
+
+#### What should I do?
+
+Find your language below and apply the recommended actions. Then rebuild and redeploy your container images.
+
+##### Python
+
+The following packages are affected:
+
+  * `certifi` earlier than 2026.10.19 (REST transports).
+  * `httplib2` earlier than 0.32.1, used by `google-api-python-client` and `google-auth-httplib2`; its bundled trust store is used when `certifi` is not installed.
+  * `grpcio` earlier than 1.84.1 (gRPC transports); bundled root store, does not read the operating system trust store.
+
+You can take the following actions to resolve these issues:
+
+  * Upgrade `certifi` to 2026.10.19 or later.
+  * Upgrade `httplib2` to 0.32.1 or later.
+  * Upgrade `grpcio` to 1.84.1 or later. Patch releases for earlier release lines are being published; see [GHSA-2xm2-c8xx-p9vh](https://github.com/grpc/grpc/security/advisories/GHSA-2xm2-c8xx-p9vh) for the current list of fixed versions.
+
+Advisories: [GHSA-6q48-6c7w-9gw2](https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2) (`certifi`), [GHSA-2xm2-c8xx-p9vh](https://github.com/grpc/grpc/security/advisories/GHSA-2xm2-c8xx-p9vh) (`grpcio`).
+
+##### Java
+
+The following packages and trust stores are affected:
+
+  * `com.google.api-client:google-api-client` earlier than 2.9.2, when the HTTP transport is created with `GoogleNetHttpTransport.newTrustedTransport()`. Versions earlier than 2.9.0 always use a bundled trust store that includes `AAA Certificate Services`; versions 2.9.0 and 2.9.1 use it when the Java Development Kit (JDK) trust store cannot be loaded.
+  * Google API service library packages (`com.google.apis:google-api-services-*`) with a version suffix earlier than `-2.9.2`, which depend on an affected `google-api-client`.
+  * The JDK trust store (`cacerts`), used by all other Google client transports, and the Windows certificate store on Windows.
+
+You can take the following actions to resolve these issues:
+
+  * Upgrade `google-api-client` to 2.9.2 or later, or `com.google.cloud:libraries-bom` to 26.91.0 or later.
+  * If your build declares a service library without `google-api-client`, upgrade the service library to a release whose version ends in `-2.9.2` or later (for example, `google-api-services-bigquery:v2-rev20260922-2.9.2`), or declare `com.google.api-client:google-api-client:2.9.2` directly.
+  * If you use Spring Framework on Google Cloud, upgrade to the current patch release of your line: `8.3.1`, `7.5.2`, `6.5.12`, `3.9.19`, or later; these import `libraries-bom` 26.91.0.
+  * Apply your JDK vendor's security update.
+  * On Windows, apply the Windows root certificate update.
+
+Advisory: [GHSA-m4gc-hcgx-wmc7](https://github.com/googleapis/google-api-java-client/security/advisories/GHSA-m4gc-hcgx-wmc7) (`google-api-client`).
+
+##### Ruby
+
+The following packages and trust stores are affected:
+
+  * `grpc` gem earlier than 1.84.1 (gRPC transports). The package loads its bundled trust store, and does not read the operating system trust store.
+  * The operating system's OpenSSL trust store (REST transports).
+
+You can take the following actions to resolve these issues:
+
+  * Run `bundle update grpc` to 1.84.1 or later.
+  * Alternatively, run `bundle update` for your `google-cloud-*` gems; current releases require `grpc` 1.84.1 or later and pull it in.
+  * Update the operating system trust store.
+
+Advisory: [GHSA-p3vr-xp4c-r8fh](https://github.com/grpc/grpc/security/advisories/GHSA-p3vr-xp4c-r8fh) (`grpc`).
+
+##### PHP
+
+The following packages and trust stores are affected:
+
+  * Composer package `grpc/grpc` earlier than 1.84.1 (gRPC transports). The package loads its bundled trust store and does not read the operating system trust store.
+  * The operating system's trust store (REST transports).
+
+You can take the following actions to resolve these issues:
+
+  * Run `composer update grpc/grpc` to 1.84.1 or later.
+  * Alternatively, run `composer update google/gax` to 1.51.2 or later; it requires `grpc/grpc` 1.84.1 or later and pulls it in.
+  * Update the operating system trust store.
+
+Advisory: [GHSA-gvrc-7wf9-p7hg](https://github.com/grpc/grpc/security/advisories/GHSA-gvrc-7wf9-p7hg) (`grpc/grpc`).
+
+##### Node.js
+
+The following packages and trust stores are affected:
+
+  * The Node.js runtime's built-in root certificate store.
+  * The deprecated native `grpc` npm package, which bundles a root store and will not be updated.
+
+You can take the following actions to resolve these issues:
+
+  * Upgrade Node.js to 26.12.1, 24.22.1, or 22.23.4 or later.
+  * If your application still uses the [deprecated](https://github.com/grpc/grpc-node/tree/grpc@1.24.x/packages/grpc-native-core) `grpc` npm package, [migrate](https://github.com/grpc/grpc-node/blob/master/packages/grpc-js/README.md#migrating-from-grpc) to `@grpc/grpc-js`.
+
+
+
+##### Go
+
+The following trust stores and toolchains are affected:
+
+  * The host or container image trust store.
+  * Go toolchains earlier than 1.26.10 / 1.27.3 ([GO-2026-6809/CVE-2026-111943](https://pkg.go.dev/vuln/GO-2026-6809)). Later toolchains additionally reject the compromised intermediate certificates in `crypto/x509` regardless of the trust store.
+
+You can take the following actions to resolve these issues:
+
+  * Rebuild and redeploy Go binaries and container images with Go 1.26.10, 1.27.3, or later.
+  * Use an updated base image when rebuilding container images.
+
+
+
+##### .NET
+
+The following packages and trust stores are affected:
+
+  * The operating system trust store used by `Grpc.Net.Client` and `HttpClient`. On Windows this includes `emSign Root TLS CA - G3` as a direct root until the Windows update is applied.
+  * The legacy `Grpc.Core` package, which bundles a root store and is not maintained.
+
+You can take the following actions to resolve these issues:
+
+  * Apply operating system updates.
+  * If your application references [the legacy](https://grpc.io/blog/grpc-csharp-future/) `Grpc.Core` package, [migrate](https://learn.microsoft.com/aspnet/core/grpc/migration) to `Grpc.Net.Client`.
+
+
+
+##### C++
+
+The following trust stores and code are affected:
+
+  * The operating system or container image trust store, used by REST transports (libcurl) and by gRPC where a system root store is found.
+  * gRPC versions earlier than 1.84.1, where a bundled `roots.pem` with affected certificates is used as the fallback when no system root store is available.
+
+You can take the following actions to resolve these issues:
+
+  * Update the operating system or container base image trust store.
+  * Rebuild against gRPC 1.84.1 or later if gRPC's fallback `roots.pem` is used.
+
+
+
+##### Rust
+
+The following packages and trust stores are affected:
+
+  * `rustls-webpki` earlier than 0.103.16 ([RUSTSEC-2026-0382](https://rustsec.org/advisories/RUSTSEC-2026-0382.html)).
+  * `webpki-root-certs` earlier than 1.0.10 ([RUSTSEC-2026-0383](https://rustsec.org/advisories/RUSTSEC-2026-0383.html)), or `webpki-roots` earlier than 1.0.10 ([RUSTSEC-2026-0381](https://rustsec.org/advisories/RUSTSEC-2026-0381.html)), whichever root store crate your build uses.
+  * The operating system trust store, for builds that use it instead of a root store crate.
+
+You can take the following actions to resolve these issues:
+
+  * Run `cargo update`, then rebuild and redeploy.
+  * Apply operating system updates if your build uses the system trust store.
+
+
+
+##### Swift
+
+The following packages and trust stores are affected:
+
+  * The operating system or container image trust store used by `AsyncHTTPClient` and `grpc-swift-2` (`Security.framework` on macOS; the system CA bundle on Linux). 
+    * `AsyncHTTPClient`, `grpc-swift-2`, and the Google Cloud SDK Libraries do not bundle certificates and are not affected.
+  * `gRPC` Objective-C CocoaPod ([GHSA-mm89-g5jq-mmfq](https://github.com/grpc/grpc/security/advisories/GHSA-mm89-g5jq-mmfq)) does not apply to Google Cloud SDK Libraries.
+
+You can take the following actions to resolve these issues:
+
+  * Apply operating system updates.
+
+
+
+##### Additional actions
+
+To confirm an environment is remediated, verify that none of the following certificates is present in the trust store your application uses:
+
+  * `emSign ECC Root CA - G3` — SHA-256 `86:A1:EC:BA:08:9C:4A:8D:3B:BE:27:34:C6:12:BA:34:1D:81:3E:04:3C:F9:E8:A8:62:CD:5C:57:A3:6B:BE:6B`
+  * `emSign Root TLS CA - G3` — SHA-256 `7D:D7:8D:5F:4F:13:45:9A:83:DF:F9:AB:BB:A6:2E:DB:AF:6F:2D:10:2B:F2:57:FD:71:2F:4D:9F:27:46:ED:8D` (issuer of six of the eight compromised TLS intermediates; cross-signed by `emSign ECC Root CA - G3` and trusted directly as a root in the Windows certificate store)
+  * `AAA Certificate Services` — SHA-256 `D7:A7:A0:FB:5D:7E:27:31:D7:71:E9:48:4E:BC:DE:F7:1D:5F:0C:3E:0A:29:48:78:2B:C8:3E:E0:EA:69:9E:F4`
+
+If you have questions or need assistance, contact Cloud Customer Care and reference issue `#576444463`.
+
+#### What vulnerabilities are being addressed?
+
+The private keys for eight eMudhra (emSign) subordinate CA certificates were generated with insufficient cryptographic randomness and can be recovered from the public certificates. A remote attacker with a network position between a client and a server can forge TLS certificates for any domain, including Google API endpoints, and intercept or modify traffic from clients that still trust the issuing roots. Because most non-browser TLS clients do not check certificate revocation, removing the root certificates from the client's trust store is the effective mitigation. | Medium |  The Google Cloud platform bulletin for this incident [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071) covers Google Cloud services, base images, and the Google Cloud CLI. This bulletin covers applications built with the Google Cloud SDK Libraries. Additional vulnerability references:
+
+  * [Mozilla Bug 2083449](https://bugzilla.mozilla.org/show_bug.cgi?id=2083449)
+  * [GHSA-6q48-6c7w-9gw2](https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2) (`certifi`)
+  * [GHSA-2xm2-c8xx-p9vh](https://github.com/grpc/grpc/security/advisories/GHSA-2xm2-c8xx-p9vh) (`grpcio`)
+  * [GHSA-p3vr-xp4c-r8fh](https://github.com/grpc/grpc/security/advisories/GHSA-p3vr-xp4c-r8fh) (`grpc` RubyGems)
+  * [GHSA-gvrc-7wf9-p7hg](https://github.com/grpc/grpc/security/advisories/GHSA-gvrc-7wf9-p7hg) (`grpc/grpc` Composer)
+  * [GHSA-mm89-g5jq-mmfq](https://github.com/grpc/grpc/security/advisories/GHSA-mm89-g5jq-mmfq) (`gRPC` Objective-C CocoaPod)
+  * [GHSA-m4gc-hcgx-wmc7](https://github.com/googleapis/google-api-java-client/security/advisories/GHSA-m4gc-hcgx-wmc7) (`google-api-client` Java)
+  * [RUSTSEC-2026-0381](https://rustsec.org/advisories/RUSTSEC-2026-0381.html)
+  * [RUSTSEC-2026-0382](https://rustsec.org/advisories/RUSTSEC-2026-0382.html)
+  * [RUSTSEC-2026-0383](https://rustsec.org/advisories/RUSTSEC-2026-0383.html)
+  * [GO-2026-6809/CVE-2026-111943](https://pkg.go.dev/vuln/GO-2026-6809)
+
+  
+  
 ## GCP-2026-074
 
 **Published:** 2026-10-28
@@ -77,13 +282,13 @@ Two vulnerabilities in PHP core, CVE-2026-109618 and CVE-2026-109619 ("PHP2Shell
 
 **Published:** 2026-10-23
 
-**Updated:** 2026-10-28
+**Updated:** 2026-11-02
 
 ### Description
 
 Description | Severity | Notes  
 ---|---|---  
-**2026-10-28 Update:** Added Managed Service for Apache Spark and Cloud Profiler to the list of affected products. We will continue to update the list of affected products with links to product-specific guidance as it becomes available. 
+**2026-11-02 Update:** Added Google Cloud SDK Libraries to the list of affected products. **2026-10-28 Update:** Added Managed Service for Apache Spark and Cloud Profiler to the list of affected products. We will continue to update the list of affected products with links to product-specific guidance as it becomes available. 
 
 * * *
 
@@ -110,6 +315,7 @@ On Saturday, October 17, 2026, Google received a report from a security research
   * Google Distributed Cloud
   * Managed Service for Apache Spark
   * Cloud Profiler
+  * [Google Cloud SDK Libraries](https://docs.cloud.google.com/support/bulletins#gcp-2026-075)
 
 
 
@@ -7514,6 +7720,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source/
 title: Connect a third-party data source \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:23.872747+00:00
+fetched_at: 2026-11-03T05:46:02.212815+00:00
 ---
 
 # Connect a third-party data source  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -87,6 +87,7 @@ Data source | Value for `allowedDataSources`
 [Campfire](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/campfire) | `campfire`  
 [Cisco Workspaces](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/cisco-workspaces) | `cisco_workspaces`  
 [Clay](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/clay) | `clay`  
+[CMS Coverage](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_cms_coverage) | `healthcare_cms_coverage`  
 [Cohesity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/cohesity) | `cohesity`  
 [CoinDesk](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/coindesk) | `coindesk`  
 [CourtListener](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/courtlistener) | `courtlistener`  
@@ -104,6 +105,7 @@ Data source | Value for `allowedDataSources`
 [Daloopa](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/daloopa) | `daloopa`  
 [Dynamics 365](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/dynamics365) | `dynamics365`  
 [Egnyte](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/egnyte) | `egnyte`  
+[Epic EHR](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/epic) | `epic`  
 [Excalidraw](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/excalidraw) | `excalidraw`  
 [FactSet AI-Ready Data](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/factset_ai_ready_data) | `factset_ai_ready_data`  
 [Fibery](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/fibery) | `fibery`  
@@ -125,6 +127,7 @@ Data source | Value for `allowedDataSources`
 [Guru](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/guru) | `guru`  
 [Hex](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/hex) | `hex`  
 [Hugging Face](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/huggingface) | `huggingface`  
+[ICD-10 Codes](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_icd10_cm) | `healthcare_icd10_cm`  
 [iManage platform](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/imanage-platform) | `imanage_platform`  
 [Intercom](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/intercom) | `intercom`  
 [Invideo](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/invideo) | `invideo`  
@@ -147,6 +150,7 @@ Data source | Value for `allowedDataSources`
 [NetDocuments](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/netdocuments) | `netdocuments_us_vault`  
 [Nexla](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/nexla-mcp-studio) | `nexla_mcp_studio`  
 [Notion](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/notion) | `notion`  
+[NPPES NPI Registry](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_nppes_npi) | `healthcare_nppes_npi`  
 [Omni Analytics](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/omni_analytics) | `omni_analytics`  
 [Open Targets](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/open_targets) | `open_targets`  
 [Oracle NetSuite](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/oracle_netsuite) | `oracle_netsuite`  
@@ -157,6 +161,7 @@ Data source | Value for `allowedDataSources`
 [Pylon](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/pylon) | `pylon`  
 [Ramp](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/ramp-mcp) | `ramp_mcp`  
 [Relativity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/relativity) | `relativity`  
+[RxNorm Drug Vocabulary](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_rxnorm) | `healthcare_rxnorm`  
 [S&P Global - Adaptive Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global_adaptive_retrieval) | `s_p_global_adaptive_retrieval`  
 [S&P Global - Deterministic Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global) | `s_p_global`  
 [Salesforce](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce) | `salesforce`  
@@ -285,6 +290,24 @@ EgnyteLaunch date | Action | Description
 Create folder | Create a new folder in Egnyte.  
 Create link | Create a link to a file or folder in Egnyte.  
 Upload file | Upload a file.  
+Epic EHRLaunch date | Action | Description  
+---|---|---  
+11/2/26 | Search Patients | Finds patients by MRN, Epic patient ID, or family name and birth date.  
+Get Patient | Returns one patient's demographic record, including contact details.  
+Search Observations | Returns a patient's lab results, vital signs, social history, and other observations.  
+Search Conditions | Returns a patient's problem list, encounter diagnoses, medical history, and health concerns.  
+Search Immunizations | Returns a patient's immunization history.  
+Search Procedures | Returns a patient's completed procedures and surgical history.  
+Search Medication Requests | Returns a patient's medication orders and prescriptions.  
+Search Allergies | Returns a patient's drug, food, and environmental allergies, with criticality and reactions.  
+Search Diagnostic Reports | Returns a patient's lab panels and pathology, cardiology, and radiology reports.  
+Get Report Text | Returns the result text of a diagnostic report.  
+Search Clinical Notes | Returns a patient's progress notes, discharge summaries, history and physical notes, consult notes, and operative reports.  
+Get Note Text | Returns the full text of a clinical note.  
+Search Encounters | Returns a patient's hospital admissions, emergency department visits, and outpatient visits.  
+Search Service Requests | Returns a patient's orders, referrals, consults, and scheduled procedures.  
+Search Coverage | Returns a patient's insurance policies, coverage status, and payer.  
+Describe Epic Capabilities | Returns the resources and search parameters that your Epic FHIR server supports.  
 FreshserviceLaunch date | Action | Description  
 ---|---|---  
 8/03/26 | Create ticket note | Adds a note (conversation) to an existing ticket in Freshservice.  
@@ -325,6 +348,11 @@ Continue thread | Add follow-up questions to an idle thread.
 HubSpotLaunch date | Action | Description  
 ---|---|---  
 03/18/26 | Manage CRM Objects | Manages CRM objects in HubSpot.  
+ICD-10 CodesLaunch date | Action | Description  
+---|---|---  
+11/2/26 | Search Icd10 Codes | Finds ICD-10-CM codes and their official descriptions by condition, symptom, or code prefix.  
+Validate Icd10 Code | Checks whether a code exists and whether it's billable, and lists more specific codes when it isn't.  
+Lookup Code Hierarchy | Lists the more specific codes under an ICD-10-CM category.  
 Jira CloudLaunch date | Action | Description  
 ---|---|---  
 8/5/26 | Assign issue | Assigns an existing Jira issue to a specified user.  
@@ -470,6 +498,12 @@ Create on-call override | Create an override for a specific user covering a spec
 Search | Search for incidents, services, users, schedules, and escalation policies.  
 List on-call entries | List the on-call entries during a given time range.  
 List log entries | Get the full timeline of an incident.  
+RxNorm Drug VocabularyLaunch date | Action | Description  
+---|---|---  
+11/2/26 | Search drugs by name | Finds RxNorm products for a drug name, grouped as generic drugs, branded drugs, generic packs, and branded packs.  
+Get RxCUI details | Returns the status, name, ingredients, strengths, and dose form of an RxCUI.  
+Get NDC crosswalk | Maps an NDC to its RxCUI, concept name, and NDC status.  
+Get NDCs from RxCUI | Lists the active NDCs of a drug product RxCUI.  
 SalesforceLaunch date | Action | Description  
 ---|---|---  
 10/26/26 | Create Sobject Record | Creates a record of any object type in Salesforce.  
@@ -600,6 +634,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

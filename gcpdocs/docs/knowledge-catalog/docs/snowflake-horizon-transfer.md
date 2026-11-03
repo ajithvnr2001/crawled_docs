@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/snowflake-horizon-transfer/
 title: Import metadata from Snowflake Horizon \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:41.701930+00:00
+fetched_at: 2026-11-03T08:19:27.059083+00:00
 ---
 
 # Import metadata from Snowflake Horizon  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -135,16 +135,37 @@ If you also want to run SQL queries or Spark jobs against the remote Snowflake c
 
 The connector signs in to Snowflake as a Snowflake user with key-pair authentication and reads metadata from the `SNOWFLAKE.ACCOUNT_USAGE` schema. Password authentication isn't supported. A Snowflake administrator, such as a user with the `ACCOUNTADMIN` role, must complete the following steps:
 
-  1. Create a role for the connector and grant it access to `ACCOUNT_USAGE` and to a warehouse that runs the metadata queries:
+  1. Create a role for the connector and grant it access to `ACCOUNT_USAGE`, to a warehouse that runs the metadata queries, and to the databases that you want to import:
          
          CREATE ROLE IF NOT EXISTS DATAPLEX_CATALOG_READER;
-         GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE
+         GRANT DATABASE ROLE SNOWFLAKE.OBJECT_VIEWER
            TO ROLE DATAPLEX_CATALOG_READER;
          GRANT USAGE ON WAREHOUSE WAREHOUSE_NAME
            TO ROLE DATAPLEX_CATALOG_READER;
+         GRANT USAGE ON DATABASE DATABASE_NAME
+           TO ROLE DATAPLEX_CATALOG_READER;
+         GRANT USAGE ON ALL SCHEMAS IN DATABASE DATABASE_NAME
+           TO ROLE DATAPLEX_CATALOG_READER;
          
 
-Replace `WAREHOUSE_NAME` with the name of the Snowflake warehouse that runs the metadata queries.
+Replace the following:
+
+     * `WAREHOUSE_NAME`: the name of the Snowflake warehouse that runs the metadata queries.
+     * `DATABASE_NAME`: the name of a database that you want to import.
+
+Repeat the database grants for each database that you import. To cover schemas that are created later, also run the schema grant with `FUTURE` in place of `ALL`:
+    
+    GRANT USAGE ON FUTURE SCHEMAS IN DATABASE DATABASE_NAME
+      TO ROLE DATAPLEX_CATALOG_READER;
+    
+
+Instead of the `SNOWFLAKE.OBJECT_VIEWER` database role, you can grant `IMPORTED PRIVILEGES` on the `SNOWFLAKE` database:
+    
+    GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE
+      TO ROLE DATAPLEX_CATALOG_READER;
+    
+
+If you grant `IMPORTED PRIVILEGES`, then you don't need to grant the `SNOWFLAKE.GOVERNANCE_VIEWER` database role in step 5. You still need the other privileges in that step for the metadata that they add.
 
   2. Create a service user for the connector, or use an existing user, and grant it the role:
          
@@ -174,15 +195,21 @@ Replace `PUBLIC_KEY` with the contents of `rsa_key.pub`, excluding the `-----BEG
 
   5. Optional: To import additional metadata, grant the connector role the following privileges:
 
-     * **Data profiles and data quality results** : Grant the `SNOWFLAKE.DATA_QUALITY_MONITORING_VIEWER` application role:
+     * **Tags, usage metrics, joins inferred from query history, data classification results, and data metric function settings** : Grant the `SNOWFLAKE.GOVERNANCE_VIEWER` database role:
+           
+           GRANT DATABASE ROLE SNOWFLAKE.GOVERNANCE_VIEWER
+             TO ROLE DATAPLEX_CATALOG_READER;
+           
+
+     * **Data metric function measurements and data quality results** : Grant the `SNOWFLAKE.DATA_QUALITY_MONITORING_VIEWER` application role:
            
            GRANT APPLICATION ROLE SNOWFLAKE.DATA_QUALITY_MONITORING_VIEWER
              TO ROLE DATAPLEX_CATALOG_READER;
            
 
-Data quality results are imported only for the checks that the role can view, which requires `USAGE` on the database and schema, `SELECT` on the table, and `USAGE` on custom data metric functions.
+Data quality results are imported only for the checks that the role can view, which requires `REFERENCES` on the table and `USAGE` on custom data metric functions.
 
-     * **Primary keys and foreign keys** : Grant `USAGE` on the database and schema, and `SELECT` or `REFERENCES` on the tables.
+     * **Primary keys and foreign keys** : Grant `REFERENCES` on the tables.
 
      * **Sample values and custom instructions of semantic views** : Grant `REFERENCES` on the semantic views.
 
@@ -350,6 +377,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

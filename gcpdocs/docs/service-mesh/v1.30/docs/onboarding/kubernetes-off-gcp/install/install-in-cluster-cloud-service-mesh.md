@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/onboarding/kubernetes-off-gcp/install/install-in-cluster-cloud-service-mesh/
 title: Install Cloud Service Mesh for Kubernetes workloads off Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:34.889830+00:00
+fetched_at: 2026-11-03T05:46:26.659355+00:00
 ---
 
 # Install Cloud Service Mesh for Kubernetes workloads off Google Cloud  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This page explains how to install unmanaged, in-cluster Cloud Service Mesh for Kubernetes workloads off Google Cloud:
 
-  * Run `asmcli` to do a new installation of Cloud Service Mesh 1.30.5-asm.11.
+  * Run `asmcli` to do a new installation of Cloud Service Mesh 1.30.7-asm.3.
   * Optionally, deploy an ingress gateway.
   * Deploy or redeploy your workloads to inject sidecar proxies.
 
@@ -410,9 +410,9 @@ For the best security, we highly recommend maintaining an offline root CA and us
 
 **Important:** These steps create certificates and keys using a `make` command that we provide for illustrative purposes only. For the best security, use an offline secure computer and production-ready tools, for example using [HashiCorp Vault](https://www.vaultproject.io/) to securely generate and protect the CA signing key.
 
-The Makefile to generate the certificates is located in the `istio-1.30.5-asm.11` subdirectory in the `--output_dir` directory that you specified in the `asmcli validate` command. If you didn't run `asmcli validate`, or you don't have the downloaded directory locally, you can get the Makefile by [downloading the Cloud Service Mesh installation file](https://docs.cloud.google.com/service-mesh/v1.30/docs/downloading-istioctl) and extracting the contents.
+The Makefile to generate the certificates is located in the `istio-1.30.7-asm.3` subdirectory in the `--output_dir` directory that you specified in the `asmcli validate` command. If you didn't run `asmcli validate`, or you don't have the downloaded directory locally, you can get the Makefile by [downloading the Cloud Service Mesh installation file](https://docs.cloud.google.com/service-mesh/v1.30/docs/downloading-istioctl) and extracting the contents.
 
-  1. Change to the `istio-1.30.5-asm.11` directory.
+  1. Change to the `istio-1.30.7-asm.3` directory.
 
   2. Create a directory for the certificates and keys:
          
@@ -1210,7 +1210,7 @@ Expected output:
               "jsonpath={.items[*].metadata.labels['istio\.io/rev']}{'\n'}"
             
 
-The command outputs the revision label that corresponds to the Cloud Service Mesh version, for example: `asm-1298-11`
+The command outputs the revision label that corresponds to the Cloud Service Mesh version, for example: `asm-1307-3`
 
      2. Apply the revision label to the namespace. In the following command, `REVISION` is the value of the `istiod` revision label that you noted in the previous step.
             
@@ -1289,10 +1289,10 @@ The default injection labels inject the revision the default tag is pointing to.
 The output looks similar to the following:
             
             NAME                                READY   STATUS    RESTARTS   AGE   LABELS
-            istiod-asm-1298-11-5788d57586-bljj4   1/1     Running   0          23h   app=istiod,istio.io/rev=asm-1298-11,istio=istiod,pod-template-hash=5788d57586
-            istiod-asm-1298-11-5788d57586-vsklm   1/1     Running   1          23h   app=istiod,istio.io/rev=asm-1298-11,istio=istiod,pod-template-hash=5788d57586
+            istiod-asm-1307-3-5788d57586-bljj4   1/1     Running   0          23h   app=istiod,istio.io/rev=asm-1307-3,istio=istiod,pod-template-hash=5788d57586
+            istiod-asm-1307-3-5788d57586-vsklm   1/1     Running   1          23h   app=istiod,istio.io/rev=asm-1307-3,istio=istiod,pod-template-hash=5788d57586
 
-In the output, under the `LABELS` column, note the value of the `istiod` revision label, which follows the prefix `istio.io/rev=`. In this example, the value is `asm-1298-11`.
+In the output, under the `LABELS` column, note the value of the `istiod` revision label, which follows the prefix `istio.io/rev=`. In this example, the value is `asm-1307-3`.
 
      2. Apply the revision label and remove the `istio-injection` label if it exists. In the following command, `NAMESPACE` is the name of the namespace where you want to enable auto-injection, and `REVISION` is the revision label you noted in the previous step.
             
@@ -1328,6 +1328,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/create-odb-network/
 title: Create ODB Network and ODB Subnets \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:45.999124+00:00
+fetched_at: 2026-11-03T08:19:14.312367+00:00
 ---
 
 # Create ODB Network and ODB Subnets  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -29,9 +29,32 @@ When you create an ODB Network, Oracle Database@Google Cloud automatically provi
 
 Oracle Database@Google Cloud also lets you create up to five ODB Subnets within an ODB Network for the ease of network management.
 
+You can also enable service connectivity on an ODB Network to be used with Database Connections to execute SQL statements on your databases. You can either create a new ODB Network with service connectivity enabled or enable service connectivity on an existing ODB Network.
+
 ## Before you begin
 
   * Make sure that you have the required Identity and Access Management (IAM) roles and permissions to create an ODB Network and ODB Subnets as described in [Deploy Oracle Database@Google Cloud environment](https://docs.cloud.google.com/oracle/database/docs/setup-oracle-database-environment#deploy-odb-environment).
+
+  * If you plan to use your ODB Network with Database Connections to execute SQL statements on your databases, [Create a network attachment](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments).
+
+To execute SQL statements, Oracle Database@Google Cloud uses Private Service Connect to connect to the databases. Therefore, the ODB Network must reference a network attachment in the same region.
+
+When creating the network attachment, consider the following:
+
+    * The network attachment must be in the same region as the ODB Network.
+    * The network attachment must reference a subnet in your VPC network.
+    * The network attachment must accept the Oracle Database service.
+    * You can't change the network attachment once set. You must remove it and set a new one or create a new ODB Network.
+
+Set `connection_preference = ACCEPT_AUTOMATIC`.
+
+To use an ODB Network with a Database Connection, you must have the following permissions on your ODB Network:
+
+    * `oracledatabase.odbNetworks.use`
+    * `oracledatabase.odbNetworks.get`
+
+The ODB Network Admin (`roles/oracledatabase.odbNetworkAdmin`) and Network Admin (`roles/oracledatabase.networkAdmin`) roles contain these permissions.
+
 
 
 
@@ -59,7 +82,14 @@ The region and zone choice is permanent and can't be changed later. If you aren'
 
   5. Enter a name for the ODB network.
 
-  6. Click **Create**.
+  6. Optional. If you want to use this ODB Network with a Database Connection to execute SQL statements on your databases, then in the **Google Cloud service connectivity** section, do the following:
+
+**Note:** You can also [enable service connectivity](https://docs.cloud.google.com/oracle/database/docs/create-odb-network#enable-service-connectivity) later after creating the ODB Network.
+     1. To enable service connectivity, click the **Private Service Connect (PSC) interface** toggle to the on position.
+
+     2. From the **Network attachment** , select a network attachment.
+
+  7. Click **Create**.
 
 
 
@@ -72,7 +102,9 @@ Use the `gcloud oracle-database odb-networks create` command to create an ODB Ne
     gcloud oracle-database odb-networks create ODB_NETWORK_ID \
         --project=PROJECT_ID \
         --location=REGION \
-        --network=projects/PROJECT_ID/global/networks/VPC_NETWORK
+        --network=projects/PROJECT_ID/global/networks/VPC_NETWORK \
+        --gcp-oracle-zone=GCP_ORACLE_ZONE \
+        --psc-interface-config-network-attachment=projects/PROJECT_ID/regions/REGION/networkAttachments/NETWORK_ATTACHMENT_ID
     
 
 Replace the following:
@@ -81,6 +113,13 @@ Replace the following:
   * PROJECT_ID: the ID of your Google Cloud project in which to create the ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
   * REGION: the region in which to create the ODB Network.
   * VPC_NETWORK: the ID of the VPC network which you want to associate with the ODB Network.
+  * GCP_ORACLE_ZONE: the GCP Oracle zone in which to create the ODB Network.
+  * For `psc-interface-config-network-attachment` property, replace the following:
+
+**Important:** Only configure `psc-interface-config-network-attachment` if you intend to associate this ODB Network with a Database Connection to execute SQL on the database. Otherwise, you can skip this configuration.
+    * PROJECT_ID: the ID of the Google Cloud project that contains the network attachment.
+    * REGION: the region where your network attachment is located.
+    * NETWORK_ATTACHMENT_ID: the ID of the network attachment.
 
 
 
@@ -96,7 +135,12 @@ To create an ODB Network, run the following `curl` command:
     -d \
     '{
       "network": "projects/PROJECT_ID/global/networks/VPC_NETWORK",
-      "gcp_oracle_zone": "GCP_ORACLE_ZONE"
+      "gcpOracleZone": "GCP_ORACLE_ZONE"
+      "serviceConnectivityConfig": {
+        "pscInterfaceConfig": {
+          "networkAttachment": "projects/PROJECT_ID/regions/REGION/networkAttachments/NETWORK_ATTACHMENT_ID"
+        }
+      }
     }'
     
 
@@ -107,10 +151,16 @@ Replace the following:
   * ODB_NETWORK_ID: a unique identifier for your ODB Network.
   * VPC_NETWORK: the ID of the VPC network which you want to associate with the ODB Network.
   * GCP_ORACLE_ZONE: the GCP Oracle zone in which to create the ODB Network.
+  * For `networkAttachment` and `pscInterfaceConfig` properties in `serviceConnectivityConfig`, replace the following:
+
+**Important:** Only configure `pscInterfaceConfig` and `networkAttachment` properties if you intend to associate this ODB Network with a Database Connection to execute SQL on the database. Otherwise, you can skip this configuration.
+    * PROJECT_ID: the ID of the Google Cloud project that contains the network attachment.
+    * REGION: the region where your network attachment is located.
+    * NETWORK_ATTACHMENT_ID: the ID of the network attachment.
 
 
 
-After the ODB Network is created, you can create ODB Subnets.
+After you create the ODB Network, you can create ODB Subnets and custom DNS domains.
 
 ## Create an ODB Subnet
 
@@ -214,11 +264,169 @@ Address ranges must use a valid [CIDR notation](https://en.wikipedia.org/wiki/Cl
 
 
 
+## Enable service connectivity on an existing ODB Network
+
+To use Database Connections to execute SQL statements on your databases, you can enable service connectivity on an existing ODB Network by updating it. Oracle Database@Google Cloud uses Private Service Connect to establish private connectivity to the database.
+
+If you don't intend to associate this ODB Network with a Database Connection, don't enable service connectivity.
+
+Before enabling service connectivity, ensure that you have created a network attachment as described in Before you begin.
+
+Consider the following:
+
+  * You can't change the network attachment once set. You must remove it and set a new one or create a new ODB Network.
+  * You can't disable service connectivity if any Database Connection is using the ODB Network.
+  * Enabling service connectivity might take several minutes. Wait for the enable operation to complete before creating or using Database Connection.
+
+
+
+To enable service connectivity on an existing ODB Network, do the following:
+
+### Console
+
+  1. Go to the **ODB Network** page.
+
+[Go to ODB Network](https://console.cloud.google.com/oracle/odb-networks/)
+
+  2. Click the name of the ODB Network for which you want to enable service connectivity.
+
+  3. On the **ODB Network details** page, go to the **Google Cloud service connectivity** section, and click **Manage**.
+
+  4. On the **Google Cloud service connectivity** page, click the **Private Service Connect (PSC) interface** toggle to the on position.
+
+  5. Click **Save**.
+
+
+
+
+### gcloud
+
+Run the `gcloud oracle-database odb-networks update` command.
+    
+    
+    gcloud oracle-database odb-networks update ODB_NETWORK_ID \
+        --project=PROJECT_ID \
+        --location=REGION \
+        --psc-interface-config-network-attachment=projects/PROJECT_ID/regions/REGION/networkAttachments/NETWORK_ATTACHMENT_ID
+    
+
+Replace the following:
+
+  * ODB_NETWORK_ID: the ID of your ODB Network.
+  * PROJECT_ID: the ID of your Google Cloud project which contains the ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
+  * REGION: the region of your ODB Network.
+  * For `psc-interface-config-network-attachment` property, replace the following:
+
+    * PROJECT_ID: the ID of the Google Cloud project that contains the network attachment.
+    * REGION: the region where your network attachment is located.
+    * NETWORK_ATTACHMENT_ID: the ID of the network attachment.
+
+
+
+###  API 
+
+Run the following `curl` command:
+    
+    
+    curl -X PATCH \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    "https://oracledatabase.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID"
+    -d \
+    '{
+      "serviceConnectivityConfig": {
+        "pscInterfaceConfig": {
+          "networkAttachment": "projects/PROJECT_ID/regions/REGION/networkAttachments/NETWORK_ATTACHMENT_ID"
+        }
+      }
+    }'
+    
+
+Replace the following:
+
+  * PROJECT_ID: the ID of your Google Cloud project in which to create the ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
+  * REGION: the region in which to create the ODB Network.
+  * ODB_NETWORK_ID: the ID of your ODB Network.
+  * For `networkAttachment` and `pscInterfaceConfig` properties in `serviceConnectivityConfig`, replace the following:
+
+    * PROJECT_ID: the ID of the Google Cloud project that contains the network attachment.
+    * REGION: the region where your network attachment is located.
+    * NETWORK_ATTACHMENT_ID: the ID of the network attachment.
+
+
+
+## Disable service connectivity on an existing ODB Network
+
+If a Database Connection is using the ODB Network, then you can't disable service connectivity. First, delete the Database Connection, and then disable service connectivity.
+
+### Console
+
+  1. Go to the **ODB Network** page.
+
+[Go to ODB Network](https://console.cloud.google.com/oracle/odb-networks/)
+
+  2. Click the name of the ODB Network for which you want to disable service connectivity.
+
+  3. On the **ODB Network details** page, go to the **Google Cloud service connectivity** section, and click **Manage**.
+
+  4. On the **Google Cloud service connectivity** page, click the **Private Service Connect (PSC) interface** toggle to the off position.
+
+  5. Click **Save**.
+
+
+
+
+### gcloud
+
+Run the `gcloud oracle-database odb-networks update` command.
+    
+    
+    gcloud oracle-database odb-networks update ODB_NETWORK_ID \
+        --project=PROJECT_ID \
+        --location=REGION \
+        --clear-service-connectivity-config
+    
+
+Replace the following:
+
+  * ODB_NETWORK_ID: the ID of your ODB Network.
+  * PROJECT_ID: the ID of your Google Cloud project which contains the ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
+  * REGION: the region of your ODB Network.
+
+
+
+###  API 
+
+Run the following `curl` command:
+    
+    
+    curl -X PATCH \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    "https://oracledatabase.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/odbNetworks/ODB_NETWORK_ID?updateMask=serviceConnectivityConfig"
+    -d '{}'
+    
+
+Replace the following:
+
+  * PROJECT_ID: the ID of your Google Cloud project in which to create the ODB Network. If you're using a Shared VPC, then this is the ID of your host project.
+  * REGION: the region in which to create the ODB Network.
+  * ODB_NETWORK_ID: the ID of your ODB Network.
+  * For `networkAttachment` and `pscInterfaceConfig` properties in `serviceConnectivityConfig`, replace the following:
+
+    * PROJECT_ID: the ID of the Google Cloud project that contains the network attachment.
+    * REGION: the region where your network attachment is located.
+    * NETWORK_ATTACHMENT_ID: the ID of the network attachment.
+
+
+
 ## What's next
 
+  * [Create custom DNS domains](https://docs.cloud.google.com/oracle/database/docs/create-manage-custom-dns).
   * [Create Exadata Infrastructure](https://docs.cloud.google.com/oracle/database/docs/create-instances).
   * [Create Exadata VM Cluster](https://docs.cloud.google.com/oracle/database/docs/create-clusters).
   * [Create Autonomous AI Database](https://docs.cloud.google.com/oracle/database/docs/create-databases).
+  * [Create Database Connections](https://docs.cloud.google.com/oracle/database/docs/create-database-connection).
 
 
 
@@ -226,6 +434,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

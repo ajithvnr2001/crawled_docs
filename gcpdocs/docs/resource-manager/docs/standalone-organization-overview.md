@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/standalone-organization-overview/
 title: Set up standalone organizations \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:34.404624+00:00
+fetched_at: 2026-11-03T08:19:21.695466+00:00
 ---
 
 # Set up standalone organizations  |  Resource Manager  |  Google Cloud Documentation
@@ -21,17 +21,17 @@ Send feedback
 
 #  Set up standalone organizations Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide provides information about obtaining and managing a standalone organization within Google Cloud.
+Standalone organizations let you create and manage the root node of your Google Cloud resource hierarchy without Cloud Identity or a custom DNS domain. In most circumstances, creating an organization resource requires you to be a Cloud Identity super administrator and connect the Google Cloud organization to a DNS domain.
 
-The organization resource serves as the root node of your Google Cloud resource hierarchy. In most circumstances, creating an organization requires you to be a Cloud Identity super administrator and connect the Google Cloud organization to a DNS domain.
+With standalone organizations, you don't need Cloud Identity. When you sign up for Google Cloud with a Google email address, Google Cloud automatically creates the standalone organization for you and grants you the Organization Owner role. You can then use the **Organization details** page to manage ownership access for other users.
 
-With standalone organizations, you don't require Cloud Identity. When you sign up for Google Cloud and provide a Google email address, the standalone organization is automatically created for you. Being the account owner, you also acquire the Organization Owner role. You can then use the **Organization details** page to manage ownership access for other users.
+## Key benefits
 
 Standalone organizations offer the following benefits:
 
-  * Ability to add users with federated identities as organization owners.
-  * Ability to support multiple organizations to test different features.
-  * Ability to support multiple organization owners to avoid single points of failure if an employee leaves.
+  * Add users with federated identities as organization owners.
+  * Support multiple organizations to test different features.
+  * Assign multiple organization owners to avoid single points of failure if an employee leaves.
 
 
 
@@ -251,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

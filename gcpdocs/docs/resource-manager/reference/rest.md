@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/reference/rest/
 title: Cloud Resource Manager API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:20:24.772368+00:00
+fetched_at: 2026-11-03T05:47:43.982010+00:00
 ---
 
 # Cloud Resource Manager API  |  Google Cloud Documentation
@@ -23,13 +23,18 @@ Creates, reads, and updates metadata for Google Cloud Platform resource containe
 
   * REST Resource: v3.effectiveTags
   * REST Resource: v3.folders
+  * REST Resource: v3.folders.boundaries
   * REST Resource: v3.folders.capabilities
+  * REST Resource: v3.folders.capabilityConfigs
   * REST Resource: v3.liens
   * REST Resource: v3.locations.effectiveTagBindingCollections
   * REST Resource: v3.locations.tagBindingCollections
   * REST Resource: v3.operations
   * REST Resource: v3.organizations
+  * REST Resource: v3.organizations.boundaries
+  * REST Resource: v3.organizations.capabilityConfigs
   * REST Resource: v3.projects
+  * REST Resource: v3.projects.capabilityConfigs
   * REST Resource: v3.tagBindings
   * REST Resource: v3.tagKeys
   * REST Resource: v3.tagValues
@@ -87,6 +92,8 @@ Creates a folder in the resource hierarchy.
 Requests deletion of a folder.  
 `[get](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders/get)` |  `GET /v3/{name=folders/*}`   
 Retrieves a folder identified by the supplied resource name.  
+`[getBoundaryConfig](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders/getBoundaryConfig)` |  `GET /v3/{name=folders/*/boundaryConfig}`   
+Retrieves the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).  
 `[getIamPolicy](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders/getIamPolicy)` |  `POST /v3/{resource=folders/*}:getIamPolicy`   
 Gets the access control policy for a folder.  
 `[list](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders/list)` |  `GET /v3/folders`   
@@ -103,6 +110,23 @@ Sets the access control policy on a folder, replacing any existing policy.
 Returns permissions that a caller has on the specified folder.  
 `[undelete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders/undelete)` |  `POST /v3/{name=folders/*}:undelete`   
 Cancels the deletion request for a folder.  
+`[updateBoundaryConfig](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders/updateBoundaryConfig)` |  `PATCH /v3/{boundaryConfig.name=folders/*/boundaryConfig}`   
+Updates the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).  
+  
+## REST Resource: [v3.folders.boundaries](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.boundaries)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.boundaries/create)` |  `POST /v3/{parent=folders/*}/boundaries`   
+Creates a Boundary under a parent Folder or Organization.  
+`[delete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.boundaries/delete)` |  `DELETE /v3/{name=folders/*/boundaries/*}`   
+Deletes the Boundary identified by the specified `name` (for example, `folders/123456789/boundaries/my-boundary`).  
+`[get](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.boundaries/get)` |  `GET /v3/{name=folders/*/boundaries/*}`   
+Retrieves the Boundary identified by the specified `name` (for example, `folders/123456789/boundaries/my-boundary`).  
+`[list](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.boundaries/list)` |  `GET /v3/{parent=folders/*}/boundaries`   
+Lists Boundaries that are direct children of the specified organization or folder resource.  
+`[patch](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.boundaries/patch)` |  `PATCH /v3/{boundary.name=folders/*/boundaries/*}`   
+Updates the `display_name` and `resource_filter.tag_filter.tag_value` of the Boundary identified by the specified `name` (for example, `folders/123456789/boundaries/my-boundary`).  
   
 ## REST Resource: [v3.folders.capabilities](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilities)
 
@@ -112,6 +136,21 @@ Methods
 Retrieves the Capability identified by the supplied resource name.  
 `[patch](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilities/patch)` |  `PATCH /v3/{capability.name=folders/*/capabilities/*}`   
 Updates the Capability.  
+  
+## REST Resource: [v3.folders.capabilityConfigs](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilityConfigs)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilityConfigs/create)` |  `POST /v3/{parent=folders/*}/capabilityConfigs`   
+Creates a CapabilityConfig under a parent Organization, Folder or Project.  
+`[delete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilityConfigs/delete)` |  `DELETE /v3/{name=folders/*/capabilityConfigs/*}`   
+Deletes the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
+`[get](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilityConfigs/get)` |  `GET /v3/{name=folders/*/capabilityConfigs/*}`   
+Retrieves the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
+`[list](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilityConfigs/list)` |  `GET /v3/{parent=folders/*}/capabilityConfigs`   
+Lists CapabilityConfigs that are direct children of the specified organization, folder or project resource.  
+`[patch](https://docs.cloud.google.com/resource-manager/reference/rest/v3/folders.capabilityConfigs/patch)` |  `PATCH /v3/{capabilityConfig.name=folders/*/capabilityConfigs/*}`   
+Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
   
 ## REST Resource: [v3.liens](https://docs.cloud.google.com/resource-manager/reference/rest/v3/liens)
 
@@ -155,6 +194,8 @@ Methods
 ---  
 `[get](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations/get)` |  `GET /v3/{name=organizations/*}`   
 Fetches an organization resource identified by the specified resource name.  
+`[getBoundaryConfig](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations/getBoundaryConfig)` |  `GET /v3/{name=organizations/*/boundaryConfig}`   
+Retrieves the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).  
 `[getIamPolicy](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations/getIamPolicy)` |  `POST /v3/{resource=organizations/*}:getIamPolicy`   
 Gets the access control policy for an organization resource.  
 `[search](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations/search)` |  `GET /v3/organizations:search`   
@@ -163,6 +204,38 @@ Searches organization resources that are visible to the user and satisfy the spe
 Sets the access control policy on an organization resource.  
 `[testIamPermissions](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations/testIamPermissions)` |  `POST /v3/{resource=organizations/*}:testIamPermissions`   
 Returns the permissions that a caller has on the specified organization.  
+`[updateBoundaryConfig](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations/updateBoundaryConfig)` |  `PATCH /v3/{boundaryConfig.name=organizations/*/boundaryConfig}`   
+Updates the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).  
+  
+## REST Resource: [v3.organizations.boundaries](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.boundaries)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.boundaries/create)` |  `POST /v3/{parent=organizations/*}/boundaries`   
+Creates a Boundary under a parent Folder or Organization.  
+`[delete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.boundaries/delete)` |  `DELETE /v3/{name=organizations/*/boundaries/*}`   
+Deletes the Boundary identified by the specified `name` (for example, `folders/123456789/boundaries/my-boundary`).  
+`[get](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.boundaries/get)` |  `GET /v3/{name=organizations/*/boundaries/*}`   
+Retrieves the Boundary identified by the specified `name` (for example, `folders/123456789/boundaries/my-boundary`).  
+`[list](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.boundaries/list)` |  `GET /v3/{parent=organizations/*}/boundaries`   
+Lists Boundaries that are direct children of the specified organization or folder resource.  
+`[patch](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.boundaries/patch)` |  `PATCH /v3/{boundary.name=organizations/*/boundaries/*}`   
+Updates the `display_name` and `resource_filter.tag_filter.tag_value` of the Boundary identified by the specified `name` (for example, `folders/123456789/boundaries/my-boundary`).  
+  
+## REST Resource: [v3.organizations.capabilityConfigs](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.capabilityConfigs)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.capabilityConfigs/create)` |  `POST /v3/{parent=organizations/*}/capabilityConfigs`   
+Creates a CapabilityConfig under a parent Organization, Folder or Project.  
+`[delete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.capabilityConfigs/delete)` |  `DELETE /v3/{name=organizations/*/capabilityConfigs/*}`   
+Deletes the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
+`[get](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.capabilityConfigs/get)` |  `GET /v3/{name=organizations/*/capabilityConfigs/*}`   
+Retrieves the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
+`[list](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.capabilityConfigs/list)` |  `GET /v3/{parent=organizations/*}/capabilityConfigs`   
+Lists CapabilityConfigs that are direct children of the specified organization, folder or project resource.  
+`[patch](https://docs.cloud.google.com/resource-manager/reference/rest/v3/organizations.capabilityConfigs/patch)` |  `PATCH /v3/{capabilityConfig.name=organizations/*/capabilityConfigs/*}`   
+Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
   
 ## REST Resource: [v3.projects](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects)
 
@@ -190,6 +263,21 @@ Sets the IAM access control policy for the specified project, in the format `pro
 Returns permissions that a caller has on the specified project, in the format `projects/{ProjectIdOrNumber}` e.g.  
 `[undelete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects/undelete)` |  `POST /v3/{name=projects/*}:undelete`   
 Restores the project identified by the specified `name` (for example, `projects/415104041262`).  
+  
+## REST Resource: [v3.projects.capabilityConfigs](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects.capabilityConfigs)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects.capabilityConfigs/create)` |  `POST /v3/{parent=projects/*}/capabilityConfigs`   
+Creates a CapabilityConfig under a parent Organization, Folder or Project.  
+`[delete](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects.capabilityConfigs/delete)` |  `DELETE /v3/{name=projects/*/capabilityConfigs/*}`   
+Deletes the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
+`[get](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects.capabilityConfigs/get)` |  `GET /v3/{name=projects/*/capabilityConfigs/*}`   
+Retrieves the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
+`[list](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects.capabilityConfigs/list)` |  `GET /v3/{parent=projects/*}/capabilityConfigs`   
+Lists CapabilityConfigs that are direct children of the specified organization, folder or project resource.  
+`[patch](https://docs.cloud.google.com/resource-manager/reference/rest/v3/projects.capabilityConfigs/patch)` |  `PATCH /v3/{capabilityConfig.name=projects/*/capabilityConfigs/*}`   
+Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig identified by the specified `name` (for example, `folders/123456789/capabilityConfigs/my-capability-config`).  
   
 ## REST Resource: [v3.tagBindings](https://docs.cloud.google.com/resource-manager/reference/rest/v3/tagBindings)
 
@@ -461,6 +549,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-09 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

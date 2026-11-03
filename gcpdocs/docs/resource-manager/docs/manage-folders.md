@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/manage-folders/
 title: View, update, and delete folders \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:14.405278+00:00
+fetched_at: 2026-11-03T08:19:02.603928+00:00
 ---
 
 # View, update, and delete folders  |  Resource Manager  |  Google Cloud Documentation
@@ -44,6 +44,8 @@ To list folders or to view metadata for a specific folder, such as its display n
 
 
 
+For information about how the **Manage resources** page calculates the **Last accessed** timestamp for folders and projects, see [Understand the Last accessed timestamp](https://docs.cloud.google.com/resource-manager/docs/view-update-projects#last-accessed).
+
 **Using the project picker**
 
 The project picker is located in the navigation bar and isn't part of the main Resource Manager page interface. Use it to switch your active global context to a specific project or folder.
@@ -58,7 +60,7 @@ The project picker is located in the navigation bar and isn't part of the main R
 
 ### gcloud
 
-To get details of one folder, use the `resource-manager folders describe` command.
+To get details of one folder, use the [`gcloud resource-manager folders describe`](https://docs.cloud.google.com/sdk/gcloud/reference/resource-manager/folders/describe) command:
     
     
     gcloud resource-manager folders describe FOLDER_ID
@@ -66,29 +68,29 @@ To get details of one folder, use the `resource-manager folders describe` comman
 
 Replace `FOLDER_ID` with the ID of the folder you want to view.
 
-To list the child folders of an organization resource, use the `resource-manager folders list` command.
+To list the child folders of an organization resource, use the [`gcloud resource-manager folders list`](https://docs.cloud.google.com/sdk/gcloud/reference/resource-manager/folders/list) command:
     
     
     gcloud resource-manager folders list \
-        --organization ORGANIZATION_ID
+        --organization=ORGANIZATION_ID
     
 
 Replace `ORGANIZATION_ID` with the ID of the organization resource for which you want to see a list of child folders.
 
-To list the child folders of a folder resource, use the `resource-manager folders list` command.
+To list the child folders of a folder resource, use the [`gcloud resource-manager folders list`](https://docs.cloud.google.com/sdk/gcloud/reference/resource-manager/folders/list) command:
     
     
     gcloud resource-manager folders list \
-        --folder FOLDER_ID
+        --folder=FOLDER_ID
     
 
 Replace `FOLDER_ID` with the ID of the folder resource for which you want to see a list of child folders.
 
-To list the projects under an organization or folder resource or folder, use the `projects list` command with the `filter` argument.
+To list the projects under an organization or folder resource, use the [`gcloud projects list`](https://docs.cloud.google.com/sdk/gcloud/reference/projects/list) command with the `--filter` flag:
     
     
     gcloud projects list \
-        --filter=" parent.id: 'RESOURCE_ID' "
+        --filter="parent.id='RESOURCE_ID'"
     
 
 Replace `RESOURCE_ID` with the ID of the organization or folder resource for which you want to see a list of child projects.
@@ -138,10 +140,11 @@ To update a folder's display name, you must have the Folder Editor role (`roles/
 
 ### gcloud
 
-To update a folder's display name:
+To update a folder's display name, use the [`gcloud resource-manager folders update`](https://docs.cloud.google.com/sdk/gcloud/reference/resource-manager/folders/update) command:
     
     
-    gcloud resource-manager folders update FOLDER_ID --display-name="NEW_DISPLAY_NAME"
+    gcloud resource-manager folders update FOLDER_ID \
+       --display-name="NEW_DISPLAY_NAME"
 
 Replace the following:
 
@@ -263,7 +266,7 @@ To move a folder under another folder:
 Replace the following:
 
   * `FOLDER_ID`: the ID of the folder you want to move.
-  * `PARENT_ID`: the ID of the parent organization resource or folder.
+  * `PARENT_ID`: the ID of the parent folder.
 
 
 
@@ -445,24 +448,27 @@ Prerequisites and constraints
 
 ### Search
 
-To search for folders matching the specified query, use `gcloud alpha resource-manager folders search`, passing the condition in the `--query` flag. The scope of search is all the folders for which the user has view permission.
+To search for folders that match a specific query, use the [`gcloud alpha resource-manager folders search`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/resource-manager/folders/search) command and pass your search condition in the `--query` flag. The search scope includes all folders that you have permission to view.
+
+For example, to search for folders with display names that start with `vij`, such as `vijeta` or `vijay-folder`, run the following command:
     
     
-    gcloud alpha resource-manager folders search --query="name:vij*"
-    <table output showing the folders with names starting from vij eg. vijeta, vijay-folder>
+    gcloud alpha resource-manager folders search --query="displayName:vij*"
+    
+
+To search for folders that are pending deletion, run the following command:
+    
     
     gcloud alpha resource-manager folders search --query="state:DELETE_REQUESTED"
-    <table output showing folders for which delete has been requested>
     
 
-All folders for which the user has view permission can be shown using the `gcloud folders search` command.
+To return all folders that you have permission to view, run the `gcloud alpha resource-manager folders search` command without the `--query` flag:
     
     
-    gcloud folders search
-    <table output showing all viewable folders>
+    gcloud alpha resource-manager folders search
     
 
-**Note:** The search command is in alpha and can be changed without notice.
+**Note:** The `gcloud alpha resource-manager folders search` command is in alpha and might change without notice.
 
 ## What's next
 
@@ -475,6 +481,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

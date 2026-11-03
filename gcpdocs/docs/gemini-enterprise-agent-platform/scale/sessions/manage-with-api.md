@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api/
 title: Manage sessions using Google Cloud console or API calls \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:26.510105+00:00
+fetched_at: 2026-11-03T05:46:14.567257+00:00
 ---
 
 # Manage sessions using Google Cloud console or API calls  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -50,6 +50,15 @@ Replace the following:
 
   * PROJECT_ID: Your project ID.
   * LOCATION: Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Sessions.
+
+
+
+### Multi-regional, global, and enterprise security options
+
+Sessions supports regional, multi-regional (`us` and `eu`), and global (`global`) endpoints. Keep the following security and encryption requirements in mind when choosing a location and creating your instance:
+
+  * **Customer-managed encryption keys (CMEK)** : You can't use CMEK if your Sessions instance is configured to use the `global` endpoint (`location="global"`), because Cloud Key Management Service (Cloud KMS) requires encryption keys to reside within a geographic data residency boundary. To encrypt session data with a Cloud KMS key, create a standalone parent instance (without deploying agent runtime code) in a supported regional or multi-regional location (`us` with a `us` key, or `eu` with a `europe` key) and pass `encryption_spec` when creating the parent instance. Instances that also deploy an agent on Agent Runtime support CMEK only in single-region locations. For details, see [CMEK for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#cmek).
+  * **VPC Service Controls (VPC Service Controls)** : To protect your Sessions resources inside a service perimeter or route session traffic through Agent Gateway, see [VPC Service Controls for Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions#vpc-sc).
 
 
 
@@ -677,6 +686,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

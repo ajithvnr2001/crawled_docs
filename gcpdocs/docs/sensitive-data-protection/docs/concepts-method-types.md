@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-method-types/
 title: Method types \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:11.910332+00:00
+fetched_at: 2026-11-03T08:19:26.586263+00:00
 ---
 
 # Method types  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ The following are some common use cases:
 
   * **Inspect user input in real time** : Scan form fields, chat messages, or feedback submissions synchronously within web and mobile applications before storing data in databases.
   * **Mask sensitive text before external processing** : De-identify or redact sensitive tokens from text strings synchronously before passing content to third-party APIs or large language models (LLMs).
-  * **Redact sensitive data from uploaded images** : Obfuscate sensitive text in image formats (such as JPEG, PNG, or TIFF) by overlaying opaque rectangles on detected PII before displaying or storing the image.
+  * **Redact sensitive data from uploaded images** : Obfuscate sensitive text in image formats (such as JPEG, PNG, or BMP) by overlaying opaque rectangles on detected PII before displaying or storing the image.
   * **Re-identify tokenized data on demand** : De-tokenize previously pseudonymized tokens in authorized server-side workflows when an authenticated business user requires access to the original plaintext.
   * **Validate data privacy in client-side applications** : Run stateless privacy checks on endpoints without provisioning cloud storage repositories or configuring backend job infrastructure.
 
@@ -186,6 +186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

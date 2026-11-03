@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/configure-global-fw-policies/
 title: Configure a global network firewall policy to enable ingress traffic \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:59.704155+00:00
+fetched_at: 2026-11-03T08:19:01.633756+00:00
 ---
 
 # Configure a global network firewall policy to enable ingress traffic  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -311,28 +311,28 @@ In this section, you create a global network firewall policy with the following:
 
   2. Click **Create firewall policy**.
 
-  3. In the **Configure policy** section, for **Policy name** , enter `fw-policy`.
+  3. In the **Configure policy** step, for **Policy name** , enter `fw-policy`.
 
   4. For **Deployment scope** , select **Global** and click **Continue**.
 
-  5. To create rules for your policy, in the **Add rules** section, click **Add rule**.
+  5. In the **Add rules** step, click **Create firewall rule**.
 
      1. For **Priority** , enter `65534`.
      2. For **Direction of traffic** , select **Egress**.
-     3. For **Logs** , select **On**.
-     4. In the **Target** section, for **Target type** , select **All instances in the network**.
-     5. In the **Destination** section, for **IP ranges** , enter `0.0.0.0/0`.
-     6. In the **Protocol and ports** section, select **Allow all**.
-     7. Click **Create**.
+     3. For **Logs** , select **Enabled**.
+     4. In the **Destination** section, for **IP ranges** , enter `0.0.0.0/0`.
+     5. Click **Create**.
   6. Click **Continue**.
 
-  7. To associate a VPC network with the policy, in the **Associate policy with VPC networks** section, click **Associate**.
+  7. In the **Add mirroring rules** step, click **Continue**.
 
-  8. Select the checkbox of **`vpc-fw-rules`** and click **Associate**.
+  8. In the **Associate policy with networks** step, click **Associate**.
 
-  9. Click **Continue**.
+  9. In the **Associate policy with VPC networks** pane, select the checkbox of **`vpc-fw-rules`** and click **Associate**.
 
-  10. Click **Create**.
+  10. Click **Continue**.
+
+  11. Click **Create**.
 
 
 
@@ -394,23 +394,19 @@ To allow RDP and SSH access to all VM instances in the **vpc-fw-rules** network,
 
   2. In the **Network firewall policies** section, click **`fw-policy`**.
 
-  3. Click **Create rule**.
+  3. Click **Create firewall rule**.
 
   4. For **Priority** , enter `500`.
 
-  5. For **Direction of traffic** , select **Ingress**.
+  5. For **Logs** , select **Enabled**.
 
-  6. For **Logs** , select **On**.
+  6. In the **Source** section, for **IP ranges** , enter `35.235.240.0/20`.
 
-  7. In the **Target** section, for **Target type** , select **All instances in the network**.
+  7. In the **Protocols and ports** section, select **Specified protocols and ports**.
 
-  8. In the **Source** section, for **IP ranges** , enter `35.235.240.0/20`.
+  8. Select the **TCP** checkbox, and for **Ports** , enter `22,3389`.
 
-  9. In the **Protocols and ports** section, select **Specified protocols and ports**.
-
-  10. Select the **TCP** checkbox, and for **Ports** , enter `22` and `3389` separated by a comma.
-
-  11. Click **Create**.
+  9. Click **Create**.
 
 
 
@@ -504,25 +500,21 @@ In this section, you update the global network firewall policy to allow internal
 
   2. In the **Network firewall policies** section, click **`fw-policy`**.
 
-  3. Click **Create rule**.
+  3. Click **Create firewall rule**.
 
   4. For **Priority** , enter `501`.
 
-  5. For **Direction of traffic** , select **Ingress**.
+  5. For **Logs** , select **Enabled**.
 
-  6. For **Logs** , select **On**.
-
-  7. In the **Target** section, for **Target type** , select **All instances in the network**.
-
-  8. In the **Source** section, for **IP ranges** , enter `192.168.10.0/24`.
+  6. In the **Source** section, for **IP ranges** , enter `192.168.10.0/24`.
 
 Remember, the IP range `192.168.10.0/24` is assigned to **subnet-fw-rules-client**.
 
-  9. In the **Destination** section, for **IP type** , select **IPv4**. In **IP ranges** , specify `10.0.0.0/24`.
+  7. In the **Destination** section, for **IP ranges** , enter `10.0.0.0/24`.
 
 Remember, the IP range `10.0.0.0/24` is assigned to **subnet-fw-rules-server**.
 
-  10. Click **Create**.
+  8. Click **Create**.
 
 
 
@@ -728,6 +720,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

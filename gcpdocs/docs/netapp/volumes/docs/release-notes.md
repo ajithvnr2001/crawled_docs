@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/netapp/volumes/docs/release-notes/
 title: Google Cloud NetApp Volumes release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:23.201639+00:00
+fetched_at: 2026-11-03T08:19:00.850400+00:00
 ---
 
 # Google Cloud NetApp Volumes release notes  |  Google Cloud Documentation
@@ -26,6 +26,21 @@ This page documents production updates to Google Cloud NetApp Volumes. Check thi
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/netappvolumes-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Announcement
+
+Google Cloud NetApp Volumes now supports the Flex Unified service level, including custom performance, in the following regions:
+
+  * northamerica-northeast1 (Montréal)
+
+  * northamerica-northeast2 (Toronto)
+
+
+
+
+For more information about available regions, see [Supported regions](https://docs.cloud.google.com/netapp/volumes/docs/discover/service-levels#supported_regions).
 
 ## October 15, 2026
 

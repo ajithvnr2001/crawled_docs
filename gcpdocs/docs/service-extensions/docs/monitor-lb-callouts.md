@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts/
 title: Logging and monitoring for Cloud Load Balancing callouts \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:51.365123+00:00
+fetched_at: 2026-11-03T08:19:04.111507+00:00
 ---
 
 # Logging and monitoring for Cloud Load Balancing callouts  |  Service Extensions  |  Google Cloud Documentation
@@ -135,36 +135,36 @@ For more information, see the "Monitor and troubleshoot" pages of the Applicatio
 
 You can monitor the following metrics for callout backend services.
 
-In [Preview](https://docs.cloud.google.com/products#product-launch-stages), you can monitor the following metrics for extensions on all types of Application Load Balancers. These metrics have the prefix `networkservices.googleapis.com`. The prefix is omitted from the entries in the following table.
+In [Preview](https://docs.cloud.google.com/products#product-launch-stages), you can monitor the following metrics for extensions on all types of Application Load Balancers. These metrics have the prefix `networkservices.googleapis.com/extension`. The prefix is omitted from the entries in the following table.
 
-The following table provides the metric type, display name, kind, type, unit, and description for each metric.
+The following table provides the metric type, display name, kind, type, unit, and description for each metric:
 
 Metric type | Display name   
 Kind, Type, Unit   
 Description  
 ---|---  
-`extension/invocation_count` | Extension invocation count   
+`invocation_count` | Extension invocation count   
 `DELTA`, `INT64`, `1`   
 The number of invocations sent to the extension.  
-`extension/invocation_latencies` | Extension invocation latencies   
+`invocation_latencies` | Extension invocation latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 The distribution calculated from the latency of each extension invocation. Applicable only for callout extensions; not supported for plugins.  
-`extension/sent_chunks_count` | Extension sent chunks count   
+`sent_chunks_count` | Extension sent chunks count   
 `DELTA`, `INT64`, `1`   
 Applicable only for `request_body` and `response_body` events. The number of data chunks sent to the extension.  
-`extension/received_chunks_count` | Extension received chunks count   
+`received_chunks_count` | Extension received chunks count   
 `DELTA`, `INT64`, `1`   
 Applicable only for `request_body` and `response_body` events. The number of chunks received from the extension.  
-`extension/failed_open_count` | Extension failed invocations with fail-open   
+`failed_open_count` | Extension failed invocations with fail-open   
 `DELTA`, `INT64`, `1`   
 The number of times that an invocation failed when the system was configured to fail open and the request was allowed to proceed.  
-`extension/mutation_rejections_count` | Extension mutation rejections count   
+`mutation_rejections_count` | Extension mutation rejections count   
 `DELTA`, `INT64`, `1`   
 The number of invocations that requested header, body, or trailer mutations but were rejected. Rejections can occur for a variety of reasons, such as when the mutation is invalid or exceeds size limits.  
-`extension/sent_bytes_count` | Extension sent bytes count   
+`sent_bytes_count` | Extension sent bytes count   
 `DELTA`, `INT64`, `By`   
 The number of bytes sent to the extension.  
-`extension/received_bytes_count` | Extension received bytes count   
+`received_bytes_count` | Extension received bytes count   
 `DELTA`, `INT64`, `By`   
 The number of bytes received from the extension.  
   
@@ -205,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

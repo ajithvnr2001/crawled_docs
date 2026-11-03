@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-create-overrides/
 title: Step 7: Create the overrides \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:39.793859+00:00
+fetched_at: 2026-11-03T05:46:03.565187+00:00
 ---
 
 # Step 7: Create the overrides  |  Apigee  |  Google Cloud Documentation
@@ -63,6 +63,7 @@ We recommend you review the following scenarios to determine if you want to conf
   * Apigee hybrid provides default passwords for the Cassandra users. Apigee recommends changing the default user passwords. See [Configuring TLS for Cassandra](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/cassandra-tls) for details. 
   * If you want to configure the storage and heap settings for Cassandra, see [ Configure storage and heap settings](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/cassandra-production). 
   * As described in [Part 1: Project and Org setup--Step 1: Enable APIs](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/precog-enableapi), For production installation scenarios, configure [persistent solid state disk (SSD)](https://docs.cloud.google.com/compute/docs/disks#pdspecs) storage for Cassandra. Apigee does not support using [local SSDs](https://docs.cloud.google.com/compute/docs/disks#localssds) for Apigee hybrid. For details, see [Add SSD storage for production deployments](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/cassandra-production#add-ssd-storage-for-production-deployments). 
+  * If you are using a private image repository with a registry mirror that uses custom namespaces, ensure that your cluster's mirror registry configuration and the image paths in your `overrides.yaml` do not conflict or create duplicated paths. For example, if your cluster's registry endpoint requires a `v2/namespace` prefix, do not duplicate the `v2/` or the namespace in the `overrides.yaml` global `hub` parameter or individual `image.url` properties. Duplicating these paths can result in a malformed URL, causing `ErrImagePull` or `401 UNAUTHORIZED` errors. See [About the use of v2 in the registry endpoint](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/registry-mirror#namespaces_v2).
 
 
 
@@ -4878,6 +4879,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

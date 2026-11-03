@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/limits/
 title: Quotas and limits \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:21.173959+00:00
+fetched_at: 2026-11-03T08:19:21.996905+00:00
 ---
 
 # Quotas and limits  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -202,6 +202,16 @@ Maximum size of a single Powerpoint file in Cloud Storage. Files exceeding this 
   
 These limits apply on these file types even if you set a [maximum byte size per file](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types#max-byte-size-per-file).
 
+## TIFF scanning limits
+
+The following limit applies to inspect content requests, inspect storage jobs, and discovery scans for TIFF images, including multi-page TIFF images:
+
+Type of limit | Usage limit  
+---|---  
+Maximum number of pages in a single TIFF image | 50  
+  
+TIFF images that exceed this limit can't be inspected. For more information, see [Inspect a multi-page TIFF image](https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images#inspect-tiff).
+
 ## Quota increases
 
 You can edit your quotas up to their maximum values on the [**Quotas & System Limits**](https://console.cloud.google.com/iam-admin/quotas?pageState=\(%22allQuotasTable%22:\(%22f%22:%22%255B%257B_22k_22_3A_22Service_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22Sensitive%2520Data%2520Protection%2520%2528DLP%2529_5C_22_22_2C_22s_22_3Atrue_2C_22i_22_3A_22serviceTitle_22%257D%255D%22\)\)) page for your project. To request an increase in quota, edit your quota with your requested increase and justification and submit your update. You are notified when your request is received. You might be contacted for more information regarding your request. After your request is reviewed, you are notified whether it has been approved or denied.
@@ -229,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

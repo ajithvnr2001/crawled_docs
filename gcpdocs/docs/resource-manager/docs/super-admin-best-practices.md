@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/super-admin-best-practices/
 title: Super administrator account best practices \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:35.365990+00:00
+fetched_at: 2026-11-03T08:19:21.569827+00:00
 ---
 
 # Super administrator account best practices  |  Resource Manager  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Super administrator account best practices Stay organized with collections  Save and categorize content based on your preferences. 
 
-To configure your Google Cloud organization resource, you need to use a Google Workspace or Cloud Identity super admin account. This page describes best practices for using your Google Workspace or Cloud Identity super admin accounts with your Google Cloud organization resource.
+You can securely configure and manage your Google Cloud organization resource by applying recommended practices to your Google Workspace or Cloud Identity super administrator accounts. When you secure these high-privilege accounts, you enforce separation of privileges and protect your organization against unauthorized access.
 
 ## Account types
 
@@ -81,6 +81,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

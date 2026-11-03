@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/asmcli-reference/
 title: asmcli reference \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:50:56.300980+00:00
+fetched_at: 2026-11-03T05:47:18.411748+00:00
 ---
 
 # asmcli reference  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -147,7 +147,7 @@ To add multiple files, specify `-o|--option` and the filename, for example: `-o 
 `-D|--output_dir DIR_PATH`
     
 
-If not specified, `asmcli` creates a temporary directory where it downloads files and configurations necessary for installing Cloud Service Mesh. Specify the `--output-dir` flag to specify a relative path to a directory to use instead. Upon completion, the specified directory contains the `asm` and the `istio-1.31.1-asm.19` subdirectories. The `asm` directory contains the configuration for the installation. The `istio-1.31.1-asm.19` directory contains the extracted contents of installation file, which contains `istioctl`, samples, and manifests. If you specify `--output-dir` and the directory already contains the necessary files, `asmcli` uses those files instead of downloading them again.
+If not specified, `asmcli` creates a temporary directory where it downloads files and configurations necessary for installing Cloud Service Mesh. Specify the `--output-dir` flag to specify a relative path to a directory to use instead. Upon completion, the specified directory contains the `asm` and the `istio-1.31.3-asm.3` subdirectories. The `asm` directory contains the configuration for the installation. The `istio-1.31.3-asm.3` directory contains the extracted contents of installation file, which contains `istioctl`, samples, and manifests. If you specify `--output-dir` and the directory already contains the necessary files, `asmcli` uses those files instead of downloading them again.
 
 `--platform PLATFORM {gcp|multicloud}`
     
@@ -157,7 +157,7 @@ The platform or the provider of the Kubernetes cluster. Defaults to `gcp` (for G
 `-r|--revision_name REVISION NAME`
     
 
-A [revision label](https://docs.cloud.google.com/service-mesh/docs/revisions-overview) is a key-value pair that is set on the control plane. The revision label key is always `istio.io/rev`. By default, `asmcli` sets the value for the revision label based on the Cloud Service Mesh version, for example: `asm-1311-19`. Include this option if you want to override the default value and specify your own. The `REVISION NAME` argument must be a [DNS-1035 label](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#rfc-1035-label-names). This means the name must:
+A [revision label](https://docs.cloud.google.com/service-mesh/docs/revisions-overview) is a key-value pair that is set on the control plane. The revision label key is always `istio.io/rev`. By default, `asmcli` sets the value for the revision label based on the Cloud Service Mesh version, for example: `asm-1313-3`. Include this option if you want to override the default value and specify your own. The `REVISION NAME` argument must be a [DNS-1035 label](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#rfc-1035-label-names). This means the name must:
 
   * contain at most 63 characters
   * contain only lowercase alphanumeric characters or '-'
@@ -265,6 +265,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

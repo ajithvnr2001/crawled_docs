@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:43:02.909025+00:00
+fetched_at: 2026-11-03T08:19:25.239947+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -24,6 +24,326 @@ You can also see and filter all release notes in the [Google Cloud console](http
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
 
+## November 02, 2026
+
+**Agent Platform Workbench**
+
+Change
+
+### 20261101.00_p0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Upgraded the container host to the latest Container-Optimized OS LTS release, rebasing onto the newest operating system, Go, and containerd security fixes.
+
+Security
+
+Updated the CA certificate configuration.
+
+Change
+
+### 20261101.00_p0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Upgraded the container host to the latest Container-Optimized OS LTS release, rebasing onto the newest operating system, Go, and containerd security fixes.
+
+Security
+
+Updated the CA certificate configuration.
+
+**AlloyDB for PostgreSQL**
+
+Feature
+
+You can now tune SQL queries using AI. Available starting with version 1.6.2 of the `google_ml_integration` extension, the `ai.tune_sql` function uses an LLM along with query execution plans, schemas, and runtime stats to recommend query optimizations. The function identifies performance bottlenecks and provides recommendations for query rewrites, indexes, statistics collection, Grand Unified Configuration (GUC) flags, and table analyze and vacuum operations. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+For more information, see [Tune SQL queries using AI](https://docs.cloud.google.com/alloydb/docs/tune-sql-queries-ai) and [Database advisor flags](https://docs.cloud.google.com/alloydb/docs/reference/database-advisor-flags).
+
+**Apigee X**
+
+Announcement
+
+On November 2, 2026, we released an updated version of Apigee.
+
+**Note:** Rollouts of this release began today and may take four or more business days to be completed across all Google Cloud zones. Your instances may not have the features and fixes available until the rollout is complete.
+
+Feature
+
+**EKM health monitoring**
+
+You can now monitor EKM health and configure alerts for EKM-related issues using Cloud Logging. For more information, see [EKM health monitoring](https://docs.cloud.google.com/apigee/docs/api-platform/security/ekm-monitoring).
+
+**App Engine flexible environment Python**
+
+Feature
+
+Support for the [Python 3.15 runtime](https://docs.cloud.google.com/appengine/docs/flexible/python/runtime) is in [Preview](https://cloud.google.com/products/#product-launch-stages).
+
+**App Engine standard environment Python**
+
+Feature
+
+Support for the [Python 3.15 runtime](https://docs.cloud.google.com/appengine/docs/standard/python3/runtime) is in [Preview](https://cloud.google.com/products/#product-launch-stages).
+
+**BigQuery**
+
+Feature
+
+_Lakehouse_ [caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching) for cross-cloud data access is [generally available](https://cloud.google.com/products/#product-launch-stages) (GA). Cross-cloud caching is disabled by default. You can opt in to caching on a Lakehouse federated catalog or a BigQuery cross-cloud connection to cache remote files in your Google Cloud region. This helps reduce cross-cloud egress costs and accelerate subsequent queries.
+
+For more information, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching) and [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
+
+Feature
+
+You can now [monitor](https://docs.cloud.google.com/bigquery/docs/create-data-agents#monitor_agents_and_conversations) the performance, adoption, latency, and costs of your data agents and their conversations by using Google Cloud Observability in BigQuery. This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+You can use the [`AI.PARSE_DOCUMENT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-parse-document) to extract layout elements such as titles, headings, paragraphs, lists, tables, and images by using the Document AI layout parser to convert unstructured documents into structured `JSON` data.
+
+This function is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+The [`SECURE_CONTEXT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/security_functions#secure_context) is now available in [Preview](https://cloud.google.com/products#product-launch-stages). `SECURE_CONTEXT` returns the value of a request-scoped secure context parameter provided at query runtime, allowing logical views to dynamically filter and evaluate data based on context variables such as user attributes, department IDs, or tenant identifiers.
+
+Feature
+
+The Data Engineering Agent now supports [BigQuery AI, ML, and object functions and statements in generated Dataform SQLX pipelines and agent instruction files](https://docs.cloud.google.com/bigquery/docs/data-engineering-agent-pipelines#bigquery-ai-ml-support).
+
+This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+**Cloud Load Balancing**
+
+Feature
+
+Distributed tracing with Cloud Trace is available in [Preview](https://cloud.google.com/products#product-launch-stages) for Global external Application Load Balancers, Regional external Application Load Balancers, Regional internal Application Load Balancers, and Cross-region internal Application Load Balancers. Attach a telemetry policy to a load balancer's forwarding rule to generate trace spans that conform to W3C Trace Context and OpenTelemetry, and get end-to-end visibility into requests from clients through the load balancer to your backends. For more information, see [Distributed tracing overview](https://docs.cloud.google.com/load-balancing/docs/distributed-tracing-overview).
+
+Feature
+
+For mutual TLS (mTLS) on Application Load Balancers, frontend mTLS validation relaxations are **generally available**.
+
+The `ALLOW_VALIDATION_RELAXATIONS` client validation mode on the Client Authentication (`ServerTlsPolicy`) resource allows you to configure specific X.509 certificate validation exceptions to standard client certificate validation rules. This simplifies migrations of legacy workloads while maintaining an active security posture.
+
+This mode supports the following client certificate validation relaxation parameters:
+
+  * `ALLOW_MISSING_EKU`: Bypasses Extended Key Usage validation if the EKU extension is absent in the client certificate.
+
+  * `ALLOW_SHA1_HASHING`: Permits client certificates signed with the legacy SHA-1 algorithm.
+
+  * `ALLOW_EXPIRED_LEAF_CERTIFICATE`: Evaluates expired leaf certificates by validating them as of 1 second prior to their actual expiration time.
+
+
+
+
+This feature is available for all Application Load Balancer types.
+
+For more information, see [Client validation modes](https://docs.cloud.google.com/load-balancing/docs/mtls#client-validation-mode).
+
+**Cloud NGFW**
+
+Feature
+
+Advanced malware sandbox (WildFire) integrates dynamic machine learning (ML) and cloud-based behavioral sandboxing to perform deep inspection of network-routed file transfers and block zero-day malware before it reaches your workloads. Advanced malware sandbox is available in the Cloud Next Generation Firewall Enterprise tier. For more information, see [Advanced malware sandbox overview](https://docs.cloud.google.com/firewall/docs/about-wildfire) and [Configure Advanced malware sandbox in your network](https://docs.cloud.google.com/firewall/docs/configure-wildfire).
+
+This feature is available in **General Availability**.
+
+**Cloud Run**
+
+Feature
+
+Support for the [Python 3.15 runtime](https://docs.cloud.google.com/run/docs/runtime-support#python) is in [Preview](https://cloud.google.com/products/#product-launch-stages).
+
+**Cloud Run functions**
+
+Feature
+
+Support for the [Python 3.15 runtime](https://docs.cloud.google.com/functions/docs/concepts/execution-environment#python) is in [Preview](https://cloud.google.com/products/#product-launch-stages).
+
+**Cloud Service Mesh**
+
+Feature
+
+Configuring authorization policies (`GCPAuthzPolicy`) on Cloud Service Mesh sidecars on Google Kubernetes Engine (GKE) is now available ([Preview](https://cloud.google.com/products#product-launch-stages)). This feature is supported only for Cloud Service Mesh with the Gateway API. You can allow or deny inbound HTTP requests at the namespace or workload level, or delegate decisions to an external authorization engine (`GCPAuthzExtension`). For more information, see [Setup authorization policies on sidecars on GKE](https://docs.cloud.google.com/service-mesh/docs/gateway/authorization-policy-sidecar).
+
+**Datastream**
+
+Feature
+
+Datastream is now available in the `africa-south1` (Johannesburg) region. For the list of all available regions, see [IP allowlists and regions](https://docs.cloud.google.com/datastream/docs/ip-allowlists-and-regions).
+
+Feature
+
+Datastream is now available in the `asia-southeast3` (Bangkok) region. For the list of all available regions, see [IP allowlists and regions](https://docs.cloud.google.com/datastream/docs/ip-allowlists-and-regions).
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Serving tuned Gemini 3.x models on global endpoints**
+
+Serving tuned Gemini 3.x models on `global` endpoints is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). You can copy fine-tuned Gemini 3.x models to the `global` region using the Model Registry `models:copy` API, deploy them to global serving endpoints, and send inference requests directly to `aiplatform.googleapis.com`.
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models with supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#copy-tuned-model).
+
+**Google Cloud Contact Center as a Service**
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where cross-language agent-to-queue voice transfers played whisper audio and displayed **Selected Language** in the source language instead of the transfer target language.
+
+  * Fixed an issue where the unread chat badge in the agent adapter displayed an inflated count on chats escalated from a virtual agent when real-time redaction was enabled.
+
+  * Fixed an issue where inbound calls with invalid or unformattable caller IDs didn't load for agents, causing calls to loop between agents until the caller hung up.
+
+  * Fixed an issue where the **Deflections - Calls** dashboard double-counted calls redirected to a phone number.
+
+  * Fixed an issue where call transcripts and **SmartActions** panels didn't load for blended SMS calls.
+
+  * Fixed an issue where the Salesforce adapter failed to connect without logging an error when loaded in the agent desktop without a required security key.
+
+  * Fixed an issue where warm transfers to a supervisor queue failed silently and looped repeatedly when the receiving agent had microphone permissions disabled.
+
+  * Fixed an issue where the Microsoft 365 mailbox selection dropdown appeared empty during OAuth setup using client credentials when permissions were missing.
+
+  * Fixed an issue where supervisor-initiated sign-outs for in-call agents discarded mandatory call dispositions and didn't record the interaction outcome in reporting.
+
+  * Fixed an issue where the queue list in the CCaaS portal remained in a loading state for an extended period after signing in.
+
+  * Fixed an issue where calls using Nexmo numbers disconnected when attempting pre-session deflection during virtual agent escalation.
+
+  * Fixed an issue where unanswered extension and inbound calls that were abandoned by the caller were missing from the **Missed** list in the call adapter and were incorrectly classified as unknown errors.
+
+  * Fixed an issue where call transfers didn't requeue immediately when the receiving agent had a microphone or device error.
+
+  * Fixed an issue where after-hours and overcapacity announcement and options messages couldn't be customized at the individual user and team levels.
+
+  * Fixed an issue where certain failed calls appeared as `"Failed: ()"` in session data exports and were missing from advanced reporting filters.
+
+  * Fixed an issue where virtual agent call recordings weren't exported if a caller hung up immediately after being transferred to a post-session survey.
+
+  * Fixed an issue where custom SIP headers weren't passed on direct inbound calls deflected to a contact list or queue.
+
+  * Fixed an issue where inbound calls experienced delays and periods of silence before the virtual agent welcome prompt.
+
+  * Fixed an issue where call recordings didn't consistently pause and resume when an agent clicked the redaction button multiple times during a single call.
+
+
+
+
+**Google SecOps**
+
+Deprecated
+
+**Deprecation of the ListCaseEvents API endpoint**
+
+Effective November 2, 2026, the `ListCaseEvents` API endpoint is deprecated. You should use the [`ListCaseEvidenceData`](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.cases.caseEvidenceDatas/list) API endpoint instead.
+
+**Knowledge Catalog**
+
+Feature
+
+Knowledge Studio in Knowledge Catalog is available in [Preview](https://cloud.google.com/products#product-launch-stages). Knowledge Studio lets you explore data assets and semantic relationships using natural language and an interactive context graph, run automated enrichment tasks to generate and curate metadata from schemas, query logs, and enterprise knowledge signals, and package curated domain knowledge into context sets to ground AI agents through the Model Context Protocol (MCP) or Knowledge Catalog APIs.
+
+For more information, see [Knowledge Studio overview](https://docs.cloud.google.com/knowledge-catalog/docs/knowledge-studio), [Context sets overview](https://docs.cloud.google.com/knowledge-catalog/docs/context-sets), and [About enrichment tasks](https://docs.cloud.google.com/knowledge-catalog/docs/about-enrichment-tasks).
+
+**Model Armor**
+
+Feature
+
+Support for template-specific exclusion rules in streaming sanitization (`StreamSanitizeUserPrompt` and `StreamSanitizeModelResponse`) is available in [Preview](https://cloud.google.com/products#product-launch-stages). You can use dictionary and regular expression exclusion rules in buffered mode (`STREAMING_MODE_BUFFERED`) with partial or full matching, and in real-time mode (`STREAMING_MODE_REALTIME`) with partial matching, to mitigate false-positive detections for prompt injection and jailbreak detection and responsible AI filters.
+
+For more information, see [Exclusion rules in streaming sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rules-streaming).
+
+**Oracle Database@Google Cloud**
+
+Feature
+
+Oracle Database@Google Cloud supports creating custom DNS domains for your ODB Networks. You can use custom Domain Name Systems (DNS) to control the names of your resources and delegate DNS resolution within your organization. For more information, see [Create and manage custom DNS domains](https://docs.cloud.google.com/oracle/database/docs/create-manage-custom-dns).
+
+You can use custom DNS domains only for [Exadata VM clusters](https://docs.cloud.google.com/oracle/database/docs/create-clusters).
+
+This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+
+## November 01, 2026
+
+**Agent Platform Workbench**
+
+Change
+
+### 20261101-2230-rc0 Release
+
+Change
+
+### 20261101-2230-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated the CA certificate configuration.
+
+Security
+
+Upgraded the container host to the latest Container-Optimized OS LTS release, rebasing onto the newest operating system, Go, and containerd security fixes.
+
+Security
+
+Updated the CA certificate configuration.
+
+Security
+
+Upgraded the container host to the latest Container-Optimized OS LTS release, rebasing onto the newest operating system, Go, and containerd security fixes.
+
+Change
+
+### 20261101-2130-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated the CA certificate configuration.
+
+Change
+
+### M155 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated the CA certificate configuration.
+
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.105 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+This release contains internal and customer bug fixes.
+
 ## October 31, 2026
 
 **Google SecOps**
@@ -35,6 +355,12 @@ Feature
 This feature is in public preview. The **SIEM Search** page now provides two search-execution modes: **Basic Mode** and **Advanced Mode**. **Basic Mode** (the default option) uses a streamlined, fast-path execution pipeline that bypasses secondary enrichment steps during search execution. This approach reduces end-to-end search wait times while preserving full data fidelity and query syntax parity. **Advanced Mode** is equivalent to the previous search experience.
 
 For more information, see [Choose the search-execution mode](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#choose-search-execution-mode) and [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.104](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_25_2026) is now available for all regions.
 
 ## October 30, 2026
 
@@ -225,6 +551,21 @@ You can now retrieve query results [directly in the Apache Arrow format](https:/
 Feature
 
 You can use Knowledge Catalog to discover authorized views, logical views, and continuous materialized views. This integration lets you search for these granular data assets alongside your Bigtable instances and tables. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [Manage data assets using Knowledge Catalog](https://docs.cloud.google.com/bigtable/docs/manage-data-assets-using-knowledge-catalog).
+
+**Cloud Asset Inventory**
+
+Feature
+
+The following resource types are publicly available through the [ExportAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/exportAssets), [ListAssets](https://docs.cloud.google.com/asset-inventory/docs/listing-assets), [BatchGetAssetsHistory](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/batchGetAssetsHistory), [QueryAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/queryAssets), [Feed](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/feeds), and Search ([SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources), [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies)) APIs.
+
+  * Oracle Database@Google Cloud 
+    * `oracledatabase.googleapis.com/DbSystem`
+    * `oracledatabase.googleapis.com/ExadbVmCluster`
+    * `oracledatabase.googleapis.com/ExascaleDbStorageVault`
+    * `oracledatabase.googleapis.com/OdbNetwork`
+    * `oracledatabase.googleapis.com/OdbSubnet`
+
+
 
 **Cloud Number Registry**
 
@@ -433,11 +774,13 @@ Feature
 
 The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/tools/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
 
-**Looker**
+**Resource Manager**
 
-Announcement
+Feature
 
-On November 1, 2026, several Canadian provinces and territories—Manitoba, Alberta, British Columbia, and parts of the Northwest Territories—transition to permanent daylight saving time (DST) or remain on their summer UTC offsets year-round. On unpatched Looker instances, these changes affect scheduled content delivery fire times and [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations) that use `now()` with the affected Canadian time zones (`America/Winnipeg`, `Canada/Central`, `America/Rainy_River`, `America/Edmonton`, `Canada/Mountain`, `America/Vancouver`, `Canada/Pacific`, and `America/Inuvik`). Patched Looker builds update the scheduler (Ruby) and browser (JavaScript) time zone data, while server-evaluated `now()` table calculations on the JVM still use the bundled JDK time zone database (`tzdb 2026b`). To learn how to upgrade to a patched Looker build or configure an alternative schedule delivery time zone, see [2026 Canadian time zone changes](https://docs.cloud.google.com/looker/docs/canada-permanent-dst-2026).
+**Preview** : Management boundaries and capability configurations in Resource Manager are available in [Preview](https://cloud.google.com/products#product-launch-stages). Management boundaries establish dynamic, tag-based or hierarchy-wide administrative perimeters across multiple Google Cloud projects. This feature lets you centralize resource discovery and governance from a designated management project. You can configure `BoundaryConfig`, `Boundary`, and `CapabilityConfig` resources using Google Cloud CLI to partition projects by Tags values and enable management capabilities for [Agent Registry](https://docs.cloud.google.com/agent-registry/overview).
+
+For more information, see [Management boundaries overview](https://docs.cloud.google.com/resource-manager/docs/boundaries-and-capabilities-overview) and [Configure management boundaries](https://docs.cloud.google.com/resource-manager/docs/manage-capability-configs).
 
 **SAP on Google Cloud**
 
@@ -887,6 +1230,21 @@ This addresses the following vulnerabilities:
 
   
   
+**Cloud Profiler**
+
+Security
+
+The Cloud Profiler Java agent is updated with a new Certification Authority (CA) certificate bundle, in response to security bulletin [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071). Google Cloud infrastructure and the Cloud Profiler backend service are not affected.
+
+If you use the Cloud Profiler Java agent, take one of the following actions:
+
+  * Upgrade the Java agent to `cloud-profiler-java-agent_20261026_RC00` ([GitHub release v0.5.0](https://github.com/GoogleCloudPlatform/cloud-profiler-java/releases/tag/v0.5.0)) or later, and then rebuild and redeploy your applications. Download the updated archive, <https://storage.googleapis.com/cloud-profiler/java/cloud-profiler-java-agent_20261026_RC00.tar.gz>, or, for `musl`-based Alpine Linux containers, <https://storage.googleapis.com/cloud-profiler/java/cloud-profiler-java-agent_20261026_RC00_alpine.tar.gz>.
+  * If you can't immediately upgrade or rebuild, update your host or container operating system's CA certificate store as described in [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), and then set the `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` environment variable to point to the updated PEM bundle.
+
+
+
+For more information about installing the agent, see [Profiling Java applications](https://docs.cloud.google.com/profiler/docs/profiling-java#installing-profiler).
+
 **Dataflow**
 
 Feature
@@ -935,93 +1293,6 @@ Feature
 The Admin (`roles/admin`), Writer (`roles/writer`), and Reader (`roles/reader`) basic roles are generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Basic roles](https://docs.cloud.google.com/iam/docs/roles-overview#basic).
 
 The legacy basic roles—Owner (`roles/owner`), Editor (`roles/editor`), and Viewer (`roles/viewer`)—are still available for use and are being actively maintained. However, if you need to grant a basic role, we recommend granting the Admin, Writer, or Reader role instead of a legacy basic role. This is because the newer roles support additional features, such as the use of [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview).
-
-**Looker**
-
-Announcement
-
-Beginning October 26, 2026, the following features will be automatically enabled for Looker (original) and Looker (Google Cloud core) instances running Looker 26.20.
-
-Feature
-
-The ability to [generate a summary of an Explore by using Gemini assistance](https://docs.cloud.google.com/looker/docs/explore-summary-gemini) is now generally available.
-
-Feature
-
-The [bullet chart](https://docs.cloud.google.com/looker/docs/bullet-options) visualization type is now generally available. Bullet charts let you evaluate a single primary metric's performance as one or more bars and mark your goal with a target line. You can plot both against shaded background ranges that represent performance thresholds, such as "poor," "satisfactory," and "good." For more information, see [Bullet chart options](https://docs.cloud.google.com/looker/docs/bullet-options).
-
-Feature
-
-Looker now includes [network diagnostics](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#network-diagnostics) to help you troubleshoot database connectivity issues. When a [database connection test](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#troubleshooting) fails, Looker automatically tests DNS resolution and TCP connectivity for the connection's endpoints and appends the results to the error message. To [test network reachability](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#test-network-reachability) to any hostname and port without creating a connection, Looker administrators can click **Test Reachability** on the **Connections** page.
-
-**Note:** This item was added on October 30, 2026.
-
-Feature
-
-The **Table Row Grouping** feature and the [**Grouping** menu options](https://docs.cloud.google.com/looker/docs/table-options#grouping-menu-options) are now generally available. The **Grouping** menu options let you display and customize the appearance of table chart data hierarchically in groups.
-
-Feature
-
-The [**Visualization Assistant**](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) is now generally available.
-
-Feature
-
-Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
-
-Feature
-
-Two new legacy features, [**Use Legacy Explore and Merge Query Experience**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience) and [**Use Legacy Explore and Merge Query Experience for Embed**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience_for_embed), are now available for Looker (original) and Looker (Google Cloud core) instances. These features let administrators configure Explores and merged queries to open in the classic experience by default across an instance or in embedded contexts. For more information, see [Legacy feature schedule](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule).
-
-Feature
-
-Looker now includes a new [histogram chart](https://docs.cloud.google.com/looker/docs/histogram-options) visualization option. A histogram chart is a graphical representation of the data distribution of an attribute. A histogram creates intervals (bins) and counts how many values fall into each bin.
-
-Feature
-
-The [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) chart type is now generally available. The KPI (Single Value) chart type replaces the Single Value chart type.
-
-Feature
-
-The new Looker Explore and merge query experience is now generally available and is the default interface for [Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and for [joining data from multiple queries](https://docs.cloud.google.com/looker/docs/merged-results).
-
-Feature
-
-When you enter values in a string filter on dashboards, Looks, or Explores, clicking **Done** or clicking outside the input field no longer creates a filter chip from uncommitted text. To create a filter chip, press Enter, enter a comma (`,`), or paste values into the input field.
-
-Feature
-
-The new [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups) lets you [organize related tiles into collapsible containers](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#organizing_tiles_into_groups) for improved visual organization. You can move, duplicate, or delete multiple tiles as a single unit on dashboards that use the newspaper layout. This update also adds LookML support for programmatically managing tile groups.
-
-Feature
-
-Now available in [preview](https://cloud.google.com/products#product-launch-stages), the [**Release Changelog**](https://docs.cloud.google.com/looker/docs/release-changelog) gives Looker users and administrators real-time visibility into the features, behavioral changes, and bug fixes that are available for their instance.
-
-Feature
-
-The [**Legacy features** page](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule) is now available in the **Admin** panel for Looker (Google Cloud core) instances. Legacy features that appear on the Looker (Google Cloud core) **Legacy features** page might differ from those that are available on Looker (original) instances. For more information, see [Looker (Google Cloud core) admin settings](https://docs.cloud.google.com/looker/docs/looker-core-admin-looker).
-
-Announcement
-
-The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
-
-  * Latest version in the Rapid channel: **Looker 26.22**
-  * Latest version in the No Channel channel: **Looker 26.22**
-
-
-
-The latest version in the Regular channel remains **Looker 26.18**.
-
-Breaking
-
-Some elements of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics) have been renamed. The dashboard layout and capabilities remain the same.
-
-On the **Token usage** tab, the **Conversational Analytics API** value in the **Feature** column and the **Feature Name** filter has been renamed to **Looker API**. This value refers to the Conversational Analytics methods for the Looker API.
-
-This rename might cause a breaking change if you built custom dashboards that reference the former **Feature** column or **Feature Name** filter value.
-
-Change
-
-The **Use Legacy Connections Page** [legacy feature](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) and the legacy database connection workflow have been removed. All database connections now use the connection workflow that is described in [Connecting Looker to your database](https://docs.cloud.google.com/looker/docs/connecting-to-your-db).
 
 **Model Armor**
 
@@ -2251,12 +2522,6 @@ Change
 
 
 
-**Looker**
-
-Feature
-
-The latest version of the Looker-Excel Connector ODBC driver, version 1.0.7, is now available to download. See the [Looker-Excel Connector](https://docs.cloud.google.com/looker/docs/excel-connector#install-driver) documentation page for information.
-
 **Model Armor**
 
 Feature
@@ -2358,6 +2623,14 @@ Feature
 The [`REGEXP_EXTRACT_GROUPS` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract_groups) produces substrings that match multiple capturing groups in a regular expression.
 
 This function is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+**Capacity Planner**
+
+Feature
+
+**Preview** : You can use the Capacity Planner remote Model Context Protocol (MCP) server (`capacityplanner.googleapis.com`) to connect AI applications and agents to your Capacity Planner data ([Preview](https://cloud.google.com/products#product-launch-stages)). You can use the Capacity Planner MCP tools to query historical resource usage, usage forecasts, and reservation data across your projects, folders, and organizations.
+
+For more information, see the [Capacity Planner MCP reference](https://docs.cloud.google.com/capacity-planner/docs/reference/mcp) and [Google Cloud MCP servers overview](https://docs.cloud.google.com/mcp/overview).
 
 **Cloud Database Migration Service**
 
@@ -2777,16 +3050,6 @@ Feature
 Support for Looker (Google Cloud core) in Data lineage is now [generally available](https://cloud.google.com/products#product-launch-stages). This support includes lineage views for LookML views and Explores, Looker dashboards, dashboard elements, Looks, LookML dashboards, and Conversational Analytics agents. You can control data lineage ingestion at the organization, folder, and project levels. You can also visualize the end-to-end flow of your data from BigQuery sources through the Looker semantic layer to downstream assets.
 
 For more information, see [Track data lineage with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-lineage), [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage#other), and [About data lineage ingestion control](https://docs.cloud.google.com/knowledge-catalog/docs/control-lineage-ingestion#supported-service-integrations).
-
-**Looker**
-
-Feature
-
-[Looker (Google Cloud core) data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is now generally available (GA). The GA launch adds end-to-end visibility for [LookML dashboards](https://docs.cloud.google.com/looker/docs/building-lookml-dashboards) and [Conversational Analytics agents](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents). Lineage enablement is now managed independently through the Data Lineage API and service-level ingestion controls, which decouples it from Looker's internal Knowledge Catalog metadata settings. For more information, see [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage).
-
-Feature
-
-The [Looker-managed Model Context Protocol (MCP) server](https://docs.cloud.google.com/looker/docs/mcp) is now generally available (GA), allowing AI agents to securely interact with business data and LookML models without the need for additional middleware. This launch is supported by a new [**Manage OAuth Clients** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients), which provides a centralized interface for governing identity-based access for AI agents and other external applications. Administrators can now quickly enable pre-configured integrations from the Application Library or register custom OAuth clients with specific redirect URIs and group-based access controls.
 
 **Model Armor**
 
@@ -4030,73 +4293,6 @@ In the enhanced Investigation Management experience, you can select up to 50 cas
 
 
 
-**Looker**
-
-Announcement
-
-**Looker 26.22** will roll out to Looker (original) instances on the following schedule:
-
-  * Expected Looker (original) deployment start: **Monday, October 26, 2026**
-  * Expected Looker (original) final deployment and download available: **Monday, November 9, 2026**
-
-
-
-The Looker 26.22 rollout for Looker (Google Cloud core) will be announced separately.
-
-Looker 26.22 is expected to include the following changes, features, and fixes.
-
-Fixed
-
-An issue has been fixed where table column options menus and search boxes appeared behind drill dialogs, which prevented users from interacting with them. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where configuring a LookML model could trigger unnecessary derived table rebuilds. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where the **Show filters** option was displayed on dashboard tiles that failed to load data in view mode. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where drilling into results that were filtered by string dimensions that contained backslashes returned zero rows. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where pivoted queries in SQL Runner could fail to render or re-pivot unexpectedly. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where the **View (Expanded / Full Screen)** option appeared in the tile action menu on embedded dashboards in view mode. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where custom visualization tiles were truncated in dashboard PDF exports when the **Expand tables to show all rows** option was enabled. This feature now performs as expected.
-
-Fixed
-
-Table row group subtotals are now displayed only for sum and count measures. For other measure types (such as `averages` and `count distinct`) and table calculations, subtotals are now left blank rather than displaying an inaccurate summed value.
-
-Fixed
-
-The System Activity `query_metrics` Explore now records connection acquisition time (`acquire_connection`) for queries that are canceled while waiting in the connection pool.
-
-Fixed
-
-Conversational Analytics `DELETE` endpoints now return `HTTP 404 Not Found` instead of `HTTP 204 No Content` when you attempt to delete nonexistent resources.
-
-Fixed
-
-The System Activity `query_metrics` Explore has been updated to accurately record model initialization time for models that are loaded from cache.
-
-Fixed
-
-An issue has been fixed where adding a new series to a categorical chart, such as adding a new pivot value, could cause category bars to appear ungrouped. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed in the TypeScript and JavaScript SDKs where calling methods that have only optional parameters without passing an empty object could result in compilation or runtime errors. This feature now performs as expected.
-
 ## October 21, 2026
 
 **Apigee X**
@@ -4733,14 +4929,6 @@ Change
 
 
 
-**Looker**
-
-Feature
-
-[Automated cataloging and ingestion of Looker (Google Cloud core) metadata with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-dataplex) is now generally available (GA). This includes support for additional granular metadata (including dimension/measure definitions, default queries, and relationships) and new asset types: LookML dashboards, LookML dashboard elements, and agents.
-
-The [data lineage integration](https://docs.cloud.google.com/looker/docs/looker-core-lineage) remains in Preview.
-
 **Model Armor**
 
 Feature
@@ -4835,22 +5023,6 @@ This issue has been resolved. You can upgrade your cluster control plane to the 
 
 
 
-
-**Looker**
-
-Announcement
-
-The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
-
-  * Latest version in the Regular channel: **Looker 26.18**
-
-
-
-The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
-
-**Note:** This item was added on October 23, 2026.
-
-**Note:** This item was updated on October 29, 2026, to correct the latest version in the Regular channel to Looker 26.18.
 
 **Managed Service for Apache Airflow**
 
@@ -5878,25 +6050,6 @@ Feature
 Administrators can make Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5—available to users in the Gemini Enterprise app. After an administrator turns on a model in the **Enable third-party models** section of the **Feature Management** tab, users can select the model in the model selector. Claude models are available in the `global` location and the `us` and `eu` multi-regions, and are charged on a pay-as-you-go basis.
 
 This feature is generally available. For more information, see [Enable third-party models](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features#enable-third-party-models).
-
-**Looker**
-
-Announcement
-
-The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
-
-  * Latest version in the Rapid channel: **Looker 26.20**
-  * Latest version in the No Channel channel: **Looker 26.20**
-
-
-
-The latest version in the Regular channel remains **Looker 26.18**.
-
-**Note:** This item was added on October 23, 2026.
-
-Feature
-
-The Looker 26.18 features have begun to be enabled for Looker (Google Cloud core) instances.
 
 **NetApp Volumes**
 
@@ -7918,12 +8071,6 @@ Announcement
 
 The deadline for the migration of SOAR APIs to the Chronicle API has been extended from November 30, 2026 until March 31, 2027. For more information, refer to [SOAR Migration overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp)
 
-**Looker**
-
-Feature
-
-Looker (Google Cloud core) now supports [Workforce Identity Federation](https://docs.cloud.google.com/looker/docs/looker-core-workforce-identity) in [preview](https://cloud.google.com/products#product-launch-stages) for instances that use Looker 26.18 and later. Workforce Identity Federation allows users to authenticate by using external identity providers without the need to manage individual Google Accounts. Administrators can select Workforce Identity as the primary authentication method when they create or edit an instance and, optionally, enable secondary Google OAuth for secure backup access.
-
 **Managed Service for Apache Spark**
 
 Announcement
@@ -8082,60 +8229,6 @@ For alternative AI developer tools, use Antigravity, which is available through 
 Change
 
 The format for bootstrap addresses and broker URLs has changed for new Managed Service for Apache Kafka clusters. To learn how to get a cluster's bootstrap address, see [View a Managed Service for Apache Kafka cluster](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/view-cluster#view-bootstrap-address).
-
-**Looker**
-
-Announcement
-
-Beginning October 5, 2026, the following features will be automatically enabled for Looker (original) instances running Looker 26.18. Feature enablement for Looker (Google Cloud core) will be announced separately.
-
-Feature
-
-Looker now includes built-in support for the **Dremio 26.0+ (Arrow Flight SQL)** dialect. The **Dremio 26.0+ (Arrow Flight SQL)** uses the bundled Apache Arrow Flight SQL JDBC driver, so that you don't have to install unpackaged custom JDBC driver JAR files. See the [Dremio](https://docs.cloud.google.com/looker/docs/db-config-dremio) documentation page for more information.
-
-Feature
-
-The **AI-Assisted Quick Starts** feature, called [**Starter questions**](https://docs.cloud.google.com/looker/docs/gemini-quick-starts) in the new Explore experience, is now generally available.
-
-Feature
-
-The new [**Diagnose & Repair** tool](https://docs.cloud.google.com/looker/docs/diagnosing-and-repairing-git-projects) evaluates your LookML project repository across eight diagnostic test checks in either your personal development environment or the shared production environment. When issues are found, Looker can automatically perform repairs (such as removing stale lock files, fixing file permissions, or repairing corrupted object indexes) or rebuild damaged repositories while safeguarding uncommitted changes on a dedicated recovery branch.
-
-Feature
-
-[Looker Continuous Integration (CI)](https://docs.cloud.google.com/looker/docs/continuous-integration) now includes the [Style Validator](https://docs.cloud.google.com/looker/docs/ci-style-validator), which enforces LookML coding standards, naming conventions, and structural best practices across your LookML project. You can run the Style Validator with the default built-in ruleset or customize rule severities, file exclusions, path overrides, and custom rules by adding an `lkmlstyle.yaml` configuration file to your project repository.
-
-Feature
-
-Now available in [preview](https://cloud.google.com/products#product-launch-stages), [Conversational Analytics agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-agentic-workflows-overview) support [scheduled agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-scheduled-agentic-workflows) in addition to [triggered agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-triggered-agentic-workflows). You can use scheduled agentic workflows to schedule recurring deliveries of AI-generated insights summaries, data tables, visualizations, and PDF reports to email or Slack by using natural language. Recipients can select **Investigate** in a workflow notification to open a private, persistent conversation with the data agent.
-
-Users and admins can manage workflows on the updated [**Manage Workflows** user page](https://docs.cloud.google.com/looker/docs/user-workflows) and [**Manage Workflows** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-workflows), respectively, and Looker admins can monitor scheduled workflow runs and troubleshoot errors on the new [**Workflow Executions** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-workflow-executions).
-
-Workflows that were created in versions earlier than Looker 26.14 appear on the **Legacy Workflows** tab and must be recreated.
-
-Feature
-
-Now available in preview, [Looker **Data Apps**](https://docs.cloud.google.com/looker/docs/data-apps) are freeform canvas dashboards that are built by local AI coding agents, such as Gemini CLI, Claude Code, or Cursor, from natural-language prompts. **Data Apps** give you complete visual layout control (including absolute positioning, overlapping elements, and custom web components) while remaining bound to Looker's governed LookML semantic layer and user permissions.
-
-Change
-
-In Conversational Analytics, the default [question mode](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data#ca-question-mode) is now **Fast** rather than **Thinking**. **Fast** mode is intended for answering quickly, and it directly maps your query to underlying LookML definitions without generating reasoning steps. You can still select **Thinking** mode from the question mode drop-down menu when asking complex, multi-step analytical questions about [Explores](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data#ca-question-mode) or [dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards#ca-question-mode).
-
-Change
-
-The [**Modern User Interface** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#modern_user_interface) toggle now defaults to **ON**.
-
-Change
-
-The [Modern visualization theme](https://docs.cloud.google.com/looker/docs/modern-ui#modern_visualizations) now supports map charts (static map points and regions), word cloud charts, and donut multiples. While support for donut multiples was previously documented, it is now officially available with this release. These additions expand the range of visualization options that are available with the modern theme.
-
-Feature
-
-Looker now supports connections to the ClickHouse 26+ dialect. ClickHouse 26+ uses modernized JDBC drivers and introduces support for [symmetric aggregates](https://docs.cloud.google.com/looker/docs/reference/param-explore-symmetric-aggregates). See the [ClickHouse](https://docs.cloud.google.com/looker/docs/db-config-clickhouse) documentation page for more information.
-
-Feature
-
-Enhanced observability metrics, including user engagement and estimated token usage data on the [**Token usage** tab](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#ca-sa-token-usage) of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics), are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This launch also adds a **Daily Token Utilization** visualization and supports token usage observability for [Conversational Analytics data agents that are published to Gemini Enterprise](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#publish-data-agents). (**Note** : This item was added on October 20, 2026.)
 
 **Model Armor**
 
@@ -8789,101 +8882,6 @@ The following log types were added without a default parser. Each parser is list
   * Twilio Segment (`TWILIO_SEGMENT`)
 
 
-
-**Looker**
-
-Announcement
-
-**Looker 26.20** will roll out to Looker (original) and Looker (Google Cloud core) instances on the following schedule:
-
-  * Expected deployment start: **Monday, October 12, 2026**
-  * Expected final deployment and download available: **Sunday, October 25, 2026**
-
-
-
-Looker 26.20 is expected to include the following changes, features, and fixes.
-
-Breaking
-
-Custom TopoJSON URL validation is updated to improve security. This change is isolated to Google Maps rendering in preview. Existing dashboards and Looks with the [Google Maps Enhancements preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#google-maps-enhancements) enabled that use custom TopoJSON files may be impacted.
-
-Feature
-
-The **Gemini in Looker** admin page has been restructured to allow Looker admins to selectively enable Conversational Analytics features and capabilities. Enablement for generally available Conversational Analytics features is now organized under the follow settings:
-
-  * **Conversational Analytics (Conversations page)** : Enables access to the [**Conversations** page](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data) for data agents with Explores and direct chats with an Explore.
-  * **Dashboard agents** : Enables [default data agents](https://docs.cloud.google.com/looker/docs/glossary#default-agent) on [user-defined and LookML dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards).
-  * **Additional options** : Allows Conversational Analytics data agent creators to enable the [**Advanced Analytics** feature](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-advanced-analytics) for all conversations with their data agent. To use Advanced Analytics, you must also enable whichever Conversational Analytics toggle corresponds to the content that you are querying (**Conversational Analytics (Conversations page)** or **Dashboard agents**). If both the **Conversational Analytics (Conversations page)** and **Dashboard agents** toggles are turned off, then **Advanced Analytics** cannot be enabled. If either **Conversational Analytics (Conversations page)** or **Dashboard agents** is enabled, **Advanced Analytics** can be enabled, but it is turned off by default.
-
-
-
-The **Conversational Analytics (Conversations page)** and **Dashboard agents** settings inherit the enablement state of the **Conversational Analytics** setting in previous versions of Looker.
-
-Conversational Analytics preview features can still be enabled selectively under the **Enable Trusted Tester Features** setting.
-
-(**Note** : This item was added on October 14, 2026.)
-
-Feature
-
-Conversational Analytics data agents for both [user-defined dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards) and [LookML dashboards](https://docs.cloud.google.com/release-notes/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards) are now generally available.
-
-(**Note** : This item was added on October 14, 2026.)
-
-Feature
-
-You can now apply [themes](https://docs.cloud.google.com/looker/docs/themes-for-internal-dashboards) to Looks in addition to internal dashboards.
-
-Fixed
-
-An issue has been fixed where duplicating a scheduled plan could fail to retain the custom message value. This feature now performs as expected.
-
-Fixed
-
-Table visualizations now proportionally scale left-pinned columns during automatic sizing, which prevents unnecessary horizontal scrollbars. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where enabling subtotals on table visualizations did not automatically disable the **Cell Visualizations** option. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where previews for Looker charts in Slack integrations could fail to be displayed. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where editing and saving a dashboard could cause the dashboard to reload indefinitely, forcing users to refresh the page. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where table cell visualizations that included both positive and negative values could display unwanted scrollbars and hide value labels. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where the BigQuery JDBC driver could fail to properly parse certain data types, such as `BYTES`, `STRUCT/RECORD`, and nested `ARRAY` structures. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where linked filters on a dashboard could fail to display autocomplete suggestions even when a parent filter is selected. This feature now performs as expected.
-
-Fixed
-
-The System Activity `query_metrics` Explore has been updated to ensure that phase timings (such as connection acquisitions, execution runtimes, and optimistic pivot fallback retry loops) are successfully captured for queries that fail or time out. This feature now performs as expected.
-
-Fixed
-
-The System Activity **Dashboard Diagnostics** dashboard has been updated to fully support statistics, tile run counts, and performance recommendations for LookML dashboards. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where the color palette popover in visualization settings failed to dynamically reposition when it expanded, causing controls to overlap or truncate. This feature now performs as expected.
-
-Breaking
-
-When you set up a connection, self-service modeling will now be available only if a role that grants `create_self_service_from_table` also selects it through that role's model set.
-
-Fixed
-
-The opacity for the comparison bar in short KPI visualizations has been reduced to increase legibility.
 
 **Memorystore for Redis**
 
@@ -11284,14 +11282,6 @@ Change
 
 
 
-**Looker**
-
-Feature
-
-Enhanced observability metrics, including user engagement and estimated token usage data on the [**Token usage** tab](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#ca-sa-token-usage) of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics), are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for Looker (original) instances that are on Looker 26.16 or later. This launch also adds a **Daily Token Utilization** visualization and supports token usage observability for [Conversational Analytics data agents that are published to Gemini Enterprise](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#publish-data-agents).
-
-(For Looker (Google Cloud core) instances, token usage observability remains in [Preview](https://cloud.google.com/products#product-launch-stages) when the [**Conversational Analytics Agent Token usage**](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#ca-agent-token-usage) preview feature is enabled.)
-
 **Managed Service for Apache Spark**
 
 Announcement
@@ -11565,19 +11555,6 @@ You can now configure a fixed **Denial message** on a semantic governance policy
 When a single request triggers denials from more than one policy, the policy engine combines the configured Denial messages, deduplicates them, and falls back to a generic message for firing policies that don't have one configured.
 
 For more information, see [Configure a semantic governance policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) and [Information exposure risk](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#natural-language-constraints-nlc).
-
-**Looker**
-
-Announcement
-
-The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
-
-  * Latest version in the Rapid channel: **Looker 26.18**
-  * Latest version in the No Channel channel: **Looker 26.18**
-
-
-
-The Regular channel remains on **Looker 26.14**.
 
 **Network Connectivity Center**
 
@@ -13103,36 +13080,6 @@ Feature
 Data products now support configuring a default IAM role in an access group. The default role, once configured, is automatically granted on all packaged and supported assets in the data product. Data product owners can override the default role for individual assets. In addition, the assets table in a data product now shows the permission state of each asset (`Applied`, `Failed`, or `Unsupported`).
 
 For more information, see [Create data products](https://docs.cloud.google.com/knowledge-catalog/docs/create-data-products) and [Manage data products](https://docs.cloud.google.com/knowledge-catalog/docs/manage-data-products).
-
-**Looker**
-
-Announcement
-
-Beginning September 21, 2026, the following features will be automatically enabled for Looker (original) instances running Looker 26.16.
-
-Feature
-
-Looker now displays an **Authorize OAuth Connection** dialog when users initiate an OAuth authorization flow for database connections. This dialog notifies users that authorizing the connection allows Looker to access data on their behalf, and that privileged Looker users—such as administrators and developers—may have visibility into their data (for example, when an administrator runs queries by using another user's active OAuth token during a sudo session).
-
-Feature
-
-Looker now includes a [**Filters on Visualization Tiles** preview feature](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#filters-on-visualization-tiles) that lets dashboard creators place filter controls directly on individual visualization tiles rather than only in the dashboard filter bar.
-
-Announcement
-
-The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
-
-  * Latest version in the Rapid channel: **Looker 26.16**
-  * Latest version in the Regular channel: **Looker 26.14**
-  * Latest version in the No Channel channel: **Looker 26.16**
-
-
-
-**Update:** Looker 26.16 won't be deployed to Looker (Google Cloud core); instead, Looker 26.18 will begin rolling out to Looker (Google Cloud core) on September 29, 2026. This update was added on September 29, 2026.
-
-Feature
-
-Looker now includes a long polling concurrency guard. This prevents issues where queries cause long poll requests that oversaturate Looker and cause Looker to freeze. If a query causes a long poll request, Looker will display the error message `Query polling capacity reached. Please try again later.`
 
 **Memorystore for Valkey**
 
@@ -16388,95 +16335,6 @@ Change
 
 
 
-**Looker**
-
-Announcement
-
-**Looker 26.18** will roll out to Looker (original) instances on the following schedule:
-
-  * Expected deployment start: **Monday, September 21, 2026**
-  * Expected final deployment and download available: **Sunday, October 4, 2026**
-
-
-
-Looker 26.18 is expected to include the following changes, features, and fixes.
-
-Fixed
-
-An issue has been fixed where custom content theme fonts were improperly applied to the Look edit mode bar. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where downloading a dashboard as a CSV or ZIP file could result in a `500` error if any dashboard elements lacked an explicit title. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where links created using the LookML `link` parameter could return a `500` error if no label was specified. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where dashboard filter token chips didn't display an active highlighted background when a filter value was selected. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where the Git connection test could fail to recognize Git credentials as sufficient if a branch protection rule on the Git provider restricted temporary branches. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where analytic models that referenced cross-database, schema-qualified, or dot-delimited table names failed to compile in BigQuery and Snowflake DDL generation. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where custom tooltips in Single Record visualizations appeared at the bottom of the Explore panel rather than directly beneath the selected row. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where dashboard filter tokens and popover menus could fail to inherit fonts from custom themes. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where dragging series between Y-axes on pivoted Cartesian charts could cause the Explore page to crash or prevent visualization configurations from being saved. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed in Explores where you couldn't scroll within the **Chart Config Editor** dialog when editing JSON visualization configurations. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where scheduled PDF deliveries to Cloud Storage could produce corrupted files and unexpectedly replace spaces in filenames with underscores. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where attempting to visualize pivoted query results in SQL Runner resulted in a `TypeError` configuration error. This feature now performs as expected.
-
-Fixed
-
-API requests that target a LookML project whose files or directories aren't found on the instance now return a `404 Not Found` error instead of a `500 Internal Server Error`.
-
-Fixed
-
-In Conversational Analytics, the **Open in Explore** button and sidebar exploration links are now hidden or disabled with explanatory tooltips when you lack `explore` permissions for the underlying model.
-
-Fixed
-
-The embed preload page now supports custom theming using the `theme` URL query parameter.
-
-Fixed
-
-Donut Multiples visualizations now automatically hide overlapping value labels.
-
-Fixed
-
-An issue has been fixed in self-service analytics where CSV and Excel uploads to BigQuery and Snowflake could fail or corrupt data when files contained multiline headers, leading numeric characters, UTF-8 BOM markers, or special characters. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where creating a shared branch based on the production branch in a bare repository project could initialize from stale remote commits, causing the Looker IDE to immediately report the branch as being behind production. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where scheduled deliveries intermittently failed with permission errors such as `Cannot send all results` because user permissions were incorrectly cached across scheduled jobs on worker threads. This feature now performs as expected.
-
 **NetApp Volumes**
 
 Feature
@@ -17735,12 +17593,6 @@ For more information, see the following documentation:
 
 
 
-**Looker**
-
-Feature
-
-The [Looker extension for VS Code](https://docs.cloud.google.com/looker/docs/getting-started-vscode-extension) is now generally available, enabling local LookML development and [AI-assisted "vibe coding"](https://docs.cloud.google.com/looker/docs/ai-assisted-development-vscode) using the [Model Context Protocol (MCP)](https://docs.cloud.google.com/looker/docs/mcp). This update introduces an interactive onboarding walkthrough, support for populating workspaces from bare repositories, and enhanced synchronization between local Git branches and Looker [Development Mode](https://docs.cloud.google.com/looker/docs/dev-mode-prod-mode#development_mode). Additional improvements include support for OAuth with the Kiro IDE and more secure storage of API client secrets.
-
 **Network Connectivity Center**
 
 Feature
@@ -17926,12 +17778,6 @@ For more information, see the following documentation:
   * [Policy Assist REST reference](https://docs.cloud.google.com/policy-intelligence/docs/reference/policyassist/rest)
 
 
-
-**Looker**
-
-Deprecated
-
-The deprecation of the [Looker Mobile (Legacy) application](https://docs.cloud.google.com/looker/docs/mobile-app-legacy) has been postponed to January 31, 2027. Starting on January 31, 2027, support for the Looker Mobile (Legacy) app will be discontinued and the app will be unavailable for download from the App Store or Play Store. Although users will still be able to use the Looker Mobile (Legacy) app if they already have it installed, we recommend that you install the non-legacy [Looker mobile app](https://docs.cloud.google.com/looker/docs/mobile-app-installation).
 
 **NetApp Volumes**
 
@@ -19234,137 +19080,6 @@ Change
 
 
 
-**Looker**
-
-Announcement
-
-**Looker 26.16** will roll out to Looker (original) instances on the following schedule:
-
-  * Expected deployment start: **Tuesday, September 8, 2026**
-  * Expected final deployment and download available: **Sunday, September 20, 2026**
-
-
-
-Looker 26.16 is expected to include the following changes, features, and fixes.
-
-Fixed
-
-An issue has been fixed where logging in with a Google Cloud Workforce Identity within an embedded iframe could fail as a result of frame restrictions or because the authentication popup closed before session cookies were established. This feature now performs as expected.
-
-Feature
-
-The [Semantic Search](https://docs.cloud.google.com/looker/docs/finding-content#searching_for_saved_content) feature is now generally available.
-
-Fixed
-
-An issue has been fixed where switching to a histogram visualization in an Explore could fail or revert unexpectedly. Additionally, stack resolution on pivoted histograms has been improved. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where the alert creation and edit modal displayed `Method` instead of defaulting to `Email` as the notification method. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where embedded dashboards with numerous filters caused horizontal container overflow, prevented filters from wrapping across rows, and resulted in clipped tiles during PDF and PNG exports.
-
-Fixed
-
-An issue has been fixed where custom themes configured as the instance default were not applied to dashboards in view-only mode or during dashboard navigation. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where LookML dashboard URLs that were opened from the search page contained encoded colons (`%3A%3A`), which prevented filter interactions from updating URL query parameters. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where Single Value visualizations and KPI visualizations would not allow creating a comparison against a non-measure table calculation. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where visualization-level filters could not be edited or deleted because of missing popover menus. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where resizing an Explore that contained a Word Cloud visualization could cause the Explore to crash. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where generating LookML for analytic models without selecting any database tables could cause Looker to create views for all database tables and to drop certain properties because of identifier case sensitivity. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where filter context banners and timezone settings were not preserved when generating PNG downloads from drill menus. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where applying pivots to merge queries could cause visualization errors and blank column headers in the results table. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where standalone tile exports from embedded dashboards with filter context could render off-screen or with clipped visualizations in PDF and PNG formats. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where clearing all text from a dashboard note tile failed to persist upon page refresh. This feature now performs as expected.
-
-Fixed
-
-The BigQuery High Throughput API has been disabled by default to prevent connection errors for environments without `bigquery.readsessions.create` permissions. Additionally, required JVM flags for JDK 11 environments have been added. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where [updating the data for a self-service Explore](https://docs.cloud.google.com/looker/docs/exploring-self-service#update-data) that was created from a Google Sheets document with [OAuth authentication](https://docs.cloud.google.com/looker/docs/admin-panel-self-service-explore#enabling_oauth_for_uploads) would default to the BigQuery connection's service account credentials instead of using the user's OAuth credentials, which could cause Google Sheets API enablement or permission errors during model refresh. Looker admins now need only to [enable the Google Sheets API](https://docs.cloud.google.com/looker/docs/admin-panel-self-service-explore#enable-apis) in either the Google Cloud project that's associated with the service account or the Google Cloud project that owns the OAuth client ID credentials, depending on which authentication method is used. This feature now performs as expected.
-
-**Note:** This item was added on September 22, 2026.
-
-Fixed
-
-An issue has been fixed where multi-line prompt text in dashboard chat views caused action buttons (such as the **Thinking** toggle and **Send** button) and vertical scrollbars to be misaligned. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where pinned Looks on boards generated broken URLs that redirected to the home page and failed to dynamically reflect title updates. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where selecting a suggestion could reset the dropdown to a loading spinner. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where collapsible navigation items in the Admin panel and the main navigation pane rendered rectangular focus outlines rather than rounded focus indicators during keyboard navigation. This feature now performs as expected.
-
-Fixed
-
-An issue has been fixed where typed search strings persisted after you selected an autocomplete suggestion in multi-select filters. This feature now performs as expected.
-
-Fixed
-
-When you duplicate a user-defined dashboard, associated Looker data agent instructions, configurations, and sources are now preserved on the copied dashboard.
-
-Fixed
-
-Self-service models have been restricted to only their assigned user database connections, preventing unintended instance-wide database connection access.
-
-Fixed
-
-Boxplot visualizations now render transparent median dividers and borders properly in inverted and dark theme layouts.
-
-Fixed
-
-An issue has been fixed where IAM administrators on Looker (Google Cloud core) instances failed authentication when the `auth_requires_role` and strict Group Role Mapping were enabled. This feature now performs as expected.
-
-Feature
-
-Now available in preview, the [Admin Assistant](https://docs.cloud.google.com/looker/docs/gemini-admin-asst) helps you use natural language to manage Looker roles.
-
-Breaking
-
-Some elements of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics) have been renamed. The dashboard layout and functionality remain the same.
-
-Specifically, the **Feature** column and **Feature Name** filter value on the **Token usage** tab have each been renamed to **Conversation Surface**. The renaming of this element may cause a potential breaking change for users who have built custom dashboards that reference the **Feature** column or the **Feature Name** filter value.
-
-**Note:** This item was added on September 22, 2026.
-
 **Managed Service for Apache Spark**
 
 Announcement
@@ -19420,604 +19135,10 @@ In Melbourne (`australia-southeast2`) and Seoul (`asia-northeast3`), only the Se
 
 For information about available Model Armor features for each region, see [Supported features by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region#supported-by-region).
 
-## September 03, 2026
-
-**API Gateway**
-
-Change
-
-**New model routing gateways might use a gateway.dev default hostname**
-
-If you create a gateway that uses model routing on or after September 3, 2026, it might receive a `gateway.dev` default hostname instead of a `run.app` one, in the form `https://GATEWAY_ID-PROJECT_NUMBER.REGION.gateway.dev` — for example, `https://my-gateway-123456789012.us-central1.gateway.dev`. This is a second `gateway.dev` format; other gateways keep the existing one.
-
-To get a gateway's URL, read its `defaultHostname` property.
-
-For more information, see [Deploy an API to a gateway](https://docs.cloud.google.com/api-gateway/docs/deploying-api).
-
-**Assured Workloads**
-
-Feature
-
-The [Data Boundary for FedRAMP High](https://docs.cloud.google.com/assured-workloads/docs/control-packages#fedramp-high) supports the following products:
-
-  * Backup and DR Service
-  * Cloud Next Generation Firewall Enterprise
-  * Flow Analyzer
-  * Privileged Access Manager
-
-
-
-Feature
-
-The [Data Boundary for FedRAMP Moderate](https://docs.cloud.google.com/assured-workloads/docs/control-packages#fedramp-moderate) supports the following products:
-
-  * Backup and DR Service
-  * Cloud Next Generation Firewall Enterprise
-  * Flow Analyzer
-  * Privileged Access Manager
-
-
-
-Feature
-
-The [Data Boundary for Impact Level 2 (IL2)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il2) supports the following products:
-
-  * Backup and DR Service
-  * Cloud Next Generation Firewall Enterprise
-  * Flow Analyzer
-  * Privileged Access Manager
-
-
-
-**BigQuery**
-
-Feature
-
-Conversational analytics now supports questions about [market basket analysis](https://docs.cloud.google.com/bigquery/docs/conversational-analytics#analytic_task_support). This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
-
-**Cloud Healthcare API**
-
-Feature
-
-**General availability:** Filtered export of DICOM data using `filterConfig` is now generally available (GA) in Cloud Healthcare API `v1`. You can supply a Cloud Storage URI (`resourcePathsGcsUri`) containing a newline-delimited list of DICOMweb resource paths (`studies/<studyUID>[/series/<seriesUID>[/instances/<instanceUID>]]`) in [`projects.locations.datasets.dicomStores.export`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.dicomStores/export) to export targeted subsets of DICOM data rather than the entire DICOM store. For more information, see [Exporting DICOM instances using filters](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-import-export#exporting_dicom_instances_using_filters).
-
-**Cloud Storage**
-
-Feature
-
-You can use Storage batch operations to do the following:
-
-  * Select objects dynamically across a project by using [Common Expression Language (CEL) filters](https://docs.cloud.google.com/storage/docs/batch-operations/cel-filters-reference) based on metadata in your [Storage Insights datasets](https://docs.cloud.google.com/storage/docs/insights/datasets), without manual CSV manifests or BigQuery export queries.
-  * Target objects across up to 1,000 buckets in a single batch job.
-  * Transition objects in bulk to different storage classes.
-  * Patch object access control lists (ACLs) in bulk to update or remove permissions.
-  * Use dry run to validate job configurations across multiple buckets, and create jobs directly from a dry run to process the same validated objects.
-
-
-
-For more information, see [Storage batch operations overview](https://docs.cloud.google.com/storage/docs/batch-operations/overview) and [Create and manage batch operations jobs](https://docs.cloud.google.com/storage/docs/batch-operations/create-manage-batch-operation-jobs).
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: Latency and error rate views for agents**
-
-To monitor operational telemetry for your agents, use the two new views on the **Observability** tab:
-
-  * **Latency:** Shows response times for your agents. This view displays p50 (median) and p95 (95th percentile) metrics for Time to First Token (TTFT), Time to First Answer (TTFA), and Time to Last Token (TTLT). TTFT counts the first token of any kind, including the model's thinking, while TTFA counts only the first token of the answer itself. You can also compare latencies by specific agent features, such as web search, media generation, or parametric interactions.
-  * **Error rate:** Shows how your agent's requests resolve by tracking request volume and error rates. This view groups results by response class (OK, client errors, server errors, and canceled) and displays the associated client and server error codes.
-
-
-
-This feature is generally available (GA). For more information, see [Access metrics](https://docs.cloud.google.com/gemini/enterprise/docs/access-metrics#access-metrics-for-agents).
-
-Feature
-
-**Gemini Enterprise: General availability of Workflow Builder (formerly Agent Designer)**
-
-Workflow Builder (formerly known as Agent Designer) is generally available (GA) in Gemini Enterprise.
-
-Workflow Builder enables users across your organization to build multi-step automated workflows to streamline tasks and connect to enterprise data.
-
-Key capabilities in this release include:
-
-  * **Workflows and on-demand execution** : Build multi-step workflows that can run on an automated schedule, trigger manually on demand, or execute via `@-mention` directly within Gemini Enterprise chat conversations.
-  * **Chat agents** : Call chat agents from chat conversations using `@-mention`.
-  * **In conversation** : Call workflows from a chat conversation using `@-mention`.
-  * **Agent import** : Import existing A2A and ADK agents into Gemini Enterprise for centralized management, sharing, and enterprise governance.
-  * **Enterprise connectors** : Connect workflows to enterprise data and applications—including Google Workspace (Gmail, Google Calendar, Google Chat, Google Drive) and third-party tools (Slack, Jira, ServiceNow, Confluence, Microsoft OneDrive, SharePoint, and Outlook)—to search data and execute actions.
-  * **Enhanced Agent Gallery** : Discover and organize organization-wide and Google-created agents using keyword search, filter chips, and pinned items.
-  * **Administrative controls** : Administrators can manage feature availability org-wide in the Google Cloud console, including dedicated toggles for workflows and chat agents.
-
-
-
-For more information, see [Workflow Builder](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder).
-
-**Google Cloud Contact Center as a Service**
-
-Announcement
-
-**Google Cloud CCaaS 6.9**
-
-We've released version 6.9 of Google Cloud CCaaS.
-
-The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
-
-Feature
-
-**Agent desktop supports email**
-
-The agent desktop now supports email. Agents can handle email interactions using the email adapter in a desktop layout.
-
-Administrators: There's a new **Email Adapter** checkbox in the following locations:
-
-  * The **Desktop Layout Builder** dialog at **Settings > Operation Management > Agent Desktop > Manage Desktop Layout Lists > Add desktop layout**.
-
-  * The **Desktop Layout Builder** at **Settings > Operation Management > Agent Desktop > Manage Desktop Layout Lists > Add desktop layout > Next**.
-
-
-
-
-User experience change: There's a new **new emails** menu in the menu bar of the agent desktop.
-
-For more information, see [Create a desktop layout](https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-desktop-create-desktop-layouts#create-desktop-layout) and [Handle an email](https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-desktop-use-agent-desktop#handle-an-email).
-
-Fixed
-
-This release addresses the following issues:
-
-  * Fixed an issue where agents couldn't send new outbound emails.
-
-  * Fixed an issue where the disposition panel in the call adapter was incorrectly hidden or visible due to inconsistent state updates.
-
-  * Fixed an issue where direct inbound voicemails appeared multiple times in the **History** tab of the call adapter.
-
-  * Fixed an issue where voice callbacks were canceled at the end of operating hours instead of rolling over to the next day.
-
-  * Fixed an issue where using click-to-dial from a Salesforce case incorrectly overwrote the parent account's mobile phone number with the dialed number.
-
-  * Fixed an issue where ending a call resulted in significant latency or connection errors in the instance.
-
-  * Fixed an issue where hold music in call recordings overlapped live conversation.
-
-  * Fixed an issue where the deletion of a custom hours of operation group didn't appear in the **Audit Dashboard**.
-
-  * Fixed an issue in Zendesk integrations where the system mistakenly navigated from the active ticket tab to the customer profile page when a voice call ended.
-
-
-
-
-**Google Kubernetes Engine**
-
-Feature
-
-GKE support for using the `c3-standard-*-lssd` machine types as Confidential GKE Nodes with Intel TDX is generally available. For more information, see the following:
-
-  * To use this feature with GKE, see [Encrypt workload data in-use with Confidential GKE Nodes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/confidential-gke-nodes).
-  * To learn more about the feature from Compute Engine, see [Confidential VM overview](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview).
-  * To see supported configurations, including machine support, see [Supported configurations](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations) and its "Machine types, CPUs, and zones" section.
-
-
-
-**Google SecOps**
-
-Feature
-
-**Self-service Bindplane Enterprise license download**
-
-This feature is currently in Preview for Google Security Operations tenants in the US and EU regions. Google Security Operations Enterprise Plus and Google Unified Security (GUS) customers can now download their **Bindplane Enterprise (Google Edition)** license key directly from the platform console under **SIEM Settings > Collection Agents**.
-
-For more information, see [Bindplane Enterprise (Google Edition)](https://docs.cloud.google.com/chronicle/docs/ingestion/use-bindplane-agent#bp-download-license).
-
-**Google SecOps Marketplace**
-
-Feature
-
-**Google Chronicle** : Version 93.0
-
-  * Added the following new action:
-
-    * **Execute UDM Query Async**
-
-
-
-Change
-
-**ServiceNow** : Version 72.0
-
-  * Added the ability to authenticate using client credentials without a refresh token to the following connector:
-
-    * **Sync Incidents**
-
-
-
-Change
-
-**FireEye ETP** : Version 11.0
-
-  * Updated ontology mapping rules and fixed missing alert details and event data for v2 API issue in the following connector:
-
-    * **FireEye ETP - Email Alerts Connector**
-
-
-
-**Google SecOps SIEM**
-
-Feature
-
-**Self-service Bindplane Enterprise license download**
-
-This feature is currently in Preview for Google Security Operations tenants in the US and EU regions. Google Security Operations Enterprise Plus and Google Unified Security (GUS) customers can now download their **Bindplane Enterprise (Google Edition)** license key directly from the platform console under **SIEM Settings > Collection Agents**.
-
-For more information, see [Bindplane Enterprise (Google Edition)](https://docs.cloud.google.com/chronicle/docs/ingestion/use-bindplane-agent#bp-download-license).
-
-**Memorystore for Redis**
-
-Feature
-
-You can use [client-side metrics](https://docs.cloud.google.com/memorystore/docs/redis/about-client-side-metrics) to troubleshoot why your application might experience high latency. This feature is [generally available](https://docs.cloud.google.com/products#product-launch-stages).
-
-**Spanner**
-
-Feature
-
-Spanner supports the following PostgreSQL-dialect database operators:
-
-  * `ILIKE` (`~~*`)
-  * `NOT ILIKE` (`!~~*`)
-
-
-
-Spanner supports the following PostgreSQL-dialect database functions:
-
-  * `pg.ilike`
-  * `pg.not_ilike`
-
-
-
-For more information, see [Pattern matching operators](https://docs.cloud.google.com/spanner/docs/reference/postgresql/operators#pattern-matching-operators) and [Functions](https://docs.cloud.google.com/spanner/docs/reference/postgresql/functions).
-
-**VPC Service Controls**
-
-Feature
-
-**VPC Service Controls feature (Status:[Preview](https://cloud.google.com/products#product-launch-stages))**: VPC Service Controls supports retrieving and updating service perimeters that contain deleted IAM principals. When you enable this feature, you can manage perimeters that contain deleted user, group, or service account identities without triggering the `The email address is invalid or non-existent` error.
-
-For more information, see [Supported identities for ingress and egress rules](https://docs.cloud.google.com/vpc-service-controls/docs/supported-identities#deleted-principals).
-
-## September 02, 2026
-
-**Confidential VM**
-
-Feature
-
-Support for Intel TDX on [`c3-standard-*-lssd` machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone) is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
-
-**Google Kubernetes Engine**
-
-Change
-
-#### (2026-R37) Version updates
-
-GKE cluster versions have been updated.
-
-**New versions available for upgrades and new clusters.**
-
-The following versions are now available for new GKE clusters, and for manual control plane upgrades and node upgrades for existing clusters. For more information about versioning and upgrades, see [GKE versioning and support](https://cloud.google.com/kubernetes-engine/versioning) and [About GKE cluster upgrades](https://cloud.google.com/kubernetes-engine/upgrades).
-
-### Rapid channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363) is now the default version for cluster creation in the Rapid channel.
-  * The following versions are now available in the Rapid channel: 
-    * [1.34.11-gke.1044000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13411)
-    * [1.35.8-gke.1225000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.4-gke.1082000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1364)
-    * [1.37.0-gke.2155000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-    * [1.37.0-gke.2941000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-  * The following versions are no longer available in the Rapid channel: 
-    * 1.34.10-gke.1236000
-    * 1.35.7-gke.1222000
-    * 1.35.8-gke.1026000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Rapid channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.36.3-gke.1640000
-  * The following alpha versions are no longer available in the Rapid channel: 
-    * 1.37.0-gke.2034000+preview
-    * 1.37.0-gke.2048000+preview
-    * 1.37.0-gke.2074000+preview
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-      * 1.35 to [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-      * 1.36 to [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-      * 1.37 to [1.37.0-gke.2155000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-
-
-
-### Regular channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Regular channel.
-  * The following versions are now available in the Regular channel: 
-    * [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Regular channel: 
-    * 1.34.10-gke.1079000
-    * 1.35.7-gke.1027000
-    * 1.36.2-gke.2064000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
-### Stable channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410) is now available in the Stable channel.
-  * Version 1.34.9-gke.1610001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-
-
-
-### Extended channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Extended channel.
-  * The following versions are now available in the Extended channel: 
-    * [1.31.14-gke.2613000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.31.14-gke.2667000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2314000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.32.13-gke.2393000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1499000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.33.13-gke.1613000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Extended channel: 
-    * 1.31.14-gke.2543000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.31.14-gke.2630000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2231000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2337000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1269000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1547000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.34.10-gke.1079000
-    * 1.35.7-gke.1027000
-    * 1.36.2-gke.2064000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.30 to [1.31.14-gke.2579000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.31 to [1.32.13-gke.2268000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.31 to [1.31.14-gke.2579000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.32 to [1.32.13-gke.2268000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-      * 1.33 to [1.33.13-gke.1329000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-      * 1.34 to [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
-### No channel (deprecated)
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation.
-  * The following versions are now available: 
-    * [1.34.11-gke.1044000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13411)
-    * [1.35.8-gke.1225000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.4-gke.1082000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1364)
-  * The following node versions are now available: 
-    * [1.31.14-gke.2667000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2393000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1613000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.11-gke.1044000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13411)
-    * [1.35.8-gke.1225000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.4-gke.1082000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1364)
-  * The following versions are no longer available: 
-    * 1.34.9-gke.1610001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.6-gke.1710000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.8-gke.1026000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.36.2-gke.2064000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-      * 1.35 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
-Security
-
-#### (2026-R37) Security updates
-
-This release includes new GKE versions that use updated Container-Optimized OS images. These updated images are cumulative, incorporating security fixes from all Container-Optimized OS versions released since the previous GKE release.
-
-To identify the specific vulnerabilities that were resolved in each updated Container-Optimized OS image, see the **Security** release notes for that image. The following table includes links to the release notes for each updated Container-Optimized OS image:
-
-GKE version | Container-Optimized OS version | Details  
----|---|---  
-1.31.14-gke.2667000 | cos-117-18613-675-64 | [cos-117-18613-675-64 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m117#cos-117-18613-675-64_)  
-1.32.13-gke.2393000 | cos-121-18867-584-3 | [cos-121-18867-584-3 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m121#cos-121-18867-584-3_)  
-1.35.8-gke.1225000 | cos-125-19216-532-135 | [cos-125-19216-532-135 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-532-135_)  
-1.36.4-gke.1082000 | cos-129-19506-299-161 | [cos-129-19506-299-161 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m129#cos-129-19506-299-161_)  
-1.37.0-gke.2155000 | cos-129-19506-299-82 | [cos-129-19506-299-82 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m129#cos-129-19506-299-82_)  
-  
-Change
-
-#### (2026-R37) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410) is now available in the Stable channel.
-  * Version 1.34.9-gke.1610001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-
-
-
-Change
-
-#### (2026-R37) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Regular channel.
-  * The following versions are now available in the Regular channel: 
-    * [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Regular channel: 
-    * 1.34.10-gke.1079000
-    * 1.35.7-gke.1027000
-    * 1.36.2-gke.2064000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
-Change
-
-#### (2026-R37) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363) is now the default version for cluster creation in the Rapid channel.
-  * The following versions are now available in the Rapid channel: 
-    * [1.34.11-gke.1044000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13411)
-    * [1.35.8-gke.1225000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.4-gke.1082000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1364)
-    * [1.37.0-gke.2155000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-    * [1.37.0-gke.2941000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-  * The following versions are no longer available in the Rapid channel: 
-    * 1.34.10-gke.1236000
-    * 1.35.7-gke.1222000
-    * 1.35.8-gke.1026000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Rapid channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.36.3-gke.1640000
-  * The following alpha versions are no longer available in the Rapid channel: 
-    * 1.37.0-gke.2034000+preview
-    * 1.37.0-gke.2048000+preview
-    * 1.37.0-gke.2074000+preview
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-      * 1.35 to [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-      * 1.36 to [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-      * 1.37 to [1.37.0-gke.2155000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-
-
-
-Change
-
-#### (2026-R37) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation.
-  * The following versions are now available: 
-    * [1.34.11-gke.1044000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13411)
-    * [1.35.8-gke.1225000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.4-gke.1082000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1364)
-  * The following node versions are now available: 
-    * [1.31.14-gke.2667000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2393000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1613000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.11-gke.1044000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13411)
-    * [1.35.8-gke.1225000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.4-gke.1082000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1364)
-  * The following versions are no longer available: 
-    * 1.34.9-gke.1610001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.6-gke.1710000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.8-gke.1026000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.36.2-gke.2064000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-      * 1.35 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
-Change
-
-#### (2026-R37) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Extended channel.
-  * The following versions are now available in the Extended channel: 
-    * [1.31.14-gke.2613000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.31.14-gke.2667000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2314000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.32.13-gke.2393000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1499000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.33.13-gke.1613000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Extended channel: 
-    * 1.31.14-gke.2543000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.31.14-gke.2630000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2231000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2337000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1269000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1547000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.34.10-gke.1079000
-    * 1.35.7-gke.1027000
-    * 1.36.2-gke.2064000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.30 to [1.31.14-gke.2579000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.31 to [1.32.13-gke.2268000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.31 to [1.31.14-gke.2579000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.32 to [1.32.13-gke.2268000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-      * 1.33 to [1.33.13-gke.1329000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-      * 1.34 to [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-01 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-01 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

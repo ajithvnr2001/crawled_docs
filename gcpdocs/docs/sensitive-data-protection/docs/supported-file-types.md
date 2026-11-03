@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types/
 title: Supported file types and scanning modes \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:56.938838+00:00
+fetched_at: 2026-11-03T08:19:22.255703+00:00
 ---
 
 # Supported file types and scanning modes  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -40,13 +40,13 @@ File type | File extensions | Limits | Scanning mode | Transformation support
 `Microsoft Word` | docm, docx, dotm, dotx | [Word limits](https://docs.cloud.google.com/sensitive-data-protection/limits#pdf-word-limits) | Intelligent document parsing |   
 `Microsoft Excel` | xlsm, xlsx, xltm, xltx | [Excel limits](https://docs.cloud.google.com/sensitive-data-protection/limits#pdf-word-limits) | Intelligent document parsing |   
 `Microsoft Powerpoint` | potm, potx, pptm, pptx | [Powerpoint limits](https://docs.cloud.google.com/sensitive-data-protection/limits#pdf-word-limits) | Intelligent document parsing |   
-`Image` | bmp, gif, jpe, jpeg, jpg, png |  | 
+`Image` | bmp, gif, jpe, jpeg, jpg, png, tif, tiff | [TIFF limits](https://docs.cloud.google.com/sensitive-data-protection/limits#tiff-limits) | 
 
   * OCR
   * Image content detection
   * Image content classification
 
-|  [ Redaction](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.image/redact)  
+|  [ Redaction](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.image/redact) for all image types except TIFF   
 `Binary` | [ Unrecognized file types](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types#unrecognized-file-types) and images that can't be scanned using optical character recognition (OCR), image content detection, or image content classification.  |  | Binary |   
   
 ## Supported file clusters in discovery operations
@@ -61,7 +61,7 @@ File cluster | File extensions | Limits | Scanning mode
 `Source Code` | bat, brf, c, c++, cc, cmd, cpp, cs, css, cxx, dart, go, h, hh, hpp, hs, hxx, java, js, lhs, m, ml, ocaml, php, phtm, phtml, pl, ps1, py, pyw, rb, rbw, rc, rs, scala, scpt, scr, script, sh, sql, vb, vbs, wml, xml, yaml, yml |  | Plain text  
 `Structured Data` | avro, csv, tsv, proto |  | Structured parsing for avro, csv, and tsv files. Plain text parsing for proto files  
 `Rich Documents` |  doc, docm, docx, dotm, dotx, pdf, potm, potx, ppt, pptm, pptx, xls, xlsm, xlsx, xltm, xltx  | Supported PDF, Microsoft Word, Excel, and Powerpoint files smaller than 30 MiB are scanned. | Intelligent document parsing  
-`Images` |  bmp, gif, heic, ico, jpe, jpeg, jpg, pm, png, svg, tiff, webp  | Supported images (bmp, gif, jpe, jpeg, jpg, and png) smaller than 4 MiB are scanned using OCR in [regions that support image scanning](https://docs.cloud.google.com/sensitive-data-protection/docs/locations#image-limitations).  | 
+`Images` |  bmp, gif, heic, ico, jpe, jpeg, jpg, pm, png, svg, tif, tiff, webp  | Supported images (bmp, gif, jpe, jpeg, jpg, png, tif, and tiff) smaller than 4 MiB are scanned using OCR in [regions that support image scanning](https://docs.cloud.google.com/sensitive-data-protection/docs/locations#image-limitations). TIFF images are subject to the [TIFF limits](https://docs.cloud.google.com/sensitive-data-protection/limits#tiff-limits).  | 
 
   * OCR
   * Image content detection
@@ -100,7 +100,9 @@ If you scan these files in binary mode, the limits apply.
 
 ## Scanning modes
 
-Each scanning mode provides additional [location details](https://cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult#Location) in [inspection findings](https://cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult#Finding). 
+Each scanning mode provides additional [location details](https://cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult#Location) in [inspection findings](https://cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult#Finding).
+
+For TIFF images, the [`ImageLocation`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult#ImageLocation) object also includes a `pageNumber` field, which identifies the page that contains the finding. Page numbers start at 0. 
 
 Scanning mode | Notes | Additional location details to be provided  
 ---|---|---  
@@ -134,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

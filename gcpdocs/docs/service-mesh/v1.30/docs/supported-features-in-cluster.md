@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/supported-features-in-cluster/
 title: In-cluster control plane supported features \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:38:07.352113+00:00
+fetched_at: 2026-11-03T05:46:19.079689+00:00
 ---
 
 # In-cluster control plane supported features  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 **Caution:** In-cluster Cloud Service Mesh using the `ISTIOD` control plane on GKE on Google Cloud is [deprecated](https://docs.cloud.google.com/service-mesh/deprecations). Cloud Service Mesh with an in-cluster control plane on Google Distributed Cloud (software only) continues to be supported as described in [Supported platforms](https://docs.cloud.google.com/service-mesh/v1.30/docs/supported-platforms#off-gcp). 
 
-This page describes features that are supported in Cloud Service Mesh 1.30.5 with an in-cluster control plane. To see the supported features for Cloud Service Mesh 1.30.5 with a managed control plane instead, see [Managed control plane](https://docs.cloud.google.com/service-mesh/v1.30/docs/supported-features-managed).
+This page describes features that are supported in Cloud Service Mesh 1.30.7 with an in-cluster control plane. To see the supported features for Cloud Service Mesh 1.30.7 with a managed control plane instead, see [Managed control plane](https://docs.cloud.google.com/service-mesh/v1.30/docs/supported-features-managed).
 
 ## Supported versions
 
@@ -109,7 +109,7 @@ In the following tables:
   * – indicates the feature is enabled by default.
   * * – indicates the feature is supported for the platform and can be enabled, as described in [Enabling optional features](https://docs.cloud.google.com/service-mesh/v1.30/docs/enable-optional-features-in-cluster) or the feature guide linked in the feature table.
   * **Compatible** – indicates the feature or third-party tool will integrate or work with Cloud Service Mesh, but is not fully supported by Google Cloud Support and a feature guide is not available.
-  * – indicates either the feature isn't available or it isn't supported in Cloud Service Mesh 1.30.5.
+  * – indicates either the feature isn't available or it isn't supported in Cloud Service Mesh 1.30.7.
 
 
 
@@ -386,6 +386,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

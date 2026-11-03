@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/netapp/volumes/docs/discover/service-levels/
 title: Google Cloud NetApp Volumes service levels \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:22:30.026472+00:00
+fetched_at: 2026-11-03T08:19:01.073332+00:00
 ---
 
 # Google Cloud NetApp Volumes service levels  |  Google Cloud Documentation
@@ -225,8 +225,8 @@ Region name | Region description | Flex Unified | Flex File | Standard or Premiu
 `me-central1` | Doha, Qatar | No | Yes | No  
 `me-central2` | Dammam, Saudi Arabia | Yes | Yes | No  
 `me-west1` | Tel Aviv, Israel | Yes | Yes | No  
-`northamerica-northeast1` | Montréal, Canada | No | Yes | Yes  
-`northamerica-northeast2` | Toronto, Canada | No | Yes | Yes  
+`northamerica-northeast1` | Montréal, Canada | Yes | Yes | Yes  
+`northamerica-northeast2` | Toronto, Canada | Yes | Yes | Yes  
 `northamerica-south1` | Queretaro, Mexico | No | Yes | No  
 `southamerica-east1` | São Paulo, Brazil | Yes | Yes | No  
 `southamerica-west1` | Santiago, Chile | No | Yes | No  
@@ -280,6 +280,12 @@ Region name | Region description | Zone names
 `me-west1` | Tel Aviv, Israel |  `me-west1-a`  
 `me-west1-b`  
 `me-west1-c`  
+`northamerica-northeast1` | Montréal, Canada |  `northamerica-northeast1-a`  
+`northamerica-northeast1-b`  
+  
+`northamerica-northeast2` | Toronto, Canada |  `northamerica-northeast2-a`  
+`northamerica-northeast2-b`  
+`northamerica-northeast2-c`  
 `southamerica-east1` | São Paulo, Brazil |  `southamerica-east1-a`  
 `southamerica-east1-b`  
 `southamerica-east1-c`  
@@ -389,6 +395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

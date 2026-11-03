@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.23/docs/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Service Mesh v1.23 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:55.341750+00:00
+fetched_at: 2026-11-03T05:46:11.135369+00:00
 ---
 
 # Security bulletins  |  Cloud Service Mesh v1.23  |  Google Cloud Documentation
@@ -43,6 +43,26 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This page lists the security bulletins for Cloud Service Mesh.
 
+## GCP-2026-076
+
+**Published:** 2026-11-02
+
+Description | Severity | Notes  
+---|---|---  
+Distrusts compromised eMudhra intermediate Certificate Authority (CA) certificates in Istio base images and builds `istiod`, `istioctl`, and `pilot-agent` with Go 1.26.10 to reject certificate chains containing the compromised intermediate keys. 
+
+#### What should I do?
+
+**Check if your clusters are impacted** In-cluster Cloud Service Mesh v1.31, v1.30, and v1.29 may be impacted by this vulnerability.  **Mitigation** For **in-cluster** Cloud Service Mesh, [upgrade your cluster](https://docs.cloud.google.com/service-mesh/docs/upgrade/upgrade) to one of the following patched versions: 
+
+  * 1.31.3-asm.3
+  * 1.30.7-asm.3
+  * 1.29.10-asm.0
+
+If you're using Cloud Service Mesh v1.28 or earlier, your release has reached end of life and is no longer supported. Upgrade to a supported version.  For **managed** Cloud Service Mesh, no customer action is required. Your system is automatically updated.  | Medium |  [ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)  
+[CVE-2026-111943](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111943)  
+  
+  
 ## GCP-2026-069
 
 **Published:** 2026-10-19
@@ -1914,6 +1934,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

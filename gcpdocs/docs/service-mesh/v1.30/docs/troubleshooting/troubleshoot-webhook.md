@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/troubleshooting/troubleshoot-webhook/
 title: Resolving sidecar proxy/webhook issues in Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:55.571167+00:00
+fetched_at: 2026-11-03T05:46:16.997604+00:00
 ---
 
 # Resolving sidecar proxy/webhook issues in Cloud Service Mesh  |  Google Cloud Documentation
@@ -59,9 +59,9 @@ If you are running multiple-revision Istio (for zero-downtime migrations, multip
 
 The sidecar injector webhook (which is used for automatic sidecar injection) requires a CA bundle to establish secure connections with the API server and `istiod`. This CA bundle is patched into the configuration by `istiod`, but can sometimes be overwritten (for example, if you reapply the webhook configuration).
 
-You can verify the presence of the CA bundle using the following command. The command includes `istio-sidecar-injector-asm-1298-11`, which is specific to this version of Cloud Service Mesh. Ensure you use your actual revision if it differs.
+You can verify the presence of the CA bundle using the following command. The command includes `istio-sidecar-injector-asm-1307-3`, which is specific to this version of Cloud Service Mesh. Ensure you use your actual revision if it differs.
          
-         kubectl get mutatingwebhookconfigurations.admissionregistration.k8s.io istio-sidecar-injector-asm-1298-11 -o=jsonpath='{.webhooks[0].clientConfig.caBundle}'
+         kubectl get mutatingwebhookconfigurations.admissionregistration.k8s.io istio-sidecar-injector-asm-1307-3 -o=jsonpath='{.webhooks[0].clientConfig.caBundle}'
 
 If the output is not empty, the CA bundle is configured. If the CA bundle is missing, restart `istiod` to cause it to rescan the webhook and reinstall the CA bundle.
 
@@ -134,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
