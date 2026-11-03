@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-usage/docs/list-services/
 title: List services \u00a0|\u00a0 Service Usage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:25.685201+00:00
+fetched_at: 2026-11-03T09:41:59.022963+00:00
 ---
 
 # List services  |  Service Usage  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # List services
 
-This document describes how to list the APIs and services that are enabled or available in a Google Cloud project, folder, or organization. The list of available or enabled APIs and services can contain both public [Google Cloud services](https://cloud.google.com/terms/services), such as [Pub/Sub](https://docs.cloud.google.com/pubsub), as well as any APIs and services shared privately with you, such as services created using [Cloud Endpoints](https://docs.cloud.google.com/endpoints). For more information on the differences between public and private APIs and services, see [Public and private services](https://docs.cloud.google.com/service-usage/docs/public-vs-private).
+You can list the APIs and services that are enabled or available for a Google Cloud project, folder, or organization. This list can include public [Google Cloud services](https://cloud.google.com/terms/services), such as [Pub/Sub](https://docs.cloud.google.com/pubsub), as well as any APIs and services shared privately with you, such as services created using [Cloud Endpoints](https://docs.cloud.google.com/endpoints). For more information on the differences between public and private APIs and services, see [Public and private services](https://docs.cloud.google.com/service-usage/docs/public-vs-private).
 
 To program against the Service Usage API, you can also use one of the [Service Usage client libraries](https://docs.cloud.google.com/service-usage/docs/libraries).
 
@@ -30,7 +30,7 @@ To program against the Service Usage API, you can also use one of the [Service U
 To list the enabled and available APIs and services, you need:
 
   * A Google Cloud project. To learn how to create a Google Cloud project, see [Create projects](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects).
-  * The correct [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) permissions. To learn about the IAM requirements for Service Usage, see [Access control with IAM](https://docs.cloud.google.com/service-usage/docs/access-control).
+  * The correct [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) permissions. You have the needed permissions if you are granted the [**Service Usage Viewer**](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageViewer) role.
   * If you plan to use the Google Cloud CLI or REST API instructions on this page, you also need to [install the Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install).
 
 
@@ -233,6 +233,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

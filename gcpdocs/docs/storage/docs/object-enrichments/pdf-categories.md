@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/object-enrichments/pdf-categories/
 title: PDF classification categories \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:39:52.063207+00:00
+fetched_at: 2026-11-03T09:42:29.174350+00:00
 ---
 
 # PDF classification categories  |  Cloud Storage  |  Google Cloud Documentation

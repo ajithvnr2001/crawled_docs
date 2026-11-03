@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/quickstarts/jobs/build-create-java/
 title: Quickstart: build and create a Java job in Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:21.469667+00:00
+fetched_at: 2026-11-03T09:44:19.743176+00:00
 ---
 
 # Quickstart: build and create a Java job in Cloud Run  |  Google Cloud Documentation
@@ -182,22 +182,22 @@ To write a job in Java:
              }
            }
          
-           static void runTask(int> sleepTime, float failureRate) throws InterruptedException {
+           static void runTask(int sleepTime, float failureRate) throws InterruptedException {
              // Simulate work
-             i<f (sleepTime  0) {>
+             if (sleepTime > 0) {
                Thread.sleep(sleepTime);
              }
          
              // Simulate errors
-             if (failureRate  0 || failureRate  1) {
+             if (failureRate < 0 || failureRate > 1) {
                System.err.println(
                    String.format(
-                       "Invalid FAIL_RATE value: %s. Must be a f<loat between 0 and 1 inclusive.",
+                       "Invalid FAIL_RATE value: %s. Must be a float between 0 and 1 inclusive.",
                        failureRate));
                return;
              }
-             if (Math.random()  failureRate) {
-               throw new RuntimeException(&quot;Task Failed.");
+             if (Math.random() < failureRate) {
+               throw new RuntimeException("Task Failed.");
              }
              System.out.println(String.format("Completed Task #%s", CLOUD_RUN_TASK_INDEX));
            }
@@ -213,8 +213,8 @@ The code also lets you generate failures as a way to test retries and to generat
 
   3. Create a `pom.xml` file with the following contents:
          
-         <?xml version="1.0" encodin>g<="UTF-8"?
-         !--
+         <?xml version="1.0" encoding="UTF-8"?>
+         <!--
          Copyright 2021 Google LLC
          Licensed under the Apache License, Version 2.0 (the "License");
          you may not use this file except in compliance with the License.
@@ -223,81 +223,81 @@ The code also lets you generate failures as a way to test retries and to generat
          Unless required by applicable law or agreed to in writing, software
          distributed under the License is distributed on an "AS IS" BASIS,
          WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-         See the License for the specific language governing permissio>n<s and
+         See the License for the specific language governing permissions and
          limitations under the License.
-         --
-         project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:schemaLocation="http://maven.>apa<che.org/POM/>4.0.0< http://maven>.ap<ache.or>g/xsd/maven-4.0<.0.xsd&q>uot<;
-           modelV>ersion4.0.0/<modelVersio>n
-          < groupI>dcom.<example.>run</groupId
-         >  a<rtifactIdj>obs-<example/artifactId
-           version0.0.1/version
-           packagingjar/packaging
+         -->
+         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+           <modelVersion>4.0.0</modelVersion>
+           <groupId>com.example.run</groupId>
+           <artifactId>jobs-example</artifactId>
+           <version>0.0.1</version>
+           <packaging>jar</packaging>
          
-           !--  The parent pom defines common style checks and testing strategies for our samples.
-         	Removing or rep>lac<ing it> shou<ld not >affect the execution of <the samp>les i<n anyway. >--
-           parent
-             grou<pIdcom.goog>le.cl<oud.sam>ples/<groupId
-         >   < artifa>ctId<shared-con>figur<ation/artifactId
-             version>1.2.0</version
-           /parent
+           <!--  The parent pom defines common style checks and testing strategies for our samples.
+         	Removing or replacing it should not affect the execution of the samples in anyway. -->
+           <parent>
+             <groupId>com.google.cloud.samples</groupId>
+             <artifactId>shared-configuration</artifactId>
+             <version>1.2.0</version>
+           </parent>
          
-           propert>ies
-          <   project.build.sourceEncodingU>TF-8/<project.build.sourceEncoding
-             >proje<ct.reporting.outputEn>co<dingUTF-8/project.repo>rting<.outputEncoding
-             m>av<en.compiler.target17/m>ave<n.compiler.>targ<et
-             maven.compile>r.sou<rce17/maven.>compile<r.source
-          > /propert<ies
+           <properties>
+             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+             <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+             <maven.compiler.target>17</maven.compiler.target>
+             <maven.compiler.source>17</maven.compiler.source>
+           </properties>
          
-           dep>endencyManage<ment
-             de>pendencie<s
-              > dependency
-             <    arti>factIdlib<rarie>s-bom/<artifa>ctId
-             <    >gro<upIdc>om.google<.cloud/>groupId<
-                > scopei<mport/scope>
-             <    typepom/t>ype<
-                 version26.32>.0/v<ersion
-              > /dep<endency
-           >  /depe<ndencie>s
-           /<dependen>cyManag<ement
+           <dependencyManagement>
+             <dependencies>
+               <dependency>
+                 <artifactId>libraries-bom</artifactId>
+                 <groupId>com.google.cloud</groupId>
+                 <scope>import</scope>
+                 <type>pom</type>
+                 <version>26.32.0</version>
+               </dependency>
+             </dependencies>
+           </dependencyManagement>
          
-           d>epend<encies
-             >depende<ncy
-            >   gro<upIdjuni>t/group<Id
-           >    <artifa>ctIdj<unit/artifa>ctId
-         <      vers>ion4.13<.2/vers>ion
-               scopet<est/scop>e
-             /<dependency>
-             <dependency
-         >      g<roupIdc>om.go<ogle.tru>th/grou<pId
-          >    < artif>actId<truth/artif>actId<
-               ver>sion1.4<.0/vers>ion
-               scopet<est/scop>e
-             /<dependency>
-             dependency
-             <  groupIdco>m.googl<e.clo>ud/g<roupId>
-             <  artifactI>dgo<ogle-cloud-lo>ggin<g/art>ifact<Id
-             >  scope<test/s>cope
-             </depend>ency
-           /dependencies
+           <dependencies>
+             <dependency>
+               <groupId>junit</groupId>
+               <artifactId>junit</artifactId>
+               <version>4.13.2</version>
+               <scope>test</scope>
+             </dependency>
+             <dependency>
+               <groupId>com.google.truth</groupId>
+               <artifactId>truth</artifactId>
+               <version>1.4.0</version>
+               <scope>test</scope>
+             </dependency>
+             <dependency>
+               <groupId>com.google.cloud</groupId>
+               <artifactId>google-cloud-logging</artifactId>
+               <scope>test</scope>
+             </dependency>
+           </dependencies>
          
-           <build
-           >  plugins<
-               plu>gin
-                 grou<pIdorg.apac>he.maven.<plugins>/grou<pId
-             >    artif<actIdmaven-ja>r-plugin/ar<tifactI>d
-                 ver<sion3.3.>0/version
-              <   configura>tion<
-                   ar>chive
-                  <   manife>st
-                       addCla<sspathtrue>/addClasspath<
-                 >      mainC<lasscom.>example.J<obsExample/mai>nClass
-         <       >     </manifes>t
-          <      > <  /archi>ve
-                 /configuration
-               /plugin
-             /plugins
-           /build
-         /project
+           <build>
+             <plugins>
+               <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-jar-plugin</artifactId>
+                 <version>3.3.0</version>
+                 <configuration>
+                   <archive>
+                     <manifest>
+                       <addClasspath>true</addClasspath>
+                       <mainClass>com.example.JobsExample</mainClass>
+                     </manifest>
+                   </archive>
+                 </configuration>
+               </plugin>
+             </plugins>
+           </build>
+         </project>
          
 
   4. Create a `project.toml` file with the following contents, to build with the Java version supported by Buildpack:

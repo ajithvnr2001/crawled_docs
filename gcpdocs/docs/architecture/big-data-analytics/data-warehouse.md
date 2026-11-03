@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/big-data-analytics/data-warehouse/
 title: Delete the Data warehouse with BigQuery \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:43.054286+00:00
+fetched_at: 2026-11-03T09:44:40.247723+00:00
 ---
 
 # Delete the Data warehouse with BigQuery  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek/
 title: CMEK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:53.959446+00:00
+fetched_at: 2026-11-03T09:44:31.772860+00:00
 ---
 
 # CMEK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -317,7 +317,7 @@ CMEK support isn't provided in the following:
   * AutoML image model batch prediction (`BatchPredictionJob`)
   * TPU tuning
   * Agent Platform Memory Bank or Agent Platform Sessions configured to use the global endpoint. Cloud KMS requires encryption keys to reside within a fixed geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
-  * Serving profile CMEK for resourceless APIs is limited to the Gemini Live API and the Interactions API, in the `us` and `eu` multi-regions. The global region isn't supported.
+  * Serving profile CMEK for resourceless APIs is limited to Gemini Live API and the Interactions API, in the `us` and `eu` multi-regions. The global region isn't supported.
 
 
 
@@ -539,15 +539,15 @@ When you create a supported resource, set the `encryptionSpec` parameter to poin
 
 ### Python
 
-When you create a supported resource, set the `encryption_spec` parameter to point to your key resource. See the [Python Client for Cloud AI Platform](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) documentation for more information.
+When you create a supported resource, set the `encryption_spec` parameter to point to your key resource. See the [Agent Platform client library for Python](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) documentation for more information.
 
 ## Use CMEK with resourceless APIs
 
-Some Gemini Enterprise Agent Platform APIs are _resourceless_ (request-based): they serve inference requests without creating a long-lived, top-level resource. To support features such as session continuity and stateful conversations, these APIs can store user data at rest for a limited time—for example, the Gemini Live API stores session-resumption data for up to 24 hours, and the Interactions API stores stateful interaction data for up to 7 days. Because there's no persistent resource to attach a key to when the data is created, you use a _serving profile_ to apply CMEK to this resting data.
+Some Gemini Enterprise Agent Platform APIs are _resourceless_ (request-based): they serve inference requests without creating a long-lived, top-level resource. To support features such as session continuity and stateful conversations, these APIs can store user data at rest for a limited time—for example, Gemini Live API stores session-resumption data for up to 24 hours, and the Interactions API stores stateful interaction data for up to 7 days. Because there's no persistent resource to attach a key to when the data is created, you use a _serving profile_ to apply CMEK to this resting data.
 
 A serving profile is a Gemini Enterprise Agent Platform resource that links a Cloud KMS key to a project, location, and API scope. While a serving profile exists for a request's project, location, and scope, Agent Platform automatically encrypts that scope's persistent data with your key. Your inference request format doesn't change.
 
-**Caution:** A serving profile applies to an entire project, location, and API scope—not to an individual user or request. An Agent Platform user can create, update, or delete a serving profile, or disable or revoke its Cloud KMS key, and any such change affects all users and workloads that use that API in the project.**Note:** Serving profile CMEK support is available for the Gemini Live API and the Interactions API, in the `us` and `eu` multi-regions.
+**Caution:** A serving profile applies to an entire project, location, and API scope—not to an individual user or request. An Agent Platform user can create, update, or delete a serving profile, or disable or revoke its Cloud KMS key, and any such change affects all users and workloads that use that API in the project.**Note:** Serving profile CMEK support is available for Gemini Live API and the Interactions API, in the `us` and `eu` multi-regions.
 
 ### Benefits of serving profiles
 
@@ -701,6 +701,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

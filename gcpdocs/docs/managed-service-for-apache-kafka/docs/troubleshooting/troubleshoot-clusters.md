@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/troubleshooting/troubleshoot-clusters/
 title: Troubleshoot Kafka cluster errors \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:15:27.224478+00:00
+fetched_at: 2026-11-03T09:44:31.424052+00:00
 ---
 
 # Troubleshoot Kafka cluster errors  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -162,9 +162,11 @@ You don't need to take any action during broker restarts. However, you might obs
 
   * Temporary connection errors or timeouts when committing offsets. Commonly used client libraries automatically handle these errors.
 
-  * A temporary spike in the count of under-replicated partitions ([`broker/under_replicated_partitions`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#managedkafka/broker/under_replicated_partitions)) when a broker restarts.
+  * A temporary spike in the count of under-replicated partitions ([`broker/under_replicated_partitions`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#managedkafka/broker/under_replicated_partitions)) on the remaining brokers when a broker restarts.
 
-  * A spike in the **Under-MinISR Partitions** metric ([`broker/under_min_isr_partitions`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#managedkafka/broker/under_min_isr_partitions)). This spike likely corresponds to an internal monitoring topic that is not replicated, and is expected behavior as long the count is 1 for each broker. A value greater than 1 might indicate a problem with data or metadata topics.
+  * A temporary value of 1 in the **Offline Partitions** metric ([`offline_partitions`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#managedkafka/offline_partitions)) while a broker is down. This value corresponds to an internal monitoring topic that has a single replica on the restarting broker, and is expected behavior. A value greater than 1 might indicate a problem with data or metadata topics.
+
+The **Under-MinISR Partitions** metric ([`broker/under_min_isr_partitions`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#managedkafka/broker/under_min_isr_partitions)) isn't affected by the internal monitoring topic and stays at 0 during a rolling restart if your topics use the default replication factor of 3 and `min.insync.replicas` of 2. A value greater than 0 means that more than one replica of a partition is unavailable, which might indicate a problem.
 
 
 
@@ -184,6 +186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

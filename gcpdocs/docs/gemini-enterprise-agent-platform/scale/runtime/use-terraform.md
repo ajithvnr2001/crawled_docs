@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform/
 title: Provision agents with Terraform \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:02.507140+00:00
+fetched_at: 2026-11-03T09:44:31.043831+00:00
 ---
 
 # Provision agents with Terraform  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ Before using Terraform to deploy an agent, ensure that you have completed the fo
 
 #### Click to see required permissions
 
-       * **Vertex AI User** (`roles/aiplatform.user`) or **Vertex AI Administrator** (`roles/aiplatform.admin`): Authorizes the deployer to execute Agent Runtime Control Plane RPC operations (`CreateReasoningEngine`, `UpdateReasoningEngine`, `DeleteReasoningEngine`).
+       * **Agent Platform User** (`roles/aiplatform.user`) or **Agent Platform Administrator** (`roles/aiplatform.admin`): Authorizes the deployer to execute Agent Runtime Control Plane RPC operations (`CreateReasoningEngine`, `UpdateReasoningEngine`, `DeleteReasoningEngine`).
        * **Service Account User** (`roles/iam.serviceAccountUser`): Granted on the custom runtime service account (`google_service_account.agent_runtime_sa`) attached to the agent. Authorizes the deployer to attach that service account identity to the provisioned `google_vertex_ai_reasoning_engine` resource.
        * **Storage Object Admin** (`roles/storage.objectAdmin`) or **Storage Object Viewer** (`roles/storage.objectViewer`): Required when using Python package staging (`package_spec`) to upload or read serialized agent pickles (`agent.pkl`) and dependency manifests in Cloud Storage.
        * **Artifact Registry Writer** (`roles/artifactregistry.writer`): Required when prebuilding and pushing custom container images (`docker push`) to Artifact Registry repositories.
@@ -604,6 +604,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

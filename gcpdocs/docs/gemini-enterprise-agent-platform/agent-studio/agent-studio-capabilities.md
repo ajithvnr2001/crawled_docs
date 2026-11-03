@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities/
 title: Agent Studio capabilities \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:11.725874+00:00
+fetched_at: 2026-11-03T09:52:40.360320+00:00
 ---
 
 # Agent Studio capabilities  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ Image | Image generation and editing. For more information, see [Generate images
 Video | Video generation. For more information, see [Video generation overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/overview).  
 Music | Music generation. For more information, see [Music generation overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/overview).  
 Speech | Speech generation and transcription. For more information, see [Text-to-speech](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) and [Speech-to-Text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/speech-to-text).  
-Live API | Low-latency, bidirectional voice and video interaction. For more information, see [Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api).  
+Live API | Low-latency, bidirectional voice and video interaction. For more information, see [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api).  
   
 The Image, Video, Music, and Speech playgrounds are collectively known as Agent Media Studio.
 
@@ -169,6 +169,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

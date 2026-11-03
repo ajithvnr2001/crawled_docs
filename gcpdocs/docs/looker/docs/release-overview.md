@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/release-overview/
 title: Looker release overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:39.932798+00:00
+fetched_at: 2026-11-03T09:53:46.954994+00:00
 ---
 
 # Looker release overview  |  Google Cloud Documentation

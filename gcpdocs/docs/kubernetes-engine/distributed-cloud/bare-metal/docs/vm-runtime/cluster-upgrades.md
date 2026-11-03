@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/cluster-upgrades/
 title: Upgrade VM Runtime on GDC from a Preview version \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:58.416206+00:00
+fetched_at: 2026-11-03T09:52:42.482793+00:00
 ---
 
 # Upgrade VM Runtime on GDC from a Preview version  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,9 @@ Send feedback
 
 #  Upgrade VM Runtime on GDC from a Preview version Stay organized with collections  Save and categorize content based on your preferences. 
 
-VM Runtime on GDC is released for General Availability (GA) with the release of Google Distributed Cloud version 1.12.0. All earlier releases of VM Runtime on GDC are in [Preview](https://cloud.google.com/products/#product-launch-stages). You can't upgrade from a Preview version to the GA version without first deleting your VMs and disabling VM Runtime on GDC. Once you've upgraded your clusters, then you can enable VM Runtime on GDC again and recreate your VMs.
+Before you can upgrade your cluster, you need to delete your VMs and disable VM Runtime on GDC. You can then enable VM Runtime on GDC again and recreate your VMs.
+
+## Upgrade the version
 
 To upgrade from a pre-GA version of VM Runtime on GDC:
 
@@ -63,6 +65,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

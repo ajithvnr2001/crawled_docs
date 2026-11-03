@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/tpu-multislice-kueue/
 title: Orchestrate Multislice workloads using JobSet and Kueue \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:31.192462+00:00
+fetched_at: 2026-11-03T09:54:11.996528+00:00
 ---
 
 # Orchestrate Multislice workloads using JobSet and Kueue  |  GKE AI/ML  |  Google Cloud Documentation
@@ -614,7 +614,7 @@ To view the node pools where each JobSet in a specific cluster has scheduled Pod
     avg_over_time(
       kubernetes_io:jobset_assigned_node_pools{
         monitored_resource="k8s_entity",
-        cluster_name="multislice-cluster&quot;}[${__interval}])
+        cluster_name="multislice-cluster"}[${__interval}])
     
 
 To identify the node pools where a specific Jobset has been scheduled, run the following PromQL query:
@@ -772,11 +772,11 @@ Optionally, you can assign Kueue workloads priorities which determine the order 
              flavors:
              - name: "vlp-24"
                resources:
-               - name: &quo**t;google.com/tpu"**
+               - name: "google.com/tpu"
                  nominalQuota: 24
-           preemption:
+           **preemption :
              reclaimWithinCohort: Any
-             withinClusterQueue: LowerPriority
+             withinClusterQueue: LowerPriority**
          ---
          apiVersion: kueue.x-k8s.io/v1beta1
          kind: LocalQueue

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/lakehouse-in-bigquery/
 title: Interact with borderless Lakehouse data in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:42.884231+00:00
+fetched_at: 2026-11-03T09:36:30.848190+00:00
 ---
 
 # Interact with borderless Lakehouse data in BigQuery  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ The following are key differences between Lakehouse and standard BigQuery resour
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the **Explorer** pane, click add **Add data**.
+  2. In the **Data** pane, click add **Add data**.
 
   3. Click the **Google Cloud Storage** data source card.
 
@@ -75,7 +75,7 @@ Instead of creating a table containing data, you can create an empty Lakehouse t
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the **Explorer** pane, click add **Add data**.
+  2. In the **Data** pane, click add **Add data**.
 
   3. Click the **Google Cloud Storage** data source card.
 
@@ -100,13 +100,7 @@ Instead of creating a table containing data, you can create an empty Lakehouse t
 
 ## Access cross-cloud data
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** For support during the preview, email [biglake-help@google.com](mailto:biglake-help@google.com).
-
-The [cross-cloud data access capability of Lakehouse](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) lets you query data stored with other cloud providers directly from BigQuery, without migrating files or building complex ETL pipelines. For configuration information, see [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
+The [cross-cloud data access capability of Lakehouse](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) lets you query external Iceberg tables across Amazon Web Services (AWS) and Microsoft Azure directly from BigQuery without migrating files or building ETL pipelines. You can route query reads, background catalog metadata synchronization, or both privately over Cross-Cloud Interconnect, while optional local caching in Google Cloud helps reduce recurring egress costs. For query syntax and configuration details, see [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
 
 ## Iceberg table capabilities comparison
 
@@ -116,11 +110,11 @@ Capability | Apache Iceberg tables managed by Lakehouse runtime catalog | Apache
 ---|---|---  
 **Catalog** | Lakehouse runtime catalog (Iceberg REST catalog compatible) | BigQuery  
 **Storage** | Cloud Storage | Cloud Storage  
-**Accessible through the Iceberg REST catalog endpoint** | Yes | Yes, using BigQuery catalog federation  
+**Accessible through the Iceberg REST catalog endpoint** | Yes | Yes (read-only)  
 **Read/Write Interoperability**  
 BigQuery read queries (SELECT, BQML, AI functions) | Supported | Supported  
 BigQuery DML (INSERT, UPDATE, DELETE, MERGE) | Supported (Preview) | Supported (GA)  
-OSS engine reads | Supported (GA) | Supported (GA) (using BigQuery catalog federation)  
+OSS engine reads | Supported (GA) | Supported (GA)  
 OSS engine writes | Supported (GA) | Not supported  
 OSS engine streaming writes (Kafka, Spark, Dataflow with Iceberg I/O sink) | Supported (GA) | Not supported  
 **Managed and Advanced Capabilities**  
@@ -128,6 +122,9 @@ Table management (compaction, garbage collection) | Supported (Preview) | Suppor
 BigQuery streaming writes (storage write API) | Not supported | Supported (GA)  
 Pub/Sub streaming/subscription, Dataflow streaming with BigQuery I/O sink | Not supported | Supported (GA)  
 BigQuery Change Data Capture (CDC) | Supported (Preview) | Supported  
+BigQuery change history (APPENDS) | Not supported | Supported  
+BigQuery change history (CHANGES) | Not supported | Not supported  
+BigQuery continuous queries | Not supported | Supported  
 BigQuery multi-statement transactions | Not supported | Supported (Preview)  
 Managed disaster recovery | Not supported | Not supported  
 Search index | Not supported | Not supported  
@@ -159,6 +156,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

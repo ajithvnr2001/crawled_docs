@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/storage/
 title: View logs routed to Cloud Storage \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:13.519426+00:00
+fetched_at: 2026-11-03T09:53:32.071967+00:00
 ---
 
 # View logs routed to Cloud Storage  |  Cloud Logging  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  View logs routed to Cloud Storage Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how you can find log entries that you routed from Cloud Logging to [Cloud Storage buckets](https://docs.cloud.google.com/storage/docs).
+You can view and retrieve log entries routed from Cloud Logging to [Cloud Storage buckets](https://docs.cloud.google.com/storage/docs) to support security audits, compliance archiving, or external analysis. Log entries are saved to Cloud Storage buckets in hourly batches, and typically appear within 2 to 3 hours after export.
 
-Log entries are saved to Cloud Storage buckets in hourly batches. It might take from 2 to 3 hours before the first entries begin to appear.
+Log sinks can't route log entries to Cloud Storage buckets configured for Rapid storage.
 
 ## Before you begin
 
@@ -88,7 +88,7 @@ Within the individual sharded files, log entries are stored as a list of [`LogEn
 
 Note that sort order of log entries within the files is neither uniform nor otherwise guaranteed.
 
-### Limitation
+## Limitation
 
 The `LogEntry.errorGroups` field isn't available for this destination. Log sinks route the log entries sent to your project, but those log entries don't contain error groups.
 
@@ -128,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

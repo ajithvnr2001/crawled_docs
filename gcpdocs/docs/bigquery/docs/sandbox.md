@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sandbox/
 title: Try BigQuery using the sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:26.336176+00:00
+fetched_at: 2026-11-03T09:36:28.993713+00:00
 ---
 
 # Try BigQuery using the sandbox  |  Google Cloud Documentation
@@ -108,13 +108,13 @@ BigQuery public datasets are available by default in BigQuery Studio in a projec
 
 [Go to BigQuery Studio](https://console.cloud.google.com/bigquery)
 
-  2. In the left pane, click explore **Explorer** :
+  2. In the left pane, click database **Data Explorer** :
 
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+![Highlighted button for the Data pane.](https://docs.cloud.google.com/static/bigquery/images/data-explorer-tab.png)
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  3. In the **Explorer** pane, click **add Add data**.
+  3. In the **Data** pane, click **add Add data**.
 
   4. In the **Add data** dialog, click ![Public dataset icon on the Filter by page](https://docs.cloud.google.com/static/bigquery/images/icon-public-dataset.png)**Public datasets**.
 
@@ -236,6 +236,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

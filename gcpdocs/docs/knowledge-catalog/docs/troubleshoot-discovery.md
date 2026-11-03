@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/troubleshoot-discovery/
 title: Troubleshoot Knowledge Catalog data discovery issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:46.319255+00:00
+fetched_at: 2026-11-03T09:53:50.561920+00:00
 ---
 
 # Troubleshoot Knowledge Catalog data discovery issues  |  Google Cloud Documentation

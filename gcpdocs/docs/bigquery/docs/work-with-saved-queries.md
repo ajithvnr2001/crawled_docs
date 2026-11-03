@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/work-with-saved-queries/
 title: Create saved queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:18.678853+00:00
+fetched_at: 2026-11-03T09:36:22.693822+00:00
 ---
 
 # Create saved queries  |  BigQuery  |  Google Cloud Documentation
@@ -214,7 +214,7 @@ To open any version of an existing saved query as a new query, follow these step
 
   2. In the left pane, click folder **Files** to open the file browser:
 
-![Click **Files** to open the file browser.](https://docs.cloud.google.com/static/bigquery/images/select-file-browser.png)
+![Click Files to open the file browser.](https://docs.cloud.google.com/static/bigquery/images/select-file-browser.png)
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
@@ -237,7 +237,7 @@ Changes that you make to the text of a saved query are automatically saved two s
 
   2. In the left pane, click folder **Files** to open the file browser:
 
-![Click **Files** to open the file browser.](https://docs.cloud.google.com/static/bigquery/images/select-file-browser.png)
+![Click Files to open the file browser.](https://docs.cloud.google.com/static/bigquery/images/select-file-browser.png)
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
@@ -266,7 +266,7 @@ To upload a saved query, follow these steps:
 
   2. In the left pane, click folder **Files** to open the file browser:
 
-![Click **Files** to open the file browser.](https://docs.cloud.google.com/static/bigquery/images/select-file-browser.png)
+![Click Files to open the file browser.](https://docs.cloud.google.com/static/bigquery/images/select-file-browser.png)
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
@@ -313,8 +313,6 @@ To resolve this issue, ensure that the region selected for the saved query match
 **Deprecated:** Saved queries, available in [BigQuery Studio](https://docs.cloud.google.com/bigquery/docs/enable-assets), will fully replace classic saved queries in the future. The deprecation timeline is being reviewed. For more information, see [Deprecation of classic saved queries](https://docs.cloud.google.com/bigquery/docs/saved-queries-introduction#classic_saved_queries_deprecated). To learn how to migrate to saved queries, see [Migrate classic saved queries](https://docs.cloud.google.com/bigquery/docs/manage-saved-queries#migrate_classic_saved_queries).
 
 Use the following sections to learn how to create and update [classic saved queries](https://docs.cloud.google.com/bigquery/docs/saved-queries-introduction#classic_saved_queries_deprecated). For more information on sharing, migrating, and deleting classic saved queries, see [Classic saved queries](https://docs.cloud.google.com/bigquery/docs/manage-saved-queries#classic_saved_queries).
-
-**Note:** If you have not enabled BigQuery Studio, classic saved queries appear in the **Saved queries ( NUMBER)** folder in the **Explorer** pane instead of the **(Classic) Queries** folder.
 
 ### Required permissions for classic saved queries
 
@@ -407,7 +405,7 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  3. In the **Explorer** pane, expand your project and the **(Classic) Queries** folder, and if necessary, the **Project queries** folder.
+  3. In the **Explorer** pane, expand your project and click **(Classic) Queries**.
 
   4. Click the name of a classic saved query to open it.
 
@@ -451,6 +449,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

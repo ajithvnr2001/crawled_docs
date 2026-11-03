@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/audit-rm/
 title: Resource Manager (RM) \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:07:06.894992+00:00
+fetched_at: 2026-11-03T09:42:13.951819+00:00
 ---
 
 # Resource Manager (RM)  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -21,6 +21,8 @@ fetched_at: 2026-10-27T17:07:06.894992+00:00
 Send feedback 
 
 #  Resource Manager (RM) Stay organized with collections  Save and categorize content based on your preferences. 
+
+Resource Manager (RM) audit logs in Google Distributed Cloud (GDC) air-gapped let you track administrative actions on project resources in root and organization workloads. Kubernetes audit logs record the user or service identity, target request URI, and JSON payload fields for Kubernetes Resource Model (KRM) API operations on the management API server.
 
 **Workload location** |  Root and organization workloads  
 ---|---  
@@ -133,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

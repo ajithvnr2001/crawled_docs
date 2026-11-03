@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/cmek/
 title: Customer-managed encryption keys \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:09.202780+00:00
+fetched_at: 2026-11-03T09:54:22.178851+00:00
 ---
 
 # Customer-managed encryption keys  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -112,7 +112,7 @@ Make sure you satisfy the following prerequisites:
 
   * The CryptoKey Encrypter/Decrypter IAM role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key has been granted to the Discovery Engine service agent. The service agent account has an email address that uses the following format: `service-PROJECT_NUMBER@gcp-sa-discoveryengine.iam.gserviceaccount.com`. For general instructions on how to add a role to a service agent, see [Grant or revoke a single role](https://docs.cloud.google.com/iam/docs/manage-access-service-accounts).
 
-  * The CryptoKey Encrypter/Decrypter IAM role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key has been granted to the Cloud Storage service agent. If this role is not granted, data import for CMEK-protected apps and data connectors will fail because Discovery Engine is not able to make the CMEK-protected, temporary bucket and directory that is required for importing.
+  * The CryptoKey Encrypter/Decrypter IAM role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key has been granted to the Cloud Storage service agent. If this role is not granted, data import for CMEK-protected data stores will fail because Discovery Engine is not able to make the CMEK-protected, temporary bucket and directory that is required for importing.
 
   * Don't create any apps or data connectors that you want managed by your key until after you have completed the key registration instructions on this page.
 
@@ -790,6 +790,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

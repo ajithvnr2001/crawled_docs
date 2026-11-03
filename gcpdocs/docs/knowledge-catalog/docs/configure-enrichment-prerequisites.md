@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/configure-enrichment-prerequisites/
 title: Configure prerequisites for enrichment tasks \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:31.397133+00:00
+fetched_at: 2026-11-03T09:44:34.844474+00:00
 ---
 
 # Configure prerequisites for enrichment tasks  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -27,27 +27,20 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-**Knowledge Studio gated preview**  
-Knowledge Studio is currently available as a gated preview. To view the context graph, create context sets, and run enrichment workflows, you must first request allowance for your organization.   
-  
-[Request preview access](https://docs.google.com/forms/d/e/1FAIpQLScw1O38BmcLIvqL1ZvpybJsLGO_Dmuq0a5RrCJIqW11iljsKQ/viewform)
-
-Before you can create enrichment tasks in Knowledge Studio, you might need to configure several underlying infrastructure components depending on your security architecture and target data sources.
-
-This guide describes how to configure customer-managed service accounts, third-party authentication providers, and Cloud Storage buckets, and Cloud Logging views.
+To run enrichment tasks in Knowledge Studio, you can configure customer-managed service accounts, third-party authentication providers, Cloud Storage buckets, and Cloud Logging views. Setting up these prerequisite components lets enrichment agents securely access your target data sources, ingest unstructured knowledge signals, and learn from historical agent interactions.
 
 The following table describes the prerequisite configurations and when you need to configure them:
 
 Configuration feature | When to configure  
 ---|---  
-Google Cloud APIs | Required. You must enable the underlying Google Cloud APIs to run enrichment workflows.  
-Customer-managed service account | You want to restrict read and write access on your target datasets.  
-User Identity and Access Management (IAM) roles | You need to grant workflow managers and reviewers permissions to generate and approve metadata.  
-Third-party auth providers | You're connecting to third-party knowledge sources (such as Microsoft SharePoint, Atlassian Confluence, or GitHub).  
-Cloud Storage buckets | You're ingesting unstructured business context (such as PDFs, Markdown, and CSV) and evaluation datasets.  
-Evaluation datasets | You want to provide seed queries and benchmark datasets to actively track agent accuracy.  
-Agent Traces for self-learning | You want the enrichment agent to automatically analyze downstream Gemini Enterprise agent interactions.  
-Data profiling and data insights | Recommended. You want to improve enrichment quality by generating statistical profiles and baseline AI insights on frequently used tables.  
+**Google Cloud APIs** | Required. You must enable the underlying Google Cloud APIs to run enrichment workflows. For details, see the Before you begin section of this document.  
+**Customer-managed service account** | Required. You use a dedicated service account to restrict read and write access on your target datasets and context sets. For details, see the Configure a customer-managed service account section of this document.  
+**User Identity and Access Management (IAM) roles** | Required. You grant workflow managers and reviewers permissions to generate and approve metadata. For details, see the Grant required IAM roles to users section of this document.  
+**Third-party auth providers** | Optional. You're connecting to third-party knowledge sources (such as Microsoft SharePoint, Atlassian Confluence, or GitHub). For details, see the Configure third-party auth providers section of this document.  
+**Cloud Storage buckets** | Optional. You're ingesting unstructured business context (such as PDFs, Markdown, and CSV) and evaluation datasets. For details, see the Prepare Cloud Storage buckets section of this document.  
+**Evaluation datasets** | Optional. You want to provide seed queries and benchmark datasets to actively track agent accuracy. For details, see the Format evaluation datasets section of this document.  
+**Agent traces for self-learning** | Optional. You want the enrichment agent to automatically analyze downstream agent interactions from Gemini Enterprise applications or BigQuery agent analytics tables. For details, see the Configure agent traces for self-learning section of this document.  
+**Data profiling and data insights** | Recommended. You want to improve enrichment quality by generating statistical profiles and baseline AI insights on frequently used tables. For details, see the Enable data profiling and data insights section of this document.  
   
 ## Before you begin
 
@@ -108,11 +101,13 @@ IAM Service Account Credentials API | `iamcredentials.googleapis.com` | Required
   
 ## Configure a customer-managed service account
 
-Enrichment tasks use a customer-managed service account to run operations. This lets you restrict read and write access on your target datasets.
+Enrichment tasks use a customer-managed service account to run operations. Using a dedicated service account lets you restrict read and write access on your target datasets and context sets.
+
+**Tip:** When you select an execution service account in the **Run** step of the task creation wizard in the Google Cloud console, Knowledge Studio automatically checks for missing permissions using Policy Troubleshooter. If you have permission to modify IAM policies on the target resources, you can click **Grant all** in the wizard to grant the missing roles automatically, or you can pre-configure the service account using the steps in this section.
 
   1. Create the service account.
 
-To create a service account, you must be a **Project Owner** (`roles/owner`) or **Editor** (`roles/editor`), or have the **Service Account Admin** role (`roles/iam.serviceAccountAdmin`).
+To create a service account, you must have the **Owner** (`roles/owner`), **Editor** (`roles/editor`), or **Service Account Admin** (`roles/iam.serviceAccountAdmin`) role on the project.
 
 A dedicated service account isolates your enrichment operations, letting you grant only the specific read and write permissions needed for these tasks without affecting other workloads.
 
@@ -208,11 +203,14 @@ You should receive a successful status code (2xx) and an empty response.
 
   2. Grant the necessary resource-level IAM roles to the execution service account on your target scopes:
 
-     * **Dataplex Catalog Editor** (`roles/dataplex.catalogEditor`) and **Dataplex Catalog Viewer** (`roles/dataplex.catalogViewer`): Enables the agent to inspect catalog metadata, create staged working entries, and manually publish approved enrichments.
-     * _(Optional)_ **Dataplex Workflow Approver** (`roles/dataplex.workflowApprover`): Required only if you enable **Auto-publish** on your task. Enables the agent to automatically approve and publish its own metadata change requests.
-     * **BigQuery Data Viewer** (`roles/bigquery.dataViewer`): Enables the agent to read table schemas, column metadata, and agent analytics trace tables.
+     * **Dataplex Content Editor** (`roles/dataplex.contentEditor`) on the target context set (or **Dataplex Catalog Admin** (`roles/dataplex.catalogAdmin`) on the project): Lets the agent read context set entries, create and update context entries and `reference` entry links, and submit change requests (`dataplex.entryGroups.getContextSet`, `dataplex.entryGroups.requestContextChanges`, `dataplex.entries.*Context`, and `dataplex.entryLinks.create`).
+     * **Dataplex Catalog Editor** (`roles/dataplex.catalogEditor`) and **Dataplex Catalog Viewer** (`roles/dataplex.catalogViewer`) on the project (or target catalog resources): Lets the agent inspect catalog metadata, read connected business glossaries, and stage working entries.
+     * **BigQuery Data Viewer** (`roles/bigquery.dataViewer`) on the target datasets and tables: Lets the agent list tables and read table schemas and agent analytics trace tables.
+     * **BigLake Viewer** (`roles/biglake.viewer`) on target Lakehouse catalogs, namespaces, or tables: Required when enriching Lakehouse assets.
+     * _(Optional)_ **BigQuery Job User** (`roles/bigquery.jobUser`) on the project (`bigquery.jobs.create`): Required on the project that contains the BigQuery agent analytics table if you learn from agent analytics traces, or on the task project if BigQuery job creation is moved inside a VPC Service Controls perimeter. By default, target-table BigQuery query jobs (sampling, query-history analysis, and validation checks) run as the Knowledge Catalog service agent in a Google-managed project.
+     * _(Optional)_ **Dataplex Workflow Approver** (`roles/dataplex.workflowApprover`): Required only if you enable **Auto-publish** on your task. Lets the agent automatically approve and publish its own metadata change requests.
 
-**Note** : The following code samples grant these roles at the **project level** for ease of setup. For production systems, we strongly recommend granting these roles securely at the resource level on your specific target datasets.
+**Note** : The following code samples grant these roles at the **project level** for ease of setup. For production systems, we strongly recommend that you grant these roles at the resource level on your specific target context sets and datasets.
 
 To grant these standard roles, follow these steps:
 
@@ -231,7 +229,15 @@ Execute the following command:
     
     gcloud projects add-iam-policy-binding TARGET_PROJECT_ID \
         --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" \
+        --role="roles/dataplex.contentEditor"
+    
+    gcloud projects add-iam-policy-binding TARGET_PROJECT_ID \
+        --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" \
         --role="roles/dataplex.catalogEditor"
+    
+    gcloud projects add-iam-policy-binding TARGET_PROJECT_ID \
+        --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" \
+        --role="roles/dataplex.catalogViewer"
     
     gcloud projects add-iam-policy-binding TARGET_PROJECT_ID \
         --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" \
@@ -243,7 +249,15 @@ Execute the following command:
     
     gcloud projects add-iam-policy-binding TARGET_PROJECT_ID `
         --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" `
+        --role="roles/dataplex.contentEditor"
+    
+    gcloud projects add-iam-policy-binding TARGET_PROJECT_ID `
+        --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" `
         --role="roles/dataplex.catalogEditor"
+    
+    gcloud projects add-iam-policy-binding TARGET_PROJECT_ID `
+        --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" `
+        --role="roles/dataplex.catalogViewer"
     
     gcloud projects add-iam-policy-binding TARGET_PROJECT_ID `
         --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" `
@@ -255,17 +269,25 @@ Execute the following command:
     
     gcloud projects add-iam-policy-binding TARGET_PROJECT_ID ^
         --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" ^
+        --role="roles/dataplex.contentEditor"
+    
+    gcloud projects add-iam-policy-binding TARGET_PROJECT_ID ^
+        --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" ^
         --role="roles/dataplex.catalogEditor"
+    
+    gcloud projects add-iam-policy-binding TARGET_PROJECT_ID ^
+        --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" ^
+        --role="roles/dataplex.catalogViewer"
     
     gcloud projects add-iam-policy-binding TARGET_PROJECT_ID ^
         --member="serviceAccount:SERVICE_ACCOUNT_NAME@TARGET_PROJECT_ID.iam.gserviceaccount.com" ^
         --role="roles/bigquery.dataViewer"
 
-  3. Grant users permission to impersonate the service account by granting them the **Service Account User** role (`roles/iam.serviceAccountUser`):
+  3. Grant users permission to impersonate the service account by granting them the **Service Account User** (`roles/iam.serviceAccountUser`) role:
 
 Users who create the enrichment tasks in the console must have this permission so that they can specify and attach this service account to the task.
 
-To grant users the Service Account User role, follow these steps:
+To grant users the **Service Account User** (`roles/iam.serviceAccountUser`) role, follow these steps:
 
 To add an IAM policy binding to a service account, use the [`gcloud iam service-accounts add-iam-policy-binding` command](https://docs.cloud.google.com/sdk/gcloud/reference/iam/service-accounts/add-iam-policy-binding):
 
@@ -301,9 +323,9 @@ Execute the following command:
         --member="user:USER_EMAIL@domain.com" ^
         --role="roles/iam.serviceAccountUser"
 
-  4. Allow the internal Knowledge Catalog service agent to impersonate this service account by granting it the Service Account Token **Service Account Token Creator** role (`roles/iam.serviceAccountTokenCreator`):
+  4. Allow the internal Knowledge Catalog service agent to impersonate this service account by granting it the **Service Account Token Creator** (`roles/iam.serviceAccountTokenCreator`) role:
 
-This lets the underlying Knowledge Catalog service assume this dedicated service account's identity and its restricted permissions when it runs the background enrichment operations on your behalf.
+This role lets the underlying Knowledge Catalog service assume this dedicated service account's identity and its restricted permissions when it runs the background enrichment operations on your behalf.
 
 To authorize the agent to assume the service account identity, follow these steps:
 
@@ -341,6 +363,10 @@ Execute the following command:
         --member="serviceAccount:service-TARGET_PROJECT_NUMBER@gcp-sa-dataplex.iam.gserviceaccount.com" ^
         --role="roles/iam.serviceAccountTokenCreator"
 
+  5. Allow the Knowledge Catalog service agent (`service-<var>PROJECT_NUMBER</var>@gcp-sa-dataplex.iam.gserviceaccount.com`) to run backend BigQuery query jobs (sampling, query-history analysis, and validation checks) from a Google-managed project:
+
+     * **BigQuery Data Viewer** (`roles/bigquery.dataViewer`) on your target datasets or projects: Lets the service agent sample table data and run validation checks.
+     * _(Recommended)_ **BigQuery Resource Viewer** (`roles/bigquery.resourceViewer`) on the projects whose BigQuery query history the agent reads (`bigquery.jobs.listAll`, which must be granted at the project level, not on individual datasets): Lets the service agent analyze historical SQL queries to discover common joins and filters. If this role isn't granted, the agent skips query-history analysis without failing the run.
 
 
 
@@ -350,22 +376,22 @@ To ensure that your team can manage enrichment workflows and review AI-generated
 
 **Workflow managers** (such as data stewards) who create, configure, and monitor tasks require the following roles:
 
-  * **Dataplex DataScan Editor** (`roles/dataplex.dataScanEditor`) or **Dataplex Editor** (`roles/dataplex.editor`): allows users to create, modify, trigger, and cancel enrichment tasks.
-  * **Service Account User** (`roles/iam.serviceAccountUser`) on the customer-managed service account: required to attach the service account as the task's execution identity.
+  * **Dataplex DataScan Editor** (`roles/dataplex.dataScanEditor`) or **Dataplex Editor** (`roles/dataplex.editor`): Lets users create, modify, and trigger enrichment tasks.
+  * **Service Account User** (`roles/iam.serviceAccountUser`) on the customer-managed service account: Required to attach the service account as the task's execution identity. For setup details, see the Configure a customer-managed service account section of this document.
 
 
 
 **Change reviewers** (such as domain owners or subject matter experts) who inspect, approve, and publish AI-generated metadata proposals to the catalog require the following roles:
 
-  * **Dataplex Catalog Editor** (`roles/dataplex.catalogEditor`) and **Dataplex Catalog Viewer** (`roles/dataplex.catalogViewer`): required to open change requests, inspect side-by-side proposal diffs, and edit descriptions inline.
-  * **Dataplex Workflow Approver** (`roles/dataplex.workflowApprover`): required to approve and publish change requests to the live catalog.
-  * **Dataplex DataScan Viewer** (`roles/dataplex.dataScanViewer`) or **Dataplex Viewer** (`roles/dataplex.viewer`): required to review per-proposal confidence scores, test failure diagnosis, and downstream evaluation scorecards.
+  * **Dataplex Content Editor** (`roles/dataplex.contentEditor`) (or **Dataplex Content User** (`roles/dataplex.contentUser`) for read-only inspection) on the context set, along with **Dataplex Catalog Editor** (`roles/dataplex.catalogEditor`) and **Dataplex Catalog Viewer** (`roles/dataplex.catalogViewer`) on the project: Required to open change requests, inspect side-by-side proposal diffs, and edit descriptions inline.
+  * **Dataplex Workflow Approver** (`roles/dataplex.workflowApprover`): Required to approve and publish change requests to the live context set.
+  * **Dataplex DataScan Viewer** (`roles/dataplex.dataScanViewer`) or **Dataplex Viewer** (`roles/dataplex.viewer`): Required to review per-proposal confidence scores, test failure diagnosis, and downstream evaluation scorecards.
 
 
 
 ## Configure third-party auth providers
 
-When connecting the enrichment agent to third-party knowledge sources (such as Microsoft SharePoint, Atlassian Confluence, or GitHub), you must configure an Auth Provider using Google Cloud's Agent Identity service.
+When you connect the enrichment agent to third-party knowledge sources (such as Microsoft SharePoint, Atlassian Confluence and Jira, or GitHub), you must configure an Auth Provider using Google Cloud's Agent Identity service.
 
 Agent Identity acts as a secure credentials manager that encrypts your third-party tokens inside your project, ensuring that human operators never have to handle raw client secrets during task execution.
 
@@ -381,27 +407,27 @@ Additionally, the human user who attaches the auth provider to the task in the G
 
 Cloud Storage serves as the primary file-based staging, context ingestion, and artifact export layer for knowledge enrichment workflows.
 
-You can configure the agent to ingest files from one or more input buckets to ground its reasoning in your enterprise domain knowledge. Supported context types include:
+You can configure the agent to ingest files from one or more input buckets, folder paths, or individual files to ground its reasoning in your enterprise domain knowledge. Supported context types include:
 
-  * **Domain documentation and data dictionaries** : Markdown, plain text, PDF, HTML, or CSV files containing table definitions, business glossaries, Standard Operating Procedures (SOPs), data pipeline architectures, or column naming guidelines.
+  * **Domain documentation and data dictionaries** : Markdown, plain text, PDF, HTML, or CSV files containing table definitions, business glossaries, Standard Operating Procedures (SOPs), data pipeline architectures, or column naming guidelines. The **Knowledge signals** configuration supports whole buckets, folder paths (such as `bucket-name/folder/`), or individual file paths. We recommend that you organize these documents in a dedicated Cloud Storage bucket or folder separate from your evaluation datasets and unrelated files.
 
-  * **Evaluation datasets** : JSONL or CSV files storing seed queries and held-out validation query sets. For more information, see Format evaluation datasets.
+  * **Evaluation datasets** : JSONL files storing seed queries and held-out validation query sets. For more information, see the Format evaluation datasets section of this document.
 
   * **Reference SQL and transformation scripts** : Saved SQL scripts, dbt model definitions, or ETL transformation logic that provide contextual signals regarding table join patterns and business calculations.
 
 
 
 
-When configured, the enrichment agent can also export structured bundles and run artifacts to an output bucket. Supported output artifacts include:
+When you configure an output bucket, the enrichment agent can also export structured bundles and run artifacts to that bucket. Supported output artifacts include:
 
   * **Detailed evaluation reports** : Comprehensive scorecards showing per-query accuracy deltas, test failure diagnosis, and confidence distribution metrics.
 
 
 
-To ensure the enrichment agent can work out of the bucket, make sure that your execution service account has the necessary permissions.
+To ensure that the enrichment agent can work out of the bucket, make sure that your execution service account has the necessary permissions:
 
-  * Grant the Object Viewer role (`roles/storage.objectViewer`) on the input buckets so the agent can read stages documents and configuration files.
-  * (Optional) Grant the Object Creator role (`roles/storage.objectCreator`) on the output bucket if you want the agent to save execution artifacts and validation logs.
+  * Grant the **Storage Object Viewer** (`roles/storage.objectViewer`) role on the input buckets so the agent can read staged documents and configuration files.
+  * _(Optional)_ Grant the **Storage Object Creator** (`roles/storage.objectCreator`) role on the output bucket if you want the agent to save execution artifacts and validation logs.
 
 
 
@@ -463,17 +489,17 @@ Alternatively, you can provide a single consolidated dataset. The enrichment ser
 
 ### Dataset schema requirements
 
-Evaluation datasets must be formatted as JSONL files and stored in Cloud Storage. Each line in the file must contain a natural language question paired with the expected ground truth SQL query.
-
-Ensure that your file matches the evaluation dataset schema prescribed by the [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-dataset). The following table shows the accepted formatting fields:
+Evaluation datasets must be formatted as JSONL files and stored in Cloud Storage. Each line in the file must contain a natural language question paired with the expected ground truth SQL query. The following table shows the accepted formatting fields:
 
 Field name | Type | Description  
 ---|---|---  
 `display_name` | `STRING` | Optional. An identifier or name for the evaluation request.  
 `evaluation_request.prompt.text` | `STRING` | The natural language question or user prompt.  
 `evaluation_request.golden_response.candidate` | `STRING` | Identifies the golden response. Set to `golden`.  
-`evaluation_request.golden_response.text` | `STRING` | The ground truth, validated SQL query that answers the question. The scorer runs this SQL against the data.  
+`evaluation_request.golden_response.text` | `STRING` | The ground truth, validated SQL query that answers the question. The autorater compares the agent's SQL to this query.  
   
+**How evaluation results are graded** : A Gemini-based autorater checks whether the agent's final SQL is semantically equivalent to the ground truth SQL, meaning it returns the same answer. Formatting and alias differences aren't penalized. Each question passes or fails, and the quality score is the pass rate. Ground truth must be a SQL query. Custom metrics aren't supported.
+
 The following snippet shows a valid `.jsonl` evaluation file:
     
     
@@ -481,26 +507,24 @@ The following snippet shows a valid `.jsonl` evaluation file:
     {"display_name": "monthly-subscribers", "evaluation_request": {"prompt": {"text": "List active subscribers on monthly billing"}, "golden_response": {"candidate": "golden", "text": "SELECT user_id, email FROM `project.dataset.subscriptions` WHERE status = 'ACTIVE' AND plan_type = 'MONTHLY';"}}}
     
 
-For detailed guidance on crafting high-quality evaluation datasets, see the [ Gemini Enterprise Agent Platform documentation](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview).
-
 ## Configure agent traces for self-learning
 
-To let the enrichment agent automatically analyze downstream Gemini Enterprise agent interactions (or custom Gemini Enterprise Agent Platform applications), you can optionally provide it with read access to your application's interaction traces.
+To let the enrichment agent automatically analyze downstream Gemini Enterprise agent interactions or BigQuery agent analytics tables, you can optionally provide it with read access to your application's interaction traces.
 
 Ingesting these traces enables the agent to perform _trajectory mining_. The agent discovers where downstream agents struggled due to missing context, clusters frequent user questions into high-impact query classes, and automatically curates the exact table summaries, column semantics, and business glossary terms needed to resolve those gaps.
 
 Depending on your enterprise architecture, choose one of the following two setup methods:
 
-  * **Direct Logging using scoped log views** : Create a log view restricted to only the application's telemetry to grant least-privilege read access. Recommended.
-  * **BigQuery agent analytics** : Grant read access to an exported BigQuery dataset if your organization natively routes interaction logs to a BigQuery log sink.
+  * **Direct Logging using scoped log views (Recommended)** : Create a log view restricted to only the application's telemetry to grant least-privilege read access. For instructions, see the Direct Logging using scoped log views section of this document.
+  * **BigQuery agent analytics** : Grant read access to an exported BigQuery dataset if your organization natively routes interaction logs to a BigQuery log sink. For instructions, see the BigQuery agent analytics section of this document.
 
 
 
 ### Direct Logging using scoped log views (Recommended)
 
-When interaction logging is enabled for an application, execution logs stream directly into Logging. To follow the principle of least privilege, create a dedicated Log View restricted to the specific application and grant the execution service account read access exclusively on that view.
+When interaction logging is enabled for an application, execution logs stream directly into Logging. You can create a dedicated log view restricted to your Gemini Enterprise application's usage audit logs and grant the execution service account access to that view. Because the enrichment service issues project-scoped log reads (`projects/<var>TARGET_PROJECT_ID</var>`), a view-level grant alone isn't sufficient—the execution service account must also have the `logging.logEntries.list` and `logging.views.access` permissions on the project that owns the Gemini Enterprise application. For instructions on turning on trace instrumentation and prompt-and-response logging for your Gemini Enterprise application, see [Manage observability settings](https://docs.cloud.google.com/gemini/enterprise/docs/manage-observability-settings).
 
-  1. Create a scoped log view to isolate the logs. This ensures the enrichment service only reads telemetry from specific configured applications (for example, by filtering on `resource.type="aiplatform.googleapis.com/Agent"`), preventing unauthorized access to your broader Cloud logs.
+  1. Create a scoped log view to isolate the logs. A scoped log view ensures that the view only exposes usage audit and inference telemetry from your Gemini Enterprise applications (by filtering on `logName="projects/<var>TARGET_PROJECT_ID</var>/logs/discoveryengine.googleapis.com%2Fgemini_enterprise_user_activity" OR logName=~"projects/<var>TARGET_PROJECT_ID</var>/logs/discoveryengine.googleapis.com%2Fgen_ai.*"`). For more information, see [Access Gemini Enterprise usage audit logs with Cloud Logging](https://docs.cloud.google.com/gemini/enterprise/docs/set-up-usage-audit-logs).
 
 ### gcloud CLI
 
@@ -509,7 +533,7 @@ To create a scoped log view, use the [`gcloud logging views create` command](htt
 Before using any of the command data below, make the following replacements: 
 
      * `LOG_VIEW_NAME`: the name of your log view
-     * `YOUR_GEMINI_ENTERPRISE_APP_ID`: your Gemini Enterprise application ID
+     * `TARGET_PROJECT_ID`: the ID of the Google Cloud project that owns your Gemini Enterprise application
 
 Execute the following command: 
 
@@ -518,35 +542,37 @@ Execute the following command:
 **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
     
     gcloud logging views create LOG_VIEW_NAME \
+        --project=TARGET_PROJECT_ID \
         --location=global \
         --bucket=_Default \
-        --log-filter='resource.type="aiplatform.googleapis.com/Agent" AND resource.labels.agent_id="YOUR_GEMINI_ENTERPRISE_APP_ID"'
+        --log-filter='logName="projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgemini_enterprise_user_activity" OR logName=~"projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgen_ai.*"'
 
 #### Windows (PowerShell)
 
 **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
     
     gcloud logging views create LOG_VIEW_NAME `
+        --project=TARGET_PROJECT_ID `
         --location=global `
         --bucket=_Default `
-        --log-filter='resource.type="aiplatform.googleapis.com/Agent" AND resource.labels.agent_id="YOUR_GEMINI_ENTERPRISE_APP_ID"'
+        --log-filter='logName="projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgemini_enterprise_user_activity" OR logName=~"projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgen_ai.*"'
 
 #### Windows (cmd.exe)
 
 **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). **Note:** If this command uses `'` for quoting content, replace these single quotes with double quotes. If quoting is nested, use `\"` to escape the inner quotes. 
     
     gcloud logging views create LOG_VIEW_NAME ^
+        --project=TARGET_PROJECT_ID ^
         --location=global ^
         --bucket=_Default ^
-        --log-filter='resource.type="aiplatform.googleapis.com/Agent" AND resource.labels.agent_id="YOUR_GEMINI_ENTERPRISE_APP_ID"'
+        --log-filter='logName="projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgemini_enterprise_user_activity" OR logName=~"projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgen_ai.*"'
 
 ### REST
 
 Before using any of the request data, make the following replacements: 
 
      * `LOG_VIEW_NAME`: the name of your log view
-     * `TARGET_PROJECT_ID`: your Google Cloud project ID
-     * `YOUR_GEMINI_ENTERPRISE_APP_ID`: your Gemini Enterprise application ID
+     * `TARGET_PROJECT_ID`: the ID of the Google Cloud project that owns your Gemini Enterprise application
 
 HTTP method and URL: 
     
@@ -555,7 +581,7 @@ HTTP method and URL:
 Request JSON body: 
     
     {
-     "filter": "resource.type=\"aiplatform.googleapis.com/Agent\" AND resource.labels.agent_id=\"YOUR_GEMINI_ENTERPRISE_APP_ID\""
+     "filter": "logName=\"projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgemini_enterprise_user_activity\" OR logName=~\"projects/TARGET_PROJECT_ID/logs/discoveryengine.googleapis.com%2Fgen_ai.*\""
     }
     
 
@@ -591,7 +617,7 @@ Save the request body in a file named `request.json`, and execute the following 
 
 You should receive a successful status code (2xx) and an empty response.
 
-  2. After you create the log view, grant the execution service account read access to it. This authorizes the enrichment job to pull the application telemetry it needs during the self-learning phase.
+  2. After you create the log view, grant the execution service account the **Logs View Accessor** (`roles/logging.viewAccessor`) role on the view, and ensure that the service account also has the `logging.logEntries.list` permission on the project that owns the Gemini Enterprise application.
 
 To add an IAM policy binding to a log view, use the [`gcloud logging views add-iam-policy-binding` command](https://docs.cloud.google.com/sdk/gcloud/reference/logging/views/add-iam-policy-binding):
 
@@ -634,7 +660,7 @@ Execute the following command:
         --role="roles/logging.viewAccessor"
 
 
-**Note:** If your organization does not use custom log views, you can alternatively grant the broader Logs Viewer role (`roles/logging.viewer`) to the service account on the consumer project.
+**Note:** If your organization doesn't use custom log views, or to satisfy the project-level pre-flight check in the Google Cloud console wizard, grant the **Private Logs Viewer** (`roles/logging.privateLogViewer`) role to the execution service account on the project that owns the Gemini Enterprise application.
 
 For more information, see [Configure log views on a log bucket](https://docs.cloud.google.com/logging/docs/logs-views).
 
@@ -642,13 +668,13 @@ For more information, see [Configure log views on a log bucket](https://docs.clo
 
 If your organization streams interaction logs into BigQuery using a Logging log sink or writes directly to BigQuery agent analytics tables, you can grant access to the dataset instead.
 
-Ensure the interaction logs are configured to stream to a designated BigQuery dataset, and verify that the execution service account is granted the BigQuery Data Viewer role (`roles/bigquery.dataViewer`) on that specific dataset. This lets the agent read the exported telemetry directly from BigQuery.
+Ensure that the interaction logs are configured to stream to a designated BigQuery dataset, and verify that the execution service account is granted the **BigQuery Data Viewer** (`roles/bigquery.dataViewer`) role on the agent analytics table (or its dataset) and the **BigQuery Job User** (`roles/bigquery.jobUser`) role on the project that contains that table. These roles let the agent run query jobs and read the exported telemetry directly from BigQuery.
 
 For more information on exporting logs, see [Route logs to supported destinations](https://docs.cloud.google.com/logging/docs/export/configure_export).
 
 ## Enable data profiling and data insights
 
-Before running an enrichment task, we recommend enabling data profiling and AI data insights on your frequently used target tables. Data profiling provides statistical characteristics—such as common values, data distributions, and null counts—while data insights generate baseline table descriptions and sample queries. Providing these signals helps the enrichment agent generate more accurate metadata proposals.
+Before you run an enrichment task, we recommend that you enable data profiling and AI data insights on your frequently used target tables. Data profiling provides statistical characteristics—such as common values, data distributions, and null counts—and data insights generate baseline table descriptions and sample queries. Providing these signals helps the enrichment agent generate more accurate metadata proposals.
 
   * For more information about configuring data profile scans, see [Create and use data profile scans](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling).
   * For more information about generating AI data insights, see [Use data insights for structured data](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-insights-structured-data).
@@ -657,7 +683,7 @@ Before running an enrichment task, we recommend enabling data profiling and AI d
 
 ## What's next
 
-  * Learn how to [create enrichment tasks](https://docs.cloud.google.com/knowledge-catalog/docs/create-enrichment-tasks).
+  * [Create enrichment tasks](https://docs.cloud.google.com/knowledge-catalog/docs/create-enrichment-tasks)
 
 
 
@@ -665,6 +691,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

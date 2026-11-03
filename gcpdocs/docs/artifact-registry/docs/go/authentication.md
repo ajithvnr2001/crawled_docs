@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/go/authentication/
 title: Set up authentication for Go \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:45:50.270697+00:00
+fetched_at: 2026-11-03T09:52:34.657652+00:00
 ---
 
 # Set up authentication for Go  |  Artifact Registry  |  Google Cloud Documentation
@@ -21,7 +21,15 @@ Send feedback
 
 #  Set up authentication for Go Stay organized with collections  Save and categorize content based on your preferences. 
 
-Authentication to Artifact Registry is different for upload and download of packaged Go modules. When packaging and uploading a Go module to Artifact Registry, the gcloud CLI tool looks for credentials in your environment to set up authentication in the following order unless the `--json_key`flag is passed to use a service account key.
+Authenticating your client environment with Artifact Registry lets you store private Go modules and fetch them as build dependencies.
+
+## Authentication options
+
+Authentication setup differs for uploading and downloading packages.
+
+### Authentication for uploads
+
+When packaging and uploading a Go module to Artifact Registry, the gcloud CLI tool looks for credentials in your environment to set up authentication in the following order unless the `--json_key`flag is passed to use a service account key.
 
   1. [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/production) (ADC), a strategy that looks for credentials in the following order:
 
@@ -35,6 +43,8 @@ Authentication to Artifact Registry is different for upload and download of pack
 
 
 The `GOOGLE_APPLICATION_CREDENTIALS` variable makes the account for authentication explicit, which makes troubleshooting easier. If you do not use the variable, verify that any accounts that ADC might use have the required [permissions](https://docs.cloud.google.com/artifact-registry/docs/access-control). For example the [default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account) for Compute Engine VMs, Google Kubernetes Engine nodes, and Cloud Run revisions has read-only access to repositories. If you intend to upload from these environments using the default service account, you must modify the permissions.
+
+### Authentication for downloads
 
 When downloading packaged Go modules to use as dependencies from Artifact Registry, the Go binary uses the credentials in your netrc file to authenticate to Artifact Registry. To simplify the authentication process, you can use the Go credential helper to refresh the tokens in your netrc file for authentication to Artifact Registry.
 
@@ -221,6 +231,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

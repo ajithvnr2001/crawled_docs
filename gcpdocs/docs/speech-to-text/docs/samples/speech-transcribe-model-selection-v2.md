@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/speech-to-text/docs/samples/speech-transcribe-model-selection-v2/
 title: Transcribe audio with model selection (v2) \u00a0|\u00a0 Cloud Speech-to-Text \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:22.621846+00:00
+fetched_at: 2026-11-03T09:44:01.464115+00:00
 ---
 
 # Transcribe audio with model selection (v2)  |  Cloud Speech-to-Text  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
         audio_content = f.read()
     
     config = cloud_speech.RecognitionConfig(
-        auto[_decoding_config](https://docs.cloud.google.com/python/docs/reference/speech/latest/google.cloud.speech_v2.types.AutoDetectDecodingConfig.html)=cloud_speech.AutoDetectDecodingConfig(),
+        auto_decoding_config=cloud_speech.[AutoDetectDecodingConfig](https://docs.cloud.google.com/python/docs/reference/speech/latest/google.cloud.speech_v2.types.AutoDetectDecodingConfig.html)(),
         language_codes=["en-US"],
         model="short",  # Chosen model
     )
@@ -51,11 +51,11 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
     request = cloud_speech.RecognizeRequest(
         recognizer=f"projects/{PROJECT_ID}/locations/global/recognizers/_",
         config=config,
-        content=audio_cont[ent](https://docs.cloud.google.com/python/docs/reference/speech/latest/google.cloud.speech_v1.services.speech.SpeechClient.html#google_cloud_speech_v1_services_speech_SpeechClient_recognize),
+        content=audio_content,
     )
     
     # Transcribes the audio into text
-    response = client.recognize(request=request)
+    response = client.[recognize](https://docs.cloud.google.com/python/docs/reference/speech/latest/google.cloud.speech_v1.services.speech.SpeechClient.html#google_cloud_speech_v1_services_speech_SpeechClient_recognize)(request=request)
     
     for result in response.results:
         print(f"Transcript: {result.alternatives[0].transcript}")

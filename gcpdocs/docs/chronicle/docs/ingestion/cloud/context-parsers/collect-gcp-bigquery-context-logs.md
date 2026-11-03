@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/cloud/context-parsers/collect-gcp-bigquery-context-logs/
 title: Collect Google Cloud BigQuery context logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:03:21.933447+00:00
+fetched_at: 2026-11-03T09:54:39.803712+00:00
 ---
 
 # Collect Google Cloud BigQuery context logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -26,6 +26,8 @@ This document describes how fields of Google Cloud BigQuery context logs map to 
 An ingestion label identifies the parser which normalizes raw log data to structured UDM format. The information in this document applies to the parser with the `GCP_BIGQUERY_CONTEXT` ingestion label.
 
 For information about other context parsers that Google SecOps supports, see [Google SecOps context parsers](https://docs.cloud.google.com/chronicle/docs/ingestion/cloud/context-parsers).
+
+**Caution:** Enabling **Cloud Asset Metadata** in your Google SecOps ingestion settings exports `GCP_BIGQUERY_CONTEXT` logs across your organization, which can significantly increase log ingestion volume in large BigQuery environments.
 
 ## Supported Google Cloud BigQuery context log formats
 
@@ -997,6 +999,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

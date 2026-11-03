@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-authority-service/docs/create-subordinate-ca/
 title: Create a subordinate certificate authority \u00a0|\u00a0 Certificate Authority Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:05.198466+00:00
+fetched_at: 2026-11-03T09:54:38.001935+00:00
 ---
 
 # Create a subordinate certificate authority  |  Certificate Authority Service  |  Google Cloud Documentation
@@ -30,6 +30,7 @@ Subordinate CAs are responsible for issuing certificates directly to end-entitie
   * Make sure you have the CA Service Operation Manager (`roles/privateca.caManager`) or the CA Service Admin (`roles/privateca.admin`) IAM role. For information, see [Configure IAM policies](https://docs.cloud.google.com/certificate-authority-service/docs/configuring-iam).
   * [Create a CA pool](https://docs.cloud.google.com/certificate-authority-service/docs/creating-ca-pool).
   * Select your root CA.
+  * If the CA pool containing your issuing root CA has a [certificate issuance policy](https://docs.cloud.google.com/certificate-authority-service/docs/use-issuance-policy) configured, verify that its `baselineValues` permit issuing CA certificates `caOptions.isCa: true`, `keyUsage.baseKeyUsage.certSign: true`, and `keyUsage.baseKeyUsage.crlSign: true`. Otherwise, activating the subordinate CA fails with the `Fields in the CSR were modified or removed in the signed CA certificate` error message.
 
 
 
@@ -123,6 +124,19 @@ For more information about the `gcloud privateca pools create` command, see [gcl
   2. Create a subordinate CA in the created CA pool.
 
 **Note:** You can obtain the issuer's resource ID (ISSUER_POOL_ID) by copying the ID from the create command, or by using the `gcloud privateca pools list` command.
+
+Ensure that `--issuer-pool` specifies the ID of the issuing **CA pool** (not the root CA's resource ID). In addition, if the issuing CA pool has an [issuance policy](https://docs.cloud.google.com/certificate-authority-service/docs/use-issuance-policy) configured, its `baselineValues` must allow CA certificates:
+         
+         baselineValues:
+           caOptions:
+             isCa: true
+           keyUsage:
+             baseKeyUsage:
+               certSign: true
+               crlSign: true
+         
+
+If the issuing CA pool restricts issuance to end-entity certificates, activating the subordinate CA fails with the `Fields in the CSR were modified or removed in the signed CA certificate` error message.
          
          gcloud privateca subordinates create SUBORDINATE_CA_ID \
              --pool=SUBORDINATE_POOL_ID \
@@ -854,6 +868,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

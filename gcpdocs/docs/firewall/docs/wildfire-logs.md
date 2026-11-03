@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/wildfire-logs/
 title: Advanced malware sandbox logs \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:48:19.268380+00:00
+fetched_at: 2026-11-03T09:53:27.427934+00:00
 ---
 
 # Advanced malware sandbox logs  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -21,10 +21,6 @@ Send feedback
 
 #  Advanced malware sandbox logs Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 When Cloud Next Generation Firewall Enterprise detects and submits a file to Advanced malware sandbox (WildFire) for analysis, it generates detailed logs that help you audit and analyze malware detection and prevention. These logs provide visibility into network-based threats and sandboxing results.
 
 This page describes the format and structure of the Advanced malware sandbox submission logs.
@@ -35,8 +31,8 @@ Advanced malware sandbox introduces two main categories of logs:
 
   * **Submission logs** : generated when an unknown file is evaluated by Advanced malware sandbox. These contain two subtypes:
 
-    * **`wildfire`** : indicates a file was extracted and submitted to the Advanced malware sandbox cloud for asynchronous deep sandboxing.
-    * **`inline-wildfire`** : indicates a file was evaluated in real-time by the Advanced malware sandbox inline cloud analysis engine before reaching the network.
+    * **`WILDFIRE`** : indicates a file was extracted and submitted to the Advanced malware sandbox cloud for asynchronous deep sandboxing.
+    * **`INLINE_WILDFIRE`** : indicates a file was evaluated in real-time by the Advanced malware sandbox inline cloud analysis engine before reaching the network.
   * **Threat logs** : generated when the firewall detects and actively blocks a known or dynamically identified threat inline. These add two new subtypes of threat logs:
 
     * **`WILDFIRE_VIRUS`** : indicates a virus detected by the Advanced malware sandbox cloud service based on a known signature match.
@@ -70,8 +66,8 @@ The following table describes the format of the Advanced malware sandbox submiss
 Field | Type | Description  
 ---|---|---  
 `connection` | `Connection` | A 5-tuple that describes the connection parameters associated with the traffic.  
-`action` | `string` | The action performed on the connection where the file is submitted to Advanced malware sandbox. For example, `allow`, `deny`.  
-`wildfireDetails` | `WildFireDetails` | The details of the Advanced malware sandbox file submission and analysis results.  
+`action` | `string` | The action performed on the connection where the file is submitted to Advanced malware sandbox. For example, `ALLOW`, `DENY`.  
+`wildfireDetails` | `WildfireDetails` | The details of the Advanced malware sandbox file submission and analysis results.  
 `securityProfileGroupDetails` | `SecurityProfileGroupDetails` | The details of the security profile group applied to the intercepted traffic.  
 `interceptVpc` | `VpcDetails` | The details of the Virtual Private Cloud (VPC) network associated with the intercepted traffic.  
 `interceptInstance` | `InterceptInstance` | The details of the virtual machine (VM) instance where the traffic was intercepted.  
@@ -88,24 +84,24 @@ Field | Type | Description
 `serverPort` | `integer` | The server port number.  
 `protocol` | `string` | The [IP protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) of the connection.  
   
-### `WildFireDetails` field format
+### `WildfireDetails` field format
 
 The following table describes the format of the `wildfireDetails` field:
 
 Field | Type | Description  
 ---|---|---  
-`verdict` | `string` | The Advanced malware sandbox verdict on the file. For example, malicious.  
+`verdict` | `string` | The Advanced malware sandbox verdict on the file. For example, `MALICIOUS`.  
 `detectionTime` | `string` | The time the malware was detected.  
 `direction` | `string` | The direction of the file transmission. For example, `CLIENT_TO_SERVER`.  
-`fileName` | `string` | The name of the file.  
-`fileType` | `string` | The type of the file. For example, Linux, PE.  
+`file` | `string` | The name of the file.  
+`fileType` | `string` | The type of the file. For example, `LINUX`, `PE`.  
 `hash` | `string` | The Secure Hash Algorithm 256-bit (SHA-256) hash of the file.  
 `severity` | `string` | The severity associated with the detected malware. For more information, see [Threat severity levels](https://cloud.google.com/firewall/docs/about-threats#threat-severity-level).  
 `repeatCount` | `integer` | The number of sessions with the same client IP address, server IP address, client port, server port, protocol, and domain seen within five seconds.  
-`reportUrl` | `string` | A URL to download the Advanced malware sandbox report. This URL generally points to `networksecurity.usercontent.google.com` and contains the organization or project, location, firewall endpoint, and report information.  
-`sampleUrl` | `string` | A URL to download the malware sample. This URL generally points to `networksecurity.usercontent.google.com` and contains the organization or project, location, firewall endpoint, and sample information.  
-`subtype` | `string` | The subtype of Advanced malware sandbox. For example, wildfire, inline-wildfire.  
-**Note:** When using the `reportUrl` or `sampleUrl` from a Advanced malware sandbox submission log from a project-level endpoint, you must replace the project ID with the project number.
+`reportUri` | `string` | A URL to download the Advanced malware sandbox report. This URL generally points to `networksecurity.usercontent.google.com` and contains the organization or project, location, firewall endpoint, and report information.  
+`sampleUri` | `string` | A URL to download the malware sample. This URL generally points to `networksecurity.usercontent.google.com` and contains the organization or project, location, firewall endpoint, and sample information.  
+`subtype` | `string` | The subtype of Advanced malware sandbox. For example, `WILDFIRE`, `INLINE_WILDFIRE`.  
+**Note:** When using the `reportUri` or `sampleUri` from an Advanced malware sandbox submission log from a project-level endpoint, you must replace the project ID with the project number.
 
 ### `SecurityProfileGroupDetails` field format
 
@@ -113,8 +109,9 @@ The following table describes the format of the `SecurityProfileGroupDetails` fi
 
 Field | Type | Description  
 ---|---|---  
-`securityProfileGroupId` | `string` | The security profile group name that is applied to the traffic.  
-`organizationId` | `string` | The organization ID that the VM instance belongs to.  
+`securityProfileGroupId` | `string` | The ID of the security profile group applied to the traffic.  
+`organizationId` | `string` | The ID of the organization that contains the security profile group. Either `organizationId` or `projectId` is populated.  
+`projectId` | `string` | The ID of the project that contains the security profile group. Either `organizationId` or `projectId` is populated.  
   
 ### `VpcDetails` field format
 
@@ -133,7 +130,7 @@ Field | Type | Description
 ---|---|---  
 `zone` | `string` | The name of the zone where the VM instance is located.  
 `vm` | `string` | The name of the VM instance associated with the intercepted traffic.  
-`projectId` | `string` | The name of the Google Cloud project associated with the VPC network.  
+`projectId` | `string` | The ID of the Google Cloud project that contains the VM instance.  
   
 ## Advanced malware sandbox log correlation with firewall logs
 
@@ -191,19 +188,19 @@ The **Query results** section displays the following Advanced malware sandbox su
         },
           "@type": "type.googleapis.com/google.cloud.networksecurity.logging.v1.WildfireSubmissionLog",
           "securityProfileGroupDetails": {
-          "securityProfileGroupId": "project_001/spg/my-spg-id",
+          "securityProfileGroupId": "my-spg-id",
           "organizationId": "organization_001"
         },
           "action": "DENY",
           "wildfireDetails": {
             "detectionTime": "2026-04-19T21:18:50Z",
             "direction": "SERVER_TO_CLIENT",
-            "fileName": "sheet.exe",
+            "file": "sheet.exe",
             "fileType": "PE",
             "hash": "02521f0bb91b4c74d1590b85254f26f0d258cd780393010593ae6daaa5993753",
             "repeatCount": 1,
-            "reportUrl": "https://networksecurity.usercontent.google.com/projects/12345/locations/us-west2-a/firewallEndpoints/prober-wfmixed-fwp-ep-us-w2-a/wildfireReports/C08DD6908D91EAB335FA89675E499631557B3126ADFF9C83A1856D4404D2F4A2",
-            "sampleUrl": "https://networksecurity.usercontent.google.com/projects/12345/locations/us-west2-a/firewallEndpoints/prober-wfmixed-fwp-ep-us-w2-a/wildfireSamples/C08DD6908D91EAB335FA89675E499631557B3126ADFF9C83A1856D4404D2F4A2",
+            "reportUri": "https://networksecurity.usercontent.google.com/projects/12345/locations/us-west2-a/firewallEndpoints/prober-wfmixed-fwp-ep-us-w2-a/wildfireReports/C08DD6908D91EAB335FA89675E499631557B3126ADFF9C83A1856D4404D2F4A2",
+            "sampleUri": "https://networksecurity.usercontent.google.com/projects/12345/locations/us-west2-a/firewallEndpoints/prober-wfmixed-fwp-ep-us-w2-a/wildfireSamples/C08DD6908D91EAB335FA89675E499631557B3126ADFF9C83A1856D4404D2F4A2",
             "severity": "INFORMATIONAL",
             "subtype": "WILDFIRE",
             "verdict": "MALICIOUS"
@@ -297,6 +294,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/imanage-platform/set-up-data-store/
 title: Set up an iManage platform data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:45.594497+00:00
+fetched_at: 2026-11-03T09:36:14.007339+00:00
 ---
 
 # Set up an iManage platform data store  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -32,12 +32,15 @@ This page describes how to create a data store and connect iManage platform to G
 Before you set up your iManage platform connection, do the following:
 
   1. Grant the Discovery Engine Editor role (`roles/discoveryengine.editor`). This role is required for the user to create the data store. To grant this role, do the following: 
+
      1. In the Google Cloud console, go to the **IAM** page. 
 
 [Go to IAM](https://console.cloud.google.com/iam-admin/iam)
 
      2. Locate the user account and click edit **Edit**.
      3. Grant the `Discovery Engine Editor` role to the user. For more information, see [IAM roles and permissions](https://cloud.google.com/gemini/enterprise/docs/access-control).
+  2. Configure iManage MCP Server in iManage Control Center, add `https://vertexaisearch.cloud.google.com` to **Allowed MCP clients** , and assign an access policy to users. For more information, see [iManage platform configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/imanage-platform/third-party-config).
+
 
 
 
@@ -59,7 +62,11 @@ To create the iManage platform data store, perform the following steps:
 
   5. In the **Source** section, search for **iManage platform** , and click **Select**.
 
-  6. In the **Data** > **Entities to search** section, choose which entities Gemini Enterprise should scan. For iManage platform, select **Document** and **Workspace**.
+  6. In the **Data** section:
+
+     1. If prompted for **Unused Authorization Parameters** , enter any value (for example, `unused`), and then click **Continue**.
+
+     2. In the **Entities to search** section, choose which entities Gemini Enterprise should scan. For iManage platform, select **Document** and **Workspace**.
 
   7. Click **Continue**.
 
@@ -87,7 +94,22 @@ For more information, see [Customer-managed encryption keys](https://docs.cloud.
 
 On the **Data Stores** page, click your data store name to see the status. After the data store state changes from **Creating** to **Active** , the iManage platform data store is ready to be used.
 
-After creating the data store, connect the data store you just created to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) it to the new app, and [authorize](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store#user_authorization) Gemini Enterprise to access iManage platform before executing any queries.
+After creating the data store, connect the data store to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect the data store](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) to it.
+
+## Authorize Gemini Enterprise to access iManage platform
+
+Before executing any queries, each user must authorize Gemini Enterprise to access their iManage platform account:
+
+  1. Open the Gemini Enterprise web app.
+  2. Click **Manage your data**.
+  3. Find the iManage platform data store, and then click **Authorize** (for search-only data stores) or **Enable actions** (for data stores with actions configured).
+  4. Sign in with your iManage credentials and approve the access request.
+
+
+
+For more information, see [User authorization](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store#user_authorization).
+
+**Note:** If authorization fails or iManage blocks the connection request, verify with your iManage administrator that `https://vertexaisearch.cloud.google.com` is listed under **Allowed MCP clients** and that your account has an access policy assigned under **Assign Access Policy** in iManage Control Center. For more information, see [iManage platform configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/imanage-platform/third-party-config).
 
 ## Data handling and query execution
 
@@ -125,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

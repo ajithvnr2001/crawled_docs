@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/cci/azure/choose-locations/
 title: Choose your locations \u00a0|\u00a0 Cloud Interconnect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:14.867479+00:00
+fetched_at: 2026-11-03T09:43:10.473051+00:00
 ---
 
 # Choose your locations  |  Cloud Interconnect  |  Google Cloud Documentation
@@ -92,13 +92,14 @@ Google Cloud | Microsoft Azure
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * East Asia
   * Southeast Asia
 
-| Hong Kong|  azure-equinix-hong-kong-hk1  | Equinix-Hong-Kong-HK1 | 
+| Hong Kong |  azure-equinix-hong-kong-hk1  | Equinix-Hong-Kong-HK1 | 
 
   * hkg-zone1-1118
   * hkg-zone2-1118
@@ -112,13 +113,14 @@ Google Cloud | Microsoft Azure
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * East Asia
   * Southeast Asia
 
-| Osaka|  azure-equinix-osaka-os1  | Equinix-Osaka-OS1 | 
+| Osaka |  azure-equinix-osaka-os1  | Equinix-Osaka-OS1 | 
 
   * kix-zone1-1791
   * kix-zone2-1791
@@ -132,13 +134,14 @@ Google Cloud | Microsoft Azure
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * East Asia
   * Southeast Asia
 
-| Seoul|  azure-kinx-seoul-gasan  | KINX-Seoul-Gasan | 
+| Seoul |  azure-kinx-seoul-gasan  | KINX-Seoul-Gasan | 
 
   * icn-zone1-7674
   * icn-zone2-7674
@@ -152,13 +155,14 @@ Google Cloud | Microsoft Azure
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * East Asia
   * Southeast Asia
 
-| Singapore|  azure-equinix-singapore-sg1  | Equinix-Singapore-SG1 | 
+| Singapore |  azure-equinix-singapore-sg1  | Equinix-Singapore-SG1 | 
 
   * sin-zone1-2260
   * sin-zone2-2260
@@ -178,13 +182,14 @@ azure-global-switch-singapore  | Global-Switch-Singapore |
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * East Asia
   * Southeast Asia
 
-| Tokyo|  azure-equinix-tokyo-ty4  | Equinix-Tokyo-TY4 | 
+| Tokyo |  azure-equinix-tokyo-ty4  | Equinix-Tokyo-TY4 | 
 
   * nrt-zone1-1893
   * nrt-zone2-1893
@@ -199,7 +204,7 @@ azure-global-switch-singapore  | Global-Switch-Singapore |
   * Australia Central
   * Australia Central 2
 
-| Sydney|  azure-equinix-sydney-sy2  | Equinix-Sydney-SY2 | 
+| Sydney |  azure-equinix-sydney-sy2  | Equinix-Sydney-SY2 | 
 
   * syd-zone1-1605
   * syd-zone2-1605
@@ -215,9 +220,9 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -245,7 +250,7 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * UK South
   * West Europe
 
-| Amsterdam|  azure-equinix-amsterdam-am5  | Equinix-Amsterdam-AM5 | 
+| Amsterdam |  azure-equinix-amsterdam-am5  | Equinix-Amsterdam-AM5 | 
 
   * ams-zone1-1236
   * ams-zone2-1236
@@ -255,9 +260,9 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -285,7 +290,7 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * UK South
   * West Europe
 
-| Frankfurt|  azure-equinix-frankfurt-fr7  | Equinix-Frankfurt-FR7 | 
+| Frankfurt |  azure-equinix-frankfurt-fr7  | Equinix-Frankfurt-FR7 | 
 
   * fra-zone1-683
   * fra-zone2-683
@@ -295,9 +300,9 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -325,7 +330,7 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * UK South
   * West Europe
 
-| London|  azure-equinix-london-ld5  | Equinix-London-LD5 | 
+| London |  azure-equinix-london-ld5  | Equinix-London-LD5 | 
 
   * lhr-zone1-832
   * lhr-zone2-832
@@ -335,9 +340,9 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -365,7 +370,7 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * UK South
   * West Europe
 
-| Paris|  azure-interxion-paris-par5  | Interxion-Paris-PAR5 | 
+| Paris |  azure-interxion-paris-par5  | Interxion-Paris-PAR5 | 
 
   * cdg-zone1-1536
   * cdg-zone2-1536
@@ -375,9 +380,9 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -405,14 +410,13 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * UK South
   * West Europe
 
-| Zurich|  azure-interxion-zurich-zur2  | Interxion-Zurich-ZUR2 | 
+| Zurich |  azure-interxion-zurich-zur2  | Interxion-Zurich-ZUR2 | 
 
   * zrh-zone1-81
   * zrh-zone2-81
 
   
   
-  * asia-southeast1
   * asia-south1
   * asia-south2
 
@@ -422,7 +426,7 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * India Central
   * India South
 
-| Mumbai|  azure-tata-mumbai-lvsb  | Tata-Mumbai-LVSB | 
+| Mumbai |  azure-tata-mumbai-lvsb  | Tata-Mumbai-LVSB | 
 
   * bom-zone1-554
   * bom-zone2-554
@@ -431,6 +435,7 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -455,7 +460,7 @@ azure-nextdc-sydney-s1  | NextDC-Sydney-S1 |
   * Canada Central
   * Canada East
 
-| Washington D.C.|  azure-equinix-ashburn-dc2  | Equinix-Ashburn-DC2 | 
+| Washington D.C. |  azure-equinix-ashburn-dc2  | Equinix-Ashburn-DC2 | 
 
   * iad-zone1-1
   * iad-zone2-1
@@ -482,6 +487,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -506,7 +512,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| Chicago|  azure-equinix-chicago-ch1  | Equinix-Chicago-CH1 | 
+| Chicago |  azure-equinix-chicago-ch1  | Equinix-Chicago-CH1 | 
 
   * ord-zone1-7
   * ord-zone2-7
@@ -515,6 +521,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -539,7 +546,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| Dallas|  azure-equinix-dallas-da3  | Equinix-Dallas-DA3 | 
+| Dallas |  azure-equinix-dallas-da3  | Equinix-Dallas-DA3 | 
 
   * dfw-zone1-4
   * dfw-zone2-4
@@ -548,6 +555,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -572,7 +580,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| Las Vegas|  azure-switch-las-vegas  | Switch-Las-Vegas | 
+| Las Vegas |  azure-switch-las-vegas  | Switch-Las-Vegas | 
 
   * las-zone1-770
   * las-zone2-770
@@ -581,6 +589,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -605,7 +614,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| Montréal|  azure-cologix-montreal-mtl3  | Cologix-Montreal-MTL3 | 
+| Montréal |  azure-cologix-montreal-mtl3  | Cologix-Montreal-MTL3 | 
 
   * yul-zone1-1944
   * yul-zone2-1944
@@ -614,6 +623,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -638,7 +648,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| Portland|  azure-edgeconnex-portland-por01  | EdgeConneX-Portland-POR01 | 
+| Portland |  azure-edgeconnex-portland-por01  | EdgeConneX-Portland-POR01 | 
 
   * pdx-zone1-1922
   * pdx-zone2-1922
@@ -647,6 +657,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -671,7 +682,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| San Antonio, Texas|  azure-cyrusone-san-antonio-1  | CyrusOne-San-Antonio-1 | 
+| San Antonio, Texas |  azure-cyrusone-san-antonio-1  | CyrusOne-San-Antonio-1 | 
 
   * sat-zone1-1484
   * sat-zone2-1484
@@ -680,6 +691,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -704,7 +716,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| San Francisco|  azure-coresite-santa-clara-sv7  | CoreSite-Santa-Clara-SV7 | 
+| San Francisco |  azure-coresite-santa-clara-sv7  | CoreSite-Santa-Clara-SV7 | 
 
   * sfo-zone1-1619
   * sfo-zone2-1619
@@ -713,6 +725,7 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -737,43 +750,10 @@ azure-coresite-reston-va3  | CoreSite-Reston-VA3 |
   * Canada Central
   * Canada East
 
-| Seattle|  azure-equinix-seattle-se2  | Equinix-Seattle-SE2 | 
+| Seattle |  azure-equinix-seattle-se2  | Equinix-Seattle-SE2 | 
 
   * sea-zone1-86
   * sea-zone2-86
-
-  
-  
-  * northamerica-northeast1
-  * northamerica-northeast2
-  * us-central1
-  * us-east1
-  * us-east4
-  * us-east5
-  * us-south1
-  * us-west1
-  * us-west2
-  * us-west3
-  * us-west4
-
-| 
-
-  * East US
-  * West US
-  * East US 2
-  * West US 2
-  * West US 3
-  * Central US
-  * South Central US
-  * North Central US
-  * West Central US
-  * Canada Central
-  * Canada East
-
-| Toronto|  azure-cologix-toronto-tor1  | Cologix-Toronto-TOR1 | 
-
-  * yyz-zone1-392
-  * yyz-zone2-392
 
   
   
@@ -833,6 +813,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/architectures/sap-s4hana-on-gcp/
 title: Reference architecture: SAP S/4HANA on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:33.058425+00:00
+fetched_at: 2026-11-03T09:44:12.122236+00:00
 ---
 
 # Reference architecture: SAP S/4HANA on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation

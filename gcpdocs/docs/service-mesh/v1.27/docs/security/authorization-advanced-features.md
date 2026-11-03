@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/security/authorization-advanced-features/
 title: Configure authorization policy advanced features \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:18.044071+00:00
+fetched_at: 2026-11-03T09:43:59.273853+00:00
 ---
 
 # Configure authorization policy advanced features  |  Cloud Service Mesh  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/terraform-version-deprecation/
 title: Terraform version management policy \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:54.448583+00:00
+fetched_at: 2026-11-03T09:51:58.809388+00:00
 ---
 
 # Terraform version management policy  |  Infrastructure Manager  |  Google Cloud Documentation
@@ -31,18 +31,24 @@ Infra Manager publishes a list of available Terraform versions and their support
 
 This table shows the Terraform version deprecation information:
 
-Terraform version | Date available | Deprecation date | End of support date | Auto-migrate to version  
----|---|---|---|---  
-`1.2.3` | 8/21/2023 | 1/8/2026 | 2/8/2026 | `1.5.7`  
-`1.3.10` | 3/14/2024 | TBD | TBD | TBD  
-`1.4.7` | 3/14/2024 | TBD | TBD | TBD  
-`1.5.7` | 3/14/2024 | TBD | TBD | TBD  
+Terraform version | Pricing tier | Date available | Deprecation date | End of support date | Auto-migrate to version  
+---|---|---|---|---|---  
+`1.2.3` | Free tier | 8/21/2023 | 1/8/2026 | 2/8/2026 | `1.5.7`  
+`1.3.10` | Free tier | 3/14/2024 | TBD | TBD | TBD  
+`1.4.7` | Free tier | 3/14/2024 | TBD | TBD | TBD  
+`1.5.7` | Free tier | 3/14/2024 | TBD | TBD | TBD  
+`1.16.5` | Paid | 11/2/2026 | TBD | TBD | TBD  
   
 The columns in the table represent the following:
 
   * **Terraform version** : the identifier of the Terraform version.
+
+  * **Pricing tier** : whether the version is in the **Free tier** (no Infra Manager management fee) or **Paid** (incurs deployment and management charges; see [Licensing and pricing for Terraform versions](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_licensing_pricing)).
+
   * **Date available** : the date when the version becomes available in Infra Manager.
+
   * **Deprecation date** : the date when the version is scheduled for deprecation. After this date, using the version to create or update deployments generates a warning.
+
   * **End of support date** : the date when the version is no longer supported. This period ends 180 days (or longer) after deprecation.
 
 **Note:** For Terraform version `1.2.3`, this period ends one month after deprecation.
@@ -104,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/data-relationships/
 title: View data relationships in Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:06.338196+00:00
+fetched_at: 2026-11-03T09:53:47.291388+00:00
 ---
 
 # View data relationships in Knowledge Catalog  |  Google Cloud Documentation

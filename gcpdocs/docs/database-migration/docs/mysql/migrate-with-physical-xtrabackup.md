@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/migrate-with-physical-xtrabackup/
 title: Migrate your databases by using a Percona XtraBackup physical file \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:15.055392+00:00
+fetched_at: 2026-11-03T09:54:21.203221+00:00
 ---
 
 # Migrate your databases by using a Percona XtraBackup physical file  |  Database Migration Service for MySQL  |  Google Cloud Documentation
@@ -738,7 +738,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-    * REGION with the identifier of the region where your connection profile is saved.
+    * REGION with the identifier of the region where your migration job is saved.
 
 Execute the following command: 
 
@@ -813,7 +813,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-    * REGION with the identifier of the region where your connection profile is saved.
+    * REGION with the identifier of the region where your migration job is saved.
 
 Execute the following command: 
 
@@ -1118,7 +1118,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-       * REGION with the identifier of the region where your connection profile is saved.
+       * REGION with the identifier of the region where your migration job is saved.
 
 Execute the following command: 
 
@@ -1164,7 +1164,7 @@ The action is performed in an asynchronous manner. As such, this command returns
 To see if your operation is successful, you can query the returned operation object, or check the status of the migration job: 
 
        * Use the [ `gcloud database-migration migration-jobs describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/describe) command to view the status of the migration job.
-       * Use the [ `gcloud database-migration operations describe`](https://cloud.google.com/sdk/gcloud/reference/database-migration/operations/describe) with the OPERATION_ID to see the status of the operation itself.
+       * Use the [ `gcloud database-migration operations describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/operations/describe) command with the OPERATION_ID to see the status of the operation itself.
 
     3. (Optional) Perform a migration job test  
 You can run a check to verify if Database Migration Service can reach all the necessary source and destination entities. Run the following command (click the link to expand): 
@@ -1177,7 +1177,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-       * REGION with the identifier of the region where your connection profile is saved.
+       * REGION with the identifier of the region where your migration job is saved.
 
 Execute the following command: 
 
@@ -1236,7 +1236,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-       * REGION with the identifier of the region where your connection profile is saved.
+       * REGION with the identifier of the region where your migration job is saved.
 
 Execute the following command: 
 
@@ -1317,6 +1317,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

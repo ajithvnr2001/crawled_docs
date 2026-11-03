@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-job-metrics/
 title: Migration job metrics \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:23:41.710446+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:54:18.618229+00:00
 ---
 
 # Migration job metrics  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
@@ -28,7 +14,7 @@ fetched_at: 2026-10-27T16:23:41.710446+00:00
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
   * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
   * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-  * [ Reference ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/apis)
+  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview)
 
 
 
@@ -36,107 +22,87 @@ Send feedback
 
 #  Migration job metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
+Database Migration Service collects and displays migration job metrics that represent the health and progress of your continuous data migration to an AlloyDB for PostgreSQL cluster. This page describes the following areas associated with migration job metrics:
+
+  * Metrics available on the migration job details page covers the observability information you can view directly in Database Migration Service on the migration job details page.
+  * Metrics available in Cloud Monitoring describes all metrics related to migration job performance, including destination AlloyDB for PostgreSQL metrics and replication slot metrics.
+
+
+
+## Metrics available on the migration job details page
+
+The migration job details page shows diagrams and tables that can help you understand the current state and progress of your migration job. You can view metrics for all databases included in your migration job or only the databases that you selected for migration.
+
+![Example diagrams for migration job metrics
+      Database Migration Service.](https://docs.cloud.google.com/static/database-migration/docs/images/hmm/hmm_mysql_pgsql_alloydb_standard_metrics.png) **Figure 1.** Sample observability diagrams in Database Migration Service. (click to enlarge) ![Example diagrams for migration job metrics
+      Database Migration Service.](https://docs.cloud.google.com/static/database-migration/docs/images/hmm/hmm_mysql_pgsql_alloydb_standard_metrics.png)
+
+Expand the following sections to learn more about each diagram and its associated metric.
+
+#### Total destination storage usage
+
+The **Total destination storage usage** diagram uses the AlloyDB for PostgreSQL [`cluster/storage/bytes_used`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#alloydb/cluster/storage/usage) metric to show how much data (in bytes) is stored in all the databases in your destination AlloyDB for PostgreSQL cluster. You can use this information to estimate the progress of your migration job.
+
+This metric is only available in the aggregated view. You can't filter the total storage usage per database.
+
+#### Replication delay
+
+The **Replication delay** diagram shows how far the destination AlloyDB for PostgreSQL cluster is behind the source database in bytes.
+
+Use this metric when you consider performing a promotion of a continuous migration. Replication delay should be zero at the time of the promotion in order to avoid data loss. Note that this metric is only relevant in the change data capture (CDC) phase. For more information on job promotion, see [Promote a migration](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/promote-migration).
+
+This metric is available for each database included in your migration job, and in the aggregated view where it shows a summary for all databases included in your migration job.
+
+### View metrics on the migration job details page
+
+To view metric diagrams on the migration job details page, perform the following steps:
+
+  1. In the Google Cloud console, go to the **Migration jobs** page. 
+
+[Go to Migration jobs](https://console.cloud.google.com/dbmigration/migrations)
+
+  2. In the **Jobs** tab, click the display name of your migration job. 
+
+The migration job details page opens.
+
+  3. In the **Databases** section, you can view the name and status of each database included in your migration job.
+  4. Click the **Monitoring** tab to see the metrics diagrams. 
+     * You can use the **View** menu to show aggregated data for all databases included in your migration job, or filter the information for specific databases.
+     * You can also view each diagram directly in Cloud Monitoring. Click more_vert**More chart options > View in Metrics Explorer**.
+
+
+
+## Metrics available in Cloud Monitoring
+
+The following table describes migration job metrics you can use to [create charts in Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer) for AlloyDB for PostgreSQL migrations. For more information, see the [complete Database Migration Service metrics reference](https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h#gcp-datamigration).
+
+You can also use the [AlloyDB for PostgreSQL `alloydb.googleapis.com/cluster/storage/bytes_used` metric](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#alloydb/cluster/storage/usage) and compare it with the total size of your source databases to estimate the migration job progress.
+
+Metric type Launch stage  
+Display name  
+---  
+Kind, Type, Unit  
+Monitored resources | _Description_  
+Labels  
+`migration_job/initial_sync_complete` BETA  
+Initial replication sync complete   
+`GAUGE`, `BOOL`, ``   
+[**datamigration.googleapis.com/MigrationJob**](https://docs.cloud.google.com/monitoring/api/resources#tag_datamigration.googleapis.com/MigrationJob) |  _Whether all databases on the destination DB instance have completed the initial sync and are replicating changes from the source._   
+`database`: Database name.   
+`migration_job/max_replica_bytes_lag` BETA  
+Max lag bytes of the migration job data   
+`GAUGE`, `INT64`, `By`   
+[**datamigration.googleapis.com/MigrationJob**](https://docs.cloud.google.com/monitoring/api/resources#tag_datamigration.googleapis.com/MigrationJob) |  _Current replication lag, aggregated across all of the migration job's data. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`database`: Database name.   
+`migration_job/max_replica_sec_lag` BETA  
+Max lag in seconds of the migration job data   
+`GAUGE`, `INT64`, `s`   
+[**datamigration.googleapis.com/MigrationJob**](https://docs.cloud.google.com/monitoring/api/resources#tag_datamigration.googleapis.com/MigrationJob) |  _Current replication lag, aggregated across all of the migration job's data. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
   
-
-
-[MySQL](https://docs.cloud.google.com/database-migration/docs/mysql/migration-job-metrics "View this page for the MySQL version of Database Migration Service.") | [PostgreSQL](https://docs.cloud.google.com/database-migration/docs/postgres/migration-job-metrics "View this page for the PostgreSQL version of Database Migration Service.") | PostgreSQL to AlloyDB
-
-  
-
-
-  
-
-
-Database Migration Service collects and displays migration job metrics that represent the health and progress of your data migration process.
-
-The following table lists and describes the migration job metrics that you can view on the migration job details page. You can view the following metrics for all databases included in your migration job or only the databases that you selected for migration: 
-
-Migration metric | Description  
----|---  
-**Replication delay** | Use this metric when you consider performing a promotion of a continuous migration. Replication delay should be zero at the time of the promotion in order to avoid data loss. Note this metric is only relevant in the change data capture (CDC) phase. For more information on job promotion, see [Promote a migration](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/promote-migration).  
-**Storage usage in total bytes** | Reflects how many GB are being used by the destination AlloyDB for PostgreSQL instance. Use this metric to get a rough indication of migration job progress.   
-You can view all [Database Migration Service Cloud Monitoring metrics that relate to migration job performance](https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h#gcp-datamigration) in the Metrics Explorer. To view each diagram directly in Cloud Monitoring, click more_vert**More chart options > View in Metrics Explorer**. 
-
-You can use the following metrics to monitor your migrations:
-
-  * The [`migration_job/initial_sync_complete`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h#datamigration/migration_job/initial_sync_complete) metric indicates when the full dump phase is complete for a specific database or the entire migration job. You can view this metric on a migration level or a database level by applying the `database` label. If the database label is present, the metric value is for that particular database. If the label is not populated, the metric value is for the entire migration job.
-  * The [`migration_job/max_replica_bytes_lag`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h#datamigration/migration_job/max_replica_bytes_lag) metric shows the size of log data that are not yet replicated to the destination. You can view this metric on a migration level or a database level by applying the `database` label. If the database label is present, the metric value is for that particular database. If the label is not populated, the metric value is for the entire migration job.
-  * The [`migration_job/max_replica_sec_lag`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h#datamigration/migration_job/max_replica_sec_lag) metric shows the time (in seconds) that the destination database is behind the source database. You can view this metric only at the migration level.
-
-
-
-For more information about the Metrics Explorer, see [Create charts with Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
-
-  * ### Products and pricing
-
-    * [ See all products ](https://cloud.google.com/products/)
-    * [ Google Cloud pricing ](https://cloud.google.com/pricing/)
-    * [ Google Cloud Marketplace ](https://cloud.google.com/marketplace/)
-    * [ Contact sales ](https://cloud.google.com/contact/)
-  * ### Support
-
-    * [ Community forums ](https://discuss.google.dev/c/google-cloud/14/)
-    * [ Support ](https://cloud.google.com/support-hub/)
-    * [ Release Notes ](https://docs.cloud.google.com/release-notes)
-    * [ System status ](https://status.cloud.google.com)
-  * ### Resources
-
-    * [ GitHub ](https://github.com/googlecloudPlatform/)
-    * [ Getting Started with Google Cloud ](https://docs.cloud.google.com/docs/get-started/)
-    * [ Code samples ](https://docs.cloud.google.com/docs/samples)
-    * [ Cloud Architecture Center ](https://docs.cloud.google.com/architecture/)
-    * [ Training and Certification ](https://cloud.google.com/learn/training/)
-    * [ Builders Hub ](https://me.developers.google.com/)
-  * ### Engage
-
-    * [ Blog ](https://cloud.google.com/blog/)
-    * [ Events ](https://cloud.google.com/events/)
-    * [ X (Twitter) ](https://x.com/googlecloud)
-    * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
-    * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
-
-
-
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg) ](https://developers.google.com/)
-
-  * [ Android ](https://developer.android.com/)
-  * [ Chrome ](https://developer.chrome.com/)
-  * [ Firebase ](https://firebase.google.com/)
-  * [ Google AI ](https://ai.google.com/)
-
-
-
-  * [ About Google ](https://about.google/)
-  * [ Privacy ](https://policies.google.com/privacy)
-  * [ Site terms ](https://policies.google.com/terms?hl=en)
-  * [ Google Cloud terms ](https://cloud.google.com/product-terms)
-  * Manage cookies 
-  * [ Our third decade of climate action: join us ](https://cloud.google.com/sustainability)
-  * Sign up for the Google Cloud newsletter [ Subscribe ](https://cloud.google.com/newsletter/)
-
-
-
-  * English
-  * Deutsch
-  * Español
-  * Español – América Latina
-  * Français
-  * Indonesia
-  * Italiano
-  * Português
-  * Português – Brasil
-  * עברית
-  * 中文 – 简体
-  * 中文 – 繁體
-  * 日本語
-  * 한국어
-
-
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

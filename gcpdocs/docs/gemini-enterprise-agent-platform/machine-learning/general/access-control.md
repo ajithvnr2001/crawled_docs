@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control/
 title: Agent Platform access control with IAM \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:02.382727+00:00
+fetched_at: 2026-11-03T09:53:41.717971+00:00
 ---
 
 # Agent Platform access control with IAM  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -5967,7 +5967,7 @@ Table type | Table project | Data source project | Role addition required
 [External BigQuery data source backed by Cloud Storage](https://docs.cloud.google.com/bigquery/external-data-cloud-storage) | Home project | Different project | `Storage Object Viewer` for different project. Learn more.  
 [External BigQuery data source backed by Cloud Storage](https://docs.cloud.google.com/bigquery/external-data-cloud-storage) | Different project | Different project | `Storage Object Viewer` and `BigQuery Data Viewer` for different project. Learn more.  
 [External BigQuery data source backed by Google Sheets](https://docs.cloud.google.com/bigquery/external-data-drive) | Home project | N/A | Share your Sheets file with the Agent Platform service account. Learn more.  
-[External BigQuery data source backed by Google Sheets](https://docs.cloud.google.com/bigquery/external-data-drive) | Different project | N/A | `BigQuery Reader` for different project and share your Sheets file with the Agent Platform service account.  
+[External BigQuery data source backed by Sheets](https://docs.cloud.google.com/bigquery/external-data-drive) | Different project | N/A | `BigQuery Reader` for different project and share your Sheets file with the Agent Platform service account.  
   
 ### Role addition requirements for Cloud Storage
 
@@ -6019,9 +6019,9 @@ You can filter for **Principal:@gcp-sa-aiplatform-cc.iam.gserviceaccount.com** t
 
 
 
-### Provide access to Google Sheets
+### Provide access to Sheets
 
-If you use an external BigQuery data source backed by Google Sheets, you must share your sheet with the Agent Platform service account. The Agent Platform service account is created after you start the first asynchronous job (for example, creating an endpoint). You can also explicitly create the Agent Platform service account by using gcloud CLI by following [this instruction](https://cloud.google.com/sdk/gcloud/reference/beta/services/identity/create).
+If you use an external BigQuery data source backed by Sheets, you must share your sheet with the Agent Platform service account. The Agent Platform service account is created after you start the first asynchronous job (for example, creating an endpoint). You can also explicitly create the Agent Platform service account by using gcloud CLI by following [this instruction](https://cloud.google.com/sdk/gcloud/reference/beta/services/identity/create).
 
 To authorize Agent Platform to access your Sheets file:
 
@@ -6049,6 +6049,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

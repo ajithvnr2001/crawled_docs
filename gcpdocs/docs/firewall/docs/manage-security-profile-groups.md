@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/manage-security-profile-groups/
 title: Manage security profile groups \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:03.448479+00:00
+fetched_at: 2026-11-03T09:53:28.040144+00:00
 ---
 
 # Manage security profile groups  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -24,12 +24,12 @@ Send feedback
 Security profile groups let you apply and control network security policies across your deployments. Each security profile group can contain up to one security profile of each of the following types:
 
   * `THREAT_PREVENTION`
-  * `WILDFIRE_ANALYSIS` ([Preview](https://cloud.google.com/products#product-launch-stages))
+  * `WILDFIRE_ANALYSIS`
   * `URL_FILTERING`
 
 
 
-By grouping threat prevention and URL filtering profiles, you can enforce multiple security checks on network traffic through a single firewall policy rule, ensuring consistent policy enforcement and simplified management. This document helps network administrators and security engineers configure and manage organization-level and project-level security profile groups.
+By grouping threat prevention, Advanced malware sandbox, and URL filtering profiles, you can enforce multiple security checks on network traffic through a single firewall policy rule, ensuring consistent policy enforcement and simplified management. This document helps network administrators and security engineers configure and manage organization-level and project-level security profile groups.
 
 Before you begin, review the concepts in the [Security profile groups overview](https://docs.cloud.google.com/firewall/docs/about-security-profile-groups).
 
@@ -38,7 +38,7 @@ Before you begin, review the concepts in the [Security profile groups overview](
   * You must [enable](https://console.cloud.google.com/apis/library/networksecurity.googleapis.com) the [Network Security API](https://docs.cloud.google.com/firewall/docs/reference/network-security/rest) in your project.
   * Install the [gcloud CLI](https://docs.cloud.google.com/sdk/docs) if you want to run the `gcloud` command-line examples in this guide.
 
-  * You need either a [threat prevention security profile](https://docs.cloud.google.com/firewall/docs/configure-security-profiles), an [Advanced malware sandbox security profile](https://docs.cloud.google.com/firewall/docs/configure-wildfire-security-profiles) ([Preview](https://cloud.google.com/products#product-launch-stages)), or a [URL filtering security profile](https://docs.cloud.google.com/firewall/docs/configure-urlf-security-profiles).
+  * You need either a [threat prevention security profile](https://docs.cloud.google.com/firewall/docs/configure-security-profiles), an [Advanced malware sandbox security profile](https://docs.cloud.google.com/firewall/docs/configure-wildfire-security-profiles), or a [URL filtering security profile](https://docs.cloud.google.com/firewall/docs/configure-urlf-security-profiles).
 
 
 
@@ -205,10 +205,11 @@ To update a security profile group, use the [`gcloud network-security security-p
     
     gcloud network-security security-profile-groups update NAME \
         --organization ORGANIZATION_ID | --project PROJECT_ID \
-        --clear-threat-prevention-profile | --threat-prevention-profile THREAT_SECURITY_PROFILE_URL \
-        --clear-url-filtering-profile | --url-filtering-profile URL_SECURITY_PROFILE_URL \
+        [--clear-threat-prevention-profile | --threat-prevention-profile THREAT_SECURITY_PROFILE_URL] \
+        [--clear-wildfire-analysis-profile | --wildfire-analysis-profile WILDFIRE_SECURITY_PROFILE_URL] \
+        [--clear-url-filtering-profile | --url-filtering-profile URL_SECURITY_PROFILE_URL] \
         [--billing-project QUOTA_PROJECT_ID] \
-        --description DESCRIPTION \
+        [--description DESCRIPTION] \
         --location global
     
 
@@ -216,7 +217,7 @@ Replace the following:
 
   * `NAME`: the name of the security profile group.
 
-If you don't use the [the unique URL identifier format](https://docs.cloud.google.com/firewall/docs/about-security-profile-groups#specifications) for the name, you must specify the organization or the project name, and the location.
+If you don't use [the unique URL identifier format](https://docs.cloud.google.com/firewall/docs/about-security-profile-groups#specifications) for the name, you must specify the organization or the project name, and the location.
 
   * `ORGANIZATION_ID`: the organization ID. Use this flag for an organization-level security profile group.
 
@@ -226,6 +227,10 @@ If you don't use the [the unique URL identifier format](https://docs.cloud.googl
 
 To remove a threat prevention security profile, use the `--clear-threat-prevention-profile` flag. To change a threat prevention security profile, use the `--threat-prevention-profile` flag.
 
+  * `WILDFIRE_SECURITY_PROFILE_URL`: a unique URL identifier for a security profile of `WILDFIRE_ANALYSIS` type.
+
+To remove an Advanced malware sandbox security profile, use the `--clear-wildfire-analysis-profile` flag. To add or change an Advanced malware sandbox security profile, use the `--wildfire-analysis-profile` flag.
+
   * `URL_SECURITY_PROFILE_URL`: a unique URL identifier for a security profile of `URL_FILTERING` type.
 
 To remove a URL filtering security profile, use the `--clear-url-filtering-profile` flag. To change the URL filtering security profile, use the `--url-filtering-profile` flag.
@@ -234,29 +239,6 @@ To remove a URL filtering security profile, use the `--clear-url-filtering-profi
 
   * `DESCRIPTION`: an optional description for the security profile group.
 
-
-
-
-To update a security profile group for Advanced malware sandbox, use the [`gcloud beta network-security security-profile-groups update` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/security-profile-groups/update) ([Preview](https://cloud.google.com/products#product-launch-stages)):
-    
-    
-    gcloud beta network-security security-profile-groups update NAME \
-        --organization ORGANIZATION_ID \
-        --location LOCATION \
-        --clear-threat-prevention-profile | --threat-prevention-profile THREAT_SECURITY_PROFILE_URL \
-        --clear-wildfire-analysis-profile | --wildfire-analysis-profile WILDFIRE_SECURITY_PROFILE_URL \
-        --clear-url-filtering-profile | --url-filtering-profile URL_SECURITY_PROFILE_URL \
-        --billing-project QUOTA_PROJECT_ID
-    
-
-Replace `WILDFIRE_SECURITY_PROFILE_URL`with unique URL identifier for a security profile of `WILDFIRE_ANALYSIS` type.
-
-Specify at most one of these flags:
-
-  * `clear-wildfire-analysis-profile`: clear the wildfire analysis profile field.
-  * `wildfire-analysis-profile`: update the wildfire analysis profile field with the unique URL identifier of the security profile of the `WILDFIRE_ANALYSIS` type.
-  * `clear-url-filtering-profile`: clear the URL filtering profile field.
-  * `url-filtering-profile`: update the URL filtering profile field with the unique URL identifier of the security profile of the `URL_FILTERING` type.
 
 
 
@@ -340,6 +322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/upgrading-clusters/
 title: Best practices for GKE cluster upgrades \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:22.024247+00:00
+fetched_at: 2026-11-03T09:54:43.988554+00:00
 ---
 
 # Best practices for GKE cluster upgrades  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -127,7 +127,7 @@ To progressively roll out new GKE versions within and across these environments,
 
 If you're configuring a new environment, use [rollout sequencing with custom stages](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing). This newer version of rollout sequencing lets you divide the rollout of a new version to a fleet in multiple stages. With this approach, GKE can, for example, upgrade a canary environment in production before upgrading the rest of production.
 
-Although we don't recommend it for new environments, you can also use an earlier version of the feature, [fleet-based rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing). This version of the feature is the only one with support in the Google Cloud console, but otherwise has more limited functionality.
+Although we don't recommend it for new environments, you can also use an earlier version of the feature, [fleet-based rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing). This version of the feature has more comprehensive support in the Google Cloud console, but otherwise has more limited functionality.
 
 ### Testing GKE patch and minor upgrades
 
@@ -265,6 +265,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

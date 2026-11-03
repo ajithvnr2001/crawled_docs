@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/psc-interfaces/
 title: Configure Private Service Connect interfaces \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:48.183153+00:00
+fetched_at: 2026-11-03T09:54:27.416909+00:00
 ---
 
 # Configure Private Service Connect interfaces  |  Datastream  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Before you create a private connectivity configuration using a Private Service C
 
   * Create a [network attachment](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments#create-manual-accept) in your VPC project.
 
-  * Ensure that the subnetwork associated with your network attachment, as well as any resources in your VPC network that communicate with Datastream (such as NAT VMs, internal load balancers, or source and destination databases), don't use IP address ranges reserved by Datastream (`10.1.0.0/16` and `10.2.2.0/24`). Using these reserved ranges can cause routing conflicts with Datastream internal infrastructure and unpredictable connectivity failures.
+  * Ensure that the subnetwork associated with your network attachment doesn't overlap with the `100.64.0.0/16` or `100.65.0.0/24` IP address ranges. Don't use addresses in these ranges for any VPC resources that communicate with Datastream, such as NAT VMs, internal load balancers, or source and destination databases. Using these reserved ranges can cause routing conflicts with Datastream internal infrastructure and unpredictable connectivity failures.
 
   * Verify that Google Cloud and the on-premises firewall allow traffic from the network attachment IP address range to the source database from which you want to stream data. For information about how to create firewall rules, see [Use VPC firewall rules](https://docs.cloud.google.com/firewall/docs/using-firewalls).
 
@@ -113,7 +113,7 @@ To configure Private Service Connect in Datastream, you must first create a netw
 
   5. From the **Region** list, select a Google Cloud region. This region must be the same as the region used for the subnet of the VPC network peered to the Datastream private network. For more information, see Private Service Connect prerequisites.
 
-  6. From the **Subnetwork** list, select a subnetwork range. Ensure that the subnetwork range doesn't overlap with the internal IP ranges reserved by Datastream (`10.1.0.0/16` and `10.2.2.0/24`).
+  6. From the **Subnetwork** list, select a subnetwork range. Ensure that the subnetwork range doesn't overlap with the internal IP ranges reserved by Datastream (`100.64.0.0/16` and `100.65.0.0/24`).
 
   7. In **Connection preference** , select **Accept connections for selected projects**.
 
@@ -134,7 +134,7 @@ Datastream automatically adds the producer project to the **Accepted projects** 
          gcloud compute networks subnets create subnet-1 --network=network-0 --range=10.10.1.0/24 --region=REGION
          
 
-The network attachment uses these subnetworks in the subsequent steps. Ensure that the subnetwork range doesn't overlap with the internal IP ranges reserved by Datastream (`10.1.0.0/16` and `10.2.2.0/24`).
+The network attachment uses these subnetworks in the subsequent steps. Ensure that the subnetwork range doesn't overlap with the internal IP ranges reserved by Datastream (`100.64.0.0/16` and `100.65.0.0/24`).
 
   2. Create a network attachment resource in the same region as the Datastream project, with the `connection-preference` property set to `ACCEPT_MANUAL`:
          
@@ -179,6 +179,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

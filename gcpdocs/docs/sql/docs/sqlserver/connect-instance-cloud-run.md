@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/connect-instance-cloud-run/
 title: Quickstart: Connect to Cloud SQL for SQL Server from Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:56.447559+00:00
+fetched_at: 2026-11-03T09:44:27.090106+00:00
 ---
 
 # Quickstart: Connect to Cloud SQL for SQL Server from Cloud Run  |  Google Cloud Documentation
@@ -299,6 +299,58 @@ Run the [`gcloud sql databases create`](https://docs.cloud.google.com/sdk/gcloud
     
     
     gcloud sql databases create quickstart-db --instance=quickstart-instance
+
+### Create a table
+
+Take the following steps to create the `votes` table in the `quickstart-db` database for the sample application:
+
+### Console
+
+  1. In the Google Cloud console, go to the **Cloud SQL Instances** page.
+
+[Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
+
+  2. Select `quickstart-instance`.
+  3. From the SQL navigation menu, select **Cloud SQL Studio**.
+  4. In the **Sign in to Cloud SQL Studio** dialog, enter the following information: 
+     * In the **Database** list, select **quickstart-db**.
+     * Select **Built-in database authentication**.
+     * In the **User** list, select **sqlserver**.
+     * In the **Password** field, enter the password that you specified when you created the instance.
+  5. Click **Authenticate**.
+  6. In the **Explorer** pane, click **Untitled Query** to open the query editor.
+  7. To create the `votes` table, enter the following SQL statement in the query editor: 
+         
+         CREATE TABLE votes (
+           vote_id INT IDENTITY(1,1) PRIMARY KEY,
+           candidate VARCHAR(255) NOT NULL,
+           time_cast DATETIME2 NOT NULL DEFAULT GETDATE()
+         );
+
+  8. Click **Run**.
+
+
+
+### gcloud
+
+  1. Run the [`gcloud sql connect`](https://docs.cloud.google.com/sdk/gcloud/reference/sql/connect) command to connect to the `quickstart-db` database: 
+         
+         gcloud sql connect quickstart-instance \
+         --user=sqlserver \
+         --database=quickstart-db
+
+  2. When prompted, enter the password for the database user.
+  3. At the `sqlcmd` prompt, run the following SQL statement to create the `votes` table: 
+         
+         CREATE TABLE votes (
+           vote_id INT IDENTITY(1,1) PRIMARY KEY,
+           candidate VARCHAR(255) NOT NULL,
+           time_cast DATETIME2 NOT NULL DEFAULT GETDATE()
+         );
+         GO
+
+
+
 
 ## Deploy sample app to Cloud Run
 
@@ -645,6 +697,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

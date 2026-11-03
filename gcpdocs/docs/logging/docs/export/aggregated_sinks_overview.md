@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/aggregated_sinks_overview/
 title: Aggregated sinks overview \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:34.217389+00:00
+fetched_at: 2026-11-03T09:53:31.990516+00:00
 ---
 
 # Aggregated sinks overview  |  Cloud Logging  |  Google Cloud Documentation
@@ -125,7 +125,7 @@ If you want to join your log data with other business data, then you can store y
 BigQuery dataset
     Select this destination when you want to join your log data with other business data. The dataset you specify must be write-enabled. **Don't set the destination of a sink to be a linked BigQuery dataset**. Linked BigQuery datasets are read-only.
 
-Cloud Storage bucket
+Cloud Storage bucket, except for Rapid storage
     Select this destination when you want long-term storage of your log data. The Cloud Storage bucket can be in the project where the log entries originate, or in a different project. Log entries are stored as JSON files.
 
 Pub/Sub topic
@@ -191,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

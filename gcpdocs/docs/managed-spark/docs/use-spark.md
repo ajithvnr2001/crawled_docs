@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/use-spark/
 title: Run PySpark code in BigQuery Studio notebooks \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:26.993172+00:00
+fetched_at: 2026-11-03T09:53:29.362612+00:00
 ---
 
 # Run PySpark code in BigQuery Studio notebooks  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ You can use a BigQuery Studio Python notebook to create a [Spark Connect](https:
 You can create a Spark session in a BigQuery Studio Python notebook in the following ways:
 
   * Configure and create a single session in the notebook.
-  * Configure a Spark session in an [**interactive session template**](https://docs.cloud.google.com/dataproc-serverless/docs/guides/create-serverless-sessions-templates#create-dataproc-serverless-session-template), then use the template to configure and create a session in the notebook. BigQuery provides a `Query using Spark` feature that helps you start coding the templated session as explained under the **Templated Spark session** tab.
+  * Configure a Spark session in an [**interactive session template**](https://docs.cloud.google.com/dataproc-serverless/docs/guides/create-serverless-sessions-templates#create-dataproc-serverless-session-template), then use the template to configure and create a session in the notebook.
 
 
 
@@ -118,13 +118,18 @@ To create a Spark session in a new notebook, do the following:
   1. In the tab bar of the editor pane, click the arrow_drop_down drop-down arrow next to the **+** sign, and then click **Notebook**.
 
 ![Screenshot showing the BigQuery interface with the '+' button for creating a new notebook.](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/plus-python-notebook.png)
-  2. Copy and run the following code in a notebook cell to configure and create a basic Spark session.
+  2. Install the `google-cloud-spark-connect` package in a notebook cell:
+         
+         %pip install 'google-cloud-spark-connect[interactive,spark]'
+         
+
+  3. Copy and run the following code in a notebook cell to configure and create a basic Spark session.
 
 
 
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     
     import pyspark.sql.functions as f
@@ -133,16 +138,16 @@ To create a Spark session in a new notebook, do the following:
     
     # Create the Spark session.
     spark = (
-       DataprocSparkSession.builder
-         .appName("APP_NAME")
-         .dataprocSessionConfig(session)
+       ManagedSparkSession.builder
+         .sessionId("SESSION_ID")
+         .sessionConfig(session)
          .getOrCreate()
     )
     
 
 Replace the following:
 
-  * APP_NAME: An optional name for your session.
+  * SESSION_ID: A custom ID for your session (4–63 characters, lowercase letters, numbers, and hyphens, starting with a lowercase letter and not ending with a hyphen). Setting a session ID lets you reuse an active session across notebook runs or multiple notebooks within the session's time-to-live (TTL), eliminating session startup time. If a session with the specified ID has already terminated, a new session is created with the same ID. If an active session with this ID already exists, the client connects to it and ignores the session configuration in your code. To apply configuration changes, terminate the existing session (`spark.stop(terminate=True)`) or use a different session ID.
   * **Optional Session settings:** You can add Managed Service for Apache Spark API [`Session`](https://docs.cloud.google.com/dataproc-serverless/docs/reference/rest/v1/projects.locations.sessions#Session) settings to customize your session. Here are some examples: 
     * [`RuntimeConfig`](https://docs.cloud.google.com/dataproc-serverless/docs/reference/rest/v1/RuntimeConfig): ![Code help showing session.runtime.config options.](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/session-runtime-config.png)
       * `session.runtime_config.properties={spark.property.key1:VALUE_1,...,spark.property.keyN:VALUE_N}`
@@ -158,17 +163,21 @@ Replace the following:
 
 You can enter and run the code in a notebook cell to create a Spark session based on an existing [session template](https://docs.cloud.google.com/dataproc-serverless/docs/guides/create-serverless-sessions-templates#create-dataproc-serverless-session-template). Any `session` configuration settings you provide in your notebook code will override any of the same settings that are set in the session template.
 
-To get started quickly, use the `Query using Spark` template to pre-populate your notebook with Spark session template code:
+To create a templated Spark session in a new notebook, do the following:
 
   1. In the tab bar of the editor pane, click the arrow_drop_down drop-down arrow next to the **+** sign, and then click **Notebook**. ![Screenshot showing the BigQuery interface with the '+' button for creating a new notebook.](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/plus-python-notebook.png)
-  2. Under **Start with a template** , click **Query using Spark** , then click **Use template** to insert the code in your notebook. ![BigQuery UI selections to start with a template](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/query-using-spark.png)
-  3. Specify the variables as explained in the Notes.
-  4. You can delete any additional sample code cells inserted in the notebook.
+  2. Install the `google-cloud-spark-connect` package in a notebook cell:
+         
+         %pip install 'google-cloud-spark-connect[interactive,spark]'
+         
+
+  3. Copy and run the following code in a notebook cell to configure and create a templated Spark session.
+
 
 
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     session = Session()
     project_id = "PROJECT_ID"
@@ -178,9 +187,9 @@ To get started quickly, use the `Query using Spark` template to pre-populate you
     session.session_template = f"projects/{project_id}/locations/{location}/sessionTemplates/{session_template}"
     # Create the Spark session.
     spark = (
-       DataprocSparkSession.builder
-         .appName("APP_NAME")
-         .dataprocSessionConfig(session)
+       ManagedSparkSession.builder
+         .sessionId("SESSION_ID")
+         .sessionConfig(session)
          .getOrCreate()
     )
     
@@ -191,13 +200,13 @@ Replace the following:
   * LOCATION: The [Compute Engine region](https://docs.cloud.google.com/compute/docs/regions-zones#available) where your notebook session will run. If not supplied, the region of the VM that creates the notebook will be used.
   * SESSION_TEMPLATE: The name of an existing [interactive session template](https://docs.cloud.google.com/dataproc-serverless/docs/guides/create-serverless-sessions-templates#create-dataproc-serverless-session-template). Session configuration settings are obtained from the template. The template must also specify the following settings:
 
-    * Runtime version [`2.3`+](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/versions/spark-runtime-2.3)
+    * Runtime version [`3.0`+](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/versions/spark-runtime-3.0)
     * Notebook type: `Spark Connect`
 
 Example:
 
 ![Screenshot showing the Spark Connect required settings.](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/console-template-spark-connect.png)
-  * APP_NAME: An optional name for your session.
+  * SESSION_ID: A custom ID for your session (4–63 characters, lowercase letters, numbers, and hyphens, starting with a lowercase letter and not ending with a hyphen). Setting a session ID lets you reuse an active session across notebook runs or multiple notebooks within the session's time-to-live (TTL), eliminating session startup time. If a session with the specified ID has already terminated, a new session is created with the same ID. If an active session with this ID already exists, the client connects to it and ignores the session configuration in your code. To apply configuration changes, terminate the existing session (`spark.stop(terminate=True)`) or use a different session ID.
 
 
 
@@ -222,9 +231,9 @@ Example that installs specified `textdistance` version and latest compatible `ra
 
 **Notebook code help:** The BigQuery Studio notebook provides code help when you hold the pointer over a class or method name, and provides code completion help as you input code.
 
-In the following example, entering `DataprocSparkSession` and holding the pointer over this class name displays code completion and documentation help.
+In the following example, entering `ManagedSparkSession` and holding the pointer over this class name displays code completion and documentation help.
 
-![Code documentation and code completion tip examples.](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/bq-notebook-code-tips.png)**Tip:** See [Dataproc Spark Connect Client](https://github.com/GoogleCloudDataproc/dataproc-spark-connect-python) on GitHub for information on [using `DataprocSparkSession.builder` methods](https://github.com/GoogleCloudDataproc/dataproc-spark-connect-python?tab=readme-ov-file#builder-configuration) to configure Spark Connect sessions.
+![Code documentation and code completion tip examples.](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/bq-notebook-code-tips.png)**Tip:** See [Managed Spark Connect Client](https://github.com/GoogleCloudDataproc/managed-spark-connect-python) on GitHub for information on [using `ManagedSparkSession.builder` methods](https://github.com/GoogleCloudDataproc/managed-spark-connect-python?tab=readme-ov-file#builder-configuration) to configure Spark Connect sessions.
 
 ### BigQuery Studio notebook PySpark examples
 
@@ -241,16 +250,16 @@ The following PySpark example creates a Spark session, then counts word occurren
     
     
     # Basic wordcount example
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     import pyspark.sql.functions as f
     session = Session()
     
     # Create the Spark session.
     spark = (
-       DataprocSparkSession.builder
-         .appName("APP_NAME")
-         .dataprocSessionConfig(session)
+       ManagedSparkSession.builder
+         .sessionId("SESSION_ID")
+         .sessionConfig(session)
          .getOrCreate()
     )
     # Run a wordcount on the public Shakespeare dataset.
@@ -262,7 +271,7 @@ The following PySpark example creates a Spark session, then counts word occurren
 
 Replace the following:
 
-  * APP_NAME: An optional name for your session.
+  * SESSION_ID: A custom ID for your session (for example, `my-spark-session`).
 
 
 
@@ -308,7 +317,7 @@ The cell output lists a sample of the wordcount output. To see session details i
 The following example code creates a `sample_iceberg_table` with table metadata stored in Lakehouse runtime catalog, and then queries the table.
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     # Create the Dataproc Serverless session.
     session = Session()
@@ -328,9 +337,9 @@ The following example code creates a `sample_iceberg_table` with table metadata 
     session.runtime_config.properties[f"spark.sql.catalog.{catalog}.warehouse"] = f"{warehouse_dir}"
     # Create the Spark Connect session.
     spark = (
-       DataprocSparkSession.builder
-         .appName("APP_NAME")
-         .dataprocSessionConfig(session)
+       ManagedSparkSession.builder
+         .sessionId("SESSION_ID")
+         .sessionConfig(session)
          .getOrCreate()
     )
     # Create the namespace in BigQuery.
@@ -358,7 +367,7 @@ Notes:
   * LOCATION: The default `BigQuery_metastore_config.location` and `spark.sql.catalog.{catalog}.gcp_location` is `US`, but you can choose any [supported BigQuery location](https://docs.cloud.google.com/bigquery/docs/locations#supported_locations).
   * BUCKET and WAREHOUSE_DIRECTORY: The Cloud Storage bucket and folder used for Iceberg warehouse directory.
   * CATALOG and NAMESPACE: The Iceberg catalog name and namespace combine to identify the Iceberg table (`catalog.namespace.table_name`).
-  * APP_NAME: An optional name for your session.
+  * SESSION_ID: A custom ID for your session (for example, `my-spark-session`).
 
 
 
@@ -467,7 +476,7 @@ Sample output:
 
 You can take any of the following actions to stop your Spark Connect session in your BigQuery Studio notebook:
 
-  * Run `spark.stop()` in a notebook cell.
+  * Run `spark.stop(terminate=True)` in a notebook cell. Because the session was created with a custom session ID, `spark.stop()` without arguments only disconnects the notebook and leaves the session running until its TTL expires.
   * Terminate the runtime in the notebook: 
     1. Click the runtime selector, then click **Manage sessions**. ![Manage sessions selection](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/manage-runtime-in-bq-notebook.png)
     2. In the **Active sessions** dialog, click the terminate icon, then click **Terminate**. ![Terminate session selection in Active sessions dialog](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/terminate-session-in-bq-notebook.png)
@@ -547,16 +556,16 @@ Example:
 
         * Sample downloaded notebook code before simplification.
               
-              from google.cloud.dataproc_spark_connect import DataprocSparkSession
+              from google.cloud.managed_spark_connect import ManagedSparkSession
               from google.cloud.dataproc_v1 import Session
               
               
               
               session = Session()
-              spark = DataprocSparkSession \
+              spark = ManagedSparkSession \
                   .builder \
-                  .appName("CustomSparkSession")
-                  .dataprocSessionConfig(session) \
+                  .sessionId("my-spark-session") \
+                  .sessionConfig(session) \
                   .getOrCreate()
               
 
@@ -582,7 +591,7 @@ Example:
     gcloud dataproc batches submit pyspark FILENAME.py \
         --region=REGION \
         --deps-bucket=BUCKET \
-        --version=2.3
+        --version=3.0
     
 
 Notes:
@@ -590,7 +599,7 @@ Notes:
         * FILENAME: The name of your downloaded and edited notebook code file.
         * REGION: The Compute Engine [region](https://docs.cloud.google.com/compute/docs/regions-zones#available) where your cluster is located.
         * BUCKET The name of the Cloud Storage bucket that contains your `requirements.txt` file.
-        * `--version`: [spark runtime version 2.3](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/versions/spark-runtime-2.3) is selected to run the batch workload.
+        * `--version`: [spark runtime version 3.0](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/versions/spark-runtime-3.0) is selected to run the batch workload.
   5. Commit your code.
 
      1. After testing your batch workload code, you can commit the `.ipynb` or `.py` file to your repository using your `git` client, such as GitHub, GitLab, or Bitbucket, as part of your CI/CD pipeline.
@@ -608,9 +617,9 @@ When you encounter a notebook code error, navigating to the last Spark job in th
 
 ### Known issues and solutions
 
-**Error** : A [Notebook runtime](https://console.cloud.google.com/vertex-ai/colab/runtimes) created with Python version `3.10` can cause a `PYTHON_VERSION_MISMATCH` error when it attempts to connect to the Spark session.
+**Error** : A [Notebook runtime](https://console.cloud.google.com/vertex-ai/colab/runtimes) created with Python version `3.10` or `3.11` can cause a `PYTHON_VERSION_MISMATCH` error when it attempts to connect to the Spark session.
 
-**Solution** : Recreate the runtime with Python version `3.11`.
+**Solution** : Recreate the runtime with Python version `3.12`.
 
 ## What's next
 
@@ -626,6 +635,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules/
 title: Ingress and egress rules \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:45.882747+00:00
+fetched_at: 2026-11-03T09:41:54.672888+00:00
 ---
 
 # Ingress and egress rules  |  VPC Service Controls  |  Google Cloud Documentation
@@ -286,7 +286,13 @@ For information about supported IAM roles, see [Supported roles](https://docs.cl
 
   * `resources:` \- This attribute is a list of Google Cloud resources (projects, folders, or organizations) outside the service perimeter that clients inside a perimeter can access. To specify a project, use the format `projects/PROJECT_NUMBER`. To specify a folder, use the format `folders/FOLDER_NUMBER`. To specify an organization, use `organizations/ORGANIZATION_NUMBER`. You can set this field to `"*"` to allow egress access to any Google Cloud resource.
 
-  * `externalResources:` \- This attribute is used only to specify [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction) resources. This attribute is a list of external resources supported by BigQuery Omni that clients inside a perimeter can access. You can specify only Amazon S3 or Azure Blob Storage resources. For Amazon S3, the supported format is `s3://BUCKET_NAME`. For Azure Storage, the supported format is `azure://myaccount.blob.core.windows.net/CONTAINER_NAME`.
+  * `externalResources:` \- This attribute is a list of external resources outside the service perimeter that clients inside a perimeter can access when using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction) or [Lakehouse federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs). You can specify only Amazon S3, Azure Blob Storage, or Azure Data Lake Storage Gen2 resources:
+
+    * **Amazon S3** : `s3://BUCKET_NAME`
+    * **Azure Blob Storage (BigQuery Omni)** : `azure://STORAGE_ACCOUNT.blob.core.windows.net/CONTAINER_NAME`
+    * **Azure Data Lake Storage Gen2 (Lakehouse federated catalog endpoints)** : `abfss://CONTAINER_NAME@STORAGE_ACCOUNT.dfs.core.windows.net`
+
+Azure Blob Storage (`azure://`) and Azure Data Lake Storage Gen2 (`abfss://`) URIs aren't interchangeable; you must specify the URI format that matches the storage protocol used by the service.
 
   * `egressFrom:` \- Required. Starts the `from` block that lists allowed sources and identities within the perimeter.
 
@@ -369,6 +375,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

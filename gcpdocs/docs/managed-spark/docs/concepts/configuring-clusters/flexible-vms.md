@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/flexible-vms/
 title: Prioritize VM types with flexible VMs \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:11.660561+00:00
+fetched_at: 2026-11-03T09:41:45.243588+00:00
 ---
 
 # Prioritize VM types with flexible VMs  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -34,7 +34,6 @@ The solution: The Managed Service for Apache Spark flexible VM feature helps you
 ## Limitations
 
   * Clusters that use flexible VMs cannot be [stopped](https://docs.cloud.google.com/managed-spark/docs/guides/start-stop).
-  * Master nodes in [High availability clusters](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/high-availability) cannot use flexible VMs, but HA cluster worker nodes can use flexible VMs.
 
 
 
@@ -65,6 +64,8 @@ The solution: The Managed Service for Apache Spark flexible VM feature helps you
   * Although you can specify different CPU-to-memory ratios for primary and secondary worker VM types in a cluster, this can lead to performance degradation because the smallest CPU-to-memory ratio is used as the smallest container unit.  Use a uniform CPU-to-memory ratio for primary and secondary workers, including flexible VMs.
 
   * If your cluster creation request includes an [autoscaling policy](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/autoscaling#create_an_autoscaling_cluster), flexible VMs can be from different VM families, but they must have the same amount of memory and core count.
+
+  * [High availability (HA) cluster](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/high-availability) master nodes support flexible VMs if all master VM types have the same number of vCPUs and the memory of the largest master VM type is at most 25% more than the memory of the smallest master VM type.
 
   * Machine types that match reservations are first selected within a rank, followed by VM types with the largest number of CPUs.
 
@@ -631,6 +632,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

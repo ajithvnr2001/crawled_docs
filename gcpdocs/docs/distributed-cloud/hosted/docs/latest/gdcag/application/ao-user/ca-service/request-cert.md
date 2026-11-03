@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/ca-service/request-cert/
 title: Request a certificate \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:10.405489+00:00
+fetched_at: 2026-11-03T09:44:35.567333+00:00
 ---
 
 # Request a certificate  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -341,18 +341,18 @@ As the total number of `CertificateRequest` resources approaches the quota (for 
     this issue
     
 
-If you encounter this error, you might need to delete old or unnecessary `CertificateRequest` resources. To adjust the quota, contact a member of the infrastructure operator group within your organization. They can override the quota by following the instructions in runbook [PLATAUTH-G2102](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/gdcag-io/service-manual/platauth/guides/platauth-g2102).
+If you encounter this error, you might need to delete old or unnecessary `CertificateRequest` resources. To adjust the quota, contact a member of the infrastructure operator group within your organization. They can override the quota by following the instructions in runbook PLATAUTH-G2102 in the Infrastructure Operator documentation.
 
 ### Automated cleanup
 
 You can enable automated cleanup to delete expired `CertificateRequest` resources. This feature helps free up resources by removing them after a configurable grace period. The grace period defines the length of time between a certificate's expiration and when the `CertificateRequest` resource is deleted.
 
-Automated cleanup is disabled by default. A member of the infrastructure operator group within your organization can enable this feature and configure the grace period by following the instructions in runbook [PLATAUTH-G2103](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/gdcag-io/service-manual/platauth/guides/platauth-g2103). The feature remains disabled if the grace period is not set or is set to zero.
+Automated cleanup is disabled by default. A member of the infrastructure operator group within your organization can enable this feature and configure the grace period by following the instructions in runbook PLATAUTH-G2103 in the Infrastructure Operator documentation. The feature remains disabled if the grace period is not set or is set to zero.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

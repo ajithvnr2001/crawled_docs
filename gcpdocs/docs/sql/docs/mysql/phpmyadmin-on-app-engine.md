@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/phpmyadmin-on-app-engine/
 title: Use phpMyAdmin with Cloud SQL on App Engine standard environment \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:01.175055+00:00
+fetched_at: 2026-11-03T09:53:06.130287+00:00
 ---
 
 # Use phpMyAdmin with Cloud SQL on App Engine standard environment  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ You will find this tutorial helpful if you:
   * Use [Cloud SQL](https://docs.cloud.google.com/sql/docs) as your database.
   * Use phpMyAdmin as an interface for MySQL or you prefer a web interface for database administration.
 
-**Note:** This tutorial only applies to MySQL version 5.7 or lower.
+
 
 If you use Compute Engine, consider using one of the development stacks or products available through Click to Deploy. Deployments of stacks that include MySQL, such as [LAMP](https://docs.cloud.google.com/marketplace/solution/click-to-deploy-images/lamp) and [LEMP](https://docs.cloud.google.com/marketplace/solution/click-to-deploy-images/lemp), or products such as [Drupal](https://docs.cloud.google.com/marketplace/solution/click-to-deploy-images/drupal), provide an option to install phpMyAdmin as part of the deployment.
 
@@ -108,9 +108,9 @@ For example, [create and deploy the guestbook sample](https://docs.cloud.google.
 
 You'll deploy phpMyAdmin as a service of your App Engine application, so you must download the source code for phpMyAdmin. Follow these steps:
 
-  1. In a Cloud Shell terminal, enter the following command to download the source code for phpMyAdmin version 4.9.5:
+  1. In a Cloud Shell terminal, enter the following command to download the source code for phpMyAdmin version 5.2.3:
          
-         wget https://files.phpmyadmin.net/phpMyAdmin/4.9.5/phpMyAdmin-4.9.5-all-languages.tar.gz
+         wget https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.tar.gz
          
 
 To use a different version of phpMyAdmin, use the links to available versions on the [phpMyAdmin Downloads page](http://www.phpmyadmin.net/home_page/downloads.php).
@@ -122,7 +122,7 @@ To use a different version of phpMyAdmin, use the links to available versions on
 
   3. Extract the files from the archive into the new directory.
          
-         tar -xzvf phpMyAdmin-4.9.5-all-languages.tar.gz -C phpMyAdmin --strip-components=1
+         tar -xzvf phpMyAdmin-5.2.3-all-languages.tar.gz -C phpMyAdmin --strip-components=1
          
 
 
@@ -130,11 +130,11 @@ To use a different version of phpMyAdmin, use the links to available versions on
 
 ## Prepare the files for deployment
 
-Deploying phpMyAdmin requires that you create three files: `app.yaml`, which contains the configuration information for App Engine; `config.inc.php`, which contains the configuration information for phpMyAdmin; and `php.ini`, which contains application-specific configuration for PHP.
+Deploying phpMyAdmin requires that you create two files: `app.yaml`, which contains the configuration information for App Engine, and `config.inc.php`, which contains the configuration information for phpMyAdmin.
 
 ### Create `app.yaml`
 
-The [App Engine configuration file](https://docs.cloud.google.com/appengine/docs/php/config/appconfig) specifies how URL paths correspond to request handlers and static files. It also contains information about the application code, such as the application ID and the latest version identifier. Follow these steps to create the file:
+The [App Engine configuration file](https://docs.cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=php) specifies how URL paths correspond to request handlers and static files. It also contains information about the application code, such as the application ID and the latest version identifier. Follow these steps to create the file:
 
   1. In the directory that you created, named `phpMyAdmin`, create a new file named `app.yaml`.
          
@@ -145,28 +145,20 @@ The [App Engine configuration file](https://docs.cloud.google.com/appengine/docs
   2. Using your favorite editor, paste the following text into `app.yaml`.
          
          service: phpmyadmin
-         runtime: php55
-         api_version: 1
+         runtime: php83
          
          handlers:
-         
          - url: /(.+\.(ico|jpg|png|gif))$
            static_files: \1
            upload: (.+\.(ico|jpg|png|gif))$
-           application_readable: true
          
          - url: /(.+\.(htm|html|css|js))$
            static_files: \1
            upload: (.+\.(htm|html|css|js))$
-           application_readable: true
-         
-         - url: /(.+\.php)$
-           script: \1
-           login: admin
          
          - url: /.*
-           script: index.php
-           login: admin
+           script: auto
+           secure: always
          
 
   3. If you are deploying phpMyAdmin as the first and only application in App Engine, change the value for `service` from `phpmyadmin` to `default`.
@@ -224,8 +216,8 @@ Follow these steps to create the phpMyAdmin configuration file.
          $type = 'socket';
          
          /*
-         * First server
-         */
+          * First server
+          */
          $i++;
          /* Authentication type */
          $cfg['Servers'][$i]['auth_type'] = 'cookie';
@@ -236,6 +228,7 @@ Follow these steps to create the phpMyAdmin configuration file.
          /* Select mysql if your server does not have mysqli */
          $cfg['Servers'][$i]['extension'] = 'mysqli';
          $cfg['Servers'][$i]['AllowNoPassword'] = true;
+         
          /*
           * End of servers configuration
           */
@@ -245,16 +238,17 @@ Follow these steps to create the phpMyAdmin configuration file.
           */
          $cfg['UploadDir'] = '';
          $cfg['SaveDir'] = '';
+         $cfg['TempDir'] = '/tmp';
          
          /*
-         * Other settings
-         */
+          * Other settings
+          */
          $cfg['PmaNoRelation_DisableWarning'] = true;
          $cfg['ExecTimeLimit'] = 60;
          $cfg['CheckConfigurationPermissions'] = false;
          
 
-  3. Open Google Cloud Shell and execute the following to get a random string for your blowfish:
+  3. Open Cloud Shell and execute the following to get a random string for your blowfish:
          
          php -r "echo password_hash(uniqid(), PASSWORD_BCRYPT).PHP_EOL;"
          
@@ -268,25 +262,6 @@ Follow these steps to create the phpMyAdmin configuration file.
   7. Replace the value of `{{your_connection_string}}` (within the `$host` variable) with the **Instance connection name** property.
 
   8. Save the file.
-
-
-
-
-### Create `php.ini`
-
-In its code, phpMyAdmin uses functions that are disabled by default in App Engine. Follow these steps to add a `php.ini` file so that App Engine enables the functions again:
-
-  1. In the `phpMyAdmin` directory, create the file.
-         
-         touch php.ini
-         
-
-  2. Edit the file and add the following line:
-         
-         google_app_engine.enable_functions = "php_uname, getmypid"
-         
-
-  3. Save the file.
 
 
 
@@ -305,7 +280,7 @@ Use the following commands to deploy your application to App Engine.
          gcloud app deploy
          
 
-This command deploys the app to the `phpMyAdmin` service, as specified your `app.yaml` file. Deploying to a separate service helps to ensure that phpMyAdmin runs in the same data center as your main application, which improves performance. To learn more about deploying your app from the command line, see [Deploying a PHP App](https://docs.cloud.google.com/appengine/docs/php/tools/uploadinganapp).
+This command deploys the app to the `phpMyAdmin` service, as specified in your `app.yaml` file. Deploying to a separate service helps to ensure that phpMyAdmin runs in the same data center as your main application, which improves performance. To learn more about deploying your app from the command line, see [Deploying a PHP App](https://docs.cloud.google.com/appengine/docs/standard/php-gen2/building-app/deploying-web-service).
 
 
 
@@ -385,6 +360,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

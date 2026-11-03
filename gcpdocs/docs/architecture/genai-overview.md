@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/genai-overview/
 title: Generative AI architecture guides \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:22:08.770851+00:00
+fetched_at: 2026-11-03T09:44:39.626505+00:00
 ---
 
 # Generative AI architecture guides  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Generative AI architecture guides Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-01-06 UTC
+Last reviewed 2026-11-02 UTC
 
 This document in the Architecture Center provides architecture guides to help you build and deploy generative AI workloads in Google Cloud.
 
@@ -46,7 +46,6 @@ Guide | Description
 [ RAG infrastructure using Gemini Enterprise and Gemini Enterprise Agent Platform](https://docs.cloud.google.com/architecture/rag-genai-gemini-enterprise-vertexai) | Orchestrate an agentic RAG workflow with real-time data availability and enriched contextual search.  
 [ RAG infrastructure using Agent Platform and Vector Search](https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search) | Provide optimized, high-performance vector search for large-scale applications.  
 [ RAG infrastructure using Agent Platform and AlloyDB for PostgreSQL ](https://docs.cloud.google.com/architecture/rag-capable-gen-ai-app-using-vertex-ai) | Store vector embeddings alongside operational data in a fully managed AlloyDB for PostgreSQL database.  
-[ RAG infrastructure using Agent Platform and Cloud SQL](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-rag) | Stores vector embeddings alongside operational data in a fully managed Cloud SQL database.  
 [ RAG infrastructure using GKE and Cloud SQL](https://docs.cloud.google.com/architecture/rag-capable-gen-ai-app-using-gke) | Build custom RAG applications by using open source tools such as Ray, Hugging Face, and LangChain.  
 [ GraphRAG infrastructure using Agent Platform and Spanner Graph](https://docs.cloud.google.com/architecture/gen-ai-graphrag-spanner) | Combine vector search with knowledge graph queries for retrieval of interconnected contextual data.  
 [ Private connectivity for RAG-capable generative AI applications](https://docs.cloud.google.com/architecture/private-connectivity-rag-capable-gen-ai) | Secure the network infrastructure for RAG-capable generative AI applications by using Shared VPC.  
@@ -56,6 +55,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-01-06 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-01-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

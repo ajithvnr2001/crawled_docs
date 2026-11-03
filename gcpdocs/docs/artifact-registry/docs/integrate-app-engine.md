@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/integrate-app-engine/
 title: Deploying to App Engine \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:49:13.598494+00:00
+fetched_at: 2026-11-03T09:52:34.350683+00:00
 ---
 
 # Deploying to App Engine  |  Artifact Registry  |  Google Cloud Documentation
@@ -22,8 +22,6 @@ Send feedback
 #  Deploying to App Engine Stay organized with collections  Save and categorize content based on your preferences. 
 
 Artifact Registry lets you store private container images and language packages for your App Engine applications. You can declare Node.js and Python dependencies in Artifact Registry and deploy your applications using Cloud Build.
-
-**Note:** App Engine and Cloud Build create [Pub/Sub](https://docs.cloud.google.com/pubsub/docs) topics and subscriptions in your project for use in Google's internal analysis and maintenance of your container images. These Pub/Sub push subscriptions have `rpc://` URL targets.
 
 ## Required permissions
 
@@ -46,10 +44,12 @@ For standard environment applications, see the App Engine standard environment d
 
 To include dependencies in builds you run with Cloud Build, see [Integrating with Cloud Build](https://docs.cloud.google.com/artifact-registry/docs/configure-cloud-build).
 
+**Note:** App Engine and Cloud Build create [Pub/Sub](https://docs.cloud.google.com/pubsub/docs) topics and subscriptions in your project for use in Google's internal analysis and maintenance of your container images. These Pub/Sub push subscriptions have `rpc://` URL targets.
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

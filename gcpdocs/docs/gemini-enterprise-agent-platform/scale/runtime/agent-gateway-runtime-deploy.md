@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy/
 title: Route Agent Runtime traffic through Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:19.083536+00:00
+fetched_at: 2026-11-03T09:53:34.475336+00:00
 ---
 
 # Route Agent Runtime traffic through Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ To grant cross-project access from multiple Runtime workload projects to a centr
 
   3. **Configure your agent to route traffic through Agent Gateway**
 
-**Caution:** Binding your agent to an enforcing gateway immediately routes its outbound traffic, including platform calls (such as the Sessions API), through the gateway. If you have not yet allowlisted the required endpoints (see Allowlist essential APIs), all agent invocations will fail with a `498` error. To avoid this, either allowlist the essential APIs _before_ performing this binding step, or ensure that the associated IAP policies are in `DRY_RUN` mode until allowlisting is complete.
+**Caution:** Binding your agent to an enforcing gateway immediately routes its outbound traffic, including platform calls (such as the Agent Platform Sessions API), through the gateway. If you have not yet allowlisted the required endpoints (see Allowlist essential APIs), all agent invocations will fail with a `498` error. To avoid this, either allowlist the essential APIs _before_ performing this binding step, or ensure that the associated IAP policies are in `DRY_RUN` mode until allowlisting is complete.
 
 Depending on whether you are deploying a new agent or configuring an existing agent, choose one of the following options:
 
@@ -747,6 +747,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

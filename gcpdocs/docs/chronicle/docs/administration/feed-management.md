@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/feed-management/
 title: Work with the feeds UI \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:28.855409+00:00
+fetched_at: 2026-11-03T09:54:55.491682+00:00
 ---
 
 # Work with the feeds UI  |  Google Security Operations  |  Google Cloud Documentation
@@ -162,6 +162,7 @@ To add a feed to your Google SecOps account, complete the following steps:
      * When using Amazon S3 (Deprecated), Amazon SQS (Deprecated), Azure Blob Storage (Deprecated), and Google Cloud Cloud Storage (Deprecated) feeds, make sure that you have a valid directory path.
      * When using Amazon SQS (Deprecated) or Amazon SQS (V2), explicitly grant Google SecOps permissions to delete messages from the Amazon SQS queue.
      * When using Amazon SQS (Deprecated) feeds, make sure only one feed consumes messages from the queue. Messages read by another application or feed don't get ingested into the current feed.
+     * For information about upstream API indexing latency in third-party API polling feeds, see [Late-arriving events in polling feeds](https://docs.cloud.google.com/chronicle/docs/reference/feed-management-api#late-arriving-events-polling).
      * Using Amazon SQS (Deprecated) as the feed source type is only supported for logs in Amazon S3 buckets.
   6. In the **Log type** list, select the log type that corresponds to the logs you want to ingest. The available logs vary depending on the source type you selected earlier.
 
@@ -1103,6 +1104,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/configure-private-service-connect/
 title: Configure Private Service Connect \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:13.764808+00:00
+fetched_at: 2026-11-03T09:44:24.008034+00:00
 ---
 
 # Configure Private Service Connect  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -1422,7 +1422,70 @@ Wait until Terraform displays the "Apply complete!" message.
 
   1. Reserve an internal IP address for the Private Service Connect endpoint.
 
-**Note:** You can't use the API to reserve an internal IP address for the endpoint. To reserve this address, use the [`gcloud compute addresses create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/addresses/create) command.
+Before using any of the request data, make the following replacements: 
+
+     * PROJECT_ID: the ID or [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of the Google Cloud project for the endpoint
+     * REGION_NAME: the region name for the endpoint
+     * ADDRESS_NAME: the name of the internal IP address
+     * SUBNET_URI: the subnet name for the IP address. The format is: `projects/SUBNET_PROJECT_ID/regions/REGION_NAME/subnetworks/SUBNET_NAME`. If the subnet is in a Shared VPC network, then we recommend that the SUBNET_PROJECT_ID is the host project.
+
+HTTP method and URL: 
+    
+    POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/addresses
+
+Request JSON body: 
+    
+    {
+      "name": "ADDRESS_NAME",
+      "addressType": "INTERNAL",
+      "subnetwork": "SUBNET_URI"
+    }
+    
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/addresses"
+
+#### PowerShell (Windows)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/addresses" | Select-Object -Expand Content
+
+You should receive a JSON response similar to the following:
+    
+    {
+      "kind": "compute#operation",
+      "id": "OPERATION_ID",
+      "name": "OPERATION_NAME",
+      "operationType": "insert",
+      "status": "RUNNING",
+      "targetLink": "https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/addresses/ADDRESS_NAME",
+      "progress": 0
+    }
+    
+
+**Note:** If both the VPC network and the subnet support internal IPv4 and IPv6 IP addresses, then you can reserve an IPv6 address for the endpoint by adding `"ipVersion": "IPV6"` to the request body.
   2. Verify that the IP address is reserved.
 
 Before using any of the request data, make the following replacements: 
@@ -1483,7 +1546,74 @@ In the response, verify that a `RESERVED` status appears for the IP address.
 
   3. Create the Private Service Connect endpoint and point it to the Cloud SQL service attachment.
 
-**Note:** You can't use the API to create the Private Service Connect endpoint. To create this endpoint, use the [`gcloud compute forwarding-rules create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules/create) command.
+Before using any of the request data, make the following replacements: 
+
+     * PROJECT_ID: the ID or [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of the Google Cloud project for the endpoint
+     * REGION_NAME: the region name for the endpoint
+     * ENDPOINT_NAME: the name of the endpoint
+     * ADDRESS_URI: the URI of the reserved internal IP address. The format is: `projects/PROJECT_ID/regions/REGION_NAME/addresses/ADDRESS_NAME`. Alternatively, you can specify the IP address directly.
+     * SERVICE_ATTACHMENT_URI: the URI of the service attachment
+     * NETWORK_URI: the URI of the VPC network for the endpoint. The format is: `projects/NETWORK_PROJECT_ID/global/networks/NETWORK_NAME`. If you want to use a Shared VPC network, then specify the host project as the NETWORK_PROJECT_ID.
+
+HTTP method and URL: 
+    
+    POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/forwardingRules
+
+Request JSON body: 
+    
+    {
+      "name": "ENDPOINT_NAME",
+      "IPAddress": "ADDRESS_URI",
+      "target": "SERVICE_ATTACHMENT_URI",
+      "network": "NETWORK_URI",
+      "allowPscGlobalAccess": true
+    }
+    
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/forwardingRules"
+
+#### PowerShell (Windows)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/forwardingRules" | Select-Object -Expand Content
+
+You should receive a JSON response similar to the following:
+    
+    {
+      "kind": "compute#operation",
+      "id": "OPERATION_ID",
+      "name": "OPERATION_NAME",
+      "operationType": "insert",
+      "status": "RUNNING",
+      "targetLink": "https://www.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION_NAME/forwardingRules/ENDPOINT_NAME",
+      "progress": 0
+    }
+    
+
+By setting the optional `allowPscGlobalAccess` parameter to `true`, clients from all regions can access this forwarding rule.
   4. Verify that the service attachment accepts the endpoint.
 
 Before using any of the request data, make the following replacements: 
@@ -2586,6 +2716,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

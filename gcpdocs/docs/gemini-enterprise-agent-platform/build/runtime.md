@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/
 title: Agent Runtime \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:26.622206+00:00
+fetched_at: 2026-11-03T09:53:05.460015+00:00
 ---
 
 # Agent Runtime  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ Agent Runtime lets you do the following:
 
 The workflow for building an agent on Agent Runtime is:
 
-  1. [**Set up the environment**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup): Set up your Google project and install the latest version of the Agent Platform SDK for Python.
+  1. [**Set up the environment**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup): Set up your Google Cloud project and install the latest version of the Agent Platform SDK for Python.
   2. [**Develop an agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent): Develop an agent that can be deployed on Agent Runtime.
   3. [**Deploy the agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent): Deploy the agent on the Agent Runtime managed runtime.
   4. [**Use the agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent): Query the agent by sending an API request.
@@ -164,6 +164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

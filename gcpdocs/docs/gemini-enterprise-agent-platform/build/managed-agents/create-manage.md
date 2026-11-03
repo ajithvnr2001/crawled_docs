@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage/
 title: Create and manage agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:13.263286+00:00
+fetched_at: 2026-11-03T09:53:11.937186+00:00
 ---
 
 # Create and manage agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -146,7 +146,7 @@ When creating an agent, only one value is supported for `base_agent`: `antigravi
 
 ### Create a basic agent
 
-To create a basic agent with default tools and a Google Cloud Storage mount target, send a `POST` request:
+To create a basic agent with default tools and a Cloud Storage mount target, send a `POST` request:
 
 ###  REST 
 
@@ -167,7 +167,7 @@ Before calling the API, make the following replacements:
 
   * INSTRUCTIONS: System instructions or persona to set on the agent.
 
-  * GCS_BUCKET: The folder path segment of your mounted Google Cloud Storage bucket (for example, `gs://cymbal-bucket-name`). Note: To mount a bucket from a different project, grant the project's service account `read` and `write` access to the bucket.
+  * GCS_BUCKET: The folder path segment of your mounted Cloud Storage bucket (for example, `gs://cymbal-bucket-name`). Note: To mount a bucket from a different project, grant the project's service account `read` and `write` access to the bucket.
 
   * network: For security reasons, network access in the environment is turned off. You must specify an `allowlist` to enable access. Using `*` as a domain in the `allowlist` allows connections to all domains, providing unrestricted network access.
 
@@ -625,7 +625,7 @@ You can attach skills using either of the following methods:
 
   * **Skill Registry:** Attach a skill registered within your project in [Skill Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry).
 
-  * **Google Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
+  * **Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
 
 As a best practice, we recommend mounting skills under the `/.agent/skills` folder in the environment to make them more discoverable to the agent.
 
@@ -776,9 +776,9 @@ Before running this code, set the variables described in the REST tab.
         },
     });
 
-#### Attach a skill from Google Cloud Storage
+#### Attach a skill from Cloud Storage
 
-Alternatively, you can attach custom skills directly from a Google Cloud Storage bucket when creating the agent.
+Alternatively, you can attach custom skills directly from a Cloud Storage bucket when creating the agent.
 
 Note the following requirements when mounting skills from Cloud Storage: 
 
@@ -789,7 +789,7 @@ Note the following requirements when mounting skills from Cloud Storage:
 
 
 
-To attach a skill from Google Cloud Storage when creating the agent:
+To attach a skill from Cloud Storage when creating the agent:
 
 ### REST
 
@@ -803,7 +803,7 @@ Before calling the API, make the following replacements:
     * Must be 1 to 63 characters long.
     * Must contain only lowercase letters, numbers, and hyphens.
     * Must start with a letter and end with a letter or number.
-  * `GCS_SOURCE_PATH`: The Google Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder`).
+  * `GCS_SOURCE_PATH`: The Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder`).
 
 
 
@@ -1293,7 +1293,7 @@ You can attach skills using either of the following methods:
 
   * **Skill Registry:** Attach a skill registered within your project in [Skill Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry).
 
-  * **Google Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
+  * **Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
 
 
 
@@ -1374,9 +1374,9 @@ For more information about finding the `name` value for `NEW_SKILL_RESOURCE_NAME
 
 **Note:** The `update` method is not yet available in the JavaScript SDK. Use the REST API to update agent skills.
 
-#### Attach a skill from Google Cloud Storage
+#### Attach a skill from Cloud Storage
 
-Alternatively, you can attach custom skills directly from a Google Cloud Storage bucket when creating the agent.
+Alternatively, you can attach custom skills directly from a Cloud Storage bucket when creating the agent.
 
 Note the following requirements when mounting skills from Cloud Storage: 
 
@@ -1387,7 +1387,7 @@ Note the following requirements when mounting skills from Cloud Storage:
 
 
 
-To attach a skill from Google Cloud Storage:
+To attach a skill from Cloud Storage:
 
 ### REST
 
@@ -1398,7 +1398,7 @@ Before calling the API, make the following replacements:
   * `PROJECT_ID`: Your Google Cloud project ID.
   * `LOCATION`: The regional location of the agent. Only the `global` region is supported.
   * `AGENT_ID`: Target agent ID.
-  * `NEW_GCS_SOURCE_PATH`: The Google Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder`).
+  * `NEW_GCS_SOURCE_PATH`: The Cloud Storage bucket path containing your skill folder (for example, `gs://cymbal-bucket-name/my-skill-folder`).
 
 
 
@@ -1614,6 +1614,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

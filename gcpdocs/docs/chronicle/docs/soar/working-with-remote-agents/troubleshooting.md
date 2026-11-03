@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/troubleshooting/
 title: Troubleshoot common issues \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:51.545583+00:00
+fetched_at: 2026-11-03T09:54:48.792203+00:00
 ---
 
 # Troubleshoot common issues  |  Google Security Operations  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ If fresh installations or automatic upgrades fail due to glibc tracking errors a
 
   1. Verify that the host environment is not running a legacy operating system, which may lack modern system call hooks.
   2. Re-host the agent environment on an enterprise Linux distribution with the latest official version.
-  3. Ensure the host is a supported platform: Debian 12 (Official base), RHEL 8.7: 
+  3. For manual installer deployments, verify that the host runs a supported operating system, such as Debian 12 or Red Hat Enterprise Linux (RHEL) 8.7: 
 
 Check `/etc/os-release`: Run the following command and look for `NAME=` and `VERSION_ID=`:
          
@@ -55,6 +55,9 @@ Check `/etc/os-release`: Run the following command and look for `NAME=` and `VER
 
      * For Debian 12: Look for `NAME="Debian GNU/Linux"` and `VERSION_ID="12"`.
      * For RHEL 8.7: Look for `NAME="Red Hat Enterprise Linux"` and `VERSION_ID="8.7"`.
+
+If your host runs RHEL 9 or 10 (or later), deploy the Remote Agent using a supported container engine ([Podman](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/deploy-agent-with-podman) or [Docker](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/deploy-agent-with-docker)) rather than the manual installer. Prebuilt container images for Remote Agent versions later than 2.5.0.4 are based on Debian 12, which also resolves Python wheel (`.whl`) binary incompatibilities (such as `ModuleNotFoundError` for `TIPCommon` or `SiemplifyAddressProvider`) on CentOS 7 agents. For more information, see [Supported operating systems](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites#supported-operating-systems).
+
 
 
 
@@ -71,7 +74,7 @@ If re-running container setup commands inadvertently pulls a previous operationa
 
 
 
-To ensure that the deployment runs on the most up-to-date software release, always pull the latest image before you execute the agent run command.
+To make sure that the deployment runs on the most up-to-date software release, always pull the latest image before you run the agent container. If pulling from `docker.io` prompts for credentials due to rate limits, pull the image from the public Artifact Registry endpoint (`us-docker.pkg.dev/siem-ar-public/images/agent:latest`). For required firewall allowlist domains, see [Network and firewall requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites#network-and-firewall-requirements).
 
 ## Docker agent deployment failure
 
@@ -128,6 +131,8 @@ If the previous step did not help, and the agent status is still 'waiting for ag
 
      1. Find the logs in the `/var/log/SiemplifyAgent/` directory.
      2. Look for any errors in the log files to identify the root cause.
+  4. Confirm that your firewall allows outbound HTTPS traffic on TCP port `443` to your Publisher, locational Chronicle API, and Google Cloud authentication endpoints. Also verify that application-layer proxies or Deep Packet Inspection (DPI) firewalls bypass SSL/TLS inspection for the Remote Agent host. For the list of required domains, see [Network and firewall requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites#network-and-firewall-requirements).
+
 
 
 
@@ -221,6 +226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

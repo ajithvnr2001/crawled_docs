@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/bidirectional-streaming/
 title: Bidirectional streaming \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:04.618428+00:00
+fetched_at: 2026-11-03T09:53:34.202050+00:00
 ---
 
 # Bidirectional streaming  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ Bidirectional streaming provides a persistent, two-way communication channel bet
 
 Bidirectional streaming with Agent Runtime supports interactive, real-time agent use cases and data exchange for multimodal live APIs. Bidirectional streaming is supported for all frameworks, and custom bidirectional streaming methods are available through registering custom methods. You can use bidirectional streaming to interact with [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) directly or using Agent Development Kit (ADK) on Agent Platform.
 
-Deploying a remote agent with bidirectional query methods is well supported by the [Google GenAI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview). To deploy a bidirectional-capable agent, set `EXPERIMENTAL` agent server mode when using the SDK or calling the Agent Platform API.
+Deploying a remote agent with bidirectional query methods is well supported by the [Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview). To deploy a bidirectional-capable agent, set `EXPERIMENTAL` agent server mode when using the SDK or calling the Agent Platform API.
 
 ## Develop an agent
 
@@ -253,7 +253,7 @@ Agent Runtime streams responses as a sequence of iteratively generated objects. 
 
 ### Use an Agent Development Kit agent
 
-If you developed your agent using Agent Development Kit (ADK), you can use bidirectional streaming to interact with the [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api).
+If you developed your agent using Agent Development Kit (ADK), you can use bidirectional streaming to interact with [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api).
 
 The following example creates a conversation agent that takes user text questions and receives Gemini Live API response audio data:
     
@@ -317,6 +317,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/mtls/
 title: Mutual TLS overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:57.830181+00:00
+fetched_at: 2026-11-03T09:54:25.325498+00:00
 ---
 
 # Mutual TLS overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -37,11 +37,7 @@ mTLS uses Public Key Infrastructure (PKI) to authenticate the identity of the en
 
   * Verify that the client presenting the certificate possesses its private key.
 
-  * Validate client certificates in either of the two modes:
-
-    * Reject invalid certificates: Enforces strict authentication by rejecting requests if the client certificate chain cannot be validated.
-
-    * Allow invalid or missing certificates: Provides flexibility by passing all requests to the backend, even if a client certificate is missing or invalid.
+  * Validate client certificates using one of the client validation modes.
 
   * Validate client certificates against an uploaded PKI anchor (root certificate), with the option to add multiple anchors separately to enable seamless migration from an old PKI to a new one without downtime.
 
@@ -60,18 +56,33 @@ mTLS uses Public Key Infrastructure (PKI) to authenticate the identity of the en
 
 When configuring certificates for mTLS, ensure they comply with these requirements:
 
-  * Modern cryptography tools form the basis of mTLS authentication. Certificates must use either RSA or ECDSA algorithms for key exchange. Hashing algorithms must use SHA-256 or a stronger cryptographic hash function. Hashing algorithms such as MD4, MD5, and SHA-1 aren't supported.
-  * For client (leaf) certificates: 
+  * Modern cryptography tools form the basis of mTLS authentication. Certificates must use either RSA or ECDSA algorithms for key exchange.
+
+**Note:** Hashing algorithms must use SHA-256 or a stronger cryptographic hash function. Hashing algorithm such as SHA-1 isn't supported unless the `ALLOW_VALIDATION_RELAXATIONS` client validation mode is configured with the `ALLOW_SHA1_HASHING` relaxation, which allows validation of client certificate chains signed using legacy SHA-1 message digests. Hashing algorithms such as MD4 and MD5 aren't supported.
+  * For client (leaf) certificates:
+
     * The [Basic Constraints](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.9) extension must _not_ contain `CA=true`.
+
     * The [Extended Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.12) extension must contain `clientAuth`.
+
+**Note:** If you use the `ALLOW_VALIDATION_RELAXATIONS` client validation mode with the `ALLOW_MISSING_EKU` relaxation, the load balancer skips this requirement. However, if the certificate has an EKU extension that lists another purpose (such as `serverAuth`) but not `clientAuth`, the connection is rejected.
     * The [Extended Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.12) extension must _not_ contain the `codeSigning`, `timeStamping`, or `OCSPSigning` fields.
+
     * The certificate must not be expired.
+
+**Note:** If you use the `ALLOW_VALIDATION_RELAXATIONS` client validation mode with the `ALLOW_EXPIRED_LEAF_CERTIFICATE` relaxation, the load balancer skips this requirement.
     * The client certificate cannot be a [self-signed certificate](https://en.wikipedia.org/wiki/Self-signed_certificate).
-  * For root and intermediate certificates: 
+
+  * For root and intermediate certificates:
+
     * The [Basic Constraints](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.9) extension must contain `CA=true`.
+
     * The [Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.3) extension must be set to `keyCertSign`.
+
     * The [Extended Key Usage](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.12) extension should contain the `clientAuth` field.
+
     * The certificate must not be expired.
+
 
 
 
@@ -113,20 +124,55 @@ The following diagram shows the components of a regional internal Application Lo
 
 [ ![Mutual TLS with regional internal Application Load Balancer components.](https://docs.cloud.google.com/static/load-balancing/images/mtls_rilb.svg)](https://docs.cloud.google.com/static/load-balancing/images/mtls_rilb.svg) Mutual TLS with regional internal Application Load Balancer components (click to enlarge).
 
-## Client validation mode
+## Client validation modes
 
-When the client presents an invalid certificate or no certificate to the load balancer, the [`clientValidationMode`](https://docs.cloud.google.com/load-balancing/docs/reference/network-security/rest/v1/projects.locations.serverTlsPolicies#mtlspolicy) attribute on the Client Authentication (`ServerTLSPolicy`) resource specifies how the load balancer handles the client connection.
+The [`clientValidationMode`](https://docs.cloud.google.com/load-balancing/docs/reference/network-security/rest/v1/projects.locations.serverTlsPolicies#mtlspolicy) attribute on the Client Authentication (`ServerTLSPolicy`) resource specifies how the load balancer handles the client connection. The mode determines whether invalid or missing client certificates are rejected strictly (`REJECT_INVALID`), rejected except for specific relaxed X.509 checks (`ALLOW_VALIDATION_RELAXATIONS`), or forwarded to the backend (`ALLOW_INVALID_OR_MISSING_CLIENT_CERT`).
 
-The values of the client validation mode are as follows:
+The different client validation modes are as follows:
 
-  * `ALLOW_INVALID_OR_MISSING_CLIENT_CERT`. Allows the connection from the client even if the validation of the client certificate failed or no client certificate was presented. In this mode, the load balancer allows the connection from the client and passes all requests to the backend regardless of whether or not a chain of trust can be established.
+  * Allow invalid or missing client certificates (`ALLOW_INVALID_OR_MISSING_CLIENT_CERT`)
+  * Reject invalid client certificates (`REJECT_INVALID`)
+  * Allow validation relaxations (`ALLOW_VALIDATION_RELAXATIONS`)
+
+
+
+### Allow invalid or missing client certificate
+
+The `ALLOW_INVALID_OR_MISSING_CLIENT_CERT` mode allows the connection from the client even if the client certificate fails validation or the client doesn't present a certificate. In this mode, the load balancer allows the connection from the client and passes all requests to the backend regardless of whether or not a chain of trust can be established.
 
 The proof of possession of the private key is always checked when the client certificate is presented. If the client cannot prove the possession of the private key, the TLS handshake is terminated even if the client validation mode allows invalid or a missing client certificate.
 
-  * `REJECT_INVALID`. Rejects the connection if a client does not provide a certificate or if the certificate validation failed. In this mode, the load balancer terminates the connection from the client if it cannot establish a chain of trust from the client certificate back to the trust anchor.
+### Reject invalid client certificate
+
+The `REJECT_INVALID` mode rejects the connection if a client doesn't provide a certificate or if the certificate validation failed. In this mode, the load balancer terminates the connection from the client if it can't establish a chain of trust from the client certificate back to the trust anchor.
+
+### Allow validation relaxations
+
+The `ALLOW_VALIDATION_RELAXATIONS` mode enforces client certificate validation, but allows for relaxations on specific validation checks—for example, during a migration when legacy client certificates don't meet all strict certificate requirements. If you have an existing `ServerTLSPolicy` resource in `REJECT_INVALID` mode, you can update it to use `ALLOW_VALIDATION_RELAXATIONS` mode and specify the list of validation relaxations that you want to allow.
+
+You can specify one or more of the following values in the `clientValidationRelaxations` field:
+
+  * `ALLOW_MISSING_EKU`: Allows the client certificate to omit the [Extended Key Usage (EKU)](https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.12) extension.
+
+`ALLOW_MISSING_EKU` only allows a certificate that has no EKU extension at all; it doesn't ignore an EKU extension that is present with the wrong purpose. For example, if the EKU extension is present in the client certificate, it must still include the `clientAuth` key purpose (`OID 1.3.6.1.5.5.7.3.2`) as specified in the certificate requirements. If the certificate has an EKU extension that lists another purpose (such as `serverAuth`) but not `clientAuth`, the connection is rejected.
+
+**Caution:** Enabling `ALLOW_MISSING_EKU` is risky if you use a root CA that issues certificates for multiple purposes. Without EKU enforcement, a certificate intended for a non-authentication purpose (such as S/MIME or server-only authentication) might be accepted for mTLS client authentication. Use this relaxation only if you use a dedicated private CA for issuing client authentication certificates.
+  * `ALLOW_SHA1_HASHING`: Allows validation of client certificate chains signed using legacy SHA-1 message digests.
+
+**Caution:** Allowing SHA-1 message digests is insecure. Use this relaxation only temporarily to support legacy clients during migration periods.
+  * `ALLOW_EXPIRED_LEAF_CERTIFICATE`: Allows validation of an expired client leaf certificate. The load balancer validates the expired client leaf certificate as if the current time were one second before the end of its validity period ([`notAfter`](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5) minus one second). This lets the client leaf certificate pass the expiration check. This relaxation applies strictly to the client leaf certificate and not to intermediate or root certificates in the chain. Client leaf certificates that aren't yet valid (where the current time is before the `notBefore` timestamp) are still rejected.
+
+**Caution:** Allowing expired client leaf certificates is insecure. Use this relaxation only temporarily to support legacy clients during migration periods.
 
 
 
+The `ALLOW_VALIDATION_RELAXATIONS` mode requires a client certificate and validates the certificate chain against the configured trust config resource, while applying the specific validation relaxations that you specify in the `clientValidationRelaxations` field.
+
+When you select `ALLOW_VALIDATION_RELAXATIONS`, you must specify at least one validation relaxation. If you select multiple relaxations, all selected relaxations are applied simultaneously. As long as the client provides a certificate that is valid after applying the selected relaxations, the load balancer accepts the connection. For example, if you configure `ALLOW_MISSING_EKU` and `ALLOW_SHA1_HASHING`, the load balancer accepts connections from clients that present otherwise valid certificates that omit the Extended Key Usage (EKU) extension and use SHA-1 hashing.
+
+If a client doesn't provide a certificate, or if certificate validation fails for any reason not covered by the configured relaxations, the load balancer terminates the connection and logs the error to Cloud Logging.
+
+Google Cloud recommends using validation relaxations only as a temporary solution during certificate migrations. Using `ALLOW_VALIDATION_RELAXATIONS` is more secure than using `ALLOW_INVALID_OR_MISSING_CLIENT_CERT` because the load balancer still enforces all other validation checks and doesn't require custom validation logic on your backend.
 
 ## Configure mTLS on the load balancer
 
@@ -134,7 +180,7 @@ The following is a high-level overview of the key steps that you need to follow 
 
   1. Create a trust config resource comprising the trust anchor (root certificate) and intermediate certificates that serve as roots of trust.
 
-  2. Link the trust config to the Client Authentication (`ServerTLSPolicy`) resource, which defines the client validation mode of either `ALLOW_INVALID_OR_MISSING_CLIENT_CERT` or `REJECT_INVALID`.
+  2. Link the trust config to the Client Authentication (`ServerTLSPolicy`) resource, which defines the client validation mode.
 
   3. Attach the Client Authentication (`ServerTLSPolicy`) resource to the target HTTPS proxy resource of the load balancer.
 
@@ -160,7 +206,9 @@ The client proves possession of the private key associated with the public key i
 
   2. **Verify the chain of trust**.
 
-The load balancer verifies the chain of trust between the client certificate and the configured trust config. The verification checks include the following:
+The load balancer verifies the chain of trust by validating the client certificate against the certificates configured in the trust config. The client validation mode determines whether invalid or missing client certificates are rejected strictly (`REJECT_INVALID`), rejected except for specific relaxed X.509 checks (`ALLOW_VALIDATION_RELAXATIONS`), or forwarded to the backend (`ALLOW_INVALID_OR_MISSING_CLIENT_CERT`).
+
+The verification checks also include the following:
 
      * The client, intermediate, and root certificates comply with the certificate requirements.
      * The subject field in the parent certificate matches the issuer field in the child certificate. This verification ensures that the parent certificate's identity (subject) is the same as the identity listed as the issuer in the child certificate.
@@ -175,7 +223,7 @@ However, if the validation fails, the action taken depends on the value of the c
 
      * `ALLOW_INVALID_OR_MISSING_CLIENT_CERT`: The request is forwarded with custom mTLS headers indicating the reason for validation failure. For cross-region internal Application Load Balancers, regional external Application Load Balancers, and regional internal Application Load Balancers, in addition to custom mTLS headers, you can configure mTLS [optional fields](https://docs.cloud.google.com/load-balancing/docs/l7-internal/monitoring#optional_fields) to check the reason for the failure.
 
-     * `REJECT_INVALID`: The connection is terminated and the errors are logged to Cloud Logging.
+     * `REJECT_INVALID` and `ALLOW_VALIDATION_RELAXATIONS`: The connection is terminated and the errors are logged to Cloud Logging.
 
 
 
@@ -226,9 +274,9 @@ Some [custom mTLS header variable values](https://docs.cloud.google.com/load-bal
 
 Application Load Balancers provide detailed logging capabilities that allow you to monitor client certificate validation, identify potential issues, and troubleshoot connection problems. This section outlines the different types of errors that can occur during mTLS validation and how they are logged.
 
-#### Logged errors in `REJECT_INVALID` mode
+#### Logged errors in `REJECT_INVALID` and `ALLOW_VALIDATION_RELAXATIONS` modes
 
-If the client certificate validation fails, and the client validation mode is set to `REJECT_INVALID`, the connection is terminated and the errors are logged to Cloud Logging. These errors are described in the following table.
+If the client certificate validation fails, and the client validation mode is set to either `REJECT_INVALID` or `ALLOW_VALIDATION_RELAXATIONS`, the connection is terminated and the errors are logged to Cloud Logging. These errors are described in the following table.
 
 Client certificate status | Logged error  
 ---|---  
@@ -247,7 +295,7 @@ The client certificate fails validation with the `TrustConfig` resource.  |  `cl
   
 #### Logged errors for closed connections
 
-When the client validation mode is set to either `ALLOW_INVALID_OR_MISSING_CLIENT_CERT` or `REJECT_INVALID`, certain errors result in closed connections and are logged to Cloud Logging. These errors are described in the following table.
+When the client validation mode is configured, certain errors result in closed connections and are logged to Cloud Logging. These errors are described in the following table.
 
 Client certificate status | Request | Logged error  
 ---|---|---  
@@ -257,7 +305,7 @@ Internal error validating certificate chain.  | Terminate connection  |  `client
 Matching `TrustConfig` not found.  | Terminate connection  |  `client_cert_trust_config_not_found`  
 The client certificate payload (including any intermediate certificates) is too large (more than 16 KB).  | Terminate connection  |  `client_cert_exceeded_size_limit`  
   
-If logging is enabled on the backend service, you can [view logged errors for closed connections during mTLS client certificate validation](https://docs.cloud.google.com/load-balancing/docs/https/https-logging-monitoring#log-fwd-rule).
+If logging is enabled on the backend service, you can [run a query to view logs for mTLS client certificate validation](https://docs.cloud.google.com/load-balancing/docs/https/https-logging-monitoring#log-fwd-rule).
 
 ## Limitations
 
@@ -295,6 +343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

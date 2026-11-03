@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/create-migration-job-existing-instance/
 title: Create a migration job to an existing destination instance \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:12:10.189997+00:00
+fetched_at: 2026-11-03T09:54:21.560001+00:00
 ---
 
 # Create a migration job to an existing destination instance  |  Database Migration Service for MySQL  |  Google Cloud Documentation
@@ -354,7 +354,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-  * REGION with the identifier of the region where your connection profile is saved.
+  * REGION with the identifier of the region where your migration job is saved.
 
 
 
@@ -406,7 +406,7 @@ The action is performed in an asynchronous manner. As such, this command returns
 To see if your operation is successful, you can query the returned operation object, or check the status of the migration job: 
 
   * Use the [ `gcloud database-migration migration-jobs describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/describe) command to view the status of the migration job.
-  * Use the [ `gcloud database-migration operations describe`](https://cloud.google.com/sdk/gcloud/reference/database-migration/operations/describe) with the OPERATION_ID to see the status of the operation itself.
+  * Use the [ `gcloud database-migration operations describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/operations/describe) command with the OPERATION_ID to see the status of the operation itself.
 
 
 
@@ -424,7 +424,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-  * REGION with the identifier of the region where your connection profile is saved.
+  * REGION with the identifier of the region where your migration job is saved.
 
 
 
@@ -490,7 +490,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-  * REGION with the identifier of the region where your connection profile is saved.
+  * REGION with the identifier of the region where your migration job is saved.
 
 
 
@@ -556,7 +556,7 @@ Before using any of the command data below, make the following replacements:
 
 If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
 
-  * REGION with the identifier of the region where your connection profile is saved.
+  * REGION with the identifier of the region where your migration job is saved.
 
 
 
@@ -601,7 +601,7 @@ The action is performed in an asynchronous manner. As such, this command returns
       createTime: '2024-02-20T12:20:24.493106418Z'
       requestedCancellation: false
       target: MIGRATION_JOB_ID
-      verb: start
+      verb: promote
     name: OPERATION_ID
     
 
@@ -616,6 +616,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api/
 title: RAG Engine API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:01.513074+00:00
+fetched_at: 2026-11-03T09:53:37.361834+00:00
 ---
 
 # RAG Engine API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -58,8 +58,8 @@ This table lists the parameters used to create a RAG corpus.
 **Parameters** | ****  
 ---|---  
 `document_corpus` |  `oneof` `RagCorpus.CorpusTypeConfig.DocumentCorpus` The default value of `corpus_type_config`, which represents a conventional document-based RAG corpus.  
-`memory_corpus` |  `oneof` `RagCorpus.CorpusTypeConfig.MemoryCorpus` If you set this type, the RAG corpus is a `MemoryCorpus` that can be used with the Gemini Live API as a memory store. For more information, see [Use RAG Engine as the memory store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-live-api#use-rag-memory-store).  
-`memory_corpus.llm_parser` |  `oneof` `RagFileParsingConfig.LlmParser` The LLM parser that's used to parse and store session contexts from the Gemini Live API. You can build memories for indexing.  
+`memory_corpus` |  `oneof` `RagCorpus.CorpusTypeConfig.MemoryCorpus` If you set this type, the RAG corpus is a `MemoryCorpus` that can be used with Gemini Live API as a memory store. For more information, see [Use RAG Engine as the memory store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-live-api#use-rag-memory-store).  
+`memory_corpus.llm_parser` |  `oneof` `RagFileParsingConfig.LlmParser` The LLM parser that's used to parse and store session contexts from Gemini Live API. You can build memories for indexing.  
   
 ##### `RagVectorDbConfig`
 
@@ -1787,13 +1787,13 @@ The following code samples demonstrate how to read your `RagEngineConfig` to see
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config = rag.rag_data.get_rag_engine_config(
         name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
@@ -1835,13 +1835,13 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to t
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -1890,13 +1890,13 @@ The following code samples demonstrate how to switch your `RagEngineConfig` to t
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -1948,13 +1948,13 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -2006,13 +2006,13 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -2064,13 +2064,13 @@ The following code samples demonstrate how to set the `RagEngineConfig` to the S
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     
     # Initialize API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     rag_engine_config_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/ragEngineConfig"
     
@@ -2099,6 +2099,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

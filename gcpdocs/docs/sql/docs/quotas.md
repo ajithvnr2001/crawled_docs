@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud SQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:49.449403+00:00
+fetched_at: 2026-11-03T09:53:06.351484+00:00
 ---
 
 # Quotas and limits  |  Cloud SQL  |  Google Cloud Documentation
@@ -367,12 +367,6 @@ If the number of active tables is significantly larger than both the Cloud SQL t
 
 The maximum table size for Cloud SQL for PostgreSQL is 32 TB. When a table size reaches 32 TB, no additional data can be added.
 
-#### Operations limit
-
-Micro and small tier machine types limit the number of concurrent operations. Exceeding these limits causes a `Too many operations` error.
-
-The db-custom-1-3840 (single CPU) machine type limit is 50 concurrent operations.
-
 #### ExecuteSQL limits
 
 Requests to the `ExecuteSql` REST API have the following limits:
@@ -385,7 +379,7 @@ Requests to the `ExecuteSql` REST API have the following limits:
 
 #### Metrics collection limit
 
-PostgreSQL metrics are collected for up to 500 databases. If there are more than 500 databases, then only the top 500 are included for a given metric. These databases have the highest transaction counts. 
+PostgreSQL metrics are collected for up to 500 databases. If there are more than 500 databases, then database-specific metrics, such as connections per database, are aggregated into a single value and displayed as `__ALL__`. 
 
 #### Cloud SQL storage limits
 
@@ -476,6 +470,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

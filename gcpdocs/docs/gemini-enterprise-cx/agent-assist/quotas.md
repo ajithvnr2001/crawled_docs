@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/quotas/
 title: Quotas \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:38:53.075820+00:00
+fetched_at: 2026-11-03T09:53:44.126336+00:00
 ---
 
 # Quotas  |  Agent Assist  |  Google Cloud Documentation
@@ -288,15 +288,15 @@ Companion agent resource allocation quotas
 `GeminiAsrConcurrentStreamsPerProjectPerRegion` | `dialogflow.googleapis.com/gemini_asr_concurrent_streams_per_region` | 10 concurrent streams | Regional | Maximum number of concurrent streams using a Gemini ASR model in each region.  
 `GeminiAsrConcurrentStreamsPerProjectPerMultiRegion` | `dialogflow.googleapis.com/gemini_asr_concurrent_streams_per_multi_region` | 10 concurrent streams | Multi-regional | Maximum number of concurrent streams using a Gemini ASR model in each multi-region(for example: us, eu).  
   
-## Live A2A translation
+## Sequential audio translation
 
-Each live A2A translation session on the [bidirectional streaming API](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/bidi-stream-api) counts as one concurrent session from the time the stream starts until it ends. Each session also counts toward the `ConcurrentBidiStreamingSessionsPerProjectPerRegion` quota. If you go over a limit, new streams fail with a `RESOURCE_EXHAUSTED` error.
+Each sequential audio translation session on the [bidirectional streaming API](https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/bidi-stream-api) counts as one concurrent session from the time the stream starts until it ends. Each session also counts toward the `ConcurrentBidiStreamingSessionsPerProjectPerRegion` quota. If you go over a limit, new streams fail with a `RESOURCE_EXHAUSTED` error.
 
 **Quota limit name** | **Metric name** | **Default limit** | **Scope** | **Description**  
 ---|---|---|---|---  
-`A2aConcurrentLiveSessionsPerProject` | `dialogflow.googleapis.com/A2aConcurrentLiveSessions` | 5 concurrent sessions | Global | Maximum number of concurrent live A2A translation sessions.  
-`A2aConcurrentLiveSessionsPerProjectPerRegion` | `dialogflow.googleapis.com/A2aConcurrentLiveSessionsPerRegion` | 5 concurrent sessions | Regional | Maximum number of concurrent live A2A translation sessions in each region.  
-`A2aConcurrentLiveSessionsPerProjectPerMultiRegion` | `dialogflow.googleapis.com/A2aConcurrentLiveSessionsPerMultiRegion` | 5 concurrent sessions | Multi-regional | Maximum number of concurrent live A2A translation sessions in each multi-region (for example, `us` or `eu`).  
+`A2aConcurrentLiveSessionsPerProject` | `dialogflow.googleapis.com/A2aConcurrentLiveSessions` | 5 concurrent sessions | Global | Maximum number of concurrent sequential audio translation sessions.  
+`A2aConcurrentLiveSessionsPerProjectPerRegion` | `dialogflow.googleapis.com/A2aConcurrentLiveSessionsPerRegion` | 5 concurrent sessions | Regional | Maximum number of concurrent sequential audio translation sessions in each region.  
+`A2aConcurrentLiveSessionsPerProjectPerMultiRegion` | `dialogflow.googleapis.com/A2aConcurrentLiveSessionsPerMultiRegion` | 5 concurrent sessions | Multi-regional | Maximum number of concurrent sequential audio translation sessions in each multi-region (for example, `us` or `eu`).  
   
 ## What's next
 
@@ -309,6 +309,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

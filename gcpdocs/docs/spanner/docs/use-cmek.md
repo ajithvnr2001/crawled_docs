@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/use-cmek/
 title: Secure a database with customer-managed encryption keys (CMEK) \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:16.598301+00:00
+fetched_at: 2026-11-03T09:42:20.493016+00:00
 ---
 
 # Secure a database with customer-managed encryption keys (CMEK)  |  Spanner  |  Google Cloud Documentation
@@ -2585,7 +2585,7 @@ To copy a CMEK-enabled backup in a multi-region instance configuration:
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.ImmutableList;
-    import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html);
+    import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.Backup.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.BackupName.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[CopyBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[CopyBackupEncryptionConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.html).[EncryptionType](https://docs.cloud.google.com/java/docs/reference/google-cloud-netapp/latest/com.google.cloud.netapp.v1.EncryptionType.html);
@@ -2652,7 +2652,7 @@ To copy a CMEK-enabled backup in a multi-region instance configuration:
                         .addAllKmsKeyNames(ImmutableList.copyOf(kmsKeyNames))
                         .build())
                 .build();
-        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Backup.html) destinationBackup;
+        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.Backup.html) destinationBackup;
         try {
           // Creates a copy of an existing backup.
           // Wait for the backup operation to complete.

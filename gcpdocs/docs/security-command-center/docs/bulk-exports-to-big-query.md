@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/bulk-exports-to-big-query/
 title: Bulk export findings to BigQuery \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:58:06.972408+00:00
+fetched_at: 2026-11-03T09:52:46.212869+00:00
 ---
 
 # Bulk export findings to BigQuery  |  Security Command Center  |  Google Cloud Documentation
@@ -23,20 +23,18 @@ Send feedback
 
 Standard-legacy, Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-The document describes how to initiate on-demand bulk exports of Security Command Center findings to BigQuery.
+On-demand bulk exports let you export snapshots of Security Command Center findings to BigQuery. These exports support custom security analytics, compliance auditing, and reporting. Bulk exports complement [continuous exports](https://docs.cloud.google.com/security-command-center/docs/how-to-analyze-findings-in-big-query) by capturing historical finding states at a specific point in time.
 
-BigQuery is Google Cloud's fully managed, petabyte-scale, and cost-effective analytics data warehouse that lets you run analytics over vast amounts of data in near real time. To learn more about BigQuery, see the [BigQuery documentation](https://docs.cloud.google.com/bigquery/docs).
+To learn more about BigQuery, see the [BigQuery documentation](https://docs.cloud.google.com/bigquery/docs).
 
-## Overview
-
-This feature delivers a snapshot of findings up to a certain point in time. This feature complements the [continuous BigQuery export](https://docs.cloud.google.com/security-command-center/docs/how-to-analyze-findings-in-big-query) to provide comprehensive analytics and reporting.
+## Supported features for bulk exports
 
 With bulk exports, you can do the following:
 
   * Create a BigQuery bulk export
   * View the status of a BigQuery bulk export
 
-**Note:** You can configure a bulk export and a continuous export to the same BigQuery dataset, but doing so can result in duplicated or missing findings. For more information, see BigQuery bulk exports and continuous exports. for more information.
+**Note:** You can configure a bulk export and a continuous export to the same BigQuery dataset, but doing so can result in duplicated or missing findings. For more information, see BigQuery bulk exports and continuous exports.
 
 ## Dataset structure
 
@@ -251,6 +249,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

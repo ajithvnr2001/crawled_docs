@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/creating-managing-organization/
 title: Set up a Google Cloud organization resource \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:39.930067+00:00
+fetched_at: 2026-11-03T09:55:07.617144+00:00
 ---
 
 # Set up a Google Cloud organization resource  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Set up a Google Cloud organization resource Stay organized with collections  Save and categorize content based on your preferences. 
 
-The organization resource is the root node in the [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/overview#cloud_platform_resource_hierarchy_and_iam_policy_hierarchy) and is the hierarchical super node of projects. This page explains how to acquire and manage an organization resource.
+An organization resource is the root node of the [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/overview#cloud_platform_resource_hierarchy_and_iam_policy_hierarchy) and lets you centrally manage your projects and folders. You can set up an organization resource to maintain visibility, control access, and enforce organization policies across your cloud environment.
 
-**Note:** To streamline setup, Google Cloud will automatically create an organization resource for new Free Trial customers. Additionally, every organization resource will automatically have a set of organization policies enforced on it. For more information, see [Standalone organizations](https://docs.cloud.google.com/resource-manager/docs/standalone-organization-overview) and [Managing baseline constraints](https://docs.cloud.google.com/organization-policy/manage-baseline-constraints).
+Google Cloud automatically creates an organization resource for new customers, including Free Trial customers, and enforces a default set of organization policies on it. For more information, see [Standalone organizations](https://docs.cloud.google.com/resource-manager/docs/standalone-organization-overview) and [Managing baseline constraints](https://docs.cloud.google.com/organization-policy/manage-baseline-constraints).
 
 ## Before you begin
 
@@ -242,6 +242,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

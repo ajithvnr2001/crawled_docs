@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-vm-from-public-image/
 title: Create an instance from a public image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:32.624194+00:00
+fetched_at: 2026-11-03T09:54:27.148044+00:00
 ---
 
 # Create an instance from a public image  |  Compute Engine  |  Google Cloud Documentation
@@ -496,8 +496,7 @@ After Compute Engine starts your VM, you must stop the VM to [modify Shielded VM
     
     gcloud compute instances create VM_NAME \
         --zone=ZONE \
-        [--image=IMAGE | --image-family=IMAGE_FAMILY] \
-        --image-project=IMAGE_PROJECT
+        --image-project=IMAGE_PROJECT \
         IMAGE_FLAG \
         --machine-type=MACHINE_TYPE
 
@@ -1373,10 +1372,12 @@ If prompted, select your project and click **Continue**. The **Create an instanc
 
 The default selection is **Any**. If you don't change this default selection, then Google automatically chooses a zone for you based on machine type and availability.
 
-     3. Select your machine family and series by doing one of the following:
+     3. Select your [bare metal machine family and series](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances#machine-series-with-bare-metal-machine-types) by doing one of the following:
 
-        * For C3 bare metal series, select **General purpose** as the machine family and then, in the **Series** column, select **C3**.
-        * For X4 bare metal series, select **Memory optimized** as the machine family and then, in the **Series** column, select **X4**.
+        * For C4, C4A, C4D, or C3 bare metal series, select **General purpose** as the machine family, and then, in the **Series** column, select **C4** , **C4A** , **C4D** , or **C3**.
+        * For X4 bare metal series, select **Memory optimized** as the machine family, and then, in the **Series** column, select **X4**.
+        * For Z3, Z4D, or Z4M bare metal series, select **Storage optimized** as the machine family, and then, in the **Series** column, select **Z3** , **Z4D** , or **Z4M**.
+**Note:** You can't create X5 or A4X Max bare metal instances in the Google Cloud console. After you obtain capacity, use the Google Cloud CLI or REST to create [X5](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x5_series) or [A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-a4xmax-instance#create-instance) bare metal instances.
      4. In the **Machine type** section, click the list. In the filter menu, type in `metal` and then select one of the available machine types.
 
   3. In the navigation menu, click **OS and storage**. In the **Operating system and storage** pane that appears, configure your boot disk by doing the following: 
@@ -1515,6 +1516,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/rapid/high-performance-storage/
 title: Optimizing storage for AI/ML and data analytics by using Cloud Storage Rapid \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:30.706218+00:00
+fetched_at: 2026-11-03T09:54:15.190098+00:00
 ---
 
 # Optimizing storage for AI/ML and data analytics by using Cloud Storage Rapid  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Optimizing storage for AI/ML and data analytics by using Cloud Storage Rapid Stay organized with collections  Save and categorize content based on your preferences. 
 
-Cloud Storage offers a variety of options to help you optimize your data storage for use cases that require high performance, such as artificial intelligence (AI), machine learning (ML), and data-intensive analytics. This page introduces you to these options and guides you through selecting an option that's appropriate for the needs of your workloads.
+Cloud Storage offers Rapid Bucket and Rapid Cache to help you optimize data storage for high-performance use cases such as artificial intelligence (AI), machine learning (ML), and data-intensive analytics. This document introduces these options and helps you select the option that best fits the needs of your workloads.
 
 ## The Cloud Storage Rapid product family
 
@@ -57,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

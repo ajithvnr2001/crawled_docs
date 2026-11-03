@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/create-key-ring/
 title: Create a key ring \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:54.469127+00:00
+fetched_at: 2026-11-03T09:54:09.310908+00:00
 ---
 
 # Create a key ring  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -345,7 +345,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the parent location name.
     location_name = client.location_path project: project_id, location: location_id

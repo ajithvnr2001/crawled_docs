@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/manage-firewall-endpoints/
 title: Manage firewall endpoints and endpoint associations \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:36.781310+00:00
+fetched_at: 2026-11-03T09:53:28.139752+00:00
 ---
 
 # Manage firewall endpoints and endpoint associations  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -73,7 +73,7 @@ You can view the endpoint details such as:
 
 #### Permissions required for this task
 
-To perform this task, you must have been granted the following permissions _or_ one of the following IAM roles on your organization.
+To perform this task, you must have been granted the following permissions _or_ one of the following IAM roles on your organization or project.
 
 **Permissions**
 
@@ -149,7 +149,7 @@ You can update the following key details of an endpoint:
 
   * The billing project (available for organization-level endpoints only)
   * The labels of the endpoint
-  * The description of the endpoint
+  * The Advanced malware sandbox settings for the endpoint
 
 
 
@@ -166,19 +166,17 @@ To change the previous details, delete the endpoint and create another.
 
 #### Permissions required for this task
 
-To perform this task, you must have been granted the following permissions _or_ one of the following IAM roles on your organization.
+To perform this task, you must have been granted the following permissions _or_ one of the following IAM roles on your organization or project.
 
 **Permissions**
 
-  * `networksecurity.firewallEndpoints.get`
+  * `networksecurity.firewallEndpoints.update`
 
 
 
 **Roles**
 
   * Compute Network Admin (`roles/compute.networkAdmin`)
-  * Compute Network User (`roles/compute.networkUser`)
-  * Compute Network Viewer (`roles/compute.networkViewer`)
   * Firewall Endpoint Admin (`roles/networksecurity.firewallEndpointAdmin`) granted at the organization level for organization-level firewall endpoints, and at either the project level or the organization level for project-level firewall endpoints 
 
 
@@ -199,11 +197,11 @@ If you select a project, the **Firewall endpoints located in this project** sect
 
   4. Click **Edit**.
 
-  5. To update the billing project, select the **Billing project**
+  5. To update the billing project, select the **Billing project**.
 
-  6. In the **Advanced configuration** section, select the **Enable Advanced malware sandbox (WildFire)** checkbox ([Preview](https://cloud.google.com/products#product-launch-stages)).
+  6. In the **Advanced malware sandbox configuration** section, select or clear the **Enable Advanced malware sandbox (WildFire)** checkbox. If prompted to accept the end-user license agreement (EULA) for the billing project, click **Accept**.
 
-  7. To update the additional Advanced malware sandbox configuration, click **Additional Advanced malware sandbox configuration** and update the fields.
+  7. To update the additional Advanced malware sandbox configuration, click **Additional Advanced malware sandbox configurations** and update the fields.
 
   8. Click **Save**.
 
@@ -218,7 +216,16 @@ To update a firewall endpoint, use the [`gcloud network-security firewall-endpoi
     gcloud network-security firewall-endpoints update NAME \
         --organization ORGANIZATION_ID | --project PROJECT_ID \
         --location LOCATION \
-        [--update-billing-project QUOTA_PROJECT_ID]
+        [--update-billing-project QUOTA_PROJECT_ID] \
+        [--[no-]enable-wildfire] \
+        [--wildfire-region=WILDFIRE_REGION] \
+        [--content-cloud-region=CONTENT_CLOUD_REGION] \
+        [--wildfire-lookup-timeout=LOOKUP_TIMEOUT_MS] \
+        [--wildfire-lookup-action=ACTION] \
+        [--wildfire-analysis-timeout=ANALYSIS_TIMEOUT_MS] \
+        [--wildfire-analysis-action=ACTION] \
+        [--[no-]enable-wildfire-analysis-logging] \
+        [--[no-]block-partial-http]
     
 
 Replace the following:
@@ -233,38 +240,22 @@ Replace the following:
 
   * `QUOTA_PROJECT_ID`: the quota project ID. Use this flag only for organization-level endpoints.
 
+  * `WILDFIRE_REGION`: the geographical region where the endpoint sends unknown files when Advanced malware sandbox is enabled.
+
+  * `CONTENT_CLOUD_REGION`: the content cloud region that the endpoint uses when Advanced malware sandbox is enabled.
+
+  * `LOOKUP_TIMEOUT_MS`: the timeout threshold, from `1` to `5000` milliseconds (default `1000`), for real-time signature lookup when Advanced malware sandbox is enabled.
+
+  * `ANALYSIS_TIMEOUT_MS`: the timeout threshold, from `1000` to `240000` milliseconds (default `30000`), for inline cloud analysis when Advanced malware sandbox is enabled.
+
+  * `ACTION`: the timeout action for signature lookup or inline cloud analysis when Advanced malware sandbox is enabled; valid values are `ALLOW` and `DENY`.
+
+
+
+
+To enable, disable, or update Advanced malware sandbox on a firewall endpoint, use the optional `--[no-]enable-wildfire` flag. You can also specify optional Advanced malware sandbox configuration flags, such as `--[no-]enable-wildfire-analysis-logging` to log timeout events and `--[no-]block-partial-http` to prevent resuming blocked malicious HTTP file downloads.
 
 **Note:** You can't reconfigure an existing endpoint to add or remove support for jumbo frames. To add or remove jumbo frame support, delete the endpoint and recreate it. For more information, see Delete a firewall endpoint and [Create a firewall endpoint](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#create-firewall-endpoint).
-
-To update a firewall endpoint for Advanced malware sandbox, use the [`gcloud beta network-security firewall-endpoints update` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/firewall-endpoints/update) ([Preview](https://cloud.google.com/products#product-launch-stages)):
-    
-    
-    gcloud beta network-security firewall-endpoints \
-       update NAME \
-       --organization ORGANIZATION_ID \
-       --zone ZONE \
-       --[no-]enable-wildfire \
-       --wildfire-region=WILDFIRE_REGION \
-       --content-cloud-region=CONTENT_CLOUD_REGION \
-       --hold-for-wildfire-realtime-signature-lookup-timeout-ms=TIMEOUT_MS \
-       --hold-for-wildfire-realtime-signature-lookup-timeout-action=ACTION \
-       --wildfire-inline-cloud-analysis-timeout-ms=TIMEOUT_MS \
-       --wildfire-inline-cloud-analysis-timeout-action=ACTION \
-       --[no-]enable-wildfire-analysis-logging \
-       --[no-]block-partial-http \
-       --billing-project BILLING_PROJECT_ID
-    
-
-Replace the following:
-
-  * `WILDFIRE_REGION`: geographical region where the endpoint sends unknown files.
-  * `CONTENT_CLOUD_REGION`: content cloud region that the endpoint uses.
-  * `TIMEOUT_MS`: timeout thresholds in milliseconds for signature lookup or inline analysis.
-  * `ACTION`: the timeout action, which must be `Allow` or `Deny`.
-  * `--[no-]enable-wildfire-analysis-logging`: whether to enable logging for timeout events.
-  * `--[no-]block-partial-http`: select to block the resuming of blocked malicious HTTP file downloads.
-
-
 
 For information about the packet sizes supported by firewall endpoints, see [Supported packet size](https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints#supported-packet-size).
 
@@ -282,7 +273,7 @@ Before you delete a firewall endpoint, consider the following:
 
 #### Permissions required for this task
 
-To perform this task, you must have been granted the following permissions _or_ one of the following IAM roles on your organization.
+To perform this task, you must have been granted the following permissions _or_ one of the following IAM roles on your organization or project.
 
 **Permissions**
 
@@ -603,6 +594,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

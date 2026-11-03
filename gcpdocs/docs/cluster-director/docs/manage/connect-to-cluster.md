@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/manage/connect-to-cluster/
 title: Connect to a cluster \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:49.771905+00:00
+fetched_at: 2026-11-03T09:54:27.574497+00:00
 ---
 
 # Connect to a cluster  |  Cluster Director  |  Google Cloud Documentation
@@ -38,11 +38,13 @@ When you access and use the Google Cloud console, you don't need to authenticate
 
 ### Required roles
 
-To get the permissions that you need to connect to a login node in a cluster, ask your administrator to grant you the following IAM roles on the project: 
+To get the permissions that you need to connect to a login node in a cluster, ask your administrator to grant you the following IAM roles: 
 
-  * To view clusters: [Hypercompute Cluster Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/hypercomputecluster#hypercomputecluster.viewer) (`roles/hypercomputecluster.viewer`) 
-  * To connect to a node: [Compute OS Login ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.osLogin) (`roles/compute.osLogin`) 
-  * To connect to a node secured by Identity-Aware Proxy (IAP): [IAP-Secured Tunnel User ](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.tunnelResourceAccessor) (`roles/iap.tunnelResourceAccessor`) 
+  * To view clusters: [Cluster Director Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/hypercomputecluster#hypercomputecluster.editor) (`roles/hypercomputecluster.editor`) on your project 
+  * To connect to a node: 
+    * [Compute OS Login ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.osLogin) (`roles/compute.osLogin`) on your project
+    * [Service Account User ](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) (`roles/iam.serviceAccountUser`) on the Compute Engine default service account
+  * To connect to a node secured by Identity-Aware Proxy (IAP): [IAP-Secured Tunnel User ](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.tunnelResourceAccessor) (`roles/iap.tunnelResourceAccessor`) on your project 
 
 
 
@@ -54,8 +56,12 @@ These predefined roles contain the permissions required to connect to a login no
 
 The following permissions are required to connect to a login node in a cluster:
 
-  * To view the details of a single cluster: `hypercomputecluster.clusters.describe`
-  * To connect to a node: `compute.instances.osLogin`
+  * To view a list of clusters: `hypercomputecluster.clusters.list`
+  * To view the details of a single cluster: `hypercomputecluster.clusters.get`
+  * To connect to a node: 
+    * `compute.instances.osLogin`
+    * `iam.serviceAccounts.actAs`
+  * To connect to a node secured by IAP: `iap.tunnelInstances.accessViaIAP`
 
 
 
@@ -120,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

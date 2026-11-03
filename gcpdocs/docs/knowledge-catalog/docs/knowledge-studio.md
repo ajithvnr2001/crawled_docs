@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/knowledge-studio/
 title: Knowledge Studio overview \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:29.060372+00:00
+fetched_at: 2026-11-03T09:41:51.611622+00:00
 ---
 
 # Knowledge Studio overview  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -27,16 +27,11 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-**Knowledge Studio gated preview**  
-Knowledge Studio is currently available as a gated preview. To view the context graph, create context sets, and run enrichment workflows, you must first request allowance for your organization.   
-  
-[Request preview access](https://docs.google.com/forms/d/e/1FAIpQLScw1O38BmcLIvqL1ZvpybJsLGO_Dmuq0a5RrCJIqW11iljsKQ/viewform)
+Knowledge Studio lets you curate and unify enterprise metadata to ground generative AI applications, such as conversational analytics in BigQuery and Gemini Enterprise, in your business context. Grounding your AI agents helps reduce hallucinations and improve the accuracy of generated analytics.
 
-Knowledge Studio (Preview) transforms metadata into an active context engine that helps you improve the reliability of generative AI applications. You can use Knowledge Studio to prevent hallucinations in AI agents, such as conversational analytics in BigQuery and Gemini, by grounding them in your business context.
+With Knowledge Studio, you can unify knowledge from schemas, wikis, and past SQL queries. You can explore data in natural language, navigate a visual context graph of business semantics, and run automated workflows that draft catalog updates for human review. You can then dynamically serve these curated context blocks to agents using the Model Context Protocol (MCP) or Knowledge Catalog APIs.
 
-Knowledge Studio automates metadata curation by unifying fragmented knowledge from schemas, wikis, and past SQL queries. You can explore data using natural language, navigate a visual context graph that connects data assets to business semantics, and run automated workflows that draft catalog updates for human review. You can then dynamically serve these curated context blocks to agents using the Model Context Protocol (MCP) or Knowledge Catalog APIs.
-
-This document is for data architects, governance leads, and AI engineers who want to understand how Knowledge Studio works.
+This document is for data architects, governance leads, and AI engineers who want to understand how Knowledge Studio works. To start exploring your catalog or configuring automated enrichment right away, see [Explore data assets in Knowledge Studio](https://docs.cloud.google.com/knowledge-catalog/docs/explore-data-assets) and [Create enrichment tasks](https://docs.cloud.google.com/knowledge-catalog/docs/create-enrichment-tasks).
 
 For an overview of how Knowledge Studio and self-learning enrichment ground enterprise AI agents, see the following video:
 
@@ -101,7 +96,7 @@ Knowledge Studio connects your data warehouse, enterprise knowledge repositories
 
 The following diagram illustrates how Knowledge Studio components interact with your data estate, foundation models, and consuming AI applications:
 
-![Architecture diagram linking upstream data sources \(BigQuery, Knowledge Catalog, Cloud Storage\) through Knowledge Studio to downstream AI consumers like Gemini and conversational analytics.](https://docs.cloud.google.com/static/knowledge-catalog/images/knowledge-studio-architecture.svg)Architecture diagram linking upstream data sources through Knowledge Studio to downstream AI consumers.
+![Architecture diagram linking upstream data sources \(BigQuery, Lakehouse and databases, Knowledge Catalog, Cloud Storage\) through Knowledge Studio to downstream AI consumers such as Gemini Enterprise, conversational analytics, Agent Engine, and custom agents \(ADK, LangChain, MCP\).](https://docs.cloud.google.com/static/knowledge-catalog/images/knowledge-studio-architecture.svg)Architecture diagram linking upstream data sources through Knowledge Studio to downstream AI consumers.
 
 ## Core concepts
 
@@ -109,21 +104,19 @@ To work effectively with Knowledge Studio, understand how enterprise metadata is
 
 ### Context graph
 
-The _context graph_ is the central, interactive visual topology in Knowledge Studio. It unifies your data assets (such as BigQuery tables, views, and lake houses) with business semantics (such as business glossary terms, metric formulas, and data products). In typical catalogs, a data table and its associated business glossary definition exist in separate silos. In the context graph, they exist as nodes on
-
-the same canvas. Data analysts and engineers can visually see relationships between their data, either by inferred usage, join conditions on tables and more, while Gemini uses the graph to ground natural language exploration. For more information, see [Explore data assets in Knowledge Studio](https://docs.cloud.google.com/knowledge-catalog/docs/explore-data-assets).
+The _context graph_ is the central, interactive visual topology in Knowledge Studio. It unifies your data assets (such as BigQuery tables, views, and lake houses) with business semantics (such as business glossary terms, metric formulas, and data products). In typical catalogs, a data table and its associated business glossary definition exist in separate silos. In the context graph, they exist as nodes on the same canvas. Data analysts and engineers can visually see relationships between their data, either by inferred usage, join conditions on tables and more, while Gemini uses the graph to ground natural language exploration. For more information, see [Explore data assets in Knowledge Studio](https://docs.cloud.google.com/knowledge-catalog/docs/explore-data-assets).
 
 ### Supported resource and connection types for the context graph
 
-The context graph supports rendering the following Knowledge Catalog resources as nodes or containers:
+The Exploration agent and context graph can discover, explore, and render all cataloged entry types in Knowledge Catalog, including the following resources:
 
-  * **Tables and views** : Technical BigQuery and Lakehouse tables, views, datasets, and catalogs.
-  * **Databases and storage** : Operational databases (such as Spanner and AlloyDB) and Cloud Storage resources.
-  * **Analytics and modeling** : Looker projects and dbt models, tests, and exposures.
-  * **Glossary terms** : Individual business definitions from a business glossary.
+  * **Tables and views** : Technical BigQuery and Lakehouse tables, views, datasets, catalogs, namespaces, lakes, zones, and assets.
+  * **Databases, storage, and AI resources** : Operational databases and cloud resources (such as Spanner, Cloud SQL, AlloyDB for PostgreSQL, Pub/Sub, Cloud Storage, and Vertex AI models).
+  * **Analytics and third-party sources** : Looker projects and third-party metadata synced through managed connectivity (such as dbt models, tests, and exposures, Databricks Unity Catalog, LookML, and SAP).
+  * **Glossary terms** : Individual business definitions, categories, and terms from a business glossary.
   * **Data products** : Curated bundles of data assets for cross-team consumption.
-  * **Context** : Custom context sets and attached documentation.
-  * **Custom assets** : Custom entry groups and unsupported entry types.
+  * **Context** : Context sets and curated knowledge base documents.
+  * **Custom assets** : Custom entry groups and custom entry types.
 
 
 
@@ -132,6 +125,8 @@ The graph defines how these resources are connected by visualizing the following
   * **Schema join** : Structural and operational join relationships between tables. The system automatically scans BigQuery jobs for queries that indicate columns across different tables share the same meaning and can be joined together.
 
   * **Definition** : Links mapping a technical data asset or column to its corresponding business glossary definition.
+
+  * **Reference** : Directed links (`dataplex-types.global.reference`) that connect context set documents and data asset entries to the target catalog assets they describe.
 
   * **Context** : Links attributing specialized context sets or custom domain documentation to a target data asset.
 
@@ -145,6 +140,8 @@ The graph defines how these resources are connected by visualizing the following
 An _entry link_ represents a directed or non-directional semantic edge in the context graph. These links visually join your data assets and other unified resources on the canvas. You can selectively filter these links to isolate specific relationships across your data estate.
 
 Entry links connect distinct entities across your enterprise:
+
+  * **Reference links** : Connect context set entries (such as curated knowledge base documents and data asset entries) to the cataloged assets they describe using the `reference` entry link type (`projects/dataplex-types/locations/global/entryLinkTypes/reference`).
 
   * **Definition links** : Connect underlying table columns directly to certified business glossary terms and KPI formulas.
 
@@ -184,22 +181,22 @@ For more information about enrichment workflows, see [About enrichment tasks](ht
 
 ## Context graph compared to data lineage
 
-Understanding the difference between the Knowledge Studio context graph and Knowledge Catalog data lineage is essential for choosing the right tool.
+Understanding the difference between the Knowledge Studio context graph and Knowledge Catalog data lineage helps you choose the right capability for your workflow:
 
-  * **Data lineage** tracks the operational movement and underlying transformation of data over time. Lineage answers questions like: _Where did this data come from? What ETL pipeline populated this table? If this upstream schema changes, what downstream dashboards break?_ Nodes represent underlying assets and transformation jobs (such as Dataflow pipelines or BigQuery jobs), and directed edges represent underlying data flow.
-
-  * **Context graph** models business semantics, relationships, and domain knowledge. The context graph answers questions like: _What does this column mean in business terms? How do these two tables relate conceptually? How should an AI agent join these assets to answer a question?_ Nodes represent underlying assets alongside conceptual entities (such as glossary terms, KPI formulas, and data products), and edges represent semantic connections (such as column-to-glossary definition links and verified join conditions).
-
-
-
-
-For more information about pipeline traceability, see [ Knowledge Catalog data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage).
+Capability | Primary questions answered | Graph structure | Nodes and edges | When to use  
+---|---|---|---|---  
+**Data lineage** | _Where did this data originate? Which ETL pipeline populated this table? If this upstream schema changes, which downstream dashboards break?_ | Directed acyclic graph (DAG) of historical data movement and transformations. | Nodes represent physical assets and transformation jobs (such as Dataflow pipelines or BigQuery jobs); directed edges represent data flow. | Use for root-cause debugging, pipeline impact analysis, and regulatory provenance audits.  
+**Context graph** | _What does this column mean in business terms? How do these tables relate conceptually? How should an AI agent join these assets to answer a question?_ | Multi-modal semantic knowledge graph of business meaning and relationships. | Nodes represent data assets alongside glossary terms, data products, and context set documents; edges represent schema joins, definitions, references, and context links. | Use for interactive discovery, semantic disambiguation, and curating context sets to ground AI agents.  
+  
+For more information about pipeline traceability, see [Knowledge Catalog data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage).
 
 ## Enterprise security and governance
 
 Knowledge Studio is built on an enterprise-grade security architecture designed for strictly governed environments.
 
-  * **User-managed execution identity** : Enrichment tasks run using a user-managed service account, which is an identity you create and manage in your project to allow services to act on your behalf. The Dataplex Service Agent (P4SA) impersonates this service account by using the **Service Account Token Creator** role (`roles/iam.serviceAccountTokenCreator`) to generate short-lived OAuth 2.0 credentials. Generating these short-lived credentials limits the lifespan of access tokens, minimizing the risk of credential exposure compared to using long-lived service account keys.
+  * **Role-based access** : Identity and Access Management (IAM) roles control who can create, discover, and read context sets, curate context set entries, and approve and publish proposed metadata changes.
+
+  * **User-managed execution identity** : Enrichment tasks run using a user-managed service account, which is an identity you create and manage in your project to allow services to act on your behalf. The Dataplex Service Agent (P4SA) impersonates this service account by using the **Service Account Token Creator** (`roles/iam.serviceAccountTokenCreator`) role to generate short-lived OAuth 2.0 credentials. Generating these short-lived credentials limits the lifespan of access tokens, minimizing the risk of credential exposure compared to using long-lived service account keys.
 
   * **Third-party authentication** : Connecting remote SaaS knowledge sources (such as Microsoft SharePoint, Atlassian Confluence, Jira, and GitHub) uses Google Cloud's **Agent Identity Auth Manager** , ensuring human operators never handle raw client secrets.
 
@@ -216,7 +213,7 @@ For information about how to configure these security features, see [Configure e
 
   * **Data Residency (DRZ) commitments.** Data processed by this feature might be stored or processed outside of your strictly configured geographic boundaries.
 
-  * **[Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek).** Data stored or processed by this feature is encrypted using [Google-owned and Google-owned and Google-managed encryption keys](https://docs.cloud.google.com/docs/security/encryption/default-encryption) instead of your Cloud Key Management Service or [Cloud EKM keys](https://docs.cloud.google.com/kms/docs/ekm).
+  * **Customer-managed encryption keys (CMEK).** Data stored or processed by this feature is encrypted using Google-owned and Google-owned and Google-managed encryption keys instead of your Cloud Key Management Service or Cloud EKM keys. For more information, see [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek), [Default encryption at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption), and [Cloud External Key Manager](https://docs.cloud.google.com/kms/docs/ekm).
 
   * **VPC Service Controls.** VPC Service Controls is not supported.
 
@@ -227,14 +224,23 @@ For information about how to configure these security features, see [Configure e
 
 During Preview, Knowledge Studio operates within the following additional boundaries:
 
-  * **Context set regional scope** : Global context sets linked to regional data assets are not supported. Context sets must align with the regional boundaries of the assets they package.
+  * **Context set regional scope** : A single-region context set (for example, `us-central1`) can only reference assets in that region. Multi-region (such as `us` or `eu`) and `global` context sets can span compatible regions, and you select a single execution region when configuring an enrichment task for them.
 
-  * **Console-first management** : Enrichment tasks and exploration sessions are managed through the Google Cloud console. Direct REST APIs and `gcloud` CLI commands for task management aren't available in Preview. However, downstream agents can programmatically discover and query curated context sets using the Knowledge Catalog Catalog APIs ([`ListEntries`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries/list), [`LookupEntry`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupEntry)) and the Model Context Protocol (MCP).
+  * **Console-first management** : Enrichment tasks and exploration sessions are managed through the Google Cloud console. Direct REST APIs and `gcloud` CLI commands for task management aren't available in Preview. However, downstream agents can programmatically discover and query curated context sets using the Knowledge Catalog Catalog APIs (`ListEntries` and `LookupEntry`) and the Model Context Protocol (MCP). For more information, see [Method: projects.locations.entryGroups.entries.list](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries/list) and [Method: projects.locations.lookupEntry](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupEntry).
 
   * **Centralized curation** : All metadata review and approval occurs within the **Enrichment run details** page.
 
-  * **No standalone billing SKU** : Knowledge Studio doesn't introduce separate product SKUs. Usage charges reflect standard consumption of underlying resources ( Gemini Reasoning Engine, BigQuery, and Cloud Storage).
 
+
+
+## Pricing
+
+During Preview, Knowledge Studio data exploration, running enrichment tasks, and staging unapproved batch change requests are offered at no charge.
+
+Using Knowledge Studio features can incur standard charges for underlying Google Cloud resources in your project:
+
+  * **Data exploration** : When the exploration agent in chat invokes BigQuery query jobs or BigQuery conversational analytics, standard BigQuery query processing and conversational analytics charges apply.
+  * **Context sets and enrichment** : An empty context set entry group or an unapproved batch change request incurs no metadata storage charge. When entries are created in a context set (for example, when you approve a batch change request), standard Knowledge Catalog metadata storage charges apply to the project hosting the entry group. Standard usage charges, including BigQuery query processing and Cloud Storage staging reads and writes, apply in your project when an enrichment task uses optional customer-managed resources, such as Cloud Storage buckets for knowledge signals or evaluation sets and BigQuery agent analytics trace tables for self-learning.
 
 
 
@@ -242,7 +248,7 @@ During Preview, Knowledge Studio operates within the following additional bounda
 
 Task 
 
-###  [ Explore data assets and the context graph ](https://docs.cloud.google.com/knowledge-catalog/docs/explore-data-assets)
+###  [ Explore data assets in Knowledge Studio ](https://docs.cloud.google.com/knowledge-catalog/docs/explore-data-assets)
 
 Use the visual canvas in Knowledge Studio to chat with your data and trace semantic relationships. 
 
@@ -266,7 +272,7 @@ Build a business glossary, define custom aspect types, and enrich assets in BigQ
 
 Ai integration 
 
-###  [ Ground agents with MCP ](https://docs.cloud.google.com/knowledge-catalog/docs/mcp-overview)
+###  [ About MCP servers in Knowledge Catalog ](https://docs.cloud.google.com/knowledge-catalog/docs/mcp-overview)
 
 Connect AI agents and developer tools to Knowledge Catalog using Model Context Protocol. 
 
@@ -280,6 +286,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/global-regional-applications/
 title: Global and regional applications \u00a0|\u00a0 App Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:06:56.593169+00:00
+fetched_at: 2026-11-03T09:52:46.725187+00:00
 ---
 
 # Global and regional applications  |  App Hub  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ The following table highlights the key differences and considerations to help yo
 **Resource extent** | Can contain both global and regional Google Cloud resources from any region. | Can only contain Google Cloud resources from the _same single region_ as the application. You cannot register global components in a regional application.  
 **Application metadata** | Stored across multiple regions and accessible from any Google Cloud region.  
 [Data residency](https://docs.cloud.google.com/assured-workloads/docs/data-residency) is not supported. | Stored within the specific region but accessible from any other Google Cloud region.  
-[Data residency](https://docs.cloud.google.com/assured-workloads/docs/data-residency) is not supported.  
+Data residency is supported when you use [regional endpoints](https://docs.cloud.google.com/app-hub/docs/regional-endpoints).  
 **Examples** | Managing a global load-balanced application with backend components in various regions to provide a centralized view of the distributed system. | Managing an application with all services and workloads in `us-central1`.  
   
 ## Select the best location for your application
@@ -64,7 +64,7 @@ Your Google Cloud resource hierarchy, which defines how you organize folders and
 
 Global applications offer flexibility for distributed systems. However, choosing a regional location for your App Hub applications can provide significant advantages:
 
-  * **Support data residency and compliance:** App Hub metadata doesn't offer [data residency](https://docs.cloud.google.com/assured-workloads/docs/data-residency). However, a regional application helps you make sure that the actual data the underlying Google Cloud resources process and store remains within the geographic limits you select. This benefit is often crucial for complying with legal, regulatory, and organizational requirements for data locality.
+  * **Support data residency and compliance:** App Hub metadata supports [data residency](https://docs.cloud.google.com/assured-workloads/docs/data-residency) when you access your regional applications using [regional endpoints](https://docs.cloud.google.com/app-hub/docs/regional-endpoints). This helps you make sure that both your application metadata and the data that the underlying Google Cloud resources process and store remain within the geographic limits you select. This benefit is crucial for complying with legal, regulatory, and organizational requirements for data locality and data sovereignty.
 
   * **Reduce latency:** Colocating application components within the same region generally minimizes [network latency between components](https://docs.cloud.google.com/network-intelligence-center/docs/performance-dashboard/how-to/view-google-cloud-latency), potentially improving application performance and user experience.
 
@@ -91,6 +91,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

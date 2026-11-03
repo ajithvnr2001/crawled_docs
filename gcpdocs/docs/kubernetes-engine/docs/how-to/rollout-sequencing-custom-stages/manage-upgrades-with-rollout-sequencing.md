@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing-custom-stages/manage-upgrades-with-rollout-sequencing/
 title: Sequence the rollout of cluster upgrades with custom stages \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:27.783554+00:00
+fetched_at: 2026-11-03T09:54:44.202623+00:00
 ---
 
 # Sequence the rollout of cluster upgrades with custom stages  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -142,6 +142,8 @@ The following example configurations creates three stages:
 
 
 
+### Console
+
 ### gcloud
 
   1. Save the following manifest as `rollout-sequence.yaml`:
@@ -188,7 +190,7 @@ This section shows you how to create a rollout sequence with custom stages using
   1. Add the following block to your Terraform configuration to create a rollout sequence resource:
          
          resource "google_gke_hub_rollout_sequence" "rollout_sequence" {
-           rollout_sequence_id = &quot;ROLLOUT_SEQUENCE_NAME&quot;
+           rollout_sequence_id = "ROLLOUT_SEQUENCE_NAME"
            display_name        = "DISPLAY_NAME"
            stages {
              fleet_projects = ["projects/dev"]
@@ -199,7 +201,7 @@ This section shows you how to create a rollout sequence with custom stages using
              cluster_selector {
                label_selector = "resource.labels.canary=='true'"
              }
-             soak_duration  = &quot;7d"
+             soak_duration  = "7d"
            }
            stages {
              fleet_projects = ["projects/prod"]
@@ -236,7 +238,7 @@ Run the following command:
     
     
     gcloud container fleet rolloutsequences upgrade ROLLOUT_SEQUENCE_NAME \
-        --control-plane-version=&quot;CONTROL_PLANE_VERSION"
+        --control-plane-version="CONTROL_PLANE_VERSION"
     
 
 Replace the following:
@@ -253,7 +255,7 @@ If you use Terraform to manage your rollout sequence, you can roll out a specifi
 Add the following field to the block. You can add the field anywhere except between the `stages` blocks, which need to be consecutive:
     
     
-    min_control_plane_version = &quot;CONTROL_PLANE_VERSION"
+    min_control_plane_version = "CONTROL_PLANE_VERSION"
     
 
 Replace `CONTROL_PLANE_VERSION` with the version to roll out. You can choose a specific version, such as `1.34.7-gke.1055000`, or use a version alias. For more information, see [Specifying cluster version](https://docs.cloud.google.com/kubernetes-engine/versioning#specifying_cluster_version).
@@ -262,13 +264,15 @@ If you've already used this field to roll out a control plane version, the field
 
 ### Roll out a version to the nodes in a rollout sequence
 
+### Console
+
 ### gcloud
 
 Run the following command:
     
     
     gcloud container fleet rolloutsequences upgrade ROLLOUT_SEQUENCE_NAME \
-        --node-version=&quot;NODE_VERSION"
+        --node-version="NODE_VERSION"
     
 
 Replace the following:
@@ -285,14 +289,50 @@ If you use Terraform to manage your rollout sequence, you can roll out a specifi
 Add the following field to the block. You can add the field anywhere except between the `stages` blocks, which need to be consecutive:
     
     
-    min_node_version = &quot;NODE_VERSION"
+    min_node_version = "NODE_VERSION"
     
 
 Replace `NODE_VERSION` with the version to roll out, for example, `1.34.7-gke.1055000`. If you've already used this field to roll out a node version, the field remains in the block. Replace the previous version rolled out with the `NODE_VERSION` you want to roll out this time.
 
 ## Check the status of a rollout
 
-After you configure a rollout sequence, the system automatically creates `Rollout` objects to manage upgrades. You can observe and track the progress of these objects using Google Cloud CLI commands.
+After you configure a rollout sequence, the system automatically creates `Rollout` objects to manage upgrades. You can observe and track the progress of these objects using the Google Cloud console view ([Preview](https://cloud.google.com/products#product-launch-stages)) or Google Cloud CLI commands.
+
+### Monitor a rollout in the Google Cloud console
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To monitor a rollout sequence and its rollouts, do the following:
+
+  1. Go to the **Rollout Sequencing** page in the Google Cloud console.
+
+[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades/rollout_sequencing)
+
+  2. View the sequence in the **Rollout sequence** section. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
+
+
+
+
+#### How to use the console to monitor a rollout sequence
+
+On this page, you can view the rollout sequence associated with your project's fleet. You can do the following to see the progress of rollouts in the rollout sequence:
+
+  * View the entire rollout sequence, the statuses of individual stages and clusters within those stages, and the soak time between stages. You can also view the sequence where there is no active upgrade, if you want to check the configuration of the sequence.
+  * Filter rollouts by upgrade type (control plane or node upgrade) and specific version (for example, 1.31.6-gke.500).
+
+
+
+You can visually monitor your entire rollout sequence while GKE upgrades all the clusters in the sequence, qualifying a new version across environments before upgrading your production environment clusters. While monitoring, you can use the gcloud CLI to manage one rollout or manage the entire rollout sequence, making any changes as needed.
+
+#### Switch to a different rollout sequence
+
+This Google Cloud console page shows the rollout sequence if the active project is a fleet host project for a fleet that is enrolled in a rollout sequence.
+
+If you want to view a different rollout sequence, use the project picker at the top of the Google Cloud console page to select a fleet host project associated with a different rollout sequence.
+
+If you want to view a different rollout sequence, select a fleet host project associated with a different rollout sequence from the project picker at the top of the page.
 
 ### List rollouts
 
@@ -320,6 +360,12 @@ In the preceding output, rollout names that contain `kcp` refer to control plane
 
 ### Describe a rollout
 
+### Console
+
+To see the details of a specific rollout, follow the instructions to monitor a rollout in the Google Cloud console ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+### gcloud
+
 To get detailed information about a particular rollout, including the target version, state, and which clusters have been upgraded, use the `describe` command with the rollout ID that you obtained from the preceding command:
     
     
@@ -334,7 +380,7 @@ Replace the following:
 
 
 
-For example:
+For example, see the following command:
     
     
     gcloud container fleet rollouts describe 927e9a989930cf3b55-kcp-1-32-4-gke-1106006 \
@@ -502,6 +548,12 @@ Replace `HOST_PROJECT_ID` with the ID of your rollout sequence host project.
 
 ### Describe a rollout sequence
 
+### Console
+
+To see the details of a specific rollout sequence, follow the instructions to monitor a rollout in the Google Cloud console ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+### gcloud
+
 To see the details of a specific rollout sequence, run the following command:
     
     
@@ -540,6 +592,8 @@ The output is similar to the following:
 By default, GKE performs all types of cluster upgrades in a rollout sequence. You can restrict the scope of cluster upgrades in a rollout sequence to perform only specific types of upgrades. For information, see [Choosing what types of upgrades GKE performs in a rollout sequence](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing#what-type-of-upgrades-scope).
 
 To designate what types of upgrades you want GKE to perform in a rollout sequence, follow these instructions, depending on how you manage your rollout sequence:
+
+### Console
 
 ### gcloud
 
@@ -605,6 +659,8 @@ To revert to the default behavior where GKE performs all types of cluster upgrad
 **Caution:** Some modifications of an existing rollout sequence can cause GKE to cancel existing rollouts. For more information, see [Modifying a rollout sequence](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing#modifying-rollout-sequence).
 
 You can modify an existing rollout sequence after you've created it. Modify your rollout sequence with the following instructions, depending on how you're managing your rollout sequence.
+
+### Console
 
 ### gcloud
 
@@ -673,6 +729,8 @@ To have GKE ignore a cluster in a rollout sequence, do the following steps:
   1. [Add a label](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/creating-managing-labels#adding_or_updating_labels_for_existing_clusters) to the cluster that you want GKE to ignore, or use an existing label. You can have GKE ignore, for example, either a label such as `status`, or ignore a label when it has a specific value, such as `status=quarantine`.
   2. Set the rollout sequence to ignore clusters with this label. To do this, perform the following steps, depending on how you manage your rollout sequence:
 
+### Console
+
 ### gcloud
 
 Run the following command:
@@ -705,6 +763,8 @@ These instructions configure GKE to ignore one type of label in the rollout sequ
 #### Add a cluster back to a rollout sequence
 
 If you followed the instructions in the previous section for GKE to ignore a cluster in a rollout sequence, you can undo this action. If you want GKE to not ignore clusters anymore, remove the ignore selector with the following instructions, depending on how you manage your rollout sequence:
+
+### Console
 
 ### gcloud
 
@@ -745,7 +805,7 @@ When you delete a rollout sequence, any rollouts that are in progress for that s
 
 ## Migrate an existing rollout sequence to use custom stages
 
-If you use the [fleet-based version of rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing), you can migrate to a sequence that uses custom stages by creating a new `RolloutSequence` that references your existing fleets. Note that this version of rollout sequencing doesn't have Google Cloud console support.
+If you use the [fleet-based version of rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing), you can migrate to a sequence that uses custom stages by creating a new `RolloutSequence` that references your existing fleets. Note that, in the Google Cloud console, this version of rollout sequencing supports only monitoring ([Preview](https://cloud.google.com/products#product-launch-stages)). It doesn't support creating or modifying a rollout sequence, or performing other tasks. For all of those tasks, you must use the Google Cloud CLI instead.
 
 To migrate your rollout sequence, complete the following steps:
 
@@ -822,6 +882,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

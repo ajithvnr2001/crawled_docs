@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-sap-bdc/
 title: Set up cross-cloud connection for SAP Business Data Cloud \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:59.257089+00:00
+fetched_at: 2026-11-03T08:33:52.903731+00:00
 ---
 
 # Set up cross-cloud connection for SAP Business Data Cloud  |  Lakehouse  |  Google Cloud Documentation
@@ -78,10 +78,10 @@ This section lists the limitations and considerations for accessing cross-cloud 
   * SAP delta sharing tables don't support fine-grained access control (FGAC).
   * Specific VPC configuration or allowlisting might be required depending on your network settings. For VPC Service Controls configurations, see [VPC Service Controls configuration for SAP BDC](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-config-sap-bdc).
   * Data Products with special characters like `/` or `-` are not supported and aren't available in BigQuery even if shared from SAP BDC to BigQuery. If you share a Data Product with special characters, this could cause the refresh to break on the Google side and require re-enrollment. Known SAP systems producing these Data Products include BW sources and SuccessFactors.
-  * **Read-only:** Federated catalogs in Lakehouse are read-only views of the remote catalog. Resource manipulation (such as creating, updating, or deleting resources) are not supported and must be performed directly in the remote catalog.
-  * **Data freshness:** The `--refresh-interval` flag for a federated catalog determines how often metadata is synchronized. The value must be `0s` (disabled) or at least `300s` (5 minutes). A catalog's background metadata refresh may take longer the more namespace and table resources there are. If the previous refresh overruns, the current refresh will be skipped, but the next refresh will be scheduled at the following interval. Queries use the most recently synchronized catalog metadata, so changes made in the remote catalog, such as new tables, schema updates, or newly committed data, aren't visible in Lakehouse until the next background metadata refresh completes. 
-  * **Lakehouse caching:** Lakehouse caching is enabled automatically for all cross-cloud queries to save egress costs by storing data blocks locally in Google Cloud. Customer-managed encryption keys (CMEK) are not supported for caching; cached data is encrypted using Google-owned and Google-managed encryption keys. If the `constraints/gcp.restrictNonCmekServices` organization policy constraint is enforced on any table in the query, caching is automatically disabled for that query. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching). 
-  * **Data residency and compliance:** Creating a federated catalog or connection in a Google Cloud region stores cached data at rest in that target region. If your remote cloud data resides in a different jurisdiction, ensure that cross-region caching complies with your organization's data residency and regulatory compliance requirements. 
+  * **Read-only:** Federated catalogs in Lakehouse are read-only views of the remote catalog. Resource manipulation (such as creating, updating, or deleting resources) isn't supported and must be performed directly in the remote catalog.
+  * **Data freshness:** The `--refresh-interval` flag for a federated catalog determines how often metadata is synchronized. The value must be `0s` (disabled) or at least `300s` (5 minutes). A catalog's background metadata refresh may take longer the more namespace and table resources there are. If the previous refresh overruns, the current refresh is skipped, and the next refresh is scheduled at the following interval. Queries use the most recently synchronized catalog metadata, so changes made in the remote catalog, such as new tables, schema updates, or newly committed data, aren't visible in Lakehouse until the next background metadata refresh completes. 
+  * **Lakehouse caching:** Cross-cloud caching is disabled by default (`--cross-cloud-cache=disabled`). You can enable or disable caching at the federated catalog or connection level. Customer-managed encryption keys (CMEK) aren't supported for caching; cached files are encrypted using Google-owned and Google-managed encryption keys. If the `constraints/gcp.restrictNonCmekServices` organization policy constraint is enforced on a table in the query, caching is automatically disabled for that query. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching). 
+  * **Data residency and compliance:** When you enable cross-cloud caching on a federated catalog or connection, Lakehouse temporarily stores cached files at rest in the Google Cloud region where the query runs. If your remote cloud files reside in a different jurisdiction, verify that cross-region caching meets your organization's data residency and compliance requirements before enabling it. 
 
 
 
@@ -94,7 +94,7 @@ To set up a cross-cloud connection for SAP BDC, follow these steps:
   * **Configure the connector in SAP for Me:** Your SAP administrator provisions a BDC Connect application instance.
   * **Update the catalog:** Complete the handshake by adding the endpoint and invitation code to the Lakehouse catalog.
   * **Install SAP BDC data products:** Your SAP data steward requests access and installs data products to the BDC Connect instance for BigQuery.
-  * **Query data:** Query your federated data using BigQuery. Lakehouse caching is enabled automatically for queries to save egress costs.
+  * **Query data:** Query your federated data using BigQuery. You can optionally enable cross-cloud caching on the federated catalog to help reduce cross-cloud egress costs and accelerate subsequent queries.
   * **Configure permissions:** Use Identity and Access Management (IAM) to manage access.
 
 
@@ -169,6 +169,7 @@ Create an empty Delta Sharing catalog using the Google Cloud console or the `gcl
        * If your SAP BDC instance is on AWS, select the Google Cloud region closest to your AWS region.
        * If your SAP BDC instance is on Azure, select the Google Cloud region closest to your Azure region.
        * If your SAP BDC instance is on Google Cloud, select the exact same region.
+     * Optional: Under **Cross-cloud caching** , select **Enable cross-cloud caching** to cache remote files in the catalog's Google Cloud region and accelerate query performance. You can also update this setting later by editing the catalog details. For more information about how caching works, retention, and pricing, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching).
   5. Click **Continue**.
 
   6. Retrieve the Google Cloud Service Account ID displayed on the page and provide this ID to your SAP administrator.
@@ -183,7 +184,8 @@ Create an empty Delta Sharing catalog using the Google Cloud console or the `gcl
          gcloud biglake delta-sharing catalogs create CATALOG_ID \
            --project="PROJECT_ID" \
            --location="REGION" \
-           --refresh-interval="REFRESH_INTERVAL"
+           --refresh-interval="REFRESH_INTERVAL" \
+           --cross-cloud-cache="CROSS_CLOUD_CACHE_MODE"
 
 Replace the following:
 
@@ -194,6 +196,7 @@ Replace the following:
        * If your SAP BDC instance is on Azure, select the Google Cloud region closest to your Azure region.
        * If your SAP BDC instance is on Google Cloud, select the exact same region.
      * `REFRESH_INTERVAL`: Optional: the interval for refreshing metadata from the catalog, specified as a duration string with units (for example, `5m` for 5 minutes, `300s` for 300 seconds, or `1h` for 1 hour). If omitted, the refresh interval defaults to 5 minutes (`5m` or `300s`).
+     * `CROSS_CLOUD_CACHE_MODE`: Optional: whether to enable cross-cloud caching on the federated catalog (`enabled` or `disabled`). Defaults to `disabled`. When set to `enabled`, Lakehouse caches remote files in the catalog's Google Cloud region. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching).
   2. Retrieve the Google Cloud Service Account ID to provide to your SAP administrator:
          
          gcloud biglake delta-sharing catalogs describe CATALOG_ID \
@@ -255,7 +258,8 @@ Update the catalog to complete the handshake using the Google Cloud console or t
         --project="PROJECT_ID" \
         --connector-endpoint="CONNECTOR_ENDPOINT" \
         --invitation-code="INVITATION_CODE" \
-        --refresh-interval="REFRESH_INTERVAL"
+        --refresh-interval="REFRESH_INTERVAL" \
+        --cross-cloud-cache="CROSS_CLOUD_CACHE_MODE"
 
 Replace the following:
 
@@ -264,6 +268,7 @@ Replace the following:
   * `CONNECTOR_ENDPOINT`: the URL provided by the SAP administrator.
   * `INVITATION_CODE`: the code provided by the SAP administrator.
   * `REFRESH_INTERVAL`: Optional: the interval for refreshing metadata from the catalog, specified as a duration string with units (for example, `5m` for 5 minutes, `300s` for 300 seconds, or `1h` for 1 hour). If omitted, the background metadata refresh interval defaults to 5 minutes (`5m` or `300s`).
+  * `CROSS_CLOUD_CACHE_MODE`: Optional: whether to enable cross-cloud caching on the federated catalog (`enabled` or `disabled`). Defaults to `disabled`. When set to `enabled`, Lakehouse caches remote files in the catalog's Google Cloud region. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching).
 
 
 
@@ -298,6 +303,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

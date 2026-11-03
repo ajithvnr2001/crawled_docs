@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-lama-connector-planning/
 title: Connector for SAP Landscape Management planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:34.223800+00:00
+fetched_at: 2026-11-03T09:44:06.944619+00:00
 ---
 
 # Connector for SAP Landscape Management planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation

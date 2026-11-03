@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection/
 title: Configure AI Protection \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:52:52.096712+00:00
+fetched_at: 2026-11-03T09:52:47.476178+00:00
 ---
 
 # Configure AI Protection  |  Security Command Center  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-AI Protection helps you secure your AI assets and workflows by monitoring your models, data, and AI-related infrastructure. This guide describes how to configure AI Protection.
+AI Protection helps you secure your AI assets and workflows by monitoring your models, data, and AI-related infrastructure. To start detecting threats and vulnerabilities across [supported resources](https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview#supported-functional-areas), configure the required detection services and access roles for AI Protection.
+
+## Detection services
 
 AI Protection uses the following services and features. AI Protection enables some services and features automatically, but you must configure others manually.
 
@@ -594,6 +596,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

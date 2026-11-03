@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/create-subscription/
 title: Create pull subscriptions \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:51.125561+00:00
+fetched_at: 2026-11-03T09:52:47.046226+00:00
 ---
 
 # Create pull subscriptions  |  Pub/Sub  |  Google Cloud Documentation
@@ -392,13 +392,13 @@ Before trying this sample, follow the PHP setup instructions in [Quickstart: Usi
     function create_subscription($projectId, $topicName, $subscriptionName)
     {
         $pubsub = new PubSubClient([
-            'projectI>d' = $projectId,
+            'projectId' => $projectId,
         ]);
-        $topic = >$pubsub-topic($topicName);
-        $subscription => $topic-subscription($subscriptionName);
-        $subsc>ription-create();
+        $topic = $pubsub->topic($topicName);
+        $subscription = $topic->subscription($subscriptionName);
+        $subscription->create();
     
-        printf('Subscription created: %s' . PHP_EOL>, $subscription-name());
+        printf('Subscription created: %s' . PHP_EOL, $subscription->name());
     }
 
 ### Python
@@ -411,10 +411,10 @@ Before trying this sample, follow the Python setup instructions in [Quickstart: 
     # TODO(developer)
     # project_id = "your-project-id"
     # topic_id = "your-topic-id"
-    # subscription_id = "your-subscription-id["](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.publisher_client.PublisherClient.html)
+    # subscription_id = "your-subscription-id"
     
-    publisher = pubsub_v1.PublisherCl[ient](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.SubscriberClient.html)()
-    subscriber = pubsub_v1.SubscriberClient()
+    publisher = pubsub_v1.[PublisherClient](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.publisher_client.PublisherClient.html)()
+    subscriber = pubsub_v1.[SubscriberClient](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.subscriber_client.SubscriberClient.html)()
     topic_path = publisher.topic_path(project_id, topic_id)
     subscription_path = subscriber.subscription_path(project_id, subscription_id)
     
@@ -437,8 +437,8 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     # topic_id        = "your-topic-id"
     # subscription_id = "your-subscription-id"
     
-    pubs[ub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html) = Go[ogl](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)e::Cloud::PubSub.new
-    subscrip[tion_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html) = pubsub.subscription_admin
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    subscription_admin = pubsub.[subscription_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
     
     subscription = subscription_admin.create_subscription \
       name: pubsub.subscription_path(subscription_id),

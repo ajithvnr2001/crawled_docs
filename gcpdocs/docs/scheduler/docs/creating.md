@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/scheduler/docs/creating/
 title: Manage cron jobs \u00a0|\u00a0 Cloud Scheduler \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:21.506897+00:00
+fetched_at: 2026-11-03T09:42:04.961230+00:00
 ---
 
 # Manage cron jobs  |  Cloud Scheduler  |  Google Cloud Documentation
@@ -78,9 +78,9 @@ If you choose the **HTTP** target type:
 
   2. Specify the HTTP method. The default is `POST`.
 
-  3. Optionally, specify the data to be sent to the target. This data is sent in the body of the request as bytes when either the `POST` or `PUT` HTTP method is selected.
+  3. Optional: Specify the data to be sent to the target. This data is sent in the body of the request as bytes when either the `POST` or `PUT` HTTP method is selected.
 
-  4. Add any headers you need.
+  4. Optional: Add any headers you need. If your target endpoint requires an API key in the header, use the header name that your target service expects, such as `x-api-key` or `X-Goog-Api-Key`. Using `api_key` as a header name can result in authentication failures.
 
   5. To create an HTTP target job that requires authentication, see [Use authentication with HTTP targets](https://docs.cloud.google.com/scheduler/docs/http-target-auth).
 
@@ -153,7 +153,7 @@ After you delete its associated job, you can re-use a job name in a project.
 
 If you are using an App Engine HTTP target, you must choose the same region as your App Engine app. For more information, see [Supported regions by target](https://docs.cloud.google.com/scheduler/docs/overview#supported_regions_by_target).
 
-  5. Optionally, supply a brief description of the job, such as a reminder of what the job does.
+  5. Optional: Supply a brief description of the job, such as a reminder of what the job does.
 
 This description appears in the console next to the job name.
 
@@ -175,7 +175,7 @@ For example, the string `0 1 * * 0` runs the job once a week at 1 am every Sunda
 
   10. Click **Continue**.
 
-  11. Optionally, to configure any retry behavior, click **Configure optional settings**. To specify duration, use a sequence of decimal non-negative integers with the following unit suffixes:
+  11. Optional: To configure any retry behavior, click **Configure optional settings**. To specify duration, use a sequence of decimal non-negative integers with the following unit suffixes:
 
      * h - hour
      * m - minute
@@ -186,7 +186,7 @@ For example, the string `0 1 * * 0` runs the job once a week at 1 am every Sunda
 
 Negative and fractional values are not allowed. The `Max retry duration` field supports only `h` ,`m`, and `s` values. Both `Min backoff duration` and `Max backoff duration` support the full set.
 
-  12. Optionally, for HTTP and App Engine HTTP targets, configure a deadline for job attempts. If the request handler does not respond by this deadline, the request is cancelled and the attempt is marked as failed. Cloud Scheduler retries the job according to the retry config.
+  12. Optional: For HTTP and App Engine HTTP targets, configure a deadline for job attempts. If the request handler does not respond by this deadline, the request is cancelled and the attempt is marked as failed. Cloud Scheduler retries the job according to the retry config.
 
   13. To create and save the job, click **Create**.
 
@@ -226,11 +226,13 @@ For more information, see [Configure cron job schedules](https://docs.cloud.goog
 
 Other parameters are described in the [gcloud command line reference](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler/jobs/create/http):
 
-  * Optionally, specify the HTTP method. The default is `POST`.
+  * Optional: Specify the HTTP method. The default is `POST`.
 
-  * Optionally, specify the data to be sent to the target. This data is sent in the body of the request as bytes when either the `POST` or `PUT` HTTP method is selected.
+  * Optional: Specify the data to be sent to the target. This data is sent in the body of the request as bytes when either the `POST` or `PUT` HTTP method is selected.
 
-  * Optionally set the retry values, which specify how the App Engine job is to be retried in case of failure. In most cases, the defaults will be sufficient.
+  * Optional: Use the `--headers` flag to include HTTP request headers. If your target endpoint requires an API key in the header, use the header name that your target service expects, such as `x-api-key` or `X-Goog-Api-Key`. Using `api_key` as a header name can result in authentication failures.
+
+  * Optional: Set the retry values, which specify how the App Engine job is to be retried in case of failure. In most cases, the defaults will be sufficient.
 
   * To create an HTTP Target job that requires authentication, see [Using Authentication with HTTP Targets](https://docs.cloud.google.com/scheduler/docs/http-target-auth).
 
@@ -313,15 +315,15 @@ Other parameters are described in the [gcloud command line reference](https://do
 
   * Specify the name of the App Engine service that is running the handler for the Cloud Scheduler job. If omitted, the `default` service is assumed. If you want to set it, you can find the service names in the [Google Cloud console](https://console.cloud.google.com/appengine/services).
 
-  * Optionally, set the HTTP method you want to use when the job executes. The default is `POST`.
+  * Optional: Set the HTTP method you want to use when the job executes. The default is `POST`.
 
-  * Optionally, specify the version. If left unset, the currently serving version is used. You can find available versions in the [Google Cloud console](https://console.cloud.google.com/appengine/versions).
+  * Optional: Specify the version. If left unset, the currently serving version is used. You can find available versions in the [Google Cloud console](https://console.cloud.google.com/appengine/versions).
 
-  * Optionally, specify the instance. If left unset, any available instance can be used. You can find available versions in the [Google Cloud console](https://console.cloud.google.com/appengine/instances).
+  * Optional: Specify the instance. If left unset, any available instance can be used. You can find available versions in the [Google Cloud console](https://console.cloud.google.com/appengine/instances).
 
-  * Optionally, specify the data to be sent to the target. This data is sent in the body of the request as bytes when either the `POST` or `PUT` HTTP method is selected.
+  * Optional: Specify the data to be sent to the target. This data is sent in the body of the request as bytes when either the `POST` or `PUT` HTTP method is selected.
 
-  * Optionally set the retry values, which specify how the App Engine job is to be retried in case of failure. In most cases, the defaults are sufficient.
+  * Optional: Set the retry values, which specify how the App Engine job is to be retried in case of failure. In most cases, the defaults are sufficient.
 
 
 
@@ -565,6 +567,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

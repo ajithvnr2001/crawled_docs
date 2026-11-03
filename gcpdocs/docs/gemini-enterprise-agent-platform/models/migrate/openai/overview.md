@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview/
 title: Using OpenAI libraries with Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:27.362346+00:00
+fetched_at: 2026-11-03T09:52:13.163191+00:00
 ---
 
 # Using OpenAI libraries with Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ For Google models, the Chat Completions API supports the following OpenAI parame
   
 ---|---  
 `model`  
-`detail` | For models older than Gemini 3, the `detail` field must be consistent across all messages and contents (it is request-level). For Gemini 3 and onwards, this corresponds to a part-level `media_resolution`. For more information, see [Media Resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerationConfig#MediaResolution).   
+`detail` | For models earlier than Gemini 3, the `detail` field must be consistent across all messages and contents (it is request-level). For Gemini 3 and later, this corresponds to a part-level `media_resolution`. For more information, see [Media Resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerationConfig#MediaResolution).   
 `max_completion_tokens` | Alias for `max_tokens`.  
 `modalities` | Supports `audio`, `image`, and `text`.  
 `max_tokens`  
@@ -223,6 +223,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

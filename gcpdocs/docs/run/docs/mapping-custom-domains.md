@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/mapping-custom-domains/
 title: Map custom domains \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:33.608764+00:00
+fetched_at: 2026-11-03T09:44:18.407035+00:00
 ---
 
 # Map custom domains  |  Cloud Run  |  Google Cloud Documentation
@@ -308,7 +308,7 @@ To map a custom domain using Firebase Hosting:
              "hosting": {
                "rewrites": [{
                  "source": "**",
-                 ";run": {
+                 "run": {
                    "serviceId": "SERVICE_NAME",
                    "region": "REGION"
                  }

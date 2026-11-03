@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/block-enrichment-flows/
 title: Manage enrichment blocks \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:04.622006+00:00
+fetched_at: 2026-11-03T09:36:27.509324+00:00
 ---
 
 # Manage enrichment blocks  |  Google Security Operations  |  Google Cloud Documentation
@@ -128,7 +128,7 @@ After approximately 5-10 minutes, Google SecOps implements the enrichment block 
 
 This workflow demonstrates how to use an enrichment block to resolve a rule improperly triggered by unwanted data overwrites:
 
-  1. **Validate the rule** : You receive an alert and determine it was triggered improperly. You confirm the rule logic is correct—it's not a candidate for a [rule exclusion](https://docs.cloud.google.com/chronicle/docs/detection/rule-exclusions).
+  1. **Validate the rule** : You receive an alert and determine it was triggered improperly. You confirm the rule logic is correct—it's not a candidate for a [rule exclusion](https://docs.cloud.google.com/chronicle/docs/investigation/alert-suppression#suppress-rule-exclusions).
   2. **Identify the log source** : You review the alert and realize the trigger conditions were met by a CrowdStrike log.
   3. **Investigate the enrichment source** : Use the [Event Viewer](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#event-viewer) to identify which external source modified the critical field. The following steps show one way to open the Event Viewer (but there are alternative steps): 
 
@@ -149,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

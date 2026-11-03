@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-live-api/
 title: Use RAG Engine on Gemini Enterprise Agent Platform in Gemini Live API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:12.714416+00:00
+fetched_at: 2026-11-03T09:53:12.955965+00:00
 ---
 
 # Use RAG Engine on Gemini Enterprise Agent Platform in Gemini Live API  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 Some of the RAG features are Experimental offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms). Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [ launch stage descriptions](https://cloud.google.com/products#product-launch-stages). 
 
-The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 Retrieval-augmented generation (RAG) is a technique that's used to retrieve and provide relevant information to LLMs to generate verifiable responses. The information can include fresh information, a topic and context, or ground truth.
 
@@ -46,7 +46,7 @@ The following prerequisites must be completed before you can use RAG Engine with
 
 ## Set up
 
-You can use RAG Engine with the Live API by specifying RAG Engine as a tool. The following code sample demonstrates how to specify RAG Engine as a tool:
+You can use RAG Engine with Gemini Live API by specifying RAG Engine as a tool. The following code sample demonstrates how to specify RAG Engine as a tool:
 
 Replace the following variables:
 
@@ -189,7 +189,7 @@ To learn how to install the generative AI SDK, see [Install a library](https://a
 
 ## Use RAG Engine as the context store
 
-You can use RAG Engine as the context store for Gemini Live API to store session context to form and retrieve past contexts that are related to your conversation and enrich the current context for model generation. You can also take advantage of this feature to share contexts across your different Live API sessions.
+You can use RAG Engine as the context store for Gemini Live API to store session context to form and retrieve past contexts that are related to your conversation and enrich the current context for model generation. You can also take advantage of this feature to share contexts across your different Gemini Live API sessions.
 
 RAG Engine supports storing and indexing the following forms of data from session contexts:
 
@@ -200,7 +200,7 @@ RAG Engine supports storing and indexing the following forms of data from sessio
 
 ### Create a MemoryCorpus type corpus
 
-To store and index conversation texts from the session context, you must create a RAG corpus of the `MemoryCorpus` type. You must also specify an LLM parser in your memory corpus configuration that's used to parse session contexts stored from the Live API to build memory for indexing.
+To store and index conversation texts from the session context, you must create a RAG corpus of the `MemoryCorpus` type. You must also specify an LLM parser in your memory corpus configuration that's used to parse session contexts stored from Gemini Live API to build memory for indexing.
 
 This code sample demonstrates how to create a corpus. However, first replace the variables with values.
     
@@ -231,7 +231,7 @@ This code sample demonstrates how to create a corpus. However, first replace the
 
 ### Specify your memory corpus to store contexts
 
-When using your memory corpus with the Live API, you must specify the memory corpus as a retrieval tool and then set `store_context` to `true` to allow the Live API to store the session contexts.
+When using your memory corpus with Gemini Live API, you must specify the memory corpus as a retrieval tool and then set `store_context` to `true` to allow Gemini Live API to store the session contexts.
 
 This code sample demonstrates how to specify your memory corpus to store contexts. However, first replace the variables with values.
     
@@ -298,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

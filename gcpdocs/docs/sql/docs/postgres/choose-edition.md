@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/choose-edition/
 title: Choose a Cloud SQL edition \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:11.335522+00:00
+fetched_at: 2026-11-03T09:53:03.695155+00:00
 ---
 
 # Choose a Cloud SQL edition  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -29,11 +29,26 @@ When you create a new instance, you must choose a Cloud SQL edition. The edition
 Cloud SQL for PostgreSQL editions use a tier-based pricing model. Each edition provides different performance, availability, observability, and data protection characteristics to support your business and application needs. Cloud SQL offers the following editions:
 
   * **Cloud SQL Enterprise Plus edition** : provides enhanced performance, availability, and observability to run applications. This edition also includes the core capabilities of Cloud SQL.
+
   * **Cloud SQL Enterprise edition** : provides all core capabilities of Cloud SQL and is suitable for applications with less stringent availability and performance requirements.
 
 
 
+
 For details about Cloud SQL editions and the enhancements offered by the Cloud SQL Enterprise Plus edition, see [Cloud SQL editions overview](https://docs.cloud.google.com/sql/docs/postgres/editions-intro).
+
+## Default Cloud SQL edition
+
+If you don't specify an edition when you create a primary instance using the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) or the Cloud SQL Admin API, then the default Cloud SQL edition depends on the database version of the instance:
+
+  * **Cloud SQL Enterprise Plus edition (`ENTERPRISE_PLUS`)**: PostgreSQL 16, PostgreSQL 17, and PostgreSQL 18 (`POSTGRES_16`, `POSTGRES_17`, and `POSTGRES_18`).
+
+  * **Cloud SQL Enterprise edition (`ENTERPRISE`)**: PostgreSQL 9.6, PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, and PostgreSQL 15 (`POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11`, `POSTGRES_12`, `POSTGRES_13`, `POSTGRES_14`, and `POSTGRES_15`).
+
+
+
+
+In the Google Cloud console, Cloud SQL Enterprise Plus edition is selected by default when you create a new primary instance. When you create a read replica without specifying an edition, the read replica inherits the Cloud SQL edition of its primary instance.
 
 ## Cloud SQL key features
 
@@ -41,7 +56,7 @@ The following table provides an overview of key feature enhancements available i
 
 | **Cloud SQL Enterprise Plus edition** | **Cloud SQL Enterprise edition**  
 ---|---|---  
-**[Database versions](https://docs.cloud.google.com/sql/docs/db-versions)** | PostgreSQL 12, 13, 14, 15, 16, 17, 18 **Note:** If the database version for your instance is PostgreSQL 16 or later, then the default Cloud SQL edition is Enterprise Plus. | PostgreSQL 9.6, 10, 11, 12, 13, 14, 15, 16, 17, 18  
+**[Database versions](https://docs.cloud.google.com/sql/docs/db-versions)** | PostgreSQL 12, 13, 14, 15, 16, 17, 18 **Note:** If the database version for your instance is PostgreSQL 16 or later, then the default Cloud SQL edition is Enterprise Plus. | PostgreSQL 9.6, 10, 11, 12, 13, 14, 15, 16, 17, 18 **Note:** If the database version for your instance is PostgreSQL 15 or earlier, then the default Cloud SQL edition is Enterprise.  
 **[Availability SLA](https://cloud.google.com/sql/sla)** | 99.99% (includes maintenance) | 99.95% (excludes maintenance)  
 **_Performance_**  
 **[Machine series](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview)** | N2  
@@ -120,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

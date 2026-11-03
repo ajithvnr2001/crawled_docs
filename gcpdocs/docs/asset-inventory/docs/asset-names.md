@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-names/
 title: Asset names \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:40:23.557389+00:00
+fetched_at: 2026-11-03T09:42:40.718976+00:00
 ---
 
 # Asset names  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -763,6 +763,11 @@ Resource type | Name format
 ` oracledatabase.googleapis.com/AutonomousDatabase ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/autonomousDatabases/AUTONOMOUS_DATABASE_ID`  
 ` oracledatabase.googleapis.com/CloudExadataInfrastructure ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/cloudExadataInfrastructures/EXADATA_INFRASTRUCTURE_ID`  
 ` oracledatabase.googleapis.com/CloudVmCluster ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/cloudVmClusters/VM_CLUSTER_ID`  
+` oracledatabase.googleapis.com/DbSystem ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/dbSystems/DB_SYSTEM_ID`  
+` oracledatabase.googleapis.com/ExadbVmCluster ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/exadbVmClusters/EXADB_VM_CLUSTER_ID`  
+` oracledatabase.googleapis.com/ExascaleDbStorageVault ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/exascaleDbStorageVaults/EXASCALE_DB_STORAGE_VAULT_ID`  
+` oracledatabase.googleapis.com/OdbNetwork ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/odbNetworks/ODB_NETWORK_ID`  
+` oracledatabase.googleapis.com/OdbSubnet ` |  `//oracledatabase.googleapis.com/projects/PROJECT_ID/locations/LOCATION/odbNetworks/ODB_NETWORK_ID/odbSubnets/ODB_SUBNET_ID`  
 ` orgpolicy.googleapis.com/CustomConstraint ` |  `//orgpolicy.googleapis.com/organizations/ORGANIZATION_ID/customConstraints/CUSTOM_CONSTRAINT`  
 ` orgpolicy.googleapis.com/Policy ` |  `//orgpolicy.googleapis.com/folders/FOLDER_ID/policies/POLICY`   
   
@@ -972,6 +977,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-31 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

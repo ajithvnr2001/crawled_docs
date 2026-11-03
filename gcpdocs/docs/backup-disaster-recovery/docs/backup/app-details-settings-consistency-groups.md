@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/backup/app-details-settings-consistency-groups/
-title: Configure application details and settings for consistency groups in the appliance management console \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
+title: Configure application details and settings for consistency groups in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:45.161887+00:00
+fetched_at: 2026-11-03T09:53:53.891767+00:00
 ---
 
-# Configure application details and settings for consistency groups in the appliance management console  |  Backup and DR  |  Google Cloud Documentation
+# Configure application details and settings for consistency groups in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/backup-disaster-recovery/docs/backup/app-details-settings-consistency-groups/
 
@@ -13,7 +13,7 @@ fetched_at: 2026-10-27T16:23:45.161887+00:00
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Storage ](https://docs.cloud.google.com/docs/storage)
   * [ Backup and DR ](https://docs.cloud.google.com/backup-disaster-recovery/docs)
-  * [ Guides ](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr)
+  * [ Backup and DR for the management console ](https://docs.cloud.google.com/backup-disaster-recovery/management-console/concepts/backupdr-for-workloads)
 
 
 
@@ -21,7 +21,7 @@ Send feedback
 
 #  Configure application details and settings for consistency groups in the appliance management console Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations).
+**Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations) in the Backup and DR documentation. 
 
 From the **Application Details & Settings** page—accessed through **Details & Settings**—you can modify application-specific settings when managing a consistency group data capture. Application settings may be useful or required in certain circumstances. After you configure your application settings, click **Save Changes**.
 
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

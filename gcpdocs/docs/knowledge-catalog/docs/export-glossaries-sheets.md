@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/export-glossaries-sheets/
 title: Export business glossaries to a Google Sheet \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:24.279425+00:00
+fetched_at: 2026-11-03T09:53:47.753375+00:00
 ---
 
 # Export business glossaries to a Google Sheet  |  Knowledge Catalog  |  Google Cloud Documentation

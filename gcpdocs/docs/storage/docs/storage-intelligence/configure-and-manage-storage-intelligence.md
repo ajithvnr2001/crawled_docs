@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/storage-intelligence/configure-and-manage-storage-intelligence/
 title: Configure and manage Storage Intelligence \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:39:10.872562+00:00
+fetched_at: 2026-11-03T09:42:03.471699+00:00
 ---
 
 # Configure and manage Storage Intelligence  |  Google Cloud Documentation

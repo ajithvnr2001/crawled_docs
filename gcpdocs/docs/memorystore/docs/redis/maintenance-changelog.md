@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/maintenance-changelog/
 title: Memorystore for Redis maintenance changelogs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:19.156266+00:00
+fetched_at: 2026-11-03T09:53:43.756362+00:00
 ---
 
 # Memorystore for Redis maintenance changelogs  |  Google Cloud Documentation
@@ -849,10 +849,8 @@ All Redis instances | Set the Redis host OS version to [cos-121-18867-381-1](htt
 
 ## 20251110_01_00
 
-**Date released** | **Release type**  
----|---  
-2025-11-18 | Self-service  
-  
+**Date released** : 2025-11-18
+
 ### Summary
 
 Covered instances | Summary  
@@ -869,10 +867,8 @@ All Redis instances that have versions earlier than 7.0. | Contains an update to
 
 ## 20251007_00_00
 
-**Date released** | **Release type**  
----|---  
-2025-10-08 | Self-service  
-  
+**Date released** : 2025-10-08
+
 ### Summary
 
 Covered instances | Summary  
@@ -892,10 +888,8 @@ All Redis instances | Refresh all versions of the Redis binary to address the CV
 
 ## 20250806_01_00
 
-**Date released** | **Release type**  
----|---  
-2025-08-29 | Self-service  
-  
+**Date released** : 2025-08-29
+
 ### Summary
 
 Covered instances | Summary  
@@ -929,10 +923,8 @@ All Redis instances | Refresh the Redis host OS version and the Redis binary to 
 
 ## 20250701_00_01
 
-**Date released** | **Release type**  
----|---  
-2025-07-23 | Self-service  
-  
+**Date released** : 2025-07-23
+
 ### Summary
 
 Covered instances | Summary  
@@ -1158,10 +1150,8 @@ All Redis instances | Refresh the Redis host OS version and sidecar processes to
 
 ## 20250326_00_00
 
-**Date released** | **Release type**  
----|---  
-2025-03-26 | Self-service  
-  
+**Date released** : 2025-03-26
+
 ### Summary
 
 Covered instances | Summary  
@@ -1328,10 +1318,8 @@ All Redis instances | Refresh the Redis host OS version and the Redis binary to 
 
 ## 20241107_00_00
 
-**Date released** | **Release type**  
----|---  
-2024-12-17 | Self-service  
-  
+**Date released** : 2024-12-17
+
 ### Summary
 
 Covered instances | Summary  
@@ -1489,10 +1477,8 @@ All Redis instances | Refresh the Redis host OS version to address the CVEs list
 
 ## 20240724_00_00
 
-**Date released** | **Release type**  
----|---  
-2024-08-21 | Self-service  
-  
+**Date released** : 2024-08-21
+
 ### Summary
 
 Covered instances | Summary  
@@ -1515,10 +1501,8 @@ All Redis instances | Refresh the Redis host OS version to address the CVEs list
 
 ## 20240503_00_00
 
-**Date released** | **Release type**  
----|---  
-2024-05-10 | Self-service  
-  
+**Date released** : 2024-05-10
+
 ### Summary
 
 Covered instances | Summary  
@@ -1547,10 +1531,8 @@ All Redis instances | Refresh the Redis Debian OS version to address the CVEs li
 
 ## 20240411_00_00
 
-**Date released** | **Release type**  
----|---  
-2024-04-12 | Self-service  
-  
+**Date released** : 2024-04-12
+
 ### Summary
 
 Covered instances | Summary  
@@ -1559,10 +1541,8 @@ Redis 7.2 instances only | Add reliability and performance improvements for [vec
   
 ## 20240328_00_00
 
-**Date released** | **Release type**  
----|---  
-2024-03-28 | Self-service  
-  
+**Date released** : 2024-03-28
+
 ### Summary
 
 Covered instances | Summary  
@@ -1571,10 +1551,8 @@ Redis 7.2 instances only | Add reliability and performance improvements for [vec
   
 ## 20240220_00_00
 
-**Date released** | **Release type**  
----|---  
-2024-02-20 | Self-service  
-  
+**Date released** : 2024-02-20
+
 ### Summary
 
 Covered instances | Summary  
@@ -1659,10 +1637,8 @@ All Redis instances |
 
 ## 20231114_00_00
 
-**Date released** | **Release type**  
----|---  
-2023-11-14 | Self-service  
-  
+**Date released** : 2023-11-14
+
 ### Summary
 
 Covered instances | Summary  
@@ -1746,10 +1722,8 @@ All Redis instances |  Set the Redis host OS version to [cos-105-17412-226-10](h
 
 ## 20230821_00_00
 
-**Date released** | **Release type**  
----|---  
-2023-08-21 | Automatic maintenance  
-  
+**Date released** : 2023-08-21
+
 ### Summary
 
 Covered instances | Summary  
@@ -1804,10 +1778,8 @@ All Redis instances |
 
 ## 20230727_00_00
 
-**Date released** | **Release type**  
----|---  
-2023-07-27 | Self-service  
-  
+**Date released** : 2023-07-27
+
 ### Summary
 
 Covered instances | Summary  
@@ -1881,10 +1853,8 @@ All Redis instances |  Set the Redis host OS version to [cos-105-17412-156-4](ht
 
 ## 20230508_00_00
 
-**Date released** | **Release type**  
----|---  
-2023-05-08 | Automatic maintenance  
-  
+**Date released** : 2023-05-08
+
 ### Summary
 
 Covered instances | Summary  
@@ -1991,10 +1961,8 @@ All Redis instances |  Set the Redis host OS version to [cos-105-17412-1-71](htt
 
 ## 20230322_00_00
 
-**Date released** | **Release type**  
----|---  
-2023-03-29 | Self-service  
-  
+**Date released** : 2023-03-29
+
 ### Summary
 
 Covered instances | Summary  
@@ -2316,6 +2284,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

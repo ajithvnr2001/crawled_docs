@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/cud/
 title: Compute flexible committed use discounts \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:33.294389+00:00
+fetched_at: 2026-11-03T09:54:38.338570+00:00
 ---
 
 # Compute flexible committed use discounts  |  Cloud Run  |  Google Cloud Documentation
@@ -21,18 +21,7 @@ Send feedback
 
 #  Compute flexible committed use discounts Stay organized with collections  Save and categorize content based on your preferences. 
 
-_Compute flexible committed use discounts (flexible CUDs)_ for Cloud Run provide discounted prices in exchange for committing to continuously use Cloud Run for a specified term. Google supports your CUD purchases for the duration of their term.
-
-Depending on your usage requirements, you can purchase flexible CUDs for Cloud Run resources. You can also purchase flexible CUDs if you have predictable spend on any of the following products:
-
-  * Cloud Run
-  * GKE Standard
-  * GKE Autopilot
-  * Compute Engine
-
-
-
-Flexible CUDs apply to any region and any project in a Cloud Billing account. For details on discounts, see Pricing. For more information about discounts on non-Cloud Run products, see [Compute flexible CUD discounts](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#applicable_discounts).
+Compute flexible committed use discounts (flexible CUDs) provide discounted rates in exchange for a commitment to continuous spend on Cloud Run, Google Kubernetes Engine, or Compute Engine. These discounts apply across any region and project in a Cloud Billing account. To view Cloud Run rates, see Pricing, or explore [Compute flexible CUD discounts](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#applicable_discounts) for other products.
 
 ## Purchase commitments
 
@@ -147,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

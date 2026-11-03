@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/vm-limits/
 title: VM Runtime on GDC limits \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:02.828320+00:00
+fetched_at: 2026-11-03T09:52:43.103637+00:00
 ---
 
 # VM Runtime on GDC limits  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,13 +22,13 @@ Send feedback
 
 #  VM Runtime on GDC limits Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides basic scaling information for VMs running on an installation of Distributed Cloud software only for bare metal. The information provided doesn't indicate hard limits or guaranteed thresholds for the product or your installation. The information is intended to help you determine whether VM Runtime on GDC can meet your computing requirements.
+Tested scaling guidelines for VM Runtime on GDC help you plan VM deployments and evaluate cluster capacity on Distributed Cloud software only for bare metal. Because actual capacity depends on your workloads and hardware resources, these figures represent tested benchmarks rather than hard platform limits or guaranteed thresholds.
 
 For information about quotas, limits, and scaling for Google Distributed Cloud, see [Quotas and limits](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/limits).
 
 ## Maximum VM scaling
 
-We have determined through extensive testing that you can run reliably as many as 500 VMs concurrently on a cluster with 50 nodes. 
+We have determined through extensive testing that you can run reliably as many as 500 VMs concurrently on a cluster with 50 nodes.
 
 ## Resource usage
 
@@ -49,6 +49,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

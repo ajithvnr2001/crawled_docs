@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/listing-all-resources/
 title: List all projects and folders in your hierarchy \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:54.364228+00:00
+fetched_at: 2026-11-03T09:54:55.551257+00:00
 ---
 
 # List all projects and folders in your hierarchy  |  Resource Manager  |  Google Cloud Documentation
@@ -21,20 +21,7 @@ Send feedback
 
 #  List all projects and folders in your hierarchy Stay organized with collections  Save and categorize content based on your preferences. 
 
-Resources in Google Cloud are organized into a [hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy), with each node (Organizations, Folders, Projects, and so forth) having a reference to its parent. You can use that reference as a key filter term for scans to improve the consistency of resource searches.
-
-You can grant users permissions using [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles). These roles operate on the principle of least privilege, and generally provide only the minimum necessary permissions required to do a particular task.
-
-This scheme can be useful for isolating different user groups. For example:
-
-  * A large company with departments that shouldn't be able to inspect the resources of their peers.
-  * Contractors who are given permissions to a specific Project, but no other resources.
-
-
-
-As a result of their restricted permissions, however, custom roles may cause many resources in your hierarchy to be omitted when executing a list operation. When performing searches as a user that has been granted a custom role, it can be difficult to tell why certain resources are not appearing.
-
-To avoid this scenario, this page discusses the best practices for listing all of the resources managed by the Cloud Resource Manager API in your resource hierarchy. You can use this guidance to configure custom audit checks, or to create your own user experience on top of the Cloud Resource Manager API.
+The Cloud Resource Manager API lets you discover and catalog every folder and project across your Google Cloud [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). This visibility helps you conduct audit checks and build custom management tools. Standard list operations can omit resources when users have restricted [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles). You can filter your queries by parent references to get consistent search results and identify nodes that least-privilege permissions might otherwise hide.
 
 ## List all resource nodes
 
@@ -145,6 +132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

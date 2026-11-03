@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-usage/docs/public-vs-private/
 title: Public and private services \u00a0|\u00a0 Service Usage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:23.187099+00:00
+fetched_at: 2026-11-03T09:52:46.110750+00:00
 ---
 
 # Public and private services  |  Service Usage  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ Public APIs and services are globally visible across all Google Cloud projects. 
 
 
 
-You need the appropriate permissions to list or use public APIs and services in a Google Cloud project. For example, to enable a service, you need the `serviceusage.services.enable` [Identity and Access Management](https://docs.cloud.google.com/iam) permission. To learn about the required IAM permissions for Service Usage, see [Access control with IAM](https://docs.cloud.google.com/service-usage/docs/access-control).
+You need the appropriate [Identity and Access Management](https://docs.cloud.google.com/iam) permissions to list or use public APIs and services in a Google Cloud project. For example, to enable a service, you need the `serviceusage.services.enable` permission. For a list of permissions related to Service Usage and IAM roles that contain them, see [Service Usage roles and permissions](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage).
 
 ## Private APIs and services
 
@@ -45,7 +45,7 @@ Private services are typically APIs implemented using [Cloud Endpoints](https://
 
 
 
-You must also have the appropriate IAM permissions to list or use private APIs and services. For example, to call the [`services.enable`](https://docs.cloud.google.com/service-usage/docs/reference/rest/v1/services/enable) method for a private service, the `servicemanagement.services.bind` permission is required. To learn about the necessary permissions for Service Usage, see [Access control with IAM](https://docs.cloud.google.com/service-usage/docs/access-control).
+You must also have the appropriate IAM permissions to list or use private APIs and services. For example, to call the [`services.enable`](https://docs.cloud.google.com/service-usage/docs/reference/rest/v1/services/enable) method for a private service, the `servicemanagement.services.bind` permission is required. For a list of permissions related to Service Usage and IAM roles that contain them, see [Service Usage roles and permissions](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage).
 
 When you list available or enabled APIs and services in a Google Cloud project, the results include any public and private APIs you have access to. To learn more about listing enabled and available services in your Google Cloud projects, see [List services](https://docs.cloud.google.com/service-usage/docs/list-services).
 
@@ -53,6 +53,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

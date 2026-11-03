@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/vertex-ai-overview/
 title: Vertex AI overview \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:38.082564+00:00
+fetched_at: 2026-11-03T09:44:04.185761+00:00
 ---
 
 # Vertex AI overview  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Vertex AI overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Vertex AI on Google Distributed Cloud (GDC) air-gapped appliance brings the power of a machine learning (ML) and artificial intelligence (AI) platform to your secure portable device. GDC air-gapped appliance provides access to a select set of pre-trained Vertex AI APIs, enabling AI capabilities in your private cloud solution.
+Vertex AI on Google Distributed Cloud (GDC) air-gapped appliance lets you run machine learning (ML) and artificial intelligence (AI) workloads on a secure portable device. The appliance provides access to a select set of pre-trained APIs, so you can integrate speech, translation, and text recognition into your private cloud solution.
 
 ## Key features
 
@@ -121,6 +121,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

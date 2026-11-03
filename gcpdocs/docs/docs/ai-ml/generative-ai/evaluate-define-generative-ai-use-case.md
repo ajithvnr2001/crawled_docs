@@ -1,18 +1,17 @@
 ---
 url: https://docs.cloud.google.com/docs/ai-ml/generative-ai/evaluate-define-generative-ai-use-case/
-title: Evaluate and define your generative AI business use case \u00a0|\u00a0 Generative AI \u00a0|\u00a0 Google Cloud Documentation
+title: Evaluate and define your generative AI business use case \u00a0|\u00a0 AI and ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:58.508573+00:00
+fetched_at: 2026-11-03T09:53:12.601011+00:00
 ---
 
-# Evaluate and define your generative AI business use case  |  Generative AI  |  Google Cloud Documentation
+# Evaluate and define your generative AI business use case  |  AI and ML  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/docs/ai-ml/generative-ai/evaluate-define-generative-ai-use-case/
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ AI and ML ](https://docs.cloud.google.com/docs/ai-ml)
-  * [ Generative AI ](https://docs.cloud.google.com/docs/generative-ai)
   * [ Guides ](https://docs.cloud.google.com/docs/ai-ml/generative-ai/generative-ai-or-traditional-ai)
 
 
@@ -118,7 +117,7 @@ Generative AI abilities also help organizations to drive more work efficiencies 
 
 ## What's next
 
-  * Learn about how generative AI might apply to your use case in [Generative AI examples](https://docs.cloud.google.com/use-cases/generative-ai).
+  * Learn about how generative AI might apply to your use case in [Generative AI examples](https://cloud.google.com/use-cases/generative-ai).
   * Learn more about the stages of developing a generative AI application and choose the best products and tools for your use case in [Build a generative AI application on Google Cloud](https://docs.cloud.google.com/docs/ai-ml/generative-ai).
   * Assess your AI capabilities and create a roadmap to harness its potential with the [AI Readiness Workshop](https://docs.cloud.google.com/consulting/ai-readiness-workshop).
 
@@ -128,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

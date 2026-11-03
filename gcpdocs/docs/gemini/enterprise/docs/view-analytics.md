@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/view-analytics/
 title: View and export analytics data \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:43.264012+00:00
+fetched_at: 2026-11-03T09:36:32.370054+00:00
 ---
 
 # View and export analytics data  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -239,7 +239,7 @@ For more information, see [Specify a multi-region for your data store](https://d
      * `BIGQUERY_DATASET_ID`: the ID of the BigQuery dataset you created.   
 The dataset ID follows the `<PROJECT_ID>.<DATASET_ID>` format. You only need to provide the `<DATASET_ID>`.
      * `BIGQUERY_TABLE_ID`: the ID of the BigQuery table you created.   
-In the **Classic explorer** view, the table ID follows the `<PROJECT_ID>.<DATASET_ID>.<TABLE_ID>` format. You only need to provide the `<TABLE_ID>`.
+In the **Data** pane, the table ID follows the `<PROJECT_ID>.<DATASET_ID>.<TABLE_ID>` format. You only need to provide the `<TABLE_ID>`.
 **Note:** If you want to export metrics data again and retain the previously exported data, create a new BigQuery table and update the `BIGQUERY_TABLE_ID` before calling the `analytics:exportMetrics` method.
 
 The response includes the operation name and ID. Note the operation ID to use in the next step.   
@@ -354,6 +354,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

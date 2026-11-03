@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/continuous-queries/
 title: Create continuous queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:38.928894+00:00
+fetched_at: 2026-11-03T09:52:00.413686+00:00
 ---
 
 # Create continuous queries  |  BigQuery  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This document describes how to run a [continuous query](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction) in BigQuery.
 
-BigQuery continuous queries are SQL statements that run continuously and process data in near real-time. You can write or export the output rows produced by a continuous query to the following destinations:
+BigQuery continuous queries are SQL statements that run continuously and process data in near real-time. You can use continuous queries to read incoming data from standard BigQuery tables or [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), and write or export the output rows produced by a continuous query to the following destinations:
 
   * BigQuery tables
   * [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery)
@@ -74,7 +74,7 @@ To write data to a BigQuery table, the user account must have the `bigquery.tabl
 
 If the user account must enable the APIs required for your continuous query use case, the user account must have the [Service Usage Admin (`roles/serviceusage.serviceUsageAdmin`)](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) role.
 
-To write data to [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), in addition to the BigQuery permissions, the user account must also have the [BigQuery Connection User (`roles/bigquery.connectionUser`)](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.connectionUser) role to use the Google Cloud resource connection associated with the Iceberg managed table. Furthermore, the service account associated with that connection must have the appropriate permissions (for example, [`roles/storage.objectUser`](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser) and `roles/storage.legacyBucketReader`) on the underlying Cloud Storage bucket. For more information, see [Create and use Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery). 
+To read data from or write data to [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), in addition to the BigQuery permissions, the user account must also have the [BigQuery Connection User (`roles/bigquery.connectionUser`)](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.connectionUser) role to use the Google Cloud resource connection associated with the Iceberg managed table. Furthermore, the service account associated with that connection must have the appropriate permissions (for example, [`roles/storage.objectUser`](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser) and `roles/storage.legacyBucketReader`) on the underlying Cloud Storage bucket. For more information, see [Create and use Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery). 
 
 ### Permissions when using a service account
 
@@ -109,7 +109,7 @@ To write data to a BigQuery table, the service account must have the `bigquery.t
   * [BigQuery Data Owner (`roles/bigquery.dataOwner`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataOwner)
   * [BigQuery Admin (`roles/bigquery.admin`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.admin)
 
-To write data to [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), in addition to the BigQuery permissions, the service account must also have the [BigQuery Connection User (`roles/bigquery.connectionUser`)](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.connectionUser) role to use the Google Cloud resource connection associated with the Iceberg managed table. Furthermore, the service account associated with that connection must have the appropriate permissions (for example, [`roles/storage.objectUser`](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser) and `roles/storage.legacyBucketReader`) on the underlying Cloud Storage bucket. For more information, see [Create and use Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery). 
+To read data from or write data to [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), in addition to the BigQuery permissions, the service account must also have the [BigQuery Connection User (`roles/bigquery.connectionUser`)](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.connectionUser) role to use the Google Cloud resource connection associated with the Iceberg managed table. Furthermore, the service account associated with that connection must have the appropriate permissions (for example, [`roles/storage.objectUser`](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser) and `roles/storage.legacyBucketReader`) on the underlying Cloud Storage bucket. For more information, see [Create and use Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery). 
 
 ## Before you begin
 
@@ -209,7 +209,7 @@ Don't provide an `end_timestamp` argument to the `APPENDS` function when you use
 
 **Note:** When used in a continuous query, the `APPENDS` function is considered to be at the [General Availability](https://cloud.google.com/products#product-launch-stages) (GA) launch stage.
 
-The following example shows how to start a continuous query from a particular point in time by using the `APPENDS` function, when querying a BigQuery table that is receiving streaming taxi ride information:
+The following example shows how to start a continuous query from a particular point in time by using the `APPENDS` function, when querying a BigQuery table or Iceberg managed table that is receiving streaming taxi ride information:
     
     
     EXPORT DATA
@@ -744,6 +744,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

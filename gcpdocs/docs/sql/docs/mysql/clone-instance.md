@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/clone-instance/
 title: Clone instances \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:09.886999+00:00
+fetched_at: 2026-11-03T09:53:08.421699+00:00
 ---
 
 # Clone instances  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -130,7 +130,7 @@ If you're using the `--preferred-zone` and `--preferred-secondary-zone` paramete
 
 
 
-To run the `gcloud sql instances clone` command, you must have the `[cloudsql.instances.clone](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` permission. For more information about required permissions to run [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) commands, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+To run the `gcloud sql instances clone` command, you must have the `[cloudsql.instances.clone](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` and `[cloudsql.instances.create](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` permissions. For more information about required permissions to run [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) commands, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 **Note:** If you want to clone an instance that has [Private Service Connect](https://docs.cloud.google.com/sql/docs/mysql/about-private-service-connect) enabled for it, then you don't need to specify the `enable-private-service-connect`, `allowed-psc-projects`, and `no-assign-ip` flags. The cloned instance inherits these flags from the source instance.
 
@@ -326,7 +326,7 @@ If you're using the `preferredZone` and `preferredSecondaryZone` parameters, the
 
 
 
-To use the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances/clone) API method, you must have the `[cloudsql.instances.clone](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` permission. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+To use the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances/clone) API method, you must have the `[cloudsql.instances.clone](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` and `[cloudsql.instances.create](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` permissions. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 **Note:** If you want to clone an instance that has [Private Service Connect](https://docs.cloud.google.com/sql/docs/mysql/about-private-service-connect) enabled for it, then you don't need to specify the `allowedConsumerProjects` and `pscEnabled` flags. The cloned instance inherits these flags from the source instance.
 
@@ -421,7 +421,7 @@ If you're using the `preferredZone` and `preferredSecondaryZone` parameters, the
 
 
 
-To use the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method, you must have the `[cloudsql.instances.clone](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` permission. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+To use the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method, you must have the `[cloudsql.instances.clone](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` and `[cloudsql.instances.create](https://docs.cloud.google.com/sql/docs/mysql/iam-roles#permissions-roles)` permissions. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 **Note:** If you want to clone an instance that has [Private Service Connect](https://docs.cloud.google.com/sql/docs/mysql/about-private-service-connect) enabled for it, then you don't need to specify the `allowedConsumerProjects` and `pscEnabled` flags. The cloned instance inherits these flags from the source instance.
 
@@ -437,7 +437,7 @@ Clone the instance, optionally specifying the allocated IP range you want to use
     gcloud sql instances clone SOURCE_INSTANCE_NAME TARGET_INSTANCE_NAME \
     --allocated-ip-range-name ALLOCATED_IP_RANGE_NAME
 
-The user or service account that's running the `gcloud sql instances clone` command must have the `cloudsql.instances.clone` permission. For more information about required permissions to run [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) commands, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+The user or service account that's running the `gcloud sql instances clone` command must have the `cloudsql.instances.clone` and `cloudsql.instances.create` permissions. For more information about required permissions to run [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) commands, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 ### REST v1
 
@@ -520,7 +520,7 @@ You should receive a JSON response similar to the following:
     }
     
 
-The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method must have the `cloudsql.instances.clone` permission. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances/clone) API method must have the `cloudsql.instances.clone` and `cloudsql.instances.create` permissions. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 ### REST v1beta4
 
@@ -603,7 +603,7 @@ You should receive a JSON response similar to the following:
     }
     
 
-The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method must have the `cloudsql.instances.clone` permission. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method must have the `cloudsql.instances.clone` and `cloudsql.instances.create` permissions. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 If you don't specify an allocated IP range, the following behavior is applied:
 
@@ -623,6 +623,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

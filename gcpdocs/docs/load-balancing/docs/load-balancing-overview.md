@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview/
 title: Cloud Load Balancing overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:32:17.850671+00:00
+fetched_at: 2026-11-03T09:54:19.400743+00:00
 ---
 
 # Cloud Load Balancing overview  |  Google Cloud Documentation
@@ -54,8 +54,8 @@ Cloud Load Balancing offers the following load balancer features:
 It also includes the following integrations:
 
     * Integration with [Cloud CDN](https://docs.cloud.google.com/cdn) for cached content delivery. Cloud CDN is supported with the global external Application Load Balancer and the classic Application Load Balancer.
-  * Integration with [Google Cloud Armor](https://docs.cloud.google.com/armor) to protect your infrastructure from distributed denial-of-service (DDoS) attacks and other targeted application attacks. For more information about Cloud Armor features that are available for load balancers, see [Cloud Armor overview](https://docs.cloud.google.com/armor/docs/cloud-armor-overview).
-
+    * Integration with [Google Cloud Armor](https://docs.cloud.google.com/armor) to protect your infrastructure from distributed denial-of-service (DDoS) attacks and other targeted application attacks. For more information about Cloud Armor features that are available for load balancers, see [Cloud Armor overview](https://docs.cloud.google.com/armor/docs/cloud-armor-overview).
+    * Integration with [Cloud Trace](https://docs.cloud.google.com/trace/docs/overview) for end-to-end distributed tracing based on OpenTelemetry and W3C Trace Context. You configure tracing to a load balancer's forwarding rule by using a telemetry policy. Distributed tracing is supported on global external Application Load Balancers, regional external Application Load Balancers, regional internal Application Load Balancers, and cross-region internal Application Load Balancers ([Preview](https://cloud.google.com/products#product-launch-stages)). For more information, see [Distributed tracing overview](https://docs.cloud.google.com/load-balancing/docs/distributed-tracing-overview).
 
 
 
@@ -299,6 +299,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

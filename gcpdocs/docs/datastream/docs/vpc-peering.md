@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/vpc-peering/
 title: Configure VPC peering \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:51.570125+00:00
+fetched_at: 2026-11-03T09:54:26.410973+00:00
 ---
 
 # Configure VPC peering  |  Datastream  |  Google Cloud Documentation
@@ -50,14 +50,14 @@ To establish connectivity between Datastream and a resource that's only accessib
 Before you create a private connectivity configuration, you need to take the following steps so that Datastream can create the VPC peering connection to your project:
 
   * Have a VPC network that can peer to Datastream's private network and that meets the requirements described in the [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) page. For more information about creating this network, see [Using VPC Network Peering](https://docs.cloud.google.com/vpc/docs/using-vpc-peering).
-  * Identify an available IP range (with a CIDR block of /29) on the VPC network. This can't be an IP range that already exists as a subnet, a private services access pre-allocated IP range, or any route (other than the default 0.0.0.0 route) that includes the IP range. The IP range also can't overlap with the internal IP ranges reserved by Datastream (`10.1.0.0/16` and `10.2.2.0/24`). Datastream uses this IP range to create a subnet so that it can communicate with the source database. The following table describes valid IP ranges.
+  * Identify an available IP range, with a CIDR block of `/29`, on the VPC network. This range can't already exist as a subnet or a private services access pre-allocated IP range. It also can't be included in any route other than the default `0.0.0.0` route. Additionally, the IP range can't overlap with the internal IP ranges reserved by Datastream (`100.64.0.0/16` and `100.65.0.0/24`). Datastream uses this IP range to create a subnet so that it can communicate with the source database. The following table describes valid IP ranges:
 
 Range | Description  
 ---|---  
 `10.0.0.0/8`  
 `172.16.0.0/12`  
 `192.168.0.0/16` | Private IP addresses [RFC 1918](https://tools.ietf.org/html/rfc1918)  
-`100.64.0.0/10` | Shared address space [RFC 6598](https://tools.ietf.org/html/rfc6598)  
+`100.64.0.0/10` | Shared address space [RFC 6598](https://tools.ietf.org/html/rfc6598), excluding `100.64.0.0/16` and `100.65.0.0/24` (reserved by Datastream)  
 `192.0.0.0/24` | IETF protocol assignments [RFC 6890](https://tools.ietf.org/html/rfc6890)  
 `192.0.2.0/24` (TEST-NET-1)  
 `198.51.100.0/24` (TEST-NET-2)  
@@ -65,7 +65,7 @@ Range | Description
 `192.88.99.0/24` | IPv6 to IPv4 relay (deprecated) [RFC 7526](https://tools.ietf.org/html/rfc7526)  
 `198.18.0.0/15` | Benchmark testing [RFC 2544](https://tools.ietf.org/html/rfc2544)  
   
-  * Ensure that any resources in your VPC network that communicate with Datastream (such as NAT VMs, internal load balancers, or source and destination databases) don't use IP addresses in the `10.1.0.0/16` or `10.2.2.0/24` ranges. These ranges are reserved for Datastream internal infrastructure, and using them for your resources can cause routing conflicts and unpredictable connectivity failures.
+  * Don't assign IP addresses in the `100.64.0.0/16` or `100.65.0.0/24` ranges to any resources in your VPC network that communicate with Datastream. This requirement applies to resources such as NAT VMs, internal load balancers, and source or destination databases. These ranges are reserved for Datastream internal infrastructure, and using them for your resources can cause routing conflicts and unpredictable connectivity failures.
 
   * Verify that Google Cloud and the on-premises firewall allow traffic from the selected IP range. If they don't, then create an ingress [firewall rule](https://docs.cloud.google.com/firewall/docs/firewalls) that allows traffic on the source database port, and make sure that the IPv4 address range in the firewall rule is the same as the IP address range allocated when creating the private connectivity resource:
         
@@ -278,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

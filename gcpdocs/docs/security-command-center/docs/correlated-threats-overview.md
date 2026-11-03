@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/correlated-threats-overview/
 title: Correlated Threats overview \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:51:43.347166+00:00
+fetched_at: 2026-11-03T09:52:48.105024+00:00
 ---
 
 # Correlated Threats overview  |  Security Command Center  |  Google Cloud Documentation
@@ -27,15 +27,13 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-The Correlated Threats feature in Security Command Center helps you uncover critical active threats in your environment. Correlated Threats outputs a set of related threat findings and provides in-depth explanations about these findings, which you can then use to prioritize, understand, and respond to these threats.
+The Correlated Threats feature helps you uncover and respond to active threats by aggregating related threat findings into a single actionable issue. By grouping connected malicious activities and explaining the underlying attack sequence, Correlated Threats helps reduce alert fatigue and increase detection confidence.
 
-Security teams often experience alert fatigue from managing an overwhelming number of threat findings. This situation can lead to missed or delayed responses. These teams require prioritized and relevant information quickly to identify post-exploit activity.
+## Benefits
 
-Correlated Threats help by aggregating multiple related threat findings into an issue. This aggregation helps provide higher confidence detections that you can act on. Correlated Threats generates an issue, which represents a series of related malicious activities.
+The Correlated Threats feature offers the following benefits:
 
-This feature offers several benefits:
-
-  * Reduces alert fatigue by consolidating numerous findings into critical issues.
+  * Reduces alert fatigue by consolidating numerous findings into `Critical` issues.
   * Enhances detection fidelity by combining multiple signals, helping to increase confidence in detecting malicious activity.
   * Provides a visualization of the attack chain, showing how events connect to help form a complete attack story. This approach helps you anticipate adversary moves and quickly identify compromised assets.
   * Highlights critical threats and provides clear recommendations, helping you prioritize and accelerate your response.
@@ -117,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

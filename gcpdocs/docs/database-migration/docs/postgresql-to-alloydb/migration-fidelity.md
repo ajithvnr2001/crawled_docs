@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-fidelity/
 title: Migration fidelity \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:36.136213+00:00
+fetched_at: 2026-11-03T09:54:17.338606+00:00
 ---
 
 # Migration fidelity  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
@@ -14,7 +14,7 @@ fetched_at: 2026-10-27T16:23:36.136213+00:00
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
   * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
   * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest)
+  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview)
 
 
 
@@ -22,54 +22,48 @@ Send feedback
 
 #  Migration fidelity Stay organized with collections  Save and categorize content based on your preferences. 
 
-  
+When you migrate schema, data, and metadata from a source database to a destination database, you want to ensure that all information is migrated accurately. Database Migration Service provides a high-fidelity mechanism to migrate database objects (including schema, data, and metadata) from PostgreSQL to AlloyDB for PostgreSQL.
 
+During the migration process, data and constraints are migrated in structured phases. Data is migrated first during the initial snapshot load, and constraints such as primary keys, foreign keys, and indexes are recreated on the destination cluster after the initial load completes.
 
-[MySQL](https://docs.cloud.google.com/database-migration/docs/mysql/migration-fidelity "View this page for the MySQL version of Database Migration Service.") | [PostgreSQL](https://docs.cloud.google.com/database-migration/docs/postgres/migration-fidelity "View this page for the PostgreSQL version of Database Migration Service.") | PostgreSQL to AlloyDB
+The following data, schema, and metadata components are migrated as part of the database migration:
 
-  
+## Data
 
+  * All tables and schemas from databases selected for migration, excluding the following system schemas:
 
-## Overview
+    * The information schema (`information_schema`)
+    * Any schemas beginning with `pg_` (for example, `pg_catalog`, `pg_toast`)
 
-When you're migrating your schema, data, and metadata from a source database to a destination database, you want to ensure that all of this information is migrated accurately. Database Migration Service provides a high-fidelity way to migrate database objects (including the schema, data, and metadata) from one database to another.
+For more information about these system schemas, see [Known limitations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations).
 
-All of the following data, schema, and metadata components are migrated as part of the database migration:
-
-### Data
-
-  * All tables and schemas from databases selected for migration, excluding the following system databases:
-
-    * The information schema `information_schema`
-    * Any schemas beginning with `pg` (for example, `pg_catalog`)
-
-For more information about these schemas, see [Known limitations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations).
+You can add or remove databases from a migration job during an ongoing migration. Removing a database stops replication for that database without deleting the already-migrated database on the destination cluster. For more information, see [Edit a migration job](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-job-actions).
 
 
 
 
-### Schema
+## Schema
 
-  * Naming
+  * Object naming
 
-  * Primary key
+  * Primary keys
 
-  * Data type
+  * Data types
 
-  * Ordinal position
+  * Ordinal column positions
 
-  * Default value
+  * Default values
 
   * Nullability
 
-  * Auto-increment attributes
+  * Identity and serial attributes
 
   * Secondary indexes
 
 
 
 
-### Metadata
+## Metadata
 
   * Stored procedures
 
@@ -84,89 +78,107 @@ For more information about these schemas, see [Known limitations](https://docs.c
 
 
 
-### Continuous migration
+## Continuous migration
 
-Only data manipulation language (DML) changes are updated automatically during continuous migrations. Managing data definition language (DDL) changes so that the source and destination databases remain compatible is the responsibility of the user, and can be achieved in two ways:
+Data manipulation language (DML) changes (such as `INSERT`, `UPDATE`, and `DELETE` operations on tables with a primary key or replica identity) are automatically replicated during continuous migrations.
 
-  1. Stopping writes to the source and running the DDL commands in both source and destination. Before running DDL commands on the destination, grant `alloydbexternalsync` to the AlloyDB user applying the DDL changes. To enable querying or changing the data, grant the `alloydbexternalsync` role to the relevant AlloyDB users. 
-  2. Using the `pglogical.replicate_ddl_command` to allow DDL to be run on the source and destination at a consistent point. The user running this command must have the same username on both the source and the destination, and should be the superuser or the owner of the artifact being migrated (for example, the table, sequence, view, or database). 
+If there are any data definition language (DDL) changes on your source database during the migration process, you must update your destination cluster so that your databases remain compatible. You can perform the DDL changes in the following ways:
 
-Here are a few examples of using the `pglogical.replicate_ddl_command`.
+  1. **Manual DDL execution** : Stop writes to the source database, run the DDL commands on the source database, and run matching DDL commands on the destination database. Before running DDL commands on the destination, grant the `alloydbexternalsync` role to the AlloyDB for PostgreSQL user applying the changes.
 
-Replace:
+  2. **Replicated DDL commands with`pglogical`**: You can use `pglogical.replicate_ddl_command` to run DDL on both the source and destination databases at a consistent point in the replication stream. The account that runs this command must have matching credentials on both source and destination instances, and must be a superuser or the owner of the modified object.
 
-     * `[SCHEMA]` with the name of the table schema you want to use
-     * `[TABLE_NAME]` with the table name
-     * `[NEW_NAME_FOR_TABLE]` with the new name for the table when when performing the rename operation
 
-#### Add a column to a database table with a primary key
+
+
+The following tabs provide sample SQL commands for common DDL operations using `pglogical.replicate_ddl_command`:
+
+### Tables with primary keys
+
+#### Add a column to a table with a primary key
     
-    select pglogical.replicate_ddl_command(
-      'ALTER TABLE [SCHEMA].[TABLE_NAME] add column surname varchar(20)',
+    
+    SELECT pglogical.replicate_ddl_command(
+      'ALTER TABLE [SCHEMA].[TABLE_NAME] ADD COLUMN surname varchar(20)',
       '{default}'
     );
 
-#### Add a column to a database table without a primary key
+#### Change the name of a table with a primary key
     
-    select pglogical.replicate_ddl_command(
-      'ALTER TABLE [SCHEMA].[TABLE_NAME] add column surname varchar(20)',
-      '{default_insert_only}'
-    );
-
-#### Change the name of a database table with a primary key
     
-    select pglogical.replicate_ddl_command(
+    SELECT pglogical.replicate_ddl_command(
       'ALTER TABLE [SCHEMA].[TABLE_NAME] RENAME TO [NEW_NAME_FOR_TABLE]',
       '{default}'
     );
 
-#### Change the name of a database table without a primary key
+#### Create a table with a primary key
+
+Run the following commands on the source database:
     
-    select pglogical.replicate_ddl_command(
+    
+    SELECT pglogical.replicate_ddl_command(
+      command := 'CREATE TABLE [SCHEMA].[TABLE_NAME] (id INTEGER PRIMARY KEY, name VARCHAR);',
+      replication_sets := ARRAY['default']
+    );
+    SELECT pglogical.replication_set_add_table('default', '[SCHEMA].[TABLE_NAME]');
+
+### Tables without primary keys
+
+#### Add a column to a table without a primary key
+    
+    
+    SELECT pglogical.replicate_ddl_command(
+      'ALTER TABLE [SCHEMA].[TABLE_NAME] ADD COLUMN surname varchar(20)',
+      '{default_insert_only}'
+    );
+
+#### Change the name of a table without a primary key
+    
+    
+    SELECT pglogical.replicate_ddl_command(
       'ALTER TABLE [SCHEMA].[TABLE_NAME] RENAME TO [NEW_NAME_FOR_TABLE]',
       '{default_insert_only}'
     );
 
-#### Create a database table with a primary key
+#### Create a table without a primary key
 
-Run the following commands:
-
-     1. select pglogical.replicate_ddl_command(
-              command := 'CREATE TABLE [SCHEMA].[TABLE_NAME]
-                (id INTEGER PRIMARY KEY, name VARCHAR);',
-              replication_sets := ARRAY['default']
-            );
-
-     2. select pglogical.replication_set_add_table('default', '[SCHEMA].[TABLE_NAME]');
-
-#### Create a database table without a primary key
-
-Run the following commands:
-
-     1. select pglogical.replicate_ddl_command(
-              command := 'CREATE TABLE [SCHEMA].[TABLE_NAME]
-               (id INTEGER PRIMARY KEY, name VARCHAR);',
-              replication_sets := ARRAY['default_insert_only']
-            );
-
-     2. select pglogical.replication_set_add_table(
-              'default_insert_only', '[SCHEMA].[TABLE_NAME]'
-            );
-
-
-
+Run the following commands on the source database:
+    
+    
+    SELECT pglogical.replicate_ddl_command(
+      command := 'CREATE TABLE [SCHEMA].[TABLE_NAME] (id INTEGER, name VARCHAR);',
+      replication_sets := ARRAY['default_insert_only']
+    );
+    SELECT pglogical.replication_set_add_table('default_insert_only', '[SCHEMA].[TABLE_NAME]');
 
 ### What isn't migrated
 
-  * [Large objects](https://www.postgresql.org/docs/current/largeobjects.html) can't be replicated, as PostgreSQL's logical decoding facility does not support decoding changes to large objects. For tables that have column type [`oid`](https://www.postgresql.org/docs/current/datatype-oid.html) referencing large objects, the rows are synced, and new rows are replicated. However, trying to access the large object on the destination database (read using [`lo_get`](https://www.postgresql.org/docs/current/lo-funcs.html), export using [`lo_export`](https://www.postgresql.org/docs/current/lo-funcs.html), or check the catalog `pg_largeobject` for the given `oid`), fails with a message saying that the large object does not exist.
+  * **Users and privileges** : User login credentials and roles aren't migrated. The first time you connect to a new destination cluster, use the `postgres` account. Because it's a managed service, AlloyDB for PostgreSQL doesn't allow PostgreSQL users to have `SUPERUSER` privileges. For more information, see [ Manage database users](https://docs.cloud.google.com/alloydb/docs/database-users/about) in the AlloyDB for PostgreSQL documentation.
 
-  * For tables that don't have primary keys, Database Migration Service supports migration of the **initial snapshot and`INSERT` statements during the change data capture (CDC) phase**. You should migrate `UPDATE` and `DELETE` statements manually.
+  * **Unsupported extensions** : Database Migration Service doesn't migrate extensions that are unsupported by AlloyDB for PostgreSQL. The presence of these extensions doesn't block the migration job, but applications referencing unsupported extensions might experience errors. For the list of supported extensions, see [ Supported database extensions](https://docs.cloud.google.com/alloydb/docs/reference/extensions) in the AlloyDB for PostgreSQL documentation.
 
-  * Database Migration Service doesn't migrate data from materialized views, just the view schema. To populate the views, run the following command: `REFRESH MATERIALIZED VIEW view_name`.
+  * **Large objects** : PostgreSQL large objects (data type `oid` referencing `pg_largeobject`) aren't replicated by logical decoding.
 
-  * The `SEQUENCE` states (for example, `last_value`) on the new destination might vary from the source `SEQUENCE` states.
+  * **Tables without primary keys** : Database Migration Service migrates the initial snapshot and replicates `INSERT` statements during the CDC phase. For `UPDATE` and `DELETE` statements:
 
-  * Customized tablespaces aren't supported in the destination Cloud SQL instance. All the data inside customized tablespaces is migrated to the default `pg_default` tablespace in Cloud SQL.
+    * _Standard migrations_ : Standard migrations require that your tables have primary keys to replicate `UPDATE` and `DELETE` statements.
+
+    * _Quick-start migrations_ : With quick-start migrations, primary keys aren't required to replicate `UPDATE` and `DELETE` operations if you set the replica identity to `INDEX` or `FULL`. Configuring `REPLICA IDENTITY FULL` increases write-ahead log (WAL) volume and resource overhead. Adding a primary key is recommended where feasible. For more information, see the [ PostgreSQL Replica Identity documentation](https://www.postgresql.org/docs/current/logical-replication-publication.html#LOGICAL-REPLICATION-PUBLICATION-REPLICA-IDENTITY) and [ Quick-start migrations guide](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/quick-start-migrations-guide).
+
+  * **Materialized views** : Database Migration Service migrates materialized view definitions, but doesn't migrate the underlying cached data. To populate materialized views on the destination, run `REFRESH MATERIALIZED VIEW view_name` after migration.
+
+  * **Sequence states** : The current values of sequences (such as `last_value`) on the destination cluster might differ from the source during ongoing CDC. Sequence values are synchronized during the final promotion step.
+
+  * **Custom tablespaces** : AlloyDB for PostgreSQL doesn't support custom tablespaces. Objects defined in custom tablespaces are automatically remapped to the default `pg_default` tablespace in AlloyDB for PostgreSQL.
+
+
+
+
+## What's next
+
+  * For complete limitation details, see [Known limitations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations).
+
+  * To get started with a migration walkthrough, see [Get started with AlloyDB for PostgreSQL migrations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/get-started-with-alloydb-migrations).
 
 
 
@@ -175,72 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
-
-  * ### Products and pricing
-
-    * [ See all products ](https://cloud.google.com/products/)
-    * [ Google Cloud pricing ](https://cloud.google.com/pricing/)
-    * [ Google Cloud Marketplace ](https://cloud.google.com/marketplace/)
-    * [ Contact sales ](https://cloud.google.com/contact/)
-  * ### Support
-
-    * [ Community forums ](https://discuss.google.dev/c/google-cloud/14/)
-    * [ Support ](https://cloud.google.com/support-hub/)
-    * [ Release Notes ](https://docs.cloud.google.com/release-notes)
-    * [ System status ](https://status.cloud.google.com)
-  * ### Resources
-
-    * [ GitHub ](https://github.com/googlecloudPlatform/)
-    * [ Getting Started with Google Cloud ](https://docs.cloud.google.com/docs/get-started/)
-    * [ Code samples ](https://docs.cloud.google.com/docs/samples)
-    * [ Cloud Architecture Center ](https://docs.cloud.google.com/architecture/)
-    * [ Training and Certification ](https://cloud.google.com/learn/training/)
-    * [ Builders Hub ](https://me.developers.google.com/)
-  * ### Engage
-
-    * [ Blog ](https://cloud.google.com/blog/)
-    * [ Events ](https://cloud.google.com/events/)
-    * [ X (Twitter) ](https://x.com/googlecloud)
-    * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
-    * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
-
-
-
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
-
-  * [ Android ](https://developer.android.com/)
-  * [ Chrome ](https://developer.chrome.com/)
-  * [ Firebase ](https://firebase.google.com/)
-  * [ Google AI ](https://ai.google.com/)
-
-
-
-  * [ About Google ](https://about.google/)
-  * [ Privacy ](https://policies.google.com/privacy)
-  * [ Site terms ](https://policies.google.com/terms?hl=en)
-  * [ Google Cloud terms ](https://cloud.google.com/product-terms)
-  * Manage cookies 
-  * [ Our third decade of climate action: join us ](https://cloud.google.com/sustainability)
-  * Sign up for the Google Cloud newsletter [ Subscribe ](https://cloud.google.com/newsletter/)
-
-
-
-  * English
-  * Deutsch
-  * Español
-  * Español – América Latina
-  * Français
-  * Indonesia
-  * Italiano
-  * Português
-  * Português – Brasil
-  * עברית
-  * 中文 – 简体
-  * 中文 – 繁體
-  * 日本語
-  * 한국어
-
-
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

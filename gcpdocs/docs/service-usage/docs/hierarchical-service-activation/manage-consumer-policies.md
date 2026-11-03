@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/manage-consumer-policies/
 title: Manage consumer policies \u00a0|\u00a0 Service Usage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:41.397946+00:00
+fetched_at: 2026-11-03T09:41:59.664815+00:00
 ---
 
 # Manage consumer policies  |  Service Usage  |  Google Cloud Documentation
@@ -25,11 +25,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-Hierarchical service activation lets you manage service enablement that is inherited through the Google Cloud resource hierarchy. For more information, see the [overview](https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/overview).
+[Hierarchical service activation](https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/overview) lets you manage service enablement that is inherited through the Google Cloud resource hierarchy.
 
-The `ConsumerPolicy` is a Service Usage API resource found at each level of the Google Cloud resource hierarchy. This resource, always named `default`, contains the `enableRules` that define which services are enabled. Instead of enabling or disabling a specific service, you can modify the `ConsumerPolicy` resource. When a service name is in its list, the service is enabled at that hierarchy level.
-
-This document shows you how to use the Google Cloud CLI to manage consumer policies for projects, folders, and organizations.
+At each level of the Google Cloud resource hierarchy, a Service Usage `ConsumerPolicy` resource named `default` contains an `enableRules` parameter that defines which services are enabled for that resource. Rather than managing individual services directly, you modify the `ConsumerPolicy` resource to control service enablement. This guide demonstrates using the Google Cloud CLI to manage consumer policies across projects, folders, and organizations.
 
 ## Before you begin
 
@@ -405,6 +403,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

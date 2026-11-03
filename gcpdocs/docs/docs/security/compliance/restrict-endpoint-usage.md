@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage/
 title: Restrict endpoint usage \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:51:45.208328+00:00
+fetched_at: 2026-11-03T09:44:23.558524+00:00
 ---
 
 # Restrict endpoint usage  |  Security  |  Google Cloud Documentation
@@ -321,6 +321,7 @@ Agent Identity Credentials API  |  Global API endpoints:
 Agent Registry  |  Global API endpoints: 
 
   * `agentregistry.googleapis.com`
+  * `apphubendpoint.googleapis.com`
 
   
 |  None   
@@ -518,6 +519,18 @@ Blockchain Validator Manager  |  Global API endpoints:
 
   
 |  None   
+Business AI Code API  |  Global API endpoints: 
+
+  * `businessaicode.googleapis.com`
+
+  
+Regional API endpoints: 
+
+  * `businessaicode.eu.rep.googleapis.com`
+  * `businessaicode.us.rep.googleapis.com`
+
+  
+|  Supports Google Antigravity in Gemini Enterprise and Gemini Code Assist.   
 Capacity Planner  |  Global API endpoints: 
 
   * `capacityplanner.googleapis.com`
@@ -1314,8 +1327,10 @@ Locational API endpoints:
   * `asia-southeast2-aiplatform.googleapis.com`
   * `australia-southeast1-aiplatform.googleapis.com`
   * `australia-southeast2-aiplatform.googleapis.com`
+  * `eu-aiplatform.googleapis.com`
   * `europe-central2-aiplatform.googleapis.com`
   * `europe-north1-aiplatform.googleapis.com`
+  * `europe-north2-aiplatform.googleapis.com`
   * `europe-southwest1-aiplatform.googleapis.com`
   * `europe-west1-aiplatform.googleapis.com`
   * `europe-west2-aiplatform.googleapis.com`
@@ -1324,6 +1339,7 @@ Locational API endpoints:
   * `europe-west6-aiplatform.googleapis.com`
   * `europe-west8-aiplatform.googleapis.com`
   * `europe-west9-aiplatform.googleapis.com`
+  * `europe-west10-aiplatform.googleapis.com`
   * `europe-west12-aiplatform.googleapis.com`
   * `me-central1-aiplatform.googleapis.com`
   * `me-central2-aiplatform.googleapis.com`
@@ -1332,6 +1348,7 @@ Locational API endpoints:
   * `northamerica-northeast2-aiplatform.googleapis.com`
   * `southamerica-east1-aiplatform.googleapis.com`
   * `southamerica-west1-aiplatform.googleapis.com`
+  * `us-aiplatform.googleapis.com`
   * `us-central1-aiplatform.googleapis.com`
   * `us-east1-aiplatform.googleapis.com`
   * `us-east4-aiplatform.googleapis.com`
@@ -1341,9 +1358,58 @@ Locational API endpoints:
   * `us-west2-aiplatform.googleapis.com`
   * `us-west3-aiplatform.googleapis.com`
   * `us-west4-aiplatform.googleapis.com`
+  * `us-west8-aiplatform.googleapis.com`
 
   
-|  None   
+Regional API endpoints: 
+
+  * `aiplatform.africa-south1.rep.googleapis.com`
+  * `aiplatform.asia-east1.rep.googleapis.com`
+  * `aiplatform.asia-east2.rep.googleapis.com`
+  * `aiplatform.asia-northeast1.rep.googleapis.com`
+  * `aiplatform.asia-northeast2.rep.googleapis.com`
+  * `aiplatform.asia-northeast3.rep.googleapis.com`
+  * `aiplatform.asia-south1.rep.googleapis.com`
+  * `aiplatform.asia-south2.rep.googleapis.com`
+  * `aiplatform.asia-southeast1.rep.googleapis.com`
+  * `aiplatform.asia-southeast2.rep.googleapis.com`
+  * `aiplatform.australia-southeast1.rep.googleapis.com`
+  * `aiplatform.australia-southeast2.rep.googleapis.com`
+  * `aiplatform.eu.rep.googleapis.com`
+  * `aiplatform.europe-central2.rep.googleapis.com`
+  * `aiplatform.europe-north1.rep.googleapis.com`
+  * `aiplatform.europe-north2.rep.googleapis.com`
+  * `aiplatform.europe-southwest1.rep.googleapis.com`
+  * `aiplatform.europe-west1.rep.googleapis.com`
+  * `aiplatform.europe-west2.rep.googleapis.com`
+  * `aiplatform.europe-west3.rep.googleapis.com`
+  * `aiplatform.europe-west4.rep.googleapis.com`
+  * `aiplatform.europe-west6.rep.googleapis.com`
+  * `aiplatform.europe-west8.rep.googleapis.com`
+  * `aiplatform.europe-west9.rep.googleapis.com`
+  * `aiplatform.europe-west10.rep.googleapis.com`
+  * `aiplatform.europe-west12.rep.googleapis.com`
+  * `aiplatform.me-central1.rep.googleapis.com`
+  * `aiplatform.me-central2.rep.googleapis.com`
+  * `aiplatform.me-west1.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast1.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast2.rep.googleapis.com`
+  * `aiplatform.southamerica-east1.rep.googleapis.com`
+  * `aiplatform.southamerica-west1.rep.googleapis.com`
+  * `aiplatform.us-central1.rep.googleapis.com`
+  * `aiplatform.us-east1.rep.googleapis.com`
+  * `aiplatform.us-east4.rep.googleapis.com`
+  * `aiplatform.us-east5.rep.googleapis.com`
+  * `aiplatform.us-south1.rep.googleapis.com`
+  * `aiplatform.us-west1.rep.googleapis.com`
+  * `aiplatform.us-west2.rep.googleapis.com`
+  * `aiplatform.us-west3.rep.googleapis.com`
+  * `aiplatform.us-west4.rep.googleapis.com`
+  * `aiplatform.us-west8.rep.googleapis.com`
+  * `aiplatform.us.rep.googleapis.com`
+
+  
+|  Shares underlying API endpoints with Gemini Enterprise Agent Platform and Vector Search. Endpoint restrictions applied to these endpoints affect all Vertex AI services. You can also manage access using the curated `in:*-aiplatform-endpoints` value groups (such as `in:global-aiplatform-endpoints`, `in:aiplatform-us-endpoints`, and `in:non-us-aiplatform-endpoints`).   
 GKE Dataplane Management  |  Global API endpoints: 
 
   * `gkedataplanemanagement.googleapis.com`
@@ -1882,8 +1948,10 @@ Locational API endpoints:
   * `asia-southeast2-aiplatform.googleapis.com`
   * `australia-southeast1-aiplatform.googleapis.com`
   * `australia-southeast2-aiplatform.googleapis.com`
+  * `eu-aiplatform.googleapis.com`
   * `europe-central2-aiplatform.googleapis.com`
   * `europe-north1-aiplatform.googleapis.com`
+  * `europe-north2-aiplatform.googleapis.com`
   * `europe-southwest1-aiplatform.googleapis.com`
   * `europe-west1-aiplatform.googleapis.com`
   * `europe-west2-aiplatform.googleapis.com`
@@ -1892,6 +1960,7 @@ Locational API endpoints:
   * `europe-west6-aiplatform.googleapis.com`
   * `europe-west8-aiplatform.googleapis.com`
   * `europe-west9-aiplatform.googleapis.com`
+  * `europe-west10-aiplatform.googleapis.com`
   * `europe-west12-aiplatform.googleapis.com`
   * `me-central1-aiplatform.googleapis.com`
   * `me-central2-aiplatform.googleapis.com`
@@ -1900,6 +1969,7 @@ Locational API endpoints:
   * `northamerica-northeast2-aiplatform.googleapis.com`
   * `southamerica-east1-aiplatform.googleapis.com`
   * `southamerica-west1-aiplatform.googleapis.com`
+  * `us-aiplatform.googleapis.com`
   * `us-central1-aiplatform.googleapis.com`
   * `us-east1-aiplatform.googleapis.com`
   * `us-east4-aiplatform.googleapis.com`
@@ -1909,9 +1979,58 @@ Locational API endpoints:
   * `us-west2-aiplatform.googleapis.com`
   * `us-west3-aiplatform.googleapis.com`
   * `us-west4-aiplatform.googleapis.com`
+  * `us-west8-aiplatform.googleapis.com`
 
   
-|  None   
+Regional API endpoints: 
+
+  * `aiplatform.africa-south1.rep.googleapis.com`
+  * `aiplatform.asia-east1.rep.googleapis.com`
+  * `aiplatform.asia-east2.rep.googleapis.com`
+  * `aiplatform.asia-northeast1.rep.googleapis.com`
+  * `aiplatform.asia-northeast2.rep.googleapis.com`
+  * `aiplatform.asia-northeast3.rep.googleapis.com`
+  * `aiplatform.asia-south1.rep.googleapis.com`
+  * `aiplatform.asia-south2.rep.googleapis.com`
+  * `aiplatform.asia-southeast1.rep.googleapis.com`
+  * `aiplatform.asia-southeast2.rep.googleapis.com`
+  * `aiplatform.australia-southeast1.rep.googleapis.com`
+  * `aiplatform.australia-southeast2.rep.googleapis.com`
+  * `aiplatform.eu.rep.googleapis.com`
+  * `aiplatform.europe-central2.rep.googleapis.com`
+  * `aiplatform.europe-north1.rep.googleapis.com`
+  * `aiplatform.europe-north2.rep.googleapis.com`
+  * `aiplatform.europe-southwest1.rep.googleapis.com`
+  * `aiplatform.europe-west1.rep.googleapis.com`
+  * `aiplatform.europe-west2.rep.googleapis.com`
+  * `aiplatform.europe-west3.rep.googleapis.com`
+  * `aiplatform.europe-west4.rep.googleapis.com`
+  * `aiplatform.europe-west6.rep.googleapis.com`
+  * `aiplatform.europe-west8.rep.googleapis.com`
+  * `aiplatform.europe-west9.rep.googleapis.com`
+  * `aiplatform.europe-west10.rep.googleapis.com`
+  * `aiplatform.europe-west12.rep.googleapis.com`
+  * `aiplatform.me-central1.rep.googleapis.com`
+  * `aiplatform.me-central2.rep.googleapis.com`
+  * `aiplatform.me-west1.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast1.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast2.rep.googleapis.com`
+  * `aiplatform.southamerica-east1.rep.googleapis.com`
+  * `aiplatform.southamerica-west1.rep.googleapis.com`
+  * `aiplatform.us-central1.rep.googleapis.com`
+  * `aiplatform.us-east1.rep.googleapis.com`
+  * `aiplatform.us-east4.rep.googleapis.com`
+  * `aiplatform.us-east5.rep.googleapis.com`
+  * `aiplatform.us-south1.rep.googleapis.com`
+  * `aiplatform.us-west1.rep.googleapis.com`
+  * `aiplatform.us-west2.rep.googleapis.com`
+  * `aiplatform.us-west3.rep.googleapis.com`
+  * `aiplatform.us-west4.rep.googleapis.com`
+  * `aiplatform.us-west8.rep.googleapis.com`
+  * `aiplatform.us.rep.googleapis.com`
+
+  
+|  Shares underlying API endpoints with Generative AI on Gemini Enterprise Agent Platform and Vector Search. Endpoint restrictions applied to these endpoints affect all Vertex AI services. You can also manage access using the curated `in:*-aiplatform-endpoints` value groups (such as `in:global-aiplatform-endpoints`, `in:aiplatform-us-endpoints`, and `in:non-us-aiplatform-endpoints`).   
 Vector Search  |  Global API endpoints: 
 
   * `aiplatform.googleapis.com`
@@ -1932,8 +2051,10 @@ Locational API endpoints:
   * `asia-southeast2-aiplatform.googleapis.com`
   * `australia-southeast1-aiplatform.googleapis.com`
   * `australia-southeast2-aiplatform.googleapis.com`
+  * `eu-aiplatform.googleapis.com`
   * `europe-central2-aiplatform.googleapis.com`
   * `europe-north1-aiplatform.googleapis.com`
+  * `europe-north2-aiplatform.googleapis.com`
   * `europe-southwest1-aiplatform.googleapis.com`
   * `europe-west1-aiplatform.googleapis.com`
   * `europe-west2-aiplatform.googleapis.com`
@@ -1942,6 +2063,7 @@ Locational API endpoints:
   * `europe-west6-aiplatform.googleapis.com`
   * `europe-west8-aiplatform.googleapis.com`
   * `europe-west9-aiplatform.googleapis.com`
+  * `europe-west10-aiplatform.googleapis.com`
   * `europe-west12-aiplatform.googleapis.com`
   * `me-central1-aiplatform.googleapis.com`
   * `me-central2-aiplatform.googleapis.com`
@@ -1950,6 +2072,7 @@ Locational API endpoints:
   * `northamerica-northeast2-aiplatform.googleapis.com`
   * `southamerica-east1-aiplatform.googleapis.com`
   * `southamerica-west1-aiplatform.googleapis.com`
+  * `us-aiplatform.googleapis.com`
   * `us-central1-aiplatform.googleapis.com`
   * `us-east1-aiplatform.googleapis.com`
   * `us-east4-aiplatform.googleapis.com`
@@ -1959,9 +2082,58 @@ Locational API endpoints:
   * `us-west2-aiplatform.googleapis.com`
   * `us-west3-aiplatform.googleapis.com`
   * `us-west4-aiplatform.googleapis.com`
+  * `us-west8-aiplatform.googleapis.com`
 
   
-|  None   
+Regional API endpoints: 
+
+  * `aiplatform.africa-south1.rep.googleapis.com`
+  * `aiplatform.asia-east1.rep.googleapis.com`
+  * `aiplatform.asia-east2.rep.googleapis.com`
+  * `aiplatform.asia-northeast1.rep.googleapis.com`
+  * `aiplatform.asia-northeast2.rep.googleapis.com`
+  * `aiplatform.asia-northeast3.rep.googleapis.com`
+  * `aiplatform.asia-south1.rep.googleapis.com`
+  * `aiplatform.asia-south2.rep.googleapis.com`
+  * `aiplatform.asia-southeast1.rep.googleapis.com`
+  * `aiplatform.asia-southeast2.rep.googleapis.com`
+  * `aiplatform.australia-southeast1.rep.googleapis.com`
+  * `aiplatform.australia-southeast2.rep.googleapis.com`
+  * `aiplatform.eu.rep.googleapis.com`
+  * `aiplatform.europe-central2.rep.googleapis.com`
+  * `aiplatform.europe-north1.rep.googleapis.com`
+  * `aiplatform.europe-north2.rep.googleapis.com`
+  * `aiplatform.europe-southwest1.rep.googleapis.com`
+  * `aiplatform.europe-west1.rep.googleapis.com`
+  * `aiplatform.europe-west2.rep.googleapis.com`
+  * `aiplatform.europe-west3.rep.googleapis.com`
+  * `aiplatform.europe-west4.rep.googleapis.com`
+  * `aiplatform.europe-west6.rep.googleapis.com`
+  * `aiplatform.europe-west8.rep.googleapis.com`
+  * `aiplatform.europe-west9.rep.googleapis.com`
+  * `aiplatform.europe-west10.rep.googleapis.com`
+  * `aiplatform.europe-west12.rep.googleapis.com`
+  * `aiplatform.me-central1.rep.googleapis.com`
+  * `aiplatform.me-central2.rep.googleapis.com`
+  * `aiplatform.me-west1.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast1.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast2.rep.googleapis.com`
+  * `aiplatform.southamerica-east1.rep.googleapis.com`
+  * `aiplatform.southamerica-west1.rep.googleapis.com`
+  * `aiplatform.us-central1.rep.googleapis.com`
+  * `aiplatform.us-east1.rep.googleapis.com`
+  * `aiplatform.us-east4.rep.googleapis.com`
+  * `aiplatform.us-east5.rep.googleapis.com`
+  * `aiplatform.us-south1.rep.googleapis.com`
+  * `aiplatform.us-west1.rep.googleapis.com`
+  * `aiplatform.us-west2.rep.googleapis.com`
+  * `aiplatform.us-west3.rep.googleapis.com`
+  * `aiplatform.us-west4.rep.googleapis.com`
+  * `aiplatform.us-west8.rep.googleapis.com`
+  * `aiplatform.us.rep.googleapis.com`
+
+  
+|  Shares underlying API endpoints with Gemini Enterprise Agent Platform and Generative AI on Gemini Enterprise Agent Platform. Endpoint restrictions applied to these endpoints affect all Vertex AI services. You can also manage access using the curated `in:*-aiplatform-endpoints` value groups (such as `in:global-aiplatform-endpoints`, `in:aiplatform-us-endpoints`, and `in:non-us-aiplatform-endpoints`).   
 Gemini Enterprise Agent Platform Workbench  |  Global API endpoints: 
 
   * `notebooks.googleapis.com`
@@ -2086,6 +2258,113 @@ The following table contains the current list of available groups:
 
 Group | Details | Direct members  
 ---|---|---  
+global-accessapproval-endpoints  |  Access Approval global API endpoints:  
+`in:global-accessapproval-endpoints` | _Values:_  
+
+
+  * `accessapproval.googleapis.com`
+  * `accessapproval.mtls.googleapis.com`
+  * `content-accessapproval.googleapis.com`
+  * `content-accessapproval.mtls.googleapis.com`
+
+  
+global-accesscontextintelligence-endpoints  |  Access Context Intelligence global API Endpoints:  
+`in:global-accesscontextintelligence-endpoints` | _Values:_  
+
+
+  * `accesscontextintelligence.googleapis.com`
+  * `accesscontextintelligence.mtls.googleapis.com`
+  * `content-accesscontextintelligence.googleapis.com`
+  * `content-accesscontextintelligence.mtls.googleapis.com`
+
+  
+global-agentidentity-endpoints  |  Agent Identity global API Endpoints:  
+`in:global-agentidentity-endpoints` | _Values:_  
+
+
+  * `agentidentity.googleapis.com`
+  * `agentidentity.mtls.googleapis.com`
+  * `content-agentidentity.googleapis.com`
+  * `content-agentidentity.mtls.googleapis.com`
+
+  
+global-agentidentitycredentials-endpoints  |  Agent Identity Credentials global API Endpoints:  
+`in:global-agentidentitycredentials-endpoints` | _Values:_  
+
+
+  * `agentidentitycredentials.googleapis.com`
+  * `agentidentitycredentials.mtls.googleapis.com`
+  * `content-agentidentitycredentials.googleapis.com`
+  * `content-agentidentitycredentials.mtls.googleapis.com`
+
+  
+global-agentregistry-endpoints  |  Agent Registry global API Endpoints:  
+`in:global-agentregistry-endpoints` | _Values:_  
+
+
+  * `agentregistry.googleapis.com`
+  * `agentregistry.mtls.googleapis.com`
+  * `content-agentregistry.googleapis.com`
+  * `content-agentregistry.mtls.googleapis.com`
+
+  
+global-agentregistryendpoint-endpoints  |  Agent Registry global API Endpoints:  
+`in:global-agentregistryendpoint-endpoints` | _Values:_  
+
+
+  * `agentregistryendpoint.googleapis.com`
+  * `agentregistryendpoint.mtls.googleapis.com`
+  * `content-agentregistryendpoint.googleapis.com`
+  * `content-agentregistryendpoint.mtls.googleapis.com`
+
+  
+global-alloydb-endpoints  |  AlloyDB global API endpoints:  
+`in:global-alloydb-endpoints` | _Values:_  
+
+
+  * `alloydb.googleapis.com`
+  * `alloydb.mtls.googleapis.com`
+  * `content-alloydb.googleapis.com`
+  * `content-alloydb.mtls.googleapis.com`
+
+  
+global-anthosidentityservice-endpoints  |  Anthos Identity Service global API endpoints:  
+`in:global-anthosidentityservice-endpoints` | _Values:_  
+
+
+  * `anthosidentityservice.googleapis.com`
+
+  
+global-apigee-endpoints  |  Apigee global API Endpoints:  
+`in:global-apigee-endpoints` | _Values:_  
+
+
+  * `apigee.googleapis.com`
+  * `apigee.mtls.googleapis.com`
+  * `content-apigee.googleapis.com`
+  * `content-apigee.mtls.googleapis.com`
+
+  
+global-apikeys-endpoints  |  API keys global API Endpoints:  
+`in:global-apikeys-endpoints` | _Values:_  
+
+
+  * `apikeys.googleapis.com`
+  * `apikeys.mtls.googleapis.com`
+  * `content-apikeys.googleapis.com`
+  * `content-apikeys.mtls.googleapis.com`
+
+  
+global-apphub-endpoints  |  App Hub global API endpoints:  
+`in:global-apphub-endpoints` | _Values:_  
+
+
+  * `apphub.googleapis.com`
+  * `apphub.mtls.googleapis.com`
+  * `content-apphub.googleapis.com`
+  * `content-apphub.mtls.googleapis.com`
+
+  
 global-artifactregistry-endpoints  |  Artifact Registry global API endpoints:  
 `in:global-artifactregistry-endpoints` | _Values:_  
 
@@ -2094,6 +2373,26 @@ global-artifactregistry-endpoints  |  Artifact Registry global API endpoints:
   * `artifactregistry.mtls.googleapis.com`
   * `content-artifactregistry.googleapis.com`
   * `content-artifactregistry.mtls.googleapis.com`
+
+  
+global-auditmanager-endpoints  |  Audit Manager global API Endpoints:  
+`in:global-auditmanager-endpoints` | _Values:_  
+
+
+  * `auditmanager.googleapis.com`
+  * `auditmanager.mtls.googleapis.com`
+  * `content-auditmanager.googleapis.com`
+  * `content-auditmanager.mtls.googleapis.com`
+
+  
+global-backupdr-endpoints  |  Backup and DR global API endpoints:  
+`in:global-backupdr-endpoints` | _Values:_  
+
+
+  * `backupdr.googleapis.com`
+  * `backupdr.mtls.googleapis.com`
+  * `content-backupdr.googleapis.com`
+  * `content-backupdr.mtls.googleapis.com`
 
   
 global-bigquery-connections-endpoints  |  BigQuery Connections global API endpoints:  
@@ -2136,12 +2435,60 @@ global-bigquery-migration-endpoints  |  BigQuery Migration global API endpoints:
   * `content-bigquerymigration.mtls.googleapis.com`
 
   
+global-bigtable-endpoints  |  Cloud Bigtable global API endpoints:  
+`in:global-bigtable-endpoints` | _Values:_  
+
+
+  * `bigtable.googleapis.com`
+  * `bigtableadmin.googleapis.com`
+
+  
+global-binaryauthorization-endpoints  |  Binary Authorization global API endpoints:  
+`in:global-binaryauthorization-endpoints` | _Values:_  
+
+
+  * `binaryauthorization.googleapis.com`
+  * `binaryauthorization.mtls.googleapis.com`
+  * `content-binaryauthorization.googleapis.com`
+  * `content-binaryauthorization.mtls.googleapis.com`
+
+  
+global-cas-endpoints  |  Certificate Authority Service global API endpoints:  
+`in:global-cas-endpoints` | _Values:_  
+
+
+  * `content-privateca.googleapis.com`
+  * `content-privateca.mtls.googleapis.com`
+  * `privateca.googleapis.com`
+  * `privateca.mtls.googleapis.com`
+
+  
 global-certificatemanager-endpoints  |  Certificate Manager global API endpoints:  
 `in:global-certificatemanager-endpoints` | _Values:_  
 
 
   * `certificatemanager.googleapis.com`
   * `certificatemanager.mtls.googleapis.com`
+
+  
+global-cloudasset-endpoints  |  Cloud Asset Inventory global API Endpoints:  
+`in:global-cloudasset-endpoints` | _Values:_  
+
+
+  * `cloudasset.googleapis.com`
+  * `cloudasset.mtls.googleapis.com`
+  * `content-cloudasset.googleapis.com`
+  * `content-cloudasset.mtls.googleapis.com`
+
+  
+global-cloudbilling-endpoints  |  Cloud Billing global API endpoints:  
+`in:global-cloudbilling-endpoints` | _Values:_  
+
+
+  * `cloudbilling.googleapis.com`
+  * `cloudbilling.mtls.googleapis.com`
+  * `content-cloudbilling.googleapis.com`
+  * `content-cloudbilling.mtls.googleapis.com`
 
   
 global-cloudbuild-endpoints  |  Cloud Build global API endpoints:  
@@ -2153,7 +2500,57 @@ global-cloudbuild-endpoints  |  Cloud Build global API endpoints:
   * `content-cloudbuild.googleapis.com`
 
   
-global-compsoer-endpoints  |  Cloud Composer global API endpoints:  
+global-cloudquotas-endpoints  |  Cloud Quotas global API Endpoints:  
+`in:global-cloudquotas-endpoints` | _Values:_  
+
+
+  * `cloudquotas.googleapis.com`
+  * `cloudquotas.mtls.googleapis.com`
+  * `content-cloudquotas.googleapis.com`
+  * `content-cloudquotas.mtls.googleapis.com`
+
+  
+global-cloudscheduler-endpoints  |  Cloud Scheduler global API endpoints:  
+`in:global-cloudscheduler-endpoints` | _Values:_  
+
+
+  * `cloudscheduler.googleapis.com`
+  * `cloudscheduler.mtls.googleapis.com`
+  * `content-cloudscheduler.googleapis.com`
+  * `content-cloudscheduler.mtls.googleapis.com`
+
+  
+global-cloudsecuritycompliance-endpoints  |  Compliance Manager global API endpoints:  
+`in:global-cloudsecuritycompliance-endpoints` | _Values:_  
+
+
+  * `cloudsecuritycompliance.googleapis.com`
+  * `cloudsecuritycompliance.mtls.googleapis.com`
+  * `content-cloudsecuritycompliance.googleapis.com`
+  * `content-cloudsecuritycompliance.mtls.googleapis.com`
+
+  
+global-cloudtasks-endpoints  |  Cloud Tasks global API endpoints:  
+`in:global-cloudtasks-endpoints` | _Values:_  
+
+
+  * `cloudtasks.googleapis.com`
+  * `cloudtasks.mtls.googleapis.com`
+  * `content-cloudtasks.googleapis.com`
+  * `content-cloudtasks.mtls.googleapis.com`
+
+  
+global-cloudtrace-endpoints  |  Cloud Trace global API Endpoints:  
+`in:global-cloudtrace-endpoints` | _Values:_  
+
+
+  * `cloudtrace.googleapis.com`
+  * `cloudtrace.mtls.googleapis.com`
+  * `content-cloudtrace.googleapis.com`
+  * `content-cloudtrace.mtls.googleapis.com`
+
+  
+global-composer-endpoints  |  Cloud Composer global API endpoints:  
 `in:global-composer-endpoints` | _Values:_  
 
 
@@ -2168,6 +2565,36 @@ global-compute-endpoints  |  Cloud Compute Engine global API endpoints:
   * `compute.mtls.googleapis.com`
   * `content-compute.googleapis.com`
   * `content-compute.mtls.googleapis.com`
+
+  
+global-config-endpoints  |  Config global API endpoints:  
+`in:global-config-endpoints` | _Values:_  
+
+
+  * `config.googleapis.com`
+  * `config.mtls.googleapis.com`
+  * `content-config.googleapis.com`
+  * `content-config.mtls.googleapis.com`
+
+  
+global-connectgateway-endpoints  |  Connect Gateway global API endpoints:  
+`in:global-connectgateway-endpoints` | _Values:_  
+
+
+  * `connectgateway.googleapis.com`
+  * `connectgateway.mtls.googleapis.com`
+  * `content-connectgateway.googleapis.com`
+  * `content-connectgateway.mtls.googleapis.com`
+
+  
+global-connectors-endpoints  |  Integration Connectors global API Endpoints:  
+`in:global-connectors-endpoints` | _Values:_  
+
+
+  * `connectors.googleapis.com`
+  * `connectors.mtls.googleapis.com`
+  * `content-connectors.googleapis.com`
+  * `content-connectors.mtls.googleapis.com`
 
   
 global-container-endpoints  |  Google Kubernetes Engine global API endpoints:  
@@ -2192,6 +2619,16 @@ global-containeranalysis-endpoints  |  Container Analysis global API endpoints:
   * `ondemandscanning.mtls.googleapis.com`
 
   
+global-containerfilesystem-endpoints  |  Container Filesystem global API endpoints:  
+`in:global-containerfilesystem-endpoints` | _Values:_  
+
+
+  * `containerfilesystem.googleapis.com`
+  * `containerfilesystem.mtls.googleapis.com`
+  * `content-containerfilesystem.googleapis.com`
+  * `content-containerfilesystem.mtls.googleapis.com`
+
+  
 global-containerthreatdetection-endpoints  |  Container Threat Detection Service global API endpoints:  
 `in:global-containerthreatdetection-endpoints` | _Values:_  
 
@@ -2202,12 +2639,116 @@ global-containerthreatdetection-endpoints  |  Container Threat Detection Service
   * `content-containerthreatdetection.mtls.googleapis.com`
 
   
+global-databasecenter-endpoints  |  Database Center global API Endpoints:  
+`in:global-databasecenter-endpoints` | _Values:_  
+
+
+  * `content-databasecenter.googleapis.com`
+  * `content-databasecenter.mtls.googleapis.com`
+  * `databasecenter.googleapis.com`
+  * `databasecenter.mtls.googleapis.com`
+
+  
 global-dataflow-endpoints  |  Dataflow global API endpoints:  
 `in:global-dataflow-endpoints` | _Values:_  
 
 
   * `content-dataflow.googleapis.com`
   * `dataflow.googleapis.com`
+
+  
+global-dataform-endpoints  |  Dataform global API endpoints:  
+`in:global-dataform-endpoints` | _Values:_  
+
+
+  * `content-dataform.googleapis.com`
+  * `content-dataform.mtls.googleapis.com`
+  * `dataform.googleapis.com`
+  * `dataform.mtls.googleapis.com`
+
+  
+global-datafusion-endpoints  |  Cloud Data Fusion global API endpoints:  
+`in:global-datafusion-endpoints` | _Values:_  
+
+
+  * `content-datafusion.googleapis.com`
+  * `content-datafusion.mtls.googleapis.com`
+  * `datafusion.googleapis.com`
+  * `datafusion.mtls.googleapis.com`
+
+  
+global-datalineage-endpoints  |  Data Lineage global API endpoints:  
+`in:global-datalineage-endpoints` | _Values:_  
+
+
+  * `content-datalineage.googleapis.com`
+  * `content-datalineage.mtls.googleapis.com`
+  * `datalineage.googleapis.com`
+  * `datalineage.mtls.googleapis.com`
+
+  
+global-dataplex-endpoints  |  Dataplex global API endpoints:  
+`in:global-dataplex-endpoints` | _Values:_  
+
+
+  * `content-dataplex.googleapis.com`
+  * `content-dataplex.mtls.googleapis.com`
+  * `dataplex.googleapis.com`
+  * `dataplex.mtls.googleapis.com`
+
+  
+global-dataproc-endpoints  |  Cloud Dataproc global API endpoints:  
+`in:global-dataproc-endpoints` | _Values:_  
+
+
+  * `content-dataproc-control.googleapis.com`
+  * `content-dataproc-control.mtls.googleapis.com`
+  * `content-dataproc.googleapis.com`
+  * `content-dataproc.mtls.googleapis.com`
+  * `dataproc-control.googleapis.com`
+  * `dataproc-control.mtls.googleapis.com`
+  * `dataproc.googleapis.com`
+  * `dataproc.mtls.googleapis.com`
+
+  
+global-datastore-endpoints  |  Firestore in Datastore mode global API endpoints:  
+`in:global-datastore-endpoints` | _Values:_  
+
+
+  * `content-datastore.googleapis.com`
+  * `content-datastore.mtls.googleapis.com`
+  * `datastore.googleapis.com`
+  * `datastore.mtls.googleapis.com`
+
+  
+global-datastream-endpoints  |  Datastream global API Endpoints:  
+`in:global-datastream-endpoints` | _Values:_  
+
+
+  * `content-datastream.googleapis.com`
+  * `content-datastream.mtls.googleapis.com`
+  * `datastream.googleapis.com`
+  * `datastream.mtls.googleapis.com`
+
+  
+global-developerconnect-endpoints  |  Developer Connect global API Endpoints:  
+`in:global-developerconnect-endpoints` | _Values:_  
+
+
+  * `content-developerconnect.googleapis.com`
+  * `content-developerconnect.mtls.googleapis.com`
+  * `developerconnect.googleapis.com`
+  * `developerconnect.mtls.googleapis.com`
+
+  
+global-discoveryengine-endpoints  |  Vertex AI Search and Agentspace global API endpoints:  
+`in:global-discoveryengine-endpoints` | _Values:_  
+
+
+  * `content-discoveryengine.googleapis.com`
+  * `content-discoveryengine.mtls.googleapis.com`
+  * `discoveryengine.googleapis.com`
+  * `discoveryengine.mtls.googleapis.com`
 
   
 global-dlp-endpoints  |  Sensitive Data Protection DLP global API endpoints:  
@@ -2228,6 +2769,46 @@ global-dns-endpoints  |  Cloud DNS global API endpoints:
   * `dns.mtls.googleapis.com`
 
   
+global-documentai-endpoints  |  Document AI global API endpoints:  
+`in:global-documentai-endpoints` | _Values:_  
+
+
+  * `content-documentai.googleapis.com`
+  * `content-documentai.mtls.googleapis.com`
+  * `documentai.googleapis.com`
+  * `documentai.mtls.googleapis.com`
+
+  
+global-domains-endpoints  |  Cloud Domains global API Endpoints:  
+`in:global-domains-endpoints` | _Values:_  
+
+
+  * `content-domains.googleapis.com`
+  * `content-domains.mtls.googleapis.com`
+  * `domains.googleapis.com`
+  * `domains.mtls.googleapis.com`
+
+  
+global-essentialcontacts-endpoints  |  Essential Contacts global API endpoints:  
+`in:global-essentialcontacts-endpoints` | _Values:_  
+
+
+  * `content-essentialcontacts.googleapis.com`
+  * `content-essentialcontacts.mtls.googleapis.com`
+  * `essentialcontacts.googleapis.com`
+  * `essentialcontacts.mtls.googleapis.com`
+
+  
+global-eventarc-endpoints  |  Eventarc global API endpoints:  
+`in:global-eventarc-endpoints` | _Values:_  
+
+
+  * `content-eventarc.googleapis.com`
+  * `content-eventarc.mtls.googleapis.com`
+  * `eventarc.googleapis.com`
+  * `eventarc.mtls.googleapis.com`
+
+  
 global-filestore-endpoints  |  Filestore global API endpoints:  
 `in:global-filestore-endpoints` | _Values:_  
 
@@ -2236,6 +2817,73 @@ global-filestore-endpoints  |  Filestore global API endpoints:
   * `content-file.mtls.googleapis.com`
   * `file.googleapis.com`
   * `file.mtls.googleapis.com`
+
+  
+global-firebaserules-endpoints  |  Firebase Rules global API endpoints:  
+`in:global-firebaserules-endpoints` | _Values:_  
+
+
+  * `firebaserules.googleapis.com`
+
+  
+global-firestore-endpoints  |  Firestore global API endpoints:  
+`in:global-firestore-endpoints` | _Values:_  
+
+
+  * `content-firestore.googleapis.com`
+  * `content-firestore.mtls.googleapis.com`
+  * `firestore.googleapis.com`
+  * `firestore.mtls.googleapis.com`
+
+  
+global-firestorekeyvisualizer-endpoints  |  Firestore Key Visualizer global API endpoints:  
+`in:global-firestorekeyvisualizer-endpoints` | _Values:_  
+
+
+  * `content-firestorekeyvisualizer.googleapis.com`
+  * `content-firestorekeyvisualizer.mtls.googleapis.com`
+  * `firestorekeyvisualizer.googleapis.com`
+  * `firestorekeyvisualizer.mtls.googleapis.com`
+
+  
+global-gkebackup-endpoints  |  Backup for GKE global API endpoints:  
+`in:global-gkebackup-endpoints` | _Values:_  
+
+
+  * `content-gkebackup.googleapis.com`
+  * `content-gkebackup.mtls.googleapis.com`
+  * `gkebackup.googleapis.com`
+  * `gkebackup.mtls.googleapis.com`
+
+  
+global-gkeconnect-endpoints  |  GKE Connect global API endpoints:  
+`in:global-gkeconnect-endpoints` | _Values:_  
+
+
+  * `content-gkeconnect.googleapis.com`
+  * `content-gkeconnect.mtls.googleapis.com`
+  * `gkeconnect.googleapis.com`
+  * `gkeconnect.mtls.googleapis.com`
+
+  
+global-gkehub-endpoints  |  GKE Hub global API endpoints:  
+`in:global-gkehub-endpoints` | _Values:_  
+
+
+  * `content-gkehub.googleapis.com`
+  * `content-gkehub.mtls.googleapis.com`
+  * `gkehub.googleapis.com`
+  * `gkehub.mtls.googleapis.com`
+
+  
+global-hypercomputecluster-endpoints  |  Cluster Director global API Endpoints:  
+`in:global-hypercomputecluster-endpoints` | _Values:_  
+
+
+  * `content-hypercomputecluster.googleapis.com`
+  * `content-hypercomputecluster.mtls.googleapis.com`
+  * `hypercomputecluster.googleapis.com`
+  * `hypercomputecluster.mtls.googleapis.com`
 
   
 global-iam-endpoints  |  Cloud IAM global API endpoints:  
@@ -2266,6 +2914,26 @@ global-kms-endpoints  |  Cloud Key Management Service global API endpoints:
   * `content-cloudkms.mtls.googleapis.com`
 
   
+global-looker-endpoints  |  Looker global API endpoints:  
+`in:global-looker-endpoints` | _Values:_  
+
+
+  * `content-looker.googleapis.com`
+  * `content-looker.mtls.googleapis.com`
+  * `looker.googleapis.com`
+  * `looker.mtls.googleapis.com`
+
+  
+global-lustre-endpoints  |  Google Cloud Managed Lustre global API Endpoints:  
+`in:global-lustre-endpoints` | _Values:_  
+
+
+  * `content-lustre.googleapis.com`
+  * `content-lustre.mtls.googleapis.com`
+  * `lustre.googleapis.com`
+  * `lustre.mtls.googleapis.com`
+
+  
 global-managedkafka-endpoints  |  Managed Kafka global API endpoints:  
 `in:global-managedkafka-endpoints` | _Values:_  
 
@@ -2286,6 +2954,26 @@ global-memcache-endpoints  |  Memorystore for Memcache global API endpoints:
   * `memcache.mtls.googleapis.com`
 
   
+global-memorystore-endpoints  |  Memorystore for Valkey global API endpoints:  
+`in:global-memorystore-endpoints` | _Values:_  
+
+
+  * `content-memorystore.googleapis.com`
+  * `content-memorystore.mtls.googleapis.com`
+  * `memorystore.googleapis.com`
+  * `memorystore.mtls.googleapis.com`
+
+  
+global-meshconfig-endpoints  |  Mesh Configuration global API endpoints:  
+`in:global-meshconfig-endpoints` | _Values:_  
+
+
+  * `content-meshconfig.googleapis.com`
+  * `content-meshconfig.mtls.googleapis.com`
+  * `meshconfig.googleapis.com`
+  * `meshconfig.mtls.googleapis.com`
+
+  
 global-migrationcenter-endpoints  |  Migration Center global API endpoints:  
 `in:global-migrationcenter-endpoints` | _Values:_  
 
@@ -2296,6 +2984,36 @@ global-migrationcenter-endpoints  |  Migration Center global API endpoints:
   * `migrationcenter.mtls.googleapis.com`
 
   
+global-modelarmor-endpoints  |  Model Armor global API Endpoints:  
+`in:global-modelarmor-endpoints` | _Values:_  
+
+
+  * `content-modelarmor.googleapis.com`
+  * `content-modelarmor.mtls.googleapis.com`
+  * `modelarmor.googleapis.com`
+  * `modelarmor.mtls.googleapis.com`
+
+  
+global-monitoring-endpoints  |  Cloud Monitoring global API endpoints:  
+`in:global-monitoring-endpoints` | _Values:_  
+
+
+  * `content-monitoring.googleapis.com`
+  * `content-monitoring.mtls.googleapis.com`
+  * `monitoring.googleapis.com`
+  * `monitoring.mtls.googleapis.com`
+
+  
+global-netapp-endpoints  |  Google Cloud Netapp Volumes global API endpoints:  
+`in:global-netapp-endpoints` | _Values:_  
+
+
+  * `content-netapp.googleapis.com`
+  * `content-netapp.mtls.googleapis.com`
+  * `netapp.googleapis.com`
+  * `netapp.mtls.googleapis.com`
+
+  
 global-networkconnectivity-endpoints  |  Network Connectivity global API endpoints:  
 `in:global-networkconnectivity-endpoints` | _Values:_  
 
@@ -2304,6 +3022,36 @@ global-networkconnectivity-endpoints  |  Network Connectivity global API endpoin
   * `content-networkconnectivity.mtls.googleapis.com`
   * `networkconnectivity.googleapis.com`
   * `networkconnectivity.mtls.googleapis.com`
+
+  
+global-networkmanagement-endpoints  |  Connectivity Tests global API Endpoints:  
+`in:global-networkmanagement-endpoints` | _Values:_  
+
+
+  * `content-networkmanagement.googleapis.com`
+  * `content-networkmanagement.mtls.googleapis.com`
+  * `networkmanagement.googleapis.com`
+  * `networkmanagement.mtls.googleapis.com`
+
+  
+global-networksecurity-endpoints  |  Network Security global API endpoints:  
+`in:global-networksecurity-endpoints` | _Values:_  
+
+
+  * `content-networksecurity.googleapis.com`
+  * `content-networksecurity.mtls.googleapis.com`
+  * `networksecurity.googleapis.com`
+  * `networksecurity.mtls.googleapis.com`
+
+  
+global-networkservices-endpoints  |  Network Services global API endpoints:  
+`in:global-networkservices-endpoints` | _Values:_  
+
+
+  * `content-networkservices.googleapis.com`
+  * `content-networkservices.mtls.googleapis.com`
+  * `networkservices.googleapis.com`
+  * `networkservices.mtls.googleapis.com`
 
   
 global-osconfig-endpoints  |  VM Manager global API endpoints:  
@@ -2323,6 +3071,16 @@ global-oslogin-endpoints  |  OS Login API endpoints:
   * `oslogin.googleapis.com`
 
   
+global-parametermanager-endpoints  |  Parameter Manager global API Endpoints:  
+`in:global-parametermanager-endpoints` | _Values:_  
+
+
+  * `content-parametermanager.googleapis.com`
+  * `content-parametermanager.mtls.googleapis.com`
+  * `parametermanager.googleapis.com`
+  * `parametermanager.mtls.googleapis.com`
+
+  
 global-policytroubleshooter-endpoints  |  Policy Troubleshooter global API endpoints:  
 `in:global-policytroubleshooter-endpoints` | _Values:_  
 
@@ -2331,6 +3089,16 @@ global-policytroubleshooter-endpoints  |  Policy Troubleshooter global API endpo
   * `content-policytroubleshooter.mtls.googleapis.com`
   * `policytroubleshooter.googleapis.com`
   * `policytroubleshooter.mtls.googleapis.com`
+
+  
+global-privilegedaccessmanager-endpoints  |  Privileged Access Manager global API Endpoints:  
+`in:global-privilegedaccessmanager-endpoints` | _Values:_  
+
+
+  * `content-privilegedaccessmanager.googleapis.com`
+  * `content-privilegedaccessmanager.mtls.googleapis.com`
+  * `privilegedaccessmanager.googleapis.com`
+  * `privilegedaccessmanager.mtls.googleapis.com`
 
   
 global-progressiverollout-endpoints  |  Ripple global API endpoints:  
@@ -2351,6 +3119,16 @@ global-pubsub-endpoints  |  Pub/Sub global API endpoints:
   * `content-pubsub.mtls.googleapis.com`
   * `pubsub.googleapis.com`
   * `pubsub.mtls.googleapis.com`
+
+  
+global-recommender-endpoints  |  Recommender global API Endpoints:  
+`in:global-recommender-endpoints` | _Values:_  
+
+
+  * `content-recommender.googleapis.com`
+  * `content-recommender.mtls.googleapis.com`
+  * `recommender.googleapis.com`
+  * `recommender.mtls.googleapis.com`
 
   
 global-redis-endpoints  |  Memorystore for Redis global API endpoints:  
@@ -2383,6 +3161,36 @@ global-secretmanager-endpoints  |  Secret Manager global API endpoints:
   * `secretmanager.mtls.googleapis.com`
 
   
+global-securesourcemanager-endpoints  |  Secure Source Manager global API Endpoints:  
+`in:global-securesourcemanager-endpoints` | _Values:_  
+
+
+  * `content-securesourcemanager.googleapis.com`
+  * `content-securesourcemanager.mtls.googleapis.com`
+  * `securesourcemanager.googleapis.com`
+  * `securesourcemanager.mtls.googleapis.com`
+
+  
+global-securitycenter-endpoints  |  Cloud Security Command Center global API endpoints:  
+`in:global-securitycenter-endpoints` | _Values:_  
+
+
+  * `content-securitycenter.googleapis.com`
+  * `content-securitycenter.mtls.googleapis.com`
+  * `securitycenter.googleapis.com`
+  * `securitycenter.mtls.googleapis.com`
+
+  
+global-securitycentermanagement-endpoints  |  Cloud Security Command Center Management global API endpoints:  
+`in:global-securitycentermanagement-endpoints` | _Values:_  
+
+
+  * `content-securitycentermanagement.googleapis.com`
+  * `content-securitycentermanagement.mtls.googleapis.com`
+  * `securitycentermanagement.googleapis.com`
+  * `securitycentermanagement.mtls.googleapis.com`
+
+  
 global-securityposture-endpoints  |  Security Posture global API endpoints:  
 `in:global-securityposture-endpoints` | _Values:_  
 
@@ -2391,6 +3199,26 @@ global-securityposture-endpoints  |  Security Posture global API endpoints:
   * `content-securityposture.mtls.googleapis.com`
   * `securityposture.googleapis.com`
   * `securityposture.mtls.googleapis.com`
+
+  
+global-servicedirectory-endpoints  |  Service Directory global API endpoints:  
+`in:global-servicedirectory-endpoints` | _Values:_  
+
+
+  * `content-servicedirectory.googleapis.com`
+  * `content-servicedirectory.mtls.googleapis.com`
+  * `servicedirectory.googleapis.com`
+  * `servicedirectory.mtls.googleapis.com`
+
+  
+global-servicehealth-endpoints  |  Servicehealth global API endpoints:  
+`in:global-servicehealth-endpoints` | _Values:_  
+
+
+  * `content-servicehealth.googleapis.com`
+  * `content-servicehealth.mtls.googleapis.com`
+  * `servicehealth.googleapis.com`
+  * `servicehealth.mtls.googleapis.com`
 
   
 global-servicenetworking-endpoints  |  Service Networking global API endpoints:  
@@ -2403,6 +3231,86 @@ global-servicenetworking-endpoints  |  Service Networking global API endpoints:
   * `servicenetworking.mtls.googleapis.com`
 
   
+global-serviceusage-endpoints  |  Service Usage global API Endpoints:  
+`in:global-serviceusage-endpoints` | _Values:_  
+
+
+  * `content-serviceusage.googleapis.com`
+  * `content-serviceusage.mtls.googleapis.com`
+  * `serviceusage.googleapis.com`
+  * `serviceusage.mtls.googleapis.com`
+
+  
+global-spanner-endpoints  |  Cloud Spanner global API endpoints:  
+`in:global-spanner-endpoints` | _Values:_  
+
+
+  * `content-spanner.googleapis.com`
+  * `content-spanner.mtls.googleapis.com`
+  * `spanner.googleapis.com`
+  * `spanner.mtls.googleapis.com`
+
+  
+global-speech-endpoints  |  Cloud Speech global API endpoints:  
+`in:global-speech-endpoints` | _Values:_  
+
+
+  * `content-speech.googleapis.com`
+  * `content-speech.mtls.googleapis.com`
+  * `speech.googleapis.com`
+  * `speech.mtls.googleapis.com`
+
+  
+global-sqladmin-endpoints  |  Cloud SQL global API endpoints:  
+`in:global-sqladmin-endpoints` | _Values:_  
+
+
+  * `content-sqladmin.googleapis.com`
+  * `content-sqladmin.mtls.googleapis.com`
+  * `sqladmin.googleapis.com`
+  * `sqladmin.mtls.googleapis.com`
+
+  
+global-storagetransfer-endpoints  |  Storage Transfer Service global API Endpoints:  
+`in:global-storagetransfer-endpoints` | _Values:_  
+
+
+  * `content-storagetransfer.googleapis.com`
+  * `content-storagetransfer.mtls.googleapis.com`
+  * `storagetransfer.googleapis.com`
+  * `storagetransfer.mtls.googleapis.com`
+
+  
+global-texttospeech-endpoints  |  Text-to-Speech global API Endpoints:  
+`in:global-texttospeech-endpoints` | _Values:_  
+
+
+  * `content-texttospeech.googleapis.com`
+  * `content-texttospeech.mtls.googleapis.com`
+  * `texttospeech.googleapis.com`
+  * `texttospeech.mtls.googleapis.com`
+
+  
+global-tpu-endpoints  |  Cloud TPU global API endpoints:  
+`in:global-tpu-endpoints` | _Values:_  
+
+
+  * `content-tpu.googleapis.com`
+  * `content-tpu.mtls.googleapis.com`
+  * `tpu.googleapis.com`
+  * `tpu.mtls.googleapis.com`
+
+  
+global-trafficdirector-endpoints  |  Traffic Director global API endpoints:  
+`in:global-trafficdirector-endpoints` | _Values:_  
+
+
+  * `content-trafficdirector.googleapis.com`
+  * `content-trafficdirector.mtls.googleapis.com`
+  * `trafficdirector.googleapis.com`
+  * `trafficdirector.mtls.googleapis.com`
+
+  
 global-websecurityscanner-endpoints  |  Web Security Scanner global API endpoints:  
 `in:global-websecurityscanner-endpoints` | _Values:_  
 
@@ -2413,6 +3321,36 @@ global-websecurityscanner-endpoints  |  Web Security Scanner global API endpoint
   * `websecurityscanner.mtls.googleapis.com`
 
   
+global-workflowexecutions-endpoints  |  Workflow Executions global API endpoints:  
+`in:global-workflowexecutions-endpoints` | _Values:_  
+
+
+  * `content-workflowexecutions.googleapis.com`
+  * `content-workflowexecutions.mtls.googleapis.com`
+  * `workflowexecutions.googleapis.com`
+  * `workflowexecutions.mtls.googleapis.com`
+
+  
+global-workflows-endpoints  |  Workflows global API endpoints:  
+`in:global-workflows-endpoints` | _Values:_  
+
+
+  * `content-workflows.googleapis.com`
+  * `content-workflows.mtls.googleapis.com`
+  * `workflows.googleapis.com`
+  * `workflows.mtls.googleapis.com`
+
+  
+global-workloadmanager-endpoints  |  Workload Manager global API endpoints:  
+`in:global-workloadmanager-endpoints` | _Values:_  
+
+
+  * `content-workloadmanager.googleapis.com`
+  * `content-workloadmanager.mtls.googleapis.com`
+  * `workloadmanager.googleapis.com`
+  * `workloadmanager.mtls.googleapis.com`
+
+  
 global-workstations-endpoints  |  Cloud Workstations global API endpoints:  
 `in:global-workstations-endpoints` | _Values:_  
 
@@ -2421,6 +3359,570 @@ global-workstations-endpoints  |  Cloud Workstations global API endpoints:
   * `content-workstations.mtls.googleapis.com`
   * `workstations.googleapis.com`
   * `workstations.mtls.googleapis.com`
+
+  
+non-eu-aiplatform-endpoints  |  Vertex AI Platform API endpoints outside of the EU:  
+`in:non-eu-aiplatform-endpoints` | _Groups:_  
+
+
+  * `aiplatform-africa-endpoints`
+  * `aiplatform-americas-non-us-endpoints`
+  * `aiplatform-asia-endpoints`
+  * `aiplatform-australia-endpoints`
+  * `aiplatform-europe-non-eu-endpoints`
+  * `aiplatform-middleeast-endpoints`
+  * `aiplatform-us-endpoints`
+  * `global-aiplatform-endpoints`
+
+  
+aiplatform-africa-endpoints  |  Vertex AI Platform API endpoints in Africa:  
+`in:aiplatform-africa-endpoints` | _Values:_  
+
+
+  * `africa-south1-aiplatform.googleapis.com`
+  * `africa-south1-aiplatform.mtls.googleapis.com`
+  * `aiplatform.africa-south1.rep.googleapis.com`
+  * `aiplatform.africa-south1.rep.mtls.googleapis.com`
+  * `content-africa-south1-aiplatform.googleapis.com`
+  * `content-africa-south1-aiplatform.mtls.googleapis.com`
+  * `content-aiplatform.africa-south1.rep.googleapis.com`
+  * `content-aiplatform.africa-south1.rep.mtls.googleapis.com`
+
+  
+aiplatform-americas-non-us-endpoints  |  Vertex AI Platform API endpoints in the Americas outside of the US:  
+`in:aiplatform-americas-non-us-endpoints` | _Groups:_  
+
+
+  * `aiplatform-canada-endpoints`
+  * `aiplatform-southamerica-endpoints`
+
+  
+aiplatform-canada-endpoints  |  Vertex AI Platform API endpoints in Canada:  
+`in:aiplatform-canada-endpoints` | _Values:_  
+
+
+  * `aiplatform.northamerica-northeast1.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast1.rep.mtls.googleapis.com`
+  * `aiplatform.northamerica-northeast2.rep.googleapis.com`
+  * `aiplatform.northamerica-northeast2.rep.mtls.googleapis.com`
+  * `content-aiplatform.northamerica-northeast1.rep.googleapis.com`
+  * `content-aiplatform.northamerica-northeast1.rep.mtls.googleapis.com`
+  * `content-aiplatform.northamerica-northeast2.rep.googleapis.com`
+  * `content-aiplatform.northamerica-northeast2.rep.mtls.googleapis.com`
+  * `content-northamerica-northeast1-aiplatform.googleapis.com`
+  * `content-northamerica-northeast1-aiplatform.mtls.googleapis.com`
+  * `content-northamerica-northeast2-aiplatform.googleapis.com`
+  * `content-northamerica-northeast2-aiplatform.mtls.googleapis.com`
+  * `northamerica-northeast1-aiplatform.googleapis.com`
+  * `northamerica-northeast1-aiplatform.mtls.googleapis.com`
+  * `northamerica-northeast2-aiplatform.googleapis.com`
+  * `northamerica-northeast2-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-southamerica-endpoints  |  Vertex AI Platform API endpoints in South America:  
+`in:aiplatform-southamerica-endpoints` | _Values:_  
+
+
+  * `aiplatform.southamerica-east1.rep.googleapis.com`
+  * `aiplatform.southamerica-east1.rep.mtls.googleapis.com`
+  * `aiplatform.southamerica-west1.rep.googleapis.com`
+  * `aiplatform.southamerica-west1.rep.mtls.googleapis.com`
+  * `content-aiplatform.southamerica-east1.rep.googleapis.com`
+  * `content-aiplatform.southamerica-east1.rep.mtls.googleapis.com`
+  * `content-aiplatform.southamerica-west1.rep.googleapis.com`
+  * `content-aiplatform.southamerica-west1.rep.mtls.googleapis.com`
+  * `content-southamerica-east1-aiplatform.googleapis.com`
+  * `content-southamerica-east1-aiplatform.mtls.googleapis.com`
+  * `content-southamerica-west1-aiplatform.googleapis.com`
+  * `content-southamerica-west1-aiplatform.mtls.googleapis.com`
+  * `southamerica-east1-aiplatform.googleapis.com`
+  * `southamerica-east1-aiplatform.mtls.googleapis.com`
+  * `southamerica-west1-aiplatform.googleapis.com`
+  * `southamerica-west1-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-asia-endpoints  |  Vertex AI Platform API endpoints in Asia Pacific:  
+`in:aiplatform-asia-endpoints` | _Groups:_  
+
+
+  * `aiplatform-asia-east-endpoints`
+  * `aiplatform-asia-northeast-endpoints`
+  * `aiplatform-asia-south-endpoints`
+  * `aiplatform-asia-southeast-endpoints`
+
+  
+aiplatform-asia-east-endpoints  |  Vertex AI Platform API endpoints in East Asia (Taiwan, Hong Kong):  
+`in:aiplatform-asia-east-endpoints` | _Values:_  
+
+
+  * `aiplatform.asia-east1.rep.googleapis.com`
+  * `aiplatform.asia-east1.rep.mtls.googleapis.com`
+  * `aiplatform.asia-east2.rep.googleapis.com`
+  * `aiplatform.asia-east2.rep.mtls.googleapis.com`
+  * `asia-east1-aiplatform.googleapis.com`
+  * `asia-east1-aiplatform.mtls.googleapis.com`
+  * `asia-east2-aiplatform.googleapis.com`
+  * `asia-east2-aiplatform.mtls.googleapis.com`
+  * `content-aiplatform.asia-east1.rep.googleapis.com`
+  * `content-aiplatform.asia-east1.rep.mtls.googleapis.com`
+  * `content-aiplatform.asia-east2.rep.googleapis.com`
+  * `content-aiplatform.asia-east2.rep.mtls.googleapis.com`
+  * `content-asia-east1-aiplatform.googleapis.com`
+  * `content-asia-east1-aiplatform.mtls.googleapis.com`
+  * `content-asia-east2-aiplatform.googleapis.com`
+  * `content-asia-east2-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-asia-northeast-endpoints  |  Vertex AI Platform API endpoints in Northeast Asia (Tokyo, Osaka, Seoul):  
+`in:aiplatform-asia-northeast-endpoints` | _Values:_  
+
+
+  * `aiplatform.asia-northeast1.rep.googleapis.com`
+  * `aiplatform.asia-northeast1.rep.mtls.googleapis.com`
+  * `aiplatform.asia-northeast2.rep.googleapis.com`
+  * `aiplatform.asia-northeast2.rep.mtls.googleapis.com`
+  * `aiplatform.asia-northeast3.rep.googleapis.com`
+  * `aiplatform.asia-northeast3.rep.mtls.googleapis.com`
+  * `asia-northeast1-aiplatform.googleapis.com`
+  * `asia-northeast1-aiplatform.mtls.googleapis.com`
+  * `asia-northeast2-aiplatform.googleapis.com`
+  * `asia-northeast2-aiplatform.mtls.googleapis.com`
+  * `asia-northeast3-aiplatform.googleapis.com`
+  * `asia-northeast3-aiplatform.mtls.googleapis.com`
+  * `content-aiplatform.asia-northeast1.rep.googleapis.com`
+  * `content-aiplatform.asia-northeast1.rep.mtls.googleapis.com`
+  * `content-aiplatform.asia-northeast2.rep.googleapis.com`
+  * `content-aiplatform.asia-northeast2.rep.mtls.googleapis.com`
+  * `content-aiplatform.asia-northeast3.rep.googleapis.com`
+  * `content-aiplatform.asia-northeast3.rep.mtls.googleapis.com`
+  * `content-asia-northeast1-aiplatform.googleapis.com`
+  * `content-asia-northeast1-aiplatform.mtls.googleapis.com`
+  * `content-asia-northeast2-aiplatform.googleapis.com`
+  * `content-asia-northeast2-aiplatform.mtls.googleapis.com`
+  * `content-asia-northeast3-aiplatform.googleapis.com`
+  * `content-asia-northeast3-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-asia-south-endpoints  |  Vertex AI Platform API endpoints in South Asia (Mumbai, Delhi):  
+`in:aiplatform-asia-south-endpoints` | _Values:_  
+
+
+  * `aiplatform.asia-south1.rep.googleapis.com`
+  * `aiplatform.asia-south1.rep.mtls.googleapis.com`
+  * `aiplatform.asia-south2.rep.googleapis.com`
+  * `aiplatform.asia-south2.rep.mtls.googleapis.com`
+  * `asia-south1-aiplatform.googleapis.com`
+  * `asia-south1-aiplatform.mtls.googleapis.com`
+  * `asia-south2-aiplatform.googleapis.com`
+  * `asia-south2-aiplatform.mtls.googleapis.com`
+  * `content-aiplatform.asia-south1.rep.googleapis.com`
+  * `content-aiplatform.asia-south1.rep.mtls.googleapis.com`
+  * `content-aiplatform.asia-south2.rep.googleapis.com`
+  * `content-aiplatform.asia-south2.rep.mtls.googleapis.com`
+  * `content-asia-south1-aiplatform.googleapis.com`
+  * `content-asia-south1-aiplatform.mtls.googleapis.com`
+  * `content-asia-south2-aiplatform.googleapis.com`
+  * `content-asia-south2-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-asia-southeast-endpoints  |  Vertex AI Platform API endpoints in Southeast Asia (Singapore, Jakarta):  
+`in:aiplatform-asia-southeast-endpoints` | _Values:_  
+
+
+  * `aiplatform.asia-southeast1.rep.googleapis.com`
+  * `aiplatform.asia-southeast1.rep.mtls.googleapis.com`
+  * `aiplatform.asia-southeast2.rep.googleapis.com`
+  * `aiplatform.asia-southeast2.rep.mtls.googleapis.com`
+  * `asia-southeast1-aiplatform.googleapis.com`
+  * `asia-southeast1-aiplatform.mtls.googleapis.com`
+  * `asia-southeast2-aiplatform.googleapis.com`
+  * `asia-southeast2-aiplatform.mtls.googleapis.com`
+  * `content-aiplatform.asia-southeast1.rep.googleapis.com`
+  * `content-aiplatform.asia-southeast1.rep.mtls.googleapis.com`
+  * `content-aiplatform.asia-southeast2.rep.googleapis.com`
+  * `content-aiplatform.asia-southeast2.rep.mtls.googleapis.com`
+  * `content-asia-southeast1-aiplatform.googleapis.com`
+  * `content-asia-southeast1-aiplatform.mtls.googleapis.com`
+  * `content-asia-southeast2-aiplatform.googleapis.com`
+  * `content-asia-southeast2-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-australia-endpoints  |  Vertex AI Platform API endpoints in Australia:  
+`in:aiplatform-australia-endpoints` | _Values:_  
+
+
+  * `aiplatform.australia-southeast1.rep.googleapis.com`
+  * `aiplatform.australia-southeast1.rep.mtls.googleapis.com`
+  * `aiplatform.australia-southeast2.rep.googleapis.com`
+  * `aiplatform.australia-southeast2.rep.mtls.googleapis.com`
+  * `australia-southeast1-aiplatform.googleapis.com`
+  * `australia-southeast1-aiplatform.mtls.googleapis.com`
+  * `australia-southeast2-aiplatform.googleapis.com`
+  * `australia-southeast2-aiplatform.mtls.googleapis.com`
+  * `content-aiplatform.australia-southeast1.rep.googleapis.com`
+  * `content-aiplatform.australia-southeast1.rep.mtls.googleapis.com`
+  * `content-aiplatform.australia-southeast2.rep.googleapis.com`
+  * `content-aiplatform.australia-southeast2.rep.mtls.googleapis.com`
+  * `content-australia-southeast1-aiplatform.googleapis.com`
+  * `content-australia-southeast1-aiplatform.mtls.googleapis.com`
+  * `content-australia-southeast2-aiplatform.googleapis.com`
+  * `content-australia-southeast2-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-europe-non-eu-endpoints  |  Vertex AI Platform API endpoints in Europe outside of the EU:  
+`in:aiplatform-europe-non-eu-endpoints` | _Values:_  
+
+
+  * `aiplatform.europe-west2.rep.googleapis.com`
+  * `aiplatform.europe-west2.rep.mtls.googleapis.com`
+  * `aiplatform.europe-west6.rep.googleapis.com`
+  * `aiplatform.europe-west6.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west2.rep.googleapis.com`
+  * `content-aiplatform.europe-west2.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west6.rep.googleapis.com`
+  * `content-aiplatform.europe-west6.rep.mtls.googleapis.com`
+  * `content-europe-west2-aiplatform.googleapis.com`
+  * `content-europe-west2-aiplatform.mtls.googleapis.com`
+  * `content-europe-west6-aiplatform.googleapis.com`
+  * `content-europe-west6-aiplatform.mtls.googleapis.com`
+  * `europe-west2-aiplatform.googleapis.com`
+  * `europe-west2-aiplatform.mtls.googleapis.com`
+  * `europe-west6-aiplatform.googleapis.com`
+  * `europe-west6-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-middleeast-endpoints  |  Vertex AI Platform API endpoints in Middle East:  
+`in:aiplatform-middleeast-endpoints` | _Values:_  
+
+
+  * `aiplatform.me-central1.rep.googleapis.com`
+  * `aiplatform.me-central1.rep.mtls.googleapis.com`
+  * `aiplatform.me-central2.rep.googleapis.com`
+  * `aiplatform.me-central2.rep.mtls.googleapis.com`
+  * `aiplatform.me-west1.rep.googleapis.com`
+  * `aiplatform.me-west1.rep.mtls.googleapis.com`
+  * `content-aiplatform.me-central1.rep.googleapis.com`
+  * `content-aiplatform.me-central1.rep.mtls.googleapis.com`
+  * `content-aiplatform.me-central2.rep.googleapis.com`
+  * `content-aiplatform.me-central2.rep.mtls.googleapis.com`
+  * `content-aiplatform.me-west1.rep.googleapis.com`
+  * `content-aiplatform.me-west1.rep.mtls.googleapis.com`
+  * `content-me-central1-aiplatform.googleapis.com`
+  * `content-me-central1-aiplatform.mtls.googleapis.com`
+  * `content-me-central2-aiplatform.googleapis.com`
+  * `content-me-central2-aiplatform.mtls.googleapis.com`
+  * `content-me-west1-aiplatform.googleapis.com`
+  * `content-me-west1-aiplatform.mtls.googleapis.com`
+  * `me-central1-aiplatform.googleapis.com`
+  * `me-central1-aiplatform.mtls.googleapis.com`
+  * `me-central2-aiplatform.googleapis.com`
+  * `me-central2-aiplatform.mtls.googleapis.com`
+  * `me-west1-aiplatform.googleapis.com`
+  * `me-west1-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-us-endpoints  |  Vertex AI Platform API endpoints in the United States:  
+`in:aiplatform-us-endpoints` | _Groups:_  
+
+
+  * `aiplatform-us-central-endpoints`
+  * `aiplatform-us-east-endpoints`
+  * `aiplatform-us-multi-endpoints`
+  * `aiplatform-us-south-endpoints`
+  * `aiplatform-us-west-a-endpoints`
+  * `aiplatform-us-west-b-endpoints`
+
+  
+aiplatform-us-central-endpoints  |  Vertex AI Platform API endpoints in Central US (Iowa):  
+`in:aiplatform-us-central-endpoints` | _Values:_  
+
+
+  * `aiplatform.us-central1.rep.googleapis.com`
+  * `aiplatform.us-central1.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-central1.rep.googleapis.com`
+  * `content-aiplatform.us-central1.rep.mtls.googleapis.com`
+  * `content-us-central1-aiplatform.googleapis.com`
+  * `content-us-central1-aiplatform.mtls.googleapis.com`
+  * `us-central1-aiplatform.googleapis.com`
+  * `us-central1-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-us-east-endpoints  |  Vertex AI Platform API endpoints in Eastern US (South Carolina, Northern Virginia, Columbus):  
+`in:aiplatform-us-east-endpoints` | _Values:_  
+
+
+  * `aiplatform.us-east1.rep.googleapis.com`
+  * `aiplatform.us-east1.rep.mtls.googleapis.com`
+  * `aiplatform.us-east4.rep.googleapis.com`
+  * `aiplatform.us-east4.rep.mtls.googleapis.com`
+  * `aiplatform.us-east5.rep.googleapis.com`
+  * `aiplatform.us-east5.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-east1.rep.googleapis.com`
+  * `content-aiplatform.us-east1.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-east4.rep.googleapis.com`
+  * `content-aiplatform.us-east4.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-east5.rep.googleapis.com`
+  * `content-aiplatform.us-east5.rep.mtls.googleapis.com`
+  * `content-us-east1-aiplatform.googleapis.com`
+  * `content-us-east1-aiplatform.mtls.googleapis.com`
+  * `content-us-east4-aiplatform.googleapis.com`
+  * `content-us-east4-aiplatform.mtls.googleapis.com`
+  * `content-us-east5-aiplatform.googleapis.com`
+  * `content-us-east5-aiplatform.mtls.googleapis.com`
+  * `us-east1-aiplatform.googleapis.com`
+  * `us-east1-aiplatform.mtls.googleapis.com`
+  * `us-east4-aiplatform.googleapis.com`
+  * `us-east4-aiplatform.mtls.googleapis.com`
+  * `us-east5-aiplatform.googleapis.com`
+  * `us-east5-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-us-multi-endpoints  |  Vertex AI Platform API multi-region endpoints in the United States:  
+`in:aiplatform-us-multi-endpoints` | _Values:_  
+
+
+  * `aiplatform.us.rep.googleapis.com`
+  * `aiplatform.us.rep.mtls.googleapis.com`
+  * `content-aiplatform.us.rep.googleapis.com`
+  * `content-aiplatform.us.rep.mtls.googleapis.com`
+  * `content-us-aiplatform.googleapis.com`
+  * `content-us-aiplatform.mtls.googleapis.com`
+  * `us-aiplatform.googleapis.com`
+  * `us-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-us-south-endpoints  |  Vertex AI Platform API endpoints in Southern US (Dallas):  
+`in:aiplatform-us-south-endpoints` | _Values:_  
+
+
+  * `aiplatform.us-south1.rep.googleapis.com`
+  * `aiplatform.us-south1.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-south1.rep.googleapis.com`
+  * `content-aiplatform.us-south1.rep.mtls.googleapis.com`
+  * `content-us-south1-aiplatform.googleapis.com`
+  * `content-us-south1-aiplatform.mtls.googleapis.com`
+  * `us-south1-aiplatform.googleapis.com`
+  * `us-south1-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-us-west-a-endpoints  |  Vertex AI Platform API endpoints in Western US - Set A (Oregon, Los Angeles, Salt Lake City):  
+`in:aiplatform-us-west-a-endpoints` | _Values:_  
+
+
+  * `aiplatform.us-west1.rep.googleapis.com`
+  * `aiplatform.us-west1.rep.mtls.googleapis.com`
+  * `aiplatform.us-west2.rep.googleapis.com`
+  * `aiplatform.us-west2.rep.mtls.googleapis.com`
+  * `aiplatform.us-west3.rep.googleapis.com`
+  * `aiplatform.us-west3.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-west1.rep.googleapis.com`
+  * `content-aiplatform.us-west1.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-west2.rep.googleapis.com`
+  * `content-aiplatform.us-west2.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-west3.rep.googleapis.com`
+  * `content-aiplatform.us-west3.rep.mtls.googleapis.com`
+  * `content-us-west1-aiplatform.googleapis.com`
+  * `content-us-west1-aiplatform.mtls.googleapis.com`
+  * `content-us-west2-aiplatform.googleapis.com`
+  * `content-us-west2-aiplatform.mtls.googleapis.com`
+  * `content-us-west3-aiplatform.googleapis.com`
+  * `content-us-west3-aiplatform.mtls.googleapis.com`
+  * `us-west1-aiplatform.googleapis.com`
+  * `us-west1-aiplatform.mtls.googleapis.com`
+  * `us-west2-aiplatform.googleapis.com`
+  * `us-west2-aiplatform.mtls.googleapis.com`
+  * `us-west3-aiplatform.googleapis.com`
+  * `us-west3-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-us-west-b-endpoints  |  Vertex AI Platform API endpoints in Western US - Set B (Las Vegas, Phoenix):  
+`in:aiplatform-us-west-b-endpoints` | _Values:_  
+
+
+  * `aiplatform.us-west4.rep.googleapis.com`
+  * `aiplatform.us-west4.rep.mtls.googleapis.com`
+  * `aiplatform.us-west8.rep.googleapis.com`
+  * `aiplatform.us-west8.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-west4.rep.googleapis.com`
+  * `content-aiplatform.us-west4.rep.mtls.googleapis.com`
+  * `content-aiplatform.us-west8.rep.googleapis.com`
+  * `content-aiplatform.us-west8.rep.mtls.googleapis.com`
+  * `content-us-west4-aiplatform.googleapis.com`
+  * `content-us-west4-aiplatform.mtls.googleapis.com`
+  * `content-us-west8-aiplatform.googleapis.com`
+  * `content-us-west8-aiplatform.mtls.googleapis.com`
+  * `us-west4-aiplatform.googleapis.com`
+  * `us-west4-aiplatform.mtls.googleapis.com`
+  * `us-west8-aiplatform.googleapis.com`
+  * `us-west8-aiplatform.mtls.googleapis.com`
+
+  
+global-aiplatform-endpoints  |  Vertex AI Platform global API endpoints:  
+`in:global-aiplatform-endpoints` | _Values:_  
+
+
+  * `aiplatform.googleapis.com`
+  * `aiplatform.mtls.googleapis.com`
+  * `content-aiplatform.googleapis.com`
+  * `content-aiplatform.mtls.googleapis.com`
+
+  
+non-us-aiplatform-endpoints  |  Vertex AI Platform API endpoints outside of the US:  
+`in:non-us-aiplatform-endpoints` | _Groups:_  
+
+
+  * `aiplatform-africa-endpoints`
+  * `aiplatform-americas-non-us-endpoints`
+  * `aiplatform-asia-endpoints`
+  * `aiplatform-australia-endpoints`
+  * `aiplatform-eu-endpoints`
+  * `aiplatform-europe-non-eu-endpoints`
+  * `aiplatform-middleeast-endpoints`
+  * `global-aiplatform-endpoints`
+
+  
+aiplatform-eu-endpoints  |  Vertex AI Platform API endpoints in the European Union:  
+`in:aiplatform-eu-endpoints` | _Groups:_  
+
+
+  * `aiplatform-eu-central-endpoints`
+  * `aiplatform-eu-multi-endpoints`
+  * `aiplatform-eu-north-endpoints`
+  * `aiplatform-eu-southwest-endpoints`
+  * `aiplatform-eu-west-a-endpoints`
+  * `aiplatform-eu-west-b-endpoints`
+
+  
+aiplatform-eu-central-endpoints  |  Vertex AI Platform API endpoints in Central Europe (Warsaw):  
+`in:aiplatform-eu-central-endpoints` | _Values:_  
+
+
+  * `aiplatform.europe-central2.rep.googleapis.com`
+  * `aiplatform.europe-central2.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-central2.rep.googleapis.com`
+  * `content-aiplatform.europe-central2.rep.mtls.googleapis.com`
+  * `content-europe-central2-aiplatform.googleapis.com`
+  * `content-europe-central2-aiplatform.mtls.googleapis.com`
+  * `europe-central2-aiplatform.googleapis.com`
+  * `europe-central2-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-eu-multi-endpoints  |  Vertex AI Platform API multi-region endpoints in the European Union:  
+`in:aiplatform-eu-multi-endpoints` | _Values:_  
+
+
+  * `aiplatform.eu.rep.googleapis.com`
+  * `aiplatform.eu.rep.mtls.googleapis.com`
+  * `content-aiplatform.eu.rep.googleapis.com`
+  * `content-aiplatform.eu.rep.mtls.googleapis.com`
+  * `content-eu-aiplatform.googleapis.com`
+  * `content-eu-aiplatform.mtls.googleapis.com`
+  * `eu-aiplatform.googleapis.com`
+  * `eu-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-eu-north-endpoints  |  Vertex AI Platform API endpoints in Northern Europe (Finland, Sweden):  
+`in:aiplatform-eu-north-endpoints` | _Values:_  
+
+
+  * `aiplatform.europe-north1.rep.googleapis.com`
+  * `aiplatform.europe-north1.rep.mtls.googleapis.com`
+  * `aiplatform.europe-north2.rep.googleapis.com`
+  * `aiplatform.europe-north2.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-north1.rep.googleapis.com`
+  * `content-aiplatform.europe-north1.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-north2.rep.googleapis.com`
+  * `content-aiplatform.europe-north2.rep.mtls.googleapis.com`
+  * `content-europe-north1-aiplatform.googleapis.com`
+  * `content-europe-north1-aiplatform.mtls.googleapis.com`
+  * `content-europe-north2-aiplatform.googleapis.com`
+  * `content-europe-north2-aiplatform.mtls.googleapis.com`
+  * `europe-north1-aiplatform.googleapis.com`
+  * `europe-north1-aiplatform.mtls.googleapis.com`
+  * `europe-north2-aiplatform.googleapis.com`
+  * `europe-north2-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-eu-southwest-endpoints  |  Vertex AI Platform API endpoints in Southwest Europe (Madrid):  
+`in:aiplatform-eu-southwest-endpoints` | _Values:_  
+
+
+  * `aiplatform.europe-southwest1.rep.googleapis.com`
+  * `aiplatform.europe-southwest1.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-southwest1.rep.googleapis.com`
+  * `content-aiplatform.europe-southwest1.rep.mtls.googleapis.com`
+  * `content-europe-southwest1-aiplatform.googleapis.com`
+  * `content-europe-southwest1-aiplatform.mtls.googleapis.com`
+  * `europe-southwest1-aiplatform.googleapis.com`
+  * `europe-southwest1-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-eu-west-a-endpoints  |  Vertex AI Platform API endpoints in Western Europe - Set A (Belgium, Berlin, Turin, Frankfurt):  
+`in:aiplatform-eu-west-a-endpoints` | _Values:_  
+
+
+  * `aiplatform.europe-west1.rep.googleapis.com`
+  * `aiplatform.europe-west1.rep.mtls.googleapis.com`
+  * `aiplatform.europe-west10.rep.googleapis.com`
+  * `aiplatform.europe-west10.rep.mtls.googleapis.com`
+  * `aiplatform.europe-west12.rep.googleapis.com`
+  * `aiplatform.europe-west12.rep.mtls.googleapis.com`
+  * `aiplatform.europe-west3.rep.googleapis.com`
+  * `aiplatform.europe-west3.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west1.rep.googleapis.com`
+  * `content-aiplatform.europe-west1.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west10.rep.googleapis.com`
+  * `content-aiplatform.europe-west10.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west12.rep.googleapis.com`
+  * `content-aiplatform.europe-west12.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west3.rep.googleapis.com`
+  * `content-aiplatform.europe-west3.rep.mtls.googleapis.com`
+  * `content-europe-west1-aiplatform.googleapis.com`
+  * `content-europe-west1-aiplatform.mtls.googleapis.com`
+  * `content-europe-west10-aiplatform.googleapis.com`
+  * `content-europe-west10-aiplatform.mtls.googleapis.com`
+  * `content-europe-west12-aiplatform.googleapis.com`
+  * `content-europe-west12-aiplatform.mtls.googleapis.com`
+  * `content-europe-west3-aiplatform.googleapis.com`
+  * `content-europe-west3-aiplatform.mtls.googleapis.com`
+  * `europe-west1-aiplatform.googleapis.com`
+  * `europe-west1-aiplatform.mtls.googleapis.com`
+  * `europe-west10-aiplatform.googleapis.com`
+  * `europe-west10-aiplatform.mtls.googleapis.com`
+  * `europe-west12-aiplatform.googleapis.com`
+  * `europe-west12-aiplatform.mtls.googleapis.com`
+  * `europe-west3-aiplatform.googleapis.com`
+  * `europe-west3-aiplatform.mtls.googleapis.com`
+
+  
+aiplatform-eu-west-b-endpoints  |  Vertex AI Platform API endpoints in Western Europe - Set B (Netherlands, Milan, Paris):  
+`in:aiplatform-eu-west-b-endpoints` | _Values:_  
+
+
+  * `aiplatform.europe-west4.rep.googleapis.com`
+  * `aiplatform.europe-west4.rep.mtls.googleapis.com`
+  * `aiplatform.europe-west8.rep.googleapis.com`
+  * `aiplatform.europe-west8.rep.mtls.googleapis.com`
+  * `aiplatform.europe-west9.rep.googleapis.com`
+  * `aiplatform.europe-west9.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west4.rep.googleapis.com`
+  * `content-aiplatform.europe-west4.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west8.rep.googleapis.com`
+  * `content-aiplatform.europe-west8.rep.mtls.googleapis.com`
+  * `content-aiplatform.europe-west9.rep.googleapis.com`
+  * `content-aiplatform.europe-west9.rep.mtls.googleapis.com`
+  * `content-europe-west4-aiplatform.googleapis.com`
+  * `content-europe-west4-aiplatform.mtls.googleapis.com`
+  * `content-europe-west8-aiplatform.googleapis.com`
+  * `content-europe-west8-aiplatform.mtls.googleapis.com`
+  * `content-europe-west9-aiplatform.googleapis.com`
+  * `content-europe-west9-aiplatform.mtls.googleapis.com`
+  * `europe-west4-aiplatform.googleapis.com`
+  * `europe-west4-aiplatform.mtls.googleapis.com`
+  * `europe-west8-aiplatform.googleapis.com`
+  * `europe-west8-aiplatform.mtls.googleapis.com`
+  * `europe-west9-aiplatform.googleapis.com`
+  * `europe-west9-aiplatform.mtls.googleapis.com`
 
   
 global-bigquery-endpoints  |  BigQuery global API endpoints:  

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/repositories/
 title: Create and manage repositories \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:30.913252+00:00
+fetched_at: 2026-11-03T09:36:28.354851+00:00
 ---
 
 # Create and manage repositories  |  BigQuery  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 
 BigQuery repositories let you version control your code files and collaborate with your team. You can create, share, and delete BigQuery repositories, or connect them to a third-party Git repository.
 
-For a more streamlined, folder-based version control experience, we recommend using [BigQuery Studio Git repositories](https://docs.cloud.google.com/bigquery/docs/git-repositories). This integration lets you work with Git branches directly in the BigQuery Studio file browser and clone multiple repositories at once without managing separate workspaces.
+For a folder-based version control experience, we recommend using [BigQuery Studio Git repositories](https://docs.cloud.google.com/bigquery/docs/git-repositories). This integration lets you work with Git branches directly in the BigQuery Studio file browser and clone multiple repositories at once without managing separate workspaces.
 
 ## Before you begin
 
@@ -116,25 +116,21 @@ To create a BigQuery repository, follow these steps:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the left pane, click explore **Explorer** :
-
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+  2. In the left pane, click fork_right **Source control**.
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  3. In the **Explorer** pane, expand your project and then click **Repositories** to open the **Repositories** tab in the details pane.
+  3. Click **Add Repository**.
 
-  4. Click **Add Repository**.
-
-  5. In the **Create repository** pane, in the **Repository ID** field, type a unique ID.
+  4. In the **Create repository** pane, in the **Repository ID** field, type a unique ID.
 
 IDs can only include numbers, letters, hyphens, and underscores.
 
-  6. In the **Region** drop-down list, select a BigQuery region for storing the repository and its contents. Select the BigQuery region nearest to your location.
+  5. In the **Region** drop-down list, select a BigQuery region for storing the repository and its contents. Select the BigQuery region nearest to your location.
 
 For a list of available BigQuery regions, see [BigQuery Studio locations](https://docs.cloud.google.com/bigquery/docs/locations#bqstudio-loc). The repository region does not have to match the location of your BigQuery datasets.
 
-  7. Click **Create**.
+  6. Click **Create**.
 
 
 
@@ -203,31 +199,29 @@ The Dataform service agent ID is in the following format:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  6. In the left pane, click explore **Explorer** :
+  6. In the left pane, click fork_right **Source control**.
 
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  7. In the **Explorer** pane, expand your project and then click **Repositories** to open the **Repositories** tab in the details pane.
+  7. Select the BigQuery repository that you want to connect to the remote repository.
 
-  8. Select the BigQuery repository that you want to connect to the remote repository.
+  8. In the editor, select the **Configuration** tab.
 
-  9. In the editor, select the **Configuration** tab.
+  9. Click **Connect with Git**.
 
-  10. Click **Connect with Git**.
+  10. In the **Connect to remote repository** pane, select the **SSH** radio button.
 
-  11. In the **Connect to remote repository** pane, select the **SSH** radio button.
-
-  12. In the **Remote Git repository URL** field, type the URL of the remote Git repository, ending with `.git`.
+  11. In the **Remote Git repository URL** field, type the URL of the remote Git repository, ending with `.git`.
 
 The URL of the remote Git repository must be in one of the following formats:
 
      * Absolute URL: `ssh://git@{host_name}[:{port}]/{repository_path}`, `port` is optional.
      * SCP-like URL: `git@{host_name}:{repository_path}`.
-  13. In the **Default remote branch name** field, type the name of the main branch of the remote Git repository.
+  12. In the **Default remote branch name** field, type the name of the main branch of the remote Git repository.
 
-  14. In the **Secret** drop-down, select the secret that you created that contains the SSH private key.
+  13. In the **Secret** drop-down, select the secret that you created that contains the SSH private key.
 
-  15. In the **SSH public host key value** field, type the public host key of your Git provider.
+  14. In the **SSH public host key value** field, type the public host key of your Git provider.
 
 ### Azure DevOps Services
 
@@ -297,7 +291,7 @@ For example:
 
 Verify this key is still up-to-date with GitLab.
 
-  16. Click **Connect**.
+  15. Click **Connect**.
 
 
 
@@ -357,29 +351,27 @@ The Dataform service agent ID is in the following format:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  6. In the left pane, click explore **Explorer** :
+  6. In the left pane, click fork_right **Source control**.
 
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  7. In the **Explorer** pane, expand your project and then click **Repositories** to open the **Repositories** tab in the details pane.
+  7. Select the BigQuery repository that you want to connect to the remote repository.
 
-  8. Select the BigQuery repository that you want to connect to the remote repository.
+  8. In the editor, select the **Configuration** tab.
 
-  9. In the editor, select the **Configuration** tab.
+  9. Click **Connect with Git**.
 
-  10. Click **Connect with Git**.
+  10. In the **Connect to remote repository** pane, select the **HTTPS** radio button.
 
-  11. In the **Connect to remote repository** pane, select the **HTTPS** radio button.
-
-  12. In the **Remote Git repository URL** field, type the URL of the remote Git repository, ending with `.git`.
+  11. In the **Remote Git repository URL** field, type the URL of the remote Git repository, ending with `.git`.
 
 The URL of the remote Git repository can't contain usernames or passwords.
 
-  13. In the **Default remote branch name** field, type the name of the main branch of the remote Git repository.
+  12. In the **Default remote branch name** field, type the name of the main branch of the remote Git repository.
 
-  14. In the **Secret** drop-down, select the secret that you created that contains the personal access token.
+  13. In the **Secret** drop-down, select the secret that you created that contains the personal access token.
 
-  15. Click **Connect**.
+  14. Click **Connect**.
 
 
 
@@ -392,21 +384,19 @@ To edit a connection between a BigQuery repository and a remote Git repository, 
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the left pane, click explore **Explorer** :
+  2. In the left pane, click fork_right **Source control**.
 
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  3. In the **Explorer** pane, expand your project and then click **Repositories** to open the **Repositories** tab in the details pane.
+  3. Select the BigQuery repository whose connection you want to edit.
 
-  4. Select the BigQuery repository whose connection you want to edit.
+  4. In the editor, select the **Configuration** tab.
 
-  5. In the editor, select the **Configuration** tab.
+  5. On the repository page, click **Edit Git connection**.
 
-  6. On the repository page, click **Edit Git connection**.
+  6. Edit connection settings.
 
-  7. Edit connection settings.
-
-  8. Click **Update**.
+  7. Click **Update**.
 
 
 
@@ -419,23 +409,21 @@ To share a repository, follow these steps:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the left pane, click explore **Explorer** :
+  2. In the left pane, click fork_right **Source control**.
 
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  3. In the **Explorer** pane, expand your project and then click **Repositories** to open the **Repositories** tab in the details pane.
+  3. Find the repository that you want to share.
 
-  4. Find the repository that you want to share.
+  4. Click more_vert **Open actions** and then click **Share**.
 
-  5. Click more_vert **Open actions** and then click **Share**.
+  5. In the **Share permissions** pane, click **Add User/Group**.
 
-  6. In the **Share permissions** pane, click **Add User/Group**.
+  6. In the **Add User/Group** pane, in the **New Principals** field, type one or more user or group names, separated by commas.
 
-  7. In the **Add User/Group** pane, in the **New Principals** field, type one or more user or group names, separated by commas.
+  7. In the **Role** field, choose the role to assign to the new principals.
 
-  8. In the **Role** field, choose the role to assign to the new principals.
-
-  9. Click **Save**.
+  8. Click **Save**.
 
 
 **Note:** If you enhance security by setting the `enable_private_workspace` field [(Preview)](https://cloud.google.com/products#product-launch-stages) to `true` in the [`projects.locations.updateConfig` Dataform API method](https://docs.cloud.google.com/dataform/reference/rest/v1beta1/projects.locations/updateConfig) for your Google Cloud project, then for any Dataform repository used by your BigQuery repository, only the creator of a Dataform workspace in that Dataform repository can read and write code in that Dataform workspace.
@@ -448,17 +436,15 @@ To delete a repository and all its contents, follow these steps:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the left pane, click explore **Explorer** :
+  2. In the left pane, click fork_right **Source control**.
 
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  3. In the **Explorer** pane, expand your project and then click **Repositories** to open the **Repositories** tab in the details pane.
+  3. Find the repository that you want to delete.
 
-  4. Find the repository that you want to delete.
+  4. Click more_vert **Open actions** and then click **Delete**.
 
-  5. Click more_vert **Open actions** and then click **Delete**.
-
-  6. Click **Delete**.
+  5. Click **Delete**.
 
 
 
@@ -474,6 +460,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

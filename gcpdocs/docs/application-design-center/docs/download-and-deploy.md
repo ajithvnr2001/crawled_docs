@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/download-and-deploy/
 title: Download and deploy Terraform \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:19.796988+00:00
+fetched_at: 2026-11-03T09:53:44.285480+00:00
 ---
 
 # Download and deploy Terraform  |  Application Design Center  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback
 
 #  Download and deploy Terraform Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to download Terraform for a template or application you designed in Application Design Center. Use this option when you want to deploy the application with your own CI/CD tools.
+Application Design Center lets you generate and export Terraform code for your templates and applications to a local machine or a GitHub repository.
 
-If you download and deploy this code using your own tools, the exported Terraform files contain the logic to automatically register your application in App Hub. This capability enables runtime monitoring in [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview).
-
-However, because you deploy the application externally, the application is treated as an unmanaged application. As a result, you cannot use [Application-centric Google Cloud](https://docs.cloud.google.com/application-design-center/docs/application-centric-google-cloud) features exclusive to managed applications, such as [design-time security assessments](https://docs.cloud.google.com/application-design-center/docs/design-application-templates#verify-compliance) and [tracing security findings to their source](https://docs.cloud.google.com/application-design-center/docs/monitor-applications#monitor_security_compliance) for root-cause resolution.
-
-If you want to take full advantage of application lifecycle management in App Design Center and use all Application-centric Google Cloud features, [deploy an application using App Design Center](https://docs.cloud.google.com/application-design-center/docs/deploy-applications).
+Exporting Terraform code lets you maintain and deploy applications with your own CI/CD tools. The exported Terraform files automatically register your application in App Hub to enable runtime monitoring in [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview). Externally deployed applications are treated as unmanaged applications. To use managed [Application-centric Google Cloud](https://docs.cloud.google.com/application-design-center/docs/application-centric-google-cloud) features such as [design-time security assessments](https://docs.cloud.google.com/application-design-center/docs/design-application-templates#verify-compliance) and [tracing security findings](https://docs.cloud.google.com/application-design-center/docs/monitor-applications#monitor_security_compliance) to their source, [deploy an application using App Design Center](https://docs.cloud.google.com/application-design-center/docs/deploy-applications).
 
 The system generates the following Terraform files:
 
@@ -241,6 +237,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

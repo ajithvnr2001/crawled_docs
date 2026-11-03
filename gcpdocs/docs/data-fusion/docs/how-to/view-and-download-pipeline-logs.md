@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/view-and-download-pipeline-logs/
 title: View and download pipeline logs \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:12.842418+00:00
+fetched_at: 2026-11-03T09:54:25.587264+00:00
 ---
 
 # View and download pipeline logs  |  Cloud Data Fusion  |  Google Cloud Documentation
@@ -26,6 +26,8 @@ This page explains pipeline logging in Cloud Data Fusion.
 For each data pipeline run, Cloud Data Fusion generates logs to help you monitor data pipeline runs and debug issues. As soon as a pipeline run begins, you can view the logs and filter them by log level.
 
 You can access the logs in the Cloud Data Fusion Studio on the **Preview** page and the **Pipeline details** page. To monitor the progress of a pipeline, click **Logs** while the pipeline is running.
+
+**Note:** By default, pipeline logs in the Cloud Data Fusion Studio are retained for seven days, while [pipeline run records](https://docs.cloud.google.com/data-fusion/docs/concepts/deploy-and-run-pipelines#view_run_records) are retained for 30 days. To view logs for runs older than seven days, use Cloud Logging. For more information, see [View Cloud Data Fusion logs](https://docs.cloud.google.com/data-fusion/docs/how-to/view-datafusion-logs) and [View advanced pipeline logs in Logging](https://docs.cloud.google.com/data-fusion/docs/how-to/viewing-stackdriver-logs).
 
 ## Filter logs by level
 
@@ -74,6 +76,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/arc/
 title: AI Co-Builder: Arc \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:05.567887+00:00
+fetched_at: 2026-11-03T09:54:47.141987+00:00
 ---
 
 # AI Co-Builder: Arc  |  CX Agent Studio  |  Google Cloud Documentation
@@ -126,7 +126,7 @@ Replace `PROJECT_ID` with your project ID, `LOCATION` with `us` or `eu`, `APP_ID
 
 ### Files uploaded before location-aware storage
 
-Arc started storing files in the location of the agent application in MONTH YEAR. If you set up Arc after that, you can skip this section.
+Arc started storing files in the location of the agent application when location-aware storage rolled out. If your project has no `PROJECT_ID-agent-assist-artifacts` bucket without a location suffix, Arc was set up after that change and you can skip this section.
 
 Before Arc stored files in the location of the agent application, it kept every uploaded file in a single bucket, `PROJECT_ID-agent-assist-artifacts`, in the `US` multi-region, for agent applications in every location. The name of that bucket has no location suffix.
 
@@ -166,6 +166,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

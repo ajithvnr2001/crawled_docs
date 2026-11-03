@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform/
 title: Terraform and Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:30:43.217585+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:52:01.709197+00:00
 ---
 
 # Terraform and Infrastructure Manager  |  Google Cloud Documentation
@@ -53,22 +39,40 @@ You can also create your own Terraform modules for Google Cloud. For more detail
 
 Infra Manager supports the following Terraform versions:
 
-Terraform version | Date available | Deprecation date | End of support date | Auto-migrate to version  
----|---|---|---|---  
-`1.2.3` | 8/21/2023 | 1/8/2026 | 2/8/2026 | `1.5.7`  
-`1.3.10` | 3/14/2024 | TBD | TBD | TBD  
-`1.4.7` | 3/14/2024 | TBD | TBD | TBD  
-`1.5.7` | 3/14/2024 | TBD | TBD | TBD  
+Terraform version | Pricing tier | Date available | Deprecation date | End of support date | Auto-migrate to version  
+---|---|---|---|---|---  
+`1.2.3` | Free tier | 8/21/2023 | 1/8/2026 | 2/8/2026 | `1.5.7`  
+`1.3.10` | Free tier | 3/14/2024 | TBD | TBD | TBD  
+`1.4.7` | Free tier | 3/14/2024 | TBD | TBD | TBD  
+`1.5.7` | Free tier | 3/14/2024 | TBD | TBD | TBD  
+`1.16.5` | Paid | 11/2/2026 | TBD | TBD | TBD  
   
-You can use the flag `--tf-version-constraint` to specify the version of Terraform that Infra Manager uses to [create a deployment](https://docs.cloud.google.com/infrastructure-manager/docs/deploy-resources).
+For information about the features introduced in each Terraform release, see the [HashiCorp Terraform documentation](https://developer.hashicorp.com/terraform/language) and [Terraform releases](https://releases.hashicorp.com/terraform/).
 
-Before you use Infrastructure Manager to deploy a Terraform configuration, ensure that the configuration has the following constraints:
+You can specify the version of Terraform that Infra Manager uses when you [create a deployment](https://docs.cloud.google.com/infrastructure-manager/docs/deploy-resources), [update a deployment](https://docs.cloud.google.com/infrastructure-manager/docs/update-deployment), or [preview a deployment](https://docs.cloud.google.com/infrastructure-manager/docs/preview-deployment) in the Google Cloud console or by using the `--tf-version-constraint` flag in the gcloud CLI.
 
-If you don't specify a version of Terraform, the latest supported version is used by default.
+If you don't specify a version of Terraform when creating a new deployment or preview, Infra Manager uses the latest supported free tier version (`1.5.7`) by default. To use a paid version (such as `1.16.5`), you must explicitly specify the version constraint.
 
 When updating a deployment, you can upgrade to a later Terraform version, but you cannot downgrade to an earlier supported version. For information about Terraform version deprecation, see the [Terraform version management policy](https://docs.cloud.google.com/infrastructure-manager/docs/terraform-version-deprecation) documentation.
 
 To view the version of Terraform that was used to create a specific deployment or revision, see [View details of a deployment](https://docs.cloud.google.com/infrastructure-manager/docs/view-deployments#deployment-details) and [View details of a revision](https://docs.cloud.google.com/infrastructure-manager/docs/view-deployments#revision-details).
+
+### Licensing and pricing for Terraform versions
+
+Terraform versions `1.5.7` and earlier are distributed as open source under the Mozilla Public License (MPL 2.0) and are available in the **Free tier** with no Infra Manager management fee.
+
+Terraform version `1.16.5` is distributed under the [Business Source License (BUSL)](https://www.hashicorp.com/en/bsl) and is offered as a **Paid** version in Infra Manager. Using a paid Terraform version incurs deployment and management charges based on the number of resources managed by Infra Manager:
+
+  * **Free tier allowance** : Each billing account receives a free tier allowance of up to 500 resources per month at no charge.
+
+  * **Usage charges** : Beyond the 500-resource monthly free tier allowance, resources managed by deployments that use a paid Terraform version incur resource management charges that are metered hourly per resource.
+
+  * **Previews are not charged** : Paid Terraform versions (such as `1.16.5`) incur charges only for Infra Manager deployments, not for [deployment previews](https://docs.cloud.google.com/infrastructure-manager/docs/preview-deployment).
+
+
+
+
+For more information about pricing, see [Infrastructure Manager pricing](https://cloud.google.com/infrastructure-manager/pricing).
 
 ## Constraints on Terraform configurations
 
@@ -135,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

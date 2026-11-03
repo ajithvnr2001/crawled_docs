@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-update-key-remove-rotation-schedule/
 title: Remove a rotation schedule from an existing key \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:18.743726+00:00
+fetched_at: 2026-11-03T09:54:08.705040+00:00
 ---
 
 # Remove a rotation schedule from an existing key  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -327,7 +327,7 @@ To authenticate to Cloud KMS, set up Application Default Credentials. For more i
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the parent key name.
     key_name = client.crypto_key_path project:    project_id,

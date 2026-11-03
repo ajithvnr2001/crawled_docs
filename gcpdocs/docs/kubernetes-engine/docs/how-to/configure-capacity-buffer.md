@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-capacity-buffer/
 title: Configure capacity buffers \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:03.497596+00:00
+fetched_at: 2026-11-03T09:52:03.634722+00:00
 ---
 
 # Configure capacity buffers  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Capacity buffers improve the responsiveness and reliability of critical workload
 
 When a high-priority workload needs to scale up quickly, the new workload can use the empty capacity immediately without waiting for node provisioning. This approach minimizes latency and avoids resource contention during sudden spikes in demand.
 
-This page provides methods for configuring capacity buffers: a fixed replicas buffer, a resource limits buffer, and a percentage-based buffer.
+This page shows you how to configure fixed-replica, resource-limit, and percentage-based capacity buffers, dedicate a buffer to a specific workload, customize standby buffer behavior, and preload container images.
 
 ## Before you begin
 
@@ -347,14 +347,72 @@ The CapacityBuffer controller reacts and automatically scales the buffer to 4 re
 
 
 
+## Dedicate a capacity buffer to a specific workload
+
+By default, any pending Pod that matches a buffer node's scheduling constraints can claim the buffer capacity. When multiple workloads share a [custom ComputeClass](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes) or node pool, use [workload separation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-separation) to reserve a capacity buffer for a specific workload. This approach requires node pool auto-creation, or a [dedicated node pool](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/isolate-workloads-dedicated-nodes) for active buffers on Standard clusters.
+
+Avoid dedicating separate capacity buffers to many individual workloads. Each dedicated buffer requires its own node pool, which increases the time to provision and refill buffers. For recommended buffer counts, see [Scalability](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/capacity-buffer#scalability).
+
+To dedicate a capacity buffer to a specific workload, complete the following steps:
+
+  1. In your workload manifest, such as `sample-workload-deployment.yaml` from Create prerequisite Kubernetes objects, add a custom toleration and node selector to the Pod specification:
+         
+         spec:
+           **tolerations :
+           - key: KEY
+             operator: Equal
+             value: "VALUE"
+             effect: NoSchedule
+           nodeSelector:
+             KEY: "VALUE"**
+             cloud.google.com/compute-class: ccc-example
+         
+
+Replace the following:
+
+     * `KEY`: a custom key for the taint and node label, such as `group`. For restricted key prefixes, see [Limitations of workload separation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-separation#limitations).
+     * `VALUE`: a custom value that identifies the workload, such as `critical-workload`.
+
+On Autopilot clusters, keep a custom ComputeClass or hardware selector in the `nodeSelector` field so that the buffer uses node-based billing instead of the unsupported [Pod-based billing model](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-autopilot-mode-standard-clusters#pricing).
+
+  2. Configure your CapacityBuffer to use the same scheduling constraints:
+
+     * If your CapacityBuffer uses the `scalableRef` field, reference the workload in the `spec.scalableRef` field. The buffer automatically inherits the workload's `tolerations` and `nodeSelector` fields.
+     * If your CapacityBuffer uses the `podTemplateRef` field, add the same `tolerations` and `nodeSelector` fields to your PodTemplate manifest, such as `buffer-pod-template.yaml`.
+  3. Apply your manifests and create the CapacityBuffer. For instructions, see Apply a capacity buffer. If you preload images on standby buffers, also add the custom toleration to your preloading DaemonSet so that it can schedule on the dedicated buffer nodes. If the buffer uses a custom ComputeClass, the DaemonSet also needs a toleration for the ComputeClass taint:
+         
+         tolerations:
+         - key: "buffer.gke.io/standby-capacity-node-suspended"
+           operator: "Exists"
+         **- key: KEY
+           operator: Equal
+           value: "VALUE"
+           effect: NoSchedule
+         - key: cloud.google.com/compute-class
+           operator: Equal
+           value: ccc-example
+           effect: NoSchedule**
+         
+
+  4. After the cluster autoscaler provisions the buffer nodes, verify that the nodes have the dedicated node label and node taint:
+         
+         kubectl get nodes -l KEY=VALUE \
+             -o custom-columns='NAME:.metadata.name,TAINTS:.spec.taints[*].key'
+         
+
+Each node in the output lists the `KEY` taint key. If the buffer uses a custom ComputeClass, the nodes also list the `cloud.google.com/compute-class` taint key. Standby buffer nodes also have taints that GKE manages, such as `buffer.gke.io/standby-capacity-node-suspended` on suspended nodes. When your workload scales up, run `kubectl get pods -n NAMESPACE -o wide` and confirm that the `NODE` column lists the dedicated node names from this output.
+
+
+
+
 ## Customize standby buffer behavior
 
 You can use annotations to customize how standby buffers start and refresh. Add these annotations to the `metadata.annotations` field of your CapacityBuffer resource:
 
   * `buffer.gke.io/standby-capacity-init-time`: the amount of time a node remains active after creation before GKE suspends it. Specify a duration string such as `5m` or `1h`. The default is `5m`.
-  * `buffer.gke.io/standby-capacity-refresh-frequency`: how often GKE refreshes suspended nodes. Specify a duration string such as `12h` or `24h`. The default is `24h`.
+  * `buffer.gke.io/standby-capacity-refresh-frequency`: how often GKE refreshes suspended nodes. Specify a duration string such as `12h` or `24h`, up to a maximum of `120h` (5 days). The default is `24h`.
 
-**Warning:** Setting `buffer.gke.io/standby-capacity-refresh-frequency` to a duration greater than `120h` isn't supported. Currently, this causes an admission warning, but it will result in a validation error in a future GKE release. To ensure compatibility, update your configurations to use `120h` or less.
+**Warning:** Setting `buffer.gke.io/standby-capacity-refresh-frequency` to a duration greater than `120h` (5 days) isn't supported. In GKE version 1.37.1-gke.2337000 and later, the admission controller rejects values greater than `120h`. In earlier versions, values greater than `120h` cause an admission warning in `v1alpha1` and `v1beta1` and a validation error in `v1`.
 
 
 
@@ -627,6 +685,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

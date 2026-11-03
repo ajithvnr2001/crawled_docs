@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/chrome-management/
 title: Collect Chrome Enterprise data \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:08.993237+00:00
+fetched_at: 2026-11-03T09:54:55.139409+00:00
 ---
 
 # Collect Chrome Enterprise data  |  Google Security Operations  |  Google Cloud Documentation
@@ -796,6 +796,169 @@ Else, the `telemetry_event_signals.connection_protocol` log field is mapped to t
   * `urlFilteringInterstitialEvent`
 
   
+`initiator.initiator_type` | `additional.fields[initiator_type]` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is _not_ empty, then The `additional.fields.key` UDM field is set to `"initiator_type"` and The `initiator.initiator_type` log field is mapped to the `additional.fields.value` UDM field.  
+`initiator.chrome_extension.id` | `additional.fields[chrome_extension_id]` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"EXTENSION"`, then If the `initiator.chrome_extension.id` log field value is _not_ empty, then The `additional.fields.key` UDM field is set to `"chrome_extension_id"` and The `initiator.chrome_extension.id` log field is mapped to the `additional.fields.value` UDM field.  
+`initiator.chrome_extension.name` | `additional.fields[chrome_extension_name]` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"EXTENSION"`, then If the `initiator.chrome_extension.name` log field value is _not_ empty, then The `additional.fields.key` UDM field is set to `"chrome_extension_name"` and The `initiator.chrome_extension.name` log field is mapped to the `additional.fields.value` UDM field.  
+`initiator.chrome_extension.version` | `additional.fields[chrome_extension_version]` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"EXTENSION"`, then If the `initiator.chrome_extension.version` log field value is _not_ empty, then The `additional.fields.key` UDM field is set to `"chrome_extension_version"` and The `initiator.chrome_extension.version` log field is mapped to the `additional.fields.value` UDM field.  
+`initiator.chrome_extension.source` | `additional.fields[chrome_extension_source]` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"EXTENSION"`, then If the `initiator.chrome_extension.source` log field value is _not_ empty, then The `additional.fields.key` UDM field is set to `"chrome_extension_source"` and The `initiator.chrome_extension.source` log field is mapped to the `additional.fields.value` UDM field.  
+`initiator.chrome_extension.install_location` | `additional.fields[chrome_extension_install_location]` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"EXTENSION"`, then If the `initiator.chrome_extension.install_location` log field value is _not_ empty, then The `additional.fields.key` UDM field is set to `"chrome_extension_install_location"` and The `initiator.chrome_extension.install_location` log field is mapped to the `additional.fields.value` UDM field.  
+`initiator.external_actors.transport_type` | `additional.fields[transport_type]` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:   
+if the `initiator.external_actors.transport_type` log field value is _not_ empty, then The `additional.fields.key` UDM field is set to `"transport_type"` and The `initiator.external_actors.transport_type` log field is mapped to the `additional.fields.value` UDM field.  
+`initiator.external_actors.process_info.process_id` | `principal.process.pid` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is equal to `"0"`, then If the `initiator.external_actors.process_info.process_id` log field value is _not_ empty, then The `initiator.external_actors.process_info.process_id` log field is mapped to the `principal.process.pid` UDM field.  
+`initiator.external_actors.process_info.parent_process_id` | `principal.process.parent_process.pid` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is equal to `"0"`, then If the `initiator.external_actors.process_info.parent_process_id` log field value is _not_ empty, then The `initiator.external_actors.process_info.parent_process_id` log field is mapped to the `principal.process.parent_process.pid` UDM field.  
+`initiator.external_actors.process_info.executable_path` | `principal.process.file.full_path` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is equal to `"0"`, then If the `initiator.external_actors.process_info.executable_path` log field value is _not_ empty, then The `initiator.external_actors.process_info.executable_path` log field is mapped to the `principal.process.file.full_path` UDM field.  
+`initiator.external_actors.process_info.script_path` | `principal.process.command_line` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is equal to `"0"`, then If the `initiator.external_actors.process_info.script_path` log field value is _not_ empty, then The `initiator.external_actors.process_info.script_path` log field is mapped to the `principal.process.command_line` UDM field.  
+`initiator.external_actors.process_info.process_id` | `about.process.pid` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is _not_ equal to `"0"`, then If the `initiator.external_actors.process_info.process_id` log field value is _not_ empty, then The `initiator.external_actors.process_info.process_id` log field is mapped to the `about.process.pid` UDM field.  
+`initiator.external_actors.process_info.parent_process_id` | `about.process.parent_process.pid` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is _not_ equal to `"0"`, then If the `initiator.external_actors.process_info.parent_process_id` log field value is _not_ empty, then The `initiator.external_actors.process_info.parent_process_id` log field is mapped to the `about.process.parent_process.pid` UDM field.  
+`initiator.external_actors.process_info.executable_path` | `about.process.file.full_path` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is _not_ equal to `"0"`, then If the `initiator.external_actors.process_info.executable_path` log field value is _not_ empty, then The `initiator.external_actors.process_info.executable_path` log field is mapped to the `about.process.file.full_path` UDM field.  
+`initiator.external_actors.process_info.script_path` | `about.process.command_line` | If the `event` log field value contain one of the following values:
+
+  * `dangerousDownloadEvent`
+  * `sensitiveDataEvent`
+  * `contentTransferEvent`
+  * `urlFilteringInterstitialEvent`
+  * `urlNavigationEvent`
+
+, then If the `initiator.initiator_type` log field value is equal to `"REMOTE_DEBUGGER"`, then  
+Iterate through log field `initiator.external_actors`:  
+iterate through log field `initiator.external_actors.process_info`:   
+if the `index1` log field value is _not_ equal to `"0"`, then If the `initiator.external_actors.process_info.script_path` log field value is _not_ empty, then The `initiator.external_actors.process_info.script_path` log field is mapped to the `about.process.command_line` UDM field.  
+`profile_user` | `additional.fields[profile_user]` |   
+`web_app_signed_in_account` | `additional.fields[web_app_signed_in_account]` |   
   
 ## Field mapping reference
 
@@ -866,6 +1029,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-google-ai/
 title: Migrate from Google AI Studio to Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:54.015118+00:00
+fetched_at: 2026-11-03T09:53:18.210701+00:00
 ---
 
 # Migrate from Google AI Studio to Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -97,13 +97,13 @@ When migrating to Gemini Enterprise Agent Platform:
 
 ### 1\. Migrate your prompts to Agent Studio
 
-Your Google AI Studio prompt data is saved in a Google Drive folder. This section shows how to migrate your prompts to Agent Studio.
+Your Google AI Studio prompt data is saved in a Drive folder. This section shows how to migrate your prompts to Agent Studio.
 
-  1. Open [Google Drive](https://drive.google.com).
-  2. Navigate to the **AI_Studio** folder where the prompts are stored. ![Location of prompts in Google Drive](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/migrate/images/ai-studio-drive.png)
-  3. Download your prompts from Google Drive to a local directory.
+  1. Open [Drive](https://drive.google.com).
+  2. Navigate to the **AI_Studio** folder where the prompts are stored. ![Location of prompts in Drive](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/migrate/images/ai-studio-drive.png)
+  3. Download your prompts from Drive to a local directory.
 
-**Note:** Prompts downloaded from Google Drive are in the text (`txt`) format. Before you upload them to Agent Studio, change the file extensions from `.txt` to `.json` to convert them to JSON files.
+**Note:** Prompts downloaded from Drive are in the text (`txt`) format. Before you upload them to Agent Studio, change the file extensions from `.txt` to `.json` to convert them to JSON files.
   4. Open [Agent Studio](https://console.cloud.google.com/agent-platform/generative) in the Google Cloud console.
 
   5. In the **Gemini Enterprise Agent Platform** menu, click **Recents > View all** to open the **Prompt management** menu.
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects/
 title: Create projects \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:48.736414+00:00
+fetched_at: 2026-11-03T09:55:07.499548+00:00
 ---
 
 # Create projects  |  Resource Manager  |  Google Cloud Documentation
@@ -21,17 +21,19 @@ Send feedback
 
 #  Create projects Stay organized with collections  Save and categorize content based on your preferences. 
 
-Projects are the fundamental operating unit in the Google Cloud resource hierarchy. Projects exist between folders (or the organization) and resources such as virtual machines and storage. This page explains how to create Google Cloud projects using the Cloud Resource Manager API and the Google Cloud console.
+Projects are the fundamental operating unit in the Google Cloud resource hierarchy and let you organize, isolate, and control your cloud resources. Sitting between folders (or the organization resource) and service resources such as virtual machines and storage, projects help you manage APIs, billing, and permissions across environments. To create and manage projects, you can use the Google Cloud console, the Google Cloud CLI, or the Cloud Resource Manager API.
+
+## Key characteristics of projects
 
 Key characteristics of projects include the following:
 
-  * The primary service container: A project is the base level where all Google Cloud services (APIs) are enabled and where resources like Compute Engine instances or BigQuery datasets are created.
+  * **The primary service container** : A project is the base level where you enable Google Cloud services (APIs) and create resources such as Compute Engine instances or BigQuery datasets.
 
-  * The trust boundary: Projects serve as an isolation layer. By default, resources in one project don't have access to resources in another, establishing a secure perimeter for different applications or environments.
+  * **The trust boundary** : Projects serve as an isolation layer. By default, resources in one project don't have access to resources in another project, which helps establish a secure perimeter for different applications or environments.
 
-  * The billing unit: Projects are the primary way businesses track, organize, and separate costs across their organization.
+  * **The billing unit** : Projects are the primary way that you track, organize, and separate costs across your organization.
 
-  * The policy attachment point: While policies often inherit from folders, the project level is the most common place where specific permissions ( Identity and Access Management (IAM)) are granted to developers and service accounts for daily tasks.
+  * **The policy attachment point** : Although projects inherit policies from folders and the organization resource, the project level is the most common place where you grant specific Identity and Access Management (IAM) permissions to developers and service accounts for daily tasks.
 
 
 
@@ -301,6 +303,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

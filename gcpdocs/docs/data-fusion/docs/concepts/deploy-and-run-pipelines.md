@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/deploy-and-run-pipelines/
 title: Deploy and run pipelines \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:59:20.460183+00:00
+fetched_at: 2026-11-03T09:54:26.204585+00:00
 ---
 
 # Deploy and run pipelines  |  Cloud Data Fusion  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ For more information about the pipeline runs, click **Summary**.
 
 ## View run records
 
-After a pipeline run completes, you can view the run record. By default, you can view the last 30 days of run records. Cloud Data Fusion deletes them after that period. You can extend that period using the REST API.
+After a pipeline run completes, you can view the run record. By default, you can view the last 30 days of run records. Cloud Data Fusion deletes them after that period. You can extend that period using the REST API. Extending run record retention doesn't extend [pipeline log retention in the Cloud Data Fusion Studio](https://docs.cloud.google.com/data-fusion/docs/how-to/view-and-download-pipeline-logs), which is seven days by default.
 
 ### REST API
 
@@ -93,6 +93,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

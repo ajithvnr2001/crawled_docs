@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite/
 title: Gemini 3.1 Flash-Lite \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:52.953233+00:00
+fetched_at: 2026-11-03T09:52:09.861298+00:00
 ---
 
 # Gemini 3.1 Flash-Lite  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Gemini 3.1 Flash-Lite is our most cost-efficient Gemini model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic. It provides a significant quality increase over Gemini 2.5 Flash-Lite, matching Gemini 2.5 Flash performance across key capability areas: 
 
-  * **Improved response quality:** Aims to match 2.5 Flash performance.
+  * **Improved response quality:** Aims to match Gemini 2.5 Flash performance.
   * **Improved instruction following:** Targeted improvements to serve as a reliable migration path for complex chatbot and instruction-heavy workflows.
   * **Improved audio input:** Improved audio-input quality for tasks like Automated Speech Recognition (ASR).
   * **Expanded thinking support:** You can control how much reasoning the model performs by choosing from minimal, low, medium, or high [thinking levels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking). This feature lets you balance response quality and speed for your specific use case.
@@ -195,6 +195,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

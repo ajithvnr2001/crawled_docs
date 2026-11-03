@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/sql-server-transfer/
 title: Import metadata from SQL Server \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:43.930786+00:00
+fetched_at: 2026-11-03T09:53:50.461443+00:00
 ---
 
 # Import metadata from SQL Server  |  Knowledge Catalog  |  Google Cloud Documentation

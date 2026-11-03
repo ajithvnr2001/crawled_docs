@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ingest-gcp-logs/
 title: Ingest Google Cloud logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:42.796767+00:00
+fetched_at: 2026-11-03T09:54:39.261306+00:00
 ---
 
 # Ingest Google Cloud logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -100,6 +100,7 @@ Depending on the type of data you plan to ingest or verify, you may also need:
 
   * **Security Center Admin Editor** (`roles/securitycenter.adminEditor`): Required if you plan to enable the ingestion of **Cloud Asset Metadata**.
   * **Organization Role Viewer** (`roles/iam.organizationRoleViewer`): Required to view default or custom IAM roles at the organization level.
+  * **Organization Administrator** (`roles/resourcemanager.organizationAdmin`): Required on target organizations so that isolated Google Cloud organizations appear in the **Organization** menu when configuring ingestion.
 
 
 
@@ -123,6 +124,10 @@ To grant IAM roles using Google Cloud console, complete the following steps:
   3. In the Edit Permissions screen, click **Add Another Role** and search for Google SecOps to find the IAM roles.
 
   4. Once you have assigned the roles, click **Save**.
+
+**Caution:** When ingesting logs across multiple projects or organizations, you must grant these organization-level IAM bindings on each target organization _before_ enabling or saving ingestion scopes in the Google SecOps ingestion settings. Saving ingestion scopes without the required backend IAM bindings results in an `Attempted action failed` error when synchronizing permissions.
+
+![Assign roles dialog in the Google Cloud console with callouts highlighting required roles for Google SecOps ingestion](https://docs.cloud.google.com/static/chronicle/images/ingestion/cloud-ingestion-iam-roles-mu.png)**Figure 1.** Required organization-level IAM roles and permission callout in the Google Cloud console
 
 
 
@@ -194,7 +199,9 @@ When you migrate an existing Google SecOps instance so that it binds to a projec
   2. Select the project that is bound to your Google SecOps instance.
   3. In the **Organization** menu, select the organization from which logs will be exported. The menu displays organizations you have permission to access. The list can include organizations that aren't linked to the Google SecOps instance. You cannot configure an organization that sends data to a different Google SecOps instance.
 
-![Select organization](https://docs.cloud.google.com/static/chronicle/images/ingestion/cloud-ingestion-settings-enable.png)
+**Note:** If an isolated Google Cloud organization doesn't appear in the **Organization** menu, verify that your identity has been granted the **Organization Administrator** (`roles/resourcemanager.organizationAdmin`) and **Chronicle Service Admin** (`roles/chroniclesm.admin`) IAM roles directly on that target organization.
+
+![Google SecOps Ingestion Settings page with a callout highlighting the Organization menu and permission prerequisites.](https://docs.cloud.google.com/static/chronicle/images/ingestion/cloud-ingestion-settings-enable-mu.png)**Figure 2.** Organization selection menu with permission prerequisites in Google SecOps ingestion settings
 
   4. Under the **Google Cloud Ingestion setting** section, click the **Sending data to Google Security Operations** toggle to enable logs to be sent to Google SecOps.
 
@@ -363,7 +370,7 @@ By default, your Cloud Audit Logs (Admin Activity and System Event) and Cloud DN
 
 Filters are subject to a maximum length of 20,000 characters. Be aware that overly complex filters, particularly those with many deeply nested `AND` or `OR` conditions, might be rejected even if they are within the character limit. Simplifying your filters can help avoid rejection. In addition, all elements within the filter must be explicitly scoped to the supported log types. You must use either `log_id()` or `logName` to reference log types listed in the Log types supported for export section.
 
-**Note:** You can only export log types to Google SecOps that are listed in: Google Cloud log types supported for export, and that have the following log ID and log name format: `log_id = xx`, `logName = xxx`.
+**Caution:** You can only export log types to Google SecOps that are listed in Google Cloud log types supported for export using the exact `log_id()` or `logName` format shown in that section. Adding any unsupported Google Cloud log type causes the filter to fail validation when you click **Save**.
 
 To define a custom filter for your logs, do the following:
 
@@ -386,6 +393,8 @@ To define a custom filter for your logs, do the following:
   8. Go back to the **Custom export filter settings** section on the **Google SecOps** page.
 
   9. Click the **Edit** icon in the **Export filter** field, and then paste the copied filter into the field.
+
+![Google SecOps custom export filter editor displaying a formatted multi-line query expression.](https://docs.cloud.google.com/static/chronicle/images/ingestion/cloud-export-filter-settings-mu.png)**Figure 3.** Example custom export filter syntax configured in Google SecOps
 
   10. Click **Save**.
 
@@ -463,6 +472,25 @@ The following export filter exports the default logs from the entire Google Clou
     (NOT logName =~ "^projects/my-project-id/logs/.*$")
     
 
+#### Export filter example: Combine tuned Data Access logs with a project exclusion
+
+When combining multiple `OR` conditions with `AND NOT` exclusions, wrap the `OR` conditions and any tuned log clauses in parentheses so that every branch remains explicitly scoped to a supported `log_id()` or `logName`:
+    
+    
+    (
+      log_id("cloudaudit.googleapis.com/activity") OR
+      log_id("cloudaudit.googleapis.com/system_event") OR
+      log_id("dns.googleapis.com/dns_queries") OR
+      (
+        log_id("cloudaudit.googleapis.com/data_access")
+        AND NOT protoPayload.methodName =~ "^storage\.(buckets|objects)\.(get|list)$"
+        AND NOT protoPayload.request.cmd = "select"
+        AND NOT protoPayload.methodName =~ "^google\.spanner\.v1\.Spanner\.(ExecuteStreamingSql|BeginTransaction|Commit)$"
+      )
+    )
+    AND NOT logName =~ "^projects/my-project-id/logs/.*$"
+    
+
 ## Export Google Cloud asset metadata
 
 You can export your Google Cloud asset metadata from Cloud Asset Inventory to Google SecOps. This asset metadata is drawn from your Cloud Asset Inventory and consists of information about your assets, resources, and identities including the following:
@@ -497,6 +525,10 @@ The following are examples of Google Cloud asset metadata:
 **Note:** You need to have either Security Command Center Standard or Security Command Center Premium enabled to export Google Cloud asset metadata to Google SecOps.
 
 To export Google Cloud asset metadata to Google SecOps, set the **Cloud Asset Metadata** toggle to **Enabled**.
+
+**Caution:** Enabling **Cloud Asset Metadata** exports all supported context log types simultaneously, including `GCP_BIGQUERY_CONTEXT`. In environments with a large number of BigQuery datasets, tables, or jobs, enabling this option can significantly increase your log ingestion volume.
+
+![Google Cloud ingestion settings highlighting the Cloud Asset Metadata toggle and BigQuery context ingestion volume warning.](https://docs.cloud.google.com/static/chronicle/images/ingestion/cloud-asset-metadata-toggle-mu.png)**Figure 4.** Cloud Asset Metadata toggle
 
 For more information about exporting specific context logs and ingesting them into Google SecOps, see [Default parser configuration and ingestion](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/default-parser-configuration) and search for 'context' or 'analysis'.
 
@@ -591,6 +623,10 @@ You can request a rate limit increase by contacting [Cloud Customer Care](https:
 
 Workaround: Only include log types to the export filter, that appear in the following list: Google Cloud log types supported for export.
 
+  * When you save Google Cloud ingestion scopes or settings in the Google Cloud console, you might see an `"Attempted action failed"` error, or scopes might appear saved in the UI but fail to synchronize.
+
+Workaround: Verify that all required organization-level IAM roles (`roles/chroniclesm.admin`, `roles/iam.organizationRoleViewer`, and `roles/securitycenter.adminEditor` if exporting asset metadata) are granted on each target organization before saving your ingestion settings.
+
 
 
 
@@ -607,6 +643,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

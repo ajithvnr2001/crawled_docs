@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/data-lineage/
 title: Use data lineage with Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:24.373245+00:00
+fetched_at: 2026-11-03T09:53:29.897028+00:00
 ---
 
 # Use data lineage with Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -161,7 +161,7 @@ You can disable Spark data lineage on a Spark interactive session or runtime pro
 
 **Note:** You can also disable Spark data lineage by [disabling lineage ingestion for Managed Service for Apache Spark](https://docs.cloud.google.com/dataplex/docs/use-lineage#disable-lineage-ingestion). This setting overrides all other data lineage settings.
 
-The following PySpark notebook code configures a Managed Service for Apache Spark interactive session with Spark data lineage enabled. It then creates a [Spark Connect](https://spark.apache.org/spark-connect/) session that runs a word count query on a public BigQuery Shakespeare dataset, and then writes the output to a new table in an existing BigQuery dataset (see [Create a Spark session in a BigQuery Studio notebook](https://docs.cloud.google.com/bigquery/docs/use-spark#create-a-single-spark-session-in-a-bigquery-studio-notebook)) .
+The following PySpark notebook code configures a Managed Service for Apache Spark interactive session with Spark data lineage enabled. It then creates a [Spark Connect](https://spark.apache.org/spark-connect/) session that runs a word count query on a public BigQuery Shakespeare dataset, and then writes the output to a new table in an existing BigQuery dataset (see [Use the Spark Connect client](https://docs.cloud.google.com/managed-spark/docs/guides/spark-connect-client)).
     
     
     # Configure the Dataproc Serverless interactive session
@@ -172,9 +172,14 @@ The following PySpark notebook code configures a Managed Service for Apache Spar
     session.runtime_config.properties["spark.dataproc.lineage.enabled"] = "true"
     
     # Create the Spark Connect session.
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     
-    spark = DataprocSparkSession.builder.dataprocSessionConfig(session).getOrCreate()
+    spark = (
+        ManagedSparkSession.builder
+        .sessionId("lineage-example")
+        .sessionConfig(session)
+        .getOrCreate()
+    )
     
     # Run a wordcount query on the public BigQuery Shakespeare dataset.
     source = "bigquery-public-data:samples.shakespeare"
@@ -215,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

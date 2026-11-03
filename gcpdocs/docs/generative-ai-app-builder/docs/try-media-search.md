@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/try-media-search/
 title: Get started with media search \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:34:35.736236+00:00
+fetched_at: 2026-11-03T09:36:13.816010+00:00
 ---
 
 # Get started with media search  |  Agent Search  |  Google Cloud Documentation
@@ -232,7 +232,7 @@ Now the new view has the schema that the Discovery Engine API expects.
 
   3. In the **Explorer** pane, expand your project name, click **Datasets** , select the **`movielens`** dataset, and click **`movies_view`** to open the schema page for this view.
 
-Alternatively, in the **Explorer** pane, select the **Classic explorer** tab, expand your project name, expand the **`movielens`** dataset and click **`movies_view`** to open the schema page for this view.
+Alternatively, in the left pane, click database **Data Explorer** , expand your project name, expand the **`movielens`** dataset and click **`movies_view`** to open the schema page for this view.
 
   4. Go to the **Table explorer** tab.
 
@@ -431,6 +431,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

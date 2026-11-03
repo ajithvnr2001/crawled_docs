@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/deploying-containers/
 title: Deploy containers (GKE, Distributed Cloud) \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:01.331311+00:00
+fetched_at: 2026-11-03T09:54:44.417291+00:00
 ---
 
 # Deploy containers (GKE, Distributed Cloud)  |  Binary Authorization  |  Google Cloud Documentation
@@ -108,6 +108,10 @@ You see your Pod listed.
 
 
 
+## Limitations
+
+At deployment time, Binary Authorization only scans images in the `containers` and `ephemeralContainers` fields of the [PodSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#podspec-v1-core). No other fields are scanned. [Init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) and [image volumes](https://kubernetes.io/docs/tasks/configure-pod-container/image-volumes/) aren't scanned at deployment time.
+
 ## Fail open
 
 If GKE is unable to reach the Binary Authorization server for any reason, or if the server returns an error, GKE cannot determine whether Binary Authorization would allow or deny the image. In this case, GKE fails open: it defaults to allowing the image to be deployed, but creates a log entry in Cloud Audit Logs to record why the image was allowed.
@@ -143,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

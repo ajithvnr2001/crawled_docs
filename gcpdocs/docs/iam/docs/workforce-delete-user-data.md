@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-delete-user-data/
 title: Delete Workforce Identity Federation users and their data \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:26:04.316741+00:00
+fetched_at: 2026-11-03T09:44:04.739546+00:00
 ---
 
 # Delete Workforce Identity Federation users and their data  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -22,7 +22,9 @@ Send feedback
 
 #  Delete Workforce Identity Federation users and their data Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide shows you how to delete workforce users (also known as principals) and data that they exclusively own, collectively "users and data". To learn more about how Google Cloud deletes data, see [Data deletion on Google Cloud](https://docs.cloud.google.com/docs/security/deletion).
+Workforce Identity Federation lets you delete workforce users (also known as principals) and their exclusively owned Google Cloud data and resources, collectively referred to as _users and data_. After you remove a user from your identity provider (IdP), deleting their metadata and exclusively owned resources helps you complete offboarding and meet data privacy requirements.
+
+To learn more about how Google Cloud deletes data, see [Data deletion on Google Cloud](https://docs.cloud.google.com/docs/security/deletion).
 
 ## Delete Workforce Identity Federation user data
 
@@ -36,7 +38,7 @@ To delete workforce users and data, you must initiate a delete request with a us
 
 The stages in the data-deletion pipeline are as follows:
 
-**Stage-1: Soft-deletion state:** After you initiate a delete request, the users and data are immediately marked for deletion and enter a 30-day soft- deletion state. In that state, the data can be deleted at anytime. After it is deleted, it cannot be accessed unless it is first recovered. You can _usually_ recover data that is in this state.
+**Stage-1: Soft-deletion state:** After you initiate a delete request, the users and data are immediately marked for deletion and enter a 30-day soft- deletion state. In that state, the data can be deleted at any time. After it is deleted, it cannot be accessed unless it is first recovered. You can _usually_ recover data that is in this state.
 
 **Stage-2: Purged state:** Users and data that remain deleted longer than 30 days are in the purged state, meaning they are permanently deleted and cannot be recovered. After the data enters the purged state, the user identifier can be reused and assigned to another user. This is because the identifier is processed as a new entity in Identity and Access Management (IAM).
 
@@ -102,6 +104,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

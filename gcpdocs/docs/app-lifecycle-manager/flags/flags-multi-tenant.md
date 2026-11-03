@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-multi-tenant/
 title: Use feature flags for multi-tenant architecture \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:40.192687+00:00
+fetched_at: 2026-11-03T09:54:44.778391+00:00
 ---
 
 # Use feature flags for multi-tenant architecture  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -137,9 +137,9 @@ Use evaluation rules to enable a feature for specific customers.
           "rules": [{
             "id": "allowlist-for-premium-tenants",
             "condition": "customerID in [\"tenant-xyz-123\", \"tenant-abc-789\"]",
-            "target": "Enabled"
+            "variantId": "Enabled"
           }],
-          "defaultTarget": "Disabled",
+          "defaultVariant": "Disabled",
           "attributes": ["projects/PROJECT_ID/locations/global/flagAttributes/customer-id-attr"]
         }'
     
@@ -196,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

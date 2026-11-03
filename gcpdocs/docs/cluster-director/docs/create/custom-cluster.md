@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/create/custom-cluster/
 title: Create a custom cluster \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:51.110540+00:00
+fetched_at: 2026-11-03T09:54:27.960598+00:00
 ---
 
 # Create a custom cluster  |  Cluster Director  |  Google Cloud Documentation
@@ -21,23 +21,21 @@ Send feedback
 
 #  Create a custom cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to create a cluster in Cluster Director where you fully customize the compute, networking, and storage resources for your specific artificial intelligence (AI), machine learning (ML), or high performance computing (HPC) workloads.
+This document explains how to create a custom cluster in Cluster Director. You customize the compute, networking, and storage resources for your artificial intelligence (AI), machine learning (ML), or high performance computing (HPC) workloads.
 
-This process lets you design a fault-tolerant and highly scalable Slurm environment with your own custom specifications, helping your cluster meet the needs of your workloads. To create a cluster based on a template that is optimized for running AI and ML workloads, see instead [Create an AI-optimized cluster based on a template](https://docs.cloud.google.com/cluster-director/docs/create/cluster-from-template).
+This process lets you design a fault-tolerant and highly scalable Slurm environment with your own custom specifications, helping your cluster meet the needs of your workloads. To create a cluster based on a template that is optimized for running AI and ML workloads, instead see [Create an AI-optimized cluster based on a template](https://docs.cloud.google.com/cluster-director/docs/create/cluster-from-template).
 
 ## Limitations
 
 When you create a cluster in Cluster Director, the following limitations apply:
 
-  * **Zonal scope** : all cluster resources must exist within the same zone. You can only create or use compute resources, storage resources, and subnetworks that exist within the same zone as your cluster. 
-  * **Compute resource configuration per nodeset** : each nodeset in your cluster must meet the following requirements: 
-    * You can specify only one compute resource configuration for each nodeset in your cluster. 
-    * If you create A4X virtual machine (VM) instances in a cluster partition, then the total number of A4X VMs for each nodeset must be a multiple of 18. This total is the sum of the static node count and the dynamic node count. Because Compute Engine provisions A4X capacity in sub-blocks of 18 VMs, nodesets can't share unused capacity. 
+  * **Zonal scope** : all cluster resources must exist within the same zone. You can only create or use compute resources, storage resources, and subnetworks that exist within the same zone as your cluster. Cluster Director doesn't support AI zones, which are zones with names that contain `-ai` after the region name (for example, `us-central1-ai1a`). 
+  * **Compute resource configuration per nodeset** : you can specify only one compute resource configuration for each nodeset in your cluster. Additionally, a cluster partition that contains a TPU nodeset can't contain GPU or CPU nodesets, and can't combine static and dynamic TPU nodesets. 
   * **Storage classes for new Cloud Storage buckets** : if you plan to add new Cloud Storage buckets to your cluster, then you can specify only the Rapid storage class, Standard storage class, or Autoclass. If you want to use other storage classes, then you must update your buckets after you create them. For instructions, see [Change object storage classes](https://docs.cloud.google.com/storage/docs/changing-storage-classes). **Caution** : You can't change the storage class of a Rapid bucket after you create it. Rapid buckets are zonal resources and must always use the Rapid storage class. 
   * **Slurm controller version** : clusters must meet the following Slurm version requirements: 
     * You can specify the Slurm controller version only when you create a cluster by using the Google Cloud CLI or the REST API; you can't modify the controller version for an existing cluster. 
-    * Compute nodes can't run a newer Slurm version than the controller node. For example, if the controller in your cluster node uses Slurm 25.05, then your compute nodes can't use an OS image that requires Slurm 26.05. To check the Slurm version of an OS image, see [Supported OS images](https://docs.cloud.google.com/cluster-director/docs/os-images#included-software). 
-  * **Hyperdisk pools** : if you plan to use storage pools for node boot disks, then you can use only existing storage pools or Hyperdisk Exapools that use Hyperdisk Balanced volumes. Storage pools must reside in the same project and zone as the nodes that use them.
+    * Compute nodes can't run a newer Slurm version than the controller node. For example, if the controller node in your cluster uses Slurm 25.05, then your compute nodes can't use an OS image that requires Slurm 26.05. To check the Slurm version of an OS image, see [Supported OS images](https://docs.cloud.google.com/cluster-director/docs/os-images#included-software). 
+  * **Hyperdisk pools** : if you plan to use storage pools for node boot disks, then you can use only existing storage pools or Hyperdisk Exapools that use Hyperdisk Balanced volumes. Storage pools must reside in the same project and zone as the nodes that use them. 
 
 
 
@@ -114,38 +112,54 @@ For more information, see [Authenticate for using REST](https://docs.cloud.googl
 
 ### Required roles
 
-To get the permissions that you need to create a custom cluster from scratch, ask your administrator to grant you the following IAM roles: 
+To get the permissions that you need to create a custom cluster, ask your administrator to grant you the following IAM roles: 
 
-  * To create and manage a cluster: 
-    * [Cluster Director Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/hypercomputecluster#hypercomputecluster.editor) (`roles/hypercomputecluster.editor`) on your project
+  * To create and manage a cluster: [Cluster Director Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/hypercomputecluster#hypercomputecluster.editor) (`roles/hypercomputecluster.editor`) on your project 
+  * To manage resources in a cluster: [Compute Instance Admin (v1) ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.instanceAdmin.v1) (`roles/compute.instanceAdmin.v1`) on your project 
+  * To connect to the login node in a cluster: 
+    * [Compute OS Login ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.osLogin) (`roles/compute.osLogin`) on your project
+    * [IAP-Secured Tunnel User ](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.tunnelResourceAccessor) (`roles/iap.tunnelResourceAccessor`) on your project
     * [Service Account User ](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) (`roles/iam.serviceAccountUser`) on the Compute Engine default service account
-  * To manage resources in a cluster: 
-    * [Compute Instance Admin (v1) ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.instanceAdmin.v1) (`roles/compute.instanceAdmin.v1`) on your project
-    * [Logs Writer ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.logWriter) (`roles/logging.logWriter`) on the Compute Engine default service account
-    * [Monitoring Metric Writer ](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.metricWriter) (`roles/monitoring.metricWriter`) on the Compute Engine default service account
-    * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) on the Compute Engine default service account
+
+
+
+These predefined roles contain the permissions required to create a custom cluster. To see the exact permissions that are required, expand the **Required permissions** section: 
+
+#### Required permissions
+
+The following permissions are required to create a custom cluster:
+
+  * To create a cluster: `hypercomputecluster.clusters.create`
+  * To check the status of the cluster creation operation: `hypercomputecluster.operations.get`
+  * To view the details of a cluster: `hypercomputecluster.clusters.get`
+  * To connect to the login node in a cluster: 
+    * `compute.instances.osLogin`
+    * `iap.tunnelInstances.accessViaIAP`
+    * `iam.serviceAccounts.actAs`
+
+
+
+To ensure that the Compute Engine default service account has the necessary permissions to create a custom cluster, ask your administrator to grant the following IAM roles to the Compute Engine default service account on your project: 
+
+**Important:** You must grant these roles to the Compute Engine default service account, _not_ to your user account. Failure to grant the roles to the correct principal might result in permission errors. 
+
+  * [Logs Writer ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.logWriter) (`roles/logging.logWriter`)
+  * [Monitoring Metric Writer ](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.metricWriter) (`roles/monitoring.metricWriter`)
+  * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`)
 
 
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-These predefined roles contain the permissions required to create a custom cluster from scratch. To see the exact permissions that are required, expand the **Required permissions** section: 
+Your administrator might also be able to give the Compute Engine default service account the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
-#### Required permissions
+## Create a custom cluster
 
-The following permissions are required to create a custom cluster from scratch:
+**Preview — Create a cluster with TPU VMs**
 
-  * To create a cluster: `hypercomputecluster.clusters.create`
-  * To check the status of the cluster creation operation: `hypercomputecluster.operations.get`
-  * To view the details of a cluster: `hypercomputecluster.clusters.get`
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-
-
-You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
-
-## Create a custom cluster from scratch
-
-To create a custom cluster from scratch, select one of the following options. If you want to configure the Slurm controller version for the controller node, then you must use the gcloud CLI or the REST API. If you want to configure custom Slurm settings, then use the REST API.
+To create a custom cluster, select one of the following options. If you want to create a cluster with TPU VMs, then use the Google Cloud console or gcloud CLI. If you want to configure the Slurm controller version for the controller node, then use the gcloud CLI or REST API. If you want to configure custom Slurm settings, then use the REST API.
 
 ###  Console 
 
@@ -155,7 +169,7 @@ To create a custom cluster from scratch, select one of the following options. If
 
   2. Click add **Create cluster**.
 
-  3. In dialog that appears, click **Step-by-step configuration**. The **Create cluster** page opens.
+  3. In the dialog that appears, click **Step-by-step configuration**. The **Create cluster** page opens.
 
   4. In the **Cluster name** field, enter a name for your cluster. The name can contain up to 10 characters, and it can only use numbers or lowercase letters (`a`-`z`). Spaces or special characters aren't allowed.
 
@@ -165,47 +179,45 @@ To create a custom cluster from scratch, select one of the following options. If
 
      1. In the **Machine configuration** section, select the machine series and type that you want to use.
 
-     2. In the **Number of instances** field, enter the number of Compute Engine instances to use for the configuration.
+     2. In the **Consumption options** section, specify the consumption option that you want to use to obtain resources:
 
-     3. In the **Consumption options** section, specify the consumption option that you want to use to obtain resources:
-
-        * To create GPU instances by using a reservation, do the following:
+        * To create GPU or TPU instances by using a reservation, do the following:
 
           1. Click the **Use reservation** tab.
 
-          2. Click **Select reservation**. The **Choose a reservation** pane appears. If you want to use a reservation of A4X VMs, then you can optionally choose the [block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block) or [sub-block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#sub-block) to control the placement of your VMs.
+          2. Click **Select reservation**. The **Choose a reservation** pane appears. If you want to use a reservation of A4X, TPU7x, or TPU v6e VMs, then you can choose the [block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block) or [sub-block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#sub-block) to control the placement of your VMs. For TPU VMs, the reservation must use the [all-capacity mode](https://docs.cloud.google.com/tpu/docs/all-capacity-overview).
 
-          3. Select the reservation that you want to use. Then, click **Choose**. This action automatically sets the **Region** and **Zone** fields to the region and zone of your reservation.
+          3. Select the reservation that you want to use. Then, click **Choose**. This action sets the **Region** and **Zone** fields to the region and zone of your reservation.
 
-        * To create GPU Flex-start VMs, do the following:
+        * To create GPU or TPU Flex-start VMs, do the following:
 
           1. Click the **Flex start** tab.
 
           2. In the **Time limit for the VM** section, specify the run duration for the Flex-start VMs. The value must be between 10 minutes and 7 days.
 
-          3. In the **Location** section, select the region where you want to create Flex-start VMs. The Google Cloud console automatically filters the available regions to only show those regions that support Flex-start VMs for your selected machine type.
+          3. In the **Location** section, select the region where you want to create Flex-start VMs. The Google Cloud console filters the available regions to show those regions that support Flex-start VMs for your selected machine type.
 
-        * To create GPU or N2 Spot VMs, do the following:
+        * To create GPU, TPU, or N2 Spot VMs, do the following:
 
           1. Click the **Use spot** tab.
 
           2. In the **On VM termination** list, select one of the following options:
 
-             * To delete Spot VMs on preemption, select **Delete**.
+             * To delete Spot VMs on preemption, select **Delete**. TPU Spot VMs support only **Delete**.
 
-             * To stop Spot VMs on preemption, select **Stop**.
+             * To stop GPU or N2 Spot VMs on preemption, select **Stop**.
 
-          3. In the **Location** section, select the **Region** and **Zone** where you want to create Spot VMs. The Google Cloud console automatically filters the available regions to only show those regions that support Spot VMs for your selected machine type.
+          3. In the **Location** section, select the **Region** and **Zone** where you want to create Spot VMs. The Google Cloud console filters the available regions to show those regions that support Spot VMs for your selected machine type.
 
-        * To create N2 instances, do the following:
+        * To create TPU or N2 on-demand instances, do the following:
 
           1. Click the **Use on-demand** tab.
 
           2. In the **Location** section, select the region where you want to create instances.
 
-     4. Click **Done**.
+     3. Click **Done**.
 
-     5. Optional: To create additional compute resource configurations, click the add **Add resource configuration** , and then follow the prompts to specify the compute resources.
+     4. Optional: To create additional compute resource configurations, click add **Add resource configuration** , and then follow the prompts to specify the compute resources.
 
   7. Click **Continue**.
 
@@ -227,7 +239,7 @@ To create a custom cluster from scratch, select one of the following options. If
 
   9. Click **Continue**.
 
-  10. Optional: To edit a storage resource, in the **Storage** section, click the edit **Edit storage plan** , and then do one of the following:
+  10. Optional: In the **Storage** section, to edit a storage resource, click edit **Edit storage plan** , and then do one of the following:
 
      * To specify a Filestore instance, do the following:
 
@@ -264,29 +276,27 @@ To create a custom cluster from scratch, select one of the following options. If
 **Tip:** If you want to use different Cloud Storage buckets for different projects or jobs, then you can mount the buckets on your cluster nodes for the duration of a Slurm job. This action lets you read or write data to Cloud Storage without permanently adding storage resources to your cluster. For more information, see [Mount Cloud Storage buckets for specific jobs](https://docs.cloud.google.com/cluster-director/docs/workloads/mount-buckets). 
   12. Click **Continue**.
 
-  13. Optional: To edit the number and type of compute instances that the login node uses, expand the **Login node** section, and then complete the following steps:
+  13. Optional: To configure the login node, expand the **Login node** section, and then complete the following steps:
 
-     1. In the **Machine type** field, specify a machine type for the login node. If you use A4X instances in your cluster, then specify a C4A machine type. Otherwise, specify an N2 machine type.
+     1. In the **Node count** field, enter the number of login nodes that you want to create in your cluster.
 
-     2. Optional: To specify a custom OS image instead of the one that Cluster Director automatically configures for the login node, in the **Source image** field, select one of the [supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
+     2. In the **Machine type** field, specify a machine type for the login node. If you use A4X Max or A4X instances in your cluster, then specify a C4A or N2 machine type. Otherwise, specify an N2 machine type.
 
-  14. In the **Node count** field, enter the number of compute instances to use in the login node.
+     3. Optional: In the **Source image** field, to replace the default login node OS image, select one of the [supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
 
-  15. Optional: To specify a startup script for the compute instances, in the **Startup script** field, enter your script. For more information about this type of scripts, see [About startup scripts](https://docs.cloud.google.com/compute/docs/instances/startup-scripts).
+     4. Optional: To add a startup script, click add **Add startup script**. Then, in the **Add startup script** pane that appears, enter your script. For more information about using startup scripts, see [About startup scripts](https://docs.cloud.google.com/compute/docs/instances/startup-scripts).
 
-  16. Optional: To specify a timeout for the startup script, in the **Startup script timeout** field, enter a value in seconds. The default value is `300` (300 seconds, or five minutes). The minimum allowed value is `1` (one second).
+     5. In the **Boot disk type** and **Boot disk size** fields, select a boot disk type and size for the compute instances in the login node. For more information about the boot disks that your compute instances can use, see [Choose a disk type](https://docs.cloud.google.com/compute/docs/disks).
 
-  17. In the **Boot disk type** and **Boot disk size** fields, select a boot disk type and size for the compute instances in the login node. For more information about the boot disks that your compute instances can use, see [Choose a disk type](https://docs.cloud.google.com/compute/docs/disks).
+     6. Optional: To specify more advanced configurations for the login node, expand **Advanced login node settings**. Then, follow the prompts to manage OS login, manage public IPs, or add or remove labels to the compute instances in the login node.
 
-  18. Optional: To specify more advanced configurations for the login node, expand **Advanced login node settings**. Then, follow the prompts to manage OS login, manage public IPs, or add or remove labels to the compute instances in the login node.
+  14. Optional: To manage the partitions in your cluster to organize your compute resources, expand the **Partitions** section, and then do one of the following:
 
-  19. Optional: To edit the partitions of your cluster to organize your compute resources, expand the **Partitions** section, and then do one of the following:
-
-     * To add a partition, click **Add partition** , and then do the following:
+     * To edit a partition, expand the row that contains the partition, and then do the following:
 
        1. In the **Partition name** field, enter a name for the partition.
 
-       2. To edit a nodeset, click **Toggle nodeset**. To add a nodeset, click **Add nodeset**.
+       2. To edit a nodeset, click edit **Edit NODESET_NAME**. To add a nodeset, click **Add nodeset**. A pane to edit or create a nodeset appears.
 
        3. In the **Nodeset name** field, enter a name for your nodeset.
 
@@ -294,47 +304,55 @@ To create a custom cluster from scratch, select one of the following options. If
 
        5. In the **Source image** field, select an OS image to use for the compute nodes in the nodeset.
 
-       6. In the **Static node count** field, enter the minimum number of compute instances that must always be running in the cluster.
+       6. In the **Boot disk type** and **Boot disk size** fields, select a boot disk type and size for the compute nodes in the nodeset.
 
-       7. In the **Dynamic node count** field, enter a limit of compute instances that Cluster Director can increase the cluster to during increases in traffic.
-
-**Important:** If you create compute instances in the nodeset by using a reservation, especially a shared reservation, then verify that the reservation has enough resources available to create your specified maximum number of compute instances. Other workloads that use the same reservation might fully use it and, thus, Cluster Director might be unable to create more compute instances in your nodeset.
-       8. In the **Boot disk type** list and **Boot disk size** fields, enter the type and size of the boot disk for the compute instances to use.
-
-       9. Optional: To share disk capacity and performance across nodes in a nodeset, specify an existing Hyperdisk pool or Hyperdisk Exapool as follows:
+       7. Optional: To share disk capacity and performance across nodes in a nodeset, specify an existing Hyperdisk pool or Hyperdisk Exapool as follows:
 
           1. Select the **Enable storage pool** checkbox.
 
           2. In the **Select a storage pool** list, select a storage pool that uses Hyperdisk Balanced volumes.
 
-       10. Optional: To specify more advanced configurations for the compute node, expand **Advanced nodeset settings**. Then, follow the prompts to add or remove startup scripts, specify a startup script timeout, or add or remove labels.
+       8. Configure the node counts for the nodeset:
+
+          * For GPU or CPU nodesets, in the **Static node count** field, enter the minimum number of compute nodes that must run at all times. In the **Dynamic node count** field, enter the maximum number of additional compute nodes that Cluster Director can create when demand increases.
+
+          * For TPU nodesets, in the **Node lifecycle** section, select one of the following options:
+
+            * To provision TPU slices per job, select **Use dynamic scaling** , and then in the **Max number of dynamic nodes** field, enter the maximum number of dynamic TPU nodes.
+
+            * To keep persistent TPU slices active between jobs, select **Use static nodes**. Then, in the **TPU topology** section that appears, select a slice topology and the number of slices.
+
+**Caution:** If you use a reservation for the nodeset, especially a shared reservation, then verify that the reservation has enough resources for your maximum number of compute instances. Other projects or workloads might consume the reservation, which prevents Cluster Director from adding compute instances to your nodeset.
+       9. Optional: To specify more advanced configurations for the compute node, expand **Advanced nodeset settings**. Then, follow the prompts to add or remove startup scripts, or add or remove labels.
+
+       10. Optional: To add a nodeset to the partition, click add **Add nodeset**. Then, follow the prompts to configure the nodeset.
 
        11. Click **Done**.
 
+     * To add a partition, click add **Add partition** , and then follow the prompts to specify the compute resources for the partition.
+
      * To remove a partition, click delete **Delete partition**.
 
-  20. Optional: To add a partition to your cluster, click **Add partition** , and then follow the prompts to specify the compute resources for the partition.
-
-  21. Optional: To add [prolog or epilog scripts](https://slurm.schedmd.com/prolog_epilog.html) to your Slurm cluster, do the following:
+  15. Optional: To add [prolog or epilog scripts](https://slurm.schedmd.com/prolog_epilog.html) to your Slurm cluster, do the following:
 
      1. Expand the **Advanced orchestration settings** section.
 
      2. In the **Scripts** section, follow the prompts to add prolog or epilog scripts.
 
-  22. Click **Create**. The **Clusters** page appears.
+  16. Click **Create**. The **Clusters** page appears.
 
-Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the compute instances' zone. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, you can connect to your cluster; however, you can only run workloads when Cluster Director creates the compute nodes in your cluster.
+Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the zone of the compute instances. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, you can connect to your cluster; however, you can only run workloads when Cluster Director creates the compute nodes in your cluster.
 
 
 
 
 ###  gcloud 
 
-To create a custom cluster from scratch, use the [`gcloud alpha cluster-director clusters create` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/cluster-director/clusters/create).
+To create a custom cluster, use the [`gcloud alpha cluster-director clusters create` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/cluster-director/clusters/create).
 
 Based on how you want to specify the cluster configuration, use one of the following methods:
 
-  * **Specify a configuration file** : to create a cluster by specifying the cluster configuration in a JSON file, use the `--config` flag. To run the command, select one of the following options:
+  * **Specify a configuration file** : to create a cluster by specifying the cluster configuration in a JSON file, use the `--config` flag. To create the cluster, select one of the following options:
 
 ###  Bash 
         
@@ -361,7 +379,7 @@ Replace the following:
 
     * `CLUSTER_NAME`: the name of the cluster. The name can contain up to 10 characters, and it can only use numbers or lowercase letters.
 
-    * `REGION`: the region where to create your cluster.
+    * `REGION`: the region where you want to create your cluster.
 
     * `CONFIGURATION_FILE`: the path to the JSON file that contains the configuration details for the cluster. To review the configuration details that you can specify, review the [request body for creating a cluster by using REST](https://docs.cloud.google.com/cluster-director/docs/reference/rest/v1/projects.locations.clusters#Cluster).
 
@@ -392,15 +410,15 @@ Replace the following:
 
       * To use an existing instance: `--lustres`
 
-    * To specify a compute resource configuration, use one of the following flags for each resource configuration that you want to create in the cluster.
+    * To specify a compute resource configuration, use one of the following flags for each resource configuration that you want to create in the cluster:
 
       * To create compute instances by using a reservation: `--reserved-instances`
 
-      * To create Flex-start VMs: `--dws-flex-instances`
+      * To create Flex-start VMs: `--flex-start-instances`
 
       * To create Spot VMs: `--spot-instances`
 
-      * To create N2 on-demand instances: `--on-demand-instances`
+      * To create TPU or N2 on-demand instances: `--on-demand-instances`
 
     * To specify the configuration for the login node, use the `--slurm-login-node` flag.
 
@@ -420,13 +438,13 @@ For example, suppose that you want to create a cluster that has one partition wi
         --location=REGION \
         --create-network=name=NETWORK_NAME \
         --create-filestores=name="locations/FILESTORE_INSTANCE_ZONE/instances/FILESTORE_INSTANCE_NAME",tier=TIER,capacityGb=CAPACITY,fileshare=SHARE_NAME,protocol=PROTOCOL \
-        --reserved-instances=id=COMPUTE_RESOURCE_NAME_1,reservation="projects/RESERVATION_PROJECT_ID/zones/RESERVATION_ZONE/reservations/RESERVATION_NAME",machineType=RESERVATION_MACHINE_TYPE \
+        --reserved-instances=id=COMPUTE_RESOURCE_NAME_1,reservation="projects/RESERVATION_PROJECT_ID/zones/RESERVATION_ZONE/reservations/RESERVATION_NAME" \
         --spot-instances=id=COMPUTE_RESOURCE_NAME_2,zone=SPOT_VMS_ZONE,machineType=SPOT_MACHINE_TYPE \
         --slurm-login-node=machineType=LOGIN_NODE_MACHINE_TYPE,zone=LOGIN_NODE_ZONE,count=LOGIN_NODES_COUNT \
         --slurm-node-sets=id=NODESET_NAME_1,computeId=COMPUTE_RESOURCE_NAME_1,staticNodeCount=NODESET_1_STATIC_COUNT,maxDynamicNodeCount=NODESET_1_MAX_DYNAMIC_COUNT \
         --slurm-node-sets=id=NODESET_NAME_2,computeId=COMPUTE_RESOURCE_NAME_2,staticNodeCount=NODESET_2_STATIC_COUNT,maxDynamicNodeCount=NODESET_2_MAX_DYNAMIC_COUNT \
-        --slurm-partitions=id=PARTITION_NAME_1,nodesetIds=[NODESET_NAME_1] \
-        --slurm-partitions=id=PARTITION_NAME_2,nodesetIds=[NODESET_NAME_2] \
+        --slurm-partitions=id=PARTITION_NAME_1,nodeSetIds=[NODESET_NAME_1] \
+        --slurm-partitions=id=PARTITION_NAME_2,nodeSetIds=[NODESET_NAME_2] \
         --slurm-default-partition=PARTITION_NAME_1
     
 
@@ -441,8 +459,8 @@ For example, suppose that you want to create a cluster that has one partition wi
         --slurm-login-node=machineType=LOGIN_NODE_MACHINE_TYPE,zone=LOGIN_NODE_ZONE,count=LOGIN_NODES_COUNT `
         --slurm-node-sets=id=NODESET_NAME_1,computeId=COMPUTE_RESOURCE_NAME_1,staticNodeCount=NODESET_1_STATIC_COUNT,maxDynamicNodeCount=NODESET_1_MAX_DYNAMIC_COUNT `
         --slurm-node-sets=id=NODESET_NAME_2,computeId=COMPUTE_RESOURCE_NAME_2,staticNodeCount=NODESET_2_STATIC_COUNT,maxDynamicNodeCount=NODESET_2_MAX_DYNAMIC_COUNT `
-        --slurm-partitions=id=PARTITION_NAME_1,nodesetIds=[NODESET_NAME_1] `
-        --slurm-partitions=id=PARTITION_NAME_2,nodesetIds=[NODESET_NAME_2] `
+        --slurm-partitions=id=PARTITION_NAME_1,nodeSetIds=[NODESET_NAME_1] `
+        --slurm-partitions=id=PARTITION_NAME_2,nodeSetIds=[NODESET_NAME_2] `
         --slurm-default-partition=PARTITION_NAME_1
     
 
@@ -457,8 +475,8 @@ For example, suppose that you want to create a cluster that has one partition wi
         --slurm-login-node=machineType=LOGIN_NODE_MACHINE_TYPE,zone=LOGIN_NODE_ZONE,count=LOGIN_NODES_COUNT ^
         --slurm-node-sets=id=NODESET_NAME_1,computeId=COMPUTE_RESOURCE_NAME_1,staticNodeCount=NODESET_1_STATIC_COUNT,maxDynamicNodeCount=NODESET_1_MAX_DYNAMIC_COUNT ^
         --slurm-node-sets=id=NODESET_NAME_2,computeId=COMPUTE_RESOURCE_NAME_2,staticNodeCount=NODESET_2_STATIC_COUNT,maxDynamicNodeCount=NODESET_2_MAX_DYNAMIC_COUNT ^
-        --slurm-partitions=id=PARTITION_NAME_1,nodesetIds=[NODESET_NAME_1] ^
-        --slurm-partitions=id=PARTITION_NAME_2,nodesetIds=[NODESET_NAME_2] ^
+        --slurm-partitions=id=PARTITION_NAME_1,nodeSetIds=[NODESET_NAME_1] ^
+        --slurm-partitions=id=PARTITION_NAME_2,nodeSetIds=[NODESET_NAME_2] ^
         --slurm-default-partition=PARTITION_NAME_1
     
 
@@ -466,7 +484,7 @@ Replace the following:
 
     * `CLUSTER_NAME`: the name of the cluster. The name can contain up to 10 characters, and it can only use numbers or lowercase letters (`a`-`z`). Spaces or special characters aren't allowed.
 
-    * `REGION`: the region where to create your cluster.
+    * `REGION`: the region where you want to create your cluster.
 
     * `NETWORK_NAME`: the name of the network that you want to create.
 
@@ -496,19 +514,21 @@ Replace the following:
 
     * `RESERVATION_ZONE`: the zone where the reservation exists.
 
-    * `RESERVATION_NAME`: the name of the reservation that you want to use to create VMs. If you use a reservation of A4X VMs, then you can optionally specify the [block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block) or [sub-block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#sub-block) to control the placement of your VMs:
+    * `RESERVATION_NAME`: the name of the reservation that you want to use to create VMs. If you use a reservation of A4X VMs, or an [all-capacity mode](https://docs.cloud.google.com/tpu/docs/all-capacity-overview) reservation of TPU7x or TPU v6e VMs, then you can control VM placement. You can specify a [block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block) or [sub-block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#sub-block) from the following:
 
-      * **Block** : `RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME`
+      * **Block** : replace the `reservation` attribute with the `reservationBlock` attribute as follows:
+            
+            reservationBlock="projects/RESERVATION_PROJECT_ID/zones/RESERVATION_ZONE/reservations/RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME"
+            
 
-      * **Sub-block** : `RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME/reservationSubBlocks/RESERVATION_SUB_BLOCK_NAME`
-
-    * `RESERVATION_MACHINE_TYPE`: the machine type that is specified in the reservation.
+      * **Sub-block** : replace the `reservation` attribute with the `reservationSubBlock` attribute as follows:
+            
+            reservationSubBlock="projects/RESERVATION_PROJECT_ID/zones/RESERVATION_ZONE/reservations/RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME/reservationSubBlocks/RESERVATION_SUB_BLOCK_NAME"
+            
 
     * `SPOT_VMS_ZONE`: the zone where you want to create your Spot VMs. To review the regions and zones where the machine type that you want to use is available, see [Available regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones#available).
 
     * `SPOT_MACHINE_TYPE`: the machine type to use for the Spot VMs. Specify one of the following machine types:
-
-      * For an A4X machine type: `a4x-highgpu-4g`
 
       * For an A4 machine type: `a4-highgpu-8g`
 
@@ -516,11 +536,15 @@ Replace the following:
 
       * For an A3 Mega machine type: `a3-megagpu-8g`
 
-      * For an N2 machine type, see [N2 machine series](https://docs.cloud.google.com/cluster-director/docs/compute#n2-series).
+      * For a TPU7x machine type: `tpu7x-standard-4t`
 
-    * `LOGIN_NODE_MACHINE_TYPE`: the machine type that you want the compute instances in the login nodeset to use. If you use A4X instances in your cluster, then specify a C4A machine type. Otherwise, specify an N2 machine type.
+      * For a TPU v6e machine type: `ct6e-standard-4t`
 
-    * `STARTUP_SCRIPT_TIMEOUT`: the maximum time that the startup script can run, for example `300s`. The default value is `300s` (300 seconds, or five minutes). The minimum allowed value is `1s` (one second).
+      * For a TPU v5p machine type: `ct5p-hightpu-4t`
+
+      * For an N2 machine type, see [N2 machine series](https://docs.cloud.google.com/cluster-director/docs/cpu-machines#n2-series).
+
+    * `LOGIN_NODE_MACHINE_TYPE`: the machine type that you want the compute instances in the login nodeset to use. If you use A4X Max or A4X instances in your cluster, then specify a C4A or N2 machine type. Otherwise, specify an N2 machine type.
 
     * `LOGIN_NODE_ZONE`: the zone where you want to create the compute instances in the login nodeset.
 
@@ -528,11 +552,16 @@ Replace the following:
 
     * `NODESET_NAME_1` and `NODESET_NAME_2`: the name of the two nodesets.
 
-    * `NODESET_1_STATIC_COUNT` and `NODESET_2_STATIC_COUNT`: the minimum number of compute instances that must always be running in each nodeset.
+    * `NODESET_1_STATIC_COUNT` and `NODESET_2_STATIC_COUNT`: the minimum number of compute instances that must always be running in each nodeset. If you configure a static nodeset with TPU instances, then set the `maxDynamicNodeCount` attribute to `0` and include the `resourcePolicyConfig` attribute in the `--slurm-node-sets` flag as follows:
+          
+          resourcePolicyConfig="{acceleratorTopology=TOPOLOGY}"
+          
 
-    * `NODESET_1_MAX_DYNAMIC_COUNT` and `NODESET_2_MAX_DYNAMIC_COUNT`: the maximum number of compute instances that Cluster Director can add to each nodeset during increases in traffic.
+Replace `TOPOLOGY` with the 2D (`AxB`) or 3D (`AxBxC`) slice topology (for example, `2x4` or `2x2x2`). The value of the `staticNodeCount` attribute must be a multiple of the number of TPU VMs in the slice topology.
 
-**Important:** If you create compute instances in the nodeset by using a reservation, especially a shared reservation, then verify that the reservation has enough resources available to create your specified maximum number of compute instances. Other workloads that use the same reservation might fully use it and, thus, Cluster Director might be unable to create more compute instances in your nodeset.
+    * `NODESET_1_MAX_DYNAMIC_COUNT` and `NODESET_2_MAX_DYNAMIC_COUNT`: the maximum number of compute instances that Cluster Director can add to each nodeset during increases in traffic. If you configure a dynamic TPU nodeset, then set the `staticNodeCount` attribute to `0`.
+
+**Caution:** If you use a reservation for the nodeset, especially a shared reservation, then verify that the reservation has enough resources for your maximum number of compute instances. Other projects or workloads might consume the reservation, which prevents Cluster Director from adding compute instances to your nodeset.
     * `PARTITION_NAME_1` and `PARTITION_NAME_2`: the name of the partitions for your cluster.
 
 
@@ -545,7 +574,7 @@ The output is similar to the following:
     Waiting for operation [projects/example-project/locations/us-central1/operations/operation-1759856594716-640948b2f058e-f403bef9-1a08178a] to complete...working...
     
 
-Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the compute instances' zone. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, the output is similar to the following:
+Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the zone of the compute instances. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, the output is similar to the following:
     
     
     Created cluster [cluster000].
@@ -555,7 +584,7 @@ You can then connect to your cluster; however, you can only run workloads when C
 
 ###  Terraform 
 
-To create a custom cluster from scratch, use the [`google_hypercomputecluster_cluster` resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/hypercomputecluster_cluster).
+To create a custom cluster, use the [`google_hypercomputecluster_cluster` resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/hypercomputecluster_cluster).
 
 **Tip:** If you want to use different Cloud Storage buckets for different projects or jobs, then you can mount the buckets on your cluster nodes for the duration of a Slurm job. This action lets you read or write data to Cloud Storage without permanently adding storage resources to your cluster. For more information, see [Mount Cloud Storage buckets for specific jobs](https://docs.cloud.google.com/cluster-director/docs/workloads/mount-buckets). 
 
@@ -665,11 +694,11 @@ For example, suppose that you want to create a cluster that has one partition wi
     }
     
 
-Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the compute instances' zone. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, you can connect to your cluster. However, you can run workloads only after Cluster Director creates the compute nodes in your cluster.
+Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the zone of the compute instances. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, you can connect to your cluster. However, you can run workloads only after Cluster Director creates the compute nodes in your cluster.
 
 ###  REST 
 
-To create a custom cluster from scratch, make a `POST` request to the [`clusters.create` method](https://docs.cloud.google.com/cluster-director/docs/reference/rest/v1/projects.locations.clusters/create).
+To create a custom cluster, make a `POST` request to the [`clusters.create` method](https://docs.cloud.google.com/cluster-director/docs/reference/rest/v1/projects.locations.clusters/create).
 
 Your request must include the following HTTP method and request URL:
     
@@ -681,7 +710,7 @@ In the request body, include the following fields:
 
   * **`description`** : Optional. A description for your cluster.
 
-  * **`labels`** : Optional. Key-value pairs of labels to help you organize and filter your clusters and its associated resources. For more information, see [Organize resources using labels](https://docs.cloud.google.com/compute/docs/labeling-resources).
+  * **`labels`** : Optional. Key-value pairs of labels to help you organize and filter your clusters and their associated resources. For more information, see [Organize resources using labels](https://docs.cloud.google.com/compute/docs/labeling-resources).
 
   * **`networkResources`** : the network configuration for your cluster. You can either create a new network or use an existing one.
 
@@ -813,7 +842,7 @@ Replace the following:
 
   * `PROJECT_ID`: the ID of the project where you want to create your cluster and its associated resources.
 
-  * `REGION`: the region where to create your cluster.
+  * `REGION`: the region where you want to create your cluster.
 
   * `CLUSTER_NAME`: the name of the cluster. The name can contain up to 10 characters, and it can only use numbers or lowercase letters (`a`-`z`).
 
@@ -845,17 +874,47 @@ Replace the following:
 
   * `RESERVATION_PROJECT_ID`: the ID of the project where the reservation exists. If you want to use a reservation from a different project, then verify that your project is allowed to consume the reservation. For more information, see [Allow and restrict projects from creating and modifying shared reservations](https://docs.cloud.google.com/compute/docs/instances/manage-shared-reservations-creation).
 
-  * `RESERVATION_NAME`: the name of the reservation that you want to use to create VMs. If you use a reservation of A4X VMs, then you can optionally specify the [block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block) or [sub-block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#sub-block) to control the placement of your VMs:
+  * `RESERVATION_ZONE`: the zone where the reservation exists.
 
-    * **Block** : `RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME`
+  * `RESERVATION_NAME`: the name of the reservation that you want to use to create VMs. If you use a reservation of A4X VMs, then you can control VM placement. To target a [block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block) or [sub-block](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#sub-block) for consumption, change `/v1/` to `/v1beta/` in the request URL to call the [v1beta `clusters.create` method](https://docs.cloud.google.com/cluster-director/docs/reference/rest/v1beta/projects.locations.clusters/create). Then, in `newReservedInstances` field, replace the `reservation` field with one of the following fields:
 
-    * **Sub-block** : `RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME/reservationSubBlocks/RESERVATION_SUB_BLOCK_NAME`
+    * **Block** : replace the `reservation` field with the `reservationBlock` field as follows:
+          
+          "computeResources": {
+            "COMPUTE_RESOURCE_NAME_1": {
+              "config": {
+                "newReservedInstances": {
+                  **"reservationBlock" : "projects/RESERVATION_PROJECT_ID/zones/RESERVATION_ZONE/reservations/RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME"**
+                }
+              }
+            }
+          }
+          
+
+Replace `RESERVATION_BLOCK_NAME` with the name of the reservation block that you want to use.
+
+    * **Sub-block** : replace the `reservation` attribute with the `reservationSubBlock` attribute as follows:
+          
+          "computeResources": {
+            "COMPUTE_RESOURCE_NAME_1": {
+              "config": {
+                "newReservedInstances": {
+                  **"reservationSubBlock" : "projects/RESERVATION_PROJECT_ID/zones/RESERVATION_ZONE/reservations/RESERVATION_NAME/reservationSubBlocks/RESERVATION_SUB_BLOCK_NAME"**
+                }
+              }
+            }
+          }
+          
+
+Replace the following:
+
+      * `RESERVATION_BLOCK_NAME`: the name of the reservation block that contains the sub-block.
+
+      * `RESERVATION_SUB_BLOCK_NAME`: the name of the reservation sub-block that you want to use.
 
   * `SPOT_VMS_ZONE`: the zone where you want to create your Spot VMs. To review the regions and zones where the machine type that you want to use is available, see [Available regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones#available).
 
   * `SPOT_MACHINE_TYPE`: the machine type to use for the Spot VMs. Specify one of the following machine types:
-
-    * For an A4X machine type: `a4x-highgpu-4g`
 
     * For an A4 machine type: `a4-highgpu-8g`
 
@@ -863,26 +922,28 @@ Replace the following:
 
     * For an A3 Mega machine type: `a3-megagpu-8g`
 
-    * For an N2 machine type, see [N2 machine series](https://docs.cloud.google.com/cluster-director/docs/compute#n2-series).
+    * For an N2 machine type, see [N2 machine series](https://docs.cloud.google.com/cluster-director/docs/cpu-machines#n2-series).
 
   * `LOGIN_NODES_COUNT`: the number of compute instances to use for the login nodeset.
 
   * `LOGIN_NODE_ZONE`: the zone where you want to create the compute instances in the login nodeset.
 
-  * `LOGIN_NODE_MACHINE_TYPE`: the machine type that you want the compute instances in the login nodeset to use. If you use A4X instances in your cluster, then specify a C4A machine type. Otherwise, specify an N2 machine type.
+  * `LOGIN_NODE_MACHINE_TYPE`: the machine type that you want the compute instances in the login nodeset to use. If you use A4X Max or A4X instances in your cluster, then specify a C4A or N2 machine type. Otherwise, specify an N2 machine type.
+
+  * `STARTUP_SCRIPT_TIMEOUT`: the maximum time that the startup script can run, for example `300s`. The default value is `300s` (300 seconds, or five minutes). The minimum allowed value is `1s` (one second).
 
   * `NODESET_NAME_1` and `NODESET_NAME_2`: the name of the two nodesets.
 
-  * `NODESET_1_STATIC_COUNT` and `NODESET_2_STATIC_COUNT`: the minimum number of compute instances that must always be running in each nodeset.
+  * `NODESET_1_STATIC_COUNT` and `NODESET_2_STATIC_COUNT`: the minimum number of compute instances that must run in each nodeset.
 
   * `NODESET_1_MAX_DYNAMIC_COUNT` and `NODESET_2_MAX_DYNAMIC_COUNT`: the maximum number of compute instances that Cluster Director can add to each nodeset during increases in traffic.
 
-**Important:** If you create compute instances in the nodeset by using a reservation, especially a shared reservation, then verify that the reservation has enough resources available to create your specified maximum number of compute instances. Other workloads that use the same reservation might fully use it and, thus, Cluster Director might be unable to create more compute instances in your nodeset.
+**Caution:** If you use a reservation for the nodeset, especially a shared reservation, then verify that the reservation has enough resources for your maximum number of compute instances. Other projects or workloads might consume the reservation, which prevents Cluster Director from adding compute instances to your nodeset.
   * `DISK_ZONE_1` and `DISK_ZONE_2`: the zone where you want to create the boot disks for the nodesets.
 
   * `DISK_TYPE_1` and `DISK_TYPE_2`: the type of boot disks for the nodesets. Based on the machine type in the node, specify one of the following values:
 
-    * For A4X instances: `hyperdisk-balanced`
+    * For A4X Max or A4X instances: `hyperdisk-balanced`
 
     * For A4 instances: `hyperdisk-balanced`
 
@@ -954,13 +1015,13 @@ The response is similar to the following:
     }
     
 
-Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the compute instance zone. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, you can connect to your cluster; however, you can only run workloads when Cluster Director creates the compute nodes in your cluster.
+Creating the cluster can take some time to complete. The completion time depends on the number of compute instances that you request and resource availability in the zone of the compute instances. If your requested resources are unavailable, then Cluster Director maintains the creation request until resources become available. When Cluster Director creates your login node, you can connect to your cluster; however, you can only run workloads when Cluster Director creates the compute nodes in your cluster.
 
 ## What's next
 
   * [Connect to a cluster](https://docs.cloud.google.com/cluster-director/docs/manage/connect-to-cluster)
 
-  * [Node lifecycle](https://docs.cloud.google.com/cluster-director/docs/manage/node-lifecycle)
+  * [Review the node lifecycle](https://docs.cloud.google.com/cluster-director/docs/manage/node-lifecycle)
 
   * [Submit and monitor jobs with Slurm](https://docs.cloud.google.com/cluster-director/docs/workloads/configure-slurm)
 
@@ -973,6 +1034,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

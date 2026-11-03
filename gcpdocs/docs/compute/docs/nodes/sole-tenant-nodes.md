@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/nodes/sole-tenant-nodes/
 title: Sole-tenancy overview \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:07.671414+00:00
+fetched_at: 2026-11-03T09:44:26.266575+00:00
 ---
 
 # Sole-tenancy overview  |  Compute Engine  |  Google Cloud Documentation
@@ -89,27 +89,32 @@ Clear all
 Node type | Processor | vCPU | GB | vCPU:GB | Sockets | Cores:Socket | Total cores | Max VMs allowed  
 ---|---|---|---|---|---|---|---|---  
 `a2-highgpu-node-96-680` | Cascade Lake | 96 | 680 | 1:7.08 | 2 | 24 | 48 | 8  
-`a2-megagpu-node-96-1360` | Cascade Lake | 96 | 1360 | 1:14.17 | 2 | 24 | 48 | 1  
-`a2-ultragpu-node-96-1360-lssd` 1 | Cascade Lake | 96 | 1360 | 1:14.17 | 2 | 24 | 48 | 8  
-`a3-highgpu-node-208-1872-lssd` 1 | Sapphire Rapids | 208 | 1872 | 1:9 | 2 | 56 | 112 | 8  
-`a3-megagpu-node-208-1872-lssd` 1 | Sapphire Rapids | 208 | 1872 | 1:9 | 2 | 56 | 112 | 1  
+`a2-megagpu-node-96-1360` | Cascade Lake | 96 | 1,360 | 1:14.17 | 2 | 24 | 48 | 1  
+`a2-ultragpu-node-96-1360-lssd` 1 | Cascade Lake | 96 | 1,360 | 1:14.17 | 2 | 24 | 48 | 8  
+`a3-highgpu-node-208-1872-lssd` 1 | Sapphire Rapids | 208 | 1,872 | 1:9 | 2 | 56 | 112 | 8  
+`a3-megagpu-node-208-1872-lssd` 1 | Sapphire Rapids | 208 | 1,872 | 1:9 | 2 | 56 | 112 | 1  
 `c2-node-60-240` | Cascade Lake | 60 | 240 | 1:4 | 2 | 18 | 36 | 15  
 `c3-node-176-352` | Sapphire Rapids | 176 | 352 | 1:2 | 2 | 56 | 112 | 44  
 `c3-node-176-704` | Sapphire Rapids | 176 | 704 | 1:4 | 2 | 56 | 112 | 40  
-`c3-node-176-704-lssd` | Sapphire Rapids | 176 | 704 | 1:4 | 2 | 56 | 112 | 40  
-`c3-node-176-1408` | Sapphire Rapids | 176 | 1408 | 1:8 | 2 | 56 | 112 | 44  
+`c3-node-176-704-lssd`  
+(with 32 Local SSD) | Sapphire Rapids | 176 | 704 | 1:4 | 2 | 56 | 112 | 40  
+`c3-node-176-1408` | Sapphire Rapids | 176 | 1,408 | 1:8 | 2 | 56 | 112 | 44  
 `c3d-node-360-708` | AMD EPYC Genoa | 360 | 708 | 1:2 | 2 | 96 | 192 | 34  
-`c3d-node-360-1440` | AMD EPYC Genoa | 360 | 1440 | 1:4 | 2 | 96 | 192 | 40  
-`c3d-node-360-2880` | AMD EPYC Genoa | 360 | 2880 | 1:8 | 2 | 96 | 192 | 40  
-`c4-node-192-384` | Emerald Rapids | 192 | 384 | 1:2 | 2 | 60 | 120 | 26  
-`c4-node-192-720` | Emerald Rapids | 192 | 720 | 1:3.75 | 2 | 60 | 120 | 26  
-`c4-node-192-1488` | Emerald Rapids | 192 | 1,488 | 1:7.75 | 2 | 60 | 120 | 26  
+`c3d-node-360-1440` | AMD EPYC Genoa | 360 | 1,440 | 1:4 | 2 | 96 | 192 | 40  
+`c3d-node-360-2880` | AMD EPYC Genoa | 360 | 2,880 | 1:8 | 2 | 96 | 192 | 40  
+`c4-node-288-576` | Granite Rapids | 288 | 576 | 1:2 | 2 | 78 | 156 | 20  
+`c4-node-288-1080` | Granite Rapids | 288 | 1,080 | 1:3.75 | 2 | 78 | 156 | 20  
+`c4-node-288-1080-lssd`  
+(with 48 Local SSD) | Granite Rapids | 288 | 1,080 | 1:3.75 | 2 | 78 | 156 | 20  
+`c4-node-288-2232` | Granite Rapids | 288 | 2,232 | 1:7.75 | 2 | 78 | 156 | 20  
+`c4-node-288-2232-lssd`  
+(with 48 Local SSD) | Granite Rapids | 288 | 2,232 | 1:7.75 | 2 | 78 | 156 | 20  
 `c4a-node-72-144` | Google Axion | 72 | 144 | 1:2 | 1 | 80 | 80 | 22  
 `c4a-node-72-288` | Google Axion | 72 | 288 | 1:4 | 1 | 80 | 80 | 16  
 `c4a-node-72-576` | Google Axion | 72 | 576 | 1:8 | 1 | 80 | 80 | 34  
 `c4d-node-384-720` | AMD EPYC Turin | 384 | 720 | 1:2 | 2 | 128 | 256 | 25  
-`c4d-node-384-1488` | AMD EPYC Turin | 384 | 1488 | 1:4 | 2 | 128 | 256 | 25  
-`c4d-node-384-3024` | AMD EPYC Turin | 384 | 3024 | 1:8 | 2 | 128 | 256 | 25  
+`c4d-node-384-1488` | AMD EPYC Turin | 384 | 1,488 | 1:4 | 2 | 128 | 256 | 25  
+`c4d-node-384-3024` | AMD EPYC Turin | 384 | 3,024 | 1:8 | 2 | 128 | 256 | 25  
 `c4n-node-192-384` | Emerald Rapids | 192 | 384 | 1:2 | 2 | 60 | 120 | 26  
 `c4n-node-192-720` | Emerald Rapids | 192 | 720 | 1:3.75 | 2 | 60 | 120 | 26  
 `c4n-node-192-1488` | Emerald Rapids | 192 | 1,488 | 1:7.75 | 2 | 60 | 120 | 26  
@@ -118,23 +123,23 @@ Node type | Processor | vCPU | GB | vCPU:GB | Sockets | Cores:Socket | Total cor
 `g2-node-96-432` | Cascade Lake | 96 | 432 | 1:4.5 | 2 | 28 | 56 | 8  
 `h3-node-88-352` | Sapphire Rapids | 88 | 352 | 1:4 | 2 | 56 | 112 | 1  
 `h4d-node-192-720` | AMD EPYC Turin | 192 | 720 | 1:4 | 2 | 128 | 256 | 1  
-`h4d-node-192-1488` | AMD EPYC Turin | 192 | 1488 | 1:8 | 2 | 128 | 256 | 1  
+`h4d-node-192-1488` | AMD EPYC Turin | 192 | 1,488 | 1:8 | 2 | 128 | 256 | 1  
 `h4d-node-192-3024` | AMD EPYC Turin | 192 | 3024 | 1:16 | 2 | 128 | 256 | 1  
 `h4d-node-192-3024-lssd` | AMD EPYC Turin | 192 | 3024 | 1:16 | 2 | 128 | 256 | 1  
-`m1-node-96-1433` | Skylake | 96 | 1433 | 1:14.93 | 2 | 28 | 56 | 1  
-`m1-node-160-3844` | Broadwell E7 | 160 | 3844 | 1:24 | 4 | 22 | 88 | 4  
-`m2-node-416-8832` | Cascade Lake | 416 | 8832 | 1:21.23 | 8 | 28 | 224 | 1  
-`m2-node-416-11776` | Cascade Lake | 416 | 11776 | 1:28.31 | 8 | 28 | 224 | 2  
-`m3-node-128-1952` | Ice Lake | 128 | 1952 | 1:15.25 | 2 | 36 | 72 | 2  
-`m3-node-128-3904` | Ice Lake | 128 | 3904 | 1:30.5 | 2 | 36 | 72 | 2  
-`m4-node-224-2976` | Emerald Rapids | 224 | 2976 | 1:13.3 | 2 | 60 | 120 | 16  
-`m4-node-224-5952` | Emerald Rapids | 224 | 5952 | 1:26.7 | 2 | 60 | 120 | 16  
+`m1-node-96-1433` | Skylake | 96 | 1,433 | 1:14.93 | 2 | 28 | 56 | 1  
+`m1-node-160-3844` | Broadwell E7 | 160 | 3,844 | 1:24 | 4 | 22 | 88 | 4  
+`m2-node-416-8832` | Cascade Lake | 416 | 8,832 | 1:21.23 | 8 | 28 | 224 | 1  
+`m2-node-416-11776` | Cascade Lake | 416 | 11,776 | 1:28.31 | 8 | 28 | 224 | 2  
+`m3-node-128-1952` | Ice Lake | 128 | 1,952 | 1:15.25 | 2 | 36 | 72 | 2  
+`m3-node-128-3904` | Ice Lake | 128 | 3,904 | 1:30.5 | 2 | 36 | 72 | 2  
+`m4-node-224-2976` | Emerald Rapids | 224 | 2,976 | 1:13.3 | 2 | 60 | 120 | 16  
+`m4-node-224-5952` | Emerald Rapids | 224 | 5,952 | 1:26.7 | 2 | 60 | 120 | 16  
 `n1-node-96-624` | Skylake | 96 | 624 | 1:6.5 | 2 | 28 | 56 | 96  
 `n2-node-80-640` | Cascade Lake | 80 | 640 | 1:8 | 2 | 24 | 48 | 80  
 `n2-node-128-864` | Ice Lake | 128 | 864 | 1:6.75 | 2 | 36 | 72 | 128  
 `n2d-node-224-896` | AMD EPYC Milan | 224 | 896 | 1:4 | 2 | 64 | 128 | 108  
-`n2d-node-224-1792` | AMD EPYC Milan | 224 | 1792 | 1:8 | 2 | 64 | 128 | 112  
-`n4-node-224-1372` | Emerald Rapids | 224 | 1372 | 1:6 | 2 | 60 | 120 | 90  
+`n2d-node-224-1792` | AMD EPYC Milan | 224 | 1,792 | 1:8 | 2 | 64 | 128 | 112  
+`n4-node-224-1372` | Emerald Rapids | 224 | 1,372 | 1:6 | 2 | 60 | 120 | 90  
 `n4a-node-96-624` | Google Axion | 96 | 624 | 1:6.5 | 1 | 96 | 96 | 72  
   
 1**Node types with Local SSD** : The `-lssd` suffix indicates that Local SSD disks are attached to the node. For A3 High, A3 Mega, and A2 Ultra node types, Local SSD disks are also attached by default when no suffix is specified. To provision these node types without Local SSD disks, use the `-nolssd` suffix (for example, `a3-megagpu-node-208-1872-nolssd` or `a2-ultragpu-node-96-1360-nolssd`).
@@ -391,6 +396,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

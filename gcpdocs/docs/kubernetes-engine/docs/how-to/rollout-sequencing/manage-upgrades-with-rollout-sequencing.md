@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing/manage-upgrades-with-rollout-sequencing/
 title: Sequence the rollout of cluster upgrades \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:17.626484+00:00
+fetched_at: 2026-11-03T09:54:43.847019+00:00
 ---
 
 # Sequence the rollout of cluster upgrades  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -99,10 +99,6 @@ When you create a rollout sequence, you set the following properties for each fl
 
 
 ### Console
-
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
   1. Go to the **Rollout Sequencing** page in the Google Cloud console.
 
@@ -247,7 +243,7 @@ Repeat this step if you want to add a fourth or fifth fleet.
 
 You can check the status of a rollout sequence with either of the following methods:
 
-  * Monitor a visual representation of a rollout sequence in the Google Cloud console (Preview).
+  * Monitor a visual representation of a rollout sequence in the Google Cloud console.
   * Use the gcloud CLI or [GKE Hub API](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/reference/rpc/google.cloud.gkehub.clusterupgrade.v1) to check the status of a rollout sequence.
 
 
@@ -256,15 +252,11 @@ To view a rollout sequence with either of the preceding methods, ensure that you
 
 ### Monitor a rollout sequence in the Google Cloud console
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
   1. Go to the **Rollout Sequencing** page in the Google Cloud console.
 
-[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades)
+[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades/rollout_sequencing)
 
-  2. View the sequence in the section **Monitor your rollout sequence**. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
+  2. View the sequence in the **Rollout sequence** section. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
 
 
 
@@ -273,18 +265,18 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 
 On this page, you can view the rollout sequence associated with your project's fleet. You can do the following to see the progress of a rollout sequence:
 
-  * View the entire rollout sequence, or see the statuses of individual fleets and clusters within those fleets, as well as the soak time between fleets. You can also view the sequence where there is no active upgrade, if you want to check the configuration of the sequence.
+  * View the entire rollout sequence, the statuses of individual fleets and clusters within those fleets, and the soak time between fleets. You can also view the sequence where there is no active upgrade, if you want to check the configuration of the sequence.
   * Filter by upgrade type (control plane or node upgrade) and specific version (for example, 1.31.6-gke.500).
 
 
 
-You can visually monitor your entire rollout sequence while GKE upgrades all the clusters in the sequence, qualifying a new version across environments before upgrading your production environment clusters. While monitoring, you can manage a rollout sequence with the gcloud CLI, making any changes as needed.
+You can visually monitor your entire rollout sequence while GKE upgrades all the clusters in the sequence, qualifying a new version across environments before upgrading your production environment clusters. While monitoring, you can manage a rollout sequence, making any changes as needed.
 
 #### Switch to a different rollout sequence
 
-This page shows the rollout sequence if the active project in the Google Cloud console is a fleet host project for a fleet that is enrolled in a rollout sequence.
+This Google Cloud console page shows the rollout sequence if the active project is a fleet host project for a fleet that is enrolled in a rollout sequence.
 
-If you want to view a different rollout sequence, select a fleet host project associated with a different rollout sequence from the project picker at the top of the page.
+If you want to view a different rollout sequence, use the project picker at the top of the Google Cloud console page to select a fleet host project associated with a different rollout sequence.
 
 ### Use the gcloud CLI
 
@@ -337,19 +329,15 @@ You can change the default soak time for a group or change the soak time for whe
 
 #### Update the default soak time
 
-You can update the default soak time in the Google Cloud console (Preview) or with the gcloud CLI.
+You can update the default soak time in the Google Cloud console or with the gcloud CLI.
 
 ### Console
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
   1. Go to the **Rollout Sequencing** page in the Google Cloud console.
 
-[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades)
+[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades/rollout_sequencing)
 
-  2. View the sequence in the section **Monitor your rollout sequence**. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
+  2. View the sequence in the **Rollout sequence** section. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
 
   3. In the **Rollout graph** , click the **Soak time** element after the element of the fleet where you want to update the soak time.
 
@@ -411,19 +399,15 @@ Add the following `gke_upgrades_overrides` block to your Terraform configuration
 
 You can update an existing rollout sequence to add, remove, or change the order of groups in the sequence. To make these changes, update the associations between groups.
 
-You can perform these steps in the Google Cloud console (Preview) or with the gcloud CLI.
+You can perform these steps in the Google Cloud console or with the gcloud CLI.
 
 ### Console
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
   1. Go to the **Rollout Sequencing** page in the Google Cloud console.
 
-[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades)
+[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades/rollout_sequencing)
 
-  2. View the sequence in the section **Monitor your rollout sequence**. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
+  2. View the sequence in the **Rollout sequence** section. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
 
   3. In the **Rollout graph** , click the elements for the existing fleets in the sequence. After you click those elements, you can do some of the following actions to make the changes:
 
@@ -468,19 +452,15 @@ If you need to further delay upgrades beginning for the next group, you can use 
 
 To delete a sequence, you remove the upstream associations for each of the groups, except for the first group. The first group doesn't have an upstream group.
 
-You can perform these steps in the Google Cloud console (Preview) or with the gcloud CLI.
+You can perform these steps in the Google Cloud console or with the gcloud CLI.
 
 ### Console
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
   1. Go to the **Rollout Sequencing** page in the Google Cloud console.
 
-[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades)
+[Go to Rollout Sequencing](https://console.cloud.google.com/kubernetes/upgrades/rollout_sequencing)
 
-  2. View the sequence in the section **Monitor your rollout sequence**. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
+  2. View the sequence in the **Rollout sequence** section. If you don't see a rollout sequence, switch to a different rollout sequence, or create a rollout sequence if you haven't already done so.
 
   3. In the **Rollout graph** , click the element for the last fleet.
 
@@ -542,6 +522,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

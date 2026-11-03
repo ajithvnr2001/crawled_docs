@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/leader-aware-routing/
 title: Leader-aware routing \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:01:59.466431+00:00
+fetched_at: 2026-11-03T09:41:52.721887+00:00
 ---
 
 # Leader-aware routing  |  Spanner  |  Google Cloud Documentation
@@ -54,6 +54,15 @@ If your client application is deployed outside of the leader region and you writ
 Leader-aware routing is enabled by default in the Spanner client libraries.
 
 We recommend processing your read-write requests with leader-aware routing enabled. You can disable it to compare performance differences.
+
+### Leader-aware routing with geo-partitioning
+
+When you use [geo-partitioning](https://docs.cloud.google.com/spanner/docs/geo-partitioning) to partition your database across multiple data placements, Spanner evaluates all instance configurations used by your database's placements—including the default placement—when routing requests. Spanner selects a [Cloud Spanner API frontend](https://docs.cloud.google.com/spanner/docs/latency-points#spanner-api-requests) colocated with the placement region nearest to the client. This selection is independent of whether that placement or its data is used in a particular transaction. Spanner routes read-write transactions as follows:
+
+  * **With leader-aware routing enabled** : Each placement has its own leader region (or default leader region for dual-region and multi-region configurations). Spanner routes read-write transactions to the Cloud Spanner API frontend in the leader region that's closest to the client.
+  * **With leader-aware routing disabled** : Spanner routes read-write transactions to the Cloud Spanner API frontend in the closest serving region across all of your database's placements.
+
+
 
 ### Enable leader-aware routing
 
@@ -273,6 +282,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

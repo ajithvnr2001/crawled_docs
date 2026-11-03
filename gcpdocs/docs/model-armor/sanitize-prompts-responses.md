@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/sanitize-prompts-responses/
 title: Sanitize prompts and responses \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:01.767998+00:00
+fetched_at: 2026-11-03T09:54:54.176159+00:00
 ---
 
 # Sanitize prompts and responses  |  Model Armor  |  Google Cloud Documentation
@@ -568,26 +568,26 @@ To run these checks, use the following `curl` command found in Text prompts) and
 
 **Note:** In regions with limited multi-language detection support (`asia-south1` and `northamerica-northeast2`), if you send non-English content to detectors like prompt injection and jailbreak or RAI, Model Armor returns a verdict of `Skipped Detection` for those specific checks.
 
-### Sanitize a prompt with an exclusion rule
+### Prompts with an exclusion rule
 
 **Preview**
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-If a template includes [exclusion rules](https://docs.cloud.google.com/model-armor/configure-exclusion-rules), Model Armor can override findings from the prompt injection and jailbreak detection (`PROMPT_INJECTION_AND_JAILBREAK`) and responsible AI (`RESPONSIBLE_AI`) filters during prompt sanitization. For information about how rule matching, `matchState` overrides, and payload limits work, see [Exclusion rule overrides during sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rule-overrides).
+If a template includes [exclusion rules](https://docs.cloud.google.com/model-armor/configure-exclusion-rules), Model Armor can override findings from the prompt injection and jailbreak detection (`PROMPT_INJECTION_AND_JAILBREAK`) and responsible AI (`RESPONSIBLE_AI`) filters during prompt sanitization. For information about how rule matching, `matchState` overrides, [streaming sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rules-streaming), and payload limits work, see [Exclusion rule overrides during sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rule-overrides).
 
 The following example sends a user prompt containing the phrase `"ignore case when sorting this list"`. If the template includes a prompt injection dictionary exclusion rule for that phrase, Model Armor overrides `matchState` and sets it to `NO_MATCH_FOUND`:
     
     
     curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      -d '{
-      "userPromptData": {
-        "text": "Ignore case when sorting this list of customer records."
-      }
-    }' \
-      "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID:sanitizeUserPrompt"
+        -d '{
+          "userPromptData": {
+            "text": "Ignore case when sorting this list of customer records."
+          }
+        }' \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID:sanitizeUserPrompt"
     
 
 Replace the following:
@@ -645,6 +645,205 @@ This command returns a response similar to the following, where `filterMatchStat
       }
     }
     
+
+#### Sanitize a streaming prompt with an exclusion rule
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To sanitize a streaming user prompt with exclusion rules in real-time mode (`STREAMING_MODE_REALTIME`) or buffered mode (`STREAMING_MODE_BUFFERED`), complete the following steps. Full-match rules (`MATCHING_SCOPE_FULL_MATCH`) are supported only in `STREAMING_MODE_BUFFERED`.
+
+  1. Ensure that your template enables the [supported filters](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#supported-filters), and [update the template's exclusion rules](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#update-template-exclusion-rules) (`filterRuleSettings`) to include the partial-match rules (`MATCHING_SCOPE_PARTIAL_MATCH`) used in this example:
+         
+         export EXCLUSION_RULES_UPDATE='{
+           "filterConfig": {
+             "filterRuleSettings": {
+               "ruleSets": [
+                 {
+                   "filterTypes": [
+                     "PROMPT_INJECTION_AND_JAILBREAK"
+                   ],
+                   "rules": [
+                     {
+                       "exclusionRule": {
+                         "regex": {
+                           "pattern": "EXCLUDED_REGEX_PATTERN"
+                         },
+                         "matchingScope": "MATCHING_SCOPE_PARTIAL_MATCH"
+                       }
+                     }
+                   ]
+                 },
+                 {
+                   "filterTypes": [
+                     "RESPONSIBLE_AI"
+                   ],
+                   "rules": [
+                     {
+                       "exclusionRule": {
+                         "dictionary": {
+                           "wordList": {
+                             "words": [
+                               "EXCLUDED_PHRASE_1",
+                               "EXCLUDED_PHRASE_2"
+                             ]
+                           }
+                         },
+                         "matchingScope": "MATCHING_SCOPE_PARTIAL_MATCH"
+                       }
+                     }
+                   ]
+                 }
+               ]
+             }
+           }
+         }'
+         
+         curl -X PATCH \
+             -d "$EXCLUSION_RULES_UPDATE" \
+             -H "Content-Type: application/json" \
+             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+             "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=filterConfig.filterRuleSettings"
+         
+
+Replace the following:
+
+     * `EXCLUDED_REGEX_PATTERN`: the regular expression pattern to exclude from prompt injection and jailbreak detection—for example, `(?i)\\b(?:ignore\\s+(?:the\\s+)?(?:emails?|spams?|warnings?|drafts?|typos?|duplicates?|noise))\\b`.
+     * `EXCLUDED_PHRASE_1` and `EXCLUDED_PHRASE_2`: the dictionary words or phrases to exclude from responsible AI safety detection—for example, `kill process` and `abort retry`.
+     * `PROJECT_ID`: the ID of the project that the template belongs to.
+     * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
+     * `TEMPLATE_ID`: the ID of the template.
+
+This command returns a [template resource](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#create-template-exclusion-rules) containing the updated `filterRuleSettings`.
+
+  2. Sanitize the streaming prompt in Python. To run this code, first [set up a Python development environment](https://docs.cloud.google.com/python/docs/setup) and [install the Model Armor Python SDK](https://docs.cloud.google.com/model-armor/reference/libraries#install).
+
+Call `StreamSanitizeUserPrompt` with `streaming_mode` set to `STREAMING_MODE_REALTIME` or `STREAMING_MODE_BUFFERED`:
+         
+         from google.cloud import modelarmor_v1beta
+         
+         def stream_sanitize_user_prompt_with_exclusion():
+             project_id = "PROJECT_ID"
+             location = "LOCATION"
+             template_id = "TEMPLATE_ID"
+         
+             client = modelarmor_v1beta.[ModelArmorClient](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.services.model_armor.ModelArmorClient.html)(
+                 transport="grpc",
+                 client_options={
+                     "api_endpoint": f"modelarmor.{location}.rep.googleapis.com"
+                 },
+             )
+         
+             template_name = client.[template_path](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.services.model_armor.ModelArmorClient.html#google_cloud_modelarmor_v1beta_services_model_armor_ModelArmorClient_template_path)(project_id, location, template_id)
+         
+             prompt_chunks = [
+                 "Summarize my inbox and",
+                 " ignore the emails from the marketing vendor.",
+             ]
+         
+             # Set streaming_mode to STREAMING_MODE_REALTIME or STREAMING_MODE_BUFFERED.
+             streaming_mode = modelarmor_v1beta.[StreamingMode](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.types.StreamingMode.html).STREAMING_MODE_REALTIME
+         
+             def request_generator():
+                 for chunk in prompt_chunks:
+                     yield modelarmor_v1beta.[SanitizeUserPromptRequest](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.types.SanitizeUserPromptRequest.html)(
+                         name=template_name,
+                         user_prompt_data=modelarmor_v1beta.[DataItem](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.types.DataItem.html)(text=chunk),
+                         streaming_mode=streaming_mode,
+                     )
+         
+             stream = client.[stream_sanitize_user_prompt](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.services.model_armor.ModelArmorClient.html#google_cloud_modelarmor_v1beta_services_model_armor_ModelArmorClient_stream_sanitize_user_prompt)(requests=request_generator())
+         
+             for response in stream:
+                 print(response)
+         
+         stream_sanitize_user_prompt_with_exclusion()
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project that the template belongs to.
+     * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
+     * `TEMPLATE_ID`: the ID of the template.
+
+This code returns a response similar to the following, where `filter_match_state` is `NO_MATCH_FOUND` and `sanitization_metadata.stream_chunk_processed` contains the processed chunk:
+    
+    sanitization_result {
+      filter_match_state: NO_MATCH_FOUND
+      filter_results {
+        key: "csam"
+        value {
+          csam_filter_filter_result {
+            execution_state: EXECUTION_SUCCESS
+            match_state: NO_MATCH_FOUND
+          }
+        }
+      }
+      filter_results {
+        key: "rai"
+        value {
+          rai_filter_result {
+            execution_state: EXECUTION_SUCCESS
+            match_state: NO_MATCH_FOUND
+            rai_filter_type_results {
+              key: "sexually_explicit"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+            rai_filter_type_results {
+              key: "hate_speech"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+            rai_filter_type_results {
+              key: "harassment"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+            rai_filter_type_results {
+              key: "dangerous"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+          }
+        }
+      }
+      filter_results {
+        key: "pi_and_jailbreak"
+        value {
+          pi_and_jailbreak_filter_result {
+            execution_state: EXECUTION_SUCCESS
+            match_state: NO_MATCH_FOUND
+          }
+        }
+      }
+      sanitization_metadata {
+        stream_chunk_processed {
+          text: "Summarize my inbox and ignore the emails from the marketing vendor."
+        }
+        filter_version_config {
+          filter_version: "v3"
+          filter_version_alias: FILTER_VERSION_ALIAS_STABLE
+          release_date {
+            year: 2026
+            month: 4
+            day: 27
+          }
+          projected_deprecation_date {
+          }
+        }
+      }
+      invocation_result: SUCCESS
+    }
+    
+
+
+
 
 ### Prompts containing images
 
@@ -1346,6 +1545,7 @@ Consider the following when sanitizing a streaming text prompt or response:
   * Model Armor streaming methods support only textual input, not attachments like images and files.
   * Use [correlation ID](https://docs.cloud.google.com/model-armor/configure-logging#correlate-logs-and-events) to track streaming sanitization logs for a given request.
   * Model Armor streaming methods don't support Sensitive Data Protection de-identification.
+  * If your template includes [exclusion rules](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rules-streaming) ([Preview](https://cloud.google.com/products#product-launch-stages)), the streaming mode determines how Model Armor evaluates the rules and which matching scopes are supported.
 
 
 
@@ -3193,20 +3393,20 @@ Replace the following:
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-If a template includes [exclusion rules](https://docs.cloud.google.com/model-armor/configure-exclusion-rules), Model Armor can override findings from the prompt injection and jailbreak detection (`PROMPT_INJECTION_AND_JAILBREAK`) and responsible AI (`RESPONSIBLE_AI`) filters during model response sanitization. For information about how rule matching, `matchState` overrides, and payload limits work, see [Exclusion rule overrides during sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rule-overrides).
+If a template includes [exclusion rules](https://docs.cloud.google.com/model-armor/configure-exclusion-rules), Model Armor can override findings from the prompt injection and jailbreak detection (`PROMPT_INJECTION_AND_JAILBREAK`) and responsible AI (`RESPONSIBLE_AI`) filters during model response sanitization. For information about how rule matching, `matchState` overrides, [streaming sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rules-streaming), and payload limits work, see [Exclusion rule overrides during sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rule-overrides).
 
 The following example sanitizes a model response containing `"kill process 1234"`. If the template includes a responsible AI regular expression exclusion rule for `(?i)kill process [0-9]+`, Model Armor overrides `matchState` and sets it to `NO_MATCH_FOUND`:
     
     
     curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      -d '{
-      "modelResponseData": {
-        "text": "To stop the unresponsive service, run kill process 1234."
-      }
-    }' \
-      "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID:sanitizeModelResponse"
+        -d '{
+          "modelResponseData": {
+            "text": "To stop the unresponsive service, run kill process 1234."
+          }
+        }' \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID:sanitizeModelResponse"
     
 
 Replace the following:
@@ -3274,6 +3474,143 @@ This command returns a response similar to the following:
     }
     
 
+#### Sanitize a streaming response with an exclusion rule
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To run this code, first [set up a Python development environment](https://docs.cloud.google.com/python/docs/setup) and [install the Model Armor Python SDK](https://docs.cloud.google.com/model-armor/reference/libraries#install).
+
+To sanitize a streaming model response with exclusion rules, call `StreamSanitizeModelResponse` with `streaming_mode` set to `STREAMING_MODE_REALTIME` or `STREAMING_MODE_BUFFERED`:
+    
+    
+    from google.cloud import modelarmor_v1beta
+    
+    
+    def stream_sanitize_model_response_with_exclusion():
+        project_id = "PROJECT_ID"
+        location = "LOCATION"
+        template_id = "TEMPLATE_ID"
+    
+        client = modelarmor_v1beta.[ModelArmorClient](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.services.model_armor.ModelArmorClient.html)(
+            transport="grpc",
+            client_options={
+                "api_endpoint": f"modelarmor.{location}.rep.googleapis.com"
+            },
+        )
+    
+        template_name = client.[template_path](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.services.model_armor.ModelArmorClient.html#google_cloud_modelarmor_v1beta_services_model_armor_ModelArmorClient_template_path)(project_id, location, template_id)
+    
+        response_chunks = [
+            "To stop the unresponsive service,",
+            " run kill process 1234.",
+        ]
+    
+        # Set streaming_mode to STREAMING_MODE_REALTIME or STREAMING_MODE_BUFFERED.
+        streaming_mode = modelarmor_v1beta.[StreamingMode](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.types.StreamingMode.html).STREAMING_MODE_REALTIME
+    
+        def request_generator():
+            for chunk in response_chunks:
+                yield modelarmor_v1beta.[SanitizeModelResponseRequest](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.types.SanitizeModelResponseRequest.html)(
+                    name=template_name,
+                    model_response_data=modelarmor_v1beta.[DataItem](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.types.DataItem.html)(text=chunk),
+                    streaming_mode=streaming_mode,
+                )
+    
+        stream = client.[stream_sanitize_model_response](https://docs.cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest/google.cloud.modelarmor_v1beta.services.model_armor.ModelArmorClient.html#google_cloud_modelarmor_v1beta_services_model_armor_ModelArmorClient_stream_sanitize_model_response)(requests=request_generator())
+    
+        for response in stream:
+            print(response)
+    
+    
+    stream_sanitize_model_response_with_exclusion()
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that the template belongs to.
+  * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
+  * `TEMPLATE_ID`: the ID of the template.
+
+
+
+This code returns a response similar to the following, where `filter_match_state` is `NO_MATCH_FOUND` and `sanitization_metadata.stream_chunk_processed` contains the processed chunk:
+    
+    
+    sanitization_result {
+      filter_match_state: NO_MATCH_FOUND
+      filter_results {
+        key: "csam"
+        value {
+          csam_filter_filter_result {
+            execution_state: EXECUTION_SUCCESS
+            match_state: NO_MATCH_FOUND
+          }
+        }
+      }
+      filter_results {
+        key: "rai"
+        value {
+          rai_filter_result {
+            execution_state: EXECUTION_SUCCESS
+            match_state: NO_MATCH_FOUND
+            rai_filter_type_results {
+              key: "sexually_explicit"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+            rai_filter_type_results {
+              key: "hate_speech"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+            rai_filter_type_results {
+              key: "harassment"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+            rai_filter_type_results {
+              key: "dangerous"
+              value {
+                match_state: NO_MATCH_FOUND
+              }
+            }
+          }
+        }
+      }
+      filter_results {
+        key: "pi_and_jailbreak"
+        value {
+          pi_and_jailbreak_filter_result {
+            execution_state: EXECUTION_SUCCESS
+            match_state: NO_MATCH_FOUND
+          }
+        }
+      }
+      sanitization_metadata {
+        stream_chunk_processed {
+          text: "To stop the unresponsive service, run kill process 1234."
+        }
+        filter_version_config {
+          filter_version: "v3"
+          filter_version_alias: FILTER_VERSION_ALIAS_STABLE
+          release_date {
+            year: 2026
+            month: 4
+            day: 27
+          }
+          projected_deprecation_date {
+          }
+        }
+      }
+      invocation_result: SUCCESS
+    }
+    
+
 ## Sanitize model response across projects
 
 To enable centralized AI safety management, organizations often store Model Armor templates in a dedicated project (project A: `TEMPLATE_PROJECT_ID`) while their applications run in separate projects (project B).
@@ -3309,6 +3646,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

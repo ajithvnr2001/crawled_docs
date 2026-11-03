@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/ngfw_tiers/
 title: Cloud NGFW tiers \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:10:35.582681+00:00
+fetched_at: 2026-11-03T09:53:27.569009+00:00
 ---
 
 # Cloud NGFW tiers  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ Cloud NGFW Enterprise includes the following features:
 
   * Signature-based [intrusion detection and prevention service](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention) with [Transport Layer Security (TLS)](https://docs.cloud.google.com/firewall/docs/about-tls-inspection) interception and decryption, which provides threat detection and prevention from malware, spyware, and command-and-control attacks on your network.
 
-  * [Advanced malware sandbox (WildFire)](https://docs.cloud.google.com/firewall/docs/about-wildfire) ([Preview](https://cloud.google.com/products#product-launch-stages)) with [Transport Layer Security (TLS)](https://docs.cloud.google.com/firewall/docs/about-tls-inspection) interception, which provides advanced, real-time analysis to protect your network against unknown file-based malware. The service scans files that reach workloads. Advanced malware sandbox inline ML in the Cloud Next Generation Firewall Enterprise data plane analyzes the files, or the service uploads them to the Advanced malware sandbox cloud for analysis.
+  * [Advanced malware sandbox (WildFire)](https://docs.cloud.google.com/firewall/docs/about-wildfire) with [Transport Layer Security (TLS)](https://docs.cloud.google.com/firewall/docs/about-tls-inspection) interception, which provides advanced, real-time analysis to protect your network against unknown file-based malware. The service scans files that reach workloads. Advanced malware sandbox inline ML in the Cloud Next Generation Firewall Enterprise data plane analyzes the files, or the service uploads them to the Advanced malware sandbox cloud for analysis.
 
   * [URL filtering service](https://docs.cloud.google.com/firewall/docs/about-url-filtering) with [Transport Layer Security (TLS)](https://docs.cloud.google.com/firewall/docs/about-tls-inspection) inspection, which lets you control access to websites and webpages by blocking or allowing their URLs. While FQDN filtering only sees the resolved IP address at the network layer, URL filtering operates at the application layer to inspect the full URL path. This lets you block or allow access to specific websites and individual sub-pages, rather than just the entire domain.
 
@@ -123,6 +123,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

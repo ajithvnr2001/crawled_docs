@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/troubleshoot/layer-7-inspection-setup/
 title: Troubleshoot application layer inspection \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:59:29.474955+00:00
+fetched_at: 2026-11-03T09:53:27.501046+00:00
 ---
 
 # Troubleshoot application layer inspection  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -162,10 +162,6 @@ If the rule is not applied or the traffic is not intercepted, revisit the All co
 
 ## Advanced malware sandbox health metric indicates an infrastructure issue
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 If your traffic matches rules for Advanced malware sandbox (WildFire) but files aren't inspected or logged, an infrastructure issue might be the cause. You can verify this by checking the Advanced malware sandbox health metric.
 
 An unhealthy Advanced malware sandbox health metric indicates an underlying infrastructure issue that prevents the Advanced malware sandbox service from working.
@@ -183,7 +179,7 @@ If you use the search bar to find this page, then select the result whose subhea
 
      1. In the **Metric** menu, click **Select a metric**. Use the search bar and filters in the **Select a metric** menu to find available metric types.
      2. In the search bar, enter **Firewall endpoint**.
-     3. Click **Firewall endpoint > Firewall_endpoint > Advanced malware sandbox health**.
+     3. Click **Firewall endpoint > Firewall_endpoint > WildFire health**.
      4. Click **Apply**.
   4. In the **Results** section, click the **Table** tab. You can view the Advanced malware sandbox health metric.
 
@@ -232,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

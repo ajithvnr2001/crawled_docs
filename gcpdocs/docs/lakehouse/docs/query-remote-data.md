@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-remote-data/
 title: Query remote data \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:57.977261+00:00
+fetched_at: 2026-11-03T09:41:54.574630+00:00
 ---
 
 # Query remote data  |  Lakehouse  |  Google Cloud Documentation
@@ -22,12 +22,6 @@ As of April 20th, 2026, BigLake is now called Lakehouse. BigLake metastore is no
 Send feedback 
 
 #  Query remote data Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** For support during the preview, email [biglake-help@google.com](mailto:biglake-help@google.com).
 
 In borderless Lakehouse, a cross-cloud connection lets you access remote data from external platforms without moving files between cloud environments. You can then query your federated tables from BigQuery, Managed Service for Apache Spark, or open-source Apache Spark.
 
@@ -71,7 +65,7 @@ _Lakehouse_ handles the metadata translation and secure data access, which lets 
 
 ### Query from BigQuery
 
-To query federated Apache Iceberg tables, use standard BigQuery SQL. The table path follows a 4-part structure: `project.federated_catalog.namespace.table`. Caching, credential vending, and CCI transit routing are automatically handled.
+To query federated Apache Iceberg tables, use standard BigQuery SQL. The table path follows a 4-part structure: `project.federated_catalog.namespace.table`. Credential vending, CCI transit routing, and cross-cloud caching (when enabled on the catalog) are automatically handled by Google Cloud.
     
     
     SELECT
@@ -204,18 +198,20 @@ For Snowflake, you may encounter issues when querying `STRING` columns because t
 
 ### Monitor cache usage and egress cost savings
 
-Lakehouse caching is enabled automatically for all cross-cloud queries. When a query runs, Lakehouse automatically caches data blocks locally within Google Cloud storage. Subsequent queries targeting the same data blocks read directly from the local cache instead of refetching the data from the remote cloud.
+When you enable cross-cloud caching on a federated catalog or BigQuery connection, Lakehouse caches retrieved file blocks locally within the Google Cloud query execution region. Subsequent queries, including different queries targeting the same file blocks, read directly from the local cache instead of refetching the files from the remote cloud.
 
-To verify cache hit rates and measure your egress cost savings, inspect the job details in the BigQuery console or retrieve the query job statistics (`JobStatistics2`) using the BigQuery API or `bq` CLI:
+To verify cache hit rates and measure your egress cost savings, inspect the job details in the BigQuery console or retrieve the [`JobStatistics2` query job statistics](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#JobStatistics2) using the BigQuery API or bq command-line tool:
     
     
     bq show --format=prettyjson --job=true JOB_ID
 
+Replace `JOB_ID` with the ID of your BigQuery query job.
+
 In the JSON output under `statistics.query.objectStorageStats` (or `object_storage_stats` in the proto API), the job statistics return a list with an entry for each cloud provider accessed during execution. Each entry contains the following fields:
 
-  * **`cloudProvider`** (`cloud_provider`): The remote cloud provider hosting the object storage (for example, `AWS` or `AZURE`).
-  * **`cacheBytesRead`** (`cache_bytes_read`): The total bytes read from the local Google Cloud cache, avoiding a remote object storage read.
-  * **`objectStorageBytesRead`** (`object_storage_bytes_read`): The total bytes read directly from the remote cloud provider's object storage.
+  * **`cloudProvider`** (`cloud_provider`): the cloud provider that hosts the object storage (for example, `AWS` or `AZURE`).
+  * **`cacheBytesRead`** (`cache_bytes_read`): the total bytes read from the local Google Cloud cache, avoiding a remote object storage read.
+  * **`objectStorageBytesRead`** (`object_storage_bytes_read`): the total bytes read directly from the cloud provider's object storage.
 
 
 
@@ -223,6 +219,7 @@ For more information about caching concepts and data residency considerations, s
 
 ## What's next
 
+  * [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
   * [Supported regions and capabilities](https://docs.cloud.google.com/lakehouse/docs/regions-capabilities-cross-cloud-connections).
 
 
@@ -231,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

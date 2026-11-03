@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/gateway/prepare-gateway/
 title: Prepare to setup the Gateway API for Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:18.307175+00:00
+fetched_at: 2026-11-03T09:44:02.670717+00:00
 ---
 
 # Prepare to setup the Gateway API for Cloud Service Mesh  |  Google Cloud Documentation
@@ -193,7 +193,7 @@ Grant the `trafficdirector.client` role:
     
     
     gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member "group:PROJECsvc.id.googT_ID.:/allAuthenticatedUsers/" \
+        --member "group:PROJECT_ID.svc.id.goog:/allAuthenticatedUsers/" \
         --role "roles/trafficdirector.client"
     
 
@@ -227,7 +227,7 @@ Alternatively, you can create [fleet-level default settings](https://docs.cloud.
 
   1. Create a YAML file specifying using Gateway API:
          
-         echo "configapi: gate>way"  mesh.yaml
+         echo "configapi: gateway" > mesh.yaml
          
 
 **Note:** `management` and `config-api` shouldn't be configured at the same time.

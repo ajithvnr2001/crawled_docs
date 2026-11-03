@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/configure-wildfire/
 title: Configure Advanced malware sandbox in your network \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:10:38.078879+00:00
+fetched_at: 2026-11-03T09:53:28.219340+00:00
 ---
 
 # Configure Advanced malware sandbox in your network  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -21,10 +21,6 @@ Send feedback
 
 #  Configure Advanced malware sandbox in your network Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 Advanced malware sandbox (WildFire) lets you protect your network against unknown, file-based threats and malware. To enable Advanced malware sandbox in your network, you must set up multiple Cloud Next Generation Firewall (Cloud NGFW) components, including firewall endpoints, security profiles, and security profile groups. This document provides a high-level workflow that describes how to configure these components and enable Advanced malware sandbox.
 
 To learn more about Advanced malware sandbox, see [Advanced malware sandbox overview](https://docs.cloud.google.com/firewall/docs/about-wildfire).
@@ -38,19 +34,22 @@ Ability | Necessary role
 Create a firewall endpoint and a firewall endpoint association for a Virtual Private Cloud (VPC) network.  | To perform this task, ensure that you have one of the following roles: 
 
   * [Compute Network Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) (`roles/compute.networkAdmin`)
-  * [Firewall Endpoint Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networksecurity#networksecurity.firewallEndpointAdmin) (`roles/networksecurity.firewallEndpointAdmin`) at either the project level ([Preview](https://cloud.google.com/products#product-launch-stages)) or organization level.
+  * [Firewall Endpoint Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networksecurity#networksecurity.firewallEndpointAdmin) (`roles/networksecurity.firewallEndpointAdmin`) at either the project level or organization level.
 
 These roles include the following permission to create a firewall endpoint: 
   * `networksecurity.firewallEndpoints.create`
 
 Additionally, these roles include the following permissions to create a firewall endpoint association: 
   * `networksecurity.firewallEndpointAssociations.create`
-  * `networksecurity.firewallEndpoints.use` on the organization where the firewall endpoint exists
+  * `networksecurity.firewallEndpoints.use` on the organization or project where the firewall endpoint exists
 
   
-Create a Advanced malware sandbox security profile, a threat prevention security profile, and a security profile group  | [Security Profile Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networksecurity#networksecurity.securityProfileAdmin) (`roles/networksecurity.securityProfileAdmin`) at either the project level ([Preview](https://cloud.google.com/products#product-launch-stages)) or organization level.  
-This role includes the following required permissions: 
+Create an Advanced malware sandbox security profile, a threat prevention security profile, and a security profile group  | To perform this task, ensure that you have one of the following roles: 
 
+  * [Compute Network Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) (`roles/compute.networkAdmin`)
+  * [Security Profile Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networksecurity#networksecurity.securityProfileAdmin) (`roles/networksecurity.securityProfileAdmin`) at either the project level or organization level.
+
+These roles include the following required permissions: 
   * `networksecurity.securityProfileGroups.create` to create a security profile group
   * `networksecurity.securityProfiles.create` to create an Advanced malware sandbox security profile or a threat prevention security profile
 
@@ -159,7 +158,7 @@ A firewall endpoint with jumbo frame support can accept packets only up to 8,500
 
 **Caution:** A firewall endpoint doesn't perform Advanced malware sandbox for a VPC network if the network is configured with an MTU that's greater than the firewall endpoint's limit.
 
-For more information, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoint-associations#create-endpoint-association).
+For more information, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#create-endpoint-association).
 
   7. **Configure and apply Advanced malware sandbox to your network traffic**
 
@@ -212,7 +211,7 @@ A firewall endpoint with jumbo frame support can accept packets only up to 8,500
 
 **Caution:** A firewall endpoint doesn't perform Advanced malware sandbox for a VPC network if the network is configured with an MTU that's greater than the firewall endpoint's limit.
 
-For more information, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoint-associations#create-endpoint-association).
+For more information, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#create-endpoint-association).
 
   7. **Create and configure resources to inspect encrypted traffic**
 
@@ -240,7 +239,7 @@ For more information, see [Create a TLS inspection policy](https://docs.cloud.go
 
   9. **Add a TLS inspection policy to a firewall endpoint association**
 
-To add the TLS inspection policy to a firewall endpoint association, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoint-associations#create-endpoint-association).
+To add the TLS inspection policy to a firewall endpoint association, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#create-endpoint-association).
 
   10. **Configure and apply Advanced malware sandbox to your network traffic**
 
@@ -271,11 +270,11 @@ Create an Advanced malware sandbox security profile of type `WILDFIRE_ANALYSIS` 
 
   3. **Update your security profile group**
 
-Add the new Advanced malware sandbox security profile to your security profile group. The security profile group must contain a threat prevention profile. For more information, see [Update a security profile group](https://docs.cloud.google.com/firewall/docs/configure-security-profile-groups#update-security-profile-group).
+Add the new Advanced malware sandbox security profile to your security profile group. The security profile group must contain a threat prevention profile. For more information, see [Update a security profile group](https://docs.cloud.google.com/firewall/docs/manage-security-profile-groups#update-security-profile-group).
 
   4. **Enable Advanced malware sandbox on the firewall endpoint**
 
-Update the firewall endpoint and select the **Enable Advanced malware sandbox (WildFire)** checkbox in the **Advanced configuration** section for the zonal endpoint. For more information, see [Update a firewall endpoint](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#edit-firewall-endpoint).
+Update the firewall endpoint and select the **Enable Advanced malware sandbox (WildFire)** checkbox in the **Advanced configuration** section for the zonal endpoint. For more information, see [Update a firewall endpoint](https://docs.cloud.google.com/firewall/docs/manage-firewall-endpoints#update).
 
 
 
@@ -293,6 +292,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

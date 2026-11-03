@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/batch-operations/cel-filters-reference/
 title: CEL filters reference for storage batch operations \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:39:09.031174+00:00
+fetched_at: 2026-11-03T09:41:58.136154+00:00
 ---
 
 # CEL filters reference for storage batch operations  |  Cloud Storage  |  Google Cloud Documentation

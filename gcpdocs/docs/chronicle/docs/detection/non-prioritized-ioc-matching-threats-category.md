@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/non-prioritized-ioc-matching-threats-category/
 title: Non-prioritized IoC Matching threats \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:09:07.206301+00:00
+fetched_at: 2026-11-03T09:36:27.856554+00:00
 ---
 
 # Non-prioritized IoC Matching threats  |  Google Security Operations  |  Google Cloud Documentation
@@ -75,7 +75,7 @@ To modify settings, use the Google SecOps rules list to toggle the Status (Enabl
 
 ## Tune alerts from rule sets
 
-Use [rule exclusions](https://docs.cloud.google.com/chronicle/docs/detection/rule-exclusions) to prevent specific authorized internal tools or known-good traffic from triggering ATI-based alerts. This helps you maintain a high signal-to-noise ratio and is particularly useful for excluding authorized use of administrative tools that might otherwise be flagged by RMM tool feeds.
+Use [rule exclusions](https://docs.cloud.google.com/chronicle/docs/investigation/alert-suppression#suppress-rule-exclusions) to prevent specific authorized internal tools or known-good traffic from triggering ATI-based alerts. This helps you maintain a high signal-to-noise ratio and is particularly useful for excluding authorized use of administrative tools that might otherwise be flagged by RMM tool feeds.
 
 For examples of custom YARA-L rules using IoC feeds, see [IP address matching against indicators of compromise](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#ioc-ip-matching).
 
@@ -85,6 +85,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

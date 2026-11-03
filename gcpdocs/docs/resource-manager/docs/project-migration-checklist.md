@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/project-migration-checklist/
 title: Project migration checklist \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:41.130797+00:00
+fetched_at: 2026-11-03T09:54:43.083458+00:00
 ---
 
 # Project migration checklist  |  Resource Manager  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Project migration checklist Stay organized with collections  Save and categorize content based on your preferences. 
 
-This checklist lets you plan and execute project migrations between organization resources. It outlines key tasks, provides brief instructions for each step, and links to detailed documentation.
+To plan and execute a project migration across organizations in Google Cloud, use the following checklist to track key requirements and milestones.
 
 ****
 
@@ -93,6 +93,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

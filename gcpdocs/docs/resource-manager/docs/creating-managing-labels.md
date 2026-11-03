@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/creating-managing-labels/
 title: Create and update labels for projects \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:53.976895+00:00
+fetched_at: 2026-11-03T09:55:08.794234+00:00
 ---
 
 # Create and update labels for projects  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Create and update labels for projects Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides details on how to create and update labels for projects using gcloud CLI, the Cloud Resource Manager API, and the Google Cloud console.
+Labels let you organize your Google Cloud projects and track costs across teams or environments. To manage project labels, you can use the Google Cloud console, the Google Cloud CLI, or the Cloud Resource Manager API.
 
-**Note:** Resource Manager labels apply to **projects only** (folders and organizations don't support labels). Labels attached to a project don't automatically propagate to child resources within the project. To apply or update labels on specific service resources (such as Compute Engine instances or Cloud Storage buckets), see the resource's documentation or [Services that support labels](https://docs.cloud.google.com/resource-manager/docs/labels-supported-services).**Note:** Pub/Sub supports labels for topic and subscription throughput billing, but egress billing SKUs don't support labels.
+Labels apply to _projects only_. Folders and organization resources don't support labels, and labels that you attach to a project don't automatically propagate to child resources. To apply or update labels on specific service resources such as Compute Engine instances or Cloud Storage buckets, see the resource's documentation or [Services that support labels](https://docs.cloud.google.com/resource-manager/docs/labels-supported-services). For example, Pub/Sub supports labels for topic and subscription throughput billing, but egress billing SKUs don't support labels.
 
 ## Create labels for projects
 
@@ -201,6 +201,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

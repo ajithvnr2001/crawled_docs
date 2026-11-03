@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/manage-projects-within-folder/
 title: Manage projects within folders \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:14.688484+00:00
+fetched_at: 2026-11-03T09:54:43.161269+00:00
 ---
 
 # Manage projects within folders  |  Resource Manager  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Manage projects within folders Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can create, move, and view projects inside folders to organize your Google Cloud resource hierarchy.
+You can create, move, list, and filter projects within folders using the Google Cloud console, the Google Cloud CLI, or the Cloud Resource Manager API. Organizing projects into folders lets you apply inherited policies, delegate administration, and align your Google Cloud resource hierarchy with your teams and environments.
 
 ## Overview
 
@@ -405,6 +405,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-secure-services-parent-tag/
 title: Secure Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:34.279319+00:00
+fetched_at: 2026-11-03T09:44:18.109113+00:00
 ---
 
 # Secure Cloud Run services  |  Google Cloud Documentation
@@ -36,8 +36,8 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
     
       template {
         containers {
-       >   # Replace with the URL of your <Secure Ser>vices  Renderer image.
-          #   gcr.io/PROJECT_ID/renderer
+          # Replace with the URL of your Secure Services > Renderer image.
+          #   gcr.io/<PROJECT_ID>/renderer
           image = "us-docker.pkg.dev/cloudrun/container/hello"
         }
         service_account = google_service_account.renderer.email
@@ -48,12 +48,12 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
       name     = "editor"
       location = "us-central1"
     
-      deletion_protection = false # set to ">;true" in production
+      deletion_protection = false # set to "true" in production
     
-      tem<plate {
-      >  containers {
-          # Replace with the URL of your Secure Services  Editor image.
-          #   gcr.io/PROJECT_ID/editor
+      template {
+        containers {
+          # Replace with the URL of your Secure Services > Editor image.
+          #   gcr.io/<PROJECT_ID>/editor
           image = "us-docker.pkg.dev/cloudrun/container/hello"
           env {
             name  = "EDITOR_UPSTREAM_RENDER_URL"

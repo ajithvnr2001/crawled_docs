@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/audit-hsm/
 title: Hardware Security Module (HSM) \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:22:16.372686+00:00
+fetched_at: 2026-11-03T09:43:40.176532+00:00
 ---
 
 # Hardware Security Module (HSM)  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -21,6 +21,8 @@ fetched_at: 2026-10-27T19:22:16.372686+00:00
 Send feedback 
 
 #  Hardware Security Module (HSM) Stay organized with collections  Save and categorize content based on your preferences. 
+
+Hardware Security Module (HSM) audit logs in Google Distributed Cloud (GDC) air-gapped let you track hardware key management operations across physical infrastructure. These syslog entries record the action, timestamp, source IP address, outcome, and JSON payload fields when creating Hewlett Packard Enterprise Integrated Lights-Out (HPE iLO) and NetApp ONTAP tenant keys.
 
 **Workload location** |  Hardware  
 ---|---  
@@ -230,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

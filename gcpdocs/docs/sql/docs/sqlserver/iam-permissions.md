@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/iam-permissions/
 title: Cloud SQL permissions \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:29.970406+00:00
+fetched_at: 2026-11-03T09:53:08.277488+00:00
 ---
 
 # Cloud SQL permissions  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -92,6 +92,7 @@ Command | Required permissions
 `gcloud sql flags list` | None  
 `gcloud sql import` | `cloudsql.instances.import`  
 `gcloud sql instances clone` | `cloudsql.instances.clone`  
+`cloudsql.instances.create`  
 `gcloud sql instances create` | `cloudsql.instances.create`  
 `gcloud sql instances delete` | `cloudsql.instances.delete`  
 `gcloud sql instances describe` | `cloudsql.instances.get`  
@@ -142,7 +143,7 @@ Method | Required permissions
 `[databases.patch](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/databases/patch)` | `cloudsql.databases.update`, `cloudsql.databases.get`  
 `[databases.update](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/databases/update)` | `cloudsql.databases.update`  
 `[flags.list](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/flags/list)` | None  
-`[instances.clone](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/instances/clone)` | `cloudsql.instances.clone`  
+`[instances.clone](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/instances/clone)` | `cloudsql.instances.clone`, `cloudsql.instances.create`  
 `[instances.delete](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/instances/delete)` | `cloudsql.instances.delete`  
 `[instances.export](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/instances/export)` | `cloudsql.instances.export`  
 `[instances.failover](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/instances/failover)` | `cloudsql.instances.failover`  
@@ -176,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

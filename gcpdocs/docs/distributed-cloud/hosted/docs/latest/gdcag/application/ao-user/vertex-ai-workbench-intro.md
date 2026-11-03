@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-workbench-intro/
 title: Learn about Vertex AI Workbench \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:02.309622+00:00
+fetched_at: 2026-11-03T09:51:57.224451+00:00
 ---
 
 # Learn about Vertex AI Workbench  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,21 +22,9 @@ Send feedback
 
 #  Learn about Vertex AI Workbench Stay organized with collections  Save and categorize content based on your preferences. 
 
-Vertex AI Workbench is a JupyterLab notebook-based development environment available for your entire data science workflow. You can interact with Vertex AI and its services on Google Distributed Cloud (GDC) air-gapped from within a notebook of a JupyterLab instance that Vertex AI Workbench provides.
+Vertex AI Workbench provides a managed [JupyterLab notebook](https://jupyter.org/) development environment to interact with Vertex AI services in Google Distributed Cloud (GDC) air-gapped. From a JupyterLab instance, you can explore machine learning data, share notebooks across your project, and run end-to-end data science workflows.
 
-Vertex AI Workbench integrations and features make accessing your machine learning data easier, sharing and processing data faster, interacting with Vertex AI services using the Python programming language, and more.
-
-For example, Vertex AI Workbench lets you do the following:
-
-  * Access and explore your machine learning data from within a [JupyterLab notebook](https://jupyter.org/).
-  * Share your JupyterLab notebook with other users of your project.
-  * Import [Vertex AI client libraries](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-install-libraries) to simplify accessing APIs programmatically.
-  * Interact with Vertex AI services, authenticate API requests, and use Vertex AI features from Python scripts.
-  * Create a backup and restore your JupyterLab instance data.
-  * Use an integrated development environment (IDE) to use built-in integrations of JupyterLab notebooks.
-  * Set up an end-to-end notebook-based production environment.
-
-
+Importing [Vertex AI client libraries](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-install-libraries) lets you authenticate API requests and call Vertex AI services from Python scripts. You can also back up and restore your JupyterLab instance data.
 
 ## JupyterLab instances
 
@@ -61,6 +49,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

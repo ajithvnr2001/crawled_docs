@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced/
 title: About Hyperdisk Balanced \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:19.244778+00:00
+fetched_at: 2026-11-03T09:41:53.092011+00:00
 ---
 
 # About Hyperdisk Balanced  |  Compute Engine  |  Google Cloud Documentation
@@ -468,7 +468,7 @@ To learn more, see [Share a disk between VMs](https://docs.cloud.google.com/comp
 
 ## Pricing
 
-You are billed for the total provisioned size, IOPS, and throughput of your Hyperdisk Balanced volumes until you delete them. Charges incur even if the volume isn't attached to any instances or if the instance is suspended or stopped. For more information see [Disk pricing](https://docs.cloud.google.com/compute/disks-image-pricing#disk).
+You are billed for the total provisioned size, IOPS, and throughput of your Hyperdisk Balanced volumes until you delete them. You incur charges even if the volume isn't attached to any instances or if the instance is suspended or stopped. For more information see [Disk pricing](https://docs.cloud.google.com/compute/disks-image-pricing#disk).
 
 ## Limitations for Hyperdisk Balanced
 
@@ -491,6 +491,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

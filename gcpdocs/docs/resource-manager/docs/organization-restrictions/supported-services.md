@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/organization-restrictions/supported-services/
 title: Services supported by organization restrictions \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:38.322465+00:00
+fetched_at: 2026-11-03T09:55:06.870671+00:00
 ---
 
 # Services supported by organization restrictions  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Services supported by organization restrictions Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page lists the Google Cloud services that the organization restrictions feature supports.
-
-The requests for the Google Cloud services originate from the Google Cloud console, APIs, or client libraries.
+Organization restrictions support the following Google Cloud services when requests originate from the Google Cloud console, APIs, or client libraries:
 
 Service API name | Service API URL  
 ---|---  
@@ -212,6 +210,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

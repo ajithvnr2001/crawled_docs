@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/stat-caching/
 title: Stat caching in Cloud Storage FUSE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:39:10.095261+00:00
+fetched_at: 2026-11-03T09:41:57.332093+00:00
 ---
 
 # Stat caching in Cloud Storage FUSE  |  Google Cloud Documentation

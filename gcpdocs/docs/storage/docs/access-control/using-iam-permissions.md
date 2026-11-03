@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions/
 title: Set and manage IAM policies on buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:58.201391+00:00
+fetched_at: 2026-11-03T09:42:04.656387+00:00
 ---
 
 # Set and manage IAM policies on buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -150,7 +150,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     
     using Google.Apis.Storage.v1.Data;
-    using Google.Cloud.Storage.V1;
+    using [Google.Cloud.Storage.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.html);
     using System;
     using System.Collections.Generic;
     
@@ -161,8 +161,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             string role = "roles/storage.objectViewer",
             string member = "serviceAccount:dev@iam.gserviceaccount.com")
         {
-            var storage = StorageClient.Create();
-            var policy = storage.GetBucketIamPolicy(bucketName, new GetBucketIamPolicyOptions
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
+            var policy = storage.GetBucketIamPolicy(bucketName, new [GetBucketIamPolicyOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketIamPolicyOptions.html)
             {
                 RequestedPolicyVersion = 3
             });
@@ -200,7 +200,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     )
     
     // addBucketIAMMember adds the bucket IAM member to permission role.
-    func addBucketIAMMember(w io.Writer, bucketName string) error {
+    func addBucketIAMMember(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucketName string) error {
     	// bucketName := "bucket-name"
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
@@ -212,8 +212,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
     	defer cancel()
     
-    	bucket := client.Bucket(bucketName)
-    	policy, err := bucket.IAM().Policy(ctx)
+    	bucket := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucketName)
+    	policy, err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().Policy(ctx)
     	if err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().Policy: %w", bucketName, err)
     	}
@@ -221,10 +221,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	// See the documentation for more values.
     	// https://cloud.google.com/storage/docs/access-control/iam
     	identity := "group:cloud-logs@google.com"
-    	var role iam.RoleName = "roles/storage.objectViewer"
+    	var role iam.[RoleName](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_RoleName) = "roles/storage.objectViewer"
     
     	policy.Add(identity, role)
-    	if err := bucket.IAM().SetPolicy(ctx, policy); err != nil {
+    	if err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().SetPolicy(ctx, policy); err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().SetPolicy: %w", bucketName, err)
     	}
     	// NOTE: It may be necessary to retry this operation if IAM policies are
@@ -242,17 +242,17 @@ For more information, see the [Cloud Storage Java API reference documentation](h
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.Binding;
-    import com.google.cloud.Policy;
-    import com.google.cloud.storage.Storage;
-    import com.google.cloud.storage.StorageOptions;
+    import com.google.cloud.[Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html);
+    import com.google.cloud.[Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html);
+    import com.google.cloud.storage.[Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html);
+    import com.google.cloud.storage.[StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);
     import java.util.ArrayList;
     import java.util.Arrays;
-    import java.util.List;
+    import java.util.[List](https://docs.cloud.google.com/java/docs/reference/google-cloud-chronicle/latest/com.google.cloud.chronicle.v1.ExecuteDashboardQueryResponse.ColumnType.List.html);
     
     public class AddBucketIamMember {
       /** Example of adding a member to the Bucket-level IAM */
-      public static void addBucketIamMember(String projectId, String bucketName) {
+      public static void addBucketIamMember([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) projectId, [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bucketName) {
         // The ID of your GCP project
         // String projectId = "your-project-id";
     
@@ -261,26 +261,26 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         // For more information please read:
         // https://cloud.google.com/storage/docs/access-control/iam
-        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().getService();
     
-        Policy originalPolicy =
-            storage.getIamPolicy(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) originalPolicy =
+            storage.[getIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_getIamPolicy_java_lang_String_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
     
-        String role = "roles/storage.objectViewer";
-        String member = "group:example@google.com";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) role = "roles/storage.objectViewer";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) member = "group:example@google.com";
     
         // getBindingsList() returns an ImmutableList and copying over to an ArrayList so it's mutable.
-        List<Binding> bindings = new ArrayList(originalPolicy.getBindingsList());
+        List<Binding> bindings = new ArrayList(originalPolicy.[getBindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_getBindingsList__)());
     
         // Create a new binding using role and member
-        Binding.Builder newMemberBindingBuilder = Binding.newBuilder();
+        [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html).Builder newMemberBindingBuilder = [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html).newBuilder();
         newMemberBindingBuilder.setRole(role).setMembers(Arrays.asList(member));
         bindings.add(newMemberBindingBuilder.build());
     
         // Update policy to add member
-        Policy.Builder updatedPolicyBuilder = originalPolicy.toBuilder();
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html).Builder updatedPolicyBuilder = originalPolicy.[toBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_toBuilder__)();
         updatedPolicyBuilder.setBindings(bindings).setVersion(3);
-        Policy updatedPolicy = storage.setIamPolicy(bucketName, updatedPolicyBuilder.build());
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) updatedPolicy = storage.[setIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_setIamPolicy_java_lang_String_com_google_cloud_Policy_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, updatedPolicyBuilder.build());
     
         System.out.printf("Added %s with role %s to %s\n", member, role, bucketName);
       }
@@ -309,10 +309,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // ];
     
     // Imports the Google Cloud client library
-    const {Storage} = require('@google-cloud/storage');
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
     // Creates a client
-    const storage = new Storage();
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function addBucketIamMember() {
       // Get a reference to a Google Cloud Storage bucket
@@ -320,7 +320,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       // For more information please read:
       // https://cloud.google.com/storage/docs/access-control/iam
-      const [policy] = await bucket.iam.getPolicy({requestedPolicyVersion: 3});
+      const [policy] = await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[getPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)({requestedPolicyVersion: 3});
     
       // Adds the new roles to the bucket's IAM policy
       policy.bindings.push({
@@ -329,7 +329,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       });
     
       // Updates the bucket's IAM policy
-      await bucket.iam.setPolicy(policy);
+      await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[setPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)(policy);
     
       console.log(
         `Added the following member(s) with role ${roleName} to ${bucketName}:`
@@ -389,7 +389,7 @@ For more information, see the [Cloud Storage Python API reference documentation]
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    from google.cloud import storage
+    from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
     
     
     def add_bucket_iam_member(bucket_name, role, member):
@@ -398,8 +398,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # role = "IAM role, e.g., roles/storage.objectViewer"
         # member = "IAM identity, e.g., user: name@example.com"
     
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
     
         policy = bucket.get_iam_policy(requested_policy_version=3)
     
@@ -424,14 +424,14 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name
     
       role   = "roles/storage.objectViewer"
       member = "group:example@google.com"
     
-      bucket.policy requested_policy_version: 3 do |policy|
-        policy.bindings.insert role: role, members: [member]
+      bucket.[policy](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) requested_policy_version: 3 do |policy|
+        policy.[bindings](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html).[insert](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) role: role, members: [member]
       end
     
       puts "Added #{member} with role #{role} to #{bucket_name}"
@@ -569,15 +569,15 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     
     using Google.Apis.Storage.v1.Data;
-    using Google.Cloud.Storage.V1;
+    using [Google.Cloud.Storage.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.html);
     using System;
     
     public class ViewBucketIamMembersSample
     {
         public Policy ViewBucketIamMembers(string bucketName = "your-unique-bucket-name")
         {
-            var storage = StorageClient.Create();
-            var policy = storage.GetBucketIamPolicy(bucketName, new GetBucketIamPolicyOptions
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
+            var policy = storage.GetBucketIamPolicy(bucketName, new [GetBucketIamPolicyOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketIamPolicyOptions.html)
             {
                 RequestedPolicyVersion = 3
             });
@@ -613,7 +613,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     )
     
     // getBucketPolicy gets the bucket IAM policy.
-    func getBucketPolicy(w io.Writer, bucketName string) (*iam.Policy3, error) {
+    func getBucketPolicy(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucketName string) (*iam.[Policy3](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_Policy3), error) {
     	// bucketName := "bucket-name"
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
@@ -625,12 +625,12 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
     	defer cancel()
     
-    	policy, err := client.Bucket(bucketName).IAM().V3().Policy(ctx)
+    	policy, err := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucketName).[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().[V3](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_Handle_V3)().Policy(ctx)
     	if err != nil {
     		return nil, fmt.Errorf("Bucket(%q).IAM().V3().Policy: %w", bucketName, err)
     	}
     	for _, binding := range policy.Bindings {
-    		fmt.Fprintf(w, "%q: %q (condition: %v)\n", binding.Role, binding.Members, binding.Condition)
+    		fmt.Fprintf(w, "%q: %q (condition: %v)\n", binding.[Role](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/admin/apiv1/adminpb.html#cloud_google_com_go_iam_admin_apiv1_adminpb_Role), binding.[Members](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_Policy_Members), binding.Condition)
     	}
     	return policy, nil
     }
@@ -643,13 +643,13 @@ For more information, see the [Cloud Storage Java API reference documentation](h
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.Binding;
-    import com.google.cloud.Policy;
-    import com.google.cloud.storage.Storage;
-    import com.google.cloud.storage.StorageOptions;
+    import com.google.cloud.[Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html);
+    import com.google.cloud.[Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html);
+    import com.google.cloud.storage.[Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html);
+    import com.google.cloud.storage.[StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);
     
     public class ListBucketIamMembers {
-      public static void listBucketIamMembers(String projectId, String bucketName) {
+      public static void listBucketIamMembers([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) projectId, [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bucketName) {
         // The ID of your GCP project
         // String projectId = "your-project-id";
     
@@ -658,13 +658,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         // For more information please read:
         // https://cloud.google.com/storage/docs/access-control/iam
-        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().getService();
     
-        Policy policy =
-            storage.getIamPolicy(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) policy =
+            storage.[getIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_getIamPolicy_java_lang_String_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
     
         // Print binding information
-        for (Binding binding : policy.getBindingsList()) {
+        for ([Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html) binding : policy.[getBindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_getBindingsList__)()) {
           System.out.printf("Role: %s Members: %s\n", binding.getRole(), binding.getMembers());
     
           // Print condition if one is set
@@ -692,17 +692,17 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // const bucketName = 'your-unique-bucket-name';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('@google-cloud/storage');
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
     // Creates a client
-    const storage = new Storage();
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function viewBucketIamMembers() {
       // For more information please read:
       // https://cloud.google.com/storage/docs/access-control/iam
       const results = await storage
         .bucket(bucketName)
-        .iam.getPolicy({requestedPolicyVersion: 3});
+        .[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[getPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)({requestedPolicyVersion: 3});
     
       const bindings = results[0].bindings;
     
@@ -778,15 +778,15 @@ For more information, see the [Cloud Storage Python API reference documentation]
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    from google.cloud import storage
+    from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
     
     
     def view_bucket_iam_members(bucket_name):
         """View IAM Policy for a bucket"""
         # bucket_name = "your-bucket-name"
     
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
     
         policy = bucket.get_iam_policy(requested_policy_version=3)
     
@@ -808,19 +808,19 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name
     
-      policy = bucket.policy requested_policy_version: 3
-      policy.bindings.each do |binding|
+      policy = bucket.[policy](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) requested_policy_version: 3
+      policy.[bindings](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html).[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |binding|
         puts "Role: #{binding.role}"
-        puts "Members: #{binding.members}"
+        puts "Members: #{binding.[members](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html)}"
     
         # if a conditional binding exists print the condition.
-        if binding.condition
-          puts "Condition Title: #{binding.condition.title}"
-          puts "Condition Description: #{binding.condition.description}"
-          puts "Condition Expression: #{binding.condition.expression}"
+        if binding.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html)
+          puts "Condition Title: #{binding.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).[title](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Condition.html)}"
+          puts "Condition Description: #{binding.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).description}"
+          puts "Condition Expression: #{binding.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).[expression](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Condition.html)}"
         end
       end
     end
@@ -948,7 +948,7 @@ For more information, see the [Cloud Storage C# API reference documentation](htt
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    using Google.Cloud.Storage.V1;
+    using [Google.Cloud.Storage.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.html);
     using System;
     using System.Linq;
     
@@ -959,8 +959,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             string role = "roles/storage.objectViewer",
             string member = "serviceAccount:dev@iam.gserviceaccount.com")
         {
-            var storage = StorageClient.Create();
-            var policy = storage.GetBucketIamPolicy(bucketName, new GetBucketIamPolicyOptions
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
+            var policy = storage.GetBucketIamPolicy(bucketName, new [GetBucketIamPolicyOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketIamPolicyOptions.html)
             {
                 RequestedPolicyVersion = 3
             });
@@ -1001,7 +1001,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     )
     
     // removeBucketIAMMember removes the bucket IAM member.
-    func removeBucketIAMMember(w io.Writer, bucketName string) error {
+    func removeBucketIAMMember(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucketName string) error {
     	// bucketName := "bucket-name"
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
@@ -1013,8 +1013,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
     	defer cancel()
     
-    	bucket := client.Bucket(bucketName)
-    	policy, err := bucket.IAM().Policy(ctx)
+    	bucket := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucketName)
+    	policy, err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().Policy(ctx)
     	if err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().Policy: %w", bucketName, err)
     	}
@@ -1023,10 +1023,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	// https://cloud.google.com/storage/docs/access-control/iam
     	// member string, role iam.RoleName
     	identity := "group:cloud-logs@google.com"
-    	var role iam.RoleName = "roles/storage.objectViewer"
+    	var role iam.[RoleName](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_RoleName) = "roles/storage.objectViewer"
     
-    	policy.Remove(identity, role)
-    	if err := bucket.IAM().SetPolicy(ctx, policy); err != nil {
+    	policy.[Remove](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_Policy_Remove)(identity, role)
+    	if err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().SetPolicy(ctx, policy); err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().SetPolicy: %w", bucketName, err)
     	}
     	// NOTE: It may be necessary to retry this operation if IAM policies are
@@ -1044,15 +1044,15 @@ For more information, see the [Cloud Storage Java API reference documentation](h
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.Binding;
-    import com.google.cloud.Policy;
-    import com.google.cloud.storage.Storage;
-    import com.google.cloud.storage.StorageOptions;
+    import com.google.cloud.[Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html);
+    import com.google.cloud.[Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html);
+    import com.google.cloud.storage.[Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html);
+    import com.google.cloud.storage.[StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);
     import java.util.ArrayList;
-    import java.util.List;
+    import java.util.[List](https://docs.cloud.google.com/java/docs/reference/google-cloud-chronicle/latest/com.google.cloud.chronicle.v1.ExecuteDashboardQueryResponse.ColumnType.List.html);
     
     public class RemoveBucketIamMember {
-      public static void removeBucketIamMember(String projectId, String bucketName) {
+      public static void removeBucketIamMember([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) projectId, [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bucketName) {
         // The ID of your GCP project
         // String projectId = "your-project-id";
     
@@ -1061,34 +1061,34 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         // For more information please read:
         // https://cloud.google.com/storage/docs/access-control/iam
-        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().getService();
     
-        Policy originalPolicy =
-            storage.getIamPolicy(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) originalPolicy =
+            storage.[getIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_getIamPolicy_java_lang_String_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
     
-        String role = "roles/storage.objectViewer";
-        String member = "group:example@google.com";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) role = "roles/storage.objectViewer";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) member = "group:example@google.com";
     
         // getBindingsList() returns an ImmutableList and copying over to an ArrayList so it's mutable.
-        List<Binding> bindings = new ArrayList(originalPolicy.getBindingsList());
+        List<Binding> bindings = new ArrayList(originalPolicy.[getBindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_getBindingsList__)());
     
         // Remove role-member binding without a condition.
         for (int index = 0; index < bindings.size(); index++) {
-          Binding binding = bindings.get(index);
-          boolean foundRole = binding.getRole().equals(role);
-          boolean foundMember = binding.getMembers().contains(member);
-          boolean bindingIsNotConditional = binding.getCondition() == null;
+          [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html) binding = bindings.get(index);
+          boolean foundRole = binding.[getRole](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Binding.html#com_google_cloud_compute_v1_Binding_getRole__)().equals(role);
+          boolean foundMember = binding.[getMembers](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Binding.html#com_google_cloud_compute_v1_Binding_getMembers_int_)().contains(member);
+          boolean bindingIsNotConditional = binding.[getCondition](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Binding.html#com_google_cloud_compute_v1_Binding_getCondition__)() == null;
     
           if (foundRole && foundMember && bindingIsNotConditional) {
-            bindings.set(index, binding.toBuilder().removeMembers(member).build());
+            bindings.set(index, binding.[toBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html#com_google_cloud_agentregistry_v1_Binding_toBuilder__)().[removeMembers](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Binding.Builder.html#com_google_cloud_Binding_Builder_removeMembers_java_lang_String____)(member).build());
             break;
           }
         }
     
         // Update policy to remove member
-        Policy.Builder updatedPolicyBuilder = originalPolicy.toBuilder();
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html).Builder updatedPolicyBuilder = originalPolicy.[toBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_toBuilder__)();
         updatedPolicyBuilder.setBindings(bindings).setVersion(3);
-        Policy updatedPolicy = storage.setIamPolicy(bucketName, updatedPolicyBuilder.build());
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) updatedPolicy = storage.[setIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_setIamPolicy_java_lang_String_com_google_cloud_Policy_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, updatedPolicyBuilder.build());
     
         System.out.printf("Removed %s with role %s from %s\n", member, role, bucketName);
       }
@@ -1117,10 +1117,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // ];
     
     // Imports the Google Cloud client library
-    const {Storage} = require('@google-cloud/storage');
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
     // Creates a client
-    const storage = new Storage();
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function removeBucketIamMember() {
       // Get a reference to a Google Cloud Storage bucket
@@ -1128,7 +1128,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       // For more information please read:
       // https://cloud.google.com/storage/docs/access-control/iam
-      const [policy] = await bucket.iam.getPolicy({requestedPolicyVersion: 3});
+      const [policy] = await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[getPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)({requestedPolicyVersion: 3});
     
       // Finds and updates the appropriate role-member group, without a condition.
       const index = policy.bindings.findIndex(
@@ -1149,7 +1149,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         }
     
         // Updates the bucket's IAM policy
-        await bucket.iam.setPolicy(policy);
+        await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[setPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)(policy);
       } else {
         // No matching role-member group(s) were found
         throw new Error('No matching role-member group(s) found.');
@@ -1230,7 +1230,7 @@ For more information, see the [Cloud Storage Python API reference documentation]
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    from google.cloud import storage
+    from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
     
     
     def remove_bucket_iam_member(bucket_name, role, member):
@@ -1239,8 +1239,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # role = "IAM role, e.g. roles/storage.objectViewer"
         # member = "IAM identity, e.g. user: name@example.com"
     
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
     
         policy = bucket.get_iam_policy(requested_policy_version=3)
     
@@ -1270,16 +1270,16 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name
     
       role   = "roles/storage.objectViewer"
       member = "group:example@google.com"
     
-      bucket.policy requested_policy_version: 3 do |policy|
-        policy.bindings.each do |binding|
-          if binding.role == role && binding.condition.nil?
-            binding.members.delete member
+      bucket.[policy](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) requested_policy_version: 3 do |policy|
+        policy.[bindings](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html).[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |binding|
+          if binding.role == role && binding.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).nil?
+            binding.[members](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).delete member
           end
         end
       end
@@ -1475,7 +1475,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     
     using Google.Apis.Storage.v1.Data;
-    using Google.Cloud.Storage.V1;
+    using [Google.Cloud.Storage.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.html);
     using System;
     using System.Collections.Generic;
     
@@ -1499,8 +1499,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             string description = "description",
             string expression = "resource.name.startsWith(\"projects/_/buckets/bucket-name/objects/prefix-a-\")")
         {
-            var storage = StorageClient.Create();
-            var policy = storage.GetBucketIamPolicy(bucketName, new GetBucketIamPolicyOptions
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
+            var policy = storage.GetBucketIamPolicy(bucketName, new [GetBucketIamPolicyOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketIamPolicyOptions.html)
             {
                 RequestedPolicyVersion = 3
             });
@@ -1545,7 +1545,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     )
     
     // addBucketConditionalIAMBinding adds bucket conditional IAM binding.
-    func addBucketConditionalIAMBinding(w io.Writer, bucketName, role, member, title, description, expression string) error {
+    func addBucketConditionalIAMBinding(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucketName, role, member, title, description, expression string) error {
     	// bucketName := "bucket-name"
     	// role := "bucket-level IAM role"
     	// member := "bucket-level IAM member"
@@ -1562,13 +1562,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
     	defer cancel()
     
-    	bucket := client.Bucket(bucketName)
-    	policy, err := bucket.IAM().V3().Policy(ctx)
+    	bucket := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucketName)
+    	policy, err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().V3().[Policy](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/apiv1/iampb.html#cloud_google_com_go_iam_apiv1_iampb_Policy)(ctx)
     	if err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().V3().Policy: %w", bucketName, err)
     	}
     
-    	policy.Bindings = append(policy.Bindings, &iampb.Binding{
+    	policy.Bindings = append(policy.Bindings, &iampb.[Binding](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/apiv1/iampb.html#cloud_google_com_go_iam_apiv1_iampb_Binding){
     		Role:    role,
     		Members: []string{member},
     		Condition: &expr.Expr{
@@ -1578,7 +1578,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     		},
     	})
     
-    	if err := bucket.IAM().V3().SetPolicy(ctx, policy); err != nil {
+    	if err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().V3().SetPolicy(ctx, policy); err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().V3().SetPolicy: %w", bucketName, err)
     	}
     	// NOTE: It may be necessary to retry this operation if IAM policies are
@@ -1596,18 +1596,18 @@ For more information, see the [Cloud Storage Java API reference documentation](h
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.Binding;
-    import com.google.cloud.Condition;
-    import com.google.cloud.Policy;
-    import com.google.cloud.storage.Storage;
-    import com.google.cloud.storage.StorageOptions;
+    import com.google.cloud.[Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html);
+    import com.google.cloud.[Condition](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.Condition.html);
+    import com.google.cloud.[Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html);
+    import com.google.cloud.storage.[Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html);
+    import com.google.cloud.storage.[StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);
     import java.util.ArrayList;
     import java.util.Arrays;
-    import java.util.List;
+    import java.util.[List](https://docs.cloud.google.com/java/docs/reference/google-cloud-chronicle/latest/com.google.cloud.chronicle.v1.ExecuteDashboardQueryResponse.ColumnType.List.html);
     
     public class AddBucketIamConditionalBinding {
       /** Example of adding a conditional binding to the Bucket-level IAM */
-      public static void addBucketIamConditionalBinding(String projectId, String bucketName) {
+      public static void addBucketIamConditionalBinding([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) projectId, [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bucketName) {
         // The ID of your GCP project
         // String projectId = "your-project-id";
     
@@ -1616,40 +1616,40 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         // For more information please read:
         // https://cloud.google.com/storage/docs/access-control/iam
-        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().getService();
     
-        Policy originalPolicy =
-            storage.getIamPolicy(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) originalPolicy =
+            storage.[getIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_getIamPolicy_java_lang_String_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
     
-        String role = "roles/storage.objectViewer";
-        String member = "group:example@google.com";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) role = "roles/storage.objectViewer";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) member = "group:example@google.com";
     
         // Create a condition
-        String conditionTitle = "Title";
-        String conditionDescription = "Description";
-        String conditionExpression =
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) conditionTitle = "Title";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) conditionDescription = "Description";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) conditionExpression =
             "resource.name.startsWith(\"projects/_/buckets/bucket-name/objects/prefix-a-\")";
-        Condition.Builder conditionBuilder = Condition.newBuilder();
+        [Condition](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.Condition.html).Builder conditionBuilder = [Condition](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.Condition.html).newBuilder();
         conditionBuilder.setTitle(conditionTitle);
         conditionBuilder.setDescription(conditionDescription);
         conditionBuilder.setExpression(conditionExpression);
     
         // getBindingsList() returns an ImmutableList, we copy over to an ArrayList so it's mutable
-        List<Binding> bindings = new ArrayList(originalPolicy.getBindingsList());
+        List<Binding> bindings = new ArrayList(originalPolicy.[getBindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_getBindingsList__)());
     
         // Add condition to a binding
-        Binding.Builder newBindingBuilder =
-            Binding.newBuilder()
+        [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html).Builder newBindingBuilder =
+            [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html).newBuilder()
                 .setRole(role)
                 .setMembers(Arrays.asList(member))
                 .setCondition(conditionBuilder.build());
         bindings.add(newBindingBuilder.build());
     
         // Update policy with new conditional binding
-        Policy.Builder updatedPolicyBuilder = originalPolicy.toBuilder();
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html).Builder updatedPolicyBuilder = originalPolicy.[toBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_toBuilder__)();
         updatedPolicyBuilder.setBindings(bindings).setVersion(3);
     
-        storage.setIamPolicy(bucketName, updatedPolicyBuilder.build());
+        storage.[setIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_setIamPolicy_java_lang_String_com_google_cloud_Policy_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, updatedPolicyBuilder.build());
     
         System.out.printf(
             "Added %s with role %s to %s with condition %s %s %s\n",
@@ -1685,17 +1685,17 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // const expression = 'resource.name.startsWith(\"projects/_/buckets/bucket-name/objects/prefix-a-\")';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('@google-cloud/storage');
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
     // Creates a client
-    const storage = new Storage();
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function addBucketConditionalBinding() {
       // Get a reference to a Google Cloud Storage bucket
       const bucket = storage.bucket(bucketName);
     
       // Gets and updates the bucket's IAM policy
-      const [policy] = await bucket.iam.getPolicy({requestedPolicyVersion: 3});
+      const [policy] = await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[getPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)({requestedPolicyVersion: 3});
     
       // Set the policy's version to 3 to use condition in bindings.
       policy.version = 3;
@@ -1712,7 +1712,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       });
     
       // Updates the bucket's IAM policy
-      await bucket.iam.setPolicy(policy);
+      await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[setPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)(policy);
     
       console.log(
         `Added the following member(s) with role ${roleName} to ${bucketName}:`
@@ -1795,7 +1795,7 @@ For more information, see the [Cloud Storage Python API reference documentation]
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    from google.cloud import storage
+    from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
     
     
     def add_bucket_conditional_iam_binding(
@@ -1809,8 +1809,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # description = "Condition description."
         # expression = "Condition expression."
     
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
     
         policy = bucket.get_iam_policy(requested_policy_version=3)
     
@@ -1856,7 +1856,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name
     
       role        = "roles/storage.objectViewer"
@@ -1865,9 +1865,9 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       description = "Description"
       expression  = "resource.name.startsWith(\"projects/_/buckets/bucket-name/objects/prefix-a-\")"
     
-      bucket.policy requested_policy_version: 3 do |policy|
-        policy.version = 3
-        policy.bindings.insert(
+      bucket.[policy](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) requested_policy_version: 3 do |policy|
+        policy.[version](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy.html) = 3
+        policy.[bindings](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html).[insert](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html)(
           role:      role,
           members:   member,
           condition: {
@@ -2082,7 +2082,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     
     using Google.Apis.Storage.v1.Data;
-    using Google.Cloud.Storage.V1;
+    using [Google.Cloud.Storage.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.html);
     using System;
     using System.Linq;
     
@@ -2095,8 +2095,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             string description = "description",
             string expression = "resource.name.startsWith(\"projects/_/buckets/bucket-name/objects/prefix-a-\")")
         {
-            var storage = StorageClient.Create();
-            var policy = storage.GetBucketIamPolicy(bucketName, new GetBucketIamPolicyOptions
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
+            var policy = storage.GetBucketIamPolicy(bucketName, new [GetBucketIamPolicyOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketIamPolicyOptions.html)
             {
                 RequestedPolicyVersion = 3
             });
@@ -2143,7 +2143,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     )
     
     // removeBucketConditionalIAMBinding removes bucket conditional IAM binding.
-    func removeBucketConditionalIAMBinding(w io.Writer, bucketName, role, title, description, expression string) error {
+    func removeBucketConditionalIAMBinding(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucketName, role, title, description, expression string) error {
     	// bucketName := "bucket-name"
     	// role := "bucket-level IAM role"
     	// title := "condition title"
@@ -2159,8 +2159,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
     	defer cancel()
     
-    	bucket := client.Bucket(bucketName)
-    	policy, err := bucket.IAM().V3().Policy(ctx)
+    	bucket := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucketName)
+    	policy, err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().V3().Policy(ctx)
     	if err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().V3().Policy: %w", bucketName, err)
     	}
@@ -2185,7 +2185,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	// Get a slice of the bindings, removing the binding at index i.
     	policy.Bindings = append(policy.Bindings[:i], policy.Bindings[i+1:]...)
     
-    	if err := bucket.IAM().V3().SetPolicy(ctx, policy); err != nil {
+    	if err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().V3().SetPolicy(ctx, policy); err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().V3().SetPolicy: %w", bucketName, err)
     	}
     	// NOTE: It may be necessary to retry this operation if IAM policies are
@@ -2203,18 +2203,18 @@ For more information, see the [Cloud Storage Java API reference documentation](h
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.Binding;
-    import com.google.cloud.Condition;
-    import com.google.cloud.Policy;
-    import com.google.cloud.storage.Storage;
-    import com.google.cloud.storage.StorageOptions;
+    import com.google.cloud.[Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html);
+    import com.google.cloud.[Condition](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.Condition.html);
+    import com.google.cloud.[Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html);
+    import com.google.cloud.storage.[Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html);
+    import com.google.cloud.storage.[StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html);
     import java.util.ArrayList;
     import java.util.Iterator;
-    import java.util.List;
+    import java.util.[List](https://docs.cloud.google.com/java/docs/reference/google-cloud-chronicle/latest/com.google.cloud.chronicle.v1.ExecuteDashboardQueryResponse.ColumnType.List.html);
     
     public class RemoveBucketIamConditionalBinding {
       /** Example of removing a conditional binding to the Bucket-level IAM */
-      public static void removeBucketIamConditionalBinding(String projectId, String bucketName) {
+      public static void removeBucketIamConditionalBinding([String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) projectId, [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) bucketName) {
         // The ID of your GCP project
         // String projectId = "your-project-id";
     
@@ -2223,18 +2223,18 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         // For more information please read:
         // https://cloud.google.com/storage/docs/access-control/iam
-        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().getService();
     
-        Policy originalPolicy =
-            storage.getIamPolicy(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) originalPolicy =
+            storage.[getIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_getIamPolicy_java_lang_String_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
     
-        String role = "roles/storage.objectViewer";
+        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) role = "roles/storage.objectViewer";
     
         // getBindingsList() returns an ImmutableList and copying over to an ArrayList so it's mutable.
-        List<Binding> bindings = new ArrayList(originalPolicy.getBindingsList());
+        List<Binding> bindings = new ArrayList(originalPolicy.[getBindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_getBindingsList__)());
     
         // Create a condition to compare against
-        Condition.Builder conditionBuilder = Condition.newBuilder();
+        [Condition](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.Condition.html).Builder conditionBuilder = [Condition](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.Condition.html).newBuilder();
         conditionBuilder.setTitle("Title");
         conditionBuilder.setDescription("Description");
         conditionBuilder.setExpression(
@@ -2242,9 +2242,9 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         Iterator iterator = bindings.iterator();
         while (iterator.hasNext()) {
-          Binding binding = (Binding) iterator.next();
-          boolean foundRole = binding.getRole().equals(role);
-          boolean conditionsEqual = conditionBuilder.build().equals(binding.getCondition());
+          [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html) binding = ([Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html)) iterator.next();
+          boolean foundRole = binding.[getRole](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Binding.html#com_google_cloud_compute_v1_Binding_getRole__)().equals(role);
+          boolean conditionsEqual = conditionBuilder.build().equals(binding.[getCondition](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Binding.html#com_google_cloud_compute_v1_Binding_getCondition__)());
     
           // Remove condition when the role and condition are equal
           if (foundRole && conditionsEqual) {
@@ -2254,9 +2254,9 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         }
     
         // Update policy to remove conditional binding
-        Policy.Builder updatedPolicyBuilder = originalPolicy.toBuilder();
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html).Builder updatedPolicyBuilder = originalPolicy.[toBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_toBuilder__)();
         updatedPolicyBuilder.setBindings(bindings).setVersion(3);
-        Policy updatedPolicy = storage.setIamPolicy(bucketName, updatedPolicyBuilder.build());
+        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) updatedPolicy = storage.[setIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_setIamPolicy_java_lang_String_com_google_cloud_Policy_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, updatedPolicyBuilder.build());
     
         System.out.println("Conditional Binding was removed.");
       }
@@ -2290,17 +2290,17 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // const expression = 'resource.name.startsWith(\"projects/_/buckets/bucket-name/objects/prefix-a-\")';
     
     // Imports the Google Cloud client library
-    const {Storage} = require('@google-cloud/storage');
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
     // Creates a client
-    const storage = new Storage();
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function removeBucketConditionalBinding() {
       // Get a reference to a Google Cloud Storage bucket
       const bucket = storage.bucket(bucketName);
     
       // Gets and updates the bucket's IAM policy
-      const [policy] = await bucket.iam.getPolicy({requestedPolicyVersion: 3});
+      const [policy] = await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[getPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)({requestedPolicyVersion: 3});
     
       // Set the policy's version to 3 to use condition in bindings.
       policy.version = 3;
@@ -2320,7 +2320,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         policy.bindings.splice(index, 1);
     
         // Updates the bucket's IAM policy
-        await bucket.iam.setPolicy(policy);
+        await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[setPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)(policy);
     
         console.log('Conditional Binding was removed.');
       } else {
@@ -2397,7 +2397,7 @@ For more information, see the [Cloud Storage Python API reference documentation]
 To authenticate to Cloud Storage, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/storage/docs/authentication#client-libs). 
     
     
-    from google.cloud import storage
+    from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
     
     
     def remove_bucket_conditional_iam_binding(
@@ -2410,8 +2410,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # description = "Condition description."
         # expression = "Condition expression."
     
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
     
         policy = bucket.get_iam_policy(requested_policy_version=3)
     
@@ -2448,7 +2448,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name
     
       role        = "roles/storage.objectViewer"
@@ -2456,25 +2456,25 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       description = "Description"
       expression  = "resource.name.startsWith(\"projects/_/buckets/bucket-name/objects/prefix-a-\")"
     
-      bucket.policy requested_policy_version: 3 do |policy|
-        policy.version = 3
+      bucket.[policy](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) requested_policy_version: 3 do |policy|
+        policy.[version](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy.html) = 3
     
         binding_to_remove = nil
-        policy.bindings.each do |b|
+        policy.[bindings](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html).[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |b|
           condition = {
             title:       title,
             description: description,
             expression:  expression
           }
-          if b.role == role && b.condition &&
-             b.condition.title == title &&
-             b.condition.description == description &&
-             b.condition.expression == expression
+          if b.role == role && b.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html) &&
+             b.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).[title](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Condition.html) == title &&
+             b.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).description == description &&
+             b.[condition](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Binding.html).[expression](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Condition.html) == expression
             binding_to_remove = b
           end
         end
         if binding_to_remove
-          policy.bindings.remove binding_to_remove
+          policy.[bindings](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html).remove binding_to_remove
           puts "Conditional Binding was removed."
         else
           puts "No matching conditional binding found."

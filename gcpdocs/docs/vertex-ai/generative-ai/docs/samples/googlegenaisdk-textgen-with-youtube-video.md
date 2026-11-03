@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-with-youtube-video/
 title: Use Gemini to summarize YouTube videos \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:00.094474+00:00
+fetched_at: 2026-11-03T09:43:30.441461+00:00
 ---
 
 # Use Gemini to summarize YouTube videos  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -52,14 +52,14 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
                 project: projectId,
                 location: location,
                 vertexAI: true,
-                httpOptions: new HttpOptions { ApiVersion = "v1&qu<ot; });>
+                httpOptions: new HttpOptions { ApiVersion = "v1" });
     
-            var contents = new ListContent
+            var contents = new List<Content>
             {
                 new Content
                 {
-                    Role = <&quo>t;user",
-                    Parts = new ListPart
+                    Role = "user",
+                    Parts = new List<Part>
                     {
                         new Part
                         {
@@ -105,9 +105,9 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     // generateWithYTVideo shows how to generate text using a YouTube video as input.
     func generateWithYTVideo(w io.Writer) error {
-    	ctx := context.Background(&)
+    	ctx := context.Background()
     
-    	client, err := genai.NewClient(ctx, genai.ClientConfig{
+    	client, err := genai.NewClient(ctx, &genai.ClientConfig{
     		HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
     	})
     	if err != nil {
@@ -117,8 +117,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     	modelName := "gemini-2.5-flash"
     	contents := []*genai.Content{
     		{Parts: []*genai.Part{
-    			{Text: "&Write a short and engaging blog post based on this video."},
-    			{FileData: genai.FileData{
+    			{Text: "Write a short and engaging blog post based on this video."},
+    			{FileData: &genai.FileData{
     				FileURI:  "https://www.youtube.com/watch?v=3KtWfp0UopM",
     				MIMEType: "video/mp4",
     			}},

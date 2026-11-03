@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-pipelines/
 title: Create pipelines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:16.165148+00:00
+fetched_at: 2026-11-03T09:54:41.603851+00:00
 ---
 
 # Create pipelines  |  BigQuery  |  Google Cloud Documentation
@@ -307,7 +307,7 @@ To add a notebook to your pipeline, do the following in the **Notebook options**
 
      * To view specifications for the default runtime, click the adjacent arrow.
      * To create a new runtime, see [Create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template).
-**Note:** A notebook runtime template must be located in the same region as the pipeline that specifies it.**Note:** When you include a notebook in a BigQuery pipeline, you can't change the network of the Gemini Enterprise Agent Platform runtime instance. The runtime is restricted to the default network, and selecting a different network isn't supported.
+**Note:** A notebook runtime template must be located in the same region as the pipeline that specifies it.**Note:** If you use the default runtime for a notebook in a BigQuery pipeline, you can't change the network of the Gemini Enterprise Agent Platform runtime instance. The runtime is restricted to the default network, and selecting a different network isn't supported. If you use a custom runtime template, the runtime uses the network and subnetwork configured in the template. If your project enforces the `compute.requireShieldedVm` organization policy, ensure that your custom runtime template has Secure Boot enabled to avoid VM creation failures.
   2. In the **Cloud Storage bucket** field, click **Browse** and select or create a Cloud Storage bucket for storing the output of notebooks in your pipeline.
 
   3. Follow the steps in [Add a principal to a bucket-level policy](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions#bucket-add) to add your custom Dataform service account as a principal to the Cloud Storage bucket that you plan to use for storing output of scheduled pipeline runs, and grant the [Storage Admin role](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) to this principal.
@@ -1109,6 +1109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

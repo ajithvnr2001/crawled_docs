@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-wildfire/
 title: Advanced malware sandbox overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:22.982240+00:00
+fetched_at: 2026-11-03T09:53:28.620953+00:00
 ---
 
 # Advanced malware sandbox overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-27T16:24:22.982240+00:00
 Send feedback 
 
 #  Advanced malware sandbox overview Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 The Advanced malware sandbox (WildFire) service for Cloud Next Generation Firewall (Cloud NGFW) provides malware protection using inline machine learning (ML) and cloud-based behavioral sandboxing. Powered by Palo Alto Networks Advanced WildFire, the service extends standard signature-based intrusion detection and prevention service by evaluating suspicious files in real time to prevent zero-day threats from reaching your workloads.
 
@@ -71,7 +67,7 @@ After traffic is redirected to the firewall endpoint, the file is analyzed in pa
 
   * **Signature-based detection** : the endpoint compares the file against a local threat signature database. This database is updated in real-time to detect and drop recognized malicious files.
 
-  * **Inline ML** : the inline ML engine runs ML models directly in the firewall dataplane. It analyzes the file in real-time to identify zero-day or highly sophisticated threats in supported file types such as `Windows_Executable`, `ELF`, `Powershell_Script`, and `MS_Office`.
+  * **Inline ML** : the inline ML engine runs ML models directly in the firewall dataplane. It analyzes the file in real-time to identify zero-day or highly sophisticated threats in supported file types such as `WINDOWS_EXECUTABLE`, `ELF`, `POWERSHELL_SCRIPT1`, `POWERSHELL_SCRIPT2`, and `MS_OFFICE`.
 
 
 
@@ -95,7 +91,7 @@ Based on the resulting verdict (Malware, Grayware, or Benign), the firewall rule
 
   1. **Enforce action** : the file is either blocked (`Deny`), recorded (`Alert`), or permitted (`Allow`) in accordance with your Advanced malware sandbox security profile.
 
-  2. **Audit logs** : event logs are recorded in Cloud Logging, specifically the `firewall_wildfire_submission` log. These submission logs are displayed on the [Advanced malware sandbox submission](https://docs.cloud.google.com/firewall/docs/manage-wildfire-submissions) dashboard and page.
+  2. **Audit logs** : event logs are recorded in Cloud Logging, specifically the `networksecurity.googleapis.com%2Ffirewall_wildfire` log. These submission logs are displayed on the [Advanced malware sandbox submissions](https://docs.cloud.google.com/firewall/docs/manage-wildfire-submissions) dashboard and page.
 
   3. **Sandbox feedback** : after asynchronous sandboxing completes, a full behavioral report and the original malware samples are synchronized out-of-band and made available for you to query or retrieve.
 
@@ -112,7 +108,7 @@ To use Advanced malware sandbox, you must configure the following components:
 
 For information on Advanced malware sandbox security profile configuration, see [Create and manage Advanced malware sandbox security profiles](https://docs.cloud.google.com/firewall/docs/configure-wildfire-security-profiles).
 
-  * **Security profile groups** : act as containers for security profiles. Each group contains one or more security profiles of different types. Note that an intrusion detection and prevention service security profile is required when you include a Advanced malware sandbox security profile in a group.
+  * **Security profile groups** : act as containers for security profiles. Each group contains one or more security profiles of different types. Note that an intrusion detection and prevention service security profile is required when you include an Advanced malware sandbox security profile in a group.
 
 For more information, see [Create and manage security profile groups](https://docs.cloud.google.com/firewall/docs/configure-security-profile-groups).
 
@@ -121,7 +117,7 @@ For more information, see [Create and manage security profile groups](https://do
 
 ### Firewall endpoints
 
-A firewall endpoint is an organizational resource, created at the zonal level. It inspects Layer 7 traffic in the zone where it is deployed. The endpoints are associated with one or more VPC in the same zone. To filter traffic for a target VM instance, create the firewall endpoint in the same zone as the VPC where the target VM is located.
+A firewall endpoint is an organization-level or project-level resource, created at the zonal level. It inspects Layer 7 traffic in the zone where it is deployed. The endpoints are associated with one or more VPC networks in the same zone. To filter traffic for a target VM instance, create the firewall endpoint in the same zone as the VPC where the target VM is located.
 
 A firewall endpoint must have the **Enable Advanced malware sandbox (WildFire)** option selected. This setting applies to the entire endpoint and determines the region where submissions are sent.
 
@@ -161,14 +157,15 @@ Category | Supported file extensions | Maximum size limit
 **Archives** | `.rar`, `.zip`, `.7z`, `.zbundle` | 50 MB  
 **Scripts and web (APK)** | `.apk` | 10 MB  
 **Scripts and web (JAR)** | `.jar` | 5 MB  
-**Scripts and web (Scripts/Web)** | `.elink`, `.hta`, `.pl`, `.sh` | 20 KB  
+**Scripts and web (Flash)** | `.swf` | 5 MB  
+**Scripts and web (Scripts/Web)** | `.bat`, `.elink`, `.hta`, `.js`, `.pl`, `.ps1`, `.sh`, `.vbs` | 20 KB  
 **Note:** Executable PE files (`.dll`, `.exe`, and `.exe64`) have a maximum file size limit of 10 MB when evaluated by inline cloud analysis.
 
 ## Advanced malware sandbox service regions
 
-A Advanced malware sandbox region refers to the specific location where Palo Alto Networks hosts Advanced WildFire. These zones don't map to standard Google Cloud regions. Regardless of where your Google Cloud resources are deployed, your Advanced malware sandbox traffic is routed to Palo Alto's designated service zones for analysis.
+An Advanced malware sandbox region refers to the specific location where Palo Alto Networks hosts Advanced WildFire. These zones don't map to standard Google Cloud regions. Regardless of where your Google Cloud resources are deployed, your Advanced malware sandbox traffic is routed to Palo Alto's designated service zones for analysis.
 
-If you don't specify a Advanced malware sandbox region when configuring your endpoint, the system automatically maps your traffic to the closest available Advanced malware sandbox region. For more information, see [Firewall endpoint for Advanced malware sandbox](https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints#firewall-endpoint-wildfire).
+If you don't specify an Advanced malware sandbox region when configuring your endpoint, the system automatically maps your traffic to the closest available Advanced malware sandbox region. For more information, see [Firewall endpoint for Advanced malware sandbox](https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints#firewall-endpoint-wildfire).
 
 The following table lists the supported Advanced malware sandbox service regions:
 
@@ -213,6 +210,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

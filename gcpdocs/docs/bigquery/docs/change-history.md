@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/change-history/
 title: Work with change history \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:15.484842+00:00
+fetched_at: 2026-11-03T09:52:07.913594+00:00
 ---
 
 # Work with change history  |  BigQuery  |  Google Cloud Documentation
@@ -37,6 +37,15 @@ To view the change history on a table, you need the `bigquery.tables.getData` pe
 If a table has, or has had, [row-level access policies](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro), then only a table administrator can access historical data for the table. The `bigquery.rowAccessPolicies.overrideTimeTravelRestrictions` permission is required on the table and is included in the predefined `roles/bigquery.admin` IAM role.
 
 If a table has column-level security, you can only view the change history on the columns that you have access to.
+
+To view the `APPENDS` change history on [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), you also need the following permissions:
+
+  * `bigquery.connections.delegate` permission on the Google Cloud resource connection associated with the table, which is included in the [BigQuery Connection User (`roles/bigquery.connectionUser`)](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.connectionUser) role
+  * [`roles/storage.objectUser`](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser) and `roles/storage.legacyBucketReader` roles granted to the connection's service account on the underlying Cloud Storage bucket
+
+
+
+For more information, see [Work with change history in Lakehouse](https://docs.cloud.google.com/lakehouse/docs/change-history).
 
 ## Change history functions
 
@@ -78,6 +87,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

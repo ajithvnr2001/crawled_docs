@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/run-spark-on-ray/
 title: Run Spark on Ray cluster on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:58.836737+00:00
+fetched_at: 2026-11-03T09:53:38.510318+00:00
 ---
 
 # Run Spark on Ray cluster on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -216,9 +216,9 @@ Where:
 
 ## Reading Cloud Storage files from Spark application
 
-It's common practice to store data files in a Google Cloud Storage bucket. You can read these files in multiple ways from a Spark application that's running on the Ray cluster on Gemini Enterprise Agent Platform. This section explains two techniques for reading Cloud Storage files from Spark applications running on Ray Cluster on Gemini Enterprise Agent Platform.
+It's common practice to store data files in a Cloud Storage bucket. You can read these files in multiple ways from a Spark application that's running on the Ray cluster on Gemini Enterprise Agent Platform. This section explains two techniques for reading Cloud Storage files from Spark applications running on Ray Cluster on Gemini Enterprise Agent Platform.
 
-### Use the Google Cloud Storage Connector
+### Use the Cloud Storage Connector
 
 You can use the Google Cloud Connector for Hadoop to read files from a Cloud Storage bucket from your Spark application. After you create a Spark session using RayDP, you can read files using a few configuration parameter. The following code shows how to read a CSV file stored in a Cloud Storage bucket from a Spark application on the Ray cluster on Gemini Enterprise Agent Platform.
     
@@ -326,6 +326,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

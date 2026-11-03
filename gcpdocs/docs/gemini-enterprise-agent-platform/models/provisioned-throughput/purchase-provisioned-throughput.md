@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput/
 title: Purchase Provisioned Throughput \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:37.501385+00:00
+fetched_at: 2026-11-03T09:52:59.584307+00:00
 ---
 
 # Purchase Provisioned Throughput  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -47,11 +47,11 @@ After you've chosen your project, region, model, model version, and auto-renewal
 
 All changes are processed based on commercially reasonable efforts and are typically fulfilled within 10 business days of the initial request.
 
-Model changes are limited to a specific publisher. For example, you can switch the model assignment of Provisioned Throughput from Google Gemini 2.5 Flash to Google Gemini 2.5 Flash-Lite, but you can't switch from Google Gemini 2.5 Flash to Anthropic's Claude 3.5 Sonnet v2.
+Model changes are limited to a specific publisher. For example, you can switch the model assignment of Provisioned Throughput from Gemini 2.5 Flash to Gemini 2.5 Flash-Lite, but you can't switch from Gemini 2.5 Flash to Anthropic's Claude 3.5 Sonnet v2.
 
   * **By default, the overage is billed as pay-as-you-go.**
 
-If your throughput exceeds your Provisioned Throughput order amount, overages are processed and billed as standard pay-as-you-go. You can control overages on a per-request basis. For more information, see [Use Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput).
+If your throughput exceeds your Provisioned Throughput order amount, overages are processed and billed as Standard pay-as-you-go. You can control overages on a per-request basis. For more information, see [Use Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput).
 
 
 
@@ -416,6 +416,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

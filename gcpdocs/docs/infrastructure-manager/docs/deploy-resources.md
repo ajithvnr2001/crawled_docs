@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/deploy-resources/
 title: Deploy infrastructure using Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:39:48.748703+00:00
+fetched_at: 2026-11-03T09:52:00.116086+00:00
 ---
 
 # Deploy infrastructure using Infrastructure Manager  |  Google Cloud Documentation
@@ -122,7 +122,7 @@ Replace:
 
      * **Deployment ID** : In the **Deployment ID** field, enter a descriptive name for your deployment. See [Deployment name](https://docs.cloud.google.com/infrastructure-manager/docs/deployments-revisions#deployment_name) documentation for more details on naming constraints.
      * **Region** : Choose a [supported region](https://docs.cloud.google.com/infrastructure-manager/docs/locations) from the drop-down.
-     * **Terraform version** : Choose a supported Terraform version from the drop-down. The list of available Terraform versions is populated automatically based on the **Region** you've selected.
+     * **Terraform version** : Choose a supported Terraform version from the drop-down. The list of available Terraform versions is populated automatically based on the **Region** you've selected. By default, the latest supported free tier version (`1.5.7`) is selected. Selecting a paid version (such as `1.16.5`) incurs deployment and management charges. For more information, see [Supported Terraform versions](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions).
      * **Service account** : Select an existing service account or create a new one. Infra Manager validates permissions based on the infrastructure outlined in your Terraform configuration automatically. See [Configure the service account](https://docs.cloud.google.com/infrastructure-manager/docs/configure-service-account) for more information about working with service accounts and Infra Manager.
      * **Source of Terraform configuration** : Click the toggle to select either **Git** , or **Cloud Storage** as a source for the Terraform configuration you want to deploy. 
        * For **Git** , replace: 
@@ -195,7 +195,7 @@ If QUOTA_VALIDATION is not defined, quota validation on Terraform configuration 
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported free tier version of Terraform (`1.5.7`) is used by default. To use a paid version (such as `1.16.5`), you must explicitly specify the version.
   * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
   * Optional: PROVIDER_SOURCE: Determines which Terraform provider for Google Cloud the deployment uses. Set to `SERVICE_MAINTAINED` to use the Infra Manager maintained Terraform provider. Omit this field to use the HashiCorp-maintained Terraform provider. For more information, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform-provider).
@@ -242,7 +242,7 @@ If QUOTA_VALIDATION is not defined, quota validation on Terraform configuration 
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported free tier version of Terraform (`1.5.7`) is used by default. To use a paid version (such as `1.16.5`), you must explicitly specify the version.
   * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
   * Optional: PROVIDER_SOURCE: Determines which Terraform provider for Google Cloud the deployment uses. Set to `SERVICE_MAINTAINED` to use the Infra Manager maintained Terraform provider. Omit this field to use the HashiCorp-maintained Terraform provider. For more information, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform-provider).
@@ -284,7 +284,7 @@ If QUOTA_VALIDATION is not defined, quota validation on Terraform configuration 
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported free tier version of Terraform (`1.5.7`) is used by default. To use a paid version (such as `1.16.5`), you must explicitly specify the version.
   * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
   * Optional: PROVIDER_SOURCE: Determines which Terraform provider for Google Cloud the deployment uses. Set to `SERVICE_MAINTAINED` to use the Infra Manager maintained Terraform provider. Omit this field to use the HashiCorp-maintained Terraform provider. For more information, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform-provider).
@@ -306,6 +306,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

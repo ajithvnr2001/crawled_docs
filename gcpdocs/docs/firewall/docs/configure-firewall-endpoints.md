@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints/
 title: Create firewall endpoints and endpoint associations \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:36.820695+00:00
+fetched_at: 2026-11-03T09:53:28.895214+00:00
 ---
 
 # Create firewall endpoints and endpoint associations  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -106,18 +106,18 @@ Avoid sensitive information, such as personally identifiable information (PII) o
 
   8. Click **Continue**. The **Advanced configuration** section opens.
 
-  9. To enable Advanced malware sandbox support for the endpoint, select the **Enable Advanced malware sandbox (WildFire)** ([Preview](https://cloud.google.com/products#product-launch-stages)) checkbox.
+  9. To enable Advanced malware sandbox support for the endpoint, select the **Enable Advanced malware sandbox (WildFire)** checkbox.
 
-     1. If the end-user license agreement (EULA) is not accepted for the selected project, click **Agree and continue** to accept the Advanced malware sandbox-specific EULA.
+     1. If the end-user license agreement (EULA) is not accepted for the selected project, click **Accept** to accept the Advanced malware sandbox-specific EULA.
 
      2. Optional: Click the **Additional Advanced malware sandbox configurations** list and perform the following actions:
 
-        * In the **Advanced malware sandbox region** list, select the region.
+        * In the **WildFire region** list, select the region.
         * In the **Content cloud region** list, select the region.
-        * In the **Signature lookup timeout** field, enter the timeout duration.
+        * In the **Signature lookup timeout (milliseconds)** field, enter a timeout duration between `1` and `5000` milliseconds (default `1000`).
         * In the **Signature lookup timeout action** list, select `Allow` or `Deny`.
         * To block HTTP partial responses, select the **Block HTTP partial responses** checkbox.
-        * In the **Inline cloud analysis max duration** field, enter the duration.
+        * In the **Inline cloud analysis max duration (seconds)** field, enter the duration.
         * In the **Inline cloud analysis timeout action** list, select `Allow` or `Deny`.
         * To enable log generation for files that time out during Advanced malware sandbox inline cloud analysis, select the **Enable submission timeout logging** checkbox.
   10. If you want the endpoint to support jumbo frames, select the **Enable jumbo frames support** checkbox; otherwise, clear this checkbox.
@@ -145,7 +145,16 @@ To create a firewall endpoint, use the [`gcloud network-security firewall-endpoi
         --organization ORGANIZATION_ID | --project PROJECT_ID \
         --location LOCATION \
         [--billing-project QUOTA_PROJECT_ID] \
-        [--enable-jumbo-frames]
+        [--enable-jumbo-frames] \
+        [--enable-wildfire] \
+        [--wildfire-region=WILDFIRE_REGION] \
+        [--content-cloud-region=CONTENT_CLOUD_REGION] \
+        [--wildfire-lookup-timeout=LOOKUP_TIMEOUT_MS] \
+        [--wildfire-lookup-action=ACTION] \
+        [--wildfire-analysis-timeout=ANALYSIS_TIMEOUT_MS] \
+        [--wildfire-analysis-action=ACTION] \
+        [--[no-]enable-wildfire-analysis-logging] \
+        [--[no-]block-partial-http]
     
 
 Replace the following:
@@ -162,42 +171,24 @@ Don't include sensitive information such as personally identifiable information 
 
   * `QUOTA_PROJECT_ID`: the quota project ID. Use this flag only for organization-level firewall endpoints.
 
+  * `WILDFIRE_REGION`: the geographical region where the endpoint sends unknown files when Advanced malware sandbox is enabled.
+
+  * `CONTENT_CLOUD_REGION`: the content cloud region that the endpoint uses when Advanced malware sandbox is enabled.
+
+  * `LOOKUP_TIMEOUT_MS`: the timeout threshold, from `1` to `5000` milliseconds (default `1000`), for real-time signature lookup when Advanced malware sandbox is enabled.
+
+  * `ANALYSIS_TIMEOUT_MS`: the timeout threshold, from `1000` to `240000` milliseconds (default `30000`), for inline cloud analysis when Advanced malware sandbox is enabled.
+
+  * `ACTION`: the timeout action for signature lookup or inline cloud analysis when Advanced malware sandbox is enabled; valid values are `ALLOW` and `DENY`.
+
 
 
 
 To create a firewall endpoint that supports jumbo frames up to 8,500 bytes in size, use the optional `--enable-jumbo-frames` flag. Skip this flag to create an endpoint without jumbo frame support. For information about the packet sizes supported by firewall endpoints, see [Supported packet size](https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints#supported-packet-size).
 
-To create a firewall endpoint that supports Advanced malware sandbox, use the [`gcloud beta network-security firewall-endpoints create` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/firewall-endpoints/create) ([Preview](https://cloud.google.com/products#product-launch-stages)):
-    
-    
-    gcloud beta network-security firewall-endpoints create NAME \
-        --organization ORGANIZATION_ID | --project PROJECT_ID \
-        --zone ZONE \
-        --enable-jumbo-frames \
-        --enable-wildfire \
-        --wildfire-region=WILDFIRE_REGION \
-        --content-cloud-region=CONTENT_CLOUD_REGION \
-        --hold-for-wildfire-realtime-signature-lookup-timeout-ms=TIMEOUT_MS \
-        --hold-for-wildfire-realtime-signature-lookup-timeout-action=ACTION \
-        --wildfire-inline-cloud-analysis-timeout-ms=TIMEOUT_MS \
-        --wildfire-inline-cloud-analysis-timeout-action=ACTION \
-        --[no-]enable-wildfire-analysis-logging \
-        --[no-]block-partial-http \
-        --billing-project BILLING_PROJECT_ID
-    
+To create a firewall endpoint that supports Advanced malware sandbox, use the optional `--enable-wildfire` flag. You can also specify optional Advanced malware sandbox configuration flags, such as `--[no-]enable-wildfire-analysis-logging` to log timeout events and `--[no-]block-partial-http` to prevent resuming blocked malicious HTTP file downloads. For more information, see [Firewall endpoint for Advanced malware sandbox](https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints#firewall-endpoint-wildfire).
 
-Replace the following:
-
-  * `WILDFIRE_REGION`: geographical region where the endpoint sends unknown files.
-  * `CONTENT_CLOUD_REGION`: content cloud region that the endpoint uses.
-  * `TIMEOUT_MS`: timeout thresholds in milliseconds for signature lookup or inline analysis.
-  * `ACTION`: the timeout action, which must be `Allow` or `Deny`.
-  * `--[no-]enable-wildfire-analysis-logging`: whether to enable logging for timeout events.
-  * `--[no-]block-partial-http`: select to block the resuming of blocked malicious HTTP file downloads.
-
-
-
-To associate the firewall endpoint to a VPC network, see [Create firewall endpoint associations](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoint-associations#create-endpoint-association).
+To associate the firewall endpoint to a VPC network, see Create firewall endpoint associations.
 
 ###  Terraform 
 
@@ -213,7 +204,7 @@ Use the [`google_network_security_firewall_endpoint` Terraform resource](https:/
     }
     
 
-To create a firewall endpoint that supports jumbo frames up to 8,500 bytes in size, set the field `enable_jumbo_frames` to `true`. To create a firewall endpoint that doesn't support jumbo frames, set this field to `false`. For information about the packet sizes supported by firewall endpoints, see [Supported packet size](https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints#supported-packet-size). To create a firewall endpoint that supports Advanced malware sandbox, set the field `enable_wildfire` to `True`.
+To create a firewall endpoint that supports jumbo frames up to 8,500 bytes in size, set the field `enable_jumbo_frames` to `true`. To create a firewall endpoint that doesn't support jumbo frames, set this field to `false`. For information about the packet sizes supported by firewall endpoints, see [Supported packet size](https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints#supported-packet-size). To create a firewall endpoint that supports Advanced malware sandbox, set the field `enable_wildfire` to `true`.
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands).
 
@@ -223,7 +214,7 @@ A firewall endpoint association connects a firewall endpoint to a VPC network in
 
 Ensure that you have a [firewall endpoint](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints) before you create an association.
 
-**Note:** Cloud NGFW can take up to 15 minutes to create a firewall endpoint associations.
+**Note:** Cloud NGFW can take up to 15 minutes to create firewall endpoint associations.
 
 ### Association requirements
 
@@ -355,6 +346,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

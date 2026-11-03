@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/metrics/
 title: Cloud Storage FUSE metrics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:39:07.224430+00:00
+fetched_at: 2026-11-03T09:41:55.665561+00:00
 ---
 
 # Cloud Storage FUSE metrics  |  Google Cloud Documentation

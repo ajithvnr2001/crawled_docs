@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/preview-deployment/
 title: Preview a deployment \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:48.857465+00:00
+fetched_at: 2026-11-03T09:51:58.758012+00:00
 ---
 
 # Preview a deployment  |  Infrastructure Manager  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ If the storage bucket is the root path of the Terraform configuration, then OBJE
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-     * Optional: TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+     * Optional: TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the preview. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported free tier version of Terraform (`1.5.7`) is used by default. To preview using a paid version (such as `1.16.5`), you must explicitly specify the version. Previews don't incur charges for paid Terraform versions.
 
      * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
@@ -136,7 +136,7 @@ Replace:
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-  * Optional: TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+  * Optional: TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the preview. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported free tier version of Terraform (`1.5.7`) is used by default. To preview using a paid version (such as `1.16.5`), you must explicitly specify the version. Previews don't incur charges for paid Terraform versions.
 
   * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
@@ -163,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

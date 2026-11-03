@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/customize-container-images/
 title: Customize container images \u00a0|\u00a0 Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:38:55.748317+00:00
+fetched_at: 2026-11-03T09:41:47.616700+00:00
 ---
 
 # Customize container images  |  Cloud Workstations  |  Google Cloud Documentation
@@ -161,7 +161,7 @@ When using your own container image, note the following:
 
 You can, however, look at the scripts in the `/etc/workstation-startup.d/` directory within a container running the Cloud Workstations base image. The filenames indicate what each script does.
 
-  * We recommend that you run an SSH server in the container. Refer to `/etc/workstation-startup.d/020_start-sshd.sh` in the default [base image](https://docs.cloud.google.com/workstations/docs/preconfigured-base-images) to learn how Cloud Workstations sets this up by default.
+  * We recommend that you run an SSH server on port `22` so that you can connect using the [`gcloud workstations ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/workstations/ssh), SSH tunnels, or local IDEs. For setup instructions, see Configure an SSH server in your own container image.
 
   * We recommend that you run your default IDE or web server on port `80`.
 
@@ -169,6 +169,73 @@ You can, however, look at the scripts in the `/etc/workstation-startup.d/` direc
 
 
 Google Cloud provides [standard base images](https://docs.cloud.google.com/software-supply-chain-security/docs/base-images) that you can use to build a fully custom container image.
+
+### Configure an SSH server in your own container image
+
+Container port `22` isn't exposed directly to the internet or your VPC network. When you run `gcloud workstations ssh`, Cloud Workstations authenticates your `gcloud` CLI credentials and checks [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) permissions to mint a short-lived access token. The workstation gateway verifies this token before forwarding tunnel traffic to container port `22`. To use a custom SSH port, see [Use SSH servers on different ports](https://docs.cloud.google.com/workstations/docs/ssh-support#use_ssh_servers_on_different_ports).
+
+Because the gateway already authenticates connections and `gcloud workstations ssh` doesn't upload SSH keys, configure `sshd` to accept empty passwords and clear the target user's password. Otherwise, `gcloud workstations ssh` fails or prompts for a password. In the [preconfigured base image](https://docs.cloud.google.com/workstations/docs/preconfigured-base-images), SSH is configured across `/etc/ssh/sshd_config`, `/etc/workstation-startup.d/010_add-user.sh`, and `/etc/workstation-startup.d/020_start-sshd.sh`. Custom images built from scratch don't automatically run scripts in `/etc/workstation-startup.d/`, so run the startup commands from your container `ENTRYPOINT` script.
+
+To configure SSH in your container image, complete the following steps:
+
+  1. In your `Dockerfile`, install `openssh-server` and `sudo`, and remove any build-time SSH host keys in the same `RUN` layer. Removing these keys prevents baking private keys into the image so that each workstation can generate unique keys at startup. For example, on Debian or Ubuntu, add the following instruction:
+         
+         RUN apt-get update && \
+             apt-get install -y --no-install-recommends openssh-server sudo && \
+             apt-get clean && \
+             rm -rf /var/lib/apt/lists/* /etc/ssh/ssh_host_*
+         
+
+  2. Configure `/etc/ssh/sshd_config` at build time to allow empty passwords and enable the `sftp` subsystem for file transfers and local IDEs such as JetBrains Gateway:
+         
+         PasswordAuthentication yes
+         PermitEmptyPasswords yes
+         PrintLastLog no
+         PrintMotd no
+         PubkeyAuthentication no
+         Subsystem sftp /usr/lib/openssh/sftp-server
+         TCPKeepAlive no
+         UsePAM yes
+         
+
+If `/etc/ssh/sshd_config` includes drop-in files under `/etc/ssh/sshd_config.d/` that set `PasswordAuthentication no`, then update or remove those files so that they don't override `/etc/ssh/sshd_config`.
+
+  3. In your container `ENTRYPOINT` script, create the `user` account (UID `1000`) and clear its password. By default, `gcloud workstations ssh` connects as `user`. Create this account at startup rather than in your `Dockerfile` because Cloud Workstations mounts `/home` dynamically at runtime when you use a persistent home directory:
+         
+         #!/bin/bash
+         userid=1000
+         userdel "$(id -nu "$userid" 2>/dev/null)" 2>/dev/null || true
+         groups=sudo,users
+         if [ "${CLOUD_WORKSTATIONS_CONFIG_DISABLE_SUDO:-false}" == "true" ]; then
+           groups=users
+         fi
+         useradd -m user -u $userid -G $groups --shell /bin/bash > /dev/null
+         passwd -d user > /dev/null
+         echo "%sudo ALL=NOPASSWD: ALL" >> /etc/sudoers
+         
+
+  4. In your container `ENTRYPOINT` script, generate SSH host keys in `/etc/ssh/`, create `/run/sshd`, and start `/usr/sbin/sshd` on port `22`:
+         
+         #!/bin/bash
+         echo "Generating host SSH keys"
+         yes | ssh-keygen -q -f /etc/ssh/ssh_host_rsa_key -t rsa \
+             -C 'host' -N '' > /dev/null
+         yes | ssh-keygen -q -f /etc/ssh/ssh_host_ecdsa_key -t ecdsa \
+             -C 'host' -N '' > /dev/null
+         yes | ssh-keygen -q -f /etc/ssh/ssh_host_ed25519_key -t ed25519 \
+             -C 'host' -N '' > /dev/null
+         
+         echo "Starting sshd"
+         mkdir -p /run/sshd
+         
+         # Send sshd logs to container output logs.
+         /usr/sbin/sshd -D -e &
+         
+
+If your container `ENTRYPOINT` script doesn't run another foreground process, then omit `&` and run `exec /usr/sbin/sshd -D -e` as the foreground process.
+
+
+
 
 ## Extend Cloud Workstations base images
 
@@ -569,6 +636,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/create-table/
 title: Create a table \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:05.018030+00:00
+fetched_at: 2026-11-03T09:41:54.773189+00:00
 ---
 
 # Create a table  |  Lakehouse  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 #  Create a table Stay organized with collections  Save and categorize content based on your preferences. 
 
-Creating an Apache Iceberg table initializes new table metadata and storage within a namespace in the Lakehouse runtime catalog.
+The Lakehouse runtime catalog lets you create Apache Iceberg tables in Cloud Storage that you can query and modify across BigQuery, Apache Spark, Trino, and the Iceberg REST API. When you create a table without specifying an explicit storage path, the Lakehouse runtime catalog automatically places its metadata and data directories under the catalog endpoint's default Cloud Storage location by appending the namespace and table identifiers.
 
-If you want to make an existing Apache Iceberg table available in the catalog, see [Register a table](https://docs.cloud.google.com/lakehouse/docs/register-table).
-
-If you don't specify an explicit storage location at the namespace or table level during table creation, the system automatically constructs the table's metadata and data directories under the catalog's default location (derived from the catalog's base Cloud Storage bucket) by appending the namespace and table identifiers.
+To register an existing Apache Iceberg table without creating new storage directories, see [Register a table](https://docs.cloud.google.com/lakehouse/docs/register-table).
 
 ## Before you begin
 
@@ -58,6 +56,8 @@ To get the permissions that you need to create a table, ask your administrator t
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+If your catalog endpoint uses credential vending mode and its Cloud Storage buckets are protected by a VPC Service Controls service perimeter, then you must also configure an ingress rule for the catalog endpoint's service account before creating tables. For more information, see [Use VPC Service Controls with credential vending](https://docs.cloud.google.com/lakehouse/docs/credential-vending#vpc-sc).
 
 ## Table capabilities and support
 
@@ -224,6 +224,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

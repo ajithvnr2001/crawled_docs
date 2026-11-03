@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/spark-connect-client/
 title: Use the serverless Spark Connect client \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:23.462425+00:00
+fetched_at: 2026-11-03T09:53:29.795548+00:00
 ---
 
 # Use the serverless Spark Connect client  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,7 +23,22 @@ Send feedback
 
 #  Use the serverless Spark Connect client Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Spark Connect client is a wrapper of the Managed Service for Apache Spark Connect client. It lets applications communicate with a remote Managed Service for Apache Spark session using the [Spark Connect](https://spark.apache.org/spark-connect/) protocol. This document shows you how to install, configure, and use the client.
+The Managed Service for Apache Spark Connect client (`google-cloud-spark-connect`) is a Python client library built on top of the open-source [Apache Spark Connect](https://spark.apache.org/spark-connect/) client. It lets your local applications, scripts, and notebooks run PySpark workloads on a remote Managed Service for Apache Spark session over the Spark Connect protocol.
+
+Compared to using the standard Apache Spark Connect client directly, `google-cloud-spark-connect` provides the following benefits:
+
+  * **Automated session lifecycle and authentication** : `ManagedSparkSession.builder.getOrCreate()` automatically provisions, configures, or reuses a remote Managed Service for Apache Spark interactive session and attaches refreshing Google Cloud credentials. Code written with `ManagedSparkSession` also runs unchanged when submitted as a Managed Service for Apache Spark batch workload, provided that the `google-cloud-spark-connect` package is installed in the batch workload's Python environment.
+  * **Live progress bars and monitoring links** : Displays real-time progress bars in notebooks and interactive terminals during session creation and Spark job execution (tracking task completion across stages), along with direct links to the session details page in the Google Cloud console, the **Spark UI** , and individual **Spark Query** execution pages.
+  * **Interactive notebook extras** : When installed with the `interactive` extra, importing `google.cloud.managed_spark_connect` in an IPython or Jupyter notebook automatically loads: 
+    * [`explore_dataframe()`](https://docs.cloud.google.com/managed-spark/docs/guides/visualize-dataframes-notebooks) (powered by `google-colabsqlviz`) to interactively explore, filter, sort, aggregate, and chart PySpark DataFrames without writing plotting code.
+    * `%%sparksql` and `%sparksql` magic commands to run Spark SQL queries in notebook cells with interactive result visualization and Python variable or DataFrame binding.
+    * `%dpip` magic command to install PyPI packages directly onto the remote session's driver and executors without building a custom container image.
+
+
+
+Like the open-source Spark Connect client, `google-cloud-spark-connect` doesn't require a local Spark installation. With the `[client]` extra, it installs only the lightweight `pyspark-client` package instead of the full `pyspark` distribution, so you don't need to download Spark or install Java on your machine to run PySpark on Managed Service for Apache Spark.
+
+This document shows you how to install, configure, and use the client.
 
 ## Before you begin
 
@@ -36,14 +51,27 @@ The Spark Connect client is a wrapper of the Managed Service for Apache Spark Co
 
 ## Install or uninstall the client
 
-You can install or uninstall the `dataproc-spark-connect` package using `pip`.
+You can install or uninstall the `google-cloud-spark-connect` package using `pip`.
 
 ### Install
 
-To install the latest version of the client, run the following command:
+For local notebooks and development environments (such as VS Code with [Google Cloud Data Agent Kit](https://docs.cloud.google.com/data-agent-kit/overview) or JupyterLab), install the client from the command line in a virtual environment:
     
     
-    pip install -U dataproc-spark-connect
+    pip install 'google-cloud-spark-connect[interactive,client]'
+    
+
+This installs `google-cloud-spark-connect`, with two optional extras:
+
+  * `interactive`: Installs interactive notebook extensions (`explore_dataframe()`, `%%sparksql`, and `%dpip`). May be omitted for standalone Python scripts outside of a notebook.
+  * `client`: Installs the lightweight `pyspark-client` package, which doesn't require a local JVM.
+
+
+
+In managed notebook environments such as Colab Enterprise (where full `pyspark` is pre-installed), run `%pip install` with the `spark` extra instead of `client` in a dedicated setup cell at the top of your notebook:
+    
+    
+    %pip install 'google-cloud-spark-connect[interactive,spark]'
     
 
 ### Uninstall
@@ -51,7 +79,7 @@ To install the latest version of the client, run the following command:
 To uninstall the client, run the following command:
     
     
-    pip uninstall dataproc-spark-connect
+    pip uninstall google-cloud-spark-connect pyspark-client
     
 
 ## Configure the client
@@ -135,74 +163,118 @@ Expand example Collapse example
 
 ### Builder API
 
-Use the `.projectId()` and `.location()` methods.
+Use the `.projectId()`, `.location()`, and `.sessionId()` methods.
     
     
-    spark = DataprocSparkSession.builder.projectId("my-project").location("us-central1").getOrCreate()
+    spark = (
+        ManagedSparkSession.builder
+        .projectId("my-project")
+        .location("us-central1")
+        .sessionId("my-spark-session")
+        .getOrCreate()
+    )
     
 
 ## Start a Spark session
 
-To start a Spark session, add the required imports to your PySpark application or notebook, then call the `DataprocSparkSession.builder.getOrCreate()` API.
+To start a Spark session, import `ManagedSparkSession` in your PySpark application or notebook, then call the `ManagedSparkSession.builder.getOrCreate()` API. We recommend setting a custom session ID with `.sessionId()` so that re-running your notebook or running multiple notebooks within the session's time to live (TTL) reuses the active session and eliminates session startup time.
 
-  1. Import the `DataprocSparkSession` class.
+  1. Import the `ManagedSparkSession` class. In an IPython or Jupyter notebook, importing `google.cloud.managed_spark_connect` also automatically loads the interactive notebook extras (`explore_dataframe()`, `%%sparksql`, and `%dpip`) if the `interactive` extra is installed.
 
-  2. Call the `getOrCreate()` method to start the session.
+  2. Call `.sessionId()` and `.getOrCreate()` to start or reuse the session.
          
-         from google.cloud.dataproc_spark_connect import DataprocSparkSession
-         spark = DataprocSparkSession.builder.getOrCreate()
+         from google.cloud.managed_spark_connect import ManagedSparkSession
+         spark = ManagedSparkSession.builder.sessionId("my-spark-session").getOrCreate()
          
 
 
 
+
+While a new session starts, the client displays a live progress bar and a link to the session details page in the Google Cloud console (in VS Code, the link opens the session in Data Agent Kit instead). If an active session with the specified ID already exists, the client connects to it instead of creating a new one. In that case, the client ignores the session configuration in your code. To apply configuration changes, terminate the existing session (`spark.stop(terminate=True)`) or use a different session ID. If a session with the specified ID has already terminated, the client automatically deletes the old session and creates a new one with the same ID. Once the session is active:
+
+  * Evaluating `spark` in a notebook cell displays direct links to the session details page and the **Spark UI**.
+  * Running Spark actions (such as `df.show()`, `df.collect()`, or `df.toPandas()`) displays a real-time task progress bar and a **Spark Query** link to the operation's execution page in the **Spark UI**.
+
+**Note:** To disable automatic loading of interactive notebook extras when importing `google.cloud.managed_spark_connect`, set the environment variable `MANAGED_SPARK_CONNECT_ENABLE_EXTRAS=false` or run `%config ManagedSparkConnect.enable_extras = False` before importing the module.
 
 ## Configure Spark properties
 
 To configure Spark properties, chain one or more `.config()` methods to the builder.
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     
-    spark = DataprocSparkSession.builder.config('spark.executor.memory', '48g').config('spark.executor.cores', '8').getOrCreate()
+    spark = (
+        ManagedSparkSession.builder
+        .sessionId('my-spark-session')
+        .config('spark.executor.memory', '48g')
+        .config('spark.executor.cores', '8')
+        .getOrCreate()
+    )
     
 
 **Note:** Managed Service for Apache Spark `3.0`\+ runtimes support Spark [single-node execution](https://spark.apache.org/docs/latest/submitting-applications.html#master-urls). To enable it, set `spark.master=local` in your session config.
 
 ## Use advanced configuration
 
-For advanced configuration, use the `Session` class to customize settings such as the subnetwork or runtime version.
+You can configure common session settings—such as the session ID, runtime version, subnetwork, service account, session template, TTL (`.ttl()` / `.ttlSeconds()` and `.idleTtl()` / `.idleTtlSeconds()`), or labels—directly using builder methods:
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    import datetime
+    from google.cloud.managed_spark_connect import ManagedSparkSession
+    
+    spark = (
+        ManagedSparkSession.builder
+        .projectId('my-project')
+        .location('us-central1')
+        .sessionId('my-spark-session')
+        .runtimeVersion('3.0')
+        .subnetwork('SUBNET')
+        .idleTtl(datetime.timedelta(minutes=30))
+        .getOrCreate()
+    )
+    
+
+For full customization of the underlying session resource, pass a `google.cloud.dataproc_v1.Session` object to `.sessionConfig()`:
+    
+    
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     
     session_config = Session()
     session_config.environment_config.execution_config.subnetwork_uri = 'SUBNET'
     session_config.runtime_config.version = '3.0'
     
-    spark = DataprocSparkSession.builder.projectId('my-project').location('us-central1').dataprocSessionConfig(session_config).getOrCreate()
+    spark = (
+        ManagedSparkSession.builder
+        .projectId('my-project')
+        .location('us-central1')
+        .sessionId('my-spark-session')
+        .sessionConfig(session_config)
+        .getOrCreate()
+    )
     
 
 ## Reuse a named session
 
-Named sessions let you share a single Spark session across multiple notebooks while avoiding repeated session startup-time delays.
+Setting a custom session ID with `.sessionId()` lets you reuse a single Spark session across multiple notebooks or across kernel restarts within the session's TTL, eliminating session startup latency and reducing costs.
 
   1. In your first notebook, create a session with a custom ID.
          
-         from google.cloud.dataproc_spark_connect import DataprocSparkSession
+         from google.cloud.managed_spark_connect import ManagedSparkSession
          
          session_id = 'my-ml-pipeline-session'
-         spark = DataprocSparkSession.builder.dataprocSessionId(session_id).getOrCreate()
+         spark = ManagedSparkSession.builder.sessionId(session_id).getOrCreate()
          df = spark.createDataFrame([(1, 'data')], ['id', 'value'])
          df.show()
          
 
-  2. In another notebook, reuse the session by specifying the same session ID.
+  2. In another notebook (or after restarting the kernel), reuse the session by specifying the same session ID.
          
-         from google.cloud.dataproc_spark_connect import DataprocSparkSession
+         from google.cloud.managed_spark_connect import ManagedSparkSession
          
          session_id = 'my-ml-pipeline-session'
-         spark = DataprocSparkSession.builder.dataprocSessionId(session_id).getOrCreate()
+         spark = ManagedSparkSession.builder.sessionId(session_id).getOrCreate()
          df = spark.createDataFrame([(2, 'more-data')], ['id', 'value'])
          df.show()
          
@@ -210,31 +282,45 @@ Named sessions let you share a single Spark session across multiple notebooks wh
 
 
 
-Session IDs must be 4-63 characters long, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens. The ID cannot end with a hyphen. A session with an ID that is in a `TERMINATED` state cannot be reused.
+Session IDs must be 4-63 characters long, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens. The ID cannot end with a hyphen. Named sessions persist until they are explicitly terminated or reach their configured TTL. If a session with the specified ID is already in a `TERMINATED`, `TERMINATING`, or `FAILED` state, the client emits a warning, deletes the old session, and creates a new session with the same ID (deleting the old session removes its previous metadata and Spark UI history from Managed Service for Apache Spark, though logs remain available in Cloud Logging).
+
+If an active session with the specified ID already exists, the client connects to it and ignores the session configuration in your code. To apply configuration changes, terminate the existing session or use a different session ID.
+
+To terminate a named session, call `spark.stop(terminate=True)`. Calling `spark.stop()` without arguments disconnects the client but leaves a named session running. Sessions created without `.sessionId()` are terminated by `spark.stop()`.
 
 ## Use Spark SQL magic commands
 
-The package supports the [`sparksql-magic` library](https://github.com/cryeo/sparksql-magic) to execute Spark SQL queries in Jupyter notebooks. Magic commands are an optional feature.
+The `interactive` extra includes the `%%sparksql` cell magic and `%sparksql` line magic to execute Spark SQL queries in Jupyter notebooks and render interactive tables and charts using `google-colabsqlviz` (the same visualization widget used by [`explore_dataframe()`](https://docs.cloud.google.com/managed-spark/docs/guides/visualize-dataframes-notebooks)).
 
-  1. Install the required dependencies.
-         
-         pip install IPython sparksql-magic
-         
+When you install `google-cloud-spark-connect` with the `interactive` extra and import `google.cloud.managed_spark_connect` in a notebook, the magic extension loads automatically.
 
-  2. Load the magic extension.
+  1. Optional: Load the magic extension explicitly if you haven't imported `google.cloud.managed_spark_connect`.
          
-         %load_ext sparksql_magic
+         %load_ext google.cloud.managed_spark_magics
          
 
-  3. Optional: configure default settings.
+  2. Optional: configure default settings.
          
          %config SparkSql.limit=20
          
 
-  4. Execute SQL queries.
+  3. Execute SQL queries using the `%%sparksql` cell magic (which renders an interactive table and stores the full DataFrame in `_df` by default) or the `%sparksql` line magic (which suppresses table display and returns the DataFrame directly):
          
          %%sparksql
          SELECT * FROM your_table
+         
+         
+         df = %sparksql SELECT * FROM your_table
+         
+
+  4. Optional: Pass Python variables and DataFrames into a query. Typed SQL literal values can be bound with `:name`, table or column identifiers with `IDENTIFIER(:name)`, and DataFrames in the notebook namespace with `{df}`:
+         
+         min_id = 10
+         df = spark.createDataFrame([(5, 'a'), (15, 'b')], ['id', 'val'])
+         
+         
+         %%sparksql
+         SELECT * FROM {df} WHERE id >= :min_id
          
 
 
@@ -250,12 +336,38 @@ To use advanced options, add flags to the `%%sparksql` command. For example, to 
 The following options are available:
 
   * `--cache` or `-c`: caches the DataFrame.
-  * `--eager` or `-e`: caches with eager loading.
+  * `--eager` or `-e`: computes the result immediately using `localCheckpoint(eager=True)`.
   * `--view VIEW` or `-v VIEW`: creates a temporary view.
-  * `--limit N` or `-l N`: overrides the default row display limit.
-  * `variable_name`: stores the result in a variable.
+  * `--limit N` or `-l N`: overrides the default row display limit (cell magic only).
+  * `--display MODE` or `-d MODE`: sets the display mode (`colabsqlviz` or `html`; cell magic only).
+  * `--quiet` or `-q`: suppresses table display.
+  * `--explain [MODE]`: prints the query plan instead of displaying results.
+  * `--session NAME` or `-s NAME`: runs against the `SparkSession` in variable `NAME`.
+  * `variable_name`: stores the result in a variable (cell magic only; defaults to `_df`).
 
 
+
+## Install PyPI packages on the remote session
+
+To use third-party Python packages inside PySpark user-defined functions (UDFs) without building a custom container image or restarting the session, you can install PyPI packages directly onto the remote session's driver and executors:
+
+### Notebook magic
+
+In an interactive notebook with an active `ManagedSparkSession`, use the `%dpip` magic command (loaded automatically with `google.cloud.managed_spark_connect` when the `interactive` extra is installed):
+    
+    
+    %dpip install scipy
+    
+
+`%dpip` only installs packages on the remote session. To import a package in local code outside Spark, install it in your local Python environment as well.
+
+### Python API
+
+In scripts or notebooks, pass `pypi=True` to `spark.addArtifacts()`:
+    
+    
+    spark.addArtifacts("scipy", pypi=True)
+    
 
 ## What's next
 
@@ -263,7 +375,7 @@ The following options are available:
 
   * [Visualize Spark DataFrames in notebooks](https://docs.cloud.google.com/managed-spark/docs/guides/visualize-dataframes-notebooks).
 
-  * [Run PySpark code in BigQuery Studio notebooks](https://docs.cloud.google.com/bigquery/docs/use-spark).
+  * Learn about developing Spark code in VS Code using [Data Agent Kit](https://docs.cloud.google.com/data-agent-kit/overview).
 
 
 
@@ -272,6 +384,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/cmek/
 title: Customer-managed encryption keys \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:32:06.895453+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:54:22.404948+00:00
 ---
 
 # Customer-managed encryption keys  |  Agent Search  |  Google Cloud Documentation
@@ -121,7 +107,7 @@ Make sure you satisfy the following prerequisites:
 
   * The CryptoKey Encrypter/Decrypter IAM role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key has been granted to the Discovery Engine service agent. The service agent account has an email address that uses the following format: `service-PROJECT_NUMBER@gcp-sa-discoveryengine.iam.gserviceaccount.com`. For general instructions on how to add a role to a service agent, see [Grant or revoke a single role](https://docs.cloud.google.com/iam/docs/manage-access-service-accounts).
 
-  * The CryptoKey Encrypter/Decrypter IAM role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key has been granted to the Cloud Storage service agent. If this role is not granted, data import for CMEK-protected apps and data connectors will fail because Discovery Engine is not able to make the CMEK-protected, temporary bucket and directory that is required for importing.
+  * The CryptoKey Encrypter/Decrypter IAM role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key has been granted to the Cloud Storage service agent. If this role is not granted, data import for CMEK-protected data stores will fail because Discovery Engine is not able to make the CMEK-protected, temporary bucket and directory that is required for importing.
 
   * Don't create any apps or data connectors that you want managed by your key until after you have completed the key registration instructions on this page.
 
@@ -221,7 +207,7 @@ To register your own key for Agent Search, follow these steps:
 
   3. Click **Add key** for the **us** or **eu** location.
 
-![Click add key for a location.](https://docs.cloud.google.com/gemini/enterprise/docs/images/cmek-images/kms-key-first-party-connectors.png) Click add key.
+![Click add key for a location.](https://docs.cloud.google.com/gemini/enterprise/docs/images/cmek-images/kms-key-first-party-connectors.png)Click add key.
      1. Click the **Select a Cloud KMS key** drop-down, and select the key.
 
         * If the key is in a different project, click **Switch project** , click your project name, type the name of the key you created, and select the key.
@@ -553,6 +539,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

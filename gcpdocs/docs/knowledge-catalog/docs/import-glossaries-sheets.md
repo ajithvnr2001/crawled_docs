@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/import-glossaries-sheets/
 title: Import business glossaries from a Google Sheet \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:25.106896+00:00
+fetched_at: 2026-11-03T09:53:49.249683+00:00
 ---
 
 # Import business glossaries from a Google Sheet  |  Knowledge Catalog  |  Google Cloud Documentation

@@ -1,25 +1,11 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/promote-migration/
-title: Promote a migration \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:22:53.471460+00:00
+title: Promote a migration job \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:54:19.519785+00:00
 ---
 
-# Promote a migration  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
+# Promote a migration job  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/promote-migration/
 
@@ -28,126 +14,105 @@ fetched_at: 2026-10-27T16:22:53.471460+00:00
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
   * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
   * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest)
+  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview)
 
 
 
 Send feedback 
 
-#  Promote a migration Stay organized with collections  Save and categorize content based on your preferences. 
+#  Promote a migration job Stay organized with collections  Save and categorize content based on your preferences. 
 
-  
+For continuous migrations, you can initiate the promotion process when you are ready to cut over your applications to the destination databases. Promoting the migration job disconnects the destination AlloyDB for PostgreSQL cluster from the source and transforms it into an independent standalone primary cluster so you can direct application traffic to the cluster. 
+
+  1. Stop all writes, running scripts, and client connections to the source database. The cutover downtime window begins here. 
+  2. Wait until the [ replication delay metric](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-job-metrics) is at or close to zero. This ensures that the migration job has processed all outstanding changes from the source. 
+
+You can promote a migration even if the replication delay isn't at zero. This can reduce database cutover time, but might affect data currency in the destination. 
+
+  3. Perform the promote action: 
+
+### Console
+
+     1. In the Google Cloud console, go to the **Migration jobs** page. 
+
+[ Go to Migration jobs](https://console.cloud.google.com/dbmigration/migrations)
+
+     2. On the **Jobs** tab, click the display name of the migration job that you want to promote. 
+
+The migration job details page opens.
+
+     3. On the migration job toolbar, click **Promote**. 
+
+The promote migration job dialog appears.
+
+     4. In the dialog, ensure that no errors are displayed, and then click **Promote**.
+
+### gcloud
+
+Before using any of the command data below, make the following replacements: 
+
+     * MIGRATION_JOB_ID with your migration job identifier. 
+
+If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
+
+     * REGION with the identifier of the region where your migration job is saved.
+
+Execute the following command: 
+
+#### Linux, macOS, or Cloud Shell
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration migration-jobs \
+    promote MIGRATION_JOB_ID \
+      --region=REGION
+
+#### Windows (PowerShell)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration migration-jobs `
+    promote MIGRATION_JOB_ID `
+      --region=REGION
+
+#### Windows (cmd.exe)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration migration-jobs ^
+    promote MIGRATION_JOB_ID ^
+      --region=REGION
+
+#### Result
+
+The action is performed in an asynchronous manner. As such, this command returns an [ Operation entity](https://docs.cloud.google.com/database-migration/docs/reference/rest/v1/projects.locations.operations) that represents a long-running operation: 
+    
+    done: false
+    metadata:
+      '@type': type.googleapis.com/google.cloud.clouddms.v1.OperationMetadata
+      apiVersion: v1
+      createTime: '2024-02-20T12:20:24.493106418Z'
+      requestedCancellation: false
+      target: MIGRATION_JOB_ID
+      verb: promote
+    name: OPERATION_ID
+    
+
+To see if your operation is successful, you can query the returned operation object, or check the status of the migration job: 
+
+     * Use the [ `gcloud database-migration migration-jobs describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/describe) command with the MIGRATION_JOB_ID to view the status of the migration job.
+     * Use the [ `gcloud database-migration operations describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/operations/describe) command with the OPERATION_ID to see the status of the operation itself.
+
+  4. The destination AlloyDB for PostgreSQL cluster is promoted. The destination cluster is disconnected from the source, becomes an independent standalone primary cluster, and is ready for full application traffic. The migration job status changes to `Completed`. 
+  5. (Optional) **Re-install extensions:** If your source database used extensions that aren't migrated by Database Migration Service (such as [`pg_cron`](https://docs.cloud.google.com/alloydb/docs/reference/extensions#pg_cron)), re-install and configure those extensions on your destination cluster. 
+  6. You can now connect your applications to the AlloyDB for PostgreSQL cluster and delete the completed migration job. 
 
 
-[MySQL](https://docs.cloud.google.com/database-migration/docs/mysql/promote-migration "View this page for the MySQL version of Database Migration Service.") | [PostgreSQL](https://docs.cloud.google.com/database-migration/docs/postgres/promote-migration "View this page for the PostgreSQL version of Database Migration Service.") | PostgreSQL to AlloyDB
-
-  
-
-
-  
-Promotion means that the destination AlloyDB for PostgreSQL instance is disconnected from the source, and is promoted from a replica instance to a primary instance. 
-
-For continuous migrations, you can initiate the promotion process after it's time to move reads and writes to the destination.
-
-To promote a migration without loss of information, follow these steps:
-
-  1. Go to the [Migration jobs](https://console.cloud.google.com/dbmigration/migrations) page.
-  2. Click the migration job that represents the migration that you want to promote. The **Migration job details** page appears.
-
-After the full dump phase has completed and the migration job is in CDC phase, the option for promotion is available.
-
-  3. Immediately after transitioning to the CDC phase, depending on the size of the dump, there may be a long replication delay because the AlloyDB for PostgreSQL destination instance catches up on changes that occurred during the dump and load.
-
-Wait for the replication delay to trend down significantly, ideally on the order of minutes or seconds. The replication delay is available for review on the migration job page.
-
-  4. After the replication delay is at a minimum, you can initiate the promotion. To avoid data loss, make sure to: 
-     1. **Stop all writes, running scripts, and client connections to the source database**. The downtime period begins here.
-     2. Wait until the replication delay is at zero, which means that the migration job has processed all outstanding changes.
-You can promote a migration even if the replication delay isn't at zero. This can reduce the database downtime, but may affect the accuracy of the data in the destination.
-  5. In the **Migration job details** page, click **Promote**.
-  6. In the **Promote migration job?** window, click **Promote**.
-  7. The migration job stops reading from the source and the substatus is `Promote in progress`. At this point, you cannot stop or undo the promotion process. 
-  8. The destination instance is promoted to a primary writeable instance. The migration job status is `Completed`.
-  9. The application can now be connected to the AlloyDB for PostgreSQL instance and the migration job can be safely deleted. 
-
-
-
-When you promote migration jobs that have failed or were manually stopped during CDC phase, data on the source and the destination can be inconsistent.
-
-[ Previous arrow_back  Verify a migration  ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/verify-migration)
-
-[ Next Review connection profiles  arrow_forward  ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/review-connection-profiles)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
-
-  * ### Products and pricing
-
-    * [ See all products ](https://cloud.google.com/products/)
-    * [ Google Cloud pricing ](https://cloud.google.com/pricing/)
-    * [ Google Cloud Marketplace ](https://cloud.google.com/marketplace/)
-    * [ Contact sales ](https://cloud.google.com/contact/)
-  * ### Support
-
-    * [ Community forums ](https://discuss.google.dev/c/google-cloud/14/)
-    * [ Support ](https://cloud.google.com/support-hub/)
-    * [ Release Notes ](https://docs.cloud.google.com/release-notes)
-    * [ System status ](https://status.cloud.google.com)
-  * ### Resources
-
-    * [ GitHub ](https://github.com/googlecloudPlatform/)
-    * [ Getting Started with Google Cloud ](https://docs.cloud.google.com/docs/get-started/)
-    * [ Code samples ](https://docs.cloud.google.com/docs/samples)
-    * [ Cloud Architecture Center ](https://docs.cloud.google.com/architecture/)
-    * [ Training and Certification ](https://cloud.google.com/learn/training/)
-    * [ Builders Hub ](https://me.developers.google.com/)
-  * ### Engage
-
-    * [ Blog ](https://cloud.google.com/blog/)
-    * [ Events ](https://cloud.google.com/events/)
-    * [ X (Twitter) ](https://x.com/googlecloud)
-    * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
-    * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
-
-
-
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg) ](https://developers.google.com/)
-
-  * [ Android ](https://developer.android.com/)
-  * [ Chrome ](https://developer.chrome.com/)
-  * [ Firebase ](https://firebase.google.com/)
-  * [ Google AI ](https://ai.google.com/)
-
-
-
-  * [ About Google ](https://about.google/)
-  * [ Privacy ](https://policies.google.com/privacy)
-  * [ Site terms ](https://policies.google.com/terms?hl=en)
-  * [ Google Cloud terms ](https://cloud.google.com/product-terms)
-  * Manage cookies 
-  * [ Our third decade of climate action: join us ](https://cloud.google.com/sustainability)
-  * Sign up for the Google Cloud newsletter [ Subscribe ](https://cloud.google.com/newsletter/)
-
-
-
-  * English
-  * Deutsch
-  * Español
-  * Español – América Latina
-  * Français
-  * Indonesia
-  * Italiano
-  * Português
-  * Português – Brasil
-  * עברית
-  * 中文 – 简体
-  * 中文 – 繁體
-  * 日本語
-  * 한국어
-
-
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/workspace-activity/
 title: Collect Google Workspace logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:15:47.143208+00:00
+fetched_at: 2026-11-03T09:55:06.630694+00:00
 ---
 
 # Collect Google Workspace logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -12657,13 +12657,15 @@ Else, the `alertId` log field is mapped to the `metadata.product_log_id` UDM fie
 Else, the `alertId` log field is mapped to the `metadata.product_log_id` UDM field.  
 | `metadata.product_name` | The `metadata.product_name` UDM field is set to `WORKSPACE_ALERTS`.  
 | `metadata.vendor_name` | The `metadata.vendor_name` UDM field is set to `GOOGLE`.  
-`data.maliciousEntity.fromHeader` | `network.email.from` |   
+`data.maliciousEntity.fromHeader` | `network.email.from` | If the `data.maliciousEntity.fromHeader` log field value matches the regular expression pattern `^.+@.+$` and doesn't exceed 256 characters, then the `data.maliciousEntity.fromHeader` log field is mapped to the `network.email.from` UDM field.  
+  
+Otherwise, if the `data.maliciousEntity.fromHeader` log field value isn't empty, then the `data.maliciousEntity.fromHeader` log field is mapped to the `security_result.detection_fields[from_header]` UDM field.  
 `data.messages.messageId` | `network.email.mail_id` |   
 `data.messages.messageId` | `security_result.detection_fields[message_id]` |   
 `data.messages.subjectText` | `network.email.subject` |   
-`data.messages.recipient` | `network.email.to` |   
+`data.messages.recipient` | `network.email.to` | If the `data.messages.recipient` log field value matches the regular expression pattern `^.+@.+$` and doesn't exceed 256 characters, then the `data.messages.recipient` log field is mapped to the `network.email.to` UDM field.  
 `data.messages.recipient` | `security_result.detection_fields[mail_recipient]` |   
-`data.ruleViolationInfo.recipients` | `network.email.to` | If the `data.ruleViolationInfo.recipients` log field value matches the regular expression pattern `^.+@.+$`, then the `data.ruleViolationInfo.recipients` log field is mapped to the `network.email.to` UDM field.  
+`data.ruleViolationInfo.recipients` | `network.email.to` | If the `data.ruleViolationInfo.recipients` log field value matches the regular expression pattern `^.+@.+$` and doesn't exceed 256 characters, then the `data.ruleViolationInfo.recipients` log field is mapped to the `network.email.to` UDM field.  
 `data.ruleViolationInfo.recipients` | `additional.fields[recipients]` | If the `data.ruleViolationInfo.recipients` log field value is equal to `anyone`, then the `data.ruleViolationInfo.recipients` log field is mapped to the `additional.fields` UDM field.  
 `data.ruleViolationInfo.recipients` | `target.domain.name` | If the `data.ruleViolationInfo.recipients` log field value matches the regular expression pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$`, then the first occurrence of the matching value in the `data.ruleViolationInfo.recipients` log field is mapped to the `target.domain.name` UDM field and the other occurrences are mapped to the `additional.fields[domain_recipients]` UDM field.  
 `data.sourceIp` | `principal.ip` |   
@@ -14366,6 +14368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

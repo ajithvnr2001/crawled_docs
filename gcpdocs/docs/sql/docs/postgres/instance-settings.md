@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/instance-settings/
 title: About instance settings \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:15.045547+00:00
+fetched_at: 2026-11-03T09:44:24.834447+00:00
 ---
 
 # About instance settings  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ Server CA mode | Y |  Lets you configure the server certificate authority (CA) f
 
 For more information, see [Certificate authority (CA) hierarchies](https://docs.cloud.google.com/sql/docs/postgres/authorize-ssl#ca-hierarchies).  
 Automatic server certificate rotation | Y | To enable, set `serverCertificationRotationMode` to `AUTOMATIC_ROTATION_DURING_MAINTENANCE`. To disable, set `serverCertificationRotationMode` to `NO_AUTOMATIC_ROTATION_DURING_MAINTENANCE`.   
-[Set edition](https://docs.cloud.google.com/sql/docs/postgres/choose-edition) | Y | `ENTERPRISE` or `ENTERPRISE PLUS` **Note:** If the database version for your instance is PostgreSQL 16 and later, then the default Cloud SQL edition is Enterprise Plus.   
+[Set edition](https://docs.cloud.google.com/sql/docs/postgres/choose-edition) | Y | `ENTERPRISE` or `ENTERPRISE_PLUS` **Note:** If you don't specify an edition in the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) or the Cloud SQL Admin API, then the default Cloud SQL edition is Enterprise Plus (`ENTERPRISE_PLUS`) for PostgreSQL 16 and later, and Enterprise (`ENTERPRISE`) for PostgreSQL 15 and earlier.   
 Set password policy | Y | Configured or not.  
 Private IP | After it's activated, it can't be deactivated. | Activated or deactivated.  
 Public IP | Y | Activated or deactivated.  
@@ -258,7 +258,7 @@ For more information about rotating Cloud SQL server certificates automatically,
 Storage capacity
     
 
-Choose a capacity to fit your database size. After you have created your instance, you can manually increase the storage capacity by [editing your instance configuration](https://docs.cloud.google.com/sql/docs/postgres/edit-instance), but you cannot decrease it. Increasing the storage capacity does not cause downtime.
+Choose a capacity to fit your database size. After you have created your instance, you can manually increase the storage capacity by [editing your instance configuration](https://docs.cloud.google.com/sql/docs/postgres/edit-instance), or you can [manually shrink your storage capacity](https://docs.cloud.google.com/sql/docs/postgres/about-storage-shrink) if it becomes larger than your application needs. Increasing the storage capacity does not cause downtime.
 
 The amount of storage capacity allocated for your instance affects the cost of your instance. For more information, see [Storage and Networking Pricing](https://cloud.google.com/sql/pricing#2nd-gen-storage-networking-prices).
 
@@ -347,7 +347,7 @@ Automatic storage increase limit
 
 If you enable the  automatic storage increase setting, you can provide a specific limit on how large the storage for your instance can automatically grow. Keep in mind that the bigger the size of the instance, the greater the operational latency.
 
-You can't decrease storage size, so this limit can prevent your instance size from growing too large (due to a temporary increase in traffic). Keep in mind that when an instance becomes unable to add storage that it needs, the instance likely stops accepting incoming connections and could go offline.
+Automatic storage increases are permanent unless you [manually shrink your storage capacity](https://docs.cloud.google.com/sql/docs/postgres/about-storage-shrink), so this limit can prevent your instance size from growing too large due to a temporary increase in traffic. Keep in mind that when an instance becomes unable to add storage that it needs, the instance likely stops accepting incoming connections and could go offline.
 
 By default, there is no limit on automatic storage increases other than the maximum available storage for the instance tier. 
 
@@ -523,6 +523,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

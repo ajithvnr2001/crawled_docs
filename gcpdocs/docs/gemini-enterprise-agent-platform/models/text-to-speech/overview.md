@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview/
 title: Generate speech with Gemini TTS \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:07.822115+00:00
+fetched_at: 2026-11-03T09:51:58.435985+00:00
 ---
 
 # Generate speech with Gemini TTS  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ This page shows you how to generate speech with the following models using the `
 
 
 
-The TTS models are tailored for exact text recitation with fine-grained control over style and sound, such as narration, audiobooks, and voice agent responses. For interactive, real-time conversations with audio input and output, use the [Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) instead.
+The TTS models are tailored for exact text recitation with fine-grained control over style and sound, such as narration, audiobooks, and voice agent responses. For interactive, real-time conversations with audio input and output, use [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) instead.
 
 If you use an earlier Gemini TTS model, such as `gemini-3.1-flash-tts-preview`, see the [migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/migration-guide).
 
@@ -84,6 +84,9 @@ Location | Location parameter | Endpoint
 Global | `global` | `https://aiplatform.googleapis.com`  
 United States (multi-region) | `us` | `https://aiplatform.us.rep.googleapis.com`  
 European Union (multi-region) | `eu` | `https://aiplatform.eu.rep.googleapis.com`  
+  
+For lower time to first audio (TTFA) on streaming requests, use the `us` or `eu` multi-region endpoint instead of the `global` endpoint. The `global` endpoint routes requests across regions worldwide, which can increase network latency before the first audio chunk arrives.
+
 **Note:** User-owned custom voices (voices created with voice design or voice replication) are only available in the `global` location.
 
 To direct requests to a regional endpoint, set `location="us"` (or `location="eu"`) when initializing the client in the SDK, or send requests to the corresponding multi-region hostname (`https://aiplatform.us.rep.googleapis.com` or `https://aiplatform.eu.rep.googleapis.com`) with the matching location path in the REST URL:
@@ -213,12 +216,15 @@ By default, unary requests return a complete WAV file (16-bit PCM, 24 kHz, mono)
 
 To receive audio while the model is still synthesizing it, use the `streamGenerateContent` method. Streaming responses return headerless raw 16-bit PCM chunks (24 kHz, mono), so you can pass each chunk to a player, a socket, or another audio pipeline as it arrives. In the following Python sample, the `emit_audio` function stands in for that destination.
 
+For lower TTFA, send streaming requests to the `us` or `eu` multi-region endpoint instead of the `global` endpoint (unless your request uses a custom voice, which requires `global`).
+
 ### Python
     
     
     from google import genai
     
-    client = genai.Client(enterprise=True, project="PROJECT_ID", location="global")
+    # Use 'us' or 'eu' for lower TTFA on streaming requests (or 'global' for custom voices)
+    client = genai.Client(enterprise=True, project="PROJECT_ID", location="us")
     
     def emit_audio(pcm: bytes) -> None:
         """Sends a chunk of raw 16-bit PCM audio (24 kHz, mono) downstream."""
@@ -255,7 +261,7 @@ To receive audio while the model is still synthesizing it, use the `streamGenera
     curl -N -X POST \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \
       -H "Content-Type: application/json" \
-      "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.8-flash-lite-tts:streamGenerateContent?alt=sse" \
+      "https://aiplatform.us.rep.googleapis.com/v1/projects/PROJECT_ID/locations/us/publishers/google/models/gemini-3.8-flash-lite-tts:streamGenerateContent?alt=sse" \
       -d '{
         "contents": [{
           "role": "user",
@@ -359,14 +365,15 @@ Multi-speaker requests require exactly two speakers.
 
 ## Multi-speaker streaming TTS
 
-Multi-speaker requests also support streaming. Use the same request as in Multi-speaker TTS with the `streamGenerateContent` method.
+Multi-speaker requests also support streaming. Use the same request as in Multi-speaker TTS with the `streamGenerateContent` method, and use the `us` or `eu` multi-region endpoint for lower TTFA.
 
 ### Python
     
     
     from google import genai
     
-    client = genai.Client(enterprise=True, project="PROJECT_ID", location="global")
+    # Use 'us' or 'eu' for lower TTFA on streaming requests
+    client = genai.Client(enterprise=True, project="PROJECT_ID", location="us")
     
     def emit_audio(pcm: bytes) -> None:
         """Sends a chunk of raw 16-bit PCM audio (24 kHz, mono) downstream."""
@@ -416,7 +423,7 @@ Multi-speaker requests also support streaming. Use the same request as in Multi-
     curl -N -X POST \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \
       -H "Content-Type: application/json" \
-      "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.8-flash-tts:streamGenerateContent?alt=sse" \
+      "https://aiplatform.us.rep.googleapis.com/v1/projects/PROJECT_ID/locations/us/publishers/google/models/gemini-3.8-flash-tts:streamGenerateContent?alt=sse" \
       -d '{
         "contents": [{
           "role": "user",
@@ -819,6 +826,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

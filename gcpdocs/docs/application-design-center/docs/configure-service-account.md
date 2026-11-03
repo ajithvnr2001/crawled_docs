@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-service-account/
 title: Configure a service account \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:48:27.855086+00:00
+fetched_at: 2026-11-03T09:53:00.085956+00:00
 ---
 
 # Configure a service account  |  Application Design Center  |  Google Cloud Documentation
@@ -20,9 +20,7 @@ Send feedback
 
 #  Configure a service account Stay organized with collections  Save and categorize content based on your preferences. 
 
-A service account is a special kind of account used by an application or compute workload, such as a Compute Engine instance, rather than a person. A service account is identified by its email address, which is unique to the account. For more information, see [Service accounts overview](https://docs.cloud.google.com/iam/docs/service-account-overview).
-
-This document describes the connections and parameters you can configure when using App Design Center to create a service account. The configuration parameters are based on the [terraform-google-service-accounts](https://github.com/terraform-google-modules/terraform-google-service-accounts/tree/main/modules/simple-sa) Terraform module.
+In App Design Center, you can configure a dedicated [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) to provide an identity that your application or compute workloads use to access Google Cloud resources. You can customize the service account's component connections and configuration parameters based on the [terraform-google-service-accounts](https://github.com/terraform-google-modules/terraform-google-service-accounts/tree/main/modules/simple-sa) Terraform module.
 
 ## Component connections
 
@@ -137,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

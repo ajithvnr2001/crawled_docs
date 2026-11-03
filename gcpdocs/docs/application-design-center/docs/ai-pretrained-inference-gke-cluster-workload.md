@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/ai-pretrained-inference-gke-cluster-workload/
 title: AI Pre-trained Inference GKE cluster and workload \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:47:26.664067+00:00
+fetched_at: 2026-11-03T09:52:58.834696+00:00
 ---
 
 # AI Pre-trained Inference GKE cluster and workload  |  Application Design Center  |  Google Cloud Documentation
@@ -21,14 +21,7 @@ Send feedback
 
 #  AI Pre-trained Inference GKE cluster and workload Stay organized with collections  Save and categorize content based on your preferences. 
 
-To create an AI application, provision a secure, private Google Kubernetes Engine (GKE) cluster optimized for AI workloads, and then deploy your workload using a helm chart. This guide describes the following templates, which you can customize to deploy an AI application:
-
-  * _AI Pre-trained Inference GKE cluster_ : create the foundational infrastructure required for high-performance model serving. This template sets up a secure, private GKE cluster optimized for AI inference.
-
-  * _AI Pre-trained Inference GKE workload_ ([Preview](https://cloud.google.com/products#product-launch-stages)): deploy a helm chart that includes the configuration for an AI workload. Use the helm chart to deploy a pre-trained Gemma model using the vLLM serving engine. The workload is configured for efficient GPU resource requests and a Horizontal Pod Autoscaler (HPA) to scale based on GPU cache usage.
-
-
-
+The AI pre-trained inference templates in Application Design Center let you provision Google Kubernetes Engine (GKE) infrastructure and deploy model-serving workloads. You can use the _AI Pre-trained Inference GKE cluster_ template to set up a secure, private GKE cluster for high-performance inference. You can then use the _AI Pre-trained Inference GKE workload_ template ([Preview](https://cloud.google.com/products#product-launch-stages)) to deploy a pre-trained Gemma model with a Helm chart and the vLLM serving engine. The workload configures GPU resource requests and a Horizontal Pod Autoscaler (HPA) that scales based on GPU cache usage.
 
 For example, you might deploy the cluster and workload templates to address the following business needs:
 
@@ -169,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

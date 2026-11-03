@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/detection-delays/
 title: Understand rule detection delays \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:08.061543+00:00
+fetched_at: 2026-11-03T09:54:54.502262+00:00
 ---
 
 # Understand rule detection delays  |  Google Security Operations  |  Google Cloud Documentation
@@ -109,6 +109,8 @@ If an event arrives after the initial scheduled evaluation for that time block, 
   * **Example** : A rule correlates Event A (event time 9:03 AM) and Event B (event time 9:05 AM) within a 30-minute window. If Event A arrives at 10:05 AM (one hour late), it misses the initial execution for the 9:00–9:30 AM block. The system re-evaluates the block during a subsequent true-up run approximately 4 hours after the primary run (around 2:00 PM), generating the detection approximately 5 hours after the event occurred.
 
 
+
+For information about upstream indexing latency in third-party API polling feeds, see [Late-arriving events in polling feeds](https://docs.cloud.google.com/chronicle/docs/reference/feed-management-api#late-arriving-events-polling).
 
 ### Time zone discrepancies
 
@@ -230,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

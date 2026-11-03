@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-console-sso/
 title: Set up user access to the console (federated) \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:32:17.406434+00:00
+fetched_at: 2026-11-03T09:44:26.782472+00:00
 ---
 
 # Set up user access to the console (federated)  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Set up user access to the console (federated) Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide shows you how to set up access to the Google Cloud Workforce Identity Federation console, also known as the console (federated), from your identity provider (IdP) and shows you how to provide access instructions to your users.
+The Google Cloud Workforce Identity Federation console, also known as the console (federated) lets workforce members access Google Cloud resources by using their existing identity provider (IdP) credentials. You can configure redirect URLs in your IdP to establish access and distribute sign-in instructions to your users.
 
 ## Before you begin
 
@@ -131,6 +131,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

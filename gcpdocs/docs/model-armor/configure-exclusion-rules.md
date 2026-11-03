@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/configure-exclusion-rules/
 title: Configure template-specific exclusion rules \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:46.327951+00:00
+fetched_at: 2026-11-03T09:54:51.399006+00:00
 ---
 
 # Configure template-specific exclusion rules  |  Model Armor  |  Google Cloud Documentation
@@ -188,9 +188,11 @@ Each exclusion rule supports the `matchingScope` field, which specifies how Mode
   * **Partial match** (`MATCHING_SCOPE_PARTIAL_MATCH`, default): 
     * **Dictionary rules** : Matches when a word or phrase in the dictionary matches a substring in the input content, subject to dictionary character-boundary rules. For example, the dictionary phrase `ignore empty rows` matches `ignore empty rows`, `ignore EMPTY-rows`, and `Please ignore empty rows and summarize this table`, but doesn't match `ignore rows` or `ignore the empty rows`.
     * **Regular expression rules** : Matches when any substring in the input content matches the regular expression pattern.
+    * **Streaming support** : Supported in both buffered streaming mode (`STREAMING_MODE_BUFFERED`) and real-time streaming mode (`STREAMING_MODE_REALTIME`, default). For more information, see Exclusion rules in streaming sanitization.
   * **Full match** (`MATCHING_SCOPE_FULL_MATCH`): 
     * **Dictionary rules** : Matches only when the dictionary entry covers the entire input content. For example, the dictionary phrase `ignore empty rows` matches `ignore empty rows` and `ignore EMPTY-rows`, but doesn't match `please ignore empty rows` or `ignore rows`.
     * **Regular expression rules** : Matches only when the regular expression pattern matches the entire input content.
+    * **Streaming support** : Supported only in buffered streaming mode (`STREAMING_MODE_BUFFERED`). For more information, see Exclusion rules in streaming sanitization.
 
 
 
@@ -206,13 +208,29 @@ If a template includes exclusion rules, Model Armor evaluates those rules during
 
 For examples of sanitizing prompts and model responses with exclusion rules, see [Sanitize a prompt with an exclusion rule](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#prompt-exclusion) and [Sanitize a response with an exclusion rule](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#response-exclusion).
 
+### Exclusion rules in streaming sanitization
+
+Model Armor supports exclusion rules in the `StreamSanitizeUserPrompt` and `StreamSanitizeModelResponse` streaming methods. How Model Armor evaluates exclusion rules depends on the streaming mode (`streamingMode`) specified in the request:
+
+  * **Buffered mode (`STREAMING_MODE_BUFFERED`)**: Supports both `MATCHING_SCOPE_PARTIAL_MATCH` (default) and `MATCHING_SCOPE_FULL_MATCH`. Model Armor collects all streamed chunks and evaluates exclusion rules against the complete streamed content: 
+    * **Partial match (`MATCHING_SCOPE_PARTIAL_MATCH`)**: If a dictionary phrase or regular expression pattern matches any substring within the streamed content, Model Armor overrides the filter result and sets `matchState` to `NO_MATCH_FOUND` for that filter type.
+    * **Full match (`MATCHING_SCOPE_FULL_MATCH`)**: If a dictionary phrase or regular expression pattern matches the entire streamed content from start to end, Model Armor overrides the filter result and sets `matchState` to `NO_MATCH_FOUND` for that filter type. If any chunk adds text beyond the configured phrase or pattern, the rule doesn't match and the filter retains `MATCH_FOUND`.
+  * **Real-time mode (`STREAMING_MODE_REALTIME`, default)**: Supports `MATCHING_SCOPE_PARTIAL_MATCH` (default), and doesn't support `MATCHING_SCOPE_FULL_MATCH`. 
+    * **Partial match (`MATCHING_SCOPE_PARTIAL_MATCH`)**: Model Armor evaluates each processed chunk independently (returned in `sanitizationMetadata.streamChunkProcessed` when `filterMatchState` is `NO_MATCH_FOUND`). If a dictionary phrase or regular expression pattern matches within a processed chunk, Model Armor overrides the filter result and sets `matchState` to `NO_MATCH_FOUND` for that chunk, while continuing to evaluate subsequent chunks in the stream independently. If an excluded phrase or pattern is split across separate processed chunks, the partial fragments don't match. If an earlier chunk triggers a `MATCH_FOUND` verdict without matching an exclusion rule, the stream remains blocked for subsequent chunks.
+    * **Full match (`MATCHING_SCOPE_FULL_MATCH`)**: Not supported. If a template includes an exclusion rule with `MATCHING_SCOPE_FULL_MATCH` and the request uses real-time streaming mode, Model Armor rejects the request with the following `INVALID_ARGUMENT` error: `Invalid filter rule settings: FULL_MATCH matching scope is not supported in real-time streaming mode. Use`PARTIAL_MATCH`or`STREAMING_MODE_BUFFERED` instead.
+
+
+
+For examples of streaming sanitization with exclusion rules, see [Sanitize a streaming prompt with an exclusion rule](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#stream-prompt-exclusion) and [Sanitize a streaming response with an exclusion rule](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#stream-response-exclusion).
+
 ### Considerations
 
 When you configure exclusion rules, consider the following:
 
   * Exclusion rules apply only to the template where you define them. You can't share exclusion rules across templates.
   * You can configure exclusion rules for a supported filter type only when that filter is enabled in the template. For prompt injection and jailbreak detection (`PROMPT_INJECTION_AND_JAILBREAK`), set `filterEnforcement` to `ENABLED` in `piAndJailbreakFilterSettings`. To enable responsible AI safety filters (`RESPONSIBLE_AI`), configure at least one responsible AI safety category in `raiSettings.raiFilters`.
-  * Model Armor doesn't support exclusion rules in streaming APIs or floor settings.
+  * Model Armor doesn't support exclusion rules in floor settings.
+  * In streaming sanitization, Model Armor supports full-match exclusion rules (`MATCHING_SCOPE_FULL_MATCH`) only in buffered mode (`STREAMING_MODE_BUFFERED`). Using `MATCHING_SCOPE_FULL_MATCH` in real-time mode (`STREAMING_MODE_REALTIME`, the default streaming mode) returns the following `INVALID_ARGUMENT` error: `Invalid filter rule settings: FULL_MATCH matching scope is not supported in real-time streaming mode. Use`PARTIAL_MATCH`or`STREAMING_MODE_BUFFERED` instead.
   * Model Armor evaluates exclusion rules against raw input text before performing text transformations such as de-identification or translation. Exclusion rules don't support multi-language detection or automatic translation; to exclude content across multiple languages, add language-specific phrases or regular expression patterns for each target language.
   * Exclusion rules have limited support for non-Latin script languages and multi-byte UTF-8 characters. In particular, dictionary rules (`wordList`) might not match as expected for scripts that use combining marks (such as Indic scripts) or scripts without spaces between words (such as Chinese and Japanese). Full-match rules (`MATCHING_SCOPE_FULL_MATCH`) don't match inputs containing multi-byte UTF-8 characters. When excluding content in non-Latin scripts or inputs with multi-byte characters, use regular expression rules (`regex`) with `MATCHING_SCOPE_PARTIAL_MATCH`.
   * Exclusion rules are subject to system limits. For more information, see [Exclusion rules system limits](https://docs.cloud.google.com/model-armor/quotas#exclusion-rules-limits).
@@ -221,7 +239,7 @@ When you configure exclusion rules, consider the following:
 
 ## Create a template with exclusion rules
 
-To create a template with exclusion rules, include the `filterRuleSettings` object within `filterConfig` in a `POST` request.
+To create a template with exclusion rules, include the [`filterRuleSettings`](https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates#FilterRuleSettings) object within [`filterConfig`](https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates#FilterConfig) in a `POST` request.
 
 The following example creates a template that enables prompt injection and jailbreak detection and responsible AI safety filters, and configures two exclusion rules with partial matching (`MATCHING_SCOPE_PARTIAL_MATCH`):
 
@@ -300,10 +318,10 @@ The following example creates a template that enables prompt injection and jailb
     }'
     
     curl -X POST \
-      -d "$TEMPLATE_WITH_EXCLUSIONS" \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+        -d "$TEMPLATE_WITH_EXCLUSIONS" \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
     
 
 Replace the following:
@@ -436,10 +454,10 @@ The following example updates the exclusion rules from the preceding example by 
     }'
     
     curl -X PATCH \
-      -d "$EXCLUSION_RULES_UPDATE" \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=filterConfig.filterRuleSettings"
+        -d "$EXCLUSION_RULES_UPDATE" \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        "https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=filterConfig.filterRuleSettings"
     
 
 Replace the following:
@@ -510,6 +528,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

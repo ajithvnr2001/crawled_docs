@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/product-list/
 title: Google Cloud products at a glance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T12:53:11.171715+00:00
+fetched_at: 2026-11-03T09:53:13.962733+00:00
 ---
 
 # Google Cloud products at a glance  |  Google Cloud Documentation
@@ -49,6 +49,7 @@ A quick reference for Google Cloud products
   * [ Dialogflow ES Standard conversational AI builder ](https://docs.cloud.google.com/dialogflow/es/docs)
   * [ DocAI Analyze, classify, search documents ](https://docs.cloud.google.com/document-ai/docs)
   * [ Enterprise Knowledge Graph Consolidate & reconcile organizational knowledge ](https://docs.cloud.google.com/enterprise-knowledge-graph/docs)
+  * [ Gemini Cloud Assist AI assistance for cloud operations ](https://docs.cloud.google.com/cloud-assist)
   * [ Gemini Enterprise Agent Platform Build & manage autonomous AI agents ](https://docs.cloud.google.com/gemini-enterprise-agent-platform)
   * [ Live Stream API Live video streaming & transcoding ](https://docs.cloud.google.com/livestream/docs)
   * [ Speech-to-Text Convert audio to text ](https://docs.cloud.google.com/speech-to-text/docs)
@@ -123,18 +124,20 @@ A quick reference for Google Cloud products
   * [ Blockchain Analytics Indexed blockchain data for analysis ](https://docs.cloud.google.com/blockchain-analytics/docs)
   * [ Cloud Data Fusion Graphically manage data pipelines ](https://docs.cloud.google.com/data-fusion/docs)
   * [ Cortex Framework Data foundation for enterprise analytics ](https://docs.cloud.google.com/cortex/docs)
+  * [ Data Agent Kit IDE extension & agent plugin for data workflows ](https://docs.cloud.google.com/data-agent-kit)
   * [ Data Studio Interactive dashboards & data reporting ](https://docs.cloud.google.com/data-studio)
   * [ Dataflow Stream/batch data processing ](https://docs.cloud.google.com/dataflow/docs)
   * [ Dataform ELT & SQL workflow tool ](https://docs.cloud.google.com/dataform/docs)
   * [ Dataproc Metastore Fully managed Apache Hive metastore ](https://docs.cloud.google.com/dataproc-metastore/docs)
   * [ Datastream Change data capture/replication service ](https://docs.cloud.google.com/datastream/docs)
-  * [ Knowledge Catalog Agentic context & data governance ](https://docs.cloud.google.com/dataplex/docs)
+  * [ Knowledge Catalog Unified data & AI metadata management ](https://docs.cloud.google.com/knowledge-catalog/docs)
   * [ Lakehouse Build an open, managed, high-performance lakehouse ](https://docs.cloud.google.com/lakehouse/docs)
   * [ Looker Enterprise BI & analytics ](https://docs.cloud.google.com/looker/docs)
   * [ Managed Service for Apache Airflow Managed workflow orchestration service ](https://docs.cloud.google.com/composer/docs)
   * [ Managed Service for Apache Kafka Stream processing with Apache Kafka ](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs)
   * [ Managed Service for Apache Spark Serverless analytics using Apache Spark ](https://docs.cloud.google.com/managed-spark/docs)
   * [ Manufacturing Data Engine Analyze & contextualize factory data ](https://docs.cloud.google.com/manufacturing-data-engine/docs)
+  * [ Orchestration Pipelines Declarative orchestration & deployment framework ](https://docs.cloud.google.com/orchestration-pipelines)
   * [ Pub/Sub Global real-time messaging ](https://docs.cloud.google.com/pubsub/docs)
 
 
@@ -151,6 +154,7 @@ A quick reference for Google Cloud products
   * [ Memorystore for Redis Cluster Fully managed Redis Cluster service ](https://docs.cloud.google.com/memorystore/docs/cluster)
   * [ Memorystore for Valkey Managed Valkey in-memory data store ](https://docs.cloud.google.com/memorystore/docs/valkey)
   * [ Spanner Horizontally scalable relational DB ](https://docs.cloud.google.com/spanner/docs)
+  * [ Spanner Omni Self-managed Spanner for your environment ](https://docs.cloud.google.com/spanner-omni)
 
 
 
@@ -167,7 +171,6 @@ A quick reference for Google Cloud products
 
 ## Industry solutions
 
-  * [ AI Commerce Search Personalized search for retail ](https://docs.cloud.google.com/retail/docs)
   * [ Anti Money Laundering AI (AML AI) Detect potential money laundering activity ](https://docs.cloud.google.com/financial-services/anti-money-laundering/docs)
   * [ Healthcare Data Engine Healthcare system Google Cloud interoperability ](https://docs.cloud.google.com/healthcare-api/docs)
   * [ Talent Solutions Job search with ML ](https://docs.cloud.google.com/talent-solution/job-search/docs)
@@ -219,6 +222,7 @@ A quick reference for Google Cloud products
 ## Observability and monitoring
 
   * [ Error Reporting App error reporting ](https://docs.cloud.google.com/error-reporting/docs)
+  * [ Google Cloud Observability Monitor, log & trace cloud workloads ](https://docs.cloud.google.com/stackdriver/docs/observability)
   * [ Logging Centralized data & event logging ](https://docs.cloud.google.com/logging/docs)
   * [ Monitoring Infrastructure & application monitoring ](https://docs.cloud.google.com/monitoring/docs)
   * [ Profiler CPU & heap reporting ](https://docs.cloud.google.com/profiler/docs)
@@ -261,6 +265,7 @@ A quick reference for Google Cloud products
 ## Storage
 
   * [ Backup and DR Service Backup & DR SaaS ](https://docs.cloud.google.com/backup-disaster-recovery/docs)
+  * [ Cloud FTP Managed SFTP & FTP file transfers ](https://docs.cloud.google.com/cloud-ftp)
   * [ Cloud Storage Multi-class multi-region object storage ](https://docs.cloud.google.com/storage/docs)
   * [ Filestore Managed network-attached storage ](https://docs.cloud.google.com/filestore/docs)
   * [ NetApp Volumes Fully managed NetApp ONTAP file storage ](https://docs.cloud.google.com/netapp/volumes/docs)
@@ -269,6 +274,6 @@ A quick reference for Google Cloud products
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-04 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

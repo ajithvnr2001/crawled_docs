@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/editions-intro/
 title: Cloud SQL editions overview \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:10.517358+00:00
+fetched_at: 2026-11-03T09:53:03.606332+00:00
 ---
 
 # Cloud SQL editions overview  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -27,9 +27,24 @@ MySQL | [PostgreSQL](https://docs.cloud.google.com/sql/docs/postgres/editions-in
 Cloud SQL for MySQL editions is a tier-based pricing model where each edition provides different performance, availability, observability, and data protection characteristics to support your various business and application needs. Cloud SQL offers the following editions:
 
   * **Cloud SQL Enterprise Plus edition** : provides the best performance, availability, and observability to run applications. These are in addition to the core capabilities of Cloud SQL.
+
   * **Cloud SQL Enterprise edition** : provides all core capabilities of Cloud SQL and is suitable for applications requiring less stringent availability and performance requirements.
 
 
+
+
+## Default Cloud SQL edition
+
+If you don't specify an edition when you create a primary instance using the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) or the Cloud SQL Admin API, then the default Cloud SQL edition depends on the database version of the instance:
+
+  * **Cloud SQL Enterprise Plus edition (`ENTERPRISE_PLUS`)**: MySQL 8.4 and MySQL 9.7 (`MYSQL_8_4` and `MYSQL_9_7`).
+
+  * **Cloud SQL Enterprise edition (`ENTERPRISE`)**: MySQL 5.6, MySQL 5.7, and MySQL 8.0 (`MYSQL_5_6`, `MYSQL_5_7`, and `MYSQL_8_0`), or when you don't specify a database version.
+
+
+
+
+In the Google Cloud console, Cloud SQL Enterprise Plus edition is selected by default when you create a new primary instance. When you create a read replica without specifying an edition, the read replica inherits the Cloud SQL edition of its primary instance.
 
 ## Cloud SQL editions features
 
@@ -39,6 +54,7 @@ The following table provides an overview of key features enhancements available 
 ---|---|---  
 **[Database versions](https://docs.cloud.google.com/sql/docs/db-versions)** | MySQL 8.0, 8.4, 9.7  
 **Note:** If the database version for your instance is MySQL 8.4 or MySQL 9.7, then the default Cloud SQL edition is Enterprise Plus. | MySQL 5.6, 5.7, 8.0, 8.4, 9.7  
+**Note:** If the database version for your instance is MySQL 8.0 or earlier, then the default Cloud SQL edition is Enterprise.  
 **[Availability SLA](https://cloud.google.com/sql/sla)** | 99.99% (includes maintenance) | 99.95% (excludes maintenance)  
 **_Performance_**  
 **[Machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview)** | N2  
@@ -187,6 +203,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

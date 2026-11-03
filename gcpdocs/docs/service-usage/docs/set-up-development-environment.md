@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-usage/docs/set-up-development-environment/
 title: Quickstart: Set up Service Usage for a development environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:58.665434+00:00
+fetched_at: 2026-11-03T09:41:59.229863+00:00
 ---
 
 # Quickstart: Set up Service Usage for a development environment  |  Google Cloud Documentation
@@ -21,12 +21,12 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Set up Service Usage for a development environment
 
-This page describes how to set up your development environment to use the Service Usage API.
+The Service Usage API lets you manage APIs and services in your Google Cloud project. In this quickstart, you configure your development environment to interact with the Service Usage API for testing purposes.
 
   * For most operational use cases, the simplest way to enable and disable services is to use Google Cloud console.
   * If you need to create scripts, you can use the Google Cloud CLI.
   * If you need to program against the Service Usage API, use one of the [client libraries](https://docs.cloud.google.com/service-usage/docs/libraries).
-  * To experiment with the API, you can follow the alternative setup instructions in this guide and use the `curl` command to test the API without setting up a full application development environment.
+  * To experiment with the API, follow the setup instructions in this guide and use the `curl` command to test the API without setting up a full application development environment.
 
 
 
@@ -77,7 +77,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=serviceusage.googleapis.com)
 
-  6. Ensure that your user account has been granted the [Service Usage Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage) role. 
+  6. Ensure that your user account has been granted the [Service Usage Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage) role.
 
 
 
@@ -130,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/billing-questions/
 title: Billing questions \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:23:40.966651+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:54:17.981726+00:00
 ---
 
 # Billing questions  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
@@ -28,6 +14,7 @@ fetched_at: 2026-10-27T16:23:40.966651+00:00
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
   * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
   * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
+  * [ Resources ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/release-notes)
 
 
 
@@ -35,93 +22,21 @@ Send feedback
 
 #  Billing questions Stay organized with collections  Save and categorize content based on your preferences. 
 
-[MySQL](https://docs.cloud.google.com/database-migration/docs/mysql/billing-questions "View this page for the MySQL version of Database Migration Service.") | [PostgreSQL](https://docs.cloud.google.com/database-migration/docs/postgres/billing-questions "View this page for the PostgreSQL version of Database Migration Service.") | PostgreSQL to AlloyDB
-
-  
-  
-
-
 Use the following resources to get help with billing questions:
 
-  * To learn more about billing, read the [Cloud Billing documentation](https://docs.cloud.google.com/billing/docs).
-  * Resolve billing concerns by using the [billing concerns troubleshooter](https://support.google.com/cloud/troubleshooter/7279311?hl=en&ref_topic=6288636).
-  * Request help with billing questions by using the [billing support form](https://support.google.com/cloud/contact/cloud_platform_billing?visit_id=1-636564925221770723-4170709031&rd=1).
-  * To change or disable billing on a project, go to the **Billing** page in the Google Cloud console. For more information, see [Modify a Project's Billing Settings](https://support.google.com/cloud/answer/6293499?hl=en&ref_topic=6288636) in the Google Cloud console Help.
-
-**Caution:** When you disable billing for a project, you also disable all product resources in that project.
+  * To learn more about billing, read the [ Cloud Billing documentation](https://docs.cloud.google.com/billing/docs).
+  * Resolve billing concerns by using the [ billing concerns troubleshooter](https://support.google.com/cloud/troubleshooter/7279311).
+  * Request help with billing questions by using the [ billing support form](https://support.google.com/cloud/contact/cloud_platform_billing).
+  * To change or disable billing on a project, go to the **Billing** page in the Google Cloud console. For more information, see [ Modify a Project's Billing Settings](https://support.google.com/cloud/answer/6293499).
 
 
+
+**Caution:** When you disable billing for a project, you also disable all product resources in that project. 
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
-
-  * ### Products and pricing
-
-    * [ See all products ](https://cloud.google.com/products/)
-    * [ Google Cloud pricing ](https://cloud.google.com/pricing/)
-    * [ Google Cloud Marketplace ](https://cloud.google.com/marketplace/)
-    * [ Contact sales ](https://cloud.google.com/contact/)
-  * ### Support
-
-    * [ Community forums ](https://discuss.google.dev/c/google-cloud/14/)
-    * [ Support ](https://cloud.google.com/support-hub/)
-    * [ Release Notes ](https://docs.cloud.google.com/release-notes)
-    * [ System status ](https://status.cloud.google.com)
-  * ### Resources
-
-    * [ GitHub ](https://github.com/googlecloudPlatform/)
-    * [ Getting Started with Google Cloud ](https://docs.cloud.google.com/docs/get-started/)
-    * [ Code samples ](https://docs.cloud.google.com/docs/samples)
-    * [ Cloud Architecture Center ](https://docs.cloud.google.com/architecture/)
-    * [ Training and Certification ](https://cloud.google.com/learn/training/)
-    * [ Builders Hub ](https://me.developers.google.com/)
-  * ### Engage
-
-    * [ Blog ](https://cloud.google.com/blog/)
-    * [ Events ](https://cloud.google.com/events/)
-    * [ X (Twitter) ](https://x.com/googlecloud)
-    * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
-    * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
-
-
-
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg) ](https://developers.google.com/)
-
-  * [ Android ](https://developer.android.com/)
-  * [ Chrome ](https://developer.chrome.com/)
-  * [ Firebase ](https://firebase.google.com/)
-  * [ Google AI ](https://ai.google.com/)
-
-
-
-  * [ About Google ](https://about.google/)
-  * [ Privacy ](https://policies.google.com/privacy)
-  * [ Site terms ](https://policies.google.com/terms?hl=en)
-  * [ Google Cloud terms ](https://cloud.google.com/product-terms)
-  * Manage cookies 
-  * [ Our third decade of climate action: join us ](https://cloud.google.com/sustainability)
-  * Sign up for the Google Cloud newsletter [ Subscribe ](https://cloud.google.com/newsletter/)
-
-
-
-  * English
-  * Deutsch
-  * Español
-  * Español – América Latina
-  * Français
-  * Indonesia
-  * Italiano
-  * Português
-  * Português – Brasil
-  * עברית
-  * 中文 – 简体
-  * 中文 – 繁體
-  * 日本語
-  * 한국어
-
-
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

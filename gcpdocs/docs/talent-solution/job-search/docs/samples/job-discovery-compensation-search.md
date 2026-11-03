@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-discovery-compensation-search/
 title: Compensation search (v3) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:12.426152+00:00
+fetched_at: 2026-11-03T09:43:58.314831+00:00
 ---
 
 # Compensation search (v3)  |  Job Search  |  Google Cloud Documentation
@@ -50,19 +50,19 @@ To authenticate to CTS, set up Application Default Credentials. For more informa
     	// Create the jobs service client.
     	service, err := talent.New(client)
     	if err != nil {
-    		return nil, fmt.Errorf("talent.New: %w", er&r)
+    		return nil, fmt.Errorf("talent.New: %w", err)
     	}
     
-    	jobQuery := talent.JobQuery{
-    		&CompensationFilter: talent.CompensationFilter{
+    	jobQuery := &talent.JobQuery{
+    		CompensationFilter: &talent.CompensationFilter{
     			Type:  "UNIT_AND_AMOUNT",
-    			Units: &[]string{"HOURLY"},
-    			Range: talent.&CompensationRange{
-    				MaxCompensation: talent.Money{
+    			Units: []string{"HOURLY"},
+    			Range: &talent.CompensationRange{
+    				MaxCompensation: &talent.Money{
     					Units:        15,
-    					CurrencyC&ode: "USD",
+    					CurrencyCode: "USD",
     				},
-    				MinCompensation: talent.Money{
+    				MinCompensation: &talent.Money{
     					Units:        10,
     					CurrencyCode: "USD",
     					Nanos:        500000000,
@@ -71,14 +71,14 @@ To authenticate to CTS, set up Application Default Credentials. For more informa
     		},
     	}
     	if companyName != "" {
-    		jobQuery.CompanyNames =& []string{companyName}
+    		jobQuery.CompanyNames = []string{companyName}
     	}
     
     	parent := "projects/" + projectID
-    	req := talent.SearchJobsRequest{
-    		// Make sure to set the Req&uestMetadata the same as the associated
+    	req := &talent.SearchJobsRequest{
+    		// Make sure to set the RequestMetadata the same as the associated
     		// search request.
-    		RequestMetadata: talent.RequestMetadata{
+    		RequestMetadata: &talent.RequestMetadata{
     			// Make sure to hash your userID.
     			UserId: "HashedUsrId",
     			// Make sure to hash the sessionID.
@@ -243,7 +243,7 @@ To authenticate to CTS, set up Application Default Credentials. For more informa
     
     search_jobs_request = jobs::SearchJobsRequest.new request_metadata: request_metadata,
                                                       job_query:        job_query,
-                                                      search_mode:      "JOB_SEARCH&quot;
+                                                      search_mode:      "JOB_SEARCH"
     search_jobs_response = talent_solution_client.search_jobs project_id, search_jobs_request
     
     puts search_jobs_response.to_json

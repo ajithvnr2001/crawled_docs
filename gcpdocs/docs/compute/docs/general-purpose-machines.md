@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/general-purpose-machines/
 title: General-purpose machine family for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:53.217578+00:00
+fetched_at: 2026-11-03T09:44:28.236265+00:00
 ---
 
 # General-purpose machine family for Compute Engine  |  Google Cloud Documentation
@@ -675,7 +675,7 @@ C4 VMs are powered by 6th generation (code-named Granite Rapids) or 5th generati
 
 The C4 machine series is designed to deliver price-performance and enterprise-grade reliability along with a maintenance experience for your most demanding workloads. C4 instances are ideal for web and app serving, game servers, databases and caches, video streaming, data analytics, network appliances, and CPU-based ML inference.
 
-C4 VMs are designed to achieve maximum performance from single-core turbo boosting. For more consistent vCPU performance, disable vCPU boosting and limit the vCPUs to the sustainable all-core turbo frequency. You can do this by setting `turboMode=ALL_CORE_MAX` in the [AdvancedMachineFeatures](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert) settings.
+C4 VMs are designed to achieve maximum performance from single-core turbo boosting. For more consistent vCPU performance, disable vCPU boosting and limit the vCPUs to the sustainable all-core turbo frequency. You can do this by setting `turboMode=ALL_CORE_MAX` in [AdvancedMachineFeatures](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert).
 
 In summary, the C4 machine series:
 
@@ -702,6 +702,7 @@ In summary, the C4 machine series:
   * You can't dynamically add or remove a disk when using Windows Server 25.
   * You can't dynamically add or remove multiple disks when using Windows Server 25 or Windows 11.
   * C4 VM shapes powered by Granite Rapids might experience lower networking performance on Windows 11 and Debian 11 [OS images](https://docs.cloud.google.com/compute/docs/images).
+  * C4 sole tenant nodes are available for only Granite Rapids.
 
 
 
@@ -3022,6 +3023,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

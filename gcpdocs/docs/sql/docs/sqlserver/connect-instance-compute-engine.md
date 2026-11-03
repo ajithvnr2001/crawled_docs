@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/connect-instance-compute-engine/
 title: Quickstart: Connect to Cloud SQL for SQL Server from a Compute Engine VM instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:39.900951+00:00
+fetched_at: 2026-11-03T09:53:04.535657+00:00
 ---
 
 # Quickstart: Connect to Cloud SQL for SQL Server from a Compute Engine VM instance  |  Google Cloud Documentation
@@ -122,13 +122,16 @@ You might also be able to get the required permissions through [custom roles](ht
 [Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
 
   2. Click **Create instance**.
-  3. Click **SQL Server**.
-  4. In the **Instance ID** field, enter `quickstart-instance`.
-  5. In the **Password** field, enter a password for the sqlserver user. Save this password for future use.
-  6. In the **Choose region and zonal availability** section, select **Single zone**.
-  7. Expand the **Show Configurations** section.
-  8. In the **Machine Type** drop-down list, select **Lightweight**.
-  9. Click **Create Instance** and then wait until the instance initializes and starts.
+  3. From the **Create instance** menu, select **New instance**.
+  4. Click **Choose SQL Server**.
+  5. Make sure that **Enterprise Plus** is selected as the Cloud SQL edition for your instance.
+  6. In the **Instance ID** field, enter `quickstart-instance`.
+  7. In the **Password** field, enter a password for the sqlserver user. Save this password for future use.
+  8. In the **Choose region and zonal availability** section, select **Single zone**.
+  9. In the **Customize your instance** section, click **Show configuration options**.
+  10. Expand the **Machine configuration** node.
+  11. From the **Machine shapes** region, select the **4 vCPU, 32 GB** shape.
+  12. Click **Create instance** and then wait until the instance initializes and starts.
 
 
 
@@ -183,19 +186,23 @@ Run the [`gcloud sql instances create`](https://docs.cloud.google.com/sdk/gcloud
 [Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
 
   2. Click **Create instance**.
-  3. Click **SQL Server**.
-  4. Enter `quickstart-instance` for **Instance ID**.
-  5. Enter a password for the sqlserver user. Save this password for future use.
-  6. Click the **Single zone** option for **Choose region and zonal availability**.
-  7. Click and expand **Show configuration options**.
-  8. For **Machine Type** , select **Lightweight**.
-  9. In **Connections** , select **Private IP**.
-  10. Select **default** in the **Network** drop-down menu.
-  11. Clear the **Public IP** checkbox to create an instance only with a private IP.
-  12. Click **Create instance** and then wait for the instance to initialize and start.
-  13. Click **Connections**.
-  14. In the **Security** section, select **Allow only SSL connections** to enable SSL connections.
-  15. In the **Allow only SSL connections** dialog, click **Save and restart** and then wait for the instance to restart.
+  3. From the **Create instance** menu, select **New instance**.
+  4. Click **Choose SQL Server**.
+  5. Make sure that **Enterprise Plus** is selected as the Cloud SQL edition for your instance.
+  6. In the **Instance ID** field, enter `quickstart-instance`.
+  7. In the **Password** field, enter a password for the sqlserver user. Save this password for future use.
+  8. In the **Choose region and zonal availability** section, select **Single zone**.
+  9. In the **Customize your instance** section, click **Show configuration options**.
+  10. Expand the **Machine configuration** node.
+  11. From the **Machine shapes** region, select the **4 vCPU, 32 GB** shape.
+  12. Expand the **Connections** node.
+  13. Clear the **Public IP** checkbox to create an instance only with a private IP address.
+  14. Select the **Private IP** checkbox.
+  15. From the **Network** menu, select **default**.
+  16. Click **Create instance** and then wait for the instance to initialize and start.
+  17. Click **Connections**.
+  18. In the **Security** section, select **Allow only SSL connections** to enable SSL connections.
+  19. In the **Allow only SSL connections** dialog, click **Save and restart** and then wait for the instance to restart.
 
 
 
@@ -1446,6 +1453,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

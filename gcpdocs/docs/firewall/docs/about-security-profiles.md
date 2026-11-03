@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-security-profiles/
 title: Security profile overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:12:57.925656+00:00
+fetched_at: 2026-11-03T09:53:28.537830+00:00
 ---
 
 # Security profile overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Security profile overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Security profiles help you define Layer 7 inspection policy for your Google Cloud resources. They are generic policy structures that firewall endpoints use to scan intercepted traffic and provide application layer services, such as the intrusion detection and prevention service, Advanced malware sandbox (WildFire) ([Preview](https://cloud.google.com/products#product-launch-stages)), and URL filtering service.
+Security profiles help you define Layer 7 inspection policy for your Google Cloud resources. They are generic policy structures that firewall endpoints use to scan intercepted traffic and provide application layer services, such as the intrusion detection and prevention service, Advanced malware sandbox (WildFire), and URL filtering service.
 
 This document provides a detailed overview of security profiles and their capabilities.
 
@@ -30,7 +30,7 @@ This document provides a detailed overview of security profiles and their capabi
   * Cloud Next Generation Firewall (Cloud NGFW) supports the following types of security profiles:
 
     * `THREAT_PREVENTION`
-    * `WILDFIRE_ANALYSIS` ([Preview](https://cloud.google.com/products#product-launch-stages))
+    * `WILDFIRE_ANALYSIS`
     * `URL_FILTERING`
   * A security profile is a resource that you can configure at the organization level or the project level.
 
@@ -115,26 +115,22 @@ To learn more about how to configure threat prevention, see [Configure intrusion
 
 ## Advanced malware sandbox security profile
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 Cloud NGFW uses an Advanced malware sandbox security profile to define the security policies and behaviors for malware analysis. Use the `WILDFIRE_ANALYSIS` security profile type to configure how the firewall detects and responds to potential threats.
 
 For more information, see [Advanced malware sandbox overview](https://docs.cloud.google.com/firewall/docs/about-wildfire).
 
-Use the following parameters, which are part of the Advanced malware sandbox configuration and can be configured using `gcloud beta network-security security-profiles wildfire-analysis` command:
+Use the following parameters, which are part of the Advanced malware sandbox configuration and can be configured using `gcloud network-security security-profiles wildfire-analysis` command:
 
   * **Submission rules** : define the files that Cloud NGFW Enterprise uploads to Advanced malware sandbox for asynchronous analysis. Configure these rules using the `add-submission-rule` command.
 
-    * To specify the file types to submit, choose `ANY_FILE` using the `--file-types` flag.
-    * Specify the traffic direction, such as upload, download, or both, using the `--direction` flag.
+    * To specify the file types to submit, choose `ANY_FILE`, `APK`, `ARCHIVE`, `EMAIL_LINK`, `FLASH`, `JAR`, `LINUX`, `MS_OFFICE`, `PDF`, `PE`, or `SCRIPT` using the `--file-types` flag.
+    * Specify the traffic direction, such as `UPLOAD`, `DOWNLOAD`, or `BOTH`, using the `--direction` flag.
   * **Inline cloud analysis rules** : use these rules to configure real-time protection. Configure these rules using the `add-inline-cloud-analysis-rule` command.
 
     * Specify file types (restricted to `ANY_FILE` or `PE` files) using the `--file-types` flag.
-    * Specify the traffic direction using the `--direction` flag.
+    * Specify the traffic direction, `DOWNLOAD` or `BOTH`, using the `--direction` flag.
     * Define the action to take upon threat detection (`ALLOW`, `DENY`, or `ALERT`) using the `--action` flag.
-  * **Inline ML configuration** : enable or disable machine learning (ML) engines to dynamically detect malicious content for specific file types, such as `WINDOWS_EXECUTABLE`, `POWERSHELL_SCRIPT`, `ELF`, and `MS_OFFICE`. Configure these engines using the `update` command with the following flags:
+  * **Inline ML configuration** : enable or disable machine learning (ML) engines to dynamically detect malicious content for specific file types, such as `WINDOWS_EXECUTABLE`, `POWERSHELL_SCRIPT1`, `POWERSHELL_SCRIPT2`, `ELF`, and `MS_OFFICE`. Configure these engines using the `update` command with the following flags:
 
     * `--[no-]analyze-windows-executables`
     * `--[no-]analyze-powershell-script-1`
@@ -148,9 +144,9 @@ Use the following parameters, which are part of the Advanced malware sandbox con
 
     * Specify the file's partial hash using the `--partial-hash` flag.
     * Specify the filename using the `--filename` flag.
-  * **Real-time lookup** : determine whether Cloud NGFW holds a file transfer while performing a real-time signature lookup against the Advanced malware sandbox cloud to prevent the initial transfer of known malware. This is enabled by default. Configure this setting using the `update` command with the `--[no-]wildfire-realtime-lookup` flag.
+  * **Real-time lookup** : determine whether Cloud NGFW holds a file transfer while performing a real-time signature lookup against the Advanced malware sandbox cloud to prevent the initial transfer of known malware. This setting is enabled by default when you create a profile in the Google Cloud console, and disabled by default when you create a profile using the gcloud CLI or API. Configure this setting using the `update` command with the `--[no-]wildfire-realtime-lookup` flag.
 
-  * **Threat and protocol overrides** : override the default action when a Advanced malware sandbox signature is matched. Configure overrides using the `add-override` command. You can override the following actions:
+  * **Threat and protocol overrides** : override the default action when an Advanced malware sandbox signature is matched. Configure overrides using the `add-override` command. You can override the following actions:
 
     * **Protocol overrides** : apply a specific action, such as `DENY`, to all Advanced malware sandbox or inline ML threats that occur over designated protocols such as `HTTP`, `SMTP`, or `FTP`. Configure these using the `--wildfire` or `--wildfire-inline-ml` flag and the `--action` flag.
 
@@ -212,7 +208,7 @@ Delete a security profile  |  Any of the following roles:
   * [Security Profile Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networksecurity#networksecurity.securityProfileAdmin) (`roles/networksecurity.securityProfileAdmin`) granted at the organization level for organization-level security profiles, and at either the project level or the organization level for project-level security profiles 
 
   
-View details about a security profile  |  Any of the following roles:  
+View details about a security profile in an organization or a project  |  Any of the following roles:  
 
 
   * [Compute Network Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) (`roles/compute.networkAdmin`)
@@ -221,7 +217,7 @@ View details about a security profile  |  Any of the following roles:
   * [Compute Network Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkViewer) (`roles/compute.networkViewer`)
 
   
-View all of the security profiles in an organization  |  Any of the following roles:  
+View all of the security profiles in an organization or a project  |  Any of the following roles:  
 
 
   * [Compute Network Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) (`roles/compute.networkAdmin`)
@@ -256,6 +252,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-firewalls/
 title: Cloud NGFW overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:36.560251+00:00
+fetched_at: 2026-11-03T09:53:29.055891+00:00
 ---
 
 # Cloud NGFW overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Cloud Next Generation Firewall (Cloud NGFW) is a distributed, modern cloud firewall service that lets you secure your Google Cloud workloads, such as applications and services that run on Google Cloud or that consume Google Cloud resources.
 
-Cloud NGFW provides stateful inspection and Layer 7 application control for both north-south traffic (entering or leaving a Virtual Private Cloud (VPC) network) and east-west traffic (communication among resources within VPC networks). For advanced security, Cloud NGFW includes [intrusion detection and prevention service](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention), [Advanced malware sandbox (WildFire)](https://docs.cloud.google.com/firewall/docs/about-wildfire) ([Preview](https://cloud.google.com/products#product-launch-stages)), and [URL filtering service](https://docs.cloud.google.com/firewall/docs/about-url-filtering). Intrusion detection and prevention service inspects traffic at the application layer to identify and block network-based threats. URL filtering service lets you control access to websites and webpages by blocking or allowing their URLs.
+Cloud NGFW provides stateful inspection and Layer 7 application control for both north-south traffic (entering or leaving a Virtual Private Cloud (VPC) network) and east-west traffic (communication among resources within VPC networks). For advanced security, Cloud NGFW includes [intrusion detection and prevention service](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention), [Advanced malware sandbox (WildFire)](https://docs.cloud.google.com/firewall/docs/about-wildfire), and [URL filtering service](https://docs.cloud.google.com/firewall/docs/about-url-filtering). Intrusion detection and prevention service inspects traffic at the application layer to identify and block network-based threats. URL filtering service lets you control access to websites and webpages by blocking or allowing their URLs.
 
 This document provides an overview of Cloud NGFW features, service tiers, and the different networks Cloud NGFW supports.
 
@@ -119,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

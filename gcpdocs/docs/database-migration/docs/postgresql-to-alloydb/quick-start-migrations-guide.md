@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/quick-start-migrations-guide/
 title: Use quick-start migrations to migrate to AlloyDB for PostgreSQL \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:13.789632+00:00
+fetched_at: 2026-11-03T09:54:18.962257+00:00
 ---
 
 # Use quick-start migrations to migrate to AlloyDB for PostgreSQL  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
@@ -14,7 +14,7 @@ fetched_at: 2026-10-27T16:23:13.789632+00:00
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
   * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
   * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest)
+  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview)
 
 
 
@@ -25,24 +25,19 @@ Send feedback
   
 
 
-MySQL | [PostgreSQL](https://docs.cloud.google.com/database-migration/docs/postgres/quick-start-migrations-guide "View this page for the PostgreSQL version of Database Migration Service.") | PostgreSQL to AlloyDB
-
-  
-
-
 **Preview**
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This page describes how to perform quick-start migrations for homogeneous PostgreSQL migrations to AlloyDB for PostgreSQL.
+This page describes how to perform quick-start continuous migrations for homogeneous PostgreSQL migrations to AlloyDB for PostgreSQL.
 
 ## Overview
 
-_Quick-start migrations_ are a lightweight continuous migration flow for homogeneous PostgreSQL scenarios. With quick-start migrations, Database Migration Service can automatically set up everything you need to migrate your databases: networking components (network attachments, subnets, private connectivity configurations), connection profiles, and migration jobs.
+_Quick-start migrations_ are a lightweight continuous migration flow for homogeneous PostgreSQL scenarios. With quick-start migrations, Database Migration Service can automatically configure the core networking and migration resources you need: network attachments, subnets, private connectivity configurations with Private Service Connect interfaces, connection profiles, and continuous migration jobs.
 
 With quick-start migrations, you can move your data to an existing AlloyDB for PostgreSQL cluster, or create a new one as you configure the migration. Quick-start migrations are best suited for:
 
-  * Basic migrations, where you don't need to precise control over data dump parallelism settings. 
+  * Basic migrations where you don't need customized data dump parallelism settings. 
   * Migrating your database from one Google Cloud project to another. When you configure a quick-start migration, you can create your destination cluster in a different project than your source and set Database Migration Service to create the network attachment and subnet in the Virtual Private Cloud (VPC) network of another project. 
   * Migrating from sources that have a private IP address in your Google Cloud Virtual Private Cloud (VPC) network, such as self-managed databases on Compute Engine, or Cloud SQL for PostgreSQL instances enabled for private networking. 
 
@@ -57,38 +52,13 @@ To learn more about quick-start migrations, see [ Quick-start migrations overvie
 ## Before you begin
 
   1. Verify if quick-start migrations can fully support your scenario. See [ Quick-start migration limitations](https://docs.cloud.google.com/database-migration/docs/about-quick-start-migrations#limitations). 
-
-  2. [ Sign in](https://accounts.google.com/Login) to your Google Account.
-
-If you don't already have one, [ sign up for a new account](https://accounts.google.com/SignUp).
-
-  3. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
-
-**Roles required to select or create a project**
-
-     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
-     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-**Note** : If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.
+  2. In the Google Cloud console, on the project selector page, select or [ create a Google Cloud project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects). 
 
 [Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
 
-  4. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+  3. Enable the Database Migration Service, Compute Engine, Network Connectivity Center, and AlloyDB for PostgreSQL APIs. 
 
-  5. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
-
-**Roles required to select or create a project**
-
-     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
-     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-**Note** : If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.
-
-[Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
-
-  6. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
-
-  7. Enable the Database Migration Service, Compute Engine, Network Connectivity Center, and AlloyDB for PostgreSQL Admin APIs. 
-
-[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=compute.googleapis.com,datamigration.googleapis.com,alloydb.googleapis.com,networkconnectivity.googleapis.com)
+[ Enable the APIs](https://console.cloud.google.com/flows/enableapi?apiid=compute.googleapis.com,datamigration.googleapis.com,alloydb.googleapis.com,networkconnectivity.googleapis.com)
 
 
 
@@ -106,7 +76,7 @@ Grant the following roles to specific accounts on the Google Cloud project where
   * For the user account that performs the migration: [ Compute Network Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) role (`roles/compute.networkAdmin`) 
   * For the Database Migration Service service account of the **destination** project: [ Compute Network Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkViewer) (`roles/compute.networkViewer`) 
 
-The Database Migration Service service account is created for when you enable the Database Migration Service API. The email address associated with this account is generated automatically and can't be changed. This email address uses the following format: 
+The Database Migration Service service account is created when you enable the Database Migration Service API. The email address associated with this account is generated automatically and can't be changed. This email address uses the following format: 
         
         service-DESTINATION_PROJECT_NUMBER@gcp-sa-datamigration.iam.gserviceaccount.com
 
@@ -124,10 +94,17 @@ For the user account that performs the migration:
   * `compute.networks.*`
   * `compute.subnetworks.*`
   * `compute.networkAttachments.*`
+  * `networkconnectivity.internalRanges.create`
+  * `networkconnectivity.internalRanges.get`
+  * `networkconnectivity.operations.get`
 
 
 
-For the Database Migration Service service account of the **destination** project: `compute.networkAttachments.get`. 
+For the Database Migration Service service account of the **destination** project:
+
+  * `compute.networkAttachments.get`
+
+
 
 #### Roles and permissions in the destination project
 
@@ -201,7 +178,7 @@ Replace the following:
 
        * TABLE_OWNER_GROUP_NAME with the name of the user group that owns each table that you want to migrate. 
        * MIGRATION_USER with the name of the migration user account.
-  4. **For tables that don't have primary keys** : By default, only `INSERT` operations are replicated for tables without primary keys during the Change Data Capture (CDC) phase. To replicate `UPDATE` and `DELETE` operations, you must set the table's [`REPLICA IDENTITY`](https://www.postgresql.org/docs/current/logical-replication-publication.html#LOGICAL-REPLICATION-PUBLICATION-REPLICA-IDENTITY) to `FULL` or `USING INDEX`: 
+  4. **For tables that don't have primary keys** : Database Migration Service doesn't replicate `UPDATE` or `DELETE` operations for tables without primary keys during the Change Data Capture (CDC) phase. If you want to include such operations in your replication, modify tables without primary keys with [`REPLICA IDENTITY`](https://www.postgresql.org/docs/current/logical-replication-publication.html#LOGICAL-REPLICATION-PUBLICATION-REPLICA-IDENTITY): 
          
          ALTER TABLE TABLE_NAME REPLICA IDENTITY FULL;
          ALTER TABLE TABLE_NAME REPLICA IDENTITY USING INDEX INDEX_NAME;
@@ -223,7 +200,6 @@ Saving changes to database flags requires a full database restart. The following
      2. Set the [`wal_sender_timeout`](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-SENDER-TIMEOUT) parameter to `0`. This value disables the timeout mechanism that's used to terminate inactive replication connections. Run the following command: 
             
             ALTER SYSTEM SET wal_sender_timeout = 0;
-                
 
      3. Configure the maximum number of replication slots with the [`max_replication_slots`](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS) parameter. This parameter must be set to at least the number of databases you're migrating per migration job, plus some reserves for table synchronization. 
 
@@ -232,7 +208,6 @@ For example, if you're migrating 5 databases and there are 2 migration jobs crea
 To set this parameter, run the following command:
             
             ALTER SYSTEM SET max_replication_slots = NUMBER_OF_SLOTS;
-                
 
 Where NUMBER_OF_SLOTS represents the maximum number of replication slots. 
      4. Configure the [`max_wal_senders`](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) parameter to at least the same value as `max_replication_slots`, plus the number of senders already used on your instance. 
@@ -242,21 +217,19 @@ For example, if the `max_replication_slots` parameter is set to `10`, and you're
 To set this parameter, run the following command:
             
             ALTER SYSTEM SET max_wal_senders = NUMBER_OF_SENDERS;
-                
 
 Where NUMBER_OF_SENDERS represents the number of WAL sender processes running simultaneously. 
-     5. Set the [`max_worker_processes`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES%20%20%20%20%20%20%20%20%20%20%20track-type=) to at least the number of databases that you want to migrate, plus the number of `max_worker_processes` already used on your instance. To set this parameter, run the following command: 
+     5. Set the [`max_worker_processes`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES) to at least the number of databases that you want to migrate, plus the number of `max_worker_processes` already used on your instance. To set this parameter, run the following command: 
             
             ALTER SYSTEM SET max_worker_processes = NUMBER_OF_PROCESSES;
-                
 
 Where NUMBER_OF_PROCESSES represents the number of databases that will be migrated. 
 
 ### Cloud SQL for PostgreSQL sources
 
-For Cloud SQL sources, you configure database flags in the Google Cloud console. You have to restart your instance after modifying database flags for the setting to take effect. For more information on setting database flags in Cloud SQL, see [Configure database flags](https://docs.cloud.google.com/sql/docs/postgres/flags) in the Cloud SQL documentation. 
+For Cloud SQL sources, you configure database flags in the Google Cloud console. You have to restart your instance after modifying database flags for the setting to take effect. For more information on setting database flags in Cloud SQL, see [ Configure database flags](https://docs.cloud.google.com/sql/docs/postgres/flags) in the Cloud SQL documentation. 
 
-     1. Set the `cloudsql.logical_decoding` flag to `on`.
+     1. Set the `cloudsql.logical_decoding` flag to `on`. Enabling this flag requires an instance restart for the setting to take effect. 
      2. Set the `wal_sender_timeout` parameter to `0`. This value disables the timeout mechanism that's used to terminate inactive replication connections. 
      3. Configure the maximum number of replication slots with the `max_replication_slots` parameter. This parameter must be set to at least the number of databases you're migrating per migration job, plus some reserves for table synchronization. 
 
@@ -266,7 +239,7 @@ For example, if you're migrating 5 databases and there are 2 migration jobs crea
 
 For example, if the `max_replication_slots` parameter is set to `10`, and you're already using 2 senders, then the number of WAL sender processes running at the same time would be `10 + 2 = 12`. 
 
-     5. Set the `max_worker_processes` to at least the number of databases that you want to migrate, plus the number of `max_worker_processes` already used on your instance. 
+     5. Set the `max_worker_processes` parameter to at least the number of databases that you want to migrate, plus the number of `max_worker_processes` already used on your instance. 
 
 
 
@@ -294,48 +267,43 @@ The **Migrate to AlloyDB for PostgreSQL** page opens.
      1. From the **Destination region** menu, select the region of your destination AlloyDB for PostgreSQL cluster. 
      2. In the **Migration prefix** box, enter a human-friendly string that will be added to the names of all migration entities created for the quick-start migration: connection profiles, private connectivity configuration, network attachment and its subnet, and migration job. 
      3. From the **Configuration type** menu, select one of the following: 
-        1. **Existing connectivity configuration** : Select this option if you already have a network attachment and a private connectivity configuration that uses Private Service Connect interfaces method. This option is best used if you previously used quick-start migrations and want to re-use the same networking resources. 
+        1. **Existing connectivity configuration** : Select this option if you already have a network attachment and a private connectivity configuration that uses the Private Service Connect interfaces method. This option is best used if you previously used quick-start migrations and want to re-use the same networking resources. 
         2. **New connectivity configuration** : Select this option to create a new network attachment and the network attachment subnet in the source database VPC network. The private connectivity configuration will be created in the same project as your destination cluster. 
-Click **Continue**. 
-
-* In the **Connect source** section, do the following: 
-
-  1. Enter a **Hostname** or the private **IP address** of your source database. The source database address must be reachable from your source VPC network. 
-  2. Enter the **Port** that's used to access the host. The default PostgreSQL port is `5432`.
-  3. Enter the username and password for the dedicated migration account in your source database. 
-  4. From the **Encryption type** menu, select one of the following: 
-     * **None** : If your source database doesn't require SSL/TLS-encrypted connections.
-     * **Required** : If your source database requires SSL/TLS-encrypted connections. This option doesn't require any certificate verification.
-  5. In the **Databases to migrate** menu, click **Customize**. Use the side panel to select only the databases you want to migrate to AlloyDB for PostgreSQL. 
-
-
-Click **Continue**. 
-* In the **Configure destination** section, you can create a new destination cluster, or select an existing one. 
+     4. Click **Continue**.
+  6. In the **Connect source** section, do the following: 
+     1. Enter a **Hostname** or the private **IP address** of your source database. The source database address must be reachable from your source VPC network. 
+     2. Enter the **Port** that's used to access the host. The default PostgreSQL port is `5432`.
+     3. Enter the username and password for the dedicated migration account in your source database. 
+     4. From the **Encryption type** menu, select one of the following: 
+        * **None** : If your source database doesn't require SSL/TLS-encrypted connections.
+        * **Required** : If your source database requires SSL/TLS-encrypted connections. This option doesn't require any certificate verification.
+     5. In the **Databases to migrate** menu, click **Customize**. Use the side panel with embedded database discovery to select only the databases you want to migrate to AlloyDB for PostgreSQL. 
+     6. Click **Continue**.
+  7. In the **Configure destination** section, you can create a new destination cluster, or select an existing one: 
 
 ### New clusters
 
 If you want to create a new destination cluster, do the following:
 
-  1. From the **Destination instance type** menu, select **New cluster**. 
+     1. From the **Destination instance type** menu, select **New cluster**. 
 
-Database Migration Service uses the default AlloyDB for PostgreSQL configuration for a new cluster. Click **Customize** to adjust cluster features, such as the machine type, zonal availability, or data protection settings. For more informations on cluster configuration, see [ Create a cluster and its primary instance](https://docs.cloud.google.com/alloydb/docs/cluster-create) in the AlloyDB for PostgreSQL documentation. 
+Database Migration Service uses the default AlloyDB for PostgreSQL configuration for a new cluster. Click **Customize** to adjust cluster features, such as the machine type, zonal availability, or data protection settings. For more information on cluster configuration, see [ Create a cluster and its primary instance](https://docs.cloud.google.com/alloydb/docs/cluster-create) in the AlloyDB for PostgreSQL documentation. 
 
-  2. In the **Password** field, enter a password for the default `postgresql` admin user. Database Migration Service connects as this user to migrate your data. 
-
-
+     2. In the **Password** field, enter a password for the default `postgres` admin user. Database Migration Service connects as this user to migrate your data. 
 
 ### Existing clusters
 
-You can migrate databases to a cluster that already exists. Make sure the destination cluster is enabled for Private Service Connect and doesn't enforce mTLS with AlloyDB connectors. Do the following: 
+You can migrate databases to a cluster that already exists. Make sure the destination cluster is enabled for Private Service Connect, is in the `RUNNABLE` state, and doesn't enforce mTLS with AlloyDB connectors. Do the following: 
 
-  1. From the **Destination instance type** menu, select **Existing cluster**. 
-  2. From the **Existing cluster ID** menu, select the cluster identifier. 
+     1. From the **Destination instance type** menu, select **Existing cluster**. 
+     2. From the **Existing cluster ID** menu, select the cluster identifier. 
+
+  8. Click **Start migration**. 
+
+Database Migration Service creates the continuous migration job and begins replicating data. You can monitor the migration progress and your destination cluster health in AlloyDB for PostgreSQL. For more information, see [ View cluster and instance details](https://docs.cloud.google.com/alloydb/docs/instance-view) in the AlloyDB for PostgreSQL documentation. 
 
 
 
-* Click **Start migration**. 
-
-Database Migration Service now creates the migration job and begins the migration process. You can monitor the migration progress, as well as your destination cluster health in AlloyDB for PostgreSQL. For more information, see [ View instance details](https://docs.cloud.google.com/alloydb/docs/instance-view) in the AlloyDB for PostgreSQL documentation. 
 
 ### gcloud
 
@@ -719,7 +687,7 @@ You should receive a response similar to the following:
     Created connection profile CONNECTION_PROFILE_ID [OPERATION_ID]
     
 
-  6. Create a migration job.  
+  6. Create a continuous migration job.  
 Run the following command to create a continuous migration job (click to expand):
 
 #### `gcloud database-migration migration-jobs create`
@@ -792,23 +760,74 @@ You should receive a response similar to the following:
     
 
   7. Start the migration job.  
-To start the migration job, run the following command (click to expand):
+To start the continuous migration job, run the following command (click to expand):
 
 #### `gcloud database-migration migration-jobs start`
-         
-         gcloud database-migration migration-jobs start MIGRATION_JOB_ID \
-           --region=REGION
+
+Before using any of the command data below, make the following replacements: 
+
+     * MIGRATION_JOB_ID with your migration job identifier. 
+
+If you don't know the identifier, you can use the [ `gcloud database-migration migration-jobs list`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/list) command to list all migration jobs in a given region and view their identifiers. 
+
+     * REGION with the identifier of the region where your migration job is saved.
+
+Execute the following command: 
+
+#### Linux, macOS, or Cloud Shell
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration migration-jobs \
+    start MIGRATION_JOB_ID \
+      --region=REGION
+
+#### Windows (PowerShell)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration migration-jobs `
+    start MIGRATION_JOB_ID `
+      --region=REGION
+
+#### Windows (cmd.exe)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration migration-jobs ^
+    start MIGRATION_JOB_ID ^
+      --region=REGION
+
+#### Result
+
+The action is performed in an asynchronous manner. As such, this command returns an [ Operation entity](https://docs.cloud.google.com/database-migration/docs/reference/rest/v1/projects.locations.operations) that represents a long-running operation: 
+    
+    done: false
+    metadata:
+      '@type': type.googleapis.com/google.cloud.clouddms.v1.OperationMetadata
+      apiVersion: v1
+      createTime: '2024-02-20T12:20:24.493106418Z'
+      requestedCancellation: false
+      target: MIGRATION_JOB_ID
+      verb: start
+    name: OPERATION_ID
+    
+
+To see if your operation is successful, you can query the returned operation object, or check the status of the migration job: 
+
+     * Use the [ `gcloud database-migration migration-jobs describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/migration-jobs/describe) command with the MIGRATION_JOB_ID to view the status of the migration job.
+     * Use the [ `gcloud database-migration operations describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/operations/describe) command with the OPERATION_ID to see the status of the operation itself.
 
 
 
 
 ## Finalize the migration
 
-When you decide to switch your application to the new AlloyDB for PostgreSQL instance, finalize the migration by following these steps:
+When you decide to switch your application traffic to the new AlloyDB for PostgreSQL cluster, finalize the migration by following these steps:
 
-  1. Stop all write operations on your source database. You can switch them to read-only mode to retain operational functionality. 
-  2. [ Promote the migration job](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/promote-migration). For quick-start migrations, your destination instance remains writable during the migration process. Promoting the migration job only ends the replication and doesn't have any impact on your destination instance. 
-  3. Optional: [ Verify migration data](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/verify-migration) for completeness.
+  1. Stop all write operations on your source database. You can switch the source database to read-only mode to retain operational query functionality during cutover. 
+  2. [ Promote the migration job](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/promote-migration). For quick-start migrations, your destination cluster remains writable during the migration process. Promoting the migration job only ends the replication and doesn't have any impact on your destination cluster. 
+  3. Optional: [ Verify migration data](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/verify-migration) for completeness and consistency. 
 
 
 
@@ -822,70 +841,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
-
-  * ### Products and pricing
-
-    * [ See all products ](https://cloud.google.com/products/)
-    * [ Google Cloud pricing ](https://cloud.google.com/pricing/)
-    * [ Google Cloud Marketplace ](https://cloud.google.com/marketplace/)
-    * [ Contact sales ](https://cloud.google.com/contact/)
-  * ### Support
-
-    * [ Community forums ](https://discuss.google.dev/c/google-cloud/14/)
-    * [ Support ](https://cloud.google.com/support-hub/)
-    * [ Release Notes ](https://docs.cloud.google.com/release-notes)
-    * [ System status ](https://status.cloud.google.com)
-  * ### Resources
-
-    * [ GitHub ](https://github.com/googlecloudPlatform/)
-    * [ Getting Started with Google Cloud ](https://docs.cloud.google.com/docs/get-started/)
-    * [ Code samples ](https://docs.cloud.google.com/docs/samples)
-    * [ Cloud Architecture Center ](https://docs.cloud.google.com/architecture/)
-    * [ Training and Certification ](https://cloud.google.com/learn/training/)
-    * [ Builders Hub ](https://me.developers.google.com/)
-  * ### Engage
-
-    * [ Blog ](https://cloud.google.com/blog/)
-    * [ Events ](https://cloud.google.com/events/)
-    * [ X (Twitter) ](https://x.com/googlecloud)
-    * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
-    * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
-
-
-
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
-
-  * [ Android ](https://developer.android.com/)
-  * [ Chrome ](https://developer.chrome.com/)
-  * [ Firebase ](https://firebase.google.com/)
-  * [ Google AI ](https://ai.google.com/)
-
-
-
-  * [ About Google ](https://about.google/)
-  * [ Privacy ](https://policies.google.com/privacy)
-  * [ Site terms ](https://policies.google.com/terms?hl=en)
-  * [ Google Cloud terms ](https://cloud.google.com/product-terms)
-  * Manage cookies 
-  * [ Our third decade of climate action: join us ](https://cloud.google.com/sustainability)
-  * Sign up for the Google Cloud newsletter [ Subscribe ](https://cloud.google.com/newsletter/)
-
-
-
-  * English
-  * Deutsch
-  * Español – América Latina
-  * Français
-  * Indonesia
-  * Italiano
-  * Português – Brasil
-  * עברית
-  * 中文 – 简体
-  * 中文 – 繁體
-  * 日本語
-  * 한국어
-
-
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

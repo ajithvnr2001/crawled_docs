@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/tutorials/github-runner/
 title: Run and scale self-hosted GitHub runners on Cloud Run worker pools \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:14.352258+00:00
+fetched_at: 2026-11-03T09:44:04.979063+00:00
 ---
 
 # Run and scale self-hosted GitHub runners on Cloud Run worker pools  |  Google Cloud Documentation
@@ -180,7 +180,7 @@ Take the secret token you created in the previous step, and store it in Secret M
 
   1. Create the secret in Secret Manager:
          
-         echo -n &quot;GITHUB_TOKEN" | gcloud secrets create github_runner_token --data-file=-
+         echo -n "GITHUB_TOKEN" | gcloud secrets create github_runner_token --data-file=-
          
 
 Replace the GITHUB_TOKEN with the value you copied from GitHub.
@@ -266,10 +266,10 @@ This helper script runs when the container is started, registering itself to the
     
     # Trap signals.
     trap 'cleanup; exit 130' INT
-    trap 'cleanup; exit 143&9; TERM
+    trap 'cleanup; exit 143' TERM
     
     # Run the runner.
-    ./run.sh  wait $!
+    ./run.sh & wait $!
     
 
 ### Use the worker pool to accept jobs from GitHub actions

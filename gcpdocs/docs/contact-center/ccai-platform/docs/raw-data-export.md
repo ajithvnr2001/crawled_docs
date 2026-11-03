@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/raw-data-export/
 title: Raw data export \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:59.708062+00:00
+fetched_at: 2026-11-03T09:44:21.630657+00:00
 ---
 
 # Raw data export  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -42,14 +42,18 @@ To export session data, follow these steps:
 
   3. Click the **Raw Data Export** toggle to the on position.
 
-  4. Select **Google Cloud**.
+  4. Select one of the following:
+
+     * **Google Cloud**
+
+     * **Amazon S3**
 
   5. In the **Bucket Name** field, enter the name of the Cloud Storage bucket where you want to export your session data.
 
   6. Under **Service Account Key (JSON File)** , click **Upload key** to upload your JSON service account key for authentication. For more informatoion, see [Manage access to service accounts](https://docs.cloud.google.com/iam/docs/manage-access-service-accounts) and [Create and delete service account keys](https://docs.cloud.google.com/iam/docs/keys-create-delete).
 
 **Note:** If you've already uploaded a service account key, you can skip this step.
-  7. In the **Folder Path** field, enter the path to the subfolder where you want to store your session data, and then click **Save**.
+  7. Optional: In the **Folder Path** field, enter the path to the subfolder where you want to store your session data, and then click **Save**.
 
 
 
@@ -58,6 +62,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data/
 title: About data insights for structured data \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:24.936264+00:00
+fetched_at: 2026-11-03T09:53:46.727788+00:00
 ---
 
 # About data insights for structured data  |  Knowledge Catalog  |  Google Cloud Documentation

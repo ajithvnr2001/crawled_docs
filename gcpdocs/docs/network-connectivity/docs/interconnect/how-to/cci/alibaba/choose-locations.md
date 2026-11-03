@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/cci/alibaba/choose-locations/
 title: Choose your locations \u00a0|\u00a0 Cloud Interconnect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:58.413325+00:00
+fetched_at: 2026-11-03T09:43:12.251620+00:00
 ---
 
 # Choose your locations  |  Cloud Interconnect  |  Google Cloud Documentation
@@ -88,12 +88,13 @@ Google Cloud | Alibaba Cloud
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * cn-hongkong (Hong Kong)
 
-| Hong Kong|  alibaba-hk-kwaichung-a  | HK-KwaiChung-A | 
+| Hong Kong |  alibaba-hk-kwaichung-a  | HK-KwaiChung-A | 
 
   * hkg-zone1-1118
   * hkg-zone2-1118
@@ -107,12 +108,13 @@ Google Cloud | Alibaba Cloud
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * ap-southeast-1 (Singapore)
 
-| Singapore|  alibaba-ap-sg-singapore-a  | Singapore-A | 
+| Singapore |  alibaba-ap-sg-singapore-a  | Singapore-A | 
 
   * sin-zone1-2260
   * sin-zone2-2260
@@ -122,9 +124,9 @@ Google Cloud | Alibaba Cloud
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -140,7 +142,7 @@ Google Cloud | Alibaba Cloud
 
   * eu-central-1 (Frankfurt)
 
-| Frankfurt|  alibaba-germany-frankfurt-b  | Germany-Frankfurt-B | 
+| Frankfurt |  alibaba-germany-frankfurt-b  | Germany-Frankfurt-B | 
 
   * fra-zone1-683
   * fra-zone2-683
@@ -149,6 +151,7 @@ Google Cloud | Alibaba Cloud
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -163,7 +166,7 @@ Google Cloud | Alibaba Cloud
 
   * us-east-1 (Virginia)
 
-| Washington D.C.|  alibaba-us-ashburn-a  | US-Ashburn-A | 
+| Washington D.C. |  alibaba-us-ashburn-a  | US-Ashburn-A | 
 
   * iad-zone1-1
   * iad-zone2-1
@@ -172,6 +175,7 @@ Google Cloud | Alibaba Cloud
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -186,7 +190,7 @@ Google Cloud | Alibaba Cloud
 
   * us-east-1 (Virginia)
 
-| Virginia|  alibaba-us-virginia-d  | US-Virginia-D | 
+| Virginia |  alibaba-us-virginia-d  | US-Virginia-D | 
 
   * iad-zone1-5467
   * iad-zone2-5467
@@ -215,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/
 title: BigQuery documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:47.681176+00:00
+fetched_at: 2026-11-03T09:44:36.053984+00:00
 ---
 
 # BigQuery documentation  |  Google Cloud Documentation
@@ -145,14 +145,6 @@ Code samples
 
 Explore self-paced training, use cases, reference architectures, and code samples with examples of how to use and connect Google Cloud services. 
 
-Solution 
-
-Training and tutorials
-
-###  [ Data Warehouse with BigQuery Jump Start Solution ](https://cloud.google.com/architecture/big-data-analytics/data-warehouse)
-
-Deploy and use a sample data warehouse with BigQuery. 
-
 Training 
 
 Training and tutorials
@@ -286,6 +278,6 @@ New customers also get $300 in free credits to run, test, and deploy workloads.
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

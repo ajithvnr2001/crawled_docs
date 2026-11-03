@@ -1,85 +1,76 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/
-title: Supported source and destination databases \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T18:12:05.706022+00:00
+title: Supported sources and versions \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:53:44.212063+00:00
 ---
 
-# Supported source and destination databases  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
+# Supported sources and versions  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/
-
-[ Skip to main content ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/)
-  * [Deutsch](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=de)
-  * [Español](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=es)
-  * [Español – América Latina](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=it)
-  * [Português](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=pt)
-  * [Português – Brasil](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/?hl=ko)
-
-
-[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fdatabase-migration%2Fdocs%2Fpostgresql-to-alloydb%2Fmigration-src-and-dest%2F&prompt=select_account)
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg) ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-  * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
-  * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [Overview](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/#overview)
-    * [Supported source databases](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/#supported-source-databases)
-    * [Supported destination databases](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/#supported_destination_databases)
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
   * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
   * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest)
+  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview)
 
 
-Was this helpful?
+
 Send feedback 
-#  Supported source and destination databases Stay organized with collections  Save and categorize content based on your preferences.
-  * On this page
-  * [Overview](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/#overview)
-    * [Supported source databases](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/#supported-source-databases)
-    * [Supported destination databases](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest/#supported_destination_databases)
+
+#  Supported sources and versions Stay organized with collections  Save and categorize content based on your preferences. 
+
+Database Migration Service supports continuous migrations from PostgreSQL source databases to AlloyDB for PostgreSQL destination clusters.
+
+## Supported sources
+
+Database Migration Service supports continuous migrations from the following source databases and versions:
+
+  * Amazon RDS 9.6.10+, 10.5+, 11.1+, 12, 13, 14, 15, 16, 17, 18
+  * Amazon Aurora 10.11+, 11.6+, 12.4+, 13.3+, 14, 15, 16, 17, 18
+  * Self-managed PostgreSQL (on premises or on any cloud VM that you fully control) 9.4, 9.5, 9.6, 10, 11, 12, 13, 14, 15, 16, 17, 18
+  * Cloud SQL 9.6, 10, 11, 12, 13, 14, 15, 16, 17, 18
 
 
-  
 
-[MySQL](https://docs.cloud.google.com/database-migration/docs/mysql/migration-src-and-dest) | [PostgreSQL](https://docs.cloud.google.com/database-migration/docs/postgres/migration-src-and-dest) | PostgreSQL to AlloyDB
-  
+For all supported source database offerings, Database Migration Service can migrate the databases you select from your source server. Certain system schemas and tables can't be migrated. For more information, see [ Known limitations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations).
 
-## Overview
-Database Migration Service supports continuous migrations from source databases to AlloyDB for PostgreSQL.
-### Supported source databases
-  * Amazon RDS 9.6.10+, 10.5+, 11.1+, 12, 13, 14, 15, 16, 17
-  * Amazon Aurora 10.11+, 11.6+, 12.4+, 13.3+, 14, 15, 16, 17
-  * Self-managed PostgreSQL (on premises or on any cloud VM that you fully control) 9.4, 9.5, 9.6, 10, 11, 12, 13, 14, 15, 16, 17
-  * Cloud SQL 9.6, 10, 11, 12, 13, 14, 15, 16, 17
+## Supported destinations
 
+Database Migration Service supports migrations to destination AlloyDB for PostgreSQL clusters running the following major versions:
 
-There are several schemas that can't be migrated. See [ Known limitations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations) for more information about these schemas.
-### Supported destination databases
   * AlloyDB for PostgreSQL 14, 15, 16, 17, 18
 
 
-Was this helpful?
+
+The destination is an AlloyDB for PostgreSQL cluster consisting of a primary instance and optional read pool instances that provide high availability and read scale.
+
+## Cross-version support
+
+Database Migration Service supports migrating from any supported source PostgreSQL version to the same or a later major version on AlloyDB for PostgreSQL:
+
+  * **Standard migrations** : Migrating from a later major version to an earlier major version (for example, from PostgreSQL 16 to 15) is unsupported. Migrating from a later minor version to an earlier minor version isn't recommended.
+  * **Quick-start migrations** : Migrating to an earlier major version is permitted. Database Migration Service displays a warning rather than blocking the operation.
+
+
+
+## What's next
+
+  * For more information on feature support and constraints, see [ Known limitations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations).
+
+  * To review the end-to-end migration process, see the [ Scenario overview](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview).
+
+  * To get started with a migration walkthrough, see [ Get started with AlloyDB for PostgreSQL migrations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/get-started-with-alloydb-migrations).
+
+
+
+
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-11-02 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

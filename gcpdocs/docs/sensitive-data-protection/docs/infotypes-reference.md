@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference/
 title: InfoType detector reference \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:12:49.984867+00:00
+fetched_at: 2026-11-03T09:41:49.894650+00:00
 ---
 
 # InfoType detector reference  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -163,6 +163,7 @@ Name | Description
 `ETHNIC_GROUP` | A person's ethnic group.   
 `DOCUMENT_TYPE/LEGAL/PLEADING` | A pleading is a formal written statement of a party's claims or defenses to another party's claims. Examples include a complaint, a demurrer, or an answer.   
 `CREDIT_CARD_TRACK_NUMBER` | A credit card track number is a variable length alphanumeric string. It is used to store key cardholder information.   
+`ENCODED_BLOCK` | A block of Base64, Base32, hexadecimal, or binary encoded data, such as an obfuscated prompt or an embedded file. This infoType detector is in [Preview](https://cloud.google.com/products#product-launch-stages).   
 `IMAGE_TYPE/CONTEXT/SEXUALLY_EXPLICIT` | A finding of this type indicates that an image contains adult content of a sexual nature. Adult content might include elements such as nudity, specific contours or shapes of reproductive body parts, sexual activities, or pornographic images including photo-realistic or cartoon in nature.   
 `DOCUMENT_TYPE/CONTEXT/POLITICS` | Content contains political topics.   
 `GERMANY_DRIVERS_LICENSE_NUMBER` | A German driver's license number.   
@@ -820,6 +821,8 @@ SPII
 |  PII  
 SPII  
 |  ANY_LOCATION   
+`ENCODED_BLOCK` |  GLOBAL  |  |  CONTEXTUAL_INFORMATION  
+|  ANY_LOCATION   
 `IMAGE_TYPE/CONTEXT/SEXUALLY_EXPLICIT` |  GLOBAL  |  |  CONTEXTUAL_INFORMATION  
 |  REGIONAL:  
 asia  
@@ -1476,6 +1479,7 @@ Name | Sensitivity score
 `ETHNIC_GROUP` | SENSITIVITY_MODERATE  
 `DOCUMENT_TYPE/LEGAL/PLEADING` | SENSITIVITY_MODERATE  
 `CREDIT_CARD_TRACK_NUMBER` | SENSITIVITY_HIGH  
+`ENCODED_BLOCK` | SENSITIVITY_MODERATE  
 `IMAGE_TYPE/CONTEXT/SEXUALLY_EXPLICIT` | SENSITIVITY_HIGH  
 `DOCUMENT_TYPE/CONTEXT/POLITICS` | SENSITIVITY_MODERATE  
 `GERMANY_DRIVERS_LICENSE_NUMBER` | SENSITIVITY_HIGH  
@@ -1755,6 +1759,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

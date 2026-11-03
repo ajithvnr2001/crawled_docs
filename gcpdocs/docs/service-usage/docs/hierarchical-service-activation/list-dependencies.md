@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/list-dependencies/
 title: List service dependencies \u00a0|\u00a0 Service Usage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:22.643847+00:00
+fetched_at: 2026-11-03T09:42:02.463065+00:00
 ---
 
 # List service dependencies  |  Service Usage  |  Google Cloud Documentation
@@ -25,11 +25,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-Hierarchical service activation lets you manage service enablement that is inherited through the Google Cloud resource hierarchy. For more information, see the [overview](https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/overview).
+Viewing _service dependency groups_ lets you identify services that are required for services you enable to function. When you enable a service using hierarchical service activation, its required dependencies are automatically added to the `ConsumerPolicy` resource of the organization, folder, or project for which you enable the service.
 
-Many Google Cloud services need other services to function. When you enable a service using hierarchical service activation, its required dependencies are automatically added to the `ConsumerPolicy`. A _service dependency group_ contains these relied-on services, which you can list to better understand and manage them.
-
-This document shows you how to use the Google Cloud CLI to list service dependencies for projects, folders, and organizations.
+You can use the Google Cloud CLI to list service dependencies for projects, folders, and organizations. For more information about hierarchical enablement, see the [overview](https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/overview).
 
 ## Before you begin
 
@@ -237,6 +235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

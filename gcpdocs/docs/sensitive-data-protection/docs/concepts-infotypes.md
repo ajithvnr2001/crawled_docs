@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-infotypes/
 title: InfoTypes and infoType detectors \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:02.441192+00:00
+fetched_at: 2026-11-03T09:43:57.401987+00:00
 ---
 
 # InfoTypes and infoType detectors  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -138,34 +138,34 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     
     using System;
-    using Google.Api.Gax.ResourceNames;
-    using Google.Cloud.Dlp.V2;
+    using [Google.Api.Gax.ResourceNames](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.html);
+    using [Google.Cloud.Dlp.V2](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.html);
     
     public class InspectPhoneNumber
     {
         public static InspectContentResponse Inspect(
             string projectId,
             string text,
-            Likelihood minLikelihood = Likelihood.Possible)
+            [Likelihood](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Likelihood.html) minLikelihood = [Likelihood](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Likelihood.html).[Possible](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Likelihood.html#Google_Cloud_Dlp_V2_Likelihood_Possible))
         {
             // Instantiate a client.
-            var dlp = DlpServiceClient.Create();
+            var dlp = [DlpServiceClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html#Google_Cloud_Dlp_V2_DlpServiceClient_Create)();
     
             // Set content item.
-            var contentItem = new ContentItem { Value = text };
+            var contentItem = new [ContentItem](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.ContentItem.html) { Value = text };
     
             // Construct inspect config.
-            var inspectConfig = new InspectConfig
+            var inspectConfig = new [InspectConfig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InspectConfig.html)
             {
-                InfoTypes = { new InfoType { Name = "PHONE_NUMBER" } },
+                InfoTypes = { new [InfoType](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InfoType.html) { Name = "PHONE_NUMBER" } },
                 IncludeQuote = true,
                 MinLikelihood = minLikelihood
             };
     
             // Construct a request.
-            var request = new InspectContentRequest
+            var request = new [InspectContentRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InspectContentRequest.html)
             {
-                ParentAsLocationName = new LocationName(projectId, "global"),
+                ParentAsLocationName = new [LocationName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.LocationName.html)(projectId, "global"),
                 InspectConfig = inspectConfig,
                 Item = contentItem,
             };
@@ -181,8 +181,8 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
             foreach (var f in resultFindings)
             {
                 Console.WriteLine("\tQuote: " + f.Quote);
-                Console.WriteLine("\tInfo type: " + f.InfoType.Name);
-                Console.WriteLine("\tLikelihood: " + f.Likelihood);
+                Console.WriteLine("\tInfo type: " + f.[InfoType](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InfoType.html).Name);
+                Console.WriteLine("\tLikelihood: " + f.[Likelihood](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Likelihood.html));
             }
     
             return response;
@@ -218,12 +218,12 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     	// Initialize a client once and reuse it to send multiple requests. Clients
     	// are safe to use across goroutines. When the client is no longer needed,
     	// call the Close method to cleanup its resources.
-    	client, err := dlp.NewClient(ctx)
+    	client, err := dlp.[NewClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_NewClient)(ctx)
     	if err != nil {
     		return err
     	}
     	// Closing the client safely cleans up background resources.
-    	defer client.Close()
+    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_Close)()
     
     	// Create and send the request.
     	req := &dlppb.InspectContentRequest{
@@ -270,15 +270,15 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.dlp.v2.DlpServiceClient;
-    import com.google.privacy.dlp.v2.ContentItem;
-    import com.google.privacy.dlp.v2.Finding;
-    import com.google.privacy.dlp.v2.InfoType;
-    import com.google.privacy.dlp.v2.InspectConfig;
-    import com.google.privacy.dlp.v2.InspectContentRequest;
-    import com.google.privacy.dlp.v2.InspectContentResponse;
-    import com.google.privacy.dlp.v2.Likelihood;
-    import com.google.privacy.dlp.v2.LocationName;
+    import com.google.cloud.dlp.v2.[DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html);
+    import com.google.privacy.dlp.v2.[ContentItem](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ContentItem.html);
+    import com.google.privacy.dlp.v2.[Finding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Finding.html);
+    import com.google.privacy.dlp.v2.[InfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html);
+    import com.google.privacy.dlp.v2.[InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html);
+    import com.google.privacy.dlp.v2.[InspectContentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectContentRequest.html);
+    import com.google.privacy.dlp.v2.[InspectContentResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectContentResponse.html);
+    import com.google.privacy.dlp.v2.[Likelihood](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Likelihood.html);
+    import com.google.privacy.dlp.v2.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html);
     import java.io.IOException;
     
     public class InspectPhoneNumber {
@@ -295,36 +295,36 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (DlpServiceClient dlp = DlpServiceClient.create()) {
+        try ([DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html) dlp = [DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html).create()) {
           // Specify the type and content to be inspected.
-          ContentItem item = ContentItem.newBuilder().setValue(textToInspect).build();
+          [ContentItem](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ContentItem.html) item = [ContentItem](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ContentItem.html).newBuilder().setValue(textToInspect).build();
     
           // Specify the type of info the inspection will look for.
           // See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
-          InfoType infoType = InfoType.newBuilder().setName("PHONE_NUMBER").build();
+          [InfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html) infoType = [InfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html).newBuilder().setName("PHONE_NUMBER").build();
     
           // Construct the configuration for the Inspect request.
-          InspectConfig config =
-              InspectConfig.newBuilder()
-                  .setIncludeQuote(true)
-                  .setMinLikelihood(Likelihood.POSSIBLE)
+          [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html) config =
+              [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html).newBuilder()
+                  .[setIncludeQuote](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.Builder.html#com_google_privacy_dlp_v2_InspectConfig_Builder_setIncludeQuote_boolean_)(true)
+                  .setMinLikelihood([Likelihood](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Likelihood.html).POSSIBLE)
                   .addInfoTypes(infoType)
                   .build();
     
           // Construct the Inspect request to be sent by the client.
-          InspectContentRequest request =
-              InspectContentRequest.newBuilder()
-                  .setParent(LocationName.of(projectId, "global").toString())
+          [InspectContentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectContentRequest.html) request =
+              [InspectContentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectContentRequest.html).newBuilder()
+                  .setParent([LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html).of(projectId, "global").toString())
                   .setItem(item)
                   .setInspectConfig(config)
                   .build();
     
           // Use the client to send the API request.
-          InspectContentResponse response = dlp.inspectContent(request);
+          [InspectContentResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectContentResponse.html) response = dlp.inspectContent(request);
     
           // Parse the response and process results
-          System.out.println("Findings: " + response.getResult().getFindingsCount());
-          for (Finding f : response.getResult().getFindingsList()) {
+          System.out.println("Findings: " + response.[getResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectContentResponse.html#com_google_privacy_dlp_v2_InspectContentResponse_getResult__)().getFindingsCount());
+          for ([Finding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Finding.html) f : response.[getResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectContentResponse.html#com_google_privacy_dlp_v2_InspectContentResponse_getResult__)().getFindingsList()) {
             System.out.println("\tQuote: " + f.getQuote());
             System.out.println("\tInfo type: " + f.getInfoType().getName());
             System.out.println("\tLikelihood: " + f.getLikelihood());
@@ -341,10 +341,10 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     
     // Imports the Google Cloud Data Loss Prevention library
-    const DLP = require('@google-cloud/dlp');
+    const DLP = require('[@google-cloud/dlp](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)');
     
     // Instantiates a client
-    const dlp = new DLP.DlpServiceClient();
+    const dlp = new DLP.[DlpServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)();
     
     // The project ID to run the API call under
     // const projectId = 'my-project';
@@ -493,7 +493,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         """
     
         # Instantiate a client.
-        dlp = google.cloud.dlp_v2.DlpServiceClient()
+        dlp = google.cloud.[dlp_v2](https://docs.cloud.google.com/python/docs/reference/dlp/latest).[DlpServiceClient](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html)()
     
         # Prepare info_types by converting the list of strings into a list of
         # dictionaries (protos are also accepted).
@@ -512,7 +512,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         parent = f"projects/{project}"
     
         # Call the API.
-        response = dlp.inspect_content(
+        response = dlp.[inspect_content](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html#google_cloud_dlp_v2_services_dlp_service_DlpServiceClient_inspect_content)(
             request={"parent": parent, "inspect_config": inspect_config, "item": item}
         )
     

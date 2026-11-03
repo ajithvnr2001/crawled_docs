@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/manual-scaling/
 title: Manual scaling \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:27.105987+00:00
+fetched_at: 2026-11-03T09:44:19.267841+00:00
 ---
 
 # Manual scaling  |  Cloud Run  |  Google Cloud Documentation
@@ -156,7 +156,7 @@ For example, using `curl`:
         curl -H "Content-Type: application/json" \
         -H "Authorization: Bearer ACCESS_TOKEN" \
         -X PATCH \
-        -d '{"scaling":{"manualInstanceCount":MANUAL_INSTANCE_COUNT }}9; \
+        -d '{"scaling":{"manualInstanceCount":MANUAL_INSTANCE_COUNT }}' \
         https://run.googleapis.com/v2/projects/PROJECT_ID/locations/REGION/services/SERVICE?update_mask=scaling.manualInstanceCount
 
 Replace the following:
@@ -177,7 +177,7 @@ For example, run the following `curl` command:
           curl -H "Content-Type: application/json" \
           -H "Authorization: Bearer ACCESS_TOKEN" \
           -X PATCH \
-          -d '{"launchStage":"BETA","scaling":{"scalingMode": "AUTOMATIC",&quot;manualInstanceCount";:null}}&#39; \
+          -d '{"launchStage":"BETA","scaling":{"scalingMode": "AUTOMATIC","manualInstanceCount":null}}' \
           https://run.googleapis.com/v2/projects/PROJECT_ID/locations/REGION/services/SERVICE?update_mask=launchStage,scaling.scalingMode,scaling.manualInstanceCount
 
 ### Terraform
@@ -188,7 +188,7 @@ Add the following to a [`google_cloud_run_v2_service`](https://registry.terrafor
 
     
     
-    resource "google_cloud_run_v2_service" "default&quot; {
+    resource "google_cloud_run_v2_service" "default" {
       name     = "SERVICE_NAME"
       location = "REGION"
     
@@ -198,7 +198,7 @@ Add the following to a [`google_cloud_run_v2_service`](https://registry.terrafor
         }
       }
       scaling {
-        scaling_mode = &quot;MANUAL"
+        scaling_mode = "MANUAL"
         manual_instance_count = "INSTANCE_COUNT"
       }
     }
@@ -319,7 +319,7 @@ For example, using `curl`:
         curl -H "Content-Type: application/json" \
         -H "Authorization: Bearer ACCESS_TOKEN" \
         -X PATCH \
-        -d '{"scaling":{"manualInstanceCount":0 }}9; \
+        -d '{"scaling":{"manualInstanceCount":0 }}' \
         https://run.googleapis.com/v2/projects/PROJECT_ID/locations/REGION/services/SERVICE?update_mask=scaling.manualInstanceCount
 
 Replace the following:
@@ -336,7 +336,7 @@ Replace the following:
 To disable a service, set the `manual_instance_count` attribute to zero (`0`):
     
     
-    resource "google_cloud_run_v2_service" "default&quot; {
+    resource "google_cloud_run_v2_service" "default" {
       name     = "SERVICE_NAME"
       location = "REGION"
     

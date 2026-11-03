@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/rapid/rapid-bucket/
 title: Rapid Bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:04.513616+00:00
+fetched_at: 2026-11-03T09:54:16.589054+00:00
 ---
 
 # Rapid Bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  Rapid Bucket Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes Rapid Bucket, a capability that lets you store objects in the [Rapid storage class](https://docs.cloud.google.com/storage/docs/storage-classes#rapid) by setting a zone as a [bucket's location](https://docs.cloud.google.com/storage/docs/locations). This approach lets you colocate your data storage with your compute resources, which delivers significantly lower latency and higher throughput compared to other storage classes in Cloud Storage. Workloads in other zones and regions can also access the bucket, with performance relative to the network distance.
+Rapid Bucket lets you store objects in the [Rapid storage class](https://docs.cloud.google.com/storage/docs/storage-classes#rapid) by setting a zone as a [bucket's location](https://docs.cloud.google.com/storage/docs/locations). By colocating your data storage with your compute resources, you can achieve significantly lower latency and higher throughput than with other storage classes in Cloud Storage. Workloads in other zones and regions can also access the bucket, with performance relative to the network distance.
 
-To create a zonal bucket using Rapid Bucket, see [Create zonal buckets](https://docs.cloud.google.com/storage/docs/rapid/create-zonal-buckets). You can view the list of supported locations in [Zones](https://docs.cloud.google.com/storage/docs/locations#location-z). To read and append to objects in zonal buckets, see [use objects in zonal buckets](https://docs.cloud.google.com/storage/docs/rapid/use-objects-in-zonal-buckets).
+To enable Rapid Bucket on a bucket, the bucket must also have [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) and [uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access) enabled.
 
-For Rapid Bucket to be enabled on a bucket, the bucket must also have [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) and [uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access) enabled.
+To create a zonal bucket using Rapid Bucket, see [Create zonal buckets](https://docs.cloud.google.com/storage/docs/rapid/create-zonal-buckets). You can view the list of supported locations in [Zones](https://docs.cloud.google.com/storage/docs/locations#location-z). To read and append to objects in zonal buckets, see [Read and append to objects in zonal buckets](https://docs.cloud.google.com/storage/docs/rapid/use-objects-in-zonal-buckets).
 
 ## Capabilities and benefits
 
@@ -224,6 +224,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

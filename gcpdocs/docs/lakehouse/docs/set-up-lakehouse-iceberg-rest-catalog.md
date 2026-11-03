@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog/
 title: Set up the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:01.782675+00:00
+fetched_at: 2026-11-03T09:41:54.247070+00:00
 ---
 
 # Set up the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation
@@ -127,6 +127,8 @@ You can create a catalog that uses either end-user credentials or [credential ve
 The auto-provisioned Lakehouse runtime catalog service account requires the explicit Storage Object User role (`roles/storage.objectUser`) on all associated Cloud Storage buckets. By default, it has no access whatsoever. Without this role, vended credentials won't have sufficient scope to perform storage writes. If you use tools like `gcloud` or Terraform, you must grant this role manually.
 
 Creation of the auto-provisioned catalog service account is [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency). This means that it takes time for the service account to propagate through the system. If you try to grant roles to the service account immediately after creation, the request might fail. To learn how long it takes, on average, for access changes to propagate, see [Access change propagation](https://docs.cloud.google.com/iam/docs/access-change-propagation).
+
+If your associated Cloud Storage buckets are in a project protected by a [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) service perimeter that restricts `storage.googleapis.com`, then you must also configure an ingress rule to allow the catalog endpoint's auto-provisioned service account to access the bucket project. For more information, see [Use VPC Service Controls with credential vending](https://docs.cloud.google.com/lakehouse/docs/credential-vending#vpc-sc).
 
 
 
@@ -740,6 +742,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-secret-manager/
 title: Configure a Secret Manager secret \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:19:46.166888+00:00
+fetched_at: 2026-11-03T09:52:59.698417+00:00
 ---
 
 # Configure a Secret Manager secret  |  Application Design Center  |  Google Cloud Documentation
@@ -20,9 +20,7 @@ Send feedback
 
 #  Configure a Secret Manager secret Stay organized with collections  Save and categorize content based on your preferences. 
 
-Secret Manager is a secure and convenient storage system for API keys, passwords, certificates, and other sensitive data. For more information, see [Secret Manager overview](https://docs.cloud.google.com/secret-manager/docs/overview).
-
-This document describes the connections and parameters you can configure when using App Design Center to create a Secret Manager secret. The configuration parameters are based on the [terraform-google-secret-manager](https://github.com/GoogleCloudPlatform/terraform-google-secret-manager/tree/main/modules/simple-secret) Terraform module.
+In App Design Center, you can configure a [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) secret to securely store and manage access to API keys, passwords, certificates, and other sensitive application data. You can customize the secret's component connections and configuration parameters based on the [terraform-google-secret-manager](https://github.com/GoogleCloudPlatform/terraform-google-secret-manager/tree/main/modules/simple-secret) Terraform module.
 
 ## Component connections
 
@@ -85,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

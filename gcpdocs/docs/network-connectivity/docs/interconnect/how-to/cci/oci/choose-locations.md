@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/cci/oci/choose-locations/
 title: Choose your locations \u00a0|\u00a0 Cloud Interconnect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:21.564067+00:00
+fetched_at: 2026-11-03T09:43:09.022362+00:00
 ---
 
 # Choose your locations  |  Cloud Interconnect  |  Google Cloud Documentation
@@ -88,12 +88,13 @@ Google Cloud | Oracle Cloud Infrastructure
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * Singapore (Singapore)
 
-| Singapore|  oci-equinix-sg1  | Equinix SG1 | 
+| Singapore |  oci-equinix-sg1  | Equinix SG1 | 
 
   * sin-zone1-2260
   * sin-zone2-2260
@@ -107,12 +108,13 @@ Google Cloud | Oracle Cloud Infrastructure
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
   * Japan East (Tokyo)
 
-| Tokyo|  oci-equinix-ty4  | Equinix TY4 | 
+| Tokyo |  oci-equinix-ty4  | Equinix TY4 | 
 
   * nrt-zone1-1893
   * nrt-zone2-1893
@@ -126,7 +128,7 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * Australia Southeast (Melbourne)
 
-| Melbourne|  oci-equinix-me1  | Equinix ME1 | 
+| Melbourne |  oci-equinix-me1  | Equinix ME1 | 
 
   * mel-zone1-1988
   * mel-zone2-1988
@@ -136,9 +138,9 @@ Google Cloud | Oracle Cloud Infrastructure
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -154,7 +156,7 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * Netherlands Northwest (Amsterdam)
 
-| Amsterdam|  oci-equinix-am4  | Equinix AM4 | 
+| Amsterdam |  oci-equinix-am4  | Equinix AM4 | 
 
   * ams-zone1-1320
   * ams-zone2-1320
@@ -164,37 +166,9 @@ Google Cloud | Oracle Cloud Infrastructure
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
-  * europe-southwest1
-  * europe-west1
-  * europe-west2
-  * europe-west3
-  * europe-west4
-  * europe-west6
-  * europe-west8
-  * europe-west9
-  * europe-west10
-  * europe-west12
-
-| 
-
-  * Germany Central (Frankfurt)
-
-| Frankfurt|  oci-equinix-fr5  | Equinix FR5 | 
-
-  * fra-zone1-683
-  * fra-zone2-683
-
-  
-  
-  * me-central1
-  * me-central2
-  * me-west1
-  * europe-central1
-  * europe-central2
-  * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -211,7 +185,7 @@ Google Cloud | Oracle Cloud Infrastructure
   * UK South (London)
   * UK Gov South (London)
 
-| London|  oci-equinix-ld6  | Equinix LD6 | 
+| London |  oci-equinix-ld6  | Equinix LD6 | 
 
   * lhr-zone1-2262
   * lhr-zone2-2262
@@ -221,9 +195,9 @@ Google Cloud | Oracle Cloud Infrastructure
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -239,14 +213,13 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * Spain Central (Madrid)
 
-| Madrid|  oci-interxion-mad2  | Interxion MAD2 | 
+| Madrid |  oci-interxion-mad2  | Interxion MAD2 | 
 
   * mad-zone1-130
   * mad-zone2-130
 
   
   
-  * asia-southeast1
   * asia-south1
   * asia-south2
 
@@ -254,7 +227,7 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * India West (Mumbai)
 
-| Mumbai|  oci-equinix-mb1  | Equinix MB1 | 
+| Mumbai |  oci-equinix-mb1  | Equinix MB1 | 
 
   * bom-zone1-2310
   * bom-zone2-2310
@@ -263,6 +236,7 @@ Google Cloud | Oracle Cloud Infrastructure
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -278,15 +252,22 @@ Google Cloud | Oracle Cloud Infrastructure
   * US East (Ashburn)
   * US Gov East (Ashburn)
 
-| Washington D.C.|  oci-equinix-dc6  | Equinix DC6 | 
+| Washington D.C. |  oci-equinix-dc6  | Equinix DC6 | 
 
   * iad-zone1-1
   * iad-zone2-1
 
   
+oci-coresite-va2  | CoreSite VA2 | 
+
+  * iad-zone1-5467
+  * iad-zone2-5467
+
+  
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -301,7 +282,7 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * US Midwest (Chicago)
 
-| Chicago|  oci-coresite-ch1  | Coresite CH1 | 
+| Chicago |  oci-coresite-ch1  | Coresite CH1 | 
 
   * ord-zone1-440
   * ord-zone2-440
@@ -310,6 +291,31 @@ Google Cloud | Oracle Cloud Infrastructure
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
+  * us-central1
+  * us-east1
+  * us-east4
+  * us-east5
+  * us-south1
+  * us-west1
+  * us-west2
+  * us-west3
+  * us-west4
+
+| 
+
+  * US West (Phoenix)
+
+| Dallas |  oci-equinix-da6  | Equinix DA6 | 
+
+  * dfw-zone1-4
+  * dfw-zone2-4
+
+  
+  
+  * northamerica-northeast1
+  * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -324,7 +330,7 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * Canada Southeast (Montréal)
 
-| Montréal|  oci-cologix-mtl3  | Cologix MTL3 | 
+| Montréal |  oci-cologix-mtl3  | Cologix MTL3 | 
 
   * yul-zone1-1944
   * yul-zone2-1944
@@ -333,6 +339,7 @@ Google Cloud | Oracle Cloud Infrastructure
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -347,33 +354,10 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * US West (San Jose)
 
-| San Francisco|  oci-equinix-sv10  | Equinix SV10 | 
+| San Francisco |  oci-equinix-sv10  | Equinix SV10 | 
 
   * sjc-zone1-6
   * sjc-zone2-6
-
-  
-  
-  * northamerica-northeast1
-  * northamerica-northeast2
-  * us-central1
-  * us-east1
-  * us-east4
-  * us-east5
-  * us-south1
-  * us-west1
-  * us-west2
-  * us-west3
-  * us-west4
-
-| 
-
-  * Canada Southeast (Toronto)
-
-| Toronto|  oci-cologix-tor1  | Cologix TOR1 | 
-
-  * yyz-zone1-392
-  * yyz-zone2-392
 
   
   
@@ -385,7 +369,7 @@ Google Cloud | Oracle Cloud Infrastructure
 
   * Brazil East (São Paulo)
 
-| São Paulo|  oci-equinix-sp4  | Equinix SP4 | 
+| São Paulo |  oci-equinix-sp4  | Equinix SP4 | 
 
   * gru-zone1-165
   * gru-zone2-165
@@ -454,6 +438,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

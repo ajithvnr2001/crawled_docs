@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/architectures/sap-business-suite-on-hana/
 title: Reference architecture: SAP Business Suite on SAP HANA on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:32.885195+00:00
+fetched_at: 2026-11-03T09:44:12.577132+00:00
 ---
 
 # Reference architecture: SAP Business Suite on SAP HANA on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation

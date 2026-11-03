@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-throughput/
 title: About Hyperdisk Throughput \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:35.704739+00:00
+fetched_at: 2026-11-03T09:41:53.306684+00:00
 ---
 
 # About Hyperdisk Throughput  |  Compute Engine  |  Google Cloud Documentation
@@ -130,7 +130,7 @@ The default throughput and IOPS are based on the following formulas, where `x` i
 
 ## Change the provisioned performance or size
 
-You can change the provisioned size every 6 hours and its¬ throughput every 4 hours. To learn how to modify size or performance, see [Modify the size and provisioned performance of a Hyperdisk volume](https://docs.cloud.google.com/compute/docs/disks/modify-hyperdisks).
+You can change the provisioned size every 6 hours and its throughput every 4 hours. To learn how to modify size or performance, see [Modify the size and provisioned performance of a Hyperdisk volume](https://docs.cloud.google.com/compute/docs/disks/modify-hyperdisks).
 
 ## Hyperdisk Throughput performance limits when attached to an instance
 
@@ -378,7 +378,7 @@ Hyperdisk Throughput is available in all zones and regions.
 
 ## Hyperdisk Throughput Storage Pools
 
-You can use Hyperdisk Throughput Storage Pools to simplify planning, avoid overprovisioning storage, and reduce costs. Hyperdisk Throughput Storage Pools let you to purchase Hyperdisk Throughput storage in bulk. To learn more, see [About Hyperdisk Storage Pools](https://docs.cloud.google.com/compute/docs/disks/storage-pools).
+You can use Hyperdisk Throughput Storage Pools to simplify planning, avoid overprovisioning storage, and reduce costs. Hyperdisk Throughput Storage Pools let you purchase Hyperdisk Throughput storage in bulk. To learn more, see [About Hyperdisk Storage Pools](https://docs.cloud.google.com/compute/docs/disks/storage-pools).
 
 ## Pricing
 
@@ -406,6 +406,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

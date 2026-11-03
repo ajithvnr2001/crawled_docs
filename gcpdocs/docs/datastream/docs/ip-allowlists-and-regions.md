@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/ip-allowlists-and-regions/
 title: IP allowlists and regions \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:05.150268+00:00
+fetched_at: 2026-11-03T09:54:45.190943+00:00
 ---
 
 # IP allowlists and regions  |  Datastream  |  Google Cloud Documentation
@@ -27,6 +27,12 @@ The following table lists the [locations](https://cloud.google.com/about/locatio
 
 Region | IP addresses |   
 ---|---|---  
+Johannesburg (africa-south1) | 34.35.2.230  
+34.35.23.160  
+34.35.28.2  
+34.35.49.66  
+34.35.131.221  
+  
 Taiwan (asia-east1) | 35.229.225.152  
 104.199.178.70  
 34.80.109.47  
@@ -80,6 +86,12 @@ Jakarta (asia-southeast2) | 34.101.103.120
 34.101.237.228  
 34.101.225.99  
 34.101.77.131  
+|   
+Bangkok (asia-southeast3) | 34.15.139.209  
+34.15.150.17  
+34.15.151.88  
+34.15.157.119  
+34.15.161.236  
 |   
 Sydney (australia-southeast1) | 34.116.127.89  
 35.201.23.39  
@@ -278,6 +290,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

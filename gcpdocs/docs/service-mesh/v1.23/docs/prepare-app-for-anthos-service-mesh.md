@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.23/docs/prepare-app-for-anthos-service-mesh/
 title: Prepare an application for Cloud Service Mesh \u00a0|\u00a0 Cloud Service Mesh v1.23 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:26.926492+00:00
+fetched_at: 2026-11-03T09:43:52.748461+00:00
 ---
 
 # Prepare an application for Cloud Service Mesh  |  Cloud Service Mesh v1.23  |  Google Cloud Documentation
@@ -233,7 +233,7 @@ The sample comes with a `Dockerfile` for both the `server` and the `loadgen` wit
     COPY . .
     
     EXPOSE 8080
-    ENTRYPOINT [ "python", &quot;server.py" ]
+    ENTRYPOINT [ "python", "server.py" ]
     
 
   * The `FROM python:3-slim as base` command tells Docker to use the latest [Python 3 image](https://hub.docker.com/_/python) as the base image.
@@ -247,7 +247,7 @@ The sample comes with a `Dockerfile` for both the `server` and the `loadgen` wit
 
   1. Set the following environment variables. Replace `PROJECT_ID` with the ID of your Google Cloud project.
          
-         export PROJECT_ID=&quot;PROJECT_ID"
+         export PROJECT_ID="PROJECT_ID"
          
          export GCR_REPO="asm-ready"
 

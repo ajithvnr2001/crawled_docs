@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/query-federated-catalogs/
 title: Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:24.561930+00:00
+fetched_at: 2026-11-03T09:53:30.065613+00:00
 ---
 
 # Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -333,14 +333,14 @@ The `s3.client-factory-impl` property applies only to tables in Amazon S3. Omit 
 
 ###  Serverless 
 
-Create a Managed Service for Apache Spark serverless interactive session in a notebook through the [`DataprocSparkSession`](https://docs.cloud.google.com/managed-spark/docs/guides/spark-connect-client) API using simplified configuration properties (recommended) or by manually specifying catalog properties.
+Create a Managed Service for Apache Spark serverless interactive session in a notebook through the [`ManagedSparkSession`](https://docs.cloud.google.com/managed-spark/docs/guides/spark-connect-client) API using simplified configuration properties (recommended) or by manually specifying catalog properties.
 
 #### Simplified configuration using properties (recommended)
 
-In a notebook that has the `dataproc-spark-connect` package installed, such as a BigQuery Studio notebook or a Vertex AI Workbench notebook, pass the federated catalog property without the `dataproc:` prefix when you create the session:
+In a notebook that has the `google-cloud-spark-connect` package installed, such as a [Google Cloud Data Agent Kit](https://docs.cloud.google.com/data-agent-kit/overview) notebook or a Vertex AI Workbench notebook, pass the federated catalog property without the `dataproc:` prefix when you create the session:
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     
     catalog_name = "CATALOG_NAME"
@@ -348,8 +348,8 @@ In a notebook that has the `dataproc-spark-connect` package installed, such as a
     session_config = Session()
     session_config.runtime_config.version = 'RUNTIME_VERSION'
     
-    spark = DataprocSparkSession.builder.appName("APP_NAME") \
-    .dataprocSessionConfig(session_config) \
+    spark = ManagedSparkSession.builder.sessionId("SESSION_ID") \
+    .sessionConfig(session_config) \
     .config(f'dataproc.lakehouse.catalog.{catalog_name}', 'projects/PROJECT_ID/catalogs/FEDERATED_CATALOG_NAME') \
     .config('spark.sql.defaultCatalog', catalog_name) \
     .getOrCreate()
@@ -357,8 +357,8 @@ In a notebook that has the `dataproc-spark-connect` package installed, such as a
 Replace the following:
 
   * `CATALOG_NAME`: a name for the local Spark catalog, for example, `federated_catalog`. It can be the same as `FEDERATED_CATALOG_NAME`.
-  * `RUNTIME_VERSION`: the Managed Service for Apache Spark serverless runtime version, for example, `3.0`. For supported versions, see the requirements earlier in this section. The required IAM roles depend on the runtime version.
-  * `APP_NAME`: the name of your Spark application.
+  * `RUNTIME_VERSION`: the Managed Service for Apache Spark serverless runtime version. `google-cloud-spark-connect` requires runtime `3.0` or later. The required IAM roles depend on the runtime version.
+  * `SESSION_ID`: a custom ID for your Spark session, for example, `my-spark-session`.
   * `PROJECT_ID`: your Google Cloud project ID.
   * `FEDERATED_CATALOG_NAME`: the ID of the federated catalog that you created in Before you begin.
 
@@ -386,7 +386,7 @@ If you are querying a Snowflake Horizon Catalog, note the following:
 If you don't use the simplified configuration property, specify the catalog properties when you create the session. For a list of storage provider parameter values, see [Spark Configuration Parameters](https://docs.cloud.google.com/lakehouse/docs/query-remote-data#spark-parameters).
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     
     catalog_name = "CATALOG_NAME"
@@ -394,8 +394,8 @@ If you don't use the simplified configuration property, specify the catalog prop
     session_config = Session()
     session_config.runtime_config.version = 'RUNTIME_VERSION'
     
-    spark = DataprocSparkSession.builder.appName("APP_NAME") \
-    .dataprocSessionConfig(session_config) \
+    spark = ManagedSparkSession.builder.sessionId("SESSION_ID") \
+    .sessionConfig(session_config) \
     .config('spark.sql.defaultCatalog', catalog_name) \
     .config(f'spark.sql.catalog.{catalog_name}', 'org.apache.iceberg.spark.SparkCatalog') \
     .config(f'spark.sql.catalog.{catalog_name}.type', 'rest') \
@@ -470,14 +470,14 @@ Managed Service for Apache Spark serverless batch workload example:
 Managed Service for Apache Spark serverless interactive session example:
     
     
-    from google.cloud.dataproc_spark_connect import DataprocSparkSession
+    from google.cloud.managed_spark_connect import ManagedSparkSession
     from google.cloud.dataproc_v1 import [Session](https://docs.cloud.google.com/python/docs/reference/dataproc/latest/google.cloud.dataproc_v1.types.Session.html)
     
     session_config = Session()
     session_config.runtime_config.version = 'RUNTIME_VERSION'
     
-    spark = DataprocSparkSession.builder.appName("APP_NAME") \
-      .dataprocSessionConfig(session_config) \
+    spark = ManagedSparkSession.builder.sessionId("SESSION_ID") \
+      .sessionConfig(session_config) \
       .config('dataproc.lakehouse.catalog.FEDERATED_SPARK_CATALOG', 'projects/PROJECT_ID/catalogs/FEDERATED_CATALOG_NAME') \
       .config('dataproc.lakehouse.catalog.LOCAL_SPARK_CATALOG', 'projects/PROJECT_ID/catalogs/LOCAL_CATALOG_ID') \
       .config('spark.sql.defaultCatalog', 'LOCAL_SPARK_CATALOG') \
@@ -521,6 +521,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

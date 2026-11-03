@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-workday/
 title: Set up cross-cloud connection for Workday Data Lake \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:56.602502+00:00
+fetched_at: 2026-11-03T08:33:52.033126+00:00
 ---
 
 # Set up cross-cloud connection for Workday Data Lake  |  Lakehouse  |  Google Cloud Documentation
@@ -22,12 +22,6 @@ As of April 20th, 2026, BigLake is now called Lakehouse. BigLake metastore is no
 Send feedback 
 
 #  Set up cross-cloud connection for Workday Data Lake Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** For support during the preview, send an email to [biglake-help@google.com](mailto:biglake-help@google.com).
 
 A cross-cloud connection to [Workday Data Lake](https://doc.workday.com/admin-guide/en-us/workday-data-cloud/data-out/workday-data-lake/workday-data-lake.html) lets you query your Workday data directly within Google Cloud. This capability unifies your data analytics by integrating your external data sources with your existing Google Cloud environment.
 
@@ -94,10 +88,11 @@ You might also be able to get the required permissions through [custom roles](ht
 
 This section lists the limitations and considerations for accessing cross-cloud data.
 
-  * **Read-only:** Federated catalogs in Lakehouse are read-only views of the remote catalog. Resource manipulation (such as creating, updating, or deleting resources) are not supported and must be performed directly in the remote catalog.
-  * **Data freshness:** The `--refresh-interval` flag for a federated catalog determines how often metadata is synchronized. The value must be `0s` (disabled) or at least `300s` (5 minutes). A catalog's background metadata refresh may take longer the more namespace and table resources there are. If the previous refresh overruns, the current refresh will be skipped, but the next refresh will be scheduled at the following interval. Queries use the most recently synchronized catalog metadata, so changes made in the remote catalog, such as new tables, schema updates, or newly committed data, aren't visible in Lakehouse until the next background metadata refresh completes. 
-  * **Lakehouse caching:** Lakehouse caching is enabled automatically for all cross-cloud queries to save egress costs by storing data blocks locally in Google Cloud. Customer-managed encryption keys (CMEK) are not supported for caching; cached data is encrypted using Google-owned and Google-managed encryption keys. If the `constraints/gcp.restrictNonCmekServices` organization policy constraint is enforced on any table in the query, caching is automatically disabled for that query. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching). 
-  * **Data residency and compliance:** Creating a federated catalog or connection in a Google Cloud region stores cached data at rest in that target region. If your remote cloud data resides in a different jurisdiction, ensure that cross-region caching complies with your organization's data residency and regulatory compliance requirements. 
+  * **VPC Service Controls:** If the project that contains your federated catalog endpoint or underlying Cloud Storage bucket is inside a VPC Service Controls service perimeter, then you must configure egress or ingress rules. For more information, see [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
+  * **Read-only:** Federated catalogs in Lakehouse are read-only views of the remote catalog. Resource manipulation (such as creating, updating, or deleting resources) isn't supported and must be performed directly in the remote catalog.
+  * **Data freshness:** The `--refresh-interval` flag for a federated catalog determines how often metadata is synchronized. The value must be `0s` (disabled) or at least `300s` (5 minutes). A catalog's background metadata refresh may take longer the more namespace and table resources there are. If the previous refresh overruns, the current refresh is skipped, and the next refresh is scheduled at the following interval. Queries use the most recently synchronized catalog metadata, so changes made in the remote catalog, such as new tables, schema updates, or newly committed data, aren't visible in Lakehouse until the next background metadata refresh completes. 
+  * **Lakehouse caching:** Cross-cloud caching is disabled by default (`--cross-cloud-cache=disabled`). You can enable or disable caching at the federated catalog or connection level. Customer-managed encryption keys (CMEK) aren't supported for caching; cached files are encrypted using Google-owned and Google-managed encryption keys. If the `constraints/gcp.restrictNonCmekServices` organization policy constraint is enforced on a table in the query, caching is automatically disabled for that query. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching). 
+  * **Data residency and compliance:** When you enable cross-cloud caching on a federated catalog or connection, Lakehouse temporarily stores cached files at rest in the Google Cloud region where the query runs. If your remote cloud files reside in a different jurisdiction, verify that cross-region caching meets your organization's data residency and compliance requirements before enabling it. 
 
 
 
@@ -110,7 +105,7 @@ To access cross-cloud data in Workday Data Lake, follow these general steps:
      2. Create a secret in Secret Manager with your Workday API credentials.
      3. Create a federated catalog in Lakehouse and grant the catalog service account access to the secret.
   2. **Verify the connection:** Verify that Lakehouse can connect to your remote catalog and synchronize metadata.
-  3. **Query data:** Run queries against your federated data using BigQuery or Managed Service for Apache Spark. For more information, see [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
+  3. **Query data:** Run queries against your federated data using BigQuery or Managed Service for Apache Spark. You can optionally enable cross-cloud caching on the federated catalog to help reduce cross-cloud egress costs and accelerate subsequent queries. For more information, see [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
   4. **Configure permissions:** Use Identity and Access Management (IAM) to manage who can view and query the federated data.
 
 
@@ -193,14 +188,15 @@ The **Create Federated catalog** page appears.
      3. In the **Data location** list, select the region where you want to create the federated catalog, for example, `us-east4`. This must match the region of your Secret Manager secret. To minimize latency and data transfer costs, do the following when selecting a region: 
         * If your Workday instance is on Amazon Web Services (AWS), select the Google Cloud region closest to your AWS region.
         * If your Workday instance is on Google Cloud, select the exact same region.
-     4. Click **Continue**.
+     4. Optional: Under **Cross-cloud caching** , select **Enable cross-cloud caching** to cache remote files in the catalog's Google Cloud region and accelerate query performance. You can also update this setting later by editing the catalog details. For more information about how caching works, retention, and pricing, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching).
+     5. Click **Continue**.
   4. In the **Connection details** section:
 
      1. In the **Remote catalog details** section: 
         * In the **Workday Base URL** field, enter the base URL of your Workday instance. For example, `impl-services1.wd12.myworkday.com` or `wd501.myworkday.com`.
-        * In the **Workday Tenant** field, enter your Workday tenant name, for example, `google_dp3`.
+        * In the **Workday Tenant** field, enter your Workday tenant name, for example, `my_company_tenant`.
      2. In the **Authentication Method** section, in the **Secret Manager Secret** field, enter the resource name of your regional secret. Use the following format: `projects/PROJECT_ID/locations/REGION/secrets/WORKDAY_SECRET_NAME`.
-     3. In the **Refresh interval** section, in the **Refresh interval** field, enter how often (in seconds) to update the catalog metadata (for example, `300`). To disable background refresh, enter `0`.
+     3. In the **Refresh interval** section, in the **Refresh interval** field, enter how often (in seconds) to update the catalog metadata (for example, `300`). To disable background metadata refresh, enter `0`.
   5. Click **Create**.
 
 
@@ -220,7 +216,8 @@ To create a federated catalog using the `gcloud` CLI, run the following command:
         --workday-base-url="WORKDAY_BASE_URL" \
         --workday-tenant="WORKDAY_TENANT" \
         --refresh-interval="REFRESH_INTERVAL" \
-        --namespace-filters="NAMESPACE_FILTERS"
+        --namespace-filters="NAMESPACE_FILTERS" \
+        --cross-cloud-cache="CROSS_CLOUD_CACHE_MODE"
 
 Replace the following:
 
@@ -232,8 +229,9 @@ Replace the following:
   * `WORKDAY_SECRET_NAME`: The name of your Workday secret in Secret Manager.
   * `WORKDAY_BASE_URL`: The base URL of your Workday instance. For example, `impl-services1.wd12.myworkday.com` or `wd501.myworkday.com`.
   * `WORKDAY_TENANT`: The Workday tenant name.
-  * `REFRESH_INTERVAL`: Optional: Specifies how often to update the catalog's information. Set this value as a duration, for example, `300s` or `5m`. Shorter intervals update data more often but can cost more in API calls. Longer intervals can cost less, but the queried data might not reflect your most current dataset. If omitted, the refresh interval defaults to 5 minutes (`300s`). Setting the value to `0s` disables background metadata refresh.
-  * `NAMESPACE_FILTERS`: Optional: A comma-separated list of namespaces to federate, for example, `finance,hr`. If omitted, Lakehouse includes all namespaces.
+  * `REFRESH_INTERVAL`: Optional: specifies how often to update the catalog's information. Set this value as a duration, for example, `300s` or `5m`. Shorter intervals update data more often but can cost more in API calls. Longer intervals can cost less, but the queried data might not reflect your most current dataset. If omitted, the refresh interval defaults to 5 minutes (`300s`). Setting the value to `0s` disables background metadata refresh.
+  * `NAMESPACE_FILTERS`: Optional: a comma-separated list of namespaces to federate, for example, `finance,hr`. If omitted, Lakehouse includes all namespaces.
+  * `CROSS_CLOUD_CACHE_MODE`: Optional: whether to enable cross-cloud caching on the federated catalog (`enabled` or `disabled`). Defaults to `disabled`. When set to `enabled`, Lakehouse caches remote files in the catalog's Google Cloud region. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching).
 
 
 
@@ -320,6 +318,7 @@ Replace the following:
 ## What's next
 
   * [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
+  * [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
   * [Troubleshoot cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access).
 
 
@@ -328,6 +327,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

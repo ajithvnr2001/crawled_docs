@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/local-dev-functions/
 title: Local functions development \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:30.768461+00:00
+fetched_at: 2026-11-03T09:44:18.583830+00:00
 ---
 
 # Local functions development  |  Cloud Run  |  Google Cloud Documentation
@@ -214,7 +214,7 @@ The same can be done using environment variables:
     
     
     "scripts": {
-    "start";: "FUNCTION_TARGET=YOUR_FUNCTION_NAME FUNCTION_SIGNATURE_TYPE=YOUR_SIGNATURE_TYPE npx functions-framework"
+    "start": "FUNCTION_TARGET=YOUR_FUNCTION_NAME FUNCTION_SIGNATURE_TYPE=YOUR_SIGNATURE_TYPE npx functions-framework"
     }
 
 Replace YOUR_FUNCTION_NAME with the method name of your function, and YOUR_SIGNATURE_TYPE (if applicable) with the signature type of your function as shown in supported function types.
@@ -327,7 +327,7 @@ You can also specify these values in the `composer.json` buildfile by adding a `
     "scripts": {
      "start": [
          "Composer\\Config::disableProcessTimeout",
-         ";FUNCTION_TARGET=YOUR_FUNCTION_NAME php -S localhost:${PORT:-8080} vendor/bin/router.php"
+         "FUNCTION_TARGET=YOUR_FUNCTION_NAME php -S localhost:${PORT:-8080} vendor/bin/router.php"
     ].
     }
 

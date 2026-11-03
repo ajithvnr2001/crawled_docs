@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints/
 title: Firewall endpoint overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:23:13.010469+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:53:29.136353+00:00
 ---
 
 # Firewall endpoint overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -35,7 +21,7 @@ Send feedback
 
 #  Firewall endpoint overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-A firewall endpoint is a Cloud Next Generation Firewall (Cloud NGFW) resource that enables Layer 7 advanced protection capabilities, such as the [intrusion detection and prevention service](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention), [Advanced malware sandbox (WildFire)](https://docs.cloud.google.com/firewall/docs/about-wildfire) ([Preview](https://cloud.google.com/products#product-launch-stages)), and [URL filtering service](https://docs.cloud.google.com/firewall/docs/about-url-filtering) in your network.
+A firewall endpoint is a Cloud Next Generation Firewall (Cloud NGFW) resource that enables Layer 7 advanced protection capabilities, such as the [intrusion detection and prevention service](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention), [Advanced malware sandbox (WildFire)](https://docs.cloud.google.com/firewall/docs/about-wildfire), and [URL filtering service](https://docs.cloud.google.com/firewall/docs/about-url-filtering) in your network.
 
 This page provides a detailed overview of firewall endpoints and their capabilities.
 
@@ -55,9 +41,7 @@ This section provides a summary of firewall endpoint properties. For detailed im
 
   * You can create a firewall endpoint in a zone and attach it to one or more VPC networks to monitor workloads in the same zone. If your VPC network spans multiple zones, you can attach one firewall endpoint in each zone. If you don't attach a firewall endpoint to a VPC network in a specific zone, no Layer 7 inspection is performed on the workload traffic for that zone.
 
-You use [firewall endpoint association](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoint-associations#create-endpoint-association) to attach a firewall endpoint to a VPC network.
-
-  * The endpoint and the workloads for which you want to enable Layer 7 inspection must be in the same zone. For more information, see Deployment considerations.
+You use [firewall endpoint association](https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints#create-endpoint-association) to attach a firewall endpoint to a VPC network.
 
   * Firewall endpoints can process up to 2 Gbps of traffic with Transport Layer Security (TLS) inspection, and 10 Gbps of traffic without TLS inspection. Excessive traffic can overload the endpoint and cause packet losses. To monitor the firewall endpoint's capacity utilization, see [`firewall_endpoint` network security metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#gcp-networksecurity).
 
@@ -157,15 +141,11 @@ To intercept and inspect traffic by using a project-level firewall endpoint, ens
 
 ## Firewall endpoint for Advanced malware sandbox
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 You can create a firewall endpoint with Advanced malware sandbox enabled to extend your network protection beyond basic signature matching. While the intrusion detection and prevention service can only block malware with known signatures, Advanced malware sandbox adds near real-time updates to recognize and block novel, file-based threats.
 
-When you enable Advanced malware sandbox while creating or editing a firewall endpoint, you can configure additional settings under the **Advanced configuration** section. These additional configurations include the following:
+When you enable Advanced malware sandbox while creating or editing a firewall endpoint, you can configure additional settings under the **Advanced malware sandbox configuration** section. These additional configurations include the following:
 
-  * **Region** : specifies the geographical region where the firewall endpoint submits unknown or suspicious files for threat analysis. If you don't specify a region, the endpoint automatically defaults to the nearest available regional Advanced malware sandbox cloud based on its location to minimize latency.
+  * **WildFire region** : specifies the geographical region where the firewall endpoint submits unknown or suspicious files for threat analysis. If you don't specify a region, the endpoint automatically defaults to the nearest available regional Advanced malware sandbox cloud based on its location to minimize latency.
 
   * **Content cloud region** : specifies the content cloud region that the endpoint will use. This defaults to the nearest available region.
 
@@ -314,6 +294,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

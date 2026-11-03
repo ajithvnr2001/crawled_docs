@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/default-access-control/
 title: Managing default organization roles \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:33.434345+00:00
+fetched_at: 2026-11-03T09:55:07.396435+00:00
 ---
 
 # Managing default organization roles  |  Resource Manager  |  Google Cloud Documentation
@@ -20,9 +20,7 @@ Send feedback
 
 #  Managing default organization roles Stay organized with collections  Save and categorize content based on your preferences. 
 
-When an organization resource is created, all users in your domain are granted the **Billing Account Creator** and **Project Creator** roles by default. These default roles allow your users to start using Google Cloud immediately, but are not intended for use in regular operation of your organization resource. 
-
-This page describes how to designate a **Billing Account Creator** and **Project Creator** for regular operations, and how to remove roles that were assigned by default to the organization resource.
+When an organization resource is created, Google Cloud grants all users in your domain the **Billing Account Creator** and **Project Creator** roles by default. These default roles let your users start using Google Cloud immediately, but they aren't intended for day-to-day operations. To prepare your organization for regular operations, you can grant the **Billing Account Creator** and **Project Creator** roles to specific principals and remove the default domain-wide role assignments from the organization resource. 
 
 ## Adding a Billing Account Creator and Project Creator
 
@@ -80,6 +78,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

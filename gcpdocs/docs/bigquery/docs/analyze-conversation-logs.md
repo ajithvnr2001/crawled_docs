@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analyze-conversation-logs/
 title: Analyze conversation logs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:28.944292+00:00
+fetched_at: 2026-11-03T09:51:57.078482+00:00
 ---
 
 # Analyze conversation logs  |  BigQuery  |  Google Cloud Documentation
@@ -188,9 +188,11 @@ This view returns one row per event, with agent ID, conversation ID, question, a
         NULL) AS result_artifact_names,
       IF(event_type = 'LLM_RESPONSE', JSON_VALUE(attributes, '$.model_version'), NULL) AS model_version,
       IF(event_type = 'LLM_RESPONSE', SAFE_CAST(JSON_VALUE(content, '$.usage.prompt') AS INT64), NULL) AS prompt_tokens,
+      IF(event_type = 'LLM_RESPONSE', SAFE_CAST(JSON_VALUE(attributes, '$.usage_metadata.tool_use_prompt_token_count') AS INT64), NULL) AS tool_use_tokens,
+      IF(event_type = 'LLM_RESPONSE', SAFE_CAST(JSON_VALUE(attributes, '$.usage_metadata.cached_content_token_count') AS INT64), NULL) AS cached_tokens,
       IF(event_type = 'LLM_RESPONSE', SAFE_CAST(JSON_VALUE(content, '$.usage.completion') AS INT64), NULL) AS completion_tokens,
-      IF(event_type = 'LLM_RESPONSE', SAFE_CAST(JSON_VALUE(content, '$.usage.total') AS INT64), NULL) AS total_tokens,
       IF(event_type = 'LLM_RESPONSE', SAFE_CAST(JSON_VALUE(attributes, '$.usage_metadata.thoughts_token_count') AS INT64), NULL) AS thoughts_tokens,
+      IF(event_type = 'LLM_RESPONSE', SAFE_CAST(JSON_VALUE(content, '$.usage.total') AS INT64), NULL) AS total_tokens,
       IF(event_type = 'INVOCATION_COMPLETED', SAFE_CAST(JSON_VALUE(latency_ms, '$.total_ms') AS INT64), NULL) AS turn_latency_ms,
       is_truncated,
       trace_id,
@@ -328,7 +330,7 @@ To roll up multi-turn conversations over the last 7 days, run the following quer
 
 ### Token use by model and by agent (last 7 days)
 
-To break down model call counts and token usage (including thinking tokens) by date, `data_agent_id`, and `model_version` over the last 7 days, query `v_ca_events` for `LLM_RESPONSE` rows:
+To break down model call counts and token usage by date, data agent ID, and model version over the last 7 days, query `v_ca_events` for `LLM_RESPONSE` rows:
     
     
     SELECT
@@ -336,15 +338,28 @@ To break down model call counts and token usage (including thinking tokens) by d
       data_agent_id,
       model_version,
       COUNT(*) AS model_calls,
-      SUM(prompt_tokens) AS prompt_tokens,
-      SUM(completion_tokens) AS completion_tokens,
-      SUM(thoughts_tokens) AS thoughts_tokens,  -- thinking tokens, already included in total_tokens
-      SUM(total_tokens) AS total_tokens
+      COALESCE(SUM(prompt_tokens), 0) AS prompt_tokens,
+      COALESCE(SUM(tool_use_tokens), 0) AS tool_use_tokens,
+      COALESCE(SUM(cached_tokens), 0) AS cached_tokens,
+      COALESCE(SUM(completion_tokens), 0) AS completion_tokens,
+      COALESCE(SUM(thoughts_tokens), 0) AS thoughts_tokens,
+      COALESCE(SUM(total_tokens), 0) AS total_tokens
     FROM `PROJECT_ID.ANALYTICS_DATASET.v_ca_events`
     WHERE event_type = 'LLM_RESPONSE'
       AND timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
     GROUP BY event_date, data_agent_id, model_version
     ORDER BY event_date DESC, total_tokens DESC;
+
+For each `LLM_RESPONSE` row, the `total_tokens` value equals the input tokens plus the output tokens:
+
+  * **Input tokens** : `prompt_tokens` \+ `tool_use_tokens`. If you use context caching, the `cached_tokens` value is already included in the `prompt_tokens` value, so don't add `cached_tokens` again when calculating `total_tokens`.
+
+  * **Output tokens** : `completion_tokens` \+ `thoughts_tokens`.
+
+  * **Total tokens** : the `total_tokens` value equals the `prompt_tokens` \+ `tool_use_tokens` \+ `completion_tokens` \+ `thoughts_tokens` values. Optional fields such as `tool_use_tokens`, `cached_tokens`, and `thoughts_tokens` are `NULL` on model calls that don't use them. Wrap each `SUM` in `COALESCE(..., 0)` to return `0` instead of `NULL` when no calls in a group populate that field.
+
+
+
 
 ### Errors by agent, with AI-assisted root-cause summaries
 
@@ -430,6 +445,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

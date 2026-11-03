@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/oracle-transfer/
 title: Import metadata from Oracle \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:38.812079+00:00
+fetched_at: 2026-11-03T09:53:55.021855+00:00
 ---
 
 # Import metadata from Oracle  |  Knowledge Catalog  |  Google Cloud Documentation

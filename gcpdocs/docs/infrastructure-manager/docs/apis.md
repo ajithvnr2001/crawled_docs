@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/apis/
 title: APIs and reference \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:25.318049+00:00
+fetched_at: 2026-11-03T09:52:02.422351+00:00
 ---
 
 # APIs and reference  |  Infrastructure Manager  |  Google Cloud Documentation

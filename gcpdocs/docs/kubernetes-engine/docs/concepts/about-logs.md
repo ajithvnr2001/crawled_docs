@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-logs/
 title: About GKE logs \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:07.444207+00:00
+fetched_at: 2026-11-03T09:54:25.737242+00:00
 ---
 
 # About GKE logs  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -185,7 +185,9 @@ You are charged for the accrued storage costs when you export logs to another Go
 
 ## Quota
 
-Control plane logs consume the "Write requests per minute" quota of the Cloud Logging API. Before enabling control plane logs, [check your recent peak usage](https://console.cloud.google.com/iam-admin/quotas) of that quota. If you have many clusters in the same project or are already approaching the quota limit, then you can [request a quota-limit increase](https://docs.cloud.google.com/compute/quotas#requesting_additional_quota) before enabling control plane logs.
+Control plane logs consume the [per-region ingestion quotas](https://docs.cloud.google.com/logging/quotas#regional-ingestion-quotas) of the Cloud Logging API. Before enabling control plane logs, [check your recent peak usage](https://console.cloud.google.com/iam-admin/quotas) of those quotas. If you have many clusters in the same project or are already approaching the quota limit, then you can [request a quota increase](https://docs.cloud.google.com/logging/quotas#more-quota) before enabling control plane logs.
+
+If you exceed the regional quota, then your write requests to the Cloud Logging API might be rejected with a "resource exhausted" error message. Exceeding this quota affects observability and troubleshooting but doesn't throttle GKE control plane operations or affect running workloads. For troubleshooting steps, see [Investigate Cloud Logging API quota usage](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/logging#api-quota).
 
 ## Access controls
 
@@ -207,6 +209,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

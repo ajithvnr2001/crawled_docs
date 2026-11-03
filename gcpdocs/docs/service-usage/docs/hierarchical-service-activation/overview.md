@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/overview/
 title: Hierarchical service activation overview \u00a0|\u00a0 Service Usage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:54.734647+00:00
+fetched_at: 2026-11-03T09:41:59.534684+00:00
 ---
 
 # Hierarchical service activation overview  |  Service Usage  |  Google Cloud Documentation
@@ -25,9 +25,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-Hierarchical service activation is a Service Usage feature that gives you more control over enabling and disabling services, including [public and private services](https://docs.cloud.google.com/service-usage/docs/public-vs-private), across your organization's [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). Hierarchical service activation supports a declarative policy model that helps you manage service dependencies and many services efficiently.
+Hierarchical service activation is a Service Usage feature that provides greater control over managing [public and private services](https://docs.cloud.google.com/service-usage/docs/public-vs-private) across your organization's [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). Its declarative policy model streamlines managing dependencies and services at scale.
 
-This document provides an overview of hierarchical service activation. To learn how to use the feature, see [Manage service enablement](https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/manage-enablement).
+To learn how to use the feature, see [Manage service enablement](https://docs.cloud.google.com/service-usage/docs/hierarchical-service-activation/manage-enablement).
 
 ## Inheriting service enablement policies
 
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

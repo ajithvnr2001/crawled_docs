@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/resources/autopilot-partners/
 title: Autopilot partners \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:31.252651+00:00
+fetched_at: 2026-11-03T09:44:31.537976+00:00
 ---
 
 # Autopilot partners  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -107,6 +107,7 @@ Prisma Cloud DaemonSet Defenders enforce policies for your environment. Prisma C
 
 Cortex XDR provides threat prevention, detection, and response capabilities. The solution uses the Cortex XDR agent (using eBPF) to identify, detect, and help protect against threats, vulnerabilities, misconfigurations, and anomalous behavior. Allowlist path: `Palo-Alto-Networks/cortex-agent/*` For more information, refer to the [Cortex Agent Administrator Guide](https://docs-cortex.paloaltonetworks.com/r/Cortex-XDR/8.9/Cortex-XDR-Agent-Administrator-Guide/Install-the-Cortex-XDR-Agent-for-Kubernetes-Hosts).  
 SentinelOne Cloud Workload Security for Containers |  SentinelOne provides an AI-powered threat protection solution for containerized workloads. This solution lets you monitor, detect, and analyze process, file, and binary-based threats across nodes and containers within GKE Autopilot clusters. Allowlist path: `SentinelOne/s1-agent/*` For more information, refer to the [SentinelOne Kubernetes installation guide (login required)](https://community.sentinelone.com/s/article/000008772).  
+Solo.io |  Solo.io provides an enterprise distribution of Istio with ambient mesh support for securing and observing service-to-service communication on GKE Autopilot. Ambient mode provides mutual TLS and identity-based authorization without requiring application sidecars. Allowlist path: `soloio/istio/*` For more information, refer to the [Solo.io installation instructions for GKE Autopilot](https://docs.solo.io/istio/1.31.x/setup/install/gke-autopilot/).  
 Steadybit |  Steadybit is a platform for chaos engineering that helps teams improve the reliability and resilience of their systems by injecting failures and testing how applications respond. It offers automation tools to simulate disruptions in cloud-native environments. Allowlist path: `Steadybit/extension-container/*` For more information, see [Steadybit on GKE Autopilot](https://steadybit.com/blog/chaos-engineering-with-steadybit-on-gke-autopilot/?utm_source=gke_listing).  
 Sweet Security |  The Sweet Security platform helps companies implement security practices in their GKE Autopilot clusters. Using an eBPF-based sensor that integrates with existing Kubernetes tooling, Sweet Security provides real-time monitoring, threat detection and prevention, runtime vulnerability management, API security, and AI security. Allowlist path: `Sweet/sensor/*` For more information, refer to [Sweet Security Sensor Deployment for GKE Autopilot (login required)](https://docs.sweet.security/docs/gke-autopilot).  
 Sysdig Secure DevOps Platform |  The Sysdig Secure Devops Platform helps you implement container security practices in your GKE Autopilot clusters, including monitoring and securing workloads using the Sysdig agent. The Sysdig agent is a host component that processes syscall, creates capture files, and performs auditing and compliance. Allowlist path: `Sysdig/agent/*` For more information, refer to [Visibility and Security for GKE Autopilot](https://sysdig.com/blog/visibility-security-gke-autopilot/).  
@@ -140,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

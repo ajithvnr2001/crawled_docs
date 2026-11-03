@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access-databricks/
 title: Troubleshoot cross-cloud data access for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:07.308471+00:00
+fetched_at: 2026-11-03T08:33:50.700980+00:00
 ---
 
 # Troubleshoot cross-cloud data access for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -23,25 +23,28 @@ Send feedback
 
 #  Troubleshoot cross-cloud data access for Databricks Unity Catalog Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
+When you connect Lakehouse to Databricks Unity Catalog, you can diagnose and resolve background metadata refresh, user identity federation, table discovery, and private workspace endpoint issues so your external Apache Iceberg tables remain queryable. For general network routing and Service Directory checks over Cross-Cloud Interconnect, see [Connectivity or routing issues](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access#connectivity-routing-issues).
 
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+## Tables are empty or not discovered during background metadata refresh
 
-**Note:** For support during the preview, send an email to [biglake-help@google.com](mailto:biglake-help@google.com).
+If the catalog background metadata refresh indicates completion (such as `Refresh successfully completed`), but tables in the federated catalog don't appear or listing tables returns `0` items, check the following:
 
-This page shows you how to troubleshoot background metadata refresh and user identity federation for cross-cloud data access with Databricks Unity Catalog. For general cross-cloud data access troubleshooting, such as connectivity and routing over private interconnects, see [Troubleshoot cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access).
-
-## Tables are empty or not discovered during refresh
-
-If the catalog background metadata refresh indicates success (such as `Refresh successfully completed`), but tables in the federated catalog do not appear or listing tables returns 0 items, check the following:
-
-  * **`EXTERNAL USE SCHEMA` privilege:** Verify that the Databricks Service Principal has been granted the `EXTERNAL USE SCHEMA` privilege on the target schemas or catalog in Unity Catalog. Without this privilege, background metadata refresh and credential vending for queries will fail.
+  * **`EXTERNAL USE SCHEMA` privilege:** Verify that the Databricks Service Principal has read access to the target Databricks Unity Catalog and its resources by granting it the `EXTERNAL USE SCHEMA` privilege. Without this privilege, background metadata refresh and credential vending for queries fail.
   * **External data access setting:** Verify that **External data access** is enabled on the Databricks Unity Catalog metastore.
-  * **External location:** Verify that the Databricks Unity Catalog and tables use an external storage location (such as Cloud Storage or Amazon S3) rather than default storage.
+  * **External location:** Verify that your Databricks Unity Catalog and tables use an external storage location (such as Amazon S3, Microsoft Azure Data Lake Storage Gen2, or Cloud Storage) rather than default storage.
 
 
 
-## Metadata synchronization fails or returns 401 Unauthorized
+## Background metadata refresh fails over Cross-Cloud Interconnect
+
+If background metadata refresh fails when `--metadata-service-directory-name` is configured for Databricks Unity Catalog, verify the following:
+
+  * **Workspace private endpoint target:** Confirm that your metadata Service Directory endpoint or internal regional proxy Network Load Balancer backend targets the private IP address of your Databricks workspace Amazon Web Services (AWS) PrivateLink interface endpoint or Azure Private Endpoint on TCP port `443`, and that `--unity-instance-name` matches your workspace hostname.
+  * **Workspace private access settings:** If your Databricks workspace enforces private access settings or IP access lists, verify that requests arriving through your private endpoint from your Google Cloud Virtual Private Cloud (VPC) network are permitted.
+
+
+
+## Background metadata refresh fails or returns 401 Unauthorized
 
 If the background metadata refresh status reports an error (such as `401 Unauthorized`) or cannot discover schemas, verify the following:
 
@@ -56,7 +59,7 @@ If the background metadata refresh status reports an error (such as `401 Unautho
 
 ## Interactive query fails with 401 Unauthorized or token validation error
 
-When user identity federation is enabled, interactive queries dynamically mint an end-user identity token and validate it against an Account-wide federation policy in Databricks. If queries fail with `401 Unauthorized` or token validation errors while background metadata synchronization is healthy, check the following:
+When user identity federation is enabled, interactive queries dynamically mint an end-user identity token and validate it against an Account-wide federation policy in Databricks. If queries fail with `401 Unauthorized` or token validation errors while background metadata refresh is healthy, check the following:
 
   * **Account-wide federation policy configured:** Ensure that an **Account-wide federation policy** (distinct from the Service Principal policy) is created in the Databricks Account Console under **Account settings > Security > Identity provider setup > Federation policies**.
   * **Case-sensitive audience matching:** Databricks validates the `aud` (audience) claim strictly case-sensitively. Verify that the **Audiences** field in the Databricks Account-wide federation policy matches the exact casing of the metastore-scoped `audience` claim (`databricks-METASTORE_ID`) retrieved from your catalog. Any uppercase or lowercase discrepancy (for example, in the `databricks-` prefix or metastore UUID) causes Databricks token validation to reject the query with `401 Unauthorized`.
@@ -69,6 +72,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

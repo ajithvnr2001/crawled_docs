@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-app-layer-inspection/
 title: Application layer inspection overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:10:56.755440+00:00
+fetched_at: 2026-11-03T09:53:29.196906+00:00
 ---
 
 # Application layer inspection overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -27,17 +27,13 @@ This document describes the services and components used for application layer i
 
 ## Application layer inspection services
 
-Cloud NGFW offers the following application layer inspection services: Intrusion detection and prevention service, Advanced malware sandbox (WildFire) ([Preview](https://cloud.google.com/products#product-launch-stages)), and URL filtering service. Application layer inspection features are available in the Cloud NGFW Enterprise tier. For more information, see [Cloud NGFW Enterprise](https://docs.cloud.google.com/firewall/docs/ngfw_tiers#ngfw-tiers-enterprise).
+Cloud NGFW offers the following application layer inspection services: Intrusion detection and prevention service, Advanced malware sandbox (WildFire), and URL filtering service. Application layer inspection features are available in the Cloud NGFW Enterprise tier. For more information, see [Cloud NGFW Enterprise](https://docs.cloud.google.com/firewall/docs/ngfw_tiers#ngfw-tiers-enterprise).
 
 ### Intrusion detection and prevention service
 
 The Intrusion detection and prevention service continuously monitors your Google Cloud workload traffic for malicious activity and takes preemptive actions to prevent it. Malicious activity includes threats such as intrusions, malware, spyware, and command-and-control attacks on your network. For more information, see [Intrusion detection and prevention service overview](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention).
 
 ### Advanced malware sandbox
-
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 The Advanced malware sandbox service for Cloud NGFW provides malware protection using inline machine learning (ML) and cloud-based behavioral sandboxing. Powered by Palo Alto Networks Advanced WildFire, the service extends standard signature-based intrusion detection and prevention service by evaluating suspicious files in real time to prevent zero-day threats from reaching your workloads. For more information, see [Advanced malware sandbox overview](https://docs.cloud.google.com/firewall/docs/about-wildfire).
 
@@ -113,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

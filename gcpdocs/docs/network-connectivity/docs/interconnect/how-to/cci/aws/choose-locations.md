@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/cci/aws/choose-locations/
 title: Choose your locations \u00a0|\u00a0 Cloud Interconnect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:58.677335+00:00
+fetched_at: 2026-11-03T09:43:11.300424+00:00
 ---
 
 # Choose your locations  |  Cloud Interconnect  |  Google Cloud Documentation
@@ -82,8 +82,6 @@ Google Cloud regions | Amazon Web Services regions | Metropolitan area | Remote 
 Google Cloud | Amazon Web Services  
   
   * africa-south1
-
-
   * europe-west2
 
 | 
@@ -115,7 +113,7 @@ Google Cloud | Amazon Web Services
   * us-west-1
   * us-west-2
 
-| Johannesburg|  aws-tejb1  | TEJB1 | 
+| Johannesburg |  aws-tejb1  | TEJB1 | 
 
   * jnb-zone1-850
   * jnb-zone2-850
@@ -129,6 +127,7 @@ Google Cloud | Amazon Web Services
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
@@ -159,7 +158,7 @@ Google Cloud | Amazon Web Services
   * us-west-1
   * us-west-2
 
-| Hong Kong|  aws-eqhk1  | EQHK1 | 
+| Hong Kong |  aws-eqhk1  | EQHK1 | 
 
   * hkg-zone1-1118
   * hkg-zone2-1118
@@ -173,6 +172,7 @@ Google Cloud | Amazon Web Services
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
@@ -203,7 +203,7 @@ Google Cloud | Amazon Web Services
   * us-west-1
   * us-west-2
 
-| Jakarta|  aws-dcij3  | DCIJ3 | 
+| Jakarta |  aws-dcij3  | DCIJ3 | 
 
   * cgk-zone1-8168
   * cgk-zone2-8168
@@ -217,6 +217,7 @@ Google Cloud | Amazon Web Services
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
@@ -247,7 +248,7 @@ Google Cloud | Amazon Web Services
   * us-west-1
   * us-west-2
 
-| Osaka|  aws-eqos1  | EqOS1 | 
+| Osaka |  aws-eqos1  | EqOS1 | 
 
   * kix-zone1-1791
   * kix-zone2-1791
@@ -261,6 +262,7 @@ Google Cloud | Amazon Web Services
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
@@ -291,7 +293,7 @@ Google Cloud | Amazon Web Services
   * us-west-1
   * us-west-2
 
-| Seoul|  aws-lgu57  | LGU57 | 
+| Seoul |  aws-lgu57  | LGU57 | 
 
   * icn-zone1-7573
   * icn-zone2-7573
@@ -311,6 +313,7 @@ aws-lgknx  | LGKNX |
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
@@ -341,7 +344,7 @@ aws-lgknx  | LGKNX |
   * us-west-1
   * us-west-2
 
-| Singapore|  aws-gss52  | GSS52 | 
+| Singapore |  aws-gss52  | GSS52 | 
 
   * sin-zone1-388
   * sin-zone2-388
@@ -355,6 +358,7 @@ aws-lgknx  | LGKNX |
   * asia-northeast3
   * asia-southeast1
   * asia-southeast2
+  * asia-southeast3
 
 | 
 
@@ -385,7 +389,7 @@ aws-lgknx  | LGKNX |
   * us-west-1
   * us-west-2
 
-| Tokyo|  aws-eqty2  | EqTY2 | 
+| Tokyo |  aws-eqty2  | EqTY2 | 
 
   * nrt-zone1-452
   * nrt-zone2-452
@@ -424,7 +428,46 @@ aws-lgknx  | LGKNX |
   * us-west-1
   * us-west-2
 
-| Sydney|  aws-eqsy3  | EqSY3 | 
+| Melbourne |  aws-eqme2  | EqME2 | 
+
+  * mel-zone1-1988
+  * mel-zone2-1988
+
+  
+  
+  * australia-southeast1
+  * australia-southeast2
+
+| 
+
+  * af-south-1
+  * ap-east-1
+  * ap-northeast-1
+  * ap-northeast-2
+  * ap-northeast-3
+  * ap-south-1
+  * ap-south-2
+  * ap-southeast-1
+  * ap-southeast-2
+  * ap-southeast-3
+  * ca-central-1
+  * eu-central-1
+  * eu-central-2
+  * eu-north-1
+  * eu-south-1
+  * eu-south-2
+  * eu-west-1
+  * eu-west-2
+  * eu-west-3
+  * me-central-1
+  * me-south-1
+  * sa-east-1
+  * us-east-1
+  * us-east-2
+  * us-west-1
+  * us-west-2
+
+| Sydney |  aws-eqsy3  | EqSY3 | 
 
   * syd-zone1-1605
   * syd-zone2-1605
@@ -434,9 +477,9 @@ aws-lgknx  | LGKNX |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -477,7 +520,7 @@ aws-lgknx  | LGKNX |
   * us-west-1
   * us-west-2
 
-| Frankfurt|  aws-inx6  | INX6 | 
+| Frankfurt |  aws-inx6  | INX6 | 
 
   * fra-zone1-58
   * fra-zone2-58
@@ -487,9 +530,9 @@ aws-lgknx  | LGKNX |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -530,7 +573,7 @@ aws-lgknx  | LGKNX |
   * us-west-1
   * us-west-2
 
-| London|  aws-eqld5  | EqLD5 | 
+| London |  aws-eqld5  | EqLD5 | 
 
   * lhr-zone1-832
   * lhr-zone2-832
@@ -540,9 +583,9 @@ aws-lgknx  | LGKNX |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -583,7 +626,7 @@ aws-lgknx  | LGKNX |
   * us-west-1
   * us-west-2
 
-| Madrid|  aws-itcm2  | ITCM2 | 
+| Madrid |  aws-itcm2  | ITCM2 | 
 
   * mad-zone1-127
   * mad-zone2-127
@@ -593,9 +636,9 @@ aws-lgknx  | LGKNX |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -636,7 +679,7 @@ aws-lgknx  | LGKNX |
   * us-west-1
   * us-west-2
 
-| Paris|  aws-itxp7  | ITXP7 | 
+| Paris |  aws-itxp7  | ITXP7 | 
 
   * cdg-zone1-1536
   * cdg-zone2-1536
@@ -652,9 +695,9 @@ aws-thv52  | THV52 |
   * me-central1
   * me-central2
   * me-west1
-  * europe-central1
   * europe-central2
   * europe-north1
+  * europe-north2
   * europe-southwest1
   * europe-west1
   * europe-west2
@@ -695,14 +738,13 @@ aws-thv52  | THV52 |
   * us-west-1
   * us-west-2
 
-| Stockholm|  aws-eqsk1  | EQSK1 | 
+| Stockholm |  aws-eqsk1  | EQSK1 | 
 
   * arn-zone1-156
   * arn-zone2-156
 
   
   
-  * asia-southeast1
   * asia-south1
   * asia-south2
 
@@ -735,7 +777,7 @@ aws-thv52  | THV52 |
   * us-west-1
   * us-west-2
 
-| Mumbai|  aws-gpx51  | GPX51 | 
+| Mumbai |  aws-gpx51  | GPX51 | 
 
   * bom-zone1-2310
   * bom-zone2-2310
@@ -744,6 +786,7 @@ aws-thv52  | THV52 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -783,7 +826,7 @@ aws-thv52  | THV52 |
   * us-west-1
   * us-west-2
 
-| Washington D.C.|  aws-eqdc2  | EqDC2 | 
+| Washington D.C. |  aws-eqdc2  | EqDC2 | 
 
   * iad-zone1-1
   * iad-zone2-1
@@ -798,6 +841,7 @@ aws-csva1  | CSVA1 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -837,7 +881,7 @@ aws-csva1  | CSVA1 |
   * us-west-1
   * us-west-2
 
-| Chicago|  aws-eqc50  | EQC50 | 
+| Chicago |  aws-eqc50  | EQC50 | 
 
   * ord-zone1-7
   * ord-zone2-7
@@ -846,6 +890,7 @@ aws-csva1  | CSVA1 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -885,7 +930,7 @@ aws-csva1  | CSVA1 |
   * us-west-1
   * us-west-2
 
-| Ohio|  aws-col67  | COL67 | 
+| Ohio |  aws-col67  | COL67 | 
 
   * cmh-zone1-2377
   * cmh-zone2-2377
@@ -894,6 +939,7 @@ aws-csva1  | CSVA1 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -933,7 +979,7 @@ aws-csva1  | CSVA1 |
   * us-west-1
   * us-west-2
 
-| Dallas, Texas|  aws-eqda2  | Equinix EqDA2 | 
+| Dallas, Texas |  aws-eqda2  | Equinix EqDA2 | 
 
   * dfw-zone1-4
   * dfw-zone2-4
@@ -942,6 +988,7 @@ aws-csva1  | CSVA1 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -981,7 +1028,56 @@ aws-csva1  | CSVA1 |
   * us-west-1
   * us-west-2
 
-| Montréal|  aws-cgm60  | CGM60 | 
+| Los Angeles |  aws-csow  | CoreSite LA1 | 
+
+  * lax-zone1-19
+  * lax-zone2-19
+
+  
+  
+  * northamerica-northeast1
+  * northamerica-northeast2
+  * northamerica-south1
+  * us-central1
+  * us-east1
+  * us-east4
+  * us-east5
+  * us-south1
+  * us-west1
+  * us-west2
+  * us-west3
+  * us-west4
+
+| 
+
+  * af-south-1
+  * ap-east-1
+  * ap-northeast-1
+  * ap-northeast-2
+  * ap-northeast-3
+  * ap-south-1
+  * ap-south-2
+  * ap-southeast-1
+  * ap-southeast-2
+  * ap-southeast-3
+  * ca-central-1
+  * eu-central-1
+  * eu-central-2
+  * eu-north-1
+  * eu-south-1
+  * eu-south-2
+  * eu-west-1
+  * eu-west-2
+  * eu-west-3
+  * me-central-1
+  * me-south-1
+  * sa-east-1
+  * us-east-1
+  * us-east-2
+  * us-west-1
+  * us-west-2
+
+| Montréal |  aws-cgm60  | CGM60 | 
 
   * yul-zone1-1944
   * yul-zone2-1944
@@ -990,6 +1086,7 @@ aws-csva1  | CSVA1 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -1029,7 +1126,7 @@ aws-csva1  | CSVA1 |
   * us-west-1
   * us-west-2
 
-| Portland, Oregon|  aws-ecpo1  | ECPO1 | 
+| Portland, Oregon |  aws-ecpo1  | ECPO1 | 
 
   * pdx-zone1-1922
   * pdx-zone2-1922
@@ -1038,6 +1135,7 @@ aws-csva1  | CSVA1 |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -1077,7 +1175,7 @@ aws-csva1  | CSVA1 |
   * us-west-1
   * us-west-2
 
-| San Francisco|  aws-eqsv5  | EqSV5 | 
+| San Francisco |  aws-eqsv5  | EqSV5 | 
 
   * sjc-zone1-6
   * sjc-zone2-6
@@ -1092,6 +1190,7 @@ aws-eqsvg  | GovCloud EqSvG |
   
   * northamerica-northeast1
   * northamerica-northeast2
+  * northamerica-south1
   * us-central1
   * us-east1
   * us-east4
@@ -1131,7 +1230,7 @@ aws-eqsvg  | GovCloud EqSvG |
   * us-west-1
   * us-west-2
 
-| Seattle|  aws-eqse2-eq  | EqSe2-EQ, sublocation Equinix SE2 | 
+| Seattle |  aws-eqse2-eq  | EqSe2-EQ, sublocation Equinix SE2 | 
 
   * sea-zone1-86
   * sea-zone2-86
@@ -1171,7 +1270,7 @@ aws-eqsvg  | GovCloud EqSvG |
   * us-west-1
   * us-west-2
 
-| São Paulo|  aws-tndb  | TNDB | 
+| São Paulo |  aws-tndb  | TNDB | 
 
   * gru-zone1-165
   * gru-zone2-165
@@ -1226,6 +1325,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

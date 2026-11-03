@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/authenticate-remote-agent-with-workload-identity-federation/
 title: Authenticate Remote Agent with Workload Identity Federation \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:11:16.667050+00:00
+fetched_at: 2026-11-03T09:54:51.285968+00:00
 ---
 
 # Authenticate Remote Agent with Workload Identity Federation  |  Google Security Operations  |  Google Cloud Documentation
@@ -37,6 +37,7 @@ Before configuring Workload Identity Federation, verify the following prerequisi
   * The user configuring Workload Identity Federation must have the required IAM permissions in Google Cloud to create and manage Workload Identity Pools (`roles/iam.workloadIdentityPoolAdmin`) and Service Accounts (`roles/iam.serviceAccountAdmin`).
   * A dedicated Service Account created in Google Cloud with the **Chronicle SOAR Remote Agent** role (`roles/chronicle.soarAgent`). For steps to create a service account, see [Create a service account](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/migrate-remote-agent-to-google#create-a-service-account).
   * Access to your external Identity Provider (AWS, Azure, Active Directory/ADFS, Kubernetes, CI/CD pipeline, X.509 CA, or custom OIDC/SAML provider).
+  * Your firewall must allow outbound HTTPS (TCP port `443`) traffic from the Remote Agent host to `sts.googleapis.com`, `iamcredentials.googleapis.com`, your Chronicle API locational endpoint (`REGION-chronicle.googleapis.com`, configured in `ONE_PLATFORM_URL_DOMAIN`), and your tenant Publisher hostname (`SERVER_API_ROOT`). For full allowlist and Private Service Connect details, see [Network and Private Service Connect requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/migrate-remote-agent-to-google#network-and-psc-requirements) and [Network and firewall requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites#network-and-firewall-requirements).
 
 
 
@@ -243,6 +244,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

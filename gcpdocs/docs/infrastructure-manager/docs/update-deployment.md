@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/update-deployment/
 title: Update a deployment \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:55.188514+00:00
+fetched_at: 2026-11-03T09:52:02.372064+00:00
 ---
 
 # Update a deployment  |  Infrastructure Manager  |  Google Cloud Documentation
@@ -187,7 +187,7 @@ If QUOTA_VALIDATION is not defined, quota validation on Terraform configuration 
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to update the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, Infra Manager uses the Terraform version of the existing deployment, or defaults to the latest supported free tier version (`1.5.7`). To upgrade to a paid version (such as `1.16.5`), you must explicitly specify the version.
   * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
   * Optional: PROVIDER_SOURCE: Determines which Terraform provider for Google Cloud the deployment uses. Set to `SERVICE_MAINTAINED` to use the Infra Manager maintained Terraform provider. Omit this field to use the HashiCorp-maintained Terraform provider. For more information, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform-provider).
@@ -233,7 +233,7 @@ If QUOTA_VALIDATION is not defined, quota validation on Terraform configuration 
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to update the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, Infra Manager uses the Terraform version of the existing deployment, or defaults to the latest supported free tier version (`1.5.7`). To upgrade to a paid version (such as `1.16.5`), you must explicitly specify the version.
   * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
   * Optional: PROVIDER_SOURCE: Determines which Terraform provider for Google Cloud the deployment uses. Set to `SERVICE_MAINTAINED` to use the Infra Manager maintained Terraform provider. Omit this field to use the HashiCorp-maintained Terraform provider. For more information, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform-provider).
@@ -274,7 +274,7 @@ If QUOTA_VALIDATION is not defined, quota validation on Terraform configuration 
 
 If all input values are defined by default in the configuration, then this flag is optional.
 
-  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to create the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, the latest supported version of Terraform is used.
+  * Optional:TERRAFORM_VERSION: the version of Terraform for Infra Manager to use to update the deployment. See [supported Terraform version](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions) for the list of supported versions. If you remove this optional flag, Infra Manager uses the Terraform version of the existing deployment, or defaults to the latest supported free tier version (`1.5.7`). To upgrade to a paid version (such as `1.16.5`), you must explicitly specify the version.
   * Optional: ANNOTATION_KEY and ANNOTATION_VALUE represent a key-value pair of free-form text that can be attached to your Infra Manager deployments. For more information about the use and constraints of annotations and labels, see [Annotations and labels](https://docs.cloud.google.com/infrastructure-manager/docs/annotations).
 
   * Optional: PROVIDER_SOURCE: Determines which Terraform provider for Google Cloud the deployment uses. Set to `SERVICE_MAINTAINED` to use the Infra Manager maintained Terraform provider. Omit this field to use the HashiCorp-maintained Terraform provider. For more information, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform-provider).
@@ -295,6 +295,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

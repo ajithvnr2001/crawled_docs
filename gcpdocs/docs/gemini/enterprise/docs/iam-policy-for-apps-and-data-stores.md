@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/iam-policy-for-apps-and-data-stores/
 title: Configure granular access controls for apps and data stores \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:15.320923+00:00
+fetched_at: 2026-11-03T09:44:21.534253+00:00
 ---
 
 # Configure granular access controls for apps and data stores  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ To enable app and data store access control in the Google Cloud console, follow 
   5. In the **Enable resource access control?** dialog, click **Enable**.
 
 
-
+**Note:** The setting applies to every multi-region where your project is configured. If you later create apps in another multi-region, the **Resource access control** tab shows a warning that the setting is off there, with the toggle switched off. To turn the setting on in all configured multi-regions, turn on the toggle, click **Save** , and then click **Enable**.
 
 ### REST
 
@@ -145,7 +145,7 @@ Replace the following:
     * `global` for the Global location
 For more information, see [Specify a multi-region for your data store](https://docs.cloud.google.com/gemini/enterprise/docs/locations#specify_a_multi-region_for_your_data_store). 
 
-
+**Important:** The setting applies only to the apps and data stores in the multi-region of the endpoint that you call. If your project has apps in more than one multi-region, run the command once for each multi-region. If you later create apps in another multi-region, run the command for that multi-region as well.
 
 **Note:** After enabling this setting, wait approximately 5 minutes for the configuration change to take effect across all services and the Google Cloud console.
 
@@ -1105,6 +1105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

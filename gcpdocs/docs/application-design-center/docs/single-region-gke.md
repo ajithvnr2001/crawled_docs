@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/single-region-gke/
 title: Single region GKE cluster and workload \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:11.269627+00:00
+fetched_at: 2026-11-03T09:52:59.651084+00:00
 ---
 
 # Single region GKE cluster and workload  |  Application Design Center  |  Google Cloud Documentation
@@ -21,14 +21,7 @@ Send feedback
 
 #  Single region GKE cluster and workload Stay organized with collections  Save and categorize content based on your preferences. 
 
-Create a cost-efficient Google Kubernetes Engine (GKE) cluster and workload optimized for resource management in a single location. This guide describes the following templates, which you can use to deploy a basic web application:
-
-  * **Single region GKE cluster template** : create the foundational infrastructure required for a single region application. This template sets up a secure, private GKE cluster optimized for resource management.
-
-  * **Single region GKE workload** ([Preview](https://cloud.google.com/products#product-launch-stages)): deploy a helm chart that includes the configuration for a basic web application. The workload is configured to scale based on CPU load, and ensure application availability during voluntary disruptions.
-
-
-
+The single-region Google Kubernetes Engine (GKE) templates in Application Design Center let you deploy a cost-efficient cluster and web workload in one location. You can use the _Single region GKE cluster_ template to provision a secure, private GKE cluster optimized for resource management. You can then pair it with the _Single region GKE workload_ template ([Preview](https://cloud.google.com/products#product-launch-stages)) to deploy a Helm chart that scales on CPU load and maintains availability during disruptions.
 
 For example, you might deploy the cluster and workload templates to address the following business needs:
 
@@ -162,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

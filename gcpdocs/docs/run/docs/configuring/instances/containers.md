@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/instances/containers/
 title: Configure containers for instances \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:22.356822+00:00
+fetched_at: 2026-11-03T09:44:18.712308+00:00
 ---
 
 # Configure containers for instances  |  Cloud Run  |  Google Cloud Documentation
@@ -140,10 +140,10 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
     
     
     gcloud beta run instances deploy INSTANCE \
-         --container CONTAINER_1_NAME --image=&#39;IMAGE_URL' --port='CONTAINER_PORT' \
+         --container CONTAINER_1_NAME --image='IMAGE_URL' --port='CONTAINER_PORT' \
          --container CONTAINER_2_NAME --image='SIDECAR_IMAGE' --depends-on=CONTAINER_1_NAME \
          --startup-probe=tcpSocket.port=SIDECAR_PORT \
-         --container CONTAINER_3_NAME --image='SIDECAR_IMAGE9; --depends-on=CONTAINER_1_NAME,CONTAINER_2_NAME
+         --container CONTAINER_3_NAME --image='SIDECAR_IMAGE' --depends-on=CONTAINER_1_NAME,CONTAINER_2_NAME
 
 Replace the following:
 
@@ -171,7 +171,7 @@ If you want to configure each container in the deploy command, supply each conta
          metadata:
            name: INSTANCE
            annotations:
-             run.googleapis.com/container-dependencies: 9;{"CONTAINER1";:[&quot;CONTAINER2"], &quot;CONTAINER3":["CONTAINER1","CONTAINER2"]}'
+             run.googleapis.com/container-dependencies: '{"CONTAINER1":["CONTAINER2"], "CONTAINER3":["CONTAINER1","CONTAINER2"]}'
 
 Replace the following:
 

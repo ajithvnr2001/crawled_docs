@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-ibm-db2-deployment-guide/
 title: Manual VM deployment for IBM Db2 on Linux and Windows for SAP \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:35.585492+00:00
+fetched_at: 2026-11-03T09:44:07.384615+00:00
 ---
 
 # Manual VM deployment for IBM Db2 on Linux and Windows for SAP  |  SAP on Google Cloud  |  Google Cloud Documentation

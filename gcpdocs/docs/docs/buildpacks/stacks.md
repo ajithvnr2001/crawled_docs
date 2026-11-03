@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/stacks/
 title: Stacks \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:08:31.177740+00:00
+fetched_at: 2026-11-03T09:54:40.214755+00:00
 ---
 
 # Stacks  |  Buildpacks  |  Google Cloud Documentation
@@ -222,7 +222,7 @@ fonts-tlwg-waree-ttf | 1:0.7.3-1
 fonts-urw-base35 | 20200910-8  
 fonts-wqy-zenhei | 0.9.45-8  
 gcc-14-base | 14.2.0-4ubuntu2~24.04.1  
-ghostscript | 10.02.1~dfsg1-0ubuntu7.9  
+ghostscript | 10.02.1~dfsg1-0ubuntu7.10  
 git | 1:2.43.0-1ubuntu7.4  
 git-man | 1:2.43.0-1ubuntu7.4  
 gnupg | 2.4.4-2ubuntu17.6  
@@ -279,7 +279,7 @@ libblas3 | 3.12.0-3build1.1
 libblkid1 | 2.39.3-9ubuntu6.6  
 libbluray2 | 1:1.3.4-1build1  
 libbpf1 | 1:1.3.0-2build2  
-libbrotli1 | 1.1.0-2build2  
+libbrotli1 | 1.1.0-2ubuntu0.1  
 libbs2b0 | 3.1.0+dfsg-7build1  
 libbsd0 | 0.12.1-1build1.1  
 libbz2-1.0 | 1.0.8-5.1ubuntu0.1  
@@ -340,7 +340,7 @@ libgdk-pixbuf2.0-common | 2.42.10+dfsg-3ubuntu3.3
 libgfortran5 | 14.2.0-4ubuntu2~24.04.1  
 libgl1 | 1.7.0-1build1  
 libgl1-mesa-dri | 25.2.8-0ubuntu0.24.04.4  
-libglib2.0-0t64 | 2.80.0-6ubuntu3.9  
+libglib2.0-0t64 | 2.80.0-6ubuntu3.10  
 libglvnd0 | 1.7.0-1build1  
 libglx-mesa0 | 25.2.8-0ubuntu0.24.04.4  
 libglx0 | 1.7.0-1build1  
@@ -352,9 +352,9 @@ libgomp1 | 14.2.0-4ubuntu2~24.04.1
 libgoogle-perftools4t64 | 2.15-3build1  
 libgpg-error0 | 1.47-3build2.1  
 libgraphite2-3 | 1.3.14-2ubuntu0.24.04.1  
-libgs-common | 10.02.1~dfsg1-0ubuntu7.9  
-libgs10 | 10.02.1~dfsg1-0ubuntu7.9  
-libgs10-common | 10.02.1~dfsg1-0ubuntu7.9  
+libgs-common | 10.02.1~dfsg1-0ubuntu7.10  
+libgs10 | 10.02.1~dfsg1-0ubuntu7.10  
+libgs10-common | 10.02.1~dfsg1-0ubuntu7.10  
 libgsm1 | 1.0.22-1build1  
 libgssapi-krb5-2 | 1.20.1-6ubuntu2.10  
 libharfbuzz0b | 8.3.0-2build2  
@@ -413,15 +413,15 @@ libncursesw6 | 6.4+20240113-1ubuntu2.2
 libnettle8t64 | 3.9.1-2.2build1.1  
 libnghttp2-14 | 1.59.0-1ubuntu0.4  
 libnginx-mod-http-geoip2 | 1:3.4-5build2  
-libnginx-mod-http-image-filter | 1.24.0-2ubuntu7.18  
-libnginx-mod-http-xslt-filter | 1.24.0-2ubuntu7.18  
-libnginx-mod-mail | 1.24.0-2ubuntu7.18  
-libnginx-mod-stream | 1.24.0-2ubuntu7.18  
+libnginx-mod-http-image-filter | 1.24.0-2ubuntu7.19  
+libnginx-mod-http-xslt-filter | 1.24.0-2ubuntu7.19  
+libnginx-mod-mail | 1.24.0-2ubuntu7.19  
+libnginx-mod-stream | 1.24.0-2ubuntu7.19  
 libnginx-mod-stream-geoip2 | 1:3.4-5build2  
 libnorm1t64 | 1.5.9+dfsg-3.1build1  
 libnpth0t64 | 1.6-3.1build1  
 libnspr4 | 2:4.35-1.1build1  
-libnss3 | 2:3.98-1ubuntu0.2  
+libnss3 | 2:3.98-1ubuntu0.3  
 libnuma1 | 2.0.18-1ubuntu0.24.04.1  
 libogg0 | 1.3.5-3build1  
 libonig5 | 6.9.9-1build1  
@@ -598,9 +598,9 @@ mysql-common | 5.8+1.1.0build1
 ncurses-base | 6.4+20240113-1ubuntu2.2  
 ncurses-bin | 6.4+20240113-1ubuntu2.2  
 netbase | 6.4  
-nginx | 1.24.0-2ubuntu7.18  
-nginx-common | 1.24.0-2ubuntu7.18  
-nginx-core | 1.24.0-2ubuntu7.18  
+nginx | 1.24.0-2ubuntu7.19  
+nginx-common | 1.24.0-2ubuntu7.19  
+nginx-core | 1.24.0-2ubuntu7.19  
 ocl-icd-libopencl1 | 2.3.2-1build1  
 openssl | 3.0.13-0ubuntu3.16  
 passwd | 1:4.13+dfsg1-4ubuntu3.2  
@@ -635,7 +635,7 @@ xdg-utils | 1.1.3-4.1ubuntu3
 xfonts-encodings | 1:1.0.5-0ubuntu2  
 xfonts-utils | 1:7.7+6build3  
 xkb-data | 2.41-2ubuntu1.1  
-zlib1g | 1:1.3.dfsg-3.1ubuntu2.2  
+zlib1g | 1:1.3.dfsg-3.1ubuntu2.3  
   
 ### google-22 (Ubuntu 22)
 
@@ -826,7 +826,7 @@ fonts-tlwg-waree-ttf | 1:0.7.3-1
 fonts-urw-base35 | 20200910-1  
 fonts-wqy-zenhei | 0.9.45-8  
 gcc-12-base | 12.3.0-1ubuntu1~22.04.3  
-ghostscript | 9.55.0~dfsg1-0ubuntu5.14  
+ghostscript | 9.55.0~dfsg1-0ubuntu5.15  
 git | 1:2.34.1-1ubuntu1.18  
 git-man | 1:2.34.1-1ubuntu1.18  
 gnupg | 2.2.27-3ubuntu2.5  
@@ -962,8 +962,8 @@ libgomp1 | 12.3.0-1ubuntu1~22.04.3
 libgoogle-perftools4 | 2.9.1-0ubuntu3  
 libgpg-error0 | 1.43-3  
 libgraphite2-3 | 1.3.14-1ubuntu0.1  
-libgs9 | 9.55.0~dfsg1-0ubuntu5.14  
-libgs9-common | 9.55.0~dfsg1-0ubuntu5.14  
+libgs9 | 9.55.0~dfsg1-0ubuntu5.15  
+libgs9-common | 9.55.0~dfsg1-0ubuntu5.15  
 libgsm1 | 1.0.19-1  
 libgssapi-krb5-2 | 1.19.2-2ubuntu0.10  
 libharfbuzz0b | 2.7.4-1ubuntu3.2  
@@ -1028,7 +1028,7 @@ libnorm1 | 1.5.9+dfsg-2
 libnpth0 | 1.6-3build2  
 libnsl2 | 1.3.0-2build2  
 libnspr4 | 2:4.35-0ubuntu0.22.04.1  
-libnss3 | 2:3.98-0ubuntu0.22.04.4  
+libnss3 | 2:3.98-0ubuntu0.22.04.5  
 libnuma1 | 2.0.14-3ubuntu2  
 libogg0 | 1.3.5-0ubuntu3  
 libonig5 | 6.9.7.1-2build1  
@@ -1822,6 +1822,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

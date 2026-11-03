@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/attack-exposure-supported-features/
 title: Risk Engine feature support \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:01.063933+00:00
+fetched_at: 2026-11-03T09:52:46.064152+00:00
 ---
 
 # Risk Engine feature support  |  Security Command Center  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This page describes the services and findings that the Security Command Center Risk Engine feature supports and the supportability limits it is subject to.
+Risk Engine in Security Command Center simulates potential attack paths and calculates attack exposure scores. This information helps you prioritize security risks across supported cloud platforms, finding classes, and high-value resources.
+
+## Supported features for Risk Engine
 
 Risk Engine generates attack exposure scores and attack path simulations for the following:
 
@@ -34,7 +36,7 @@ Risk Engine generates attack exposure scores and attack path simulations for the
 
 
 
-Security Command Center can provide attack exposure scores and attack path visualizations for multiple cloud service provider platforms. Detector support differs for each cloud service provider. Risk Engine depends on external exposure, vulnerability, and misconfiguration detectors that are specific to each cloud service provider. The following sections describe the supported resources for each cloud service provider.
+Security Command Center provides attack exposure scores and attack path visualizations for multiple cloud service provider platforms. Detector support differs for each provider based on available external exposure, vulnerability, and misconfiguration detectors:
 
   * Google Cloud
   * Amazon Web Services (AWS)
@@ -392,6 +394,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

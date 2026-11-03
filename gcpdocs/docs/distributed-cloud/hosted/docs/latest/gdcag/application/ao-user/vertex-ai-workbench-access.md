@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-workbench-access/
 title: Control access to Vertex AI Workbench \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:28.219921+00:00
+fetched_at: 2026-11-03T09:51:57.818534+00:00
 ---
 
 # Control access to Vertex AI Workbench  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Control access to Vertex AI Workbench Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can grant and restrict access to Vertex AI Workbench for an organization or a project. To do so, you define an organization policy using the `GDCHRestrictedService` policy type, which lets you restrict which service you can use on Google Distributed Cloud (GDC) air-gapped. When applied, the policy prevents the use of the APIs that it references.
+Configuring a `GDCHRestrictedService` organization policy lets you control access to Vertex AI Workbench in Google Distributed Cloud (GDC) air-gapped. When applied, this policy blocks the APIs that it references so that only non-restricted organizations or projects can create and update JupyterLab notebooks. You can limit Vertex AI Workbench to specific projects or restrict access across your entire organization during testing.
 
-For example, you can use this policy type to restrict the use of Vertex AI Workbench to specific projects. Only non-restricted organizations or projects can create or update JupyterLab notebooks. You can also use the policy to completely restrict access to the Vertex AI Workbench service because you want to run tests before allowing your teams to use it.
-
-This page describes how to grant and restrict access to Vertex AI Workbench using the `GDCHRestrictedService` policy type. To learn more about organization policies and how to edit the `GDCHRestrictedService` organization policy, see [Configure organization policies](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/org-policy).
+For more information about organization policies, see [Configure organization policies](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/org-policy).
 
 ## Before you begin
 
@@ -162,6 +160,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

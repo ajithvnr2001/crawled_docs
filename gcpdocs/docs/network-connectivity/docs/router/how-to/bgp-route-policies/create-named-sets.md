@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/router/how-to/bgp-route-policies/create-named-sets/
 title: Create named sets \u00a0|\u00a0 Cloud Router \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:04:27.802524+00:00
+fetched_at: 2026-11-03T09:53:58.588654+00:00
 ---
 
 # Create named sets  |  Cloud Router  |  Google Cloud Documentation

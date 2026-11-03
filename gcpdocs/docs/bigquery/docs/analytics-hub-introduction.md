@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analytics-hub-introduction/
 title: Introduction to BigQuery sharing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:56.592061+00:00
+fetched_at: 2026-11-03T09:54:41.236750+00:00
 ---
 
 # Introduction to BigQuery sharing  |  Google Cloud Documentation
@@ -386,7 +386,7 @@ If you're a publisher, the following BigQuery interoperability limitations apply
   * The [query plan](https://docs.cloud.google.com/bigquery/docs/query-plan-explanation) reveals the shared view query and routine query definitions, including project IDs and other datasets involved in authorized views. Don't include sensitive information, such as encryption keys, in the shared view or routine query.
   * Shared datasets are indexed in [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview). Schema updates on a shared dataset become available to subscribers immediately. However, when there are more than 100 subscribers or tables in a shared dataset, updates might require up to 18 hours to index. Due to the indexing delay, subscribers can't search for updated resources in the Google Cloud console immediately.
   * Shared topics are indexed in Knowledge Catalog, but you can't filter specifically for their resource type.
-  * If you configure [row-level security](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro) or [data masking](https://docs.cloud.google.com/bigquery/docs/column-data-masking-intro) policies on listed tables, subscribers must use an Enterprise or Enterprise Plus edition to run query jobs on the linked dataset. For information about editions, see [Introduction to BigQuery editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).
+  * If you configure [row-level security](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro), [column-level access control](https://docs.cloud.google.com/bigquery/docs/column-level-security-intro), or [data masking](https://docs.cloud.google.com/bigquery/docs/column-data-masking-intro) policies on listed tables, or on base tables referenced by shared authorized views, subscribers can't query the linked dataset from a Standard edition reservation. Subscribers must run query jobs by using the on-demand pricing model or an Enterprise or Enterprise Plus edition reservation. In a Standard edition reservation, a query is rejected even if it references only unprotected columns of a table with policy tags. For more information about editions, see [Introduction to BigQuery editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).
 
 
 
@@ -452,6 +452,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

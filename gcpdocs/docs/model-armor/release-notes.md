@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/release-notes/
 title: Model Armor release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:52:34.233493+00:00
+fetched_at: 2026-11-03T09:54:50.954084+00:00
 ---
 
 # Model Armor release notes  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page contains release notes for features and updates to Model Armor. You ca
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/modelarmor-release-notes.xml) directly. 
+
+## November 02, 2026
+
+Feature
+
+Support for template-specific exclusion rules in streaming sanitization (`StreamSanitizeUserPrompt` and `StreamSanitizeModelResponse`) is available in [Preview](https://cloud.google.com/products#product-launch-stages). You can use dictionary and regular expression exclusion rules in buffered mode (`STREAMING_MODE_BUFFERED`) with partial or full matching, and in real-time mode (`STREAMING_MODE_REALTIME`) with partial matching, to mitigate false-positive detections for prompt injection and jailbreak detection and responsible AI filters.
+
+For more information, see [Exclusion rules in streaming sanitization](https://docs.cloud.google.com/model-armor/configure-exclusion-rules#exclusion-rules-streaming).
 
 ## October 29, 2026
 

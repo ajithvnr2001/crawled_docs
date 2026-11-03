@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery/
 title: Apache Iceberg managed tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:53.734957+00:00
+fetched_at: 2026-11-03T09:51:59.568176+00:00
 ---
 
 # Apache Iceberg managed tables  |  BigQuery  |  Google Cloud Documentation
@@ -510,7 +510,7 @@ Iceberg managed tables have the following limitations:
   * `TRUNCATE TABLE` doesn't support Iceberg managed tables. There are two alternatives: 
     * [`CREATE OR REPLACE TABLE`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement), using the same table creation options.
     * `DELETE FROM` table `WHERE` true
-  * The [`APPENDS` table-valued function (TVF)](https://docs.cloud.google.com/bigquery/docs/change-history) doesn't support Iceberg managed tables.
+  * The [`APPENDS` table-valued function (TVF)](https://docs.cloud.google.com/bigquery/docs/change-history) supports Iceberg managed tables, but the `CHANGES` TVF doesn't.
   * Iceberg metadata might not contain data that was streamed to BigQuery by the Storage Write API within the last 90 minutes.
   * When streaming data to Iceberg managed tables using the BigQuery Storage Write API (gRPC), the table's `lastModifiedTime` might not be immediately updated and can be stale. The metadata export timestamp in BigLake status reflects the read snapshot time used when generating the Iceberg metadata, rather than the table's `lastModifiedTime`.
   * Record-based paginated access using `tabledata.list` doesn't support Iceberg managed tables.
@@ -522,6 +522,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

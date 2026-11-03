@@ -1,25 +1,11 @@
 ---
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/permissions/
-title: IAM roles and permissions required to back up, mount, and restore Compute Engine instances in the appliance management console \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:23:21.966815+00:00
+title: IAM roles and permissions required to back up, mount, and restore Compute Engine instances in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
+method: scrapling+scrapegraph
+fetched_at: 2026-11-03T09:53:53.319573+00:00
 ---
 
-# IAM roles and permissions required to back up, mount, and restore Compute Engine instances in the appliance management console  |  Backup and DR  |  Google Cloud Documentation
+# IAM roles and permissions required to back up, mount, and restore Compute Engine instances in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/permissions/
 
@@ -27,7 +13,7 @@ fetched_at: 2026-10-27T16:23:21.966815+00:00
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Storage ](https://docs.cloud.google.com/docs/storage)
   * [ Backup and DR ](https://docs.cloud.google.com/backup-disaster-recovery/docs)
-  * [ Guides ](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr)
+  * [ Backup and DR for the management console ](https://docs.cloud.google.com/backup-disaster-recovery/management-console/concepts/backupdr-for-workloads)
 
 
 
@@ -35,7 +21,7 @@ Send feedback
 
 #  IAM roles and permissions required to back up, mount, and restore Compute Engine instances in the appliance management console Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations).
+**Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations) in the Backup and DR documentation. 
 
 This page lists the roles and permissions required to back up, mount, and restore Compute Engine instances.
 
@@ -129,11 +115,11 @@ To grant this permission, follow these steps:
 
 ## Related information
 
-  * [Cloud credentials required for the backup/recovery appliance](https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/create-cloud-credentials)
+  * [Cloud credentials required for the backup/recovery appliance](https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/create-cloud-credentials)
   * [Discover and protect Compute Engine instances](https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/discover-and-protect-ce-inst)
-  * [Mount backups of Compute Engine instances](https://docs.cloud.google.com/backup-disaster-recovery/docs/access-data/mount-snapshot-images-of-cloud-instances)
+  * [Mount backups of Compute Engine instances](https://docs.cloud.google.com/backup-disaster-recovery/management-console/access-data/mount-snapshot-images-of-cloud-instances)
   * [Restore a Compute Engine instance](https://docs.cloud.google.com/backup-disaster-recovery/docs/restore-data/restore-instance)
-  * [Import persistent disk snapshot images](https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/import-pdsnapshot-images)
+  * [Import persistent disk snapshot images](https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/import-pdsnapshot-images)
 
 
 
@@ -141,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

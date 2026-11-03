@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/explore-data-assets/
 title: Explore data assets in Knowledge Studio \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:56.453014+00:00
+fetched_at: 2026-11-03T09:44:33.307324+00:00
 ---
 
 # Explore data assets in Knowledge Studio  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -27,14 +27,9 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-**Knowledge Studio gated preview**  
-Knowledge Studio is currently available as a gated preview. To view the context graph, create context sets, and run enrichment workflows, you must first request allowance for your organization.   
-  
-[Request preview access](https://docs.google.com/forms/d/e/1FAIpQLScw1O38BmcLIvqL1ZvpybJsLGO_Dmuq0a5RrCJIqW11iljsKQ/viewform)
+Knowledge Studio lets you discover data assets, query enterprise metadata in natural language, and visually explore asset relationships. You can use the conversational chat interface alongside an interactive context graph to navigate connections across your datasets, tables, and business terms.
 
-This document describes how to use Knowledge Studio to discover and chat about relevant data assets, visually explore how those data assets are connected, and find answers about the data assets by using natural language. Knowledge Studio pairs a conversational chat interface with an interactive context graph to help you intuitively explore and navigate your entire data landscape.
-
-This document is for data analysts, business analysts, and data stewards who want to query their enterprise metadata using natural language and visually navigate relationships about their data assets in a context graph.
+This document is for data analysts, business analysts, and data stewards who want to explore catalog metadata and asset dependencies.
 
 ## How data exploration works
 
@@ -109,6 +104,7 @@ To get the permissions that you need to explore data assets and the context grap
 
   * Core catalog search and context graph exploration: 
     * [**Dataplex Catalog Viewer** ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogViewer) (`roles/dataplex.catalogViewer`)
+    * [**Dataplex Content User** ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.contentUser) (`roles/dataplex.contentUser`)
     * [**Service Usage Consumer** ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`)
   * Browsing BigQuery metadata and running SQL queries: 
     * [**BigQuery Metadata Viewer** ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.metadataViewer) (`roles/bigquery.metadataViewer`)
@@ -130,137 +126,11 @@ You might also be able to get the required permissions through [custom roles](ht
 
 **Note:**
 
-  * The **Dataplex Viewer** (`roles/dataplex.viewer`) role does not grant catalog read and search permissions. Ensure you are granted **Dataplex Catalog Viewer** (`roles/dataplex.catalogViewer`).
+  * The **Dataplex Viewer** (`roles/dataplex.viewer`) role doesn't grant catalog read and search permissions. Ensure that you're granted **Dataplex Catalog Viewer** (`roles/dataplex.catalogViewer`) and **Dataplex Content User** (`roles/dataplex.contentUser`).
   * To inspect SQL queries from lineage processes created by BigQuery jobs run by other users, you need the optional **BigQuery Resource Viewer** (`roles/bigquery.resourceViewer`) role.
   * To allow the agent to read Google Documents linked in chat, you must have Google Drive Viewer access to the referenced Google Doc.
 
 
-
-#### Grant roles to your user account
-
-If you have the necessary permissions to manage Identity and Access Management (IAM) access in your project, you can grant these roles to your own user account. To grant roles, use the [`gcloud projects add-iam-policy-binding` command](https://docs.cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding):
-
-Before using any of the command data below, make the following replacements: 
-
-  * PROJECT_ID: your Google Cloud project ID.
-  * USER_EMAIL: your user account email address (for example, `name@example.com`).
-
-
-
-Execute the following command: 
-
-#### Linux, macOS, or Cloud Shell
-
-**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
-    
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/dataplex.catalogViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/serviceusage.serviceUsageConsumer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/bigquery.metadataViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/bigquery.dataViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/bigquery.jobUser"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/geminidataanalytics.dataAgentStatelessUser"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/datalineage.viewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="user:USER_EMAIL" \
-        --role="roles/bigquery.resourceViewer"
-
-#### Windows (PowerShell)
-
-**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
-    
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/dataplex.catalogViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/serviceusage.serviceUsageConsumer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/bigquery.metadataViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/bigquery.dataViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/bigquery.jobUser"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/geminidataanalytics.dataAgentStatelessUser"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/datalineage.viewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID `
-        --member="user:USER_EMAIL" `
-        --role="roles/bigquery.resourceViewer"
-
-#### Windows (cmd.exe)
-
-**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
-    
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/dataplex.catalogViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/serviceusage.serviceUsageConsumer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/bigquery.metadataViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/bigquery.dataViewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/bigquery.jobUser"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/geminidataanalytics.dataAgentStatelessUser"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/datalineage.viewer"
-    
-    gcloud projects add-iam-policy-binding PROJECT_ID ^
-        --member="user:USER_EMAIL" ^
-        --role="roles/bigquery.resourceViewer"
-
-You can run these commands in [Cloud Shell](https://console.cloud.google.com/?cloudshell=true) or in a local terminal where the [Google Cloud CLI is installed and initialized](https://cloud.google.com/sdk/docs/install).
 
 ## Open the exploration interface
 
@@ -272,7 +142,7 @@ The interface displays the following interface elements:
 
   * **Sidebar** : Lets you start a new exploration session (**New chat**), search previous chat sessions, or switch between the **New chat** , **Context sets** , and **Enrichments** interfaces.
 
-  * **Conversational chat window** : Features a central prompt field with the model selector and starter prompt chips, such as **What data do I have in Knowledge Catalog?**.
+  * **Conversational chat window** : Features a central prompt field with the thinking level and project scope selectors, starter prompt chips (such as **What data do I have in Knowledge Catalog?**), and up to four **Recently opened** resource cards for supported catalog entry types.
 
   * **Show graph panel** hub icon: Opens or closes the **Context graph** panel.
 
@@ -288,10 +158,11 @@ Gemini analyzes your request, runs internal discovery tools, and displays struct
 Depending on your query, the chat response from the agent can include:
 
      * **Matching assets expanders** : Displays interactive card summaries of the discovered data assets grouped by type (such as tables or glossaries).
-     * **Text summaries** : Describes the core datasets, tables, and glossaries found.
+     * **Text summaries** : Describes the core datasets, tables, and glossaries found. If a discovered table doesn't have an existing description in Knowledge Catalog, the agent generates a temporary one-line summary from the table name and schema for the chat response only. This summary doesn't require data profiling and isn't saved to the catalog. To generate and persist governed descriptions in the catalog, run an enrichment task. For more information, see [About enrichment tasks](https://docs.cloud.google.com/knowledge-catalog/docs/about-enrichment-tasks).
      * **Follow-up guidance** : The agent suggests next steps, such as exploring specific domains or inspecting table schemas.
+     * **Add to graph button** : Appears after a completed agent response when the response includes discovered catalog entries. Click **Add to graph** to merge or restore those entries onto the context graph canvas. When all entries from that response are already on the canvas, the button displays **On graph**.
 ![A chat response showing Matching Assets panels and dataset summaries](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-key-assets.png)![Larger view of the chat response showing Matching Assets panels and dataset summaries](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-key-assets.png)**Figure 1.** The chat response displaying matching assets, dataset summaries, and follow-up guidance. (Click the image to enlarge.)
-  2. Optional: To inspect the agent's reasoning steps and internal tool calls, expand the **Thinking** section in the chat response. This section reveals a narrative explanation of the agent's multi-stage search strategy, including how it progresses from broad discovery queries to targeted asset filters. The following list shows some of the internal operations the agent might perform to answer your requests:
+  2. Optional: To inspect the agent's reasoning steps and internal tool calls, expand the **Thinking** section in the chat response. The **Thinking** section provides a narrative explanation of the agent's multi-stage search strategy, including how it progresses from broad discovery queries to targeted asset filters. The reasoning trace might reference internal tool names or prompt instructions, which represent backend agent orchestration steps rather than standalone user-facing tools or documentation. The following list shows some of the internal operations the agent might perform to answer your requests:
 
      * **Catalog search** : Queries Knowledge Catalog with precise project constraints, using keyword and semantic matching (for example, filtering by `type=dataset` or `type=context-set`). For more information about the underlying mechanisms, see [Search for data assets](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets).
 
@@ -304,12 +175,17 @@ Depending on your query, the chat response from the agent can include:
 
 ## Configure search scope and reasoning
 
-To help Gemini provide the most accurate answers while minimizing the time you wait for a response, you can restrict the agent's target environment and reasoning complexity using the drop-down controls beneath the chat prompt box:
+To help Gemini provide the most accurate answers while minimizing the time you wait for a response, you can configure the agent's target project scope and reasoning complexity within the prompt field using the following controls:
 
-  * **Explore data across** : Limits the agent's internal search operations to one or more specific Google Cloud projects.
+  * **Explore data across** : Controls which Google Cloud projects the agent searches. By default, a new chat scopes searches to your current project (labeled `Current`). Filtering by specific projects speeds up discovery and prevents the agent from returning similarly named tables from test or staging environments.
 
-Choose this option when you have a large Knowledge Catalog footprint and you know exactly which projects contain your target data assets. Filtering by projects significantly speeds up discovery and prevents the agent from hallucinating or returning similarly-named tables from test or staging environments. Leave this set to **All projects** if you don't know where the data resides.
+In the prompt field, click **Explore data across** to change the project scope:
 
+    * **Filter** : Enter text in the **Filter** field to narrow the listed projects.
+    * **All projects** (`Every project you can access`): Select this checkbox to search across every project that you can access when you don't know where the data resides. Selecting **All projects** clears any individual project selections.
+    * **Project checkboxes** : Select one or more projects from the list of your current, recent, and starred projects. Selecting an individual project clears **All projects** , and clearing all checkboxes reverts the scope to your current project.
+    * **Choose another project** : Click to open the Google Cloud console project picker and add another project to the selection list.
+    * **Apply** : Click **Apply** (or click outside the menu) to apply your selection.
   * **Thinking level** : Controls how deeply the agent reasons about your prompt, dictating how exhaustively it evaluates query possibilities and iterates on search results before responding to you.
 
 Choose this option when you need to balance response speed against the thoroughness of the search. * Select **Low** for fast, direct, and straightforward keyword lookups where the asset name is known. * Select **Medium** for typical exploration workflows where the agent might need to perform one or two follow-up queries. * Select **High** for complex, vague, or ambiguous questions where the agent must execute a multi-stage search strategy, evaluate the initial results, and refine its queries before returning a final answer.
@@ -319,13 +195,13 @@ Choose this option when you need to balance response speed against the thoroughn
 
 ## Run specialized analytical agents
 
-By default, the chat powered by Gemini limits queries to structural metadata and descriptive catalogs. If your question requires deep data analysis or running queries against actual table data, you can invoke specialized analytical agents by adding specific mentions directly into your chat prompt.
+By default, the chat powered by Gemini limits queries to structural metadata and descriptive catalogs. If your question requires deep data analysis or running queries against actual table data, you can invoke specialized analytical agents by entering their exact mention directly into your chat prompt.
 
 The following list shows the supported analytical agents and their capabilities:
 
   * **`@BqJobs`** : Invokes the **BigQuery Query Job** agent. When included, this grants the chat powered by Gemini permission to execute SQL statements directly against your tables. Use this mention when you want the agent to answer your question by querying the data rather than just reviewing metadata.
 
-  * **Google Document links** : Pasting a Google Document link into the chat allows the agent to read the document's contents. You must have Google Drive Viewer access to the linked document, and the [Google Drive API](https://developers.google.com/drive/api/guides/enable-drive-api) must be enabled on your project.
+  * **Google Document links** : Pasting a Google Document link into the chat lets the agent read the document's contents and use that external context to answer your questions. For the required API and document access permissions, see the Before you begin section of this document.
 
   * **`@BqCA`** : Invokes the **BigQuery Conversational Analytics** agent. When included, this transfers your analytical questions (for example, about trends, aggregations, or complex business intelligence workflows) alongside your table context to a highly specialized subagent capable of performing advanced, multi-step SQL reasoning.
 
@@ -340,123 +216,167 @@ The context graph acts as an interactive canvas where you can view technical sto
 
 ### Explore data connections
 
-To actively explore and expand semantic relationships on the graph canvas, you first need to load the graph.
+To load an initial context graph, click a **Recently opened** card on the welcome screen, click an entry card in **Matching assets** , or click **Add to graph** beneath an agent response. The **Context graph** panel displays an interactive topological graph for that data asset and its connected entities. For more information, see the Discover data assets using natural language section of this document.
 
-To load an initial context graph from the chat results, click any entry card in the **Matching assets** tile. The **Context graph** panel displays an interactive topological graph for that data asset and its connected entities.
+For example, Figure 2 shows the `szelwico_curated_supply_chain` dataset container on the context graph canvas, grouping supply chain tables and views:
 
-For example, to understand how a context graph maps business logic to data storage, consider the `szelwico_curated_retail_analytics` graph shown in Figure 2.
+![A context graph showing the szelwico_curated_supply_chain dataset container with BigQuery tables and views](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-szelwico-graph.png)![Larger view of the szelwico_curated_supply_chain dataset container on the context graph](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-szelwico-graph.png)**Figure 2.** A context graph showing BigQuery tables and views grouped inside the `szelwico_curated_supply_chain` dataset container. (Click the image to enlarge.)
 
-![A context graph example for a retail reporting warehouse](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-szelwico-graph.png)![Larger view of the retail context graph example mapping business logic to data storage](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-szelwico-graph.png)**Figure 2.** An example context graph showing the relationship between operational data and analytical retail business rules. (Click the image to enlarge.)
-
-This graph serves as a reporting and analytics data warehouse for a retail gas station network and convenience stores.
-
-The graph unifies technical data assets and business rules into a single view:
-
-  * **Core fact tables:** Blue BigQuery nodes represent transactional data, such as daily fuel sales (`fact_daily_station_fuel_sales`) and loyalty program performance (`fact_loyalty_promo_attribution`).
-  * **Dimension tables:** Additional blue nodes represent enriched dimension tables, such as stations (`dim_stations_enriched`) and customer fleets (`dim_customers_and_fleets`).
-  * **Governed business logic:** Yellow nodes represent glossary terms that define strict calculation rules for the data. For example, the **Friday Golden Pump 20% Discount** node defines how to calculate a net post-discount charge for loyalty members.
-  * **Relationships:** The lines between the nodes illustrate how tables join together, such as how the station dimension table joins to the daily fuel sales fact table.
+  * **BigQuery tables:** Blue nodes represent operational and analytical tables in the dataset, such as `fact_station_wetstock_reconciliation`.
+  * **BigQuery views:** Teal nodes represent analytical views, such as `vw_active_ust_leak_alerts`, along with their structural connections to underlying tables.
 
 
 
-#### Context graph canvas
+For a complete list of node colors, relationship edges, and state badges, see the Graph visual reference section of this document.
 
-The context graph canvas provides the following primary UI areas to help you explore data topology:
+Expanding a node reveals how the context graph maps schema joins, business logic, and curated context to data storage. Figure 3 shows the expanded connections for the `fact_station_wetstock_reconciliation` table:
 
-  * **Canvas header** : The top header menu displays the active node count and the context set title, and provides layout and rendering options: 
-    * **Search entries field** : Enter keywords into the **Search entries by name, dataset, or description** field to search for and manually add new data assets directly to the canvas layout.
-    * **Full screen icon** : Use the fullscreen icon to expand the canvas viewport to fill your entire screen.
-    * **Graph viewing options** : Click the **More options** (more_vert) icon to open a menu to manage rendering. It provides the following toggles: 
-      * **Focus nodes only** : Hides surrounding connections to highlight only the nodes in context.
-      * **Show edges** : Toggles the visibility of all edge relationship lines to declutter and speed up dense graphs.
-      * **Highlight containers** : Emphasizes structural database groupings, such as datasets or glossaries, that nodes sit inside.
-      * **Show explorer** : Toggles the visibility of the node list sidebar explorer.
-      * **Open graph legend** : Displays definitions for the visual vocabulary of the graph.
-  * **Graph filters** : Click the **Graph controls** (tune) icon to open the **Filters** panel, which lets you control graph density by filtering connections. It provides the following filter categories: 
-    * **Types** : Filter nodes by entity type (such as **Tables & views**, **Glossary terms** , **Data products** , or **Context**).
-    * **Relationships** : Filter the colored edges connecting nodes by their relationship type (such as **Schema join** , **Related** , **Definition** , **Context** , or **Packages**).
-    * **Lineage** : Control the visibility of data lineage edges, including toggles for **Upstream** (lineage flowing into a node) and **Downstream** (lineage flowing out of a node).
-    * **Isolated nodes** : Choose to display **All** nodes, **Hide** unconnected nodes, or display **Only** isolated nodes.
-    * **Hop depth** : Select an anchor node on the canvas to measure distance from, and then select a numerical distance (such as **1** , **2** , **3** , or **All**) to filter out any nodes that are further away from your anchor.
-  * **Canvas zoom controls** : The bottom-left corner of the canvas provides view controls to manage your viewport rendering: 
-    * **Zoom controls** : Use the **Zoom in** (zoom_in) and **Zoom out** (zoom_out) buttons to scale the graph.
-    * **Fit to screen** : Use the fit_screen icon to resize the graph layout to fit securely within your viewport.
+![A context graph showing the fact_station_wetstock_reconciliation table connected by Schema Join, Definition, and Context edges across multiple containers](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-wetstock-connections-graph.png)![Larger view of the expanded connections for fact_station_wetstock_reconciliation](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-wetstock-connections-graph.png)**Figure 3.** Expanded relationships for `fact_station_wetstock_reconciliation` across datasets, business glossary terms, and a context set. (Click the image to enlarge.)
+
+In this fuel supply chain scenario, the `fact_station_wetstock_reconciliation` table tracks fuel inventory and underground storage tank (UST) reconciliation at retail service stations. The expanded graph shows how technical storage, business rules, and curated context work together to explain the underlying data:
+
+  * **Table and view joins (`Schema Join` edges):** Blue `Schema Join` lines indicate verified join paths that let you combine station inventory records with related operational, dimensional, and staging data: 
+    * Joining with the `vw_active_ust_leak_alerts` view (in `szelwico_curated_supply_chain`) links daily tank reconciliation metrics to active environmental leak alerts.
+    * Joining across datasets with `dim_stations_enriched` (in `szelwico_curated_retail_analytics`) enriches inventory readings with station attributes, such as location and tank configuration, while joining with `stg_ust_thermal_compensated_inventory` (in `szelwico_staging`) traces how raw temperature-adjusted tank readings feed the curated reconciliation table.
+  * **Governed business logic (`Definition` edges):** Blue `Definition` lines connect the table's columns to yellow `GLOSSARY TERM` nodes (`Thermal Compensation Flag` and `Confirmed UST Environmental Leak Threshold`) in the business glossary. These links tell you—and the agent—which standardized business rules determine whether a tank reading is temperature-calibrated and when an inventory variance crosses the threshold for a confirmed leak.
+  * **Curated context (`Context` edge):** A `Context` line connects the table to the `Station Wet-Stock Reconciliation Fact` (`CONTEXT`) node inside its context set container, providing curated domain guidance and query patterns that ground AI agents when they generate SQL against this table.
 
 
 
-### Understand graph visual elements
+### Filter and customize the context graph
 
-The context graph uses specific colors, icons, and edge styles to represent different types of data assets and their relationships. To view definitions for the visual vocabulary of the graph, click the **More options** (more_vert) icon and select **Open graph legend**.
+As your context graph grows, you can locate specific nodes, filter out surrounding noise, and adjust how relationships and containers are rendered on the canvas. You can also add catalog entries directly from the canvas toolbar. For more information, see the Add entries manually to the context graph section of this document.
 
-#### Node states
+  1. To locate a node that is already on the active canvas, enter its name in the toolbar **Search** field and select the matching node from the list (up to 50 matches) to highlight and center it in your view.
 
-Nodes display badges to indicate their current state on the canvas:
+  2. To adjust how much of the graph is visible in the viewport, use the canvas viewport controls:
 
-  * **Selected:** The entry you are inspecting. The rest of the graph dims so its connections stand out.
-  * **In agent focus:** Part of your focus: the working set you and the agent are exploring.
-  * **Expanding:** Indicates the system is loading the entries related to this one, such as lineage, joins, and glossary terms, and adding them to the graph.
+     1. Click **Zoom in** (zoom_in) or **Zoom out** (zoom_out) to scale the graph, or click **Fit to screen** (fit_screen) to center and resize the entire graph layout within your viewport.
+     2. Optional: In the canvas header, click **Full screen** (fullscreen) to expand the canvas across your entire screen.
+     3. Optional: To reset the canvas, click **Clear graph** (delete_sweep) and confirm **Clear graph** in the dialog. This action removes all nodes from the canvas and clears the agent focus for the current chat. Click **Undo** in the confirmation notification to restore the previous canvas state.
+  3. To reduce visual density on a large graph, filter which node types, edges, and hop distances remain visible:
+
+     1. On the canvas, click **Graph controls** (tune) to open the **Filters** panel.
+     2. Select one or more filter criteria: 
+        * **Types** : Filter nodes by entity type (**All types** , **Tables & views**, **Glossary terms** , **Data products** , or **Context**).
+        * **Relationships** : Filter the colored edges connecting nodes by their relationship type (**All relationships** , **Schema join** , **Related** , **Definition** , **Lineage** , **Context** , or **Packages**).
+        * **Isolated nodes** : Select **All** to display connected and isolated nodes, **Hide** to hide nodes with no visible connections, or **Only** to display only isolated nodes.
+        * **Hop depth** : Click an anchor node on the canvas, and then select a hop distance (**1** , **2** , **3** , or **All**) to hide nodes further away from that anchor.
+  4. To toggle how edges, containers, and focus nodes are displayed on the canvas, follow these steps:
+
+     1. In the canvas toolbar, click **More options** (more_vert) to open the **Graph viewing options** menu.
+     2. Select the rendering options that you want to turn on or off: 
+        * **Focus nodes only** : Hides surrounding connections to highlight only the nodes in your agent focus.
+        * **Show edges** : Shows or hides all relationship lines to declutter dense graphs.
+        * **Highlight containers** : Emphasizes structural groupings—such as datasets, glossaries, or context sets—that enclose child nodes.
+        * **Show explorer** : Shows or hides the node list sidebar explorer.
+        * **Open graph legend** : Opens the visual legend explaining node colors, badges, and edge types.
 
 
 
-#### Data source color coding
+### Expand and manage containers
 
-The color of a node indicates its underlying data source or entity type:
+Containers group entries on the canvas that share a parent resource—such as tables in a BigQuery dataset, terms in a business glossary, or documents and overlays in a context set. Each container is drawn as a shaded hull with a pill handle that names the parent container. To inspect a container's metadata details panel, see the Explore connections for a specific node, container, or edge section of this document.
 
-  * **Blue:** BigQuery (tables, views, datasets).
-  * **Teal:** Lakehouse (catalogs, namespaces, tables, views).
-  * **Yellow:** Glossary, Catalog, or Knowledge Catalog (glossaries, terms, catalogs).
-  * **Brown:** Database or Storage (Spanner, AlloyDB, Cloud Storage).
-  * **Pink:** dbt (models, semantic models, tests, macros, exposures).
-  * **Orange:** Data product.
-  * **Red:** Context (context sets).
-  * **Green:** Looker (LookML projects, models, explores, views).
-  * **Grey:** Custom assets (custom entry groups and unsupported entry types).
+You can expand, filter, hide, or collapse container members on the canvas in the following ways:
 
+  1. **Expand or select child entries** : Double-click a container pill (or right-click the pill and select **Expand**) to load child entries from the catalog: 
+     * **40 or fewer new child entries** : Knowledge Studio adds all child entries to the container on the canvas at once and displays a notification with an **Undo** option.
+     * **More than 40 new child entries** : Knowledge Studio opens the **CONTAINER_NAME child entries** popover for the container pill so you can choose which entries to load. Use the **Filter child entries...** field to filter members by name or type, select the checkboxes for the child entries that you want to visualize, and click **Apply selection ( N)** to add them inside the container hull.
+  2. **Toggle container member visibility** : Click the eye (visibility) icon on a container pill (**Hide entries** or **Show entries**) to collapse or restore its member nodes in the current view without removing them from your session graph. When hidden, the container pill displays a **+ N** badge (`<var>N</var> hidden entries`) and dynamically reroutes any cross-container relationship edges to the outer container pill so external connections remain visible. Selecting a hidden node from chat, toolbar search, or **\+ Add entries** automatically unhides its parent container.
+  3. **Collapse a container** : Right-click an expanded container pill and select **Collapse** to remove all child entries inside that container from the canvas while keeping the container pill on the graph.
 
+![The child entries popover on a context set container pill showing a filter input, document checkboxes, and the Apply selection button](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-child-entries-picker.png)![Larger view of the child entries popover on a context set container pill](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-child-entries-picker.png)**Figure 4.** Selecting child document entries from a context set container pill on the canvas. (Click the image to enlarge.)
 
+### Graph visual reference
+
+Use the following tables to interpret node colors, relationship edges, and node state badges on the context graph canvas.
+
+#### Entry type color coding
+
+The color of a node indicates its semantic entry type group in Knowledge Catalog, regardless of the underlying source system:
+
+Node color | Entry type group | Included asset types  
+---|---|---  
+**Blue** | Tables and schemas | Tables, datasets, schemas, namespaces, and snapshots  
+**Teal** | Views, streams, and code | Views, routines, streams, query templates, repositories, and code assets  
+**Dark grey** | Storage and infrastructure | Instances, databases, buckets, folders, filesets, and connections  
+**Pink** | AI, models, and context | ML models, agents, feature stores, `Context` entries, and `Document` entries  
+**Purple** | Semantic models and graphs | Semantic models, semantic entities, semantic metrics, and property graphs  
+**Yellow** | Glossary and catalog | Glossaries, categories, terms, catalogs, entry types, and aspect types  
+**Orange and red** | Data products and governance | Data products, domains, exchanges, listings, shares, and data policies  
+**Green** | Dashboards and BI | Dashboards, explores, and charts  
+**Light grey** | Custom assets | Custom entry groups, custom entry types, and unsupported entry types  
+  
 #### Relationship edges
 
-The lines connecting nodes represent semantic relationships. You can filter these edges using the **Filters** panel (as described in Explore data connections):
+The lines connecting nodes represent semantic and structural relationships. To filter which edges appear on the canvas, use the **Filters** panel. For more information, see the Filter and customize the context graph section of this document.
 
-  * **Schema join:** Blue edges that map verified multi-table join paths, primary keys, and foreign keys.
-  * **Definition:** Orange edges that connect underlying table columns directly to certified business glossary terms and KPI formulas.
-  * **Context:** Grey edges that attribute specialized context to a target data asset.
-  * **Packages:** Grey edges showing which data assets are bundled into a specific data product.
+Edge type | Visual style | Meaning  
+---|---|---  
+**Schema join** | Blue edge | Maps verified multi-table join paths, primary keys, and foreign keys.  
+**Related** | Blue edge | Connects structurally or semantically related entries.  
+**Definition** | Orange or blue edge | Connects underlying table columns directly to certified business glossary terms and KPI formulas.  
+**Lineage** | Directed arrow | Shows data flow from a source to downstream assets built from it.  
+**Reference** | Directed edge (`dataplex-types.global.reference`) | Connects context set documents and data asset entries to the cataloged assets they describe.  
+**Context** | Grey edge (`dataplex-types.global.context`) | Connects context entries to target data assets.  
+**Packages** | Grey edge (`dataplex-types.global.packages`) | Shows which data assets are bundled into a specific data product.  
+  
+#### Node state badges
+
+Nodes display badges on the canvas to indicate their current interaction state:
+
+Badge | Meaning  
+---|---  
+**Selected** | The entry that you are inspecting. Surrounding nodes dim so the selected entry's connections stand out.  
+**In agent focus** | Part of your active focus—the working set that you and the agent are exploring.  
+**Expanding** | Indicates that Knowledge Studio is loading related entries (such as lineage, joins, and glossary terms) and adding them to the graph.  
+  
+## Add entries manually to the context graph
+
+Instead of relying solely on chat commands, you can manually seed the context graph with specific data assets, data products, glossaries, or context sets directly from the canvas toolbar. Manual entry selection is useful when you already know which resources you want to connect, visualize, and include in your agent focus.
+
+To search for and add specific entries to the graph, perform the following steps:
+
+  1. In the canvas toolbar, click **\+ Add entries**. The **Add entries** panel expands.
+  2. Optional: To change the target project scope, click the **Project** filter button and select a Google Cloud project, or click close **Clear project filter** to search across **All projects**.
+  3. Optional: Click a category chip to filter entries by type: **All** , **BigQuery Tables** , **BigQuery Datasets** , **BigQuery Views** , **Lakehouse** , **Glossaries** , **Data Products** , or **Context Sets**.
+  4. Locate the entries you want to add using one of the following methods: 
+     * Browse your **Starred entries** or **Recently opened** entries displayed by default when the panel opens (up to 3 items are previewed per section; click **Show all ( N)** to expand the full list).
+     * Enter a keyword, dataset name, or description in the **Search entries by name, dataset, or description** field to view the top 20 matching entries in **Search results**. Entries that are already on the canvas display an `On graph` badge.
+  5. Select the checkbox for one or more entries, and then click **Add to graph ( N)**.
 
 
 
-### Add entries manually to the context graph
+Knowledge Studio adds the selected nodes (or container pills) to both the context graph canvas and your active **agent focus** , and automatically maps any existing semantic or structural relationships between them.
 
-Instead of relying solely on chat commands, you can manually seed the context graph with specific data assets directly from the canvas interface. This is useful when you already know which resources you want to connect and visualize.
+![The expanded Add entries panel showing the search bar, project selector, category filter chips, recently opened entries, and the Add to graph button](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-add-entries-ai.png)![Larger view of the expanded Add entries panel in the canvas header](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-add-entries-ai.png)**Figure 5.** The expanded **Add entries** panel with category filter chips, recently opened entries, and the **Add to graph** button. (Click the image to enlarge.)
 
-To search for and add specific assets to the graph, do the following:
+## Explore connections for a specific node, container, or edge
 
-  1. To search for entries, click the **Search entries by name, dataset, or description** field located directly in the canvas header.
-  2. Optional: To change the target project, in the **Project** drop-down menu, select a Google Cloud project (by default, this is set to **All projects**).
-  3. Enter a keyword, dataset name, or entry description.
-  4. To place a node onto your canvas, click the required entry from the matching search results drop-down list. The graph updates to show the new node and automatically maps any existing semantic or structural relationships.
+To view metadata details, manage connected neighbors, expand relationships, or access additional actions for an element on the active canvas, interact directly with the element:
 
-![The Search entries field located in the canvas header](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-add-entries-ai.png)![Larger view of the Search entries field located in the canvas header](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-add-entries-ai.png)**Figure 3.** The **Search entries** field located in the canvas header. (Click the image to enlarge.)
+  * **View node or container metadata** : Single-click any node (such as a table, data product, or document) or any container pill (such as a **Context Set** or dataset) to open the metadata details side panel:
 
-### Explore connections for a specific node
+    * For a **table or asset node** , the panel displays the asset's **Description** , **Schema** (click a column's foreign key or annotation pill to open a stacked **Foreign keys** or **Annotations** details drawer), **Overview** , **Properties** , **Glossary terms** , **Representative queries** , **Other aspects** , and **Connected nodes**.
+    * In the **Connected nodes** section, click any neighbor's name (**Show on graph**) to highlight and center that node on the canvas without closing the current details panel. Select one or more connected nodes to perform bulk actions: 
+      * **Hide edges** : Hides the relationship edges between the inspected node and the selected neighbors while keeping all nodes on the canvas.
+      * **Hide nodes** : Removes the selected neighbor nodes from the canvas.
+      * **Add to focus** : Adds the selected neighbor nodes to your active agent focus.
+    * For a **Context Set or container pill** , the panel displays the container's **Description** , **Properties** (`System`, `Platform`, `Entry Type`, `Location`, `Project`, `Source Resource (FQN)`, `Dataplex Resource Name`, and `Labels`), and **Other aspects**.
+![A metadata details side panel for a selected Context Set container pill showing its description, properties, and Entry Group Aspect](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-context-set-details.png)![Larger view of the metadata details side panel for a selected Context Set container pill](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-context-set-details.png)**Figure 6.** A Context Set container pill selected on the canvas, showing its child document nodes and metadata properties panel. (Click the image to enlarge.)
+  * **View relationship edge details** : Single-click any relationship line connecting two nodes (or right-click an edge and select **View details**) to open the edge details side panel and inspect the relationship's **Properties** and **Other aspects**.
 
-To view metadata details, expand relationships, or access additional actions for an individual node on the active canvas, you can interact directly with the node using different mouse clicks.
+  * **Open context menu actions** : Right-click a node or container pill to open its context menu and select from the following actions:
 
-To interact with a specific node, use one of the following methods:
-
-  * **View metadata** : To open a side panel displaying detailed metadata (such as connected nodes) for the selected asset, single-click the node.
-
-![A metadata details side panel for a selected node on the context graph canvas](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-node-metadata-panel.png)![Larger view of a metadata details side panel for a selected node](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-node-metadata-panel.png)**Figure 4.** A node's metadata details side panel. (Click the image to enlarge.)
-  * **Open more options** : To access additional actions such as tracing lineage or removing the node, right-click the node to open its context menu. From this menu, you can select the following actions:
-
-![A context menu for a selected node on the context graph canvas](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-node-action-bar.png)![Larger view of a context menu for a selected node](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-node-action-bar.png)**Figure 5.** A node's context menu. (Click the image to enlarge.)
-    * **Expand** : Fetches and reveals immediate neighbor connections by relationship type.
-    * **Remove from agent focus** : Excludes the node from the working set you and the agent are exploring.
+![A context menu for a selected node on the context graph canvas](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-node-action-bar.png)![Larger view of a context menu for a selected node](https://docs.cloud.google.com/static/knowledge-catalog/docs/images/explore-node-action-bar.png)**Figure 7.** A node's context menu. (Click the image to enlarge.)
+    * **Expand** : Fetches and reveals immediate neighbor connections for a node. To expand or collapse child entries for a container pill, see the Expand and manage containers section of this document.
+    * **Add to agent focus** or **Remove from agent focus** : Includes or excludes the entry from the working set you and the agent are exploring.
     * **Copy entry ID** : Copies the unique identifier for the asset.
-    * **Upstream lineage** : Traces and expands data lineage flowing into the node.
-    * **Downstream lineage** : Traces and expands data lineage flowing out of the node.
-    * **Remove from graph** : Removes the node from the active canvas.
-  * **Expand relationships** : To expand all relationships at once (revealing all connected tables, views, and glossary terms), double-click the node. The node displays a collapse badge (`-`) indicating that its connections are expanded. To collapse the relationships, double-click the node again.
+    * **Upstream lineage** : Traces and expands data lineage flowing into the node (supported on BigQuery, Lakehouse, and Looker table nodes when Data Lineage is enabled).
+    * **Downstream lineage** : Traces and expands data lineage flowing out of the node (supported on BigQuery, Lakehouse, and Looker table nodes when Data Lineage is enabled).
+    * **Remove from graph** : Removes the node or container from the active canvas (with an **Undo** option in the notification banner).
+  * **Expand all connections on double-click** : Double-click any node to expand its immediate connections at once (adding connected tables, views, glossary terms, and context entries to the graph). You can click **Undo** in the notification banner (`Added <var>N</var> nodes and <var>M</var> connections`) to revert the expansion, or press `Escape` at any time to close open panels and clear the current canvas selection.
 
 
 
@@ -469,7 +389,7 @@ The chat powered by Gemini maintains conversational context across prompts. Beca
 
 When you ask about assets already on the canvas, the agent inspects the in-memory context graph directly without re-invoking the discovery tools.
 
-To ask a question about an asset on your canvas, do the following:
+To ask a question about an asset on your canvas, follow these steps:
 
   1. In the prompt field, enter a question about connected business terms or metadata for an asset on your canvas, and then click send **Send**. For example:
          
@@ -480,8 +400,6 @@ Replace TABLE_NAME with the name of a table or data asset loaded in your context
 
 The agent inspects the active context graph in memory and returns a conversational summary of connected business glossary terms and column relationships without re-querying the catalog.
 
-  2. Optional: To answer questions using external knowledge, provide a link to an external Google Doc in your prompt. The agent can read the document contents and use that external knowledge to answer your questions.
-
 
 
 
@@ -489,7 +407,7 @@ The agent inspects the active context graph in memory and returns a conversation
 
 When you ask to explore new or deeper relationships beyond the active graph, the agent dynamically switches its tool strategy to discover connections such as schema joins, glossary definitions, or custom semantic documentation.
 
-To trace relationships outward from a business concept or entity, do the following:
+To trace relationships outward from a business concept or entity, follow these steps:
 
   1. In the prompt field, enter a request to trace relationships outward, and then click send **Send**. For example:
          
@@ -498,16 +416,16 @@ To trace relationships outward from a business concept or entity, do the followi
 
 Replace GLOSSARY_TERM with the name of a business glossary term in your catalog (for example, `Customer Value`).
 
-The agent traverses semantic graph edges—such as query-based `schema-join` links, `definition` links for glossaries, or `packages` for Data Products—and adds the newly discovered tables to the canvas. The graph centers on the newly explored glossary node, renders its semantic links, and updates the **Active nodes** counter.
+The agent traverses semantic and structural graph edges, adds the newly discovered entries to the canvas, centers the graph on the newly explored node, and updates the **Active nodes** counter. For more information about edge types, see the Graph visual reference section of this document.
 
 
 
 
 ### Generate SQL and inspect distributions
 
-While exploring assets in the chat interface, you can perform deep-dive analysis directly against your data using inline BigQuery conversational analytics.
+When you explore assets in the chat interface, you can perform analysis directly against your data using inline BigQuery conversational analytics.
 
-To generate a query and inspect data distributions using the active context, do the following:
+To generate a query and inspect data distributions using the active context, follow these steps:
 
   1. In the prompt field, ask the agent to write a query using the visible nodes, and then click send **Send**. For example:
          
@@ -528,20 +446,26 @@ The agent can execute queries and render inline data distribution charts within 
 
 Knowledge Studio automatically saves your exploration sessions, letting you search, resume, or delete previous chats directly from the navigation pane.
 
-To view or manage your chat history, do the following:
+To view or manage your chat history, follow these steps:
 
   1. In the Knowledge Studio navigation pane, ensure the **Recent** section is expanded.
   2. To locate a specific past conversation, in the **Search chats** field, enter keywords related to the chat's previous questions or context.
-  3. To resume an exploration session, click the name of the chat in the list. This restores your previous chat thread.
+  3. To resume an exploration session, click the name of the chat in the list. Selecting the chat restores your previous conversation thread.
   4. To delete a past conversation, point to the chat name in the list, and then click the delete **Delete** icon.
 
 
+
+## Pricing
+
+During Preview, Knowledge Studio data exploration is offered at no charge.
+
+When the exploration agent in chat invokes BigQuery query jobs (for example, with `@BqJobs`) or invokes BigQuery conversational analytics (for example, with `@BqCA`), standard BigQuery query processing and conversational analytics charges apply.
 
 ## What's next
 
 Concept 
 
-###  [ Enrich context with Knowledge Studio ](https://docs.cloud.google.com/knowledge-catalog/docs/knowledge-studio)
+###  [ Knowledge Studio overview ](https://docs.cloud.google.com/knowledge-catalog/docs/knowledge-studio)
 
 Learn how to orchestrate rich data context, build context sets, and ground AI agents using Knowledge Studio interfaces. 
 
@@ -553,13 +477,13 @@ Understand how active context transforms passive metadata to ground AI agents an
 
 Task 
 
-###  [ Generate insights for structured data ](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-insights-structured-data)
+###  [ Use data insights for structured data ](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-insights-structured-data)
 
 Mine query logs to automatically generate column descriptions, table summaries, and recommended joins. 
 
 Discovery 
 
-###  [ Search for resources ](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets)
+###  [ Search for data assets in Knowledge Catalog ](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets)
 
 Find and explore catalog resources across Google Cloud and third-party systems using natural language. 
 
@@ -571,7 +495,7 @@ Learn how to configure AI-driven metadata extraction workflows to build data con
 
 Ai integration 
 
-###  [ Ground agents with MCP ](https://docs.cloud.google.com/knowledge-catalog/docs/mcp-overview)
+###  [ About MCP servers in Knowledge Catalog ](https://docs.cloud.google.com/knowledge-catalog/docs/mcp-overview)
 
 Connect AI agents and developer tools to Knowledge Catalog using Model Context Protocol. 
 
@@ -579,6 +503,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

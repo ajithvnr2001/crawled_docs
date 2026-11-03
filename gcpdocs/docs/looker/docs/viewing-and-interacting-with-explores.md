@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores/
 title: Viewing and interacting with Explores \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:22.694252+00:00
+fetched_at: 2026-11-03T09:54:14.892548+00:00
 ---
 
 # Viewing and interacting with Explores  |  Looker  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ The Explore interface consists of the following elements:
 ![](https://docs.cloud.google.com/static/looker/docs/images/looker-explore-anatomy-2618.png)
 
   1. The name of the Explore.
-  2. The dynamic_form **Show starter questions** button: Opens the **Starter Questions** panel that displays starter questions, when available. Learn more about using [Starter questions](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-starter-questions).
+  2. The dynamic_form **Show quick start** button: Opens the **Quick Starts** panel that displays quick starts, when available. Learn more about using [quick starts](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-starter-questions).
   3. The tips_and_updates **Insight Assistant** button: Opens the **Insight Assistant** panel, which lets you ask questions to discover insights and answers by using data from the Explore. Learn more about [using the Insight Assistant](https://docs.cloud.google.com/looker/docs/gemini-insight-asst) in Explores.
   4. The add_chart **Change chart** button: Opens the **All chart types** menu, which let you choose how to visualize the Explore data. You can also click **Auto visualize** to let Looker choose the best chart option for displaying the results. Learn more about [selecting an effective data visualization](https://docs.cloud.google.com/looker/docs/visualization-guide) and [editing visualizations in Explores](https://docs.cloud.google.com/looker/docs/editing-visualizations).
   5. The **Run** button: Runs the query with the fields that are selected from the **Configure** panel. When a query is running, the button becomes the **Stop** button. You can stop a query when it is running by clicking the **Stop** button.
@@ -188,6 +188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

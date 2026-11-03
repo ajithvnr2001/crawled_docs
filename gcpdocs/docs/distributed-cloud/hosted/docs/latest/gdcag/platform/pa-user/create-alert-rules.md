@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/create-alert-rules/
 title: Create alert rules \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:35.885090+00:00
+fetched_at: 2026-11-03T09:41:58.019579+00:00
 ---
 
 # Create alert rules  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,12 +22,10 @@ Send feedback
 
 #  Create alert rules Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page outlines the process for creating alert rules based on logs and metrics from Google Distributed Cloud (GDC) air-gapped environments to facilitate proactive monitoring and faster incident response.
+Google Distributed Cloud (GDC) air-gapped lets you create alert rules from your project's metrics and logs for proactive monitoring and incident response. These rules automatically trigger alerts when specific conditions are met. You can define the following alert rule types:
 
-GDC lets you define alert rules based on your project's metrics or logs. These rules automatically trigger alerts when specific conditions are met. The following are the alert rule types you can define:
-
-  * **Metric-based rules** : Trigger alerts based on numerical data collected from your applications or infrastructure. For example, you could create a rule to trigger an alert if CPU usage exceeds 80%. Create metric-based rules using the GDC console or a `MonitoringRule` custom resource definition.
-  * **Log-based rules** : Trigger alerts based on the analysis of log data. These alerts let you identify and respond to specific events or patterns within your logs, such as error messages or unusual activity. Create log-based rules using the GDC console or a `LoggingRule` custom resource definition.
+  * **Metric-based rules** : Trigger alerts from numerical data collected across your applications and infrastructure, such as when CPU usage exceeds 80%. Create metric-based rules by using the GDC console or a `MonitoringRule` custom resource.
+  * **Log-based rules** : Trigger alerts from specific events or patterns in your log data, such as error messages or unusual activity. Create log-based rules by using the GDC console or a `LoggingRule` custom resource.
 
 **Important:** Before creating alert rules, ensure you have a deployed project with active workloads and configured logging and monitoring targets. In this way, the rules have data to operate on. For more information, see [Collect metrics](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/collect-metrics) or [Collect logs](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/collect-logs).
 
@@ -343,6 +341,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

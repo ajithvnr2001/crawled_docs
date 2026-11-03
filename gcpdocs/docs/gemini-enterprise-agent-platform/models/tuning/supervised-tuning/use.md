@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use/
 title: Tune Gemini models with supervised fine-tuning \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:10.438559+00:00
+fetched_at: 2026-11-03T09:41:48.220805+00:00
 ---
 
 # Tune Gemini models with supervised fine-tuning  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -1029,6 +1029,11 @@ You should receive a JSON response similar to the following.
 
 If you didn't configure the Gen AI evaluation service to run automatically after the tuning job, you can interact with the tuned model endpoint the same way as base Gemini by using the Google Gen AI SDK, or by sending a POST request using the `generateContent` method.
 
+**Note:** For global endpoint serving, the REST URL should use `aiplatform.googleapis.com` instead of the `.rep.googleapis.com` multi-region endpoint. Use the following endpoint format: 
+    
+    
+    https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/ENDPOINT_ID:generateContent
+
 For thinking models, we recommend setting the thinking budget to `0` (for Gemini 2.5 and earlier models) or the thinking level to `MINIMAL` (for Gemini 3 and later models) on tuned tasks for optimal performance and cost efficiency. During supervised fine-tuning, the model learns to mimic the ground truth in the tuning dataset, omitting the thinking process. Therefore, the tuned model can handle the task effectively without a thinking budget.
 
 The following example prompts a model with the question "Why is sky blue?".
@@ -1074,13 +1079,11 @@ A page where you can create a conversation with your tuned model is displayed.
 
 ### REST
 
-To test a tuned model with a prompt, send a POST request and specify the `MREP_LOCATION` and `ENDPOINT_ID`. 
+To test a tuned model with a prompt, send a POST request and specify the `MREP_LOCATION` and `ENDPOINT_ID`. For global endpoint serving, use the `aiplatform.googleapis.com` endpoint format described in the note above. 
 
 Before using any of the request data, make the following replacements: 
 
-  * MREP_LOCATION: The Google Cloud multi-region endpoint location that the tuning job runs in. The following are accepted values: 
-    * `us`
-    * `eu`
+  * MREP_LOCATION: The Google Cloud multi-region endpoint location that the tuning job runs in. 
   * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). 
   * ENDPOINT_ID: The tuned model endpoint ID from the GET API. 
   * TEMPERATURE: The temperature is used for sampling during response generation, which occurs when `topP` and `topK` are applied. Temperature controls the degree of randomness in token selection. Lower temperatures are good for prompts that require a less open-ended or creative response, while higher temperatures can lead to more diverse or creative results. A temperature of `0` means that the highest probability tokens are always selected. In this case, responses for a given prompt are mostly deterministic, but a small amount of variation is still possible. 
@@ -1376,6 +1379,56 @@ You should receive a JSON response similar to the following.
     }
     
 
+## Copy a tuned model and serve in another region
+
+To serve a tuned model on a global endpoint, copy an existing tuned model from a source region (such as `us` or `eu`) to the `global` region, create a global endpoint, and deploy the model to the endpoint.
+
+For more information, see the [Copy Model documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/copy-model).
+
+**Note:** The global region does not support Customer-Managed Encryption Keys (CMEK) and does not support Data Residency Zones (DRZ). Tuned model artifacts (adapters) for global models are stored in the US region because Cloud Storage does not offer a global bucket location. 
+
+The following REST command examples demonstrate how to copy a model to the global region, create a global endpoint, and deploy the model:
+
+  * Copy Model to Global Region:
+        
+        curl -X POST \
+             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+             -H "Content-Type: application/json; charset=utf-8" \
+             -d '{
+                "sourceModel": "projects/SRC_PROJECT_ID/locations/SRC_LOCATION/models/MODEL_ID"
+              }' \
+             "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/models:copy"
+        
+
+  * Create Global Endpoint:
+        
+        curl -X POST \
+             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+             -H "Content-Type: application/json" \
+             "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints" \
+             -d '{
+               "displayName": "tuned_global_endpoint"
+             }'
+        
+
+  * Deploy Model to Global Endpoint:
+        
+        curl -X POST \
+             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+             -H "Content-Type: application/json" \
+             "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/ENDPOINT_ID:deployModel" \
+             -d '{
+               "deployedModel": {
+                 "model": "projects/PROJECT_ID/locations/global/models/MODEL_ID",
+                 "displayName": "tuned_deploy_model",
+                 "automaticResources": {"minReplicaCount": 1, "maxReplicaCount": 1}
+               }
+             }'
+        
+
+
+
+
 ## Delete a tuned model
 
 To delete a tuned model:
@@ -1517,15 +1570,12 @@ The metrics visualizations are available after the tuning job starts running. It
 
   * Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model).
 
-  * To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base).
-
-
 
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

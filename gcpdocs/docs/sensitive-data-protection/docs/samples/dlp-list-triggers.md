@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-list-triggers/
 title: List triggers \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:57.223716+00:00
+fetched_at: 2026-11-03T09:43:53.838414+00:00
 ---
 
 # List triggers  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -40,21 +40,21 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    using Google.Api.Gax;
-    using Google.Api.Gax.ResourceNames;
-    using Google.Cloud.Dlp.V2;
+    using [Google.Api.Gax](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.html);
+    using [Google.Api.Gax.ResourceNames](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.html);
+    using [Google.Cloud.Dlp.V2](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.html);
     using System;
     
     public class TriggersList
     {
         public static PagedEnumerable<ListJobTriggersResponse, JobTrigger> List(string projectId)
         {
-            var dlp = DlpServiceClient.Create();
+            var dlp = [DlpServiceClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html#Google_Cloud_Dlp_V2_DlpServiceClient_Create)();
     
             var response = dlp.ListJobTriggers(
-                new ListJobTriggersRequest
+                new [ListJobTriggersRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.ListJobTriggersRequest.html)
                 {
-                    Parent = new LocationName(projectId, "global").ToString(),
+                    Parent = new [LocationName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.LocationName.html)(projectId, "global").ToString(),
                 });
     
             foreach (var trigger in response)
@@ -98,11 +98,11 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     	ctx := context.Background()
     
-    	client, err := dlp.NewClient(ctx)
+    	client, err := dlp.[NewClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_NewClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("dlp.NewClient: %w", err)
     	}
-    	defer client.Close()
+    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_Close)()
     
     	// Create a configured request.
     	req := &dlppb.ListJobTriggersRequest{
@@ -146,10 +146,10 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.dlp.v2.DlpServiceClient;
-    import com.google.privacy.dlp.v2.JobTrigger;
-    import com.google.privacy.dlp.v2.ListJobTriggersRequest;
-    import com.google.privacy.dlp.v2.LocationName;
+    import com.google.cloud.dlp.v2.[DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html);
+    import com.google.privacy.dlp.v2.[JobTrigger](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.JobTrigger.html);
+    import com.google.privacy.dlp.v2.[ListJobTriggersRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ListJobTriggersRequest.html);
+    import com.google.privacy.dlp.v2.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html);
     import java.io.IOException;
     
     class TriggersList {
@@ -163,20 +163,20 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+        try ([DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html) dlpServiceClient = [DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html).create()) {
           // Build the request to be sent by the client
-          ListJobTriggersRequest listJobTriggersRequest =
-              ListJobTriggersRequest.newBuilder()
-                  .setParent(LocationName.of(projectId, "global").toString())
+          [ListJobTriggersRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ListJobTriggersRequest.html) listJobTriggersRequest =
+              [ListJobTriggersRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ListJobTriggersRequest.html).newBuilder()
+                  .setParent([LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html).of(projectId, "global").toString())
                   .build();
     
           // Use the client to send the API request.
-          DlpServiceClient.ListJobTriggersPagedResponse response =
+          [DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html).[ListJobTriggersPagedResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.ListJobTriggersPagedResponse.html) response =
               dlpServiceClient.listJobTriggers(listJobTriggersRequest);
     
           // Parse the response and process the results
           System.out.println("DLP triggers found:");
-          for (JobTrigger trigger : response.getPage().getValues()) {
+          for ([JobTrigger](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.JobTrigger.html) trigger : response.getPage().getValues()) {
             System.out.println("Trigger: " + trigger.getName());
             System.out.println("\tCreated: " + trigger.getCreateTime());
             System.out.println("\tUpdated: " + trigger.getUpdateTime());
@@ -202,10 +202,10 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     
     // Imports the Google Cloud Data Loss Prevention library
-    const DLP = require('@google-cloud/dlp');
+    const DLP = require('[@google-cloud/dlp](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)');
     
     // Instantiates a client
-    const dlp = new DLP.DlpServiceClient();
+    const dlp = new DLP.[DlpServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)();
     
     // The project ID to run the API call under
     // const projectId = 'my-project'
@@ -219,24 +219,24 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
       // Helper function to pretty-print dates
       const formatDate = date => {
         const msSinceEpoch = parseInt(date.seconds, 10) * 1000;
-        return new Date(msSinceEpoch).toLocaleString('en-US');
+        return new [Date](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.type.date.html)(msSinceEpoch).toLocaleString('en-US');
       };
     
       // Run trigger listing request
       const [triggers] = await dlp.listJobTriggers(request);
       triggers.forEach(trigger => {
         // Log trigger details
-        console.log(`Trigger ${trigger.name}:`);
-        console.log(`  Created: ${formatDate(trigger.createTime)}`);
-        console.log(`  Updated: ${formatDate(trigger.updateTime)}`);
-        if (trigger.displayName) {
-          console.log(`  Display Name: ${trigger.displayName}`);
+        console.log(`Trigger ${[trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).name}:`);
+        console.log(`  Created: ${formatDate([trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).createTime)}`);
+        console.log(`  Updated: ${formatDate([trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).updateTime)}`);
+        if ([trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).displayName) {
+          console.log(`  Display Name: ${[trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).displayName}`);
         }
-        if (trigger.description) {
-          console.log(`  Description: ${trigger.description}`);
+        if ([trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).description) {
+          console.log(`  Description: ${[trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).description}`);
         }
-        console.log(`  Status: ${trigger.status}`);
-        console.log(`  Error count: ${trigger.errors.length}`);
+        console.log(`  Status: ${[trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).status}`);
+        console.log(`  Error count: ${[trigger](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.jobtrigger.trigger.html).errors.length}`);
       });
     }
     
@@ -304,13 +304,13 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         """
     
         # Instantiate a client.
-        dlp = google.cloud.dlp_v2.DlpServiceClient()
+        dlp = google.cloud.[dlp_v2](https://docs.cloud.google.com/python/docs/reference/dlp/latest).[DlpServiceClient](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html)()
     
         # Convert the project id into a full resource id.
         parent = f"projects/{project}"
     
         # Call the API.
-        response = dlp.list_job_triggers(request={"parent": parent})
+        response = dlp.[list_job_triggers](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html#google_cloud_dlp_v2_services_dlp_service_DlpServiceClient_list_job_triggers)(request={"parent": parent})
     
         for trigger in response:
             print(f"Trigger {trigger.name}:")

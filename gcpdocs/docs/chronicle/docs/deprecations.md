@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/deprecations/
 title: Product deprecations \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:41.896661+00:00
+fetched_at: 2026-11-03T09:54:15.265075+00:00
 ---
 
 # Product deprecations  |  Google Security Operations  |  Google Cloud Documentation
@@ -29,6 +29,7 @@ The following table lists feature deprecations and their related shutdown schedu
 
 Feature | Deprecated date | Shutdown date | Details  
 ---|---|---|---  
+`ListCaseEvents` API endpoint | September 30, 2026 | November 2, 2026 | Google SecOps is deprecating this endpoint in favor of the [`ListCaseEvidenceData`](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.cases.caseEvidenceDatas/list) API endpoint.  
 `MANDIANT_ACTIVE_BREACH_IOC, MANDIANT_FUSION_IOC, OPEN_SOURCE_INTEL_IOC` feeds | September 14, 2026 | March 18, 2027 | Google SecOps is migrating IOC content from the `MANDIANT_ACTIVE_BREACH_IOC, MANDIANT_FUSION_IOC, OPEN_SOURCE_INTEL_IOC` feeds to the `GTI_IOC` feed. The existing feeds will be frozen starting from the deprecated date and removed from the product at the shutdown date. For details on how to migrate, see [Migrate Mandiant legacy feeds to GTI](https://docs.cloud.google.com/chronicle/docs/detection/ati-fusion-feed#migrateToGTI).  
 Legacy Backstory API and legacy Ingestion API | July 20, 2026 | July 20, 2027 | To provide a more robust, secure, and extensible API experience, Google SecOps is deprecating the legacy Backstory API (including the Customer Management API) and the legacy Ingestion API in favor of the [Chronicle API](https://docs.cloud.google.com/chronicle/docs/reference/rest). For details on how to migrate, see [Migrate from legacy SIEM API to Chronicle API](https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-api-to-chronicle-api).  
   
@@ -105,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

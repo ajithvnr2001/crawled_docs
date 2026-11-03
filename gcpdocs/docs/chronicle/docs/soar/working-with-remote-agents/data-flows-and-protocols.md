@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/data-flows-and-protocols/
 title: Review data flows and protocols \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:24.625716+00:00
+fetched_at: 2026-11-03T09:54:49.168426+00:00
 ---
 
 # Review data flows and protocols  |  Google Security Operations  |  Google Cloud Documentation
@@ -37,6 +37,8 @@ Google SecOps | Initiates tasks and retrieves final results. Doesn't communicate
 Publisher | Managed service (by Google SecOps) acting as a secure intermediary. Stores temporary, encrypted execution data, metadata, and scripts/dependencies. Logs records (non-sensitive). | Binds to port 443 for communication with Google SecOps and the Remote Agent.  
 Remote Agent | Deployed in the remote environment. Communicates with third-party security products to execute actions and pull alerts. Stores connector information (Gzip) and a local config file. | Communicates with the Publisher over TLS on port 443.  
   
+For the outbound firewall domains, Google Cloud authentication endpoints, and container registries that you must allow on TCP port `443` for the Remote Agent host, see [Network and firewall requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites#network-and-firewall-requirements) and [Network access and domain allowlist](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui#network-access-and-domain-allowlist).
+
 ## Remote data flow (task execution)
 
 When you configure an integration or connector to run remotely, the data flow is asynchronous and task-based:
@@ -56,6 +58,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/aggregated_sinks/
 title: Collate and route organization- and folder-level logs to supported destinations \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:20.837656+00:00
+fetched_at: 2026-11-03T09:53:32.645731+00:00
 ---
 
 # Collate and route organization- and folder-level logs to supported destinations  |  Cloud Logging  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Collate and route organization- and folder-level logs to supported destinations Stay organized with collections  Save and categorize content based on your preferences. 
 
-Aggregated [sinks](https://docs.cloud.google.com/logging/docs/routing/overview#sinks) in Cloud Logging let you combine and route log entries from all resources in a folder or organization to a central destination. You can configure an aggregated sink as intercepting or non-intercepting, define filters to control which log entries are routed, and grant the sink permission to write to its destination.
+Aggregated [sinks](https://docs.cloud.google.com/logging/docs/routing/overview#sinks) in Cloud Logging let you combine and route log entries from all resources in a folder or organization to a central destination. You can configure sinks as intercepting or non-intercepting, define inclusion and exclusion filters, and manage destination write permissions.
 
 **Note:** If your data is managed through an [Assured Workloads environment](https://docs.cloud.google.com/assured-workloads/docs/key-concepts), then this feature might be impacted or restricted. For information, see [Restrictions and limitations in Assured Workloads](https://docs.cloud.google.com/assured-workloads/docs/eu-sovereign-controls-restrictions-limitations#features_logging).
 
@@ -33,6 +33,9 @@ When you configure an aggregated sink, the following limitations apply:
 
   * Routing log data to Pub/Sub topics with [in-transit restrictions](https://docs.cloud.google.com/pubsub/docs/resource-location-restriction) isn't supported. If you configure a log sink to a Pub/Sub topic with in-transit restrictions, then you might see [`topic_region_not_allowed`](https://docs.cloud.google.com/logging/docs/export/troubleshoot#topic_region_not_allowed) configuration errors and dropped logs.
 
+
+
+  * Routing log entries to Cloud Storage buckets configured for Rapid storage isn't supported.
 
 
   * Routing log entries to a resource protected by a [service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/service-perimeters#about-perimeters) requires that you add an ingress rule to the perimeter that allows access from the sink's service account:
@@ -145,6 +148,8 @@ Enter the name of a write-enabled dataset. Don't enter the name of a linked BigQ
              
 
        * **Cloud Storage bucket**
+
+**Note:** Don't enter the name of a Cloud Storage bucket configured for Rapid storage.
              
              storage.googleapis.com/BUCKET_NAME
              
@@ -465,6 +470,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

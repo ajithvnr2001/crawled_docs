@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/scheduler/docs/http-target-auth/
 title: Use authentication with HTTP targets \u00a0|\u00a0 Cloud Scheduler \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:58:26.424914+00:00
+fetched_at: 2026-11-03T09:42:05.950276+00:00
 ---
 
 # Use authentication with HTTP targets  |  Cloud Scheduler  |  Google Cloud Documentation
@@ -143,15 +143,17 @@ To create a Cloud Scheduler job that uses authentication, you must add the token
 
   8. Specify a **URL** that starts with `https://` and an **HTTP method**.
 
-  9. In the **Auth header** list, select the token type. An OIDC token is generally used _except_ for Google APIs hosted on `*.googleapis.com` as these APIs expect an OAuth token.
+  9. Optional: In the **HTTP headers** section, add any HTTP request headers. If your target endpoint requires an API key in the request header, use the header name that your target service expects, such as `x-api-key` for API Gateway and Cloud Endpoints, or `X-Goog-Api-Key` for Google Cloud REST APIs. Using `api_key` as a header name can result in authentication failures. For more information, see [Use API keys to access APIs](https://docs.cloud.google.com/docs/authentication/api-keys-use) and [Use API keys](https://docs.cloud.google.com/api-gateway/docs/authenticate-api-keys) (in API Gateway).
 
-  10. In the **Service account** list, select your service account email.
+  10. In the **Auth header** list, select the token type. An OIDC token is generally used _except_ for Google APIs hosted on `*.googleapis.com` as these APIs expect an OAuth token.
 
-  11. Optionally, specify an **Audience** which limits the recipients for the OIDC token; typically, the job's target URL without any URL parameters. If not specified, the entire URL is used as the audience including request parameters.
+  11. In the **Service account** list, select your service account email.
 
-  12. Configure any optional settings.
+  12. Optional: Specify an **Audience** which limits the recipients for the OIDC token; typically, the job's target URL without any URL parameters. If not specified, the entire URL is used as the audience including request parameters.
 
-  13. Click **Create**.
+  13. Configure any optional settings.
+
+  14. Click **Create**.
 
 
 
@@ -172,9 +174,10 @@ Replace the following:
   * `FREQUENCY`: the interval or how often the job is to run; for example, `every 3 hours` or `every 10 mins`. The string you supply here can be any [unix-cron](https://docs.cloud.google.com/scheduler/docs/configuring/cron-job-schedules) compatible string.
   * `URI`: the fully qualified HTTPS URL of the endpoint (must start with `https://`).
   * `SERVICE_ACCOUNT_EMAIL`: the email of your service account. An OIDC token is generally used _except_ for Google APIs hosted on `*.googleapis.com` as these APIs expect an OAuth token. (Use the `--oauth-service-account-email` flag instead to define an OAuth token type.)
-  * Other optional parameters are described in the [gcloud command line reference](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler/jobs/create/http).
 
 
+
+Other optional parameters are described in the [gcloud command line reference](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler/jobs/create/http). For example, you can use the `--headers` flag to include HTTP request headers. If your target endpoint requires an API key in the request header, use the header name that your target service expects, such as `x-api-key` for API Gateway and Endpoints, or `X-Goog-Api-Key` for Google Cloud REST APIs. Using `api_key` as a header name can result in authentication failures. For more information, see [Use API keys to access APIs](https://docs.cloud.google.com/docs/authentication/api-keys-use) and [Use API keys](https://docs.cloud.google.com/api-gateway/docs/authenticate-api-keys) (in API Gateway).
 
 ## Grant the Cloud Scheduler Service Agent role
 
@@ -203,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

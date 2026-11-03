@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash/
 title: Gemini 3.7 Flash \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:48.932590+00:00
+fetched_at: 2026-11-03T09:52:29.512439+00:00
 ---
 
 # Gemini 3.7 Flash  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 Gemini 3.7 Flash is our intelligent everyday driver for developers, and delivers a step forward in software engineering, feeling distinctly better to build with. This model brings better intelligence for complex tasks, instruction following, and tool calling into your daily workflows.
 
-3.7 Flash serves as the primary agentic workhorse in the Gemini 3 family, bridging the gap between deep-reasoning Pro models and high-throughput Flash-Lite models while delivering high token efficiency and multi-step multimodal processing.
+3.7 Flash serves as the primary agentic workhorse in the Gemini 3 family, bridging the gap between deep-reasoning Gemini Pro models and high-throughput Gemini Flash-Lite models while delivering high token efficiency and multi-step multimodal processing.
 
 **Note:** `thinking_level="MINIMAL"` is not available for 3.7 Flash. Explicitly setting `thinking_level` to `MINIMAL` will return an API validation error. The supported values for 3.7 Flash are `LOW`, `MEDIUM` (default), and `HIGH`.
 
@@ -205,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

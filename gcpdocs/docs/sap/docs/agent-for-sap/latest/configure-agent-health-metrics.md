@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/configure-agent-health-metrics/
 title: Configure agent health metrics collection \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:54:56.490317+00:00
+fetched_at: 2026-11-03T09:44:13.648695+00:00
 ---
 
 # Configure agent health metrics collection  |  SAP on Google Cloud  |  Google Cloud Documentation

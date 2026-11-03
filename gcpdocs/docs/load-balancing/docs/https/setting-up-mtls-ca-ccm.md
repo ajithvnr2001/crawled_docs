@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/setting-up-mtls-ca-ccm/
 title: Set up frontend mTLS with a private CA \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:31.546046+00:00
+fetched_at: 2026-11-03T09:54:26.107182+00:00
 ---
 
 # Set up frontend mTLS with a private CA  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -204,10 +204,11 @@ Replace the following:
 
 ## Create a Client Authentication resource
 
-A Client Authentication (also called `ServerTLSPolicy`) resource lets you specify the server-side TLS mode and the trust config resource to use when validating client certificates. When the client presents an invalid certificate or no certificate to the load balancer, the [`clientValidationMode`](https://docs.cloud.google.com/load-balancing/docs/reference/network-security/rest/v1/projects.locations.serverTlsPolicies#mtlspolicy) specifies how the client connection is handled. For more information, see [mTLS client validation modes](https://docs.cloud.google.com/load-balancing/docs/mtls#mtls_errors).
+A Client Authentication (also called `ServerTLSPolicy`) resource lets you specify the server-side TLS mode and the trust config resource to use when validating client certificates. When the client presents an invalid certificate or no certificate to the load balancer, the [`clientValidationMode`](https://docs.cloud.google.com/load-balancing/docs/reference/network-security/rest/v1/projects.locations.serverTlsPolicies#mtlspolicy) specifies how the client connection is handled. For more information, see [mTLS client validation modes](https://docs.cloud.google.com/load-balancing/docs/mtls#client-validation-mode).
 
   * When the `clientValidationMode` is set to `ALLOW_INVALID_OR_MISSING_CLIENT_CERT`, all requests are passed to the backend even if the validation fails or the client certificate is missing.
   * When the `clientValidationMode` is set to `REJECT_INVALID`, only requests that supply a client certificate that can be validated against a `TrustConfig` resource are passed to the backend.
+  * When the `clientValidationMode` is set to `ALLOW_VALIDATION_RELAXATIONS`, only requests that supply a client certificate that can be validated against a `TrustConfig` resource—with the specified validation relaxations (`clientValidationRelaxations`) applied—are passed to the backend.
 
 
 
@@ -229,8 +230,19 @@ For global external Application Load Balancers, classic Application Load Balance
 
   5. For **Client Authentication mode** , select **Load balancing**.
 
-  6. Select a client validation mode.
+  6. For **Client Validation Mode** , select one of the following options:
 
+     * **Reject invalid**
+     * **Allow invalid or missing client certificate**
+     * **Allow validation relaxations**
+
+For more information, see [Client validation modes](https://docs.cloud.google.com/load-balancing/docs/mtls#client-validation-mode).
+
+If you select **Allow validation relaxations** , select one or more of the following validation relaxations:
+
+     * **Allow missing EKU**
+     * **Allow SHA-1 hashing**
+     * **Allow expired leaf certificate**
   7. Select the trust config resource that you created earlier.
 
   8. Optional: Click **Equivalent code** to view the Terraform configuration for this resource.
@@ -298,15 +310,49 @@ For regional external Application Load Balancers and regional internal Applicati
            EOF
            
 
+     * **Option 3** : `clientValidationMode` is set to `ALLOW_VALIDATION_RELAXATIONS`.
+
+### global
+
+For global external Application Load Balancers, classic Application Load Balancers, and cross-region internal Application Load Balancers, create a YAML file that declaratively specifies the client validation mode, one or more validation relaxations, and a global trust config resource:
+           
+           cat << EOF > server_tls_policy.yaml
+           name: SERVER_TLS_POLICY_NAME
+           mtlsPolicy:
+               clientValidationMode: ALLOW_VALIDATION_RELAXATIONS
+               clientValidationRelaxations:
+               - VALIDATION_RELAXATION
+               - VALIDATION_RELAXATION
+               clientValidationTrustConfig: projects/PROJECT_ID/locations/global/trustConfigs/TRUST_CONFIG_NAME
+           EOF
+           
+
+### regional
+
+For regional external Application Load Balancers and regional internal Application Load Balancers, create a YAML file that declaratively specifies the client validation mode, one or more validation relaxations, and a regional trust config resource:
+           
+           cat << EOF > server_tls_policy.yaml
+           name: SERVER_TLS_POLICY_NAME
+           mtlsPolicy:
+               clientValidationMode: ALLOW_VALIDATION_RELAXATIONS
+               clientValidationRelaxations:
+               - VALIDATION_RELAXATION
+               - VALIDATION_RELAXATION
+               clientValidationTrustConfig: projects/PROJECT_ID/locations/REGION/trustConfigs/TRUST_CONFIG_NAME
+           EOF
+           
+
 Replace the following:
 
-`SERVER_TLS_POLICY_NAME`: the name of the Client Authentication (`ServerTlsPolicy`) resource.
+     * `SERVER_TLS_POLICY_NAME`: the name of the Client Authentication (`ServerTlsPolicy`) resource.
 
-`PROJECT_ID`: the ID of your Google Cloud project.
+     * `VALIDATION_RELAXATION`: one or more of the following values: `ALLOW_MISSING_EKU`, `ALLOW_SHA1_HASHING`, or `ALLOW_EXPIRED_LEAF_CERTIFICATE`.
 
-`LOCATION`: for global external Application Load Balancers, classic Application Load Balancers, and cross-region internal Application Load Balancers, use `global`. For regional external Application Load Balancer or regional internal Application Load Balancer, use the region where you configured the load balancer.
+     * `PROJECT_ID`: the ID of your Google Cloud project.
 
-`TRUST_CONFIG_NAME`: the name of the trust config resource that you created earlier.
+     * `REGION`: for regional external Application Load Balancer or regional internal Application Load Balancer, use the region where you configured the load balancer.
+
+     * `TRUST_CONFIG_NAME`: the name of the trust config resource that you created earlier.
 
   2. To import the Client Authentication `ServerTlsPolicy` resource, use the [`gcloud network-security server-tls-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/server-tls-policies/import):
 
@@ -348,8 +394,6 @@ Replace the following:
 
 
 
-
-**Note:** To modify the Client Authentication (`ServerTlsPolicy`) resource, you must first delete the existing Client Authentication resource and then create a new Client Authentication resource. You can then attach the Client Authentication resource to the target HTTPS proxy of the load balancer.
 
 ## Attach the Client Authentication resource to the load balancer
 
@@ -688,6 +732,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

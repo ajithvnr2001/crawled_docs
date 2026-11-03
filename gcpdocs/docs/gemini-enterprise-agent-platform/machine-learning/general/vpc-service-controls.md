@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls/
 title: VPC Service Controls with Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:23.542816+00:00
+fetched_at: 2026-11-03T09:53:38.873513+00:00
 ---
 
 # VPC Service Controls with Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ Agent Platform APIs, as outlined in [Accessing Gemini Enterprise Agent Platform 
 
 By default, these public APIs are reachable from the internet; however, IAM permissions are required for use. While features like Private Service Connect for Google APIs and Private Google Access facilitate private communication over hybrid network architectures, they don't eliminate public internet accessibility for Agent Platform APIs.
 
-To establish granular control over API access and explicitly restrict public internet exposure, the implementation of VPC Service Controls becomes essential. When you establish a VPC Service Controls (VPC-SC) perimeter and include the Gemini Enterprise in its protected services, all public internet access to your Agent Platform instance is automatically blocked. As a result, users attempting to access Agent Platform services programmatically or using the Google Google Cloud console are denied access unless they are included in an allowlist.
+To establish granular control over API access and explicitly restrict public internet exposure, the implementation of VPC Service Controls becomes essential. When you establish a VPC Service Controls (VPC-SC) perimeter and include the Gemini Enterprise in its protected services, all public internet access to your Agent Platform instance is automatically blocked. As a result, users attempting to access Agent Platform services programmatically or using the Google Cloud console are denied access unless they are included in an allowlist.
 
 To restore access for authorized sources outside the perimeter (for example, users in your corporate offices), see [Allow public endpoint access to protected resources from outside a VPC Service Controls perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpcsc-public-endpoint#select_the_access_level) for deployment instructions.
 
@@ -257,6 +257,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

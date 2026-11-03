@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/onboard/
 title: Deploy an instance \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:18.181292+00:00
+fetched_at: 2026-11-03T09:54:46.721479+00:00
 ---
 
 # Deploy an instance  |  Google Security Operations  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ Your onboarding SME should prepare your environment before you onboard a new Goo
 
   3. Onboard a new Google SecOps instance.
 
-  4. Contact your account team or partner team to deploy additional instances.
+  4. [Deploy additional instances](https://docs.cloud.google.com/chronicle/docs/onboard/provision-additional-instance).
 
 
 
@@ -181,7 +181,7 @@ After preparing your environment for onboarding, the onboarding SME should do th
 
 This section lists the roles and permissions required to deploy a Google SecOps instance. Grant these permissions to the onboarding SME performing the deployment tasks:
 
-  * **All roles and permissions must be granted at the project level**. These permissions apply only to the specified Google Cloud project and the associated Google SecOps instance. To deploy additional instances, contact your account team or partner team.
+  * **All roles and permissions must be granted at the project level**. These permissions apply only to the specified Google Cloud project and the associated Google SecOps instance. To deploy additional instances within your existing subscription, you can use the self-service workflow in the Google Cloud console. For details, see [Deploy an additional instance](https://docs.cloud.google.com/chronicle/docs/onboard/provision-additional-instance).
   * If you deploy another Google SecOps instance under a different contract, you must grant a new set of roles and permissions for that deployment.
 
 
@@ -354,6 +354,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

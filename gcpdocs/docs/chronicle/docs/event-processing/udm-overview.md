@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/udm-overview/
 title: UDM overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:42.350998+00:00
+fetched_at: 2026-11-03T09:54:28.571003+00:00
 ---
 
 # UDM overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -68,7 +68,9 @@ To format a UDM event to make it ready to send to Google, you must complete the 
 
 ### Specify the event type
 
-The most important value defined for any event submitted in UDM format is the event type, specified using one of the possible values available for Metadata.event_type. These include values such as PROCESS_OPEN, FILE_CREATION, USER_CREATION, NETWORK_DNS, etc. (for the complete list, see Metadata.event_type. Each event type requires you to also populate a set of other fields and values with the information tied to the original event. See [Required and Optional Fields for Each UDM Event Type](https://docs.cloud.google.com/chronicle/docs/unified-data-model/udm-usage#required_and_optional_fields_based_on_event_type) for detail on which fields to include for each event type. The following example illustrates how you would specify PROCESS_OPEN as the event type using Proto3 text notation:
+You must always specify the event type for every event submitted in UDM format. Specify this value using one of the possible values available for `metadata.event_type`. These include values such as `PROCESS_OPEN`, `FILE_CREATION`, `USER_CREATION`, and `NETWORK_DNS` (for the complete list, see [`Metadata.event_type`](https://docs.cloud.google.com/chronicle/docs/unified-data-model/udm-usage#Metadata_event_type)). Each event type requires you to also populate a set of other fields and values with the information tied to the original event. For details on which fields to include for each event type, see [Required and optional fields for each event type](https://docs.cloud.google.com/chronicle/docs/unified-data-model/udm-usage#required_and_optional_fields_based_on_event_type).
+
+The following example illustrates how you would specify PROCESS_OPEN as the event type using Proto3 text notation:
     
     
     metadata {
@@ -473,6 +475,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

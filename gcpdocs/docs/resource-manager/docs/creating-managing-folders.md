@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/creating-managing-folders/
 title: Create folders \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:41.224760+00:00
+fetched_at: 2026-11-03T09:55:07.707591+00:00
 ---
 
 # Create folders  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback
 
 #  Create folders Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to create Google Cloud folders to group and organize projects in a resource hierarchy. You can use folders to delegate administrative duties, enforce environment-specific organization policies, and streamline cost management across your departments.
+Google Cloud folders let you group and organize projects in a resource hierarchy. You can use folders to delegate administrative duties, enforce environment-specific organization policies, and streamline cost management across departments.
 
-Folders are nodes in the [Cloud Platform Resource Hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). A folder can contain projects, other folders, or a combination of both. Organization resources can use folders to group projects under the organization resource node in a hierarchy. For example, your organization resource might contain multiple departments, each with its own set of Google Cloud resources. Folders allow you to group these resources on a per-department basis. Folders are used to group resources that share common allow or deny policies. While a folder can contain multiple folders or resources, a given folder or resource can have exactly one parent.
+As nodes in the [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy), folders can contain projects, other folders, or a combination of both under an organization resource. They also let you group resources that share common Identity and Access Management (IAM) roles, deny policies, or organization policies. Although a folder can contain multiple child folders or resources, each folder or resource can have only one parent.
+
+## Example folder hierarchy
 
 In the following diagram, the organization resource, "Company", has folders representing "Standard Workloads", "Regulated Workloads", and "Shared infrastructure". Under "Regulated Workloads", folders are organized by environment into "Non-Prod Environment" and "Production Environment". The "Production Environment" folder is further organized into "Customer-Facing (Restricted)" and "Internal-Only (Standard)" folders to enforce policy-centric access controls. Projects such as "Test project", "Development project", and "Production project" contain the resources needed for the project. This provides a high degree of flexibility in assigning allow, deny, or organization policies at the right level of granularity.
 
@@ -38,7 +40,7 @@ Folder functionality is only available to Google Workspace and Cloud Identity cu
 If you're exploring how to best use folders, we recommend that you:
 
   1. Review [Access Control for Folders Using IAM](https://docs.cloud.google.com/resource-manager/docs/access-control-folders). The topic describes how you can control who has what access to folders and the resources they contain.
-  2. Understand how to set folder permissions. Folders support a number of different Identity and Access Management (IAM) roles. If you want to broadly set up permissions so users can see the structure of their projects, grant the entire domain the **Organization Viewer** and **Folder Viewer** roles at the organization resource level. To restrict visibility to branches of your folder hierarchy, grant the **Folder Viewer** role on the folder or folders you want users to see.
+  2. Understand how to set folder permissions. Folders support a number of different IAM roles. If you want to broadly set up permissions so users can see the structure of their projects, grant the entire domain the **Organization Viewer** and **Folder Viewer** roles at the organization resource level. To restrict visibility to branches of your folder hierarchy, grant the **Folder Viewer** role on the folder or folders you want users to see.
   3. Create folders. As you plan how to organize your Cloud resources, we recommend that you start with a single folder as a sandbox where you can experiment with which hierarchy makes the most sense for your organization resource. Think of folders in terms of isolation boundaries between resources and attach points for access and configuration policies. You may choose to create folders to contain resources that belong to different departments and assign Admin roles on folders to delegate administrator privilege. Folders can also be used to group resources that belong to applications or different environments, such as development, production, test. Use nested folders to model these different scenarios.
 
 
@@ -466,6 +468,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/managing-notifications/
 title: Set up notification preferences \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:37.170643+00:00
+fetched_at: 2026-11-03T09:55:06.792907+00:00
 ---
 
 # Set up notification preferences  |  Resource Manager  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback
 
 #  Set up notification preferences Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to associate a domain with a project for verification purposes (required for push notifications from APIs), and also how to manage your personal notification preferences for maintenance and upgrades.
+You can associate a domain with a Google Cloud project to verify ownership for API push notifications. You can also use the **Communication** page in the Google Cloud console to customize your personal notification preferences for maintenance windows and service notices. These preferences apply only to your user account for individual projects, can't be set at the folder or organization level, and don't inherit to child resources.
 
-The **Communication** page in the Google Cloud console lets you manage your personal user preferences for product-specific notifications, such as upcoming maintenance windows and upgrade notifications. These preferences apply only to your user account for individual projects. Your personal preferences can't be set at the folder or organization level and don't inherit to child resources.
-
-To control who receives organization-wide and project-level notifications for critical areas like billing, security alerts, and legal notices, use [Essential Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts). You can configure Essential Contacts on organizations, folders, or projects, and contacts inherit down the resource hierarchy. To configure or modify those contacts, see [Manage Essential Contacts](https://docs.cloud.google.com/resource-manager/docs/manage-essential-contacts).
+To control who receives organization-wide and project-level notifications for critical categories such as billing, security alerts, and legal notices, use [Essential Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts). You can configure Essential Contacts on organizations, folders, or projects, and contacts inherit down the resource hierarchy. To configure or modify those contacts, see [Manage Essential Contacts](https://docs.cloud.google.com/resource-manager/docs/manage-essential-contacts).
 
 ## Associate a domain with a project
 
@@ -86,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

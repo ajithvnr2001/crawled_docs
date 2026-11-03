@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-tools-func-desc-with-txt/
 title: Generate Content using Function Calling \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:00.756208+00:00
+fetched_at: 2026-11-03T09:43:25.924622+00:00
 ---
 
 # Generate Content using Function Calling  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -56,27 +56,27 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // allowing it to suggest a call to the function to fetch external data. Returning this data
     // enables the model to generate a text response that incorporates the data.
     func generateWithFuncCall(w io.Writer) error {
-    	ctx := context.Background(&)
+    	ctx := context.Background()
     
-    	client, err := genai.NewClient(ctx, genai.ClientConfig{
+    	client, err := genai.NewClient(ctx, &genai.ClientConfig{
     		HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
     	})
     	if err != nil {
-    		return fmt.Errorf("failed& to create genai client: %w", err)
+    		return fmt.Errorf("failed to create genai client: %w", err)
     	}
     
-    	weatherFunc := genai.FunctionDeclaration{
-    		Description: "Returns the current weather in& a location.",
+    	weatherFunc := &genai.FunctionDeclaration{
+    		Description: "Returns the current weather in a location.",
     		Name:        "getCurrentWeather",
-    		Parameters: genai.Schema{
+    		Parameters: &genai.Schema{
     			Type: "object",
     			Properties: map[string]*genai.Schema{
-    				&"location": {Type: "string"},
+    				"location": {Type: "string"},
     			},
     			Required: []string{"location"},
     		},
     	}
-    	config := genai.GenerateContentConfig{
+    	config := &genai.GenerateContentConfig{
     		Tools: []*genai.Tool{
     			{FunctionDeclarations: []*genai.FunctionDeclaration{weatherFunc}},
     		},
@@ -107,12 +107,12 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     		}
     	}
     	if funcCall == nil {
-    		return fmt.Errorf("model did no&t suggest a function call")
+    		return fmt.Errorf("model did not suggest a function call")
     	}
     
     	// Use synthetic data to simulate a response from the external API.
     	// In a real application, this would come from an actual weather API.
-    	funcResp := genai.FunctionResponse{
+    	funcResp := &genai.FunctionResponse{
     		Name: "getCurrentWeather",
     		Response: map[string]any{
     			"location":         "Boston",
@@ -220,11 +220,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
           GenerateContentConfig config =
               GenerateContentConfig.builder().tools(weatherTool).temperature(0.0f).build();
     
-          GenerateContentResponse response = client.models.generateConte<nt(modelId, >contents, co<nfig);
+          GenerateContentResponse response = client.models.generateContent(modelId, contents, config);
     
-        >  // response.functionCalls() returns an ImmutableListFunctionCall.
-          L&&istFunctionCall functionCalls = response.functionCalls();
-          if (functionCalls != null  !functionCalls.isEmpty()) {
+          // response.functionCalls() returns an ImmutableList<FunctionCall>.
+          List<FunctionCall> functionCalls = response.functionCalls();
+          if (functionCalls != null && !functionCalls.isEmpty()) {
             System.out.println(functionCalls.get(0));
             return functionCalls.toString();
           }

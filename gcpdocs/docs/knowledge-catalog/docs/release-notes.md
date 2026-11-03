@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/release-notes/
 title: Knowledge Catalog release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:31.302949+00:00
+fetched_at: 2026-11-03T09:51:23.890223+00:00
 ---
 
 # Knowledge Catalog release notes  |  Google Cloud Documentation
@@ -28,6 +28,14 @@ This page documents production updates to Knowledge Catalog. Check this page for
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/dataplex-release-notes.xml) directly. 
+
+## November 02, 2026
+
+Feature
+
+Knowledge Studio in Knowledge Catalog is available in [Preview](https://cloud.google.com/products#product-launch-stages). Knowledge Studio lets you explore data assets and semantic relationships using natural language and an interactive context graph, run automated enrichment tasks to generate and curate metadata from schemas, query logs, and enterprise knowledge signals, and package curated domain knowledge into context sets to ground AI agents through the Model Context Protocol (MCP) or Knowledge Catalog APIs.
+
+For more information, see [Knowledge Studio overview](https://docs.cloud.google.com/knowledge-catalog/docs/knowledge-studio), [Context sets overview](https://docs.cloud.google.com/knowledge-catalog/docs/context-sets), and [About enrichment tasks](https://docs.cloud.google.com/knowledge-catalog/docs/about-enrichment-tasks).
 
 ## October 26, 2026
 

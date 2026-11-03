@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-anomalies-overview/
 title: Agent Anomaly Detection overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:01.818324+00:00
+fetched_at: 2026-11-03T09:41:51.704212+00:00
 ---
 
 # Agent Anomaly Detection overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -49,7 +49,9 @@ Benefit or Feature | Description
   
 ## What's new
 
-The following features were added to the Agent Anomaly Detection preview functionality on October 22, 2026:
+The following feature was added to Agent Anomaly Detection (Preview) on **November 2, 2026** : support for automatic agent enrollment, which automatically enables monitoring for eligible agents discovered in your project.
+
+The following features were added to the Agent Anomaly Detection preview functionality on **October 22, 2026** :
 
   * **Support for ADK on Google Kubernetes Engine** : Monitor agents built with Agent Development Kit (ADK) (version 2.1.0 or later) and deployed on your [GKE](https://docs.cloud.google.com/gke/docs/overview) clusters (`GKE_WORKLOAD`).
   * **Support for Cloud Run** : Monitor agents deployed as [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) services (`CLOUD_RUN_SERVICE`). By exporting OpenTelemetry traces to Cloud Trace and logs to Cloud Logging, Cloud Run services are automatically discovered and listed on the Settings page, where you can enable them for Agent Anomaly Detection.
@@ -68,7 +70,7 @@ To balance assessment coverage and cost, Agent Anomaly Detection uses a multi-la
 
 ## Availability
 
-Agent Anomaly Detection is available for agents meeting the following criteria. Agents that meet the criteria are automatically recognized as **monitored agents** by Agent Anomaly Detection (the service is aware of the agent's existence, but nothing is run on the agent's logs and no costs are incurred). You must explicitly **enable** a monitored agent for Agent Anomaly Detection for active anomaly analysis to run on its logs and traces.
+Agent Anomaly Detection is available for agents meeting the following criteria. Agents that meet the criteria are automatically recognized as **monitored agents** by Agent Anomaly Detection (the service is aware of the agent's existence, but nothing is run on the agent's logs and no costs are incurred unless the agent is enabled). Monitored agents can be **enabled** for active anomaly analysis either automatically upon discovery (when automatic agent enrollment is enabled on the regional `AgentAnomalyDetectionScope`) or manually per agent in the Google Cloud console or through the API.
 
   * **Compatible runtime** : Deployed on Agent Runtime (Reasoning Engine), Cloud Run (`CLOUD_RUN_SERVICE`), or Google Kubernetes Engine (`GKE_WORKLOAD`).
   * **ADK version** : Built using ADK for Python, version 2.1.0 or later.
@@ -107,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

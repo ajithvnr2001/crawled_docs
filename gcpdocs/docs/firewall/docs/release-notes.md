@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/release-notes/
 title: Cloud NGFW release notes \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:24.963125+00:00
+fetched_at: 2026-11-03T09:53:08.034308+00:00
 ---
 
 # Cloud NGFW release notes  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -28,6 +28,16 @@ To view Cloud NGFW announcements prior to April 2023, see the [Virtual Private C
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-firewall-release-notes.xml) directly. 
+
+## November 02, 2026
+
+v1
+
+Feature
+
+Advanced malware sandbox (WildFire) integrates dynamic machine learning (ML) and cloud-based behavioral sandboxing to perform deep inspection of network-routed file transfers and block zero-day malware before it reaches your workloads. Advanced malware sandbox is available in the Cloud Next Generation Firewall Enterprise tier. For more information, see [Advanced malware sandbox overview](https://docs.cloud.google.com/firewall/docs/about-wildfire) and [Configure Advanced malware sandbox in your network](https://docs.cloud.google.com/firewall/docs/configure-wildfire).
+
+This feature is available in **General Availability**.
 
 ## September 22, 2026
 

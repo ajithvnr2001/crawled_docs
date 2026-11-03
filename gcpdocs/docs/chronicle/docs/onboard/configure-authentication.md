@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/onboard/configure-authentication/
 title: Configure third-party identity \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:50.166594+00:00
+fetched_at: 2026-11-03T09:54:42.634781+00:00
 ---
 
 # Configure third-party identity  |  Google Security Operations  |  Google Cloud Documentation
@@ -662,7 +662,7 @@ Replace the following:
 
 ## Troubleshoot issues with configuration
 
-If you encounter errors during this process, review [Troubleshoot workforce identity federation](https://docs.cloud.google.com/iam/docs/troubleshooting-workforce-identity-federation) to resolve common issues. The following section provides information about common problems encountered when performing the steps in this document.
+If you encounter errors during this process, review [Troubleshoot workforce identity federation](https://docs.cloud.google.com/iam/docs/troubleshooting-workforce-identity-federation) to resolve common issues. If your organization uses egress firewalls, corporate proxies, or strict web filtering, verify that your network allowlist includes all required authentication and Workforce Identity Federation domains (such as `*.cloud.google`, `accounts.google.com`, and regional `accounts.google.ccTLD` domains). For more information, see [Network access and domain allowlist](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui#network-access-and-domain-allowlist). The following section provides information about common problems encountered when performing the steps in this document.
 
 If you still encounter issues, contact your Google SecOps representative and provide your [Chrome Network Logs File](https://en.wikipedia.org/wiki/HAR_\(file_format\)).
 
@@ -734,6 +734,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

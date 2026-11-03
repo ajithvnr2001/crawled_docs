@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/
 title: Migrate to the latest Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:23.702038+00:00
+fetched_at: 2026-11-03T09:52:22.852552+00:00
 ---
 
 # Migrate to the latest Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -314,7 +314,7 @@ As you migrate, apply these tips to achieve optimal performance from your chosen
 
   * For all Gemini 3 models, sampling parameters (`temperature`, `top_p`, and `top_k`) are deprecated. The model manages its own sampling for optimal results. Google recommends removing these parameters from all requests.
   * Check your [system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions), [prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies), and [few-shot learning examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/few-shot-examples) for any inconsistencies, contradictions, or irrelevant instructions and examples.
-  * Test a more powerful model. For example, if you evaluated a Flash-Lite model, try a Flash or Pro model instead.
+  * Test a more powerful model. For example, if you evaluated a Gemini Flash-Lite model, try a Flash or Pro model instead.
   * Review automated evaluation results to ensure they match human judgment, especially results using a [judge model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluate-judge-model). Ensure your judge model instructions are clear, consistent, and unambiguous.
   * To improve judge model instructions, test the instructions with multiple humans working in isolation. If humans interpret the instructions differently and provide different judgments, your judge model instructions are unclear.
   * [Fine-tune the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models).
@@ -364,6 +364,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

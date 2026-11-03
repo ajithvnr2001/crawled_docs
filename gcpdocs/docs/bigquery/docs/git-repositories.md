@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/git-repositories/
 title: Manage code with BigQuery Studio Git repositories \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:35.427126+00:00
+fetched_at: 2026-11-03T09:36:18.103079+00:00
 ---
 
 # Manage code with BigQuery Studio Git repositories  |  Google Cloud Documentation
@@ -133,6 +133,8 @@ If you don't see the left pane, click last_page **Expand left pane** to open the
      * If an account connector is found, the display name for the Git repository is prefilled. You can edit these values.
      * If no account connector exists, click **Create account connector** to create a new account connector.
      * If you prefer not to use a Developer Connect account connector, click **Use a different connection type** to [connect using HTTPS or SSH](https://docs.cloud.google.com/bigquery/docs/repositories#connect-third-party).
+
+**Note:** BigQuery Studio Git repositories use Developer Connect [account connectors](https://docs.cloud.google.com/developer-connect/docs/account-connectors) rather than [Git repository connections](https://docs.cloud.google.com/developer-connect/docs/git-repo-connections). For more information, see [The difference between Git repositories connections and account connectors](https://docs.cloud.google.com/developer-connect/docs/overview#difference_between).
   6. Optional: To create a shallow clone repository with limited commit history, click **Advanced options** , and then select the **Shallow clone** checkbox.
 
      1. In the **Depth** field, enter the number of commits to retrieve in the limited commit history.
@@ -241,7 +243,7 @@ To synchronize your local edits with your remote repository, do the following:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the left pane, click fork_right **Source control** to open the **Source control** panel.
+  2. In the left pane, click fork_right **Source control**.
 
   3. Optional: Hover over a modified file and click **Show diff** to see a line-by-line comparison between your local version and the last committed version.
 
@@ -268,9 +270,9 @@ To check out a new branch, do the following:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. Open the **Source control** panel.
+  2. In the left pane, click fork_right **Source control**.
 
-  3. In the **Branches** section, next to **Branches** , click more_vert **Actions** > **Check out new branch**.
+  3. In the **Branches** section, next to **Branches** , click more_vert **Actions > Check out new branch**.
 
   4. In the **Source branch** menu, select the branch you want to base your new branch on, for example, `origin/main`.
 
@@ -299,7 +301,7 @@ To view the commit history, do the following:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. Open the **Source control** panel.
+  2. In the left pane, click fork_right **Source control**.
 
   3. Next to the primary version control action button, click the expander_arrow arrow drop-down, and then click **View commit history**.
 
@@ -389,6 +391,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

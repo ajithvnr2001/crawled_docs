@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/https-logging-monitoring/
 title: Global external Application Load Balancer logging and monitoring \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:08.083750+00:00
+fetched_at: 2026-11-03T09:54:21.904229+00:00
 ---
 
 # Global external Application Load Balancer logging and monitoring  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -872,6 +872,29 @@ When this breakdown is chosen, the charts show backend metrics (load balancer-to
 `client_country` | Country of the client that issued the HTTP request—for example, `United States` or `Germany`.  
 `load_balancing_scheme` | The load balancing scheme used. If classic Application Load Balancer is used, the value is `EXTERNAL`. If global external Application Load Balancer is used, the value is `EXTERNAL_MANAGED`.  
   
+## Distributed tracing with Cloud Trace
+
+**Preview — Distributed tracing with Cloud Trace**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+Global external Application Load Balancers support distributed tracing with [Cloud Trace](https://docs.cloud.google.com/trace/docs/overview). When you attach a telemetry policy to the load balancer's forwarding rule, the load balancer generates trace spans for sampled requests and propagates W3C Trace Context to your backends. Classic Application Load Balancers don't support distributed tracing.
+
+When logging is enabled on your backend service, load balancer request log entries for sampled requests include a `trace` field in the following format:
+    
+    
+    projects/PROJECT_ID/traces/TRACE_ID
+    
+
+You can use the trace ID to move between log entries in the Logs Explorer and the corresponding traces in Cloud Trace. You can also compare the `https/total_latencies` and `https/backend_latencies` metrics with trace span breakdowns to determine whether latency originates in the load balancer or in the backend.
+
+For more information, see the following:
+
+  * [Distributed tracing overview](https://docs.cloud.google.com/load-balancing/docs/distributed-tracing-overview)
+  * [Trace inbound traffic with Cloud Trace](https://docs.cloud.google.com/load-balancing/docs/trace-inbound-traffic)
+
+
+
 ## What's next
 
   * Read the [External Application Load Balancer overview](https://docs.cloud.google.com/load-balancing/docs/https).
@@ -882,6 +905,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

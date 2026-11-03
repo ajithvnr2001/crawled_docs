@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced-ha/
 title: About Hyperdisk Balanced High Availability \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:31.753114+00:00
+fetched_at: 2026-11-03T09:41:54.036288+00:00
 ---
 
 # About Hyperdisk Balanced High Availability  |  Compute Engine  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  About Hyperdisk Balanced High Availability Stay organized with collections  Save and categorize content based on your preferences. 
 
-To protect your applications from a zonal outage, use Hyperdisk Balanced High Availability volumes to synchronously replicate data across two zones in the same region. You can also use Hyperdisk Balanced High Availability volumes in scenarios that require write access to the same volume multiple zones. This document describes the features of Hyperdisk Balanced High Availability.
+To protect your applications from a zonal outage, use Hyperdisk Balanced High Availability volumes to synchronously replicate data across two zones in the same region. You can also use Hyperdisk Balanced High Availability volumes in scenarios that require write access to the same volume across multiple zones. This document describes the features of Hyperdisk Balanced High Availability.
 
 You can specify up to 100,000 IOPS and 2,400 MiB/s of throughput for a single Hyperdisk Balanced High Availability volume. 
 
@@ -120,7 +120,7 @@ The following limits apply to the size, IOPS, and throughput values you can spec
 
 ### Limits for configurable IOPS for Hyperdisk Balanced High Availability volumes
 
-You can choose the IOPS limit for a Hyperdisk Balanced High Availability volume according to the following limits. The minimum and maximum limits vary by size, as follows
+You can choose the IOPS limit for a Hyperdisk Balanced High Availability volume according to the following limits. The minimum and maximum limits vary by size, as follows:
 
   * Minimum configurable IOPS: 
     * 4 or 5 GiB volumes: IOPS is fixed at 2,000 and 2,500 IOPS, respectively.
@@ -407,6 +407,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

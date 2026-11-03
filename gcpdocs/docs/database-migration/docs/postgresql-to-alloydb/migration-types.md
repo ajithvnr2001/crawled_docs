@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-types/
-title: Types of migration \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
+title: Migration flow \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:05.638159+00:00
+fetched_at: 2026-11-03T09:54:20.540162+00:00
 ---
 
-# Types of migration  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
+# Migration flow  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-types/
 
@@ -14,39 +14,49 @@ fetched_at: 2026-10-27T16:24:05.638159+00:00
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
   * [ Database Migration Service ](https://docs.cloud.google.com/database-migration/docs)
   * [ PostgreSQL to AlloyDB ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb)
-  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest)
+  * [ Guides ](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/scenario-overview)
 
 
 
 Send feedback 
 
-#  Types of migration Stay organized with collections  Save and categorize content based on your preferences. 
+#  Migration flow Stay organized with collections  Save and categorize content based on your preferences. 
 
-  
+For homogeneous PostgreSQL migrations to AlloyDB for PostgreSQL, Database Migration Service connects to the _destination_ AlloyDB for PostgreSQL cluster primary instance and manages the continuous migration process on its behalf. The destination primary instance establishes the connection to your source database, while Database Migration Service orchestrates and monitors the end-to-end data pipeline.
+
+For standard homogeneous PostgreSQL migrations to AlloyDB for PostgreSQL, Database Migration Service supports **continuous migrations**. In a continuous migration, initial data is loaded from a snapshot dump, and then ongoing data changes are continuously replicated from the source database's write-ahead log (WAL) using logical decoding and the `pglogical` extension. For continuous [ quick-start migrations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/quick-start-migrations-guide), Database Migration Service uses `pgnative`.
+
+## Continuous migration phases
+
+Continuous migrations progress through the following sequential phases:
+
+### Standard migrations
+
+  1. **Replication setup and orchestration** : When you create the migration job, Database Migration Service configures the destination AlloyDB for PostgreSQL cluster primary instance to act as a replica and establishes replication subscriptions with the `pglogical` extension. When migrating to an existing AlloyDB for PostgreSQL cluster, Database Migration Service configures external replication without placing the database in read-only mode. 
+  2. **Initial snapshot phase** : When you start the migration job, Database Migration Service takes a consistent snapshot of the selected databases on the source instance. This process takes a brief table lock (typically under 10 seconds per table) while the snapshot is initialized. The source database continues to accept reads and writes throughout the process. 
+  3. **Data load phase** : Database Migration Service streams the initial snapshot data from the source database and loads it into the destination AlloyDB for PostgreSQL cluster primary instance. 
+  4. **Constraint and index creation** : After the initial data load finishes, table constraints (including primary keys and foreign keys) and secondary indexes are created on the destination instance. Separating data loading from constraint creation optimizes data ingestion speed. 
+  5. **Change data capture (CDC) phase** : Once constraints are applied, Database Migration Service enters the continuous CDC phase. During CDC, Database Migration Service captures ongoing DML changes from the source database's logical replication stream using `pglogical` and applies them to the destination cluster in near real time. **Note:** The time difference between when a transaction commits on the source and when it's applied on the destination is known as the _replication delay_. You can monitor replication delay using Cloud Monitoring metrics. For more information, see [Migration job metrics](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-job-metrics). 
+  6. **Cutover and promotion phase** : When you are ready to switch your application traffic to the destination cluster, stop writes to the source database, verify that the replication lag reaches zero, and initiate promotion in Database Migration Service. During promotion, Database Migration Service disconnects the destination cluster from the source, removes replication slots, and transforms the destination into a standalone, read/write AlloyDB for PostgreSQL primary instance. 
 
 
-[MySQL](https://docs.cloud.google.com/database-migration/docs/mysql/migration-types "View this page for the MySQL version of Database Migration Service.") | [PostgreSQL](https://docs.cloud.google.com/database-migration/docs/postgres/migration-types "View this page for the PostgreSQL version of Database Migration Service.") | PostgreSQL to AlloyDB
 
-  
+### Quick-start migrations
+
+  1. **Replication setup and orchestration** : When you create the migration job, Database Migration Service automatically sets up network connectivity over private IPs using Private Service Connect interfaces (automatically creating private connectivity configurations, network attachments, and subnets). It establishes replication between the source and destination databases using PostgreSQL logical replication (with `pgnative`), without requiring `pglogical` extension installation on the source. The destination can be an active AlloyDB for PostgreSQL cluster serving traffic to other databases. 
+  2. **Initial snapshot phase** : When you start the migration job, Database Migration Service takes a consistent snapshot of the selected databases (migrating up to 50 databases per job) on the source database server. The source database continues to accept reads and writes throughout the process. 
+  3. **Data load phase** : Database Migration Service streams the initial snapshot data directly into the destination AlloyDB for PostgreSQL cluster over private connectivity. Destination database objects are assigned ownership to the destination database user configured for the migration job (such as the default `postgres` user). 
+  4. **Constraint and index creation** : After the initial data load finishes, table constraints and secondary indexes are created on the destination cluster to ensure schema fidelity while maximizing ingestion performance. 
+  5. **Change data capture (CDC) phase** : Once constraints are applied, Database Migration Service enters the continuous CDC phase. During CDC, Database Migration Service streams ongoing DML changes from the `pgnative` PostgreSQL logical replication stream and applies them to the destination cluster in near real time. For tables without primary keys, `UPDATE` and `DELETE` operations can be replicated when the table's replica identity is configured to `INDEX` or `FULL`. **Note:** You can monitor replication progress and lag in near real time directly in the destination cluster using Database Migration Service observability features or Cloud Monitoring metrics. For more information, see [ Migration job metrics](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-job-metrics). 
+  6. **Cutover and promotion phase** : When you are ready to switch your application traffic to the destination cluster, stop writes to the source database, verify that replication lag reaches zero, and initiate promotion in Database Migration Service. During promotion, Database Migration Service finalizes CDC replication, terminates the replication slots, and detaches the migration pipeline, leaving your destination AlloyDB for PostgreSQL databases fully operational for client connections. 
 
 
-## Overview
 
-### Continuous migration
+## What's next
 
-Continuous (sometimes referred to as ongoing or online) migration is a continuous flow of changes from a source PostgreSQL database to an AlloyDB for PostgreSQL destination that follows an initial full dump and load. In the case of a migration, when the time comes to switch to use the destination for reads and writes, perform a `promote` operation. Promotion means that the destination instance is disconnected from the source, and is promoted from a replica instance to a primary instance. 
+  * To learn more about PostgreSQL data and feature support in Database Migration Service, see [Known limitations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations).
 
-Continuous migration follows these steps:
-
-  1. Initially, a snapshot is taken of the source database. This incurs a short (under 10 seconds) lockout on the database tables, one at a time, as the dump is created. The source can continue accepting writes.
-
-  2. After the initial dump is taken, it's loaded into the destination. 
-
-  3. After the load is completed, the ongoing changes (also known as change data capture or CDC) are processed. The delay between when a write occurs on the source and the current time is known as the `Replication delay`.
-
-  4. When the time comes to switch to using the destination, stop writing to the source and initiate a promotion. This allows the application to read and write against the destination database.
-
-  5. Dependent applications can experience downtime for at least the duration of the replication delay at the time of the decision to promote.
+  * To get a complete, step-by-step migration walkthrough, see [Get started with AlloyDB for PostgreSQL migrations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/get-started-with-alloydb-migrations).
 
 
 
@@ -55,72 +65,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
-
-  * ### Products and pricing
-
-    * [ See all products ](https://cloud.google.com/products/)
-    * [ Google Cloud pricing ](https://cloud.google.com/pricing/)
-    * [ Google Cloud Marketplace ](https://cloud.google.com/marketplace/)
-    * [ Contact sales ](https://cloud.google.com/contact/)
-  * ### Support
-
-    * [ Community forums ](https://discuss.google.dev/c/google-cloud/14/)
-    * [ Support ](https://cloud.google.com/support-hub/)
-    * [ Release Notes ](https://docs.cloud.google.com/release-notes)
-    * [ System status ](https://status.cloud.google.com)
-  * ### Resources
-
-    * [ GitHub ](https://github.com/googlecloudPlatform/)
-    * [ Getting Started with Google Cloud ](https://docs.cloud.google.com/docs/get-started/)
-    * [ Code samples ](https://docs.cloud.google.com/docs/samples)
-    * [ Cloud Architecture Center ](https://docs.cloud.google.com/architecture/)
-    * [ Training and Certification ](https://cloud.google.com/learn/training/)
-    * [ Builders Hub ](https://me.developers.google.com/)
-  * ### Engage
-
-    * [ Blog ](https://cloud.google.com/blog/)
-    * [ Events ](https://cloud.google.com/events/)
-    * [ X (Twitter) ](https://x.com/googlecloud)
-    * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
-    * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
-
-
-
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
-
-  * [ Android ](https://developer.android.com/)
-  * [ Chrome ](https://developer.chrome.com/)
-  * [ Firebase ](https://firebase.google.com/)
-  * [ Google AI ](https://ai.google.com/)
-
-
-
-  * [ About Google ](https://about.google/)
-  * [ Privacy ](https://policies.google.com/privacy)
-  * [ Site terms ](https://policies.google.com/terms?hl=en)
-  * [ Google Cloud terms ](https://cloud.google.com/product-terms)
-  * Manage cookies 
-  * [ Our third decade of climate action: join us ](https://cloud.google.com/sustainability)
-  * Sign up for the Google Cloud newsletter [ Subscribe ](https://cloud.google.com/newsletter/)
-
-
-
-  * English
-  * Deutsch
-  * Español
-  * Español – América Latina
-  * Français
-  * Indonesia
-  * Italiano
-  * Português
-  * Português – Brasil
-  * עברית
-  * 中文 – 简体
-  * 中文 – 繁體
-  * 日本語
-  * 한국어
-
-
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

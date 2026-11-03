@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-overview/
 title: App Lifecycle Manager feature flags overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:35:57.707236+00:00
+fetched_at: 2026-11-03T09:54:44.348586+00:00
 ---
 
 # App Lifecycle Manager feature flags overview  |  Google Cloud Documentation
@@ -104,7 +104,7 @@ App Lifecycle Manager feature flags support more than standard on/off boolean ev
 
 Unlike with boolean flags, you need to explicitly define non-boolean flags during creation to dictate the universe of possible return types.
 
-**Note:** Percentage-based allocations are not supported for non-boolean flags. You must rely on `defaultTarget` configuration or use standard CEL-based targeting logic to assign specific values. 
+**Note:** Percentage-based allocations are not supported for non-boolean flags. You must rely on `defaultVariant` configuration or use standard CEL-based targeting logic to assign specific values. 
 
 ### String flags
 
@@ -117,7 +117,7 @@ String flags pass configuration identifiers directly to connected clients.
       --location="global" \
       --unit-kind="UNIT_KIND_ID" \
       --variants='[{"id": "standard", "stringValue": "STANDARD"}, {"id": "advanced", "stringValue": "ADVANCED"}]' \
-      --evaluation-spec='{"defaultTarget": "standard"}'
+      --evaluation-spec='{"defaultVariant": "standard"}'
     
 
 ### Integer flags
@@ -131,7 +131,7 @@ Integer flags govern exact numerical limits and payload boundaries.
       --location="global" \
       --unit-kind="UNIT_KIND_ID" \
       --variants='[{"id": "low", "integerValue": 3}, {"id": "high", "integerValue": 10}]' \
-      --evaluation-spec='{"defaultTarget": "low"}'
+      --evaluation-spec='{"defaultVariant": "low"}'
     
 
 ### Double flags
@@ -145,7 +145,7 @@ Double flags deliver high-precision values used for probability thresholds or fl
       --location="global" \
       --unit-kind="demo-test-unitkind" \
       --variants='[{"id": "minimal", "doubleValue": 0.01}, {"id": "full", "doubleValue": 1.0}]' \
-      --evaluation-spec='{"defaultTarget": "minimal"}'
+      --evaluation-spec='{"defaultVariant": "minimal"}'
     
 
 ## Provision feature flags using rollouts
@@ -197,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

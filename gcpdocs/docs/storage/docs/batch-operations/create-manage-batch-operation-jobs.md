@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/batch-operations/create-manage-batch-operation-jobs/
 title: Create and manage batch operation jobs \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:30.872746+00:00
+fetched_at: 2026-11-03T09:41:55.956322+00:00
 ---
 
 # Create and manage batch operation jobs  |  Cloud Storage  |  Google Cloud Documentation

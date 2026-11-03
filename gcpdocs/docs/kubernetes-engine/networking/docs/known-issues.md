@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/networking/docs/known-issues/
 title: GKE networking known issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:13.224862+00:00
+fetched_at: 2026-11-03T09:54:13.912459+00:00
 ---
 
 # GKE networking known issues  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ Clusters with GKE Dataplane V2 enabled might experience intermittent connectivit
 **Workaround:** To mitigate this issue, manually delete the affected Pod or restart the `anetd` Pod on the node where the issue occurs. Doing so forces the re-creation of the missing `CiliumEndpoint` and restores connectivity. **Resolution:** The fix is included in `advanceddatapath` component version `33.7.36` or later. To resolve this issue, upgrade your cluster to one of the versions listed in the **Fixed version(s)** column.  
 1.29, 1.30, 1.31, 1.32, 1.33 | 1.34 | 
 
-### The `cilium-agent` container within the anetd Pod crash after deleting a FQDN network policy
+### The `cilium-agent` container within the anetd Pod crashes after deleting a FQDN network policy
 
 Clusters with GKE Dataplane V2 enabled might experience a momentary `cilium-agent` containers crash, leading to longer reconciliation time for events that must be programmed in the data plane. This issue is caused by a nil pointer dereference upon FQDN Network Policy deletion. The issue is triggered by the deletion of a FQDN network policy. When the issue occurs, the Cilium-agent container within the anetd Pods return an error message similar to the following: `panic: runtime error: invalid memory address or nil pointer dereference [signal SIGSEGV: segmentation violation code=0x1 addr=0x20 pc=0x33e237d]`   
 **Workaround:** To mitigate this issue, instead of deleting a FQDN policy, you can patch it to not have any effect by making sure no Pods are subject to it:
@@ -460,6 +460,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

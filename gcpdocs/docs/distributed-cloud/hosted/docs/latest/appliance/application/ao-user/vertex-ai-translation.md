@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/vertex-ai-translation/
 title: Learn about translation features \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:29:45.844506+00:00
+fetched_at: 2026-11-03T09:44:04.090444+00:00
 ---
 
 # Learn about translation features  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Learn about translation features Stay organized with collections  Save and categorize content based on your preferences. 
 
-Vertex AI Translation is one of the three Vertex AI pre-trained APIs on Google Distributed Cloud (GDC) air-gapped appliance. With the Vertex AI Translation service, you can translate text written in more than ten languages into English.
+Vertex AI Translation on Google Distributed Cloud (GDC) air-gapped appliance lets you translate text written in more than ten languages into English. The service is one of three pre-trained APIs available on your portable device for isolated machine learning workloads.
+
+## Translation methods
 
 Vertex AI Translation offers the following methods available in GDC air-gapped appliance:
 
@@ -56,6 +58,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

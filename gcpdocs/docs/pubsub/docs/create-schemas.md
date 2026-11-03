@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/create-schemas/
 title: Create a schema for a topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:38.370372+00:00
+fetched_at: 2026-11-03T09:52:40.902015+00:00
 ---
 
 # Create a schema for a topic  |  Pub/Sub  |  Google Cloud Documentation

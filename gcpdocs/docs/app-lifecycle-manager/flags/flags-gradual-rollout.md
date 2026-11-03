@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-gradual-rollout/
 title: Use gradual feature rollouts \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:23:14.584099+00:00
+fetched_at: 2026-11-03T09:54:44.483926+00:00
 ---
 
 # Use gradual feature rollouts  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ Define the randomized attribute parameter and associate it with a percentage-bas
                  {"variant": "disabled", "weight": 99}
                ]
              }],
-             "defaultTarget": "percentage-rollout",
+             "defaultAllocation": "percentage-rollout",
              "attributes": ["projects/PROJECT_ID/locations/global/flagAttributes/user-id-attr"]
            }' \
          
@@ -180,7 +180,7 @@ Once the 1% rollout is deemed successful and stable, expand the rollout percenta
                  {"variant": "disabled", "weight": 50}
                ]
              }],
-             "defaultTarget": "percentage-rollout",
+             "defaultAllocation": "percentage-rollout",
              "attributes": ["projects/PROJECT_ID/locations/global/flagAttributes/user-id-attr"]
            }'
          
@@ -232,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

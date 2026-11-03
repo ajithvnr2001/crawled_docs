@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/regions-capabilities-cross-cloud-connections/
 title: Supported regions and CCI capabilities \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:00.787179+00:00
+fetched_at: 2026-11-03T08:33:52.574577+00:00
 ---
 
 # Supported regions and CCI capabilities  |  Lakehouse  |  Google Cloud Documentation
@@ -23,30 +23,40 @@ Send feedback
 
 #  Supported regions and CCI capabilities Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** For support during the preview, email [biglake-help@google.com](mailto:biglake-help@google.com).
-
 This section maps AWS regions to _Google Cloud_ regions for querying remote data and outlines the _Cross-Cloud Interconnect_ (CCI) capabilities.
+
+## Supported Cross-Cloud Interconnect capabilities
+
+Lakehouse supports routing query data reads, background metadata refresh, or both privately over Cross-Cloud Interconnect depending on whether your network isolation and cost requirements apply to object storage reads, control-plane catalog endpoints, or end-to-end cross-cloud traffic:
+
+  * **Query transport (`--service-directory-name`):** Routes query reads to remote object storage (Amazon S3 on Amazon Web Services (AWS) or Microsoft Azure Data Lake Storage Gen2 on Azure) to help reduce egress costs and provide predictable query throughput.
+  * **Background metadata refresh (`--metadata-service-directory-name`):** Routes control-plane background metadata refresh and authentication requests from the Lakehouse runtime catalog privately to remote catalog AWS PrivateLink or Azure Private Link endpoints.
+  * **Supported catalogs and clouds:**
+
+### # disableFinding(CORRECTION_VARIABLE_CLOUD) #
+
+**AWS Glue Data Catalog:** AWS (Cross-Cloud Interconnect or Partner Cross-Cloud Interconnect).
+
+    * **Databricks Unity Catalog:** AWS (Cross-Cloud Interconnect or Partner Cross-Cloud Interconnect) and Azure (Cross-Cloud Interconnect).
+    * **Snowflake Horizon Catalog:** AWS (Cross-Cloud Interconnect or Partner Cross-Cloud Interconnect) and Azure (Cross-Cloud Interconnect).
+
+
+
+For Azure deployments, create your federated catalog in the Google Cloud region closest to your Azure region and interconnect location. For supported Azure peering locations, see [Choose locations for Cross-Cloud Interconnect for Azure](https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/cci/azure/choose-locations).
 
 ## Interconnect classifications
 
-Each AWS region has the following interconnect types, based on physical proximity and service capabilities:
+Lakehouse supports the following two types of Cross-Cloud Interconnect connections:
 
-  * **Partner CCI:** These regions are officially pre-provisioned, jointly engineered pairs with Google Cloud partners using the Partner Interconnect (Partner CCI) service.
-  * **Low Latency Dedicated:** The AWS region, the interconnect facility, and the closest Google Cloud region are in the same geographical metropolitan area. This offers the lowest latencies.
-  * **Standard Dedicated CCI** : These AWS regions are globally supported through a Dedicated CCI, but do not exist in the same metropolitan area as both a Google Cloud interconnect facility and a Google Cloud region.
-
+  * **Partner Cross-Cloud Interconnect (Partner CCI):** Provides pre-provisioned connectivity between Google Cloud and designated AWS regions through a supported partner. For more information, see the [Partner Cross-Cloud Interconnect for AWS overview](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview).
+  * **Cross-Cloud Interconnect (CCI):** Provides a direct physical connection between the Google network and your cloud service provider. Cross-Cloud Interconnect is supported across all listed AWS and Azure regions. For more information, see the [Cross-Cloud Interconnect overview](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process).
 
 
-#### Considerations
 
-  * AWS regions that are not designated as **Partner CCI** or **Low Latency Dedicated** are considered **Standard Dedicated CCI**. These regions are globally supported through Dedicated CCI, but are not located in the same area as both a Google Cloud interconnect facility and a Google Cloud region.
+### Considerations
 
-  * If possible, choose regions with **Low Latency Dedicated** or **Partner CCI** to ensure optimal performance when you federate large datasets across clouds.
-
+  * In the region mapping table, the **Low Latency** column indicates region pairs where the AWS region, the interconnect facility, and the closest Google Cloud region are in the same geographical metropolitan area.
+  * If possible, choose a region pair with **Low Latency** or **Partner CCI** to ensure optimal performance when you federate large datasets across clouds.
 
 
 
@@ -91,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

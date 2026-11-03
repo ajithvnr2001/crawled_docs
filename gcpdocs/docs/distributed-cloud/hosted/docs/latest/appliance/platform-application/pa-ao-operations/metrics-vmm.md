@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/pa-ao-operations/metrics-vmm/
 title: Virtual Machine Management (VMM) \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:45:28.018051+00:00
+fetched_at: 2026-11-03T09:44:20.306144+00:00
 ---
 
 # Virtual Machine Management (VMM)  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,15 +23,13 @@ Send feedback
 
 #  Virtual Machine Management (VMM) Stay organized with collections  Save and categorize content based on your preferences. 
 
-Your default permissions enable you to obtain metrics for all the virtual machines (VMs) in your projects.
+Virtual Machine Management (VMM) metrics track CPU, memory, disk, and network usage for virtual machines (VMs) in your Google Distributed Cloud (GDC) air-gapped appliance projects. Your default permissions let you view metrics for all VMs in your projects. Platform administrator (PA) permissions also grant access to metrics for user workload VMs and user cluster node VMs across all projects.
 
-If you have Platform Administrator (PA) role permissions, you can also access the metrics for all VMs in all projects. Those metrics include the user workload VMs and the VMs used as user cluster nodes.
-
-For information on the VM-level metrics dashboard and details about how the dashboard presents the metrics visually, see [Monitor VM metrics](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/vms/monitor/monitor-metrics).
-
-Use the `namespace` label to filter the VMs in different namespaces.
+For information about the VM-level metrics dashboard and how it visualizes these metrics, see [Monitor VM metrics](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/vms/monitor/monitor-metrics).
 
 ## Metrics list
+
+Use the `namespace` label to filter the VMs in different namespaces.
 
 Name and Description | Type | Scrape interval | Labels  
 ---|---|---|---  
@@ -220,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

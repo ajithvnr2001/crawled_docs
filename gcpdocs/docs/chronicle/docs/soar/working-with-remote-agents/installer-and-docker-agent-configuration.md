@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/installer-and-docker-agent-configuration/
 title: Configure the Installer and Docker \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:24.064880+00:00
+fetched_at: 2026-11-03T09:54:49.885547+00:00
 ---
 
 # Configure the Installer and Docker  |  Google Security Operations  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ The following table provides detailed information about the environment variable
 Option | Description | Values  
 ---|---|---  
 `TASK_TIMEOUT` | Sets the timeout (in seconds) for tasks that the agent has pulled but hasn't executed. | Time (in seconds)  
-`SERVER_API_ROOT` | The primary Publisher API server address. Defines where the agent pulls tasks from and publishes results to.. | API Address  
+`SERVER_API_ROOT` | The primary Publisher API server address. Defines where the agent pulls tasks from and publishes results to. If your firewall policy doesn't allow wildcard domain entries, you can use this tenant-specific Publisher hostname in your outbound allowlist rules. For more information, see [Network and firewall requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites#network-and-firewall-requirements). | API Address  
 `SERVER_API_TOKEN` | The authentication token used for all requests sent to the Publisher. | Server API token (string)  
 `VERIFY_SSL` | Determines if the agent must connect to a Publisher only if it presents a signed SSL certificate. | Boolean (`True` or `False`)  
 `RETRANSMISSION_LOOP_INTERVAL_SECONDS` | Sets the time delay (in seconds) between checks to confirm the Publisher received the `CASE_ACK` for a connector package. | Time (in seconds)  
@@ -111,6 +111,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

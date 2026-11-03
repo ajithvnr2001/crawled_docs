@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui/
 title: Explore BigQuery in the Google Cloud console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:56.744409+00:00
+fetched_at: 2026-11-03T09:36:21.837949+00:00
 ---
 
 # Explore BigQuery in the Google Cloud console  |  Google Cloud Documentation
@@ -110,9 +110,11 @@ The BigQuery [**Studio**](https://docs.cloud.google.com/bigquery/docs/query-over
 
 ![The components of BigQuery Studio.](https://docs.cloud.google.com/bigquery/images/bq-studio-ui.png)
 
-  1. _**Explorer** tab of the left pane_: use the **Explorer** tab to work with tables, views, routines, and other BigQuery resources, and view your [job history](https://docs.cloud.google.com/bigquery/docs/managing-jobs#list_jobs_in_a_project).
+  1. _**Explorer** tab of the left pane_: use the **Explorer** tab to work with datasets, connections, code assets, and other BigQuery resources, and view your [job history](https://docs.cloud.google.com/bigquery/docs/managing-jobs#list_jobs_in_a_project).
 
-The left pane also contains an option to add data to BigQuery. When you click add **Add data** , you can use search and filtering capabilities to find a data source that you want to work with. After you select a data source, you can do the following based on the capabilities available for your data source:
+  2. _**Data** tab of the left pane_: use the **Data** tab to browse and inspect data hierarchies, including datasets, tables, views, models, routines, property graphs, and connections, across your pinned projects. Code assets aren't listed in the **Data** pane; instead, you can access code assets in the **Files** tab for a single region or in the **Explorer** tab across all regions.
+
+The **Data** pane also contains an option to add data to BigQuery. When you click add **Add data** , you can use search and filtering capabilities to find a data source that you want to work with. After you select a data source, you can do the following based on the capabilities available for your data source:
 
      * **Set up BigQuery table over external data (_federation_)**: enables BigQuery to access external data without ingesting it into BigQuery. You can [create a table to access external data](https://docs.cloud.google.com/bigquery/docs/external-data-sources) or [create a connection to an external source](https://docs.cloud.google.com/bigquery/docs/connections-api-intro).
      * **Load data to BigQuery** : lets you load data to BigQuery by setting up a [data transfer](https://docs.cloud.google.com/bigquery/docs/dts-introduction) or by using a [partner capability](https://docs.cloud.google.com/bigquery/docs/load-data-third-party). Loading data to BigQuery is recommended for optimal data processing at scale.
@@ -121,11 +123,9 @@ The left pane also contains an option to add data to BigQuery. When you click ad
 
 For more information about loading data into BigQuery, see [Introduction to loading data](https://docs.cloud.google.com/bigquery/docs/loading-data).
 
-  2. _**Classic Explorer** tab of the left pane_: use the legacy version of the **Explorer** pane to view BigQuery resources.
+  3. _**Files** tab of the left pane_: use the **Files** tab to organize code assets such as saved queries and notebooks by using folders. For more information, see [Organize code assets with folders](https://docs.cloud.google.com/bigquery/docs/code-asset-folders).
 
-  3. _**Files** tab of the left pane_ ([Preview](https://cloud.google.com/products/#product-launch-stages)): use the **Files** tab to organize code assets such as saved queries and notebooks by using folders. For more information, see [Organize code assets with folders](https://docs.cloud.google.com/bigquery/docs/code-asset-folders).
-
-  4. _**Repository** tab of the left pane_ ([Preview](https://cloud.google.com/products/#product-launch-stages)): use the **Repository** tab to store code, edit files, and track changes using version control through repositories or by using remote Git-based repositories. For more information, see [Introduction to repositories](https://docs.cloud.google.com/bigquery/docs/repository-intro).
+  4. _**Source control** tab of the left pane_ ([Preview](https://cloud.google.com/products/#product-launch-stages)): use the **Source control** tab to store code, edit files, and track changes using version control through repositories or by using remote Git-based repositories. For more information, see [Introduction to repositories](https://docs.cloud.google.com/bigquery/docs/repository-intro).
 
   5. _**Home** tab_: use the **Home** tab to view the following resources:
 
@@ -187,13 +187,13 @@ Every time you load, export, query, or copy data, BigQuery automatically creates
      2. To view details of recent jobs in your project, click **Project history**.
 
 **Note:** To see the details of a job or to open a query from a query job, in the **Actions** column for a job or query, click more_vert **Actions** > **Show job details** or **View job in editor**.
-  9. In the left pane, click the folder_data **Repository** tab ([Preview](https://cloud.google.com/products/#product-launch-stages)).
+  9. In the left pane, click the fork_right **Source control** tab ([Preview](https://cloud.google.com/products/#product-launch-stages)).
 
 You can use repositories to perform version control on files that you use in BigQuery. BigQuery uses Git to record changes and manage file versions.
 
-You can use workspaces within repositories to edit the code stored in the repository. When you click a [workspace](https://docs.cloud.google.com/bigquery/docs/workspaces) in the **Git repository** pane, it opens in a tab in the details pane.
+You can use workspaces within repositories to edit the code stored in the repository. When you click a [workspace](https://docs.cloud.google.com/bigquery/docs/workspaces) in the **Source control** pane, it opens in a tab in the details pane.
 
-  10. In the left pane, click folder **Files** ([Preview](https://cloud.google.com/products/#product-launch-stages)).
+  10. In the left pane, click folder **Files**.
 
 The Files tab lets you create user and team folders that store and organize your code assets.
 
@@ -359,7 +359,7 @@ For information about opting into using the **Search** page, see [Search for res
 
 The **Agents** page ([Preview](https://cloud.google.com/products#product-launch-stages)) is a central location for creating and chatting with data agents that are designed to answer questions about BigQuery resources.
 
-Data agents contain table metadata and use case-specific query processing instructions that define the best way to answer user questions about a set of tables that you select. Users can have [conversations](https://docs.cloud.google.com/bigquery/docs/ca/create-conversations) with data agents to ask questions about BigQuery data using natural language. For more information, see [Create data agents](https://docs.cloud.google.com/bigquery/docs/create-data-agents).
+Data agents contain table metadata and use case-specific query processing instructions that define the best way to answer user questions about a set of tables that you select. Users can have [conversations](https://docs.cloud.google.com/bigquery/docs/create-conversations) with data agents to ask questions about BigQuery data using natural language. For more information, see [Create data agents](https://docs.cloud.google.com/bigquery/docs/create-data-agents).
 
 For information on creating agents and using conversational analytics, see [Conversational analytics in BigQuery](https://docs.cloud.google.com/bigquery/docs/conversational-analytics).
 
@@ -450,6 +450,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

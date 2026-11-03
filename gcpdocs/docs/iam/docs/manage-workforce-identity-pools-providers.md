@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/manage-workforce-identity-pools-providers/
 title: Manage workforce identity pool providers \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:32:35.813123+00:00
+fetched_at: 2026-11-03T09:52:32.676787+00:00
 ---
 
 # Manage workforce identity pool providers  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -22,13 +22,9 @@ Send feedback
 
 #  Manage workforce identity pool providers Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide describes how you can perform common operations with Workforce Identity Federation. To set up Workforce Identity Federation, see the following guides:
+Workforce Identity Federation lets you connect external identity providers (IdPs) to Google Cloud so your workforce can authenticate and access resources. As your directory evolves, you can update pools and providers to modify IdP settings, refine attribute mappings and conditions, and manage locally uploaded OpenID Connect (OIDC) JSON Web Keys (JWKs).
 
-  * [Configure Workforce Identity Federation with Microsoft Entra ID and sign in users](https://docs.cloud.google.com/iam/docs/workforce-sign-in-microsoft-entra-id)
-  * [Configure Workforce Identity Federation with Okta and sign in users](https://docs.cloud.google.com/iam/docs/workforce-sign-in-okta)
-  * [Configure Workforce Identity Federation on an IdP that supports OIDC or SAML](https://docs.cloud.google.com/iam/docs/configuring-workforce-identity-federation)
-
-
+To set up federation before managing your pools and providers, configure Workforce Identity Federation with [Microsoft Entra ID](https://docs.cloud.google.com/iam/docs/workforce-sign-in-microsoft-entra-id), [Okta](https://docs.cloud.google.com/iam/docs/workforce-sign-in-okta), or [an IdP that supports OIDC or SAML](https://docs.cloud.google.com/iam/docs/configuring-workforce-identity-federation).
 
 ## Before you begin
 
@@ -773,6 +769,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

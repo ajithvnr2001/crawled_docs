@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.23/docs/security/end-user-auth/
 title: Configuring Cloud Service Mesh user authentication \u00a0|\u00a0 Cloud Service Mesh v1.23 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:26.366410+00:00
+fetched_at: 2026-11-03T09:43:57.201913+00:00
 ---
 
 # Configuring Cloud Service Mesh user authentication  |  Cloud Service Mesh v1.23  |  Google Cloud Documentation
@@ -291,7 +291,7 @@ The user authentication `kpt` package contains two sample keys for quick setup. 
               {
                  "kty":"oct",
                  "kid":"key-0",
-                 "K&quot;:"YOUR_KEY",
+                 "K":"YOUR_KEY",
                  "useAfter": 1612813735
               }
            ]
@@ -373,7 +373,7 @@ You can view the file by `cat pkg/user_auth_config.yaml`, it contains these fiel
       authentication:
         oidc:
           certificateAuthorityData: ""  # kpt-set: ${ca-cert}
-          is<suerURI: ">your issuer uri"  # kpt-set: ${issuer-uri}
+          issuerURI: "<your issuer uri>"  # kpt-set: ${issuer-uri}
           proxy: ""  # kpt-set: ${proxy}
           oauthCredentialsSecret:
             name: "oauth-secret"  # kpt-set: ${secret-name}
@@ -381,7 +381,7 @@ You can view the file by `cat pkg/user_auth_config.yaml`, it contains these fiel
           redirectURIHost: ""  # kpt-set: ${redirect-host}
           redirectURIPath: "/_gcp_asm_authenticate"  # kpt-set: ${redirect-path}
           scopes: ""  # kpt-set: ${scopes}
-          groupsClaim: "&quot;  # kpt-set: ${groups}
+          groupsClaim: ""  # kpt-set: ${groups}
       outputJWTAudience: "test_audience"  # kpt-set: ${jwt-audience}
     
 
@@ -583,7 +583,7 @@ See the following example authorization policy:
                - test_audience
              - key: request.auth.claims[sub]
                values:
-               - allowed_user_sub_1  # Change this with the "sub" claim in the RC token. Wildcard '*&#39; will match everything.
+               - allowed_user_sub_1  # Change this with the "sub" claim in the RC token. Wildcard '*' will match everything.
          
 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/workspaces-intro/
 title: Introduction to workspaces \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:24.707530+00:00
+fetched_at: 2026-11-03T09:36:16.289900+00:00
 ---
 
 # Introduction to workspaces  |  BigQuery  |  Google Cloud Documentation
@@ -29,17 +29,21 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 
 Workspaces in BigQuery let you edit and manage code stored in [repositories](https://docs.cloud.google.com/bigquery/docs/repository-intro). Within a workspace, you can create and modify files while the parent repository uses Git to record changes and manage file versions.
 
+For a folder-based version control experience, we recommend using [BigQuery Studio Git repositories](https://docs.cloud.google.com/bigquery/docs/git-repositories). This integration lets you work with Git branches directly in the BigQuery Studio file browser and clone multiple repositories at once without managing separate workspaces.
+
 ## View workspaces
 
 On the BigQuery page, your workspaces are displayed in alphabetical order under the repository they are associated with. To view repositories, do the following:
 
-  1. In the left pane, click explore **Explorer** :
+  1. In the Google Cloud console, go to the **BigQuery** page.
 
-![Highlighted button for the Explorer pane.](https://docs.cloud.google.com/static/bigquery/images/explorer-tab.png)
+[Go to BigQuery](https://console.cloud.google.com/bigquery)
+
+  2. In the left pane, click fork_right **Source control**.
+
+![Highlighted button for the Source control pane.](https://docs.cloud.google.com/static/bigquery/images/source-control-tab.png)
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
-
-  2. In the **Explorer** pane, click **Repositories**.
 
 
 
@@ -78,6 +82,7 @@ For more information on BigQuery pricing, see [Pricing](https://cloud.google.com
 
 ## What's next
 
+  * To learn how to manage code with BigQuery Studio Git repositories, see [Manage code with BigQuery Studio Git repositories](https://docs.cloud.google.com/bigquery/docs/git-repositories).
   * To learn how to create and use repositories, see [Create a repository](https://docs.cloud.google.com/bigquery/docs/repositories).
   * To learn how to create and use workspaces, see [Create a workspace](https://docs.cloud.google.com/bigquery/docs/workspaces).
 
@@ -87,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

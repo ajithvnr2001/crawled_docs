@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing/
 title: About cluster upgrades with rollout sequencing \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:25.696551+00:00
+fetched_at: 2026-11-03T09:54:43.283560+00:00
 ---
 
 # About cluster upgrades with rollout sequencing  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -54,8 +54,8 @@ Fleets support lightweight memberships, which let you group clusters logically f
 
 GKE offers two versions of rollout sequencing. Both versions are built on the same core principles of progressive, fleet-based upgrades, but we recommend using rollout sequencing with custom stages for new environments:
 
-  * **[Rollout sequencing with custom stages](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing) (recommended for new environments):** this version is an evolution of the fleet-based model, offering more granular control and flexibility, but lacking Google Cloud console support. With custom stages, you can define specific stages within a fleet by using labels, making it a good choice for more complex rollout strategies like deploying a new version on a small subset of production clusters before a wider rollout. Additionally, you have more control over rollouts, such as initiating a rollout to a specific version, choosing the types of upgrades to roll out in a sequence, and pausing or canceling rollouts. Choose this option if you're creating a rollout sequence for the first time.
-  * **[Fleet-based rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing#fleet-based-sequence):** is the only version of this feature usable with the Google Cloud console, but otherwise has more limited functionality and isn't recommended if you're creating a rollout sequence for the first time.
+  * **[Rollout sequencing with custom stages](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing) (recommended for new environments):** this version is an evolution of the fleet-based model, offering more granular control and flexibility, but lacking comprehensive Google Cloud console support. With custom stages, you can define specific stages within a fleet by using labels, making it a good choice for more complex rollout strategies like deploying a new version on a small subset of production clusters before a wider rollout. Additionally, you have more control over rollouts, such as initiating a rollout to a specific version, choosing the types of upgrades to roll out in a sequence, and pausing or canceling rollouts. Choose this option if you're creating a rollout sequence for the first time.
+  * **[Fleet-based rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing#fleet-based-sequence):** this version of the feature has more comprehensive support in the Google Cloud console, but otherwise has more limited functionality and isn't recommended if you're creating a rollout sequence for the first time.
 
 
 
@@ -264,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

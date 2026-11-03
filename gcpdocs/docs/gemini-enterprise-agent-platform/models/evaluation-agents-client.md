@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents-client/
 title: Evaluate generative AI agents using the GenAI Client in Agent Platform SDK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:39.349646+00:00
+fetched_at: 2026-11-03T09:53:22.961429+00:00
 ---
 
 # Evaluate generative AI agents using the GenAI Client in Agent Platform SDK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ This page shows you how to create and deploy a basic agent and use the Gen AI ev
 
   * Develop an agent: Define an agent with basic tool functions.
 
-  * Deploy an agent: Deploy the agent to Agent Platform Runtime.
+  * Deploy an agent: Deploy the agent to Agent Runtime.
 
   * Run agent inference: Define an evaluation dataset and run agent inference to generate responses.
 
@@ -156,7 +156,7 @@ Develop an Agent Development Kit (ADK) agent by defining the model, instruction,
 
 ## Deploy agent
 
-[Deploy your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) to Agent Platform Runtime. This can take up to 10 minutes. Retrieve the resource name from the deployed agent.
+[Deploy your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) to Runtime. This can take up to 10 minutes. Retrieve the resource name from the deployed agent.
     
     
     def deploy_adk_agent(root_agent):
@@ -289,6 +289,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

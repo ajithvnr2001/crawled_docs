@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents/
 title: Interact with agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:08.349385+00:00
+fetched_at: 2026-11-03T09:52:39.871257+00:00
 ---
 
 # Interact with agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -510,7 +510,7 @@ JSON structure | Description
 ---|---  
 `"environment": {"type": "remote"}` | Provisions a fresh, standard sandbox environment. Use this option during initial interactions.  
 `"environment": "env_CAEQ..."` |  Reuses the existing, persistent sandbox container, preserving all libraries, scripts, files, and state associated with this environment ID.   
-`"environment": {"type": "remote", "sources": [{"type": "gcs", "source": "gs://YOUR_BUCKET/YOUR_FILE", "target": "YOUR_TARGET_PATH"}]}` |  Provisions a new remote sandbox and preloads it with custom skills or files from the specified `sources`, such as those stored in Google Cloud Storage.   
+`"environment": {"type": "remote", "sources": [{"type": "gcs", "source": "gs://YOUR_BUCKET/YOUR_FILE", "target": "YOUR_TARGET_PATH"}]}` |  Provisions a new remote sandbox and preloads it with custom skills or files from the specified `sources`, such as those stored in Cloud Storage.   
   
 To send a subsequent interaction request that reuses the same sandbox container and continues a conversation, pass the returned `environment_id` in the `environment` field and specify `previous_interaction_id`. The following examples demonstrate how to continue a stateful session when interacting with the agent.
 
@@ -832,6 +832,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.10/how-to/run-task/
 title: Run Tasks \u00a0|\u00a0 Kf 2.10 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:08.176336+00:00
+fetched_at: 2026-11-03T09:54:01.967656+00:00
 ---
 
 # Run Tasks  |  Kf 2.10  |  Google Cloud Documentation

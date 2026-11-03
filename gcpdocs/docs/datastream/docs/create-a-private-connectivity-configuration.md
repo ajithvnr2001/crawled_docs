@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/create-a-private-connectivity-configuration/
 title: Create a private connectivity configuration \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:48.722445+00:00
+fetched_at: 2026-11-03T09:54:26.697009+00:00
 ---
 
 # Create a private connectivity configuration  |  Datastream  |  Google Cloud Documentation
@@ -59,12 +59,12 @@ Region| Select the region where the private connectivity configuration is stored
      * **PSC interfaces** : select this option to use Private Service Connect interface as your private connectivity method: Field| Description  
 ---|---  
 Project ID| Select the identifier of the project where the network attachment that you want to use is. By default, this is your current project. To change the value, click **Change** and select a different project. To view the list of network attachments in the selected project, you need the `compute.networkAttachments.get` permission.   
-Network attachment| Select the network attachment that you created for your VPC. Ensure that the subnetwork associated with the network attachment doesn't overlap with the internal IP ranges reserved by Datastream (`10.1.0.0/16` and `10.2.2.0/24`).  
+Network attachment| Select the network attachment that you created for your VPC. Ensure that the subnetwork associated with the network attachment doesn't overlap with the internal IP ranges reserved by Datastream (`100.64.0.0/16` and `100.65.0.0/24`).  
 Update allowlist| Click this button to allow connections from the Datastream IP addresses. You need to have the `compute.networkAdmin` role assigned to connect to the network attachment.  
      * **VPC peering** : select this option to use VPC peering as your private connectivity method: Field| Description  
 ---|---  
 Authorized VPC network| Select the VPC network that you created.  
-Allocate an IP range| Enter an available IP range on the VPC network. Ensure that the IP range doesn't overlap with the internal IP ranges reserved by Datastream (`10.1.0.0/16` and `10.2.2.0/24`).  
+Allocate an IP range| Enter an available IP range on the VPC network. Ensure that the IP range doesn't overlap with the internal IP ranges reserved by Datastream (`100.64.0.0/16` and `100.65.0.0/24`).  
   5. Click **CREATE**.
 
 It takes a few minutes for your private connectivity configuration to be created. Background resources need to be created so that the configuration can be created.
@@ -86,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

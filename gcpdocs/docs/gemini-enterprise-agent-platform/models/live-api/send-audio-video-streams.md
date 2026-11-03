@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams/
 title: Send audio and video streams \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:44.039718+00:00
+fetched_at: 2026-11-03T09:53:21.801140+00:00
 ---
 
 # Send audio and video streams  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ This document describes how to send audio and video streams to Gemini Live API f
 
 Implementing real-time audio requires strict adherence to sample rate specifications and careful buffer management to ensure low latency and natural interruptibility.
 
-The Live API supports the following audio formats:
+Gemini Live API supports the following audio formats:
 
   * **Input audio** : Raw 16-bit PCM audio at 16 kHz, little-endian
   * **Output audio** : Raw 16-bit PCM audio at 24 kHz, little-endian
@@ -81,7 +81,7 @@ The following code sample shows you how to process streaming audio data:
 
 ## Send video streams
 
-Video streaming provides visual context. The Live API expects a sequence of discrete image frames and supports video frames input at 1 FPS. For best results, use 768x768 resolution at 1 FPS.
+Video streaming provides visual context. Gemini Live API expects a sequence of discrete image frames and supports video frames input at 1 FPS. For best results, use 768x768 resolution at 1 FPS.
 
 The following code sample shows you how to send streaming video data:
     
@@ -143,7 +143,7 @@ You can specify the resolution for input media by setting the `media_resolution`
 
   * [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
   * [Configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities)
-  * [Best practices with the Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
+  * [Best practices with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
 
 
 
@@ -151,6 +151,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/quotas/
 title: Agent Retrieval quotas \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:22.211146+00:00
+fetched_at: 2026-11-03T09:52:08.218717+00:00
 ---
 
 # Agent Retrieval quotas  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -109,16 +109,22 @@ Metric | Counts
 ---|---  
 `data_object_writes` | `dataObjects.create`  
 `dataObjects.update`  
-`dataObjects.delete`\   
+`dataObjects.delete`   
 Each Data Object included in  
 `batchCreate`  
 `batchUpdate`  
 `batchDelete`  
+`data_object_writes_us` | Same as `data_object_writes` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `data_object_reads` | `dataObjects.get`  
+`data_object_reads_us` | Same as `data_object_reads` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `query_requests` | `dataObjects.query` (metadata-only filter queries)  
+`query_requests_us` | Same as `query_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `search_requests` | `dataObjects.search` when running a dense or sparse ANN.  
+`search_requests_us` | Same as `search_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `knn_search_requests` | `dataObjects.search` when running an exhaustive KNN search.  
+`batch_search_requests_us` | Same as `batch_search_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `batch_search_requests` | `dataObjects.batchSearch` (one request regardless of sub-searches)  
+`batch_search_requests_us` | Same as `batch_search_requests` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
   
 ### Data-plane throughput quotas
 
@@ -135,6 +141,7 @@ Metric | Counts
 `data_object_write_bytes` | The sum of serialized data and vector bytes written by all  
 `create`, `update`, `delete`, `batchCreate`, `batchUpdate`, and  
 `batchDelete` calls for Collections, Data Objects, and indexes.  
+`data_object_write_bytes_us` | Same as `data_object_write_bytes` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability).  
   
 ### Batch operations
 
@@ -174,11 +181,17 @@ The following quotas apply to the number of resources or in-flight operations a 
 Metric | Counts  
 ---|---  
 `collections` | The number of Collections that exist in the project/region.  
+`collections_us` | Same as `collections` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `indexes` | The number of indexes (summed across all Collections) in the project/region.  
+`indexes_us` | Same as `indexes` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `concurrent_index_operations` | The in-flight index LROs (Create/Update/Delete).  
+`concurrent_index_operations_us` | Same as `concurrent_index_operations` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `concurrent_collection_operations` | The in-flight Collection LROs (Create/Update/Delete).  
+`concurrent_collection_operations_us` | Same as `concurrent_collection_operations` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `concurrent_data_object_imports` | The in-flight `dataObjects.import` LROs.  
+`concurrent_data_object_imports_us` | Same as `concurrent_data_object_imports` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
 `concurrent_data_object_exports` | The in-flight `dataObjects.export` LROs.  
+`concurrent_data_object_exports_us` | Same as `concurrent_data_object_exports` but for the [`us` multi-region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/multi-region-high-availability)  
   
 ## Auto-embedding
 
@@ -299,6 +312,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

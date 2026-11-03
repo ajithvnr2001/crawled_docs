@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/making-predictions-with-imported-tensorflow-models/
 title: Make predictions with imported TensorFlow models \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:42:39.062749+00:00
+fetched_at: 2026-11-03T09:36:15.997034+00:00
 ---
 
 # Make predictions with imported TensorFlow models  |  BigQuery  |  Google Cloud Documentation
@@ -243,7 +243,7 @@ The output is similar to the following:
     
     
     {
-      "query": ";CREATE MODEL `PROJECT_ID:bqml_tutorial.imported_tf_model` OPTIONS(MODEL_TYPE='TENSORFLOW' MODEL_PATH='gs://cloud-training-demos/txtclass/export/exporter/1549825580/*')"
+      "query": "CREATE MODEL `PROJECT_ID:bqml_tutorial.imported_tf_model` OPTIONS(MODEL_TYPE='TENSORFLOW' MODEL_PATH='gs://cloud-training-demos/txtclass/export/exporter/1549825580/*')"
     }
 
 Replace `PROJECT_ID` with the name of your project and dataset.
@@ -273,8 +273,8 @@ Create the model by using the [`bigframes.bigquery.ml.create_model`](https://dat
     # Use ml.create_model to create and import the model in BigQuery.
     # The options parameter specifies the model type and the Cloud Storage path.
     # For more information, see the BigQuery DataFrames API reference documentation:
-    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.create_model.html#bigframes.bigqu[er](https://docs.cloud.google.com/python/docs/reference/bigframes/latest/bigframes.bigquery.ml.html)y[.ml.create_m](https://docs.cloud.google.com/python/docs/reference/bigframes/latest/bigframes.bigquery.ml.html)odel
-    ml.create_model(
+    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.create_model.html#bigframes.bigquery.ml.create_model
+    [ml](https://docs.cloud.google.com/python/docs/reference/bigframes/latest/bigframes.bigquery.ml.html).[create_model](https://docs.cloud.google.com/python/docs/reference/bigframes/latest/bigframes.bigquery.ml.html)(
         your_model_id,  # For example: "bqml_tutorial.imported_tf_model"
         options={
             "model_type": "TENSORFLOW",
@@ -374,8 +374,8 @@ Use the [`bigframes.bigquery.ml.predict`](https://dataframes.bigquery.dev/refere
     
     # Use the ml.predict method to predict results using your model.
     # For more information, see the BigQuery DataFrames API reference documentation:
-    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.predict.html#bigfram[es.bigq](https://docs.cloud.google.com/python/docs/reference/bigframes/latest/bigframes.bigquery.ml.html)uery.ml.predict
-    predictions = ml.predict(
+    # https://dataframes.bigquery.dev/reference/api/bigframes.bigquery.ml.predict.html#bigframes.bigquery.ml.predict
+    predictions = ml.[predict](https://docs.cloud.google.com/python/docs/reference/bigframes/latest/bigframes.bigquery.ml.html)(
         your_model_id,  # For example: "bqml_tutorial.imported_tf_model"
         input_=df_pred,
     )
@@ -455,6 +455,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

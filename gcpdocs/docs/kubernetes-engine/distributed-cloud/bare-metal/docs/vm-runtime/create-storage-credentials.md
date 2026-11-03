@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/create-storage-credentials/
 title: Create and use credentials to import images from Cloud Storage for VM Runtime on GDC \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:24.338194+00:00
+fetched_at: 2026-11-03T09:52:42.759038+00:00
 ---
 
 # Create and use credentials to import images from Cloud Storage for VM Runtime on GDC  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Create and use credentials to import images from Cloud Storage for VM Runtime on GDC Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document shows you how to create and use credentials to access Cloud Storage using VM Runtime on GDC. A Cloud Storage plugin lets you use [Containerized Data Importer (CDI)](https://kubevirt.io/user-guide/operations/containerized_data_importer/) to import VM images from Cloud Storage buckets. You can then create virtual disks from these images in Cloud Storage and attach them to VMs that run in your cluster. CDI is automatically enabled in a cluster that runs VM Runtime on GDC.
+A Cloud Storage plugin lets you use [Containerized Data Importer (CDI)](https://kubevirt.io/user-guide/operations/containerized_data_importer/) to import virtual machine (VM) images from Cloud Storage buckets into VM Runtime on GDC. After configuring credentials to authenticate with Cloud Storage, you can create virtual disks from these images and attach them to VMs running in your cluster. CDI is automatically enabled in clusters that run VM Runtime on GDC.
 
 ## Before you begin
 
@@ -315,6 +315,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

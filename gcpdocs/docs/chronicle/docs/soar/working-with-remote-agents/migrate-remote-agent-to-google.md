@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/migrate-remote-agent-to-google/
 title: Migrate remote agent authentication infrastructure \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:14.116916+00:00
+fetched_at: 2026-11-03T09:54:49.659228+00:00
 ---
 
 # Migrate remote agent authentication infrastructure  |  Google Security Operations  |  Google Cloud Documentation
@@ -36,6 +36,32 @@ Make sure you have the following:
   * Necessary permissions to create service accounts in Google Cloud.
   * Required roles to create service account keys.
   * Minimum required Remote Agent version 2.6.2 and later.
+
+
+
+## Network and Private Service Connect requirements
+
+After you migrate the authentication infrastructure, the Remote Agent communicates with the Chronicle API through standard Google APIs instead of the legacy `*.siemplify-soar.com` endpoints.
+
+### Outbound endpoint allowlist
+
+Confirm that your firewall allows outbound HTTPS traffic on TCP port `443` from the Remote Agent host to the following endpoints:
+
+  * Allow outbound HTTPS traffic to your Google Security Operations Chronicle API locational endpoint (`<var>REGION</var>-chronicle.googleapis.com`, configured in `ONE_PLATFORM_URL_DOMAIN`, such as `asia-southeast1-chronicle.googleapis.com`) and your tenant Publisher hostname (`SERVER_API_ROOT`).
+  * Allow outbound HTTPS traffic to the Google Cloud authentication endpoints: `oauth2.googleapis.com` (for service account token exchange), `sts.googleapis.com`, and `iamcredentials.googleapis.com` (for keyless authentication with [Workload Identity Federation](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/authenticate-remote-agent-with-workload-identity-federation)).
+  * Allow outbound HTTPS traffic to the container registries used for Podman or Docker deployments, such as `*.pkg.dev` (including `us-docker.pkg.dev`) and `gcr.io` for Artifact Registry, or `docker.io`.
+
+**Note:** The regional endpoint format (`chronicle.<var>REGION</var>.rep.googleapis.com`) isn't supported for Remote Agent control-plane connectivity.
+
+For more information, see [Network and firewall requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites#network-and-firewall-requirements).
+
+### Private Service Connect configuration
+
+If your Remote Agent connects to Google APIs privately (for example, from an on-premises network, Amazon Web Services (AWS), or Microsoft Azure over Cloud Interconnect or Cloud VPN), complete the following configuration:
+
+  1. Create a Private Service Connect endpoint for Google APIs (using the `all-apis` or `vpc-sc` bundle) in your Virtual Private Cloud. For instructions, see [Configure Private Service Connect for Google APIs](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis).
+  2. Configure private DNS so that the required endpoints resolve to your Private Service Connect endpoint IP address. In Google Cloud, configure a Cloud DNS private zone for `googleapis.com`. Outside Google Cloud, use conditional DNS forwarding or a private hosted zone (such as AWS Route 53).
+  3. Keep any legacy SOAR Private Service Connect connection (a producer service attachment for `<var>TENANT</var>.siemplify-soar.com`) active until you finish migrating all Remote Agents.
 
 
 
@@ -327,6 +353,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

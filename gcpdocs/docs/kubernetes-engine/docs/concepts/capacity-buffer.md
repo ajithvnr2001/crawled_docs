@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/capacity-buffer/
 title: About capacity buffers \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:37.066325+00:00
+fetched_at: 2026-11-03T09:52:03.393396+00:00
 ---
 
 # About capacity buffers  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ When a workload scales up, GKE schedules pending Pods on available capacity in t
 
 To schedule pending Pods as quickly as possible, GKE uses available buffer capacity before provisioning new nodes. This priority applies even if a higher-priority rule in a custom ComputeClass would otherwise provision a new node.
 
-Buffer capacity isn't restricted to the workload referenced in the `scalableRef` field. Any pending Pod whose scheduling constraints, such as node selectors, tolerations, and resource requests, match the buffer node's configuration can claim that capacity. To reserve a capacity buffer for a specific workload, configure [workload separation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-separation) by adding matching tolerations and node selectors (or node affinities) to both the workload and the capacity buffer.
+Buffer capacity isn't restricted to the workload referenced in the `scalableRef` field. Any pending Pod whose scheduling constraints, such as node selectors, tolerations, and resource requests, match the buffer node's configuration can claim that capacity. To reserve a capacity buffer for a specific workload, configure [workload separation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-separation) by adding matching tolerations and node selectors (or node affinities) to both the workload and the capacity buffer. For instructions, see [Dedicate a capacity buffer to a specific workload](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-capacity-buffer#dedicated-buffer).
 
 When a workload consumes capacity from an active buffer, the cluster autoscaler replenishes the active buffer by resuming a node from a compatible standby buffer if one exists, or by provisioning a new node. When a workload or an active buffer consumes a node from a standby buffer, the cluster autoscaler replenishes the standby buffer by provisioning and suspending a new node. When your workload scales back down and nodes become underutilized, the cluster autoscaler deletes the excess running nodes after the scale-down stabilization window rather than resuspending them into the standby buffer. To replenish the standby buffer, GKE provisions and suspends fresh nodes separately.
 
@@ -140,6 +140,17 @@ For example, if your workload scales up at 2 Pods per second, standby nodes take
 
 To test these estimates against your workload scaling patterns, run simulations with the [GKE buffers simulator](https://github.com/gke-labs/buffers-simulator).
 
+## Scalability
+
+Capacity buffers don't have hard limits, but exceeding the recommended scale can slow down node provisioning and Pod scheduling. Buffer replicas are the simulated buffer Pods that a buffer reserves capacity for, not nodes. For reliable performance, keep your cluster within the following guidelines:
+
+Recommended capacity buffer scale per cluster Buffer type | Total buffer replicas per cluster | Buffers per cluster  
+---|---|---  
+Active buffers | Up to 7,000 | Up to 100  
+Standby buffers | Up to 5,000 | Up to 25  
+  
+For both active and standby buffers, avoid creating many buffers that each require a separate node pool, such as buffers that use different [ComputeClasses](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes) or different [workload separation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-separation) settings. When the cluster autoscaler provisions new nodes, it scales up one node pool at a time, so it takes more time to fill and refill buffers with new nodes as you add more buffers. This limitation doesn't apply to resuming suspended nodes in standby buffers.
+
 ## Requirements and limitations
 
 Capacity buffers have the following requirements and limitations:
@@ -183,6 +194,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

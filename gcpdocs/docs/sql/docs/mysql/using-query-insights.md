@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/using-query-insights/
 title: Use query insights to improve query performance \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:00.519450+00:00
+fetched_at: 2026-11-03T09:53:19.535274+00:00
 ---
 
 # Use query insights to improve query performance  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -208,7 +208,9 @@ Feature | Description | Cloud SQL Enterprise edition | Cloud SQL Enterprise Plus
 **Default:** Disabled  
 **Customize query lengths** |  Select this checkbox to customize the limit for the length of a query string. Higher query lengths are more useful for analytical queries, but they also require more memory. Any query string that goes above the specified limit becomes truncated in the display.  
   
-When you change the query length limit, you must restart the instance. You can still add tags to queries that exceed the length limit.  |  You can set the limit in bytes from `256` bytes to `4500` bytes.   
+When you change the query length limit, you must restart the instance. You can still add tags to queries that exceed the length limit.   
+  
+On Cloud SQL Enterprise edition instances, capturing queries longer than `1024` bytes requires setting the [`max_digest_length`](https://docs.cloud.google.com/sql/docs/mysql/flags#list-flags-mysql) database flag to at least the same value (up to `4500` bytes). On Cloud SQL Enterprise Plus edition instances, Cloud SQL manages `max_digest_length` automatically (up to 1 MB).  |  You can set the limit in bytes from `256` bytes to `4500` bytes.   
   
 **Default** : `1024`.  | You can specify a limit in bytes from `1` to `1048576`.   
   
@@ -264,7 +266,9 @@ Stores application tags that help you determine the APIs and model-view-controll
 
   * `--insights-config-query-string-length`
 
-Sets the default query length limit. Higher query lengths are more useful for analytical queries, but they also require more memory. When you change the query length limit, you must restart the instance. You can still add tags to queries that exceed the length limit. For Cloud SQL Enterprise edition, you can specify a value in bytes from `256` to `4500`. The default query length is `1024` bytes. For Cloud SQL Enterprise Plus edition, you can specify a limit in bytes from `1` to `1048576`. The default value is `1024` bytes (1 KB). 
+Sets the default query length limit. Higher query lengths are more useful for analytical queries, but they also require more memory. When you change the query length limit, you must restart the instance. You can still add tags to queries that exceed the length limit.   
+  
+On Cloud SQL Enterprise edition instances, capturing queries longer than `1024` bytes requires setting the [`max_digest_length`](https://docs.cloud.google.com/sql/docs/mysql/flags#list-flags-mysql) database flag to at least the same value (up to `4500` bytes). On Cloud SQL Enterprise Plus edition instances, Cloud SQL manages `max_digest_length` automatically (up to 1 MB). For Cloud SQL Enterprise edition, you can specify a value in bytes from `256` to `4500`. The default query length is `1024` bytes. For Cloud SQL Enterprise Plus edition, you can specify a limit in bytes from `1` to `1048576`. The default value is `1024` bytes (1 KB). 
 
   * `--insights-config-query-plans-per-minute`
 
@@ -383,7 +387,9 @@ If you enable query insights for a Cloud SQL Enterprise Plus edition instance, t
 
 Also, you can use one or more of the following optional flags:
 
-  * `query_string_length`: for Cloud SQL Enterprise edition, you can specify a value in bytes from `256` to `4500`. The default query length is `1024` bytes. For Cloud SQL Enterprise Plus edition, you can specify a limit in bytes from `1` to `1048576`. The default value is `1024` bytes (1 KB). 
+  * `query_string_length`: for Cloud SQL Enterprise edition, you can specify a value in bytes from `256` to `4500`. The default query length is `1024` bytes. For Cloud SQL Enterprise Plus edition, you can specify a limit in bytes from `1` to `1048576`. The default value is `1024` bytes (1 KB).   
+  
+On Cloud SQL Enterprise edition instances, capturing queries longer than `1024` bytes requires setting the [`max_digest_length`](https://docs.cloud.google.com/sql/docs/mysql/flags#list-flags-mysql) database flag to at least the same value (up to `4500` bytes). On Cloud SQL Enterprise Plus edition instances, Cloud SQL manages `max_digest_length` automatically (up to 1 MB). 
   * `record_application_tags`: set the value to `true` if you want to record application tags from the query.
   * `record_client_address`: set the value to `true` if you want to record the client IP address. The default is `false`.
   * `query_plans_per_minute`: for Cloud SQL Enterprise edition, you can set the value from `0` to `20`. The default is `5`. For Cloud SQL Enterprise Plus edition, you can increase the maximum up to `200` to provide more data points. 
@@ -1049,6 +1055,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

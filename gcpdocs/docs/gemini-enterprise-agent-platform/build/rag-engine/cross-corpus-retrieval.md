@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/cross-corpus-retrieval/
 title: RAG Engine Cross Corpus Retrieval \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:31.722447+00:00
+fetched_at: 2026-11-03T09:44:32.453308+00:00
 ---
 
 # RAG Engine Cross Corpus Retrieval  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  RAG Engine Cross Corpus Retrieval Stay organized with collections  Save and categorize content based on your preferences. 
 
-The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
 **Important** : Set the corpus `description` when creating a RAG corpus. The `description` is not editable after creation. **High-quality descriptions are crucial for effective cross-corpus retrieval** , as the system relies on them to select the appropriate corpora for your query.
 
@@ -31,7 +31,7 @@ AsyncRetrieveContexts API: This is an asynchronous API that allows users to retr
 
 AskContexts API: This is a synchronous API that directly generates the answer to the query by searching across multiple RAG-managed corpora.
 
-**Important** : To use this feature, you must grant the **Vertex AI User** role in your project to the RAG Engine on Gemini Enterprise Agent Platform service account: `service-[Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)]@gcp-sa-vertex-rag.iam.gserviceaccount.com`.
+**Important** : To use this feature, you must grant the **Agent Platform User** role in your project to the RAG Engine on Gemini Enterprise Agent Platform service account: `service-[Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)]@gcp-sa-vertex-rag.iam.gserviceaccount.com`.
 
 **Important** : This feature is only available in `us-central1`.
 
@@ -253,6 +253,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

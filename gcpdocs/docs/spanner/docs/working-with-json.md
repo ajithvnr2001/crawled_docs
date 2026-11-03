@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/working-with-json/
 title: Work with JSON data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:39:11.621677+00:00
+fetched_at: 2026-11-03T09:42:16.522211+00:00
 ---
 
 # Work with JSON data  |  Spanner  |  Google Cloud Documentation
@@ -851,7 +851,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     rows = [{
@@ -1314,7 +1314,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
     client = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     query = "SELECT VenueId, VenueDetails FROM Venues

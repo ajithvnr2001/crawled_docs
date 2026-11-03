@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing/
 title: About rollout sequencing with custom stages \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:25.987942+00:00
+fetched_at: 2026-11-03T09:54:43.436388+00:00
 ---
 
 # About rollout sequencing with custom stages  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -54,8 +54,8 @@ Fleets support lightweight memberships, which let you group clusters logically f
 
 GKE offers two versions of rollout sequencing. Both versions are built on the same core principles of progressive, fleet-based upgrades, but we recommend using rollout sequencing with custom stages for new environments:
 
-  * **[Rollout sequencing with custom stages](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing) (recommended for new environments):** this version is an evolution of the fleet-based model, offering more granular control and flexibility, but lacking Google Cloud console support. With custom stages, you can define specific stages within a fleet by using labels, making it a good choice for more complex rollout strategies like deploying a new version on a small subset of production clusters before a wider rollout. Additionally, you have more control over rollouts, such as initiating a rollout to a specific version, choosing the types of upgrades to roll out in a sequence, and pausing or canceling rollouts. Choose this option if you're creating a rollout sequence for the first time.
-  * **[Fleet-based rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing#fleet-based-sequence):** is the only version of this feature usable with the Google Cloud console, but otherwise has more limited functionality and isn't recommended if you're creating a rollout sequence for the first time.
+  * **[Rollout sequencing with custom stages](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing-custom-stages/about-rollout-sequencing) (recommended for new environments):** this version is an evolution of the fleet-based model, offering more granular control and flexibility, but lacking comprehensive Google Cloud console support. With custom stages, you can define specific stages within a fleet by using labels, making it a good choice for more complex rollout strategies like deploying a new version on a small subset of production clusters before a wider rollout. Additionally, you have more control over rollouts, such as initiating a rollout to a specific version, choosing the types of upgrades to roll out in a sequence, and pausing or canceling rollouts. Choose this option if you're creating a rollout sequence for the first time.
+  * **[Fleet-based rollout sequencing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/rollout-sequencing/about-rollout-sequencing#fleet-based-sequence):** this version of the feature has more comprehensive support in the Google Cloud console, but otherwise has more limited functionality and isn't recommended if you're creating a rollout sequence for the first time.
 
 
 
@@ -85,15 +85,15 @@ During the configured soak time between stages, you can confirm that your worklo
   * **Soak time** : a configurable waiting period that occurs after all clusters in a stage are upgraded. This soak time lets you validate the new version in one environment and catch potential issues before the upgrade proceeds to the next environment. You can configure a soak time of up to 30 days for each stage in your sequence. A longer soak time in a pre-production stage gives you more time for validation.
   * **`RolloutSequence`** : this object is the primary resource that you use to define your upgrade sequence. `RolloutSequence` contains an ordered series of stages, which verifies that clusters in earlier stages are fully upgraded and have completed their soak period before the upgrade proceeds to the next stage. Each `RolloutSequence` has one `Rollout` for each new version rolled out.
   * **`Rollout`** : this object lets you observe the progress of a single version upgrade through your sequence. You can use `Rollout` to view the status of the rollout, track the progress, and see if and why any clusters are ineligible for upgrade. Each `Rollout` is associated with a specific `RolloutSequence` representing the sequence where the version rolls out.
-  * **Dedicated host project** : we recommend that you use a dedicated Google Cloud project to host your `RolloutSequence` object. Placing the sequence in a dedicated project provides a neutral, central point of control for your rollout sequence, which is a similar best practice for managing CI/CD pipelines.
+  * **Dedicated host project** : we recommend that you use a dedicated Google Cloud project to host your `RolloutSequence` objects. Placing the sequence in a dedicated project provides a neutral, central point of control for your rollout sequences, which is a similar best practice for managing CI/CD pipelines.
 
 **Best practice** : 
 
-Create and manage your `RolloutSequence` resource in a dedicated host project.
+Create and manage your `RolloutSequence` resources in a dedicated host project.
 
   * **Stages** : a stage is a step in the rollout sequence. Each stage contains a group of clusters that are upgraded together.
   * **Fleets** : fleets are the primary way to group clusters. A stage in a rollout sequence can reference one or more fleets. A single rollout sequence can include fleets that are hosted across multiple Google Cloud organizations.
-  * **Label selectors** : a rollout sequence is composed of one or more stages. Each stage contains clusters from one or more fleets, and you can use label selectors on clusters to further split a fleet into multiple stages. This approach allows for strategies like phased rollouts, where a small subset of production clusters are upgraded first.
+  * **Label selectors** : a rollout sequence is composed of one or more stages. Each stage contains clusters from one fleet, and you can use label selectors on clusters to further split a fleet into multiple stages. This approach allows for strategies like phased rollouts, where a small subset of production clusters are upgraded first.
 
 
 
@@ -361,7 +361,7 @@ For more information, see How rollout sequencing works with other upgrade featur
 
 To [manage a rollout sequence](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing-custom-stages/manage-upgrades-with-rollout-sequencing#managing-rollout-sequence), you can do basic actions such as the following:
 
-  * List your rollout sequence
+  * List your rollout sequences
   * Describe a rollout sequence
 
 
@@ -401,12 +401,7 @@ To modify a rollout sequence, see [Modify a rollout sequence](https://docs.cloud
 The following happens if you modify the clusters in a sequence:
 
   * If you remove a cluster from a rollout sequence by removing it from a fleet, active rollouts continue. GKE can automatically upgrade the cluster based on typical procedures for clusters not enrolled in a sequence.
-  * If you add a cluster to a fleet in a rollout sequence, GKE upgrades this cluster as part of any active rollouts that haven't yet passed the stage where you added it. However, if the stage has been completed for the rollout, GKE won't upgrade the cluster in that rollout.
-
-To create a cluster that immediately matches the target version of a rollout stage, set the `--cluster-version` flag to `upgrade-target` ([Preview](https://cloud.google.com/products#product-launch-stages)) when creating the cluster. If you [register this cluster to a specific stage in a rollout sequence](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing-custom-stages/manage-upgrades-with-rollout-sequencing#configure-rollout-sequence) when you create the cluster, GKE identifies the target version for that stage and creates the cluster with that version.
-
-For instructions, see [Create a cluster that matches the target version of a rollout stage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing-custom-stages/manage-upgrades-with-rollout-sequencing#create-cluster-target-version-rollout-stage).
-
+  * If you add a cluster to a fleet in a rollout sequence, GKE will upgrade this cluster as part of any active rollouts that haven't yet passed the stage where you added it. However, if the stage has been completed for the rollout, GKE won't upgrade the cluster in that rollout.
   * If you move a cluster to a different stage without editing the rollout sequence configuration, the following happens, depending on whether the stage you move the cluster to has completed:
 
     * If you move a cluster to a stage that already completed its rollout, GKE doesn't upgrade the cluster in that rollout.
@@ -420,11 +415,11 @@ To modify the clusters in a sequence, see [Register a cluster on Google Cloud to
 
 The following limitations apply when you upgrade your clusters by using rollout sequencing with custom stages:
 
-  * You can't use the Google Cloud console to create or view rollout sequences with custom stages.
+  * You can't use the Google Cloud console to create or modify rollout sequences with custom stages. However, you can use the console to [monitor a rollout](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing-custom-stages/manage-upgrades-with-rollout-sequencing#console-view) ([Preview](https://cloud.google.com/products#product-launch-stages)).
   * When a rollout sequence references a fleet, you must include the _entire_ fleet. This constraint means that if you define a stage to target only a subset of clusters from a fleet with a `label-selector` (for example, for a phased deployment), you must also define a subsequent "catch-all" stage that includes all remaining clusters from that same fleet. This catch-all stage targets the same fleet but doesn't include a `label-selector`, thereby automatically including all clusters that were not selected by earlier stages in the sequence.
   * If you modify a sequence during a rollout, specifically changes that affect the participating clusters, GKE immediately cancels all existing rollouts. If you modify only the soak time of a sequence, GKE doesn't cancel the rollout.
+  * A stage can reference a maximum of one fleet. You can't have multiple fleets in a single stage.
   * A single fleet can be referenced only in one rollout sequence. Two rollout sequences can't reference the same fleet.
-  * You can only create one RolloutSequence object per host project.
   * You can't upgrade clusters with rollout sequencing that use [accelerated patch auto-upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels#accelerated-patch).
   * You can create a rollout sequence with up to 15 stages.
   * You can include up to 250 clusters in a fleet. For clusters with [lightweight memberships](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/creating-fleets#lightweight_memberships), you can request an increase in quota for up to 2,000 clusters in a fleet. For more information, see [Quotas and limits](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/quotas).
@@ -450,6 +445,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

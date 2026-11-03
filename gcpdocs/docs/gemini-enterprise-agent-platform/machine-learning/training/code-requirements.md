@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements/
 title: Prepare training code \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:07.326876+00:00
+fetched_at: 2026-11-03T09:53:37.760362+00:00
 ---
 
 # Prepare training code  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ This problem occurs because Agent Platform does not run your code directly in yo
 
 If you don't want to hardcode a project ID in your training code, you can reference the `CLOUD_ML_PROJECT_ID` environment variable: Agent Platform sets this environment variable in every serverless training container to contain the [project number](https://docs.cloud.google.com/docs/overview#projects) of the project where you initiated serverless training. Many Google Cloud tools can accept a project number wherever they take a project ID.
 
-For example, if you want to use the [Python Client for Google BigQuery](https://github.com/googleapis/python-bigquery) to access a BigQuery table in the same project, then don't try to infer the project in your training code:
+For example, if you want to use the [Python Client for BigQuery](https://github.com/googleapis/python-bigquery) to access a BigQuery table in the same project, then don't try to infer the project in your training code:
 
 Implicit project selection
     
@@ -368,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

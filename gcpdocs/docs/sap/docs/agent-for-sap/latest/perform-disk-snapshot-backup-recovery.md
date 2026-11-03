@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/perform-disk-snapshot-backup-recovery/
 title: Back up and recover SAP HANA by using disk snapshots \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:42.844608+00:00
+fetched_at: 2026-11-03T09:44:12.903912+00:00
 ---
 
 # Back up and recover SAP HANA by using disk snapshots  |  SAP on Google Cloud  |  Google Cloud Documentation

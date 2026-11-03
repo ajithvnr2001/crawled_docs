@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/enable-credential-vending/
 title: Enable credential vending \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:12.116150+00:00
+fetched_at: 2026-11-03T09:41:55.094425+00:00
 ---
 
 # Enable credential vending  |  Lakehouse  |  Google Cloud Documentation
@@ -95,6 +95,8 @@ You might also be able to get the required permissions through [custom roles](ht
 
 **Note:** Creation of the auto-provisioned catalog service account is [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency). This means that it takes time for the service account to propagate through the system. If you try to grant roles to the service account immediately after creation, the request might fail. To learn how long it takes, on average, for access changes to propagate, see [Access change propagation](https://docs.cloud.google.com/iam/docs/access-change-propagation).
 
+If the Cloud Storage buckets associated with your catalog endpoint are protected by a VPC Service Controls service perimeter, then you must also configure an ingress rule for the catalog service account. For more information, see [Use VPC Service Controls with credential vending](https://docs.cloud.google.com/lakehouse/docs/credential-vending#vpc-sc).
+
 ## Enable credential vending
 
 If the authentication method for your Apache Iceberg REST catalog endpoint is set to end-user credentials, you can switch it to [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/credential-vending).
@@ -166,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

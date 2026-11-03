@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/use-beta-apis/
 title: Use Kubernetes beta APIs with GKE clusters \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:14.803634+00:00
+fetched_at: 2026-11-03T09:51:15.775302+00:00
 ---
 
 # Use Kubernetes beta APIs with GKE clusters  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -55,6 +55,65 @@ Refer to the following table for beta APIs and the corresponding minor version w
 
 Kubernetes version | Beta APIs added with this Kubernetes minor version | Available with GKE | Notes  
 ---|---|---|---  
+[1.37](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md) | 
+
+  * scheduling.k8s.io/v1beta1/podgroups
+  * scheduling.k8s.io/v1beta1/workloads
+
+| 
+
+  * scheduling.k8s.io/v1beta1/podgroups
+  * scheduling.k8s.io/v1beta1/workloads
+
+|  You must enable both APIs at the same time, and you must ensure that nodes use the newly-enabled beta APIs.  
+[1.36](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md) | 
+
+  * resource.k8s.io/v1beta2/devicetaintrules
+
+| 
+
+  * None
+
+|   
+[1.35](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md) | 
+
+  * certificates.k8s.io/v1beta1/podcertificaterequests
+  * storagemigration.k8s.io/v1beta1/storageversionmigrations
+
+| 
+
+  * certificates.k8s.io/v1beta1/podcertificaterequests
+
+|  You must ensure that nodes use the newly-enabled beta APIs.  
+[1.34](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md) | 
+
+  * admissionregistration.k8s.io/v1beta1/mutatingadmissionpolicies
+  * admissionregistration.k8s.io/v1beta1/mutatingadmissionpolicybindings
+
+| 
+
+  * admissionregistration.k8s.io/v1beta1/mutatingadmissionpolicies
+  * admissionregistration.k8s.io/v1beta1/mutatingadmissionpolicybindings
+
+|  You must enable both APIs at the same time.  
+[1.33](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md) | 
+
+  * certificates.k8s.io/v1beta1/clustertrustbundles
+  * coordination.k8s.io/v1beta1/leasecandidates
+  * resource.k8s.io/v1beta2/deviceclasses
+  * resource.k8s.io/v1beta2/resourceclaims
+  * resource.k8s.io/v1beta2/resourceclaimtemplates
+  * resource.k8s.io/v1beta2/resourceslices
+
+| 
+
+  * certificates.k8s.io/v1beta1/clustertrustbundles
+  * resource.k8s.io/v1beta2/deviceclasses
+  * resource.k8s.io/v1beta2/resourceclaims
+  * resource.k8s.io/v1beta2/resourceclaimtemplates
+  * resource.k8s.io/v1beta2/resourceslices
+
+|  When enabling any of the `resource.k8s.io/v1beta2` APIs, you must enable all four `resource.k8s.io/v1beta2` APIs and all four `resource.k8s.io/v1beta1` APIs at the same time. You must also ensure that nodes use the newly-enabled beta APIs.  
 [1.32](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md) | 
 
   * resource.k8s.io/v1beta1/deviceclasses
@@ -69,7 +128,7 @@ Kubernetes version | Beta APIs added with this Kubernetes minor version | Availa
   * resource.k8s.io/v1beta1/resourceclaimtemplates
   * resource.k8s.io/v1beta1/resourceslices
 
-|  You must enable all listed `resource.k8s.io` APIs at the same time, and you must ensure that nodes use the newly-enabled beta APIs. This enables the Dynamic Resource Allocation Kubernetes beta feature in a GKE cluster. To learn more, see [Dynamic Resource Allocation](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation).  
+|  You must enable all listed `resource.k8s.io` APIs at the same time, and you must ensure that nodes use the newly-enabled beta APIs. Doing so enables the Dynamic Resource Allocation Kubernetes beta feature in a GKE cluster. For more information, see [Dynamic Resource Allocation](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation).  
 [1.31](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md) | 
 
   * storage.k8s.io/v1beta1/volumeattributesclasses
@@ -82,34 +141,14 @@ Kubernetes version | Beta APIs added with this Kubernetes minor version | Availa
   * networking.k8s.io/v1beta1/ipaddresses
   * networking.k8s.io/v1beta1/servicecidrs
 
-|  You must enable both `networking.k8s.io` APIs at the same time, and you must ensure that nodes use the newly-enabled beta APIs. This enables the Multiple Service CIDRs Kubernetes beta feature in a GKE cluster running version 1.31.1-gke.1361000 or later. For more details, see the [October 4, 2024 GKE release note](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes#October_04_2024).  
-[1.29](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md) | 
+|  You must enable both `networking.k8s.io` APIs at the same time, and you must ensure that nodes use the newly-enabled beta APIs. Doing so enables the Multiple Service CIDRs Kubernetes beta feature in a GKE cluster running version 1.31.1-gke.1361000 or later. For more information, see the [October 4, 2024 GKE release note](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes#October_04_2024).  
+[1.30](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.30.md) | 
 
   * None
 
 | 
 
-  * admissionregistration.k8s.io/v1beta1/validatingadmissionpolicies
-  * admissionregistration.k8s.io/v1beta1/validatingadmissionpolicybindings
-
-| You must enable both APIs at the same time. This enables the [Validating Admission Policy](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) beta feature.  
-[1.28](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md) | 
-
-  * admissionregistration.k8s.io/v1beta1/validatingadmissionpolicies
-  * admissionregistration.k8s.io/v1beta1/validatingadmissionpolicybindings
-
-| 
-
   * None
-
-|   
-[1.27](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.27.md) | 
-
-  * authentication.k8s.io/v1beta1/selfsubjectreviews
-
-| 
-
-  * authentication.k8s.io/v1beta1/selfsubjectreviews
 
 |   
   
@@ -206,6 +245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

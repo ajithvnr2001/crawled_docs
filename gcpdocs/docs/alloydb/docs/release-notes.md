@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:16.370663+00:00
+fetched_at: 2026-11-03T09:41:48.771483+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,14 @@ This page documents production updates to AlloyDB for PostgreSQL. Check this pag
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydb-release-notes.xml) directly. 
+
+## November 02, 2026
+
+Feature
+
+You can now tune SQL queries using AI. Available starting with version 1.6.2 of the `google_ml_integration` extension, the `ai.tune_sql` function uses an LLM along with query execution plans, schemas, and runtime stats to recommend query optimizations. The function identifies performance bottlenecks and provides recommendations for query rewrites, indexes, statistics collection, Grand Unified Configuration (GUC) flags, and table analyze and vacuum operations. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+For more information, see [Tune SQL queries using AI](https://docs.cloud.google.com/alloydb/docs/tune-sql-queries-ai) and [Database advisor flags](https://docs.cloud.google.com/alloydb/docs/reference/database-advisor-flags).
 
 ## October 30, 2026
 

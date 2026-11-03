@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/ati-curated-detections/
 title: Applied Threat Intelligence curated detections \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:51.747774+00:00
+fetched_at: 2026-11-03T09:36:26.251939+00:00
 ---
 
 # Applied Threat Intelligence curated detections  |  Google Security Operations  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ For IP address indicators, the `network.direction` is required. If the `network.
 
 ## Tuning alerts returned by Applied Threat Intelligence category
 
-You can reduce the number of detections a rule or rule set generates using [rule exclusions](https://docs.cloud.google.com/chronicle/docs/detection/rule-exclusions).
+You can reduce the number of detections a rule or rule set generates using [rule exclusions](https://docs.cloud.google.com/chronicle/docs/investigation/alert-suppression#suppress-rule-exclusions).
 
 In the rule exclusion, define the criteria of a UDM event that exclude the event from being evaluated by the rule set. Events with values in the specified UDM field won't be evaluated by rules in the rule set.
 
@@ -83,7 +83,7 @@ For example, you might exclude events based on the following information:
 
 
 
-See [Configure rule exclusions](https://docs.cloud.google.com/chronicle/docs/detection/rule-exclusions) for information about how to create rule exclusions.
+For more information, see [Configure alert suppression](https://docs.cloud.google.com/chronicle/docs/investigation/alert-suppression).
 
 If a rule set uses a predefined reference list, the reference list description provides detail about which UDM field is evaluated.
 
@@ -101,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/mysql-transfer/
 title: Import metadata from MySQL \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:41.054502+00:00
+fetched_at: 2026-11-03T09:53:54.037635+00:00
 ---
 
 # Import metadata from MySQL  |  Knowledge Catalog  |  Google Cloud Documentation

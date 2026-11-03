@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/tcp/set-up-ext-reg-tcp-proxy-migs/
 title: Set up a regional external proxy Network Load Balancer with VM instance group backends \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:10.845507+00:00
+fetched_at: 2026-11-03T09:53:02.226513+00:00
 ---
 
 # Set up a regional external proxy Network Load Balancer with VM instance group backends  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -726,7 +726,7 @@ Replace `FIREWALL_RULE_NAME` with a name for the firewall rule.
 
   1. Create an HTTPS health check:
          
-         gcloud compute health-checks create http HTTPS_HEALTH_CHECK_NAME \
+         gcloud compute health-checks create https HTTPS_HEALTH_CHECK_NAME \
              --region=REGION_A \
              --port=HC_PORT
          
@@ -744,6 +744,9 @@ Replace the following:
              --port-name=PORT_NAME \
              --health-checks=HTTPS_HEALTH_CHECK_NAME \
              --health-checks-region=REGION_A \
+             --enable-logging \
+             --logging-sample-rate=1.0 \
+             --logging-optional=INCLUDE_ALL_OPTIONAL \
              --region=REGION_A
          
 
@@ -756,7 +759,7 @@ Replace the following:
          
          gcloud compute backend-services add-backend BACKEND_SERVICE_NAME \
              --balancing-mode=UTILIZATION \
-             --max-utilization=0.8
+             --max-utilization=0.8 \
              --instance-group=INSTANCE_GROUP_NAME \
              --instance-group-zone=ZONE_A \
              --region=REGION_A
@@ -781,14 +784,14 @@ Replace `TARGET_TCP_PROXY_NAME` with the name of the target TCP proxy.
          cat <<EOF | tee YAML_FILE_NAME
          name: TLS_ROUTE_NAME
          targetProxies:
-         - projects/PROJECT_NUMBER/locations/REGION_A/targetTcpProxies/TARGET_TCP_PROXY
+         - projects/PROJECT_NUMBER/locations/REGION_A/targetTcpProxies/TARGET_TCP_PROXY_NAME
          rules:
          - matches:
            - sniHost:
              - example.com
            action:
-           destinations:
-           - serviceName: projects/PROJECT_NUMBER/locations/REGION_A/backendServices/BACKEND_SERVICE_NAME
+             destinations:
+             - serviceName: projects/PROJECT_NUMBER/locations/REGION_A/backendServices/BACKEND_SERVICE_NAME
          EOF
          
 
@@ -938,6 +941,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

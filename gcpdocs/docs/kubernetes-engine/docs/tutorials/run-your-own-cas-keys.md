@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/run-your-own-cas-keys/
 title: Run your own certificate authorities and keys in GKE \u00a0|\u00a0 Kubernetes Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:31.934650+00:00
+fetched_at: 2026-11-03T09:54:10.906263+00:00
 ---
 
 # Run your own certificate authorities and keys in GKE  |  Kubernetes Engine  |  Google Cloud Documentation
@@ -417,7 +417,7 @@ Replace `CLUSTER_PROJECT_ID` with the project ID of your cluster project.
          gcloud kms keys add-iam-policy-binding sa-signing-key \
            --location=LOCATION \
            --keyring=KEY_RING_NAME \
-           --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-riam.gserviceaccount.comobot." \
+           --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
            --role=roles/container.cloudKmsKeyUser \
            --project=KEY_PROJECT_ID
          
@@ -428,25 +428,25 @@ Replace `CLUSTER_PROJECT_NUMBER` with the project number of the cluster project.
          
          gcloud privateca pools add-iam-policy-binding cluster-ca-pool \
              --location=LOCATION \
-             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-riam.gserviceaccount.comobot." \
+             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
          gcloud privateca pools add-iam-policy-binding etcd-peer-ca-pool \
              --location=LOCATION \
-             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@containeiam.gserviceaccount.comr-engine-robot." \
+             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
          gcloud privateca pools add-iam-policy-binding etcd-api-ca-pool \
              --location=LOCATION \
-             --member=&quot;serviceAccount:service-CLUSTER_PROJECT_NUMBEiam.gserviceaccount.comR@container-engine-robot." \
+             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
          gcloud privateca pools add-iam-policy-binding aggregation-ca-pool \
              --location=LOCATION \
-             --member="serviceAccount:service-CLUSTER_PROiam.gserviceaccount.comJECT_NUMBER@container-engine-robot." \
+             --member="serviceAccount:service-CLUSTER_PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
              --role=roles/privateca.certificateManager \
              --project=KEY_PROJECT_ID
          
@@ -484,14 +484,14 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
              --keyring=KEY_RING_NAME \
              --location=LOCATION \
              --role=roles/viewer \
-             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gcp-sa-privaiam.gserviceaccount.comteca." \
+             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gcp-sa-privateca.iam.gserviceaccount.com" \
              --project=KEY_PROJECT_ID
          
          gcloud kms keys add-iam-policy-binding $key \
              --keyring=KEY_RING_NAME \
              --location=LOCATION \
              --role=roles/cloudkms.signerVerifier \
-             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gciam.gserviceaccount.comp-sa-privateca.&quot; \
+             --member="serviceAccount:service-KEY_PROJECT_NUMBER@gcp-sa-privateca.iam.gserviceaccount.com" \
              --project=KEY_PROJECT_ID
          done
          
@@ -623,7 +623,7 @@ To verify the keys and CAs using Logging, do the following:
   2. Specify the following query:
          
          resource.type="gke_cluster"
-         resource.labels.cluster_name=&quot;CLUSTER_NAME"
+         resource.labels.cluster_name="CLUSTER_NAME"
          resource.labels.location="CLUSTER_LOCATION"
          protoPayload.serviceName="container.googleapis.com"
          protoPayload.methodName=~"google.container.v(1|1alpha1|1beta1).ClusterManager.CreateCluster"

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-requirements-for-rhel/
 title: Perform a major upgrade using installer for RHEL \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:26.081029+00:00
+fetched_at: 2026-11-03T09:54:50.860545+00:00
 ---
 
 # Perform a major upgrade using installer for RHEL  |  Google Security Operations  |  Google Cloud Documentation
@@ -25,7 +25,9 @@ Supported in:
 
 Google SecOps  [ SOAR ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-soar-toc)
 
-This document explains how to perform a major upgrade for an existing Remote Agent using the installer for RHEL 8.7. This procedure involves installing and configuring prerequisite packages before executing the upgrade script. For more information on how to install an agent on a new deployment, see [ Create an agent using installer on RHEL.](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-for-rhel)
+This document explains how to perform a major upgrade for an existing Remote Agent using the installer for Red Hat Enterprise Linux (RHEL) 8.7. This procedure involves installing and configuring prerequisite packages before executing the upgrade script. For more information on how to install an agent on a new deployment, see [ Create an agent using installer on RHEL.](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-for-rhel)
+
+If your host runs RHEL 9 or 10 (or later) with a containerized deployment, see [Perform a major upgrade of a Podman image](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-podman-image) or [Perform a major upgrade of a Docker image](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-docker-image).
 
 **Note** : To install all the packages, you must have superuser privileges. However, to ensure some dependencies remain accessible to non-root users, don't change the root user's `umask` from the default value of `0022`.**Important:** Keep the shell session open until you finish all steps.
 
@@ -65,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

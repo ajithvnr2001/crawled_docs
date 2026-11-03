@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/configure_export_v2/
 title: Route logs to supported destinations \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:18.271992+00:00
+fetched_at: 2026-11-03T09:53:32.962354+00:00
 ---
 
 # Route logs to supported destinations  |  Cloud Logging  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Route logs to supported destinations Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can use log [sinks](https://docs.cloud.google.com/logging/docs/routing/overview#sinks) in Cloud Logging to route log entries from your Google Cloud project to supported destinations for long-term storage, analytics, or streaming.
+Log [sinks](https://docs.cloud.google.com/logging/docs/routing/overview#sinks) in Cloud Logging let you route log entries from your Google Cloud project to supported destinations for long-term storage, analytics, or streaming. To deliver logs, each sink writes to an authorized destination, such as a log bucket, Cloud Storage bucket, BigQuery dataset, or Pub/Sub topic.
 
 A [sink](https://docs.cloud.google.com/logging/docs/routing/overview#sinks) performs a write action, and therefore it must be authorized to write to the destination. When the destination is a log bucket in the same project as the sink, the sink is automatically authorized. For all other destinations, the sink must be attached to a [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) that has been given the permissions required to write data to the destination.
 
@@ -76,7 +76,7 @@ If you want to join your log data with other business data, then you can store y
 BigQuery dataset
     Select this destination when you want to join your log data with other business data. The dataset you specify must be write-enabled. **Don't set the destination of a sink to be a linked BigQuery dataset**. Linked BigQuery datasets are read-only.
 
-Cloud Storage bucket
+Cloud Storage bucket, except for Rapid storage
     Select this destination when you want long-term storage of your log data. The Cloud Storage bucket can be in the project where the log entries originate, or in a different project. Log entries are stored as JSON files.
 
 Pub/Sub topic
@@ -98,7 +98,10 @@ This section describes destination-specific limitations:
     * Logging creates a table inside the dataset for each log name. You can't rename a table while a sink is streaming data into it.
 
 
+  * Routing log entries to Cloud Storage buckets configured for Rapid storage isn't supported.
+
   * New sinks that route log entries to Cloud Storage buckets might take several hours to start routing log entries. These sinks are processed hourly.
+
 
 
   * Routing logs to a Pub/Sub topic that enforces [in-transit restrictions](https://docs.cloud.google.com/pubsub/docs/resource-location-restriction) isn't supported. Logging can't guarantee that publish requests originate from an allowed region, which causes [`topic_region_not_allowed`](https://docs.cloud.google.com/logging/docs/export/troubleshoot#topic_region_not_allowed) configuration errors and dropped logs.
@@ -214,6 +217,7 @@ For example, if you want to route your Data Access log entries from the project 
        * **BigQuery dataset** : Select or create the write-enabled dataset to receive the routed log entries. You also have the option to use [partitioned tables](https://docs.cloud.google.com/logging/docs/export/bigquery#partition-tables).
 **Note:** Don't select a linked BigQuery dataset for your destination. These datasets are read-only and can't be the destination for a log sink.
        * **Cloud Storage bucket** : Select or create the Cloud Storage bucket to receive the routed log entries.
+**Note:** Don't select a Cloud Storage bucket configured for Rapid storage.
        * **Pub/Sub topic** : Select or create the topic to receive the routed log entries.
 **Note:** Don't select a Pub/Sub topic that enforces [in-transit restrictions](https://docs.cloud.google.com/pubsub/docs/resource-location-restriction). Because log sinks must use global endpoints, Logging can't guarantee that publish requests originate from an allowed region, which causes [`topic_region_not_allowed`](https://docs.cloud.google.com/logging/docs/export/troubleshoot#topic_region_not_allowed) configuration errors and dropped logs.
        * **Splunk** : Select the Pub/Sub topic for your [Splunk](https://docs.cloud.google.com/architecture/exporting-stackdriver-logging-for-splunk) service.
@@ -806,6 +810,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

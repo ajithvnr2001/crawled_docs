@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/custom-query/
 title: Custom queries in BigQuery \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:01:04.017479+00:00
+fetched_at: 2026-11-03T09:53:42.397211+00:00
 ---
 
 # Custom queries in BigQuery  |  Backup and DR  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Custom queries in BigQuery Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to set up and view prebuilt reports in BigQuery.
-
-In Google Cloud console, you can write your custom query based on the table name or prebuilt report and save it as a query or as a view.
+You can analyze Backup and DR logs that are routed to BigQuery by writing custom SQL queries. Saving custom queries as saved queries or views helps you reuse analyses and share them with collaborators. This approach also establishes consistent data access patterns for reporting. In the Google Cloud console, you can write and save custom queries by using either a table name or a prebuilt report.
 
 ## Write custom queries in BigQuery as a query
 
@@ -108,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

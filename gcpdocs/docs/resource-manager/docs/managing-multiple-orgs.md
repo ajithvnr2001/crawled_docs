@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/managing-multiple-orgs/
 title: Manage multiple organization resources \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:36.593009+00:00
+fetched_at: 2026-11-03T09:55:07.300991+00:00
 ---
 
 # Manage multiple organization resources  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Manage multiple organization resources Stay organized with collections  Save and categorize content based on your preferences. 
 
-The organization resource establishes ownership of the projects and folders underneath it in the [Google Cloud Platform resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/overview#cloud_platform_resource_hierarchy_and_iam_policy_hierarchy). Your Google Workspace or Cloud Identity account is associated with exactly one organization resource. Each Google Workspace or Cloud Identity account is also associated with a primary domain, such as `example.com`. For more information about using multiple domains, see [Add a user alias domain or secondary domain](https://support.google.com/a/answer/7502379). For details on changing the primary domain for a Google Workspace account, see [Change your primary domain for Google Workspace](https://support.google.com/a/answer/7009324).
-
-We recommend that you use use folders under one organization resource for most use cases. If you want to maintain sub-organizations or departments within your company as isolated entities with no central administration, you can set up multiple Google Workspace or Cloud Identity accounts. Additionally, you can consider using [standalone organizations](https://docs.cloud.google.com/resource-manager/docs/standalone-organization-overview). Each account comes with a single organization resource.
+Multiple Google Cloud organization resources let you maintain business units or departments as isolated entities with no central administration. For most use cases, use folders under a single organization resource in the [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). An organization resource establishes ownership of the projects and folders underneath it. Each Google Workspace or Cloud Identity account maps to a primary domain, such as `example.com`, and creates one organization resource. For more information about identity domain options, see [Add a user alias domain or secondary domain](https://support.google.com/a/answer/7502379) and [Change your primary domain for Google Workspace](https://support.google.com/a/answer/7009324). Alternatively, you can use [standalone organizations](https://docs.cloud.google.com/resource-manager/docs/standalone-organization-overview), which operate independently and don't require a Cloud Identity or Google Workspace account.
 
 ## Effects of using multiple organization resources
 
@@ -755,6 +753,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

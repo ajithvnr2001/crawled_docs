@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/backup-recovery/pitr/
 title: Perform point-in-time recovery (PITR) \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:21.365734+00:00
+fetched_at: 2026-11-03T09:53:09.271701+00:00
 ---
 
 # Perform point-in-time recovery (PITR)  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -509,7 +509,7 @@ You might want to recover an [instance that isn't available](https://docs.cloud.
     --preferred-zone ZONE_NAME \
     --preferred-secondary-zone SECONDARY_ZONE_NAME
 
-The user or service account that's running the `gcloud sql instances clone` command must have the `cloudsql.instances.clone` permission. For more information about required permissions to run [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) commands, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+The user or service account that's running the `gcloud sql instances clone` command must have the `cloudsql.instances.clone` and `cloudsql.instances.create` permissions. For more information about required permissions to run [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) commands, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 ### REST v1
 
@@ -590,7 +590,7 @@ You should receive a JSON response similar to the following:
     }
     
 
-The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method must have the `cloudsql.instances.clone` permission. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances/clone) API method must have the `cloudsql.instances.clone` and `cloudsql.instances.create` permissions. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 ### REST v1beta4
 
@@ -671,7 +671,7 @@ You should receive a JSON response similar to the following:
     }
     
 
-The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method must have the `cloudsql.instances.clone` permission. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
+The user or service account that's using the [`instances.clone`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/clone) API method must have the `cloudsql.instances.clone` and `cloudsql.instances.create` permissions. For more information about required permissions to use API methods, see [Cloud SQL permissions](https://docs.cloud.google.com/sql/docs/mysql/iam-permissions).
 
 If you try to create a PITR clone at a time after the latest recoverable time, then the following error message is given:
     
@@ -1508,6 +1508,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

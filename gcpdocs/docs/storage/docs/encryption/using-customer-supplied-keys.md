@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/encryption/using-customer-supplied-keys/
 title: Use customer-supplied encryption keys \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:39.422596+00:00
+fetched_at: 2026-11-03T09:42:05.565886+00:00
 ---
 
 # Use customer-supplied encryption keys  |  Cloud Storage  |  Google Cloud Documentation
@@ -70,8 +70,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     namespace gcs = ::google::cloud::storage;
     gcs::EncryptionKeyData data = gcs::CreateKeyFromGenerator(gen);
     
-    std::cout << "Base64 encoded key<< = " << data.key  "<<;\n"
-               "Base64 e<<ncoded SHA256<< of key = "  data.sha256  "\n";
+    std::cout << "Base64 encoded key = " << data.key << "\n"
+              << "Base64 encoded SHA256 of key = " << data.sha256 << "\n";
 
 ### C#
 
@@ -297,9 +297,9 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
           gcs::EncryptionKey::FromBase64Key(base64_aes256_key));
       if (!object_metadata) throw std::move(object_metadata).status();
     
-      <<std::cout  &quo<<t;The object &quo>t;  object_metadata<<-name()
-                 "<< was created in b>ucket "  object_<<metadata-bucket()
-       <<          "\n<<Full metadata: "  *object_metadata  "\n";
+      std::cout << "The object " << object_metadata->name()
+                << " was created in bucket " << object_metadata->bucket()
+                << "\nFull metadata: " << *object_metadata << "\n";
     }
 
 ### C#
@@ -319,13 +319,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             string key = "3eFsTXPvqi3BpT2ipFCGirslh1Jgc6ikjoAu2oQ5JcI=",
             string bucketName = "your-unique-bucket-name",
             string localPath = "my-local-path/my-file-name",
-            string objectName = "my-file-[name"](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html))
-      [  ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create){
-            var storage = StorageClient.Create();
+            string objectName = "my-file-name")
+        {
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
             using var fileStream = File.OpenRead(localPath);
-            storage.UploadObject(bucket[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UploadObjectOptions.html), objectName, null, fileStream, new UploadObjectOption[s](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html)
+            storage.UploadObject(bucketName, objectName, null, fileStream, new [UploadObjectOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UploadObjectOptions.html)
             {
-      [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)    EncryptionKey = EncryptionKey.Create(Convert.FromBase64String(key))
+                EncryptionKey = [EncryptionKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)(Convert.FromBase64String(key))
             });
             Console.WriteLine($"Uploaded {objectName}.");
         }
@@ -347,8 +347,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	"cloud.google.com/go/storage"
     )
     
-    // uploadEncryptedFile writes an object using AES-[256 en](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer)cryption key.
-    func uploadEncryptedFile(w io.Writer, bucket, object string, secretKey []byte) error {
+    // uploadEncryptedFile writes an object using AES-256 encryption key.
+    func uploadEncryptedFile(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucket, object string, secretKey []byte) error {
     	// bucket := "bucket-name"
     	// object := "object-name"
     	// secretKey := []byte("secret-key")
@@ -357,29 +357,29 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	if err != nil {
     		return fmt.Errorf("storage.NewClient: %w", err)
     	}
-    	defer client.Close([)](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)
+    	defer client.Close()
     
-    	ctx, cancel[ := co](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)ntext.WithTimeout(ctx, time.Second*50)
+    	ctx, cancel := context.WithTimeout(ctx, time.Second*50)
     	defer cancel()
     
-    	o := client.Bucket(bucket).Object(object)
+    	o := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[Object](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)(object)
     
     	// Optional: set a generation-match precondition to avoid potential race
     	// conditions and data corruptions. The request to upload is aborted if the
     	// object's generation number does not match your precondition.
-    	/[/ For an o](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Conditions)bject that does not yet exist, set the DoesNotExist precondition.
-    	o = o.If(storage.Conditions{DoesNotExist: true})
+    	// For an object that does not yet exist, set the DoesNotExist precondition.
+    	o = o.If(storage.[Conditions](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Conditions){DoesNotExist: true})
     	// If the live object already exists in your bucket, set instead a
     	// generation-match precondition using the live object's generation number.
     	// attrs, err := o.Attrs(ctx)
     	// if err != nil {
     	// 	return fmt.Errorf("object.Attrs: %w", err)
     	// }
-    	// o[ = ](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)o.If(storage[.Conditio](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_NewWriter)ns{GenerationMatch: att[rs.Ge](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer_Write)neration})
+    	// o = o.If(storage.Conditions{GenerationMatch: attrs.Generation})
     
     	// Encrypt the object's contents.
-    	wc := o.Key(secretKey).NewWriter(ctx)
-    	if _, err := wc.Write([]byte("top secret")); err != nil {
+    	wc := o.[Key](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)(secretKey).[NewWriter](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_NewWriter)(ctx)
+    	if _, err := wc.[Write](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer_Write)([]byte("top secret")); err != nil {
     		return fmt.Errorf("Writer.Write: %w", err)
     	}
     	if err := wc.Close(); err != nil {
@@ -422,30 +422,30 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         // String filePath = "path/to/your/file"
     
         // The key to encrypt the object with
-        // String encryptionKey = "TIbv/fj[exq+Vmt](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)XzAlc63J4z5[kFmWJ6NdAPQulQ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html)BT7g=";
+        // String encryptionKey = "TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g=";
     
-        Storage storage = StorageOpt[ions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__).newBuilder().[setPro](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html)jectId(pro[jectId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html)).build().getService();
-        BlobI[d](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobInfo.html) blobId = BlobId.of[(bucketN](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobInfo.html)ame, objectName);
-        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
+        [BlobId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html) blobId = [BlobId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html).of(bucketName, objectName);
+        [BlobInfo](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobInfo.html) blobInfo = [BlobInfo](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobInfo.html).newBuilder(blobId).build();
     
         // Optional: set a generation-match precondition to avoid potential race
-        // conditions and data corruptions. The request returns a 412 e[rror if](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) the
+        // conditions and data corruptions. The request returns a 412 error if the
         // preconditions are not met.
-        Stora[ge](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_).BlobTargetOption precondition;
-        if (storage.get(bucketName, objectName) == null) {
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).BlobTargetOption precondition;
+        if (storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(bucketName, objectName) == null) {
           // For a target object that does not yet exist, set the DoesNotExist precondition.
-          // This will cause the request to fail if the object is crea[ted bef](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)ore the request runs.
-          precondition = Storage.BlobTargetOption.doesNotExist();
+          // This will cause the request to fail if the object is created before the request runs.
+          precondition = [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).BlobTargetOption.doesNotExist();
         } else {
           // If the destination already exists in your bucket, instead set a generation-match
           // precondition. This will cause the request to fail if the existing object's generation
-          // changes be[fore th](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)e request runs.
+          // changes before the request runs.
           precondition =
-              Storage.Bl[obT](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)argetOption.generationMatch(
-                  storage.get(bucketN[ame](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_create_com_google_cloud_storage_BlobInfo_byte___com_google_cloud_storage_Storage_BlobTargetOption____), objectName).getGeneration());
+              [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).BlobTargetOption.generationMatch(
+                  storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(bucketName, objectName).getGeneration());
         }
     
-        storage.create(
+        storage.[create](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_create_com_google_cloud_storage_BlobInfo_byte___com_google_cloud_storage_Storage_BlobTargetOption____)(
             blobInfo,
             Files.readAllBytes(Paths.get(filePath)),
             Storage.BlobTargetOption.encryptionKey(encryptionKey),
@@ -456,7 +456,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
                 + filePath
                 + " uploaded to bucket "
                 + bucketName
-                + " as &quot;
+                + " as "
                 + objectName
                 + " with supplied encryption key");
       }
@@ -484,16 +484,16 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // The key to encrypt the object with
     // const key = 'TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g=';
     
-    // Imports the Google Cloud client lib[rary](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)
-    const {Storage} = require('@google-cloud/storage');
+    // Imports the Google Cloud client library
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
-    [// Crea](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)tes a client
-    const storage = new Storage();
+    // Creates a client
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function uploadEncryptedFile() {
       const options = {
-        destination: destFileNam[e](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html),
-        encryptionKey: Buffer.from(key, 'base64'),
+        destination: destFileName,
+        encryptionKey: Buffer.from(key, '[base64](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html)'),
     
         // Optional:
         // Set a generation-match precondition to avoid potential race conditions
@@ -502,10 +502,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         // object that does not yet exist, set the ifGenerationMatch precondition to 0
         // If the destination object already exists in your bucket, set instead a
         // generation-match precondition using its generation number.
-        preconditionOpts: {ifGenerationMatch: generationMatchPrec[onditi](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html)on},
+        preconditionOpts: {ifGenerationMatch: generationMatchPrecondition},
       };
     
-      await storage.bucket(bucketName).upload(filePath, options);
+      await storage.bucket(bucketName).[upload](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html)(filePath, options);
     
       console.log(
         `File ${filePath} uploaded to gs://${bucketName}/${destFileName}`
@@ -538,11 +538,11 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     function upload_encrypted_object(string $bucketName, string $objectName, string $source, string $base64EncryptionKey): void
     {
         $storage = new StorageClient();
-        $file = fopen($sourc>e, 'r');
-        $bucket = $storage-buc>ket($bucketName);
-        $object = >$bucket-upload($file, [
-            'na>me' = $objectName,
-            'encryptionKey' = $base64EncryptionKey,
+        $file = fopen($source, 'r');
+        $bucket = $storage->bucket($bucketName);
+        $object = $bucket->upload($file, [
+            'name' => $objectName,
+            'encryptionKey' => $base64EncryptionKey,
         ]);
         printf('Uploaded encrypted %s to gs://%s/%s' . PHP_EOL,
             basename($source), $bucketName, $objectName);
@@ -575,10 +575,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # bucket_name = "your-bucket-name"
         # source_file_name = "local/path/to/file"
         # destination_blob_name = "storage-object-name"
-        # base64_encryption_key = "TIb[v/fjexq](https://docs.cloud.google.com/python/docs/reference/storage/latest)+[VmtXzA](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)lc63J4z5kFmWJ6NdAPQulQBT7g=&quo[t;an>
+        # base64_encryption_key = "TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g="
     
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
     
         # Encryption key must be an AES256 key represented as a bytestring with
         # 32 bytes. Since it's passed in as a base64 encoded string, it needs
@@ -593,13 +593,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # generation number does not match your precondition. For a destination
         # object that does not yet exist, set the if_generation_match precondition to 0.
         # If the destination object already exists in your bucket, set instead a
-        # generation-match precondition[ using its generatio](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_filename)n number.
+        # generation-match precondition using its generation number.
         generation_match_precondition = 0
     
-        blob.upload_from_filename(source_file_name, if_generation_match=generation_match_precondition)
+        blob.[upload_from_filename](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_filename)(source_file_name, if_generation_match=generation_match_precondition)
     
         print(
-     ](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)       f"File {source_file_name} uploaded to {destination_blob_name}."
+            f"File {source_file_name} uploaded to {destination_blob_name}."
         )
     
     
@@ -626,13 +626,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       # encryption_key = "your-encryption-key"
     
-      require "googl[e/cloud](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)/[sto](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)rage"
+      require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
-      bucket = storage.bucke[t](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) bucket_name, skip_lookup: true
+      bucket = storage.bucket bucket_name, skip_lookup: true
     
-      file = bucket.create_file local_file_path, file_name, encryption_key: encryption_key
+      file = bucket.[create_file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) local_file_path, file_name, encryption_key: encryption_key
     
       puts "Uploaded #{file.name} with encryption key"
     end
@@ -757,7 +757,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       std::string data(std::istreambuf_iterator<char>{stream}, {});
       if (stream.bad()) throw google::cloud::Status(stream.status());
-      std::cout << "The object contents ar<<e: &qu<<ot;  data  "\n";
+      std::cout << "The object contents are: " << data << "\n";
     }
 
 ### C#
@@ -777,13 +777,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             string key = "3eFsTXPvqi3BpT2ipFCGirslh1Jgc6ikjoAu2oQ5JcI=",
             string bucketName = "your-unique-bucket-name",
             string objectName = "my-file-name",
-            string localPath = "my-local-path/my-file-[name"](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html))
-      [  ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create){
-            var storage = StorageClient.Create();
+            string localPath = "my-local-path/my-file-name")
+        {
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
             using var outputFile = File.OpenWrite(localPath);
-            storage.DownloadObject([bucketName, objectNam](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.DownloadObjectOptions.html)e, outputFile, new DownloadObjectOption[s](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html)
+            storage.DownloadObject(bucketName, objectName, outputFile, new [DownloadObjectOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.DownloadObjectOptions.html)
             {
-      [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)    EncryptionKey = EncryptionKey.Create(Convert.FromBase64String(key))
+                EncryptionKey = [EncryptionKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)(Convert.FromBase64String(key))
             });
             Console.WriteLine($"Downloaded {objectName} to {localPath}.");
         }
@@ -805,24 +805,24 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	"cloud.google.com/go/storage"
     )
     
-    // downloadEncryptedFile reads an [encryp](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer)ted object.
-    func downloadEncryptedFile(w io.Writer, bucket, object string, secretKey []byte) ([]byte, error) {
+    // downloadEncryptedFile reads an encrypted object.
+    func downloadEncryptedFile(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucket, object string, secretKey []byte) ([]byte, error) {
     	// bucket := "bucket-name"
     	// object := "object-name"
     	// key := []byte("secret-encryption-key")
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
     	if err != nil {
-    		return nil, fm[t](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket).Errorf("[storag](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)e.NewClient: %w", err)
+    		return nil, fmt.Errorf("storage.NewClient: %w", err)
     	}
     	defer client.Close()
     
-    	obj := client.Bucket(bucket).Object(object)
+    	obj := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[Object](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)(object)
     
-    [	ct](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)x, cancel :=[ context.](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_NewReader)WithTimeout(ctx, time.Second*50)
+    	ctx, cancel := context.WithTimeout(ctx, time.Second*50)
     	defer cancel()
     
-    	rc, err := obj.Key(secretKey).NewReader(ctx)
+    	rc, err := obj.[Key](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)(secretKey).[NewReader](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_NewReader)(ctx)
     	if err != nil {
     		return nil, fmt.Errorf("Object(%q).Key(%q).NewReader: %w", object, secretKey, err)
     	}
@@ -873,12 +873,12 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         // The Base64 encoded decryption key, which should be the same key originally used to encrypt
         // the object
-        // String decryptionKey = "TIbv/fj[exq+Vmt](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)XzAlc63J4z5[kFmWJ6NdAPQulQ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html)BT7g=";
+        // String decryptionKey = "TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g=";
     
-        Storage storage = StorageOpt[ions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__).newBuilder().s[etPr](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html)ojectId(projectI[d](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)).build().getService();
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
     
-        Blob blo[b](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_downloadTo_java_io_OutputStream_com_google_cloud_storage_Blob_BlobSourceOption____) = storage.get(bucketName, objectName);
-        blob.downloadTo(destFilePath, Blob.BlobSourceOption.decryptionKey(decryptionKey));
+        [Blob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html) blob = storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(bucketName, objectName);
+        blob.[downloadTo](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html#com_google_cloud_storage_Blob_downloadTo_java_io_OutputStream_com_google_cloud_storage_Blob_BlobSourceOption____)(destFilePath, Blob.BlobSourceOption.decryptionKey(decryptionKey));
     
         System.out.println(
             "Downloaded object "
@@ -914,11 +914,11 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // used to encrypt the file
     // const encryptionKey = 'TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g=';
     
-    // Imports the Google Cloud client lib[rary](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)
-    const {Storage} = require('@google-cloud/storage');
+    // Imports the Google Cloud client library
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
-    [// Crea](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)tes a client
-    const storage = new Storage();
+    // Creates a client
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function downloadEncryptedFile() {
       const options = {
@@ -928,10 +928,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       // Decrypts and downloads the file. This can only be done with the key used
       // to encrypt and upload the file.
       await storage
-        .bucket([bucketName)
-        ](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/file_2.html).file(srcFileName)
-        .setEn[crypti](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html)onKey(Buf[fer](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/file_2.html).from(encryptionKey, 'base64'))
-        .download(options);
+        .bucket(bucketName)
+        .file(srcFileName)
+        .[setEncryptionKey](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/file_2.html)(Buffer.from(encryptionKey, '[base64](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html)'))
+        .[download](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/file_2.html)(options);
     
       console.log(`File ${srcFileName} downloaded to ${destFileName}`);
     }
@@ -962,11 +962,11 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
      */
     function download_encrypted_object(string $bucketName, string $objectName, string $destination, string $base64EncryptionKey): void
     {
-        $storage = new StorageC>lient();
-        $bucket = $storage-bucket($buc>ketName);
-        $object = $bucket-o>bject($objectName);
-        $object-downloadToFile($destinat>ion, [
-            'encryptionKey' = $base64EncryptionKey,
+        $storage = new StorageClient();
+        $bucket = $storage->bucket($bucketName);
+        $object = $bucket->object($objectName);
+        $object->downloadToFile($destination, [
+            'encryptionKey' => $base64EncryptionKey,
         ]);
         printf('Encrypted object gs://%s/%s downloaded to %s' . PHP_EOL,
             $bucketName, $objectName, basename($destination));
@@ -998,19 +998,19 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         # bucket_name = "your-bucket-name"
         # source_blob_name = "storage-object-name"
         # destination_file_name = "local/path/to/file"
-        # base64_encryption_[key = &](https://docs.cloud.google.com/python/docs/reference/storage/latest)q[uot;ba](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)se64-encoded-encryption-key"[;n>
+        # base64_encryption_key = "base64-encoded-encryption-key"
     
-        storage_client = storage.Client()
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
     
-        bucket = storage_client.bucket(bucket_name)
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
     
         # Encryption key must be an AES256 key represented as a bytestring with
         # 32 bytes. Since it's passed in as a base64 encoded string, it needs
         # to be decoded.
         encryption_key = base64.b64decode(base64_encryption_key)
-        blob](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)[ = bucket.blob(sourc](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_to_filename)e_blob_name, encryption_key=encryption_key)
+        blob = bucket.blob(source_blob_name, encryption_key=encryption_key)
     
-        blob.download_to_filename(destination_file_name)
+        blob.[download_to_filename](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_to_filename)(destination_file_name)
     
         print(
             f"Blob {source_blob_name} downloaded to {destination_file_name}."
@@ -1038,14 +1038,14 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       # The Base64 encoded decryption key, which should be the same key originally used to encrypt the object
       # encryption_key = "TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g="
     
-      require "googl[e/cloud](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)/[sto](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)rage"
+      require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
-      bucket = storage.bucke[t](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) bucket_name, skip_lookup: true
+      bucket = storage.bucket bucket_name, skip_lookup: true
     
-      file = bucket.file[ file_na](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-File.html)me, encryption_key: encryption_key
-      file.download local_file_path, encryption_key: encryption_key
+      file = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name, encryption_key: encryption_key
+      file.[download](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-File.html) local_file_path, encryption_key: encryption_key
     
       puts "Downloaded encrypted #{file.name} to #{local_file_path}"
     end
@@ -1175,9 +1175,9 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
               gcs::EncryptionKey::FromBase64Key(new_key_base64));
       if (!object_metadata) throw std::move(object_metadata).status();
     
-      std::cout << "Rotated key on obje<<ct "  object>_metadata-name()
-      <<           &quo<<t; in bucket &quo>t;  object_metadata-b<<ucket()
-                 <<"\nFull Metad<<ata: &quot;  *object_metadata  "\n";
+      std::cout << "Rotated key on object " << object_metadata->name()
+                << " in bucket " << object_metadata->bucket()
+                << "\nFull Metadata: " << *object_metadata << "\n";
     }
 
 ### C#
@@ -1197,21 +1197,21 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             string bucketName = "your-unique-bucket-name",
             string objectName = "your-object-name",
             string currrentEncryptionKey = "TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g=",
-            string newEncryptionKey = "ARbt/judaq+VmtXzAsc83J4z5kFmWJ6NdAPQuleu[B7g="](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html))
-      [  ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create){
-            var storage = StorageClient.Create();
+            string newEncryptionKey = "ARbt/judaq+VmtXzAsc83J4z5kFmWJ6NdAPQuleuB7g=")
+        {
+            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
     
             using var outputStream = new MemoryStream();
-            storage.DownloadObject(bu[cketName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.DownloadObjectOptions.html), objectName, outputStream, new DownloadObjectOptions([)](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html)
+            storage.DownloadObject(bucketName, objectName, outputStream, new [DownloadObjectOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.DownloadObjectOptions.html)()
             {
-      [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)    EncryptionKey = EncryptionKey.Create(Convert.FromBase64String(currrentEncryptionKey))
+                EncryptionKey = [EncryptionKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)(Convert.FromBase64String(currrentEncryptionKey))
             });
     
             outputStream.Position = 0;
     
-            storage.UploadObject(bucketNa[me](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UploadObjectOptions.html), objectName, null, outputStream, new UploadObjectOptions([)](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html)
+            storage.UploadObject(bucketName, objectName, null, outputStream, new [UploadObjectOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.UploadObjectOptions.html)()
             {
-      [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)    EncryptionKey = EncryptionKey.Create(Convert.FromBase64String(newEncryptionKey))
+                EncryptionKey = [EncryptionKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.EncryptionKey.html#Google_Cloud_Storage_V1_EncryptionKey_Create_System_Byte___)(Convert.FromBase64String(newEncryptionKey))
             });
     
             Console.WriteLine($"Rotated encryption key for object  {objectName} in bucket {bucketName}");
@@ -1234,8 +1234,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	"cloud.google.com/go/storage"
     )
     
-    // rotateEncryptionKey encrypts an obje[ct wit](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer)h the newKey.
-    func rotateEncryptionKey(w io.Writer, bucket, object string, key, newKey []byte) error {
+    // rotateEncryptionKey encrypts an object with the newKey.
+    func rotateEncryptionKey(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucket, object string, key, newKey []byte) error {
     	// bucket := "bucket-name"
     	// object := "object-name"
     	// key := []byte("encryption-key")
@@ -1245,25 +1245,25 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	if err != nil {
     		return fmt.Errorf("storage.NewClient: %w", err)
     	}
-    	defer cli[ent](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket).Close()
+    	defer client.Close()
     
-    	c[tx](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object), cancel := context.WithTimeout(ctx, time.Second*10)
+    	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
     	defer cancel()
     
-    	o := client.Bucket(bucket).Object(object)
+    	o := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucket).[Object](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_Object)(object)
     
     	// Optional: set a generation-match precondition to avoid potential race
     	// conditions and data corruptions. The request to copy is aborted if the
     	// object's generation number does not match your precondition.
-    	attrs,[ err := o.](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Conditions)Attrs(ctx)
-    	if err != ni[l](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Generation) {
+    	attrs, err := o.Attrs(ctx)
+    	if err != nil {
     		return fmt.Errorf("object.Attrs: %w", err)
     	}
-    	o = o.If(storage.Conditions{GenerationMatch: attrs.Generation})
+    	o = o.If(storage.[Conditions](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Conditions){GenerationMatch: attrs.[Generation](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Generation)})
     
-    	// You[ ca](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)n't c[hange an o](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_CopierFrom)bje[ct&](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)#39;s encryption key directly, you must rewrite the
+    	// You can't change an object's encryption key directly, you must rewrite the
     	// object using the new key.
-    	_, err = o.Key(newKey).CopierFrom(o.Key(key)).Run(ctx)
+    	_, err = o.[Key](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)(newKey).[CopierFrom](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_CopierFrom)(o.[Key](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_ObjectHandle_Key)(key)).Run(ctx)
     	if err != nil {
     		return fmt.Errorf("Key(%q).CopierFrom(%q).Run: %w", newKey, key, err)
     	}
@@ -1307,11 +1307,11 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         // String oldEncryptionKey = "TIbv/fjexq+VmtXzAlc63J4z5kFmWJ6NdAPQulQBT7g="
     
         // The new encryption key to use
-        // String newEncryptionKey = "0mMWhF[vQOdS4A](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)mxRpo8SJxXn[5MjFhbz7DkKBUd](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html)UIef8="
+        // String newEncryptionKey = "0mMWhFvQOdS4AmxRpo8SJxXn5MjFhbz7DkKBUdUIef8="
     
-        Storage storage = StorageOpt[ions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__).newBuilder().[setPro](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html)jectId(pro[jectId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html)).build().getService();
-        BlobI[d](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html) blobId = BlobId.of[(bu](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)cketName, objectName);
-        Blob blob = storage.get(blobId);
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().[getService](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.transfermanager.TransferManagerConfig.html#com_google_cloud_storage_transfermanager_TransferManagerConfig_getService__)();
+        [BlobId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html) blobId = [BlobId](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.BlobId.html).of(bucketName, objectName);
+        [Blob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Blob.html) blob = storage.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_get_com_google_cloud_storage_BlobId_)(blobId);
         if (blob == null) {
           System.out.println("The object " + objectName + " wasn't found in " + bucketName);
           return;
@@ -1319,19 +1319,19 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
         // Optional: set a generation-match precondition to avoid potential race
         // conditions and data corruptions. The request to upload returns a 412 error if
-      [  ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)// the object's generation number does not[ match ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)your precondition.
-        Storage.BlobSourceOption precondition =
-            Storage.BlobSourceOption.generationMatch(blob.getGeneration());
+        // the object's generation number does not match your precondition.
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).BlobSourceOption precondition =
+            [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).BlobSourceOption.generationMatch(blob.getGeneration());
     
-        // You can't change[ an obj](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)e[ct's en](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.CopyRequest.html)cryption key direct[ly, the](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) only way is to overwrite the object
-        Storage.CopyRequest request =
-            Storage.CopyRequest.newBu[ilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)()
+        // You can't change an object's encryption key directly, the only way is to overwrite the object
+        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).[CopyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.CopyRequest.html) request =
+            [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).CopyRequest.newBuilder()
                 .setSource(blobId)
                 .setSourceOptions(
-                    Storage.BlobSourc[eOption](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).decryptionKey(oldEncryptionKey), precondition)
-                .setTarget(blobId, Storag[e](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_copy_com_google_cloud_storage_Storage_CopyRequest_).BlobTargetOption.encryptionKey(newEncryptionKey))
+                    [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).BlobSourceOption.decryptionKey(oldEncryptionKey), precondition)
+                .setTarget(blobId, [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html).BlobTargetOption.encryptionKey(newEncryptionKey))
                 .build();
-        storage.copy(request);
+        storage.[copy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_copy_com_google_cloud_storage_Storage_CopyRequest_)(request);
     
         System.out.println(
             "Rotated encryption key for object " + objectName + "in bucket " + bucketName);
@@ -1364,15 +1364,15 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     // The new encryption key to use
     // const newKey = '0mMWhFvQOdS4AmxRpo8SJxXn5MjFhbz7DkKBUdUIef8=';
     
-    // Imports the Google Cloud client lib[rary](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)
-    const {Storage} = require('@google-cloud/storage');
+    // Imports the Google Cloud client library
+    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
     
-    [// Crea](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)tes a client
-    const storage = new Storage();
+    // Creates a client
+    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
     
     async function rotateEncryptionKey() {
       const rotateEncryptionKeyOptions = {
-    [    en](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html)cryptionKey: Buffer.from(newKey, 'base64'),
+        encryptionKey: Buffer.from(newKey, '[base64](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html)'),
     
         // Optional: set a generation-match precondition to avoid potential race
         // conditions and data corruptions. The request to copy is aborted if the
@@ -1383,10 +1383,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       };
       await storage
         .bucket(bucketName)
-        .file(fi[leName](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html), {
-          encryp[tionKey](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/file_2.html): Buffer.from(oldKey, 'base64'),
+        .file(fileName, {
+          encryptionKey: Buffer.from(oldKey, '[base64](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/policydocument.html)'),
         })
-        .rotateEncryptionKey({
+        .[rotateEncryptionKey](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/file_2.html)({
           rotateEncryptionKeyOptions,
         });
     
@@ -1425,12 +1425,12 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         string $oldBase64EncryptionKey,
         string $newBase64EncryptionKey
     ): void {
-        $storage = new StorageC>lient();
-        $object> = $storage-bucket($bucketName)-object($objectName);<>/span>
+        $storage = new StorageClient();
+        $object = $storage->bucket($bucketName)->object($objectName);
     
-        $rewrittenObject = $object-rewrite($bucketN>ame, [
-            'encryptionKey' = $oldBase64EncryptionK>ey,
-            'destinationEncryptionKey' = $newBase64EncryptionKey,
+        $rewrittenObject = $object->rewrite($bucketName, [
+            'encryptionKey' => $oldBase64EncryptionKey,
+            'destinationEncryptionKey' => $newBase64EncryptionKey,
         ]);
     
         printf('Rotated encryption key for object gs://%s/%s' . PHP_EOL,
@@ -1453,9 +1453,9 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         bucket_name, blob_name, base64_encryption_key, base64_new_encryption_key
     ):
         """Performs a key rotation by re-writing an encrypted blob with a new
-        encryption key."&quo[t;"](https://docs.cloud.google.com/python/docs/reference/storage/latest);[
-        s](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)torage_client = storage.Client([)n>
-        bucket = storage_client.bucket(bucket_name)
+        encryption key."""
+        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
         current_encryption_key = base64.b64decode(base64_encryption_key)
         new_encryption_key = base64.b64decode(base64_new_encryption_key)
     
@@ -1477,7 +1477,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         generation_match_precondition = source_blob.generation
     
         while True:
-            token, bytes_rewritte[n](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_rewrite), tota](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)l_bytes = destination_blob.rewrite(
+            token, bytes_rewritten, total_bytes = destination_blob.[rewrite](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_rewrite)(
                 source_blob, token=token, if_generation_match=generation_match_precondition
             )
             if token is None:
@@ -1509,13 +1509,13 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       # The new encryption key to use
       # new_encryption_key = "0mMWhFvQOdS4AmxRpo8SJxXn5MjFhbz7DkKBUdUIef8="
     
-      require "googl[e/cloud](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html)/[sto](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)rage"
+      require "google/cloud/storage"
     
-      storage = Google::Cloud::Storage.new
-      bucket  = storage.bucket [buck](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)et_name, skip_lookup: true
-      file    = bucket.file file_nam[e](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-File.html), encryption_key: current_encryption_key
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      bucket  = storage.bucket bucket_name, skip_lookup: true
+      file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name, encryption_key: current_encryption_key
     
-      file.rotate encryption_key:     current_encryption_key,
+      file.[rotate](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-File.html) encryption_key:     current_encryption_key,
                   new_encryption_key: new_encryption_key
     
       puts "The encryption key for #{file.name} in #{bucket.name} was rotated."

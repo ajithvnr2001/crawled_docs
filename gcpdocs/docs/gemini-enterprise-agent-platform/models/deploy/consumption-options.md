@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options/
 title: Consumption options \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:06.619289+00:00
+fetched_at: 2026-11-03T09:53:23.823479+00:00
 ---
 
 # Consumption options  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -32,8 +32,8 @@ Gemini Enterprise Agent Platform provides five consumption options tailored to d
 Consumption option | Description | Ideal for | Pricing  
 ---|---|---|---  
 [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) | Provides guaranteed throughput for a commitment period |  Critical, steady-state, always-on workloads where an SLA is needed  |  Commitment-based (available in 1-week, 1-month, 3-month, and 1-year plans)   
-PayGo | [Standard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) | Flexible, pay-per-use option with no upfront commitment | Default option for everyday use cases with flexibility for variable traffic demand | Per-token (standard rate)  
-[Priority](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) | Delivers higher reliability through priority processing while maintaining PayGo flexibility | Important workloads that require higher reliability and limits than standard PayGo | Per-token (premium rate)  
+PayGo | [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) | Flexible, pay-per-use option with no upfront commitment | Default option for everyday use cases with flexibility for variable traffic demand | Per-token (standard rate)  
+[Priority](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) | Delivers higher reliability through priority processing while maintaining PayGo flexibility | Important workloads that require higher reliability and limits than Standard PayGo | Per-token (premium rate)  
 [Flex](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo) | Cost-effective option for latency-tolerant workloads | Tasks that can tolerate slower response times and higher throttling in exchange for lower pricing | Per-token (discounted rate)  
 [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) | Cost-optimized for high-volume, asynchronous processing | Large-scale jobs where results are needed within a longer timeframe | Per-token (discounted rate)  
   
@@ -50,7 +50,7 @@ Organizations often have to make tradeoffs between reliability and cost while ch
   1. **Cover baseline traffic with Provisioned Throughput.** This improves utilization of your reserved capacity, making it economical while providing guaranteed reliability for the core of your traffic. To achieve this, do the following: 
      * Analyze your minute- or second-level traffic patterns.
      * Determine the amount of traffic to be covered by Provisioned Throughput. It should cover your highest priority traffic.
-  2. **Manage spillover traffic with Standard or Priority pay-as-you-go** : By default, traffic that exceeds your Provisioned Throughput baseline (called _spillover traffic_) is handled by [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo). If you observe higher variance in performance for requests above the TPM limit, you can mitigate that variance through optimization. [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) gives you the option to achieve reliable performance at a premium price, subject to the ramp limit.
+  2. **Manage spillover traffic with Standard pay-as-you-go or Priority pay-as-you-go** : By default, traffic that exceeds your Provisioned Throughput baseline (called _spillover traffic_) is handled by [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo). If you observe higher variance in performance for requests above the TPM limit, you can mitigate that variance through optimization. [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) gives you the option to achieve reliable performance at a premium price, subject to the ramp limit.
 
 
 
@@ -112,7 +112,7 @@ To optimize for cost:
   * **Use Flex PayGo** : Identify any part of your pipeline that is not latency sensitive (e.g., background summarization, data extraction) and move it to Flex PayGo to cut costs by ~50%.
   * **Use batch processing** : For asynchronous jobs such as processing large datasets, batch processing is significantly cheaper (50%) than processing requests sequentially using Standard PayGo.
   * **Use context caching** : [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) helps reduce the cost and latency of requests that contain repeated content. Increase cache hit rates by placing large and common content at the beginning of your prompt, and sending requests with a similar prefix in a short amount of time.
-  * **Select a lower-priced model** : If your use case allows for it, use one of our smaller models like Flash-Lite, which has a lower per-token price point than our heavy-duty, full-featured models.
+  * **Select a lower-priced model** : If your use case allows for it, use one of our smaller models like Gemini Flash-Lite, which has a lower per-token price point than our heavy-duty, full-featured models.
 
 
 
@@ -120,6 +120,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

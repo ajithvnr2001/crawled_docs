@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/token-management-overview/
 title: Token management policies overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:45.758485+00:00
+fetched_at: 2026-11-03T09:53:12.067861+00:00
 ---
 
 # Token management policies overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ With token management policies, you can do the following:
 
 Figure 1 shows how token management policies evaluate LLM requests and responses at the gateway layer.
 
-[ ![AI agents send LLM requests through an Agent Gateway that evaluates token aggregation, budget, and cost-per-token policies before forwarding traffic to models.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/token-management-overview.svg)](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/token-management-overview.svg) **Figure 1.** Token management policies evaluate LLM traffic at the gateway layer (click to enlarge).
+[ ![AI agents send LLM requests through Agent Gateway that evaluates token aggregation, budget, and cost-per-token policies before forwarding traffic to models.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/token-management-overview.svg)](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/token-management-overview.svg) **Figure 1.** Token management policies evaluate LLM traffic at the gateway layer (click to enlarge).
 
 Token management uses three policy resources that work together to classify traffic, enforce token budgets, and customize cost calculations:
 
@@ -92,7 +92,7 @@ Component | Supported options
 **Agent Gateway deployments** | **Secure Web Proxy in your Google Cloud project** : Enforces egress token governance for all agent-to-model requests.   
 **Models** |  Gemini, Anthropic, and OpenAI API compatible models across any model provider:
 
-  * **Google Gemini** : Gemini models hosted on Agent Platform or Gemini endpoints, such as `aiplatform.googleapis.com`.
+  * **Gemini** : Gemini models hosted on Agent Platform or Gemini endpoints, such as `aiplatform.googleapis.com`.
   * **Anthropic** : Claude models hosted on Agent Platform or external Anthropic endpoints.
   * **OpenAI API compatible models** : OpenAI API compatible models on Agent Platform or external providers, for example, Amazon Bedrock and Azure AI Foundry.
 
@@ -152,6 +152,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

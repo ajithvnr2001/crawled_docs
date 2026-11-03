@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy/
 title: About resource hierarchy \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:15.898842+00:00
+fetched_at: 2026-11-03T09:54:42.392932+00:00
 ---
 
 # About resource hierarchy  |  Resource Manager  |  Google Cloud Documentation
@@ -21,7 +21,11 @@ Send feedback
 
 #  About resource hierarchy Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Google Cloud resource hierarchy provides a structured way to organize your cloud resources. All resources except for the highest resource in a hierarchy have exactly one parent. The hierarchy consists of the _organization_ (root) at the top, followed by _folders_ (optional) for grouping, and then _projects_ , which contain the actual service resources like Compute Engine virtual machines and storage buckets.
+The Google Cloud resource hierarchy lets you organize your cloud resources into a parent-child structure of organizations, folders, and projects. Structuring your resources this way helps you centralize asset ownership and apply inherited access control and organization policies across your environment.
+
+## How the resource hierarchy works
+
+All resources except for the highest resource in a hierarchy have exactly one parent. The hierarchy consists of the _organization_ (root) at the top, followed by _folders_ (optional) for grouping, and then _projects_ , which contain the actual service resources like Compute Engine virtual machines and storage buckets.
 
 Using a structured hierarchy offers the following advantages:
 
@@ -186,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

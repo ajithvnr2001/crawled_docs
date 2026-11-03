@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/observability-artifact-registry/
 title: Observability in Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:08:51.976989+00:00
+fetched_at: 2026-11-03T09:52:35.351917+00:00
 ---
 
 # Observability in Artifact Registry  |  Google Cloud Documentation
@@ -21,12 +21,7 @@ Send feedback
 
 #  Observability in Artifact Registry Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the resources available for administrators to monitor activity and growth in Artifact Registry resources using Google Cloud Observability services.
-
-By default, Artifact Registry is configured to do the following:
-
-  * Send system logs and audit logs to Cloud Logging
-  * Send system metrics and resource metrics to Cloud Monitoring
+Artifact Registry integrates with Google Cloud Observability to monitor repository activity and growth. By default, Artifact Registry sends system logs and audit logs to Cloud Logging and sends system metrics and resource metrics to Cloud Monitoring.
 
 For more information, read [Observability in Google Cloud](https://docs.cloud.google.com/stackdriver/docs). 
 
@@ -105,6 +100,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

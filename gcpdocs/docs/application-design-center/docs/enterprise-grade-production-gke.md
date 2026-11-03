@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/enterprise-grade-production-gke/
 title: Enterprise-grade production GKE cluster and workload \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:19.024737+00:00
+fetched_at: 2026-11-03T09:52:59.198552+00:00
 ---
 
 # Enterprise-grade production GKE cluster and workload  |  Application Design Center  |  Google Cloud Documentation
@@ -21,14 +21,7 @@ Send feedback
 
 #  Enterprise-grade production GKE cluster and workload Stay organized with collections  Save and categorize content based on your preferences. 
 
-Create a high-security Google Kubernetes Engine (GKE) cluster and workload optimized for production. This guide describes the following templates, which you can use to deploy a production web application:
-
-  * **Enterprise-grade production GKE cluster template** : create the foundational infrastructure required for a production application. This template sets up a secure, private GKE cluster optimized for integrity, advanced networking, and disaster recovery.
-
-  * **Enterprise-grade production GKE workload** ([Preview](https://cloud.google.com/products#product-launch-stages)): deploy a helm chart that includes the configuration for a highly available stateless web application. The workload is configured to enhance security, reliability, and service continuity.
-
-
-
+The enterprise-grade production Google Kubernetes Engine (GKE) templates in Application Design Center let you deploy a high-security cluster and stateless web application. You can use the _Enterprise-grade production GKE cluster_ template to provision a secure, private GKE cluster configured for integrity, advanced networking, and disaster recovery. You can then pair it with the _Enterprise-grade production GKE workload_ template ([Preview](https://cloud.google.com/products#product-launch-stages)) to deploy a Helm chart configured for high availability, reliability, and service continuity.
 
 For example, you might deploy the cluster and workload templates to address the following business needs:
 
@@ -174,6 +167,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

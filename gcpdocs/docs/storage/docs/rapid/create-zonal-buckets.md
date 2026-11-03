@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/rapid/create-zonal-buckets/
 title: Create zonal buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:46.077596+00:00
+fetched_at: 2026-11-03T09:54:15.395713+00:00
 ---
 
 # Create zonal buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,18 +21,7 @@ Send feedback
 
 #  Create zonal buckets Stay organized with collections  Save and categorize content based on your preferences. 
 
-Zonal buckets, offered through [Rapid Bucket](https://docs.cloud.google.com/storage/docs/rapid/rapid-bucket), provide high-performance, low-latency storage for applications that require data within a specific geographic zone.
-
-This page describes how to do the following:
-
-  * Create a bucket with a [zonal location](https://docs.cloud.google.com/storage/docs/locations#location-z).
-
-  * Mount the zonal bucket to your local file system using [Cloud Storage FUSE](https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/overview).
-
-  * Transfer data between an existing bucket to the zonal bucket by using Storage Transfer Service.
-
-
-
+Zonal buckets, offered through [Rapid Bucket](https://docs.cloud.google.com/storage/docs/rapid/rapid-bucket), provide high-performance, low-latency storage for applications that require data within a specific geographic zone. This document describes how to create a bucket with a [zonal location](https://docs.cloud.google.com/storage/docs/locations#location-z) and mount it to your local file system by using [Cloud Storage FUSE](https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/overview). You also learn how to benchmark the bucket's performance and transfer data from an existing bucket by using Storage Transfer Service.
 
 ## Create a bucket in a zone
 
@@ -379,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/faq/
 title: Cloud SQL for PostgreSQL FAQ \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:01.346690+00:00
+fetched_at: 2026-11-03T09:44:23.671216+00:00
 ---
 
 # Cloud SQL for PostgreSQL FAQ  |  Google Cloud Documentation
@@ -260,7 +260,7 @@ For instances with a large load, this process takes longer, and it might look li
 Can I make my database larger or smaller?
     
 
-You can increase the amount of storage available to your instance at any time without incurring downtime. You cannot decrease the size of the storage of your instance. You can also configure your instance to automatically increase its storage capacity when space is running low. [Learn more](https://docs.cloud.google.com/sql/docs/postgres/instance-settings#automatic-storage-increase-2ndgen). 
+You can increase the amount of storage available to your instance at any time without incurring downtime. If the storage capacity of your instance becomes larger than your application needs, then you can [manually shrink your storage capacity](https://docs.cloud.google.com/sql/docs/postgres/about-storage-shrink). You can also configure your instance to automatically increase its storage capacity when space is running low. [Learn more](https://docs.cloud.google.com/sql/docs/postgres/instance-settings#automatic-storage-increase-2ndgen). 
 
 Can I upgrade and downgrade vCPUs?
     
@@ -372,6 +372,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

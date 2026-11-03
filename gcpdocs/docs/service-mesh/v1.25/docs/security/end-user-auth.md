@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.25/docs/security/end-user-auth/
 title: Configuring Cloud Service Mesh user authentication \u00a0|\u00a0 Cloud Service Mesh v1.25 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:32.901603+00:00
+fetched_at: 2026-11-03T09:44:02.915254+00:00
 ---
 
 # Configuring Cloud Service Mesh user authentication  |  Cloud Service Mesh v1.25  |  Google Cloud Documentation
@@ -291,7 +291,7 @@ The user authentication `kpt` package contains two sample keys for quick setup. 
               {
                  "kty":"oct",
                  "kid":"key-0",
-                 "K&quot;:"YOUR_KEY",
+                 "K":"YOUR_KEY",
                  "useAfter": 1612813735
               }
            ]
@@ -373,7 +373,7 @@ You can view the file by `cat pkg/user_auth_config.yaml`, it contains these fiel
       authentication:
         oidc:
           certificateAuthorityData: ""  # kpt-set: ${ca-cert}
-          is<suerURI: ">your issuer uri"  # kpt-set: ${issuer-uri}
+          issuerURI: "<your issuer uri>"  # kpt-set: ${issuer-uri}
           proxy: ""  # kpt-set: ${proxy}
           oauthCredentialsSecret:
             name: "oauth-secret"  # kpt-set: ${secret-name}
@@ -381,7 +381,7 @@ You can view the file by `cat pkg/user_auth_config.yaml`, it contains these fiel
           redirectURIHost: ""  # kpt-set: ${redirect-host}
           redirectURIPath: "/_gcp_asm_authenticate"  # kpt-set: ${redirect-path}
           scopes: ""  # kpt-set: ${scopes}
-          groupsClaim: "&quot;  # kpt-set: ${groups}
+          groupsClaim: ""  # kpt-set: ${groups}
       outputJWTAudience: "test_audience"  # kpt-set: ${jwt-audience}
     
 
@@ -413,7 +413,7 @@ The following example shows how to designate as an API request: any request cont
       authentication:
         oidc:
           certificateAuthorityData: ""  # kpt-set: ${ca-cert}
-          is<suerURI: ">your issuer uri"  # kpt-set: ${issuer-uri}
+          issuerURI: "<your issuer uri>"  # kpt-set: ${issuer-uri}
           proxy: ""  # kpt-set: ${proxy}
           oauthCredentialsSecret:
             name: "oauth-secret"  # kpt-set: ${secret-name}
@@ -421,14 +421,9 @@ The following example shows how to designate as an API request: any request cont
           redirectURIHost: ""  # kpt-set: ${redirect-host}
           redirectURIPath: "/_gcp_asm_authenticate"  # kpt-set: ${redirect-path}
           scopes: ""  # kpt-set: ${scopes}
-          groupsClaim: ""** # kpt-set: ${groups}**  ou**tputJWTAudience** : "test_audience**"**  # kpt-set:**${jwt-audience}**
-      apiRequestIdentifier: 
-        name: &**quot;api-request-identifiers"**
-        expres**sions** : 
-        - "'example-api-header9; in http_request.headers"
-        - "http_request.host == api.example.com"
-        - "matches(http_request.path, '/v1/api/(.*)')"
-        # other expressions go here
+          groupsClaim: ""  # kpt-set: ${groups}
+      outputJWTAudience: "test_audience"  # kpt-set: ${jwt-audience}
+      **apiRequestIdentifier : **    **name : "api-request-identifiers"**    **expressions : **    **- "'example-api-header' in http_request.headers"**    **- "http_request.host == api.example.com"**    **- "matches(http_request.path, '/v1/api/(.*)')"**    # other expressions go here
     
 
 Cloud Service Mesh user authentication CEL expressions can be constructed from the following fields:
@@ -467,7 +462,7 @@ Match all requests with the header `X-API-Key` set to a particular value:
 **Note:** the header must be specified in lowercase.
     
     
-    "'x-api-key' in http_req&&uest.headers  http_request.headers['x-api-key'].values == ['example-value ']"
+    "'x-api-key' in http_request.headers && http_request.headers['x-api-key'].values == ['example-value ']"
     
 
 Match all requests to the host `api.example.com`:
@@ -686,7 +681,7 @@ See the following example authorization policy:
                - test_audience
              - key: request.auth.claims[sub]
                values:
-               - allowed_user_sub_1  # Change this with the "sub" claim in the RC token. Wildcard '*&#39; will match everything.
+               - allowed_user_sub_1  # Change this with the "sub" claim in the RC token. Wildcard '*' will match everything.
          
 
 

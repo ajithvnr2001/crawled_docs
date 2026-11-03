@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/moving-projects-folders/
 title: Move a project \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:39.121948+00:00
+fetched_at: 2026-11-03T09:55:00.798073+00:00
 ---
 
 # Move a project  |  Resource Manager  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Move a project Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide explains how to move a project within your organization resource.
-
-The project is the base-level organizing entity in a Google Cloud organization resource. Projects are created under organization resources, and can be placed under folders or the organization resource itself, forming the [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). You can move project resources within your resource hierarchy, but should consider the policy implications of the move before you make it.
+You can move a Google Cloud project within your organization resource to reorganize your [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) and align with team restructuring, departmental shifts, or updated access requirements. As the base-level organizing entity in Google Cloud, a project can reside directly under your organization resource or inside a folder. Before you move a project, evaluate the policy implications of the destination, because the project inherits identity and organization policies from its new parent.
 
 **Note:** The following instructions are only for moving a project within an organization resource. For information about migrating a project between organization resources, see [Migrating projects](https://docs.cloud.google.com/resource-manager/docs/project-migration).
 
@@ -112,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

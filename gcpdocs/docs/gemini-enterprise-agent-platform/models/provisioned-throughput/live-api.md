@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api/
 title: Provisioned Throughput for Gemini Live API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:27.047925+00:00
+fetched_at: 2026-11-03T09:53:16.708857+00:00
 ---
 
 # Provisioned Throughput for Gemini Live API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Enforcement windows are larger at smaller GSU amounts to ensure that smaller req
 
 ### Estimating GSU requirements
 
-Let's walk through an example of a potential workload and understand how the [estimation tool](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) would provide a recommendation for this model, which also informs how requests are processed and burndown rates are applied. A user is planning to use the Live API for a chatbot where 10 concurrent sessions are expected, and the duration is 5 minutes (300 seconds). There are an expected 30 conversation turns per session, and the user specifies a maximum session context window of 6,000 trigger tokens. The shape of the requests are captured below:
+Let's walk through an example of a potential workload and understand how the [estimation tool](https://console.cloud.google.com/agent-platform/provisioned-throughput/price-estimate) would provide a recommendation for this model, which also informs how requests are processed and burndown rates are applied. A user is planning to use Gemini Live API for a chatbot where 10 concurrent sessions are expected, and the duration is 5 minutes (300 seconds). There are an expected 30 conversation turns per session, and the user specifies a maximum session context window of 6,000 trigger tokens. The shape of the requests are captured below:
 
 Field | Example Value  
 ---|---  
@@ -267,6 +267,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-dm-deployment/
 title: Deployment Manager: SAP HANA scale-up high-availability cluster configuration guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:37.523806+00:00
+fetched_at: 2026-11-03T09:44:10.394399+00:00
 ---
 
 # Deployment Manager: SAP HANA scale-up high-availability cluster configuration guide  |  SAP on Google Cloud  |  Google Cloud Documentation
