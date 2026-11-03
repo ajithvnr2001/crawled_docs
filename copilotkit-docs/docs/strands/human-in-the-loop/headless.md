@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/human-in-the-loop/headless/
 title: Headless Interrupts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:33.427169+00:00
+fetched_at: 2026-11-03T10:43:39.437172+00:00
 ---
 
 # Headless Interrupts
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -140,7 +144,7 @@ Either way, no chat surface is required.
 
 
 
-If you just want "a picker in chat", just use [`useInterrupt`](https://docs.copilotkit.ai/strands/human-in-the-loop/headless/useInterrupt).
+If you just want "a picker in chat", just use [`useInterrupt`](https://docs.copilotkit.ai/useInterrupt).
 
 ## The primitives#
 
@@ -257,7 +261,7 @@ If you need full control over the subscription (e.g. for a custom `useHeadlessIn
 
 ## Going further#
 
-  * [Tool-based HITL with `useHumanInTheLoop`](https://docs.copilotkit.ai/strands/human-in-the-loop/human-in-the-loop) — for LLM-initiated pauses where the model decides on the fly to ask the user, rather than the runtime forcing the pause itself.
-  * [`useInterrupt`](https://docs.copilotkit.ai/strands/human-in-the-loop/headless/useInterrupt) — the render-prop version of this page, with `enabled` gating and `handler` preprocessing.
+  * [Tool-based HITL with `useHumanInTheLoop`](https://docs.copilotkit.ai/human-in-the-loop) — for LLM-initiated pauses where the model decides on the fly to ask the user, rather than the runtime forcing the pause itself.
+  * [`useInterrupt`](https://docs.copilotkit.ai/useInterrupt) — the render-prop version of this page, with `enabled` gating and `handler` preprocessing.
 
 

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/prebuilt-components/copilot-threads-drawer/
 title: Threads Drawer
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:48.652142+00:00
+fetched_at: 2026-11-03T10:43:30.521793+00:00
 ---
 
 # Threads Drawer
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -205,13 +209,119 @@ app/page.tsx
 
 The launcher button that opens the Drawer from the chat header appears on mobile viewports only. On desktop the Drawer is a persistent in-flow panel that is always visible, so a launcher there would do nothing. A missing desktop launcher is the design, not a broken wiring.
 
+## Add your own "New conversation" button#
+
+The Drawer has its own "New Conversation" row. Your app can also keep its own button, for example in a toolbar or a page header. To start a new conversation from that button, call `startNewThread()` from [`useCopilotChatConfiguration`](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration). This is the same function the Drawer calls for its own row.
+
+app/page.tsx
+    
+    
+    import {
+      CopilotKitProvider,
+      CopilotChatConfigurationProvider,
+      CopilotChat,
+      CopilotThreadsDrawer,
+      useCopilotChatConfiguration,
+    } from "@copilotkit/react-core/v2";
+    import "@copilotkit/react-core/v2/styles.css";
+    
+    function NewConversationButton() {
+      const configuration = useCopilotChatConfiguration(); 
+    
+      return (
+        <button
+          type="button"
+          onClick={() => configuration?.startNewThread()} 
+        >
+          New conversation
+        </button>
+      );
+    }
+    
+    export default function Page() {
+      return (
+        <CopilotKitProvider runtimeUrl="/api/copilotkit">
+          <CopilotChatConfigurationProvider>
+            <div style={{ display: "flex", height: "100dvh" }}>
+              <CopilotThreadsDrawer />
+              <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                <header>
+                  <NewConversationButton />
+                </header>
+                <CopilotChat />
+              </main>
+            </div>
+          </CopilotChatConfigurationProvider>
+        </CopilotKitProvider>
+      );
+    }
+
+How it works:
+
+  * Put the button inside the same `<CopilotChatConfigurationProvider>` as the Drawer and the chat. Outside a provider, `useCopilotChatConfiguration()` returns `null` and the button does nothing.
+
+  * `startNewThread()` gives the chat a new thread id and shows the welcome screen. The Drawer reads the active thread from the same configuration, so no row stays selected.
+
+  * The new thread appears in the Drawer list after its first run. An empty thread does not get a row.
+
+  * If you set the `threadId` prop on `<CopilotChatConfigurationProvider>`, your app controls the thread. Then `startNewThread()` and the Drawer's own row selection do nothing and log a warning. Keep the thread id in your own state, and pass the Drawer two callbacks that update that state: `onThreadSelect` for a selected row, and `onNewThread` for its "New Conversation" row. Your button runs the same code as `onNewThread`:
+        
+        function ControlledChat() {
+          const [threadId, setThreadId] = useState(() => crypto.randomUUID());
+          const startNew = () => setThreadId(crypto.randomUUID());
+        
+          return (
+            <CopilotChatConfigurationProvider threadId={threadId}>
+              <CopilotThreadsDrawer
+                onThreadSelect={(id) => setThreadId(id)}
+                onNewThread={startNew}
+              />
+              <button type="button" onClick={startNew}>
+                New conversation
+              </button>
+              <CopilotChat />
+            </CopilotChatConfigurationProvider>
+          );
+        }
+
+
+
+
+To show only your button, hide the Drawer's own new-conversation controls with their CSS parts. `new-thread-button` is the row in the open Drawer. `launcher-new-thread` is the (+) button in the closed or collapsed launcher.
+    
+    
+    copilotkit-threads-drawer::part(new-thread-button),
+    copilotkit-threads-drawer::part(launcher-new-thread) {
+      display: none;
+    }
+
+## Which agent's threads the drawer shows#
+
+The drawer lists the threads of **one** agent. It takes the first agent ID it finds, in this order:
+
+  1. The drawer's own `agentId` prop.
+  2. The `agentId` of the nearest `<CopilotChatConfigurationProvider>`. `<CopilotKit>` renders one of these around your app with its `agent` prop, so under `<CopilotKit agent="...">` the drawer stops here. Without `agent`, it resolves to `"default"`.
+  3. The `agentId` on `<CopilotKitProvider>`.
+  4. `"default"`.
+
+
+
+Most framework quickstarts use `<CopilotKit agent="...">`. The built-in agent and LangGraph quickstarts use `<CopilotKitProvider agentId="...">`. The drawer finds the agent under either one.
+
+If your runtime registers several agents, the drawer shows only the threads of the agent it resolved. To list another agent's threads, pass that agent's ID:
+    
+    
+    <CopilotThreadsDrawer agentId="research_agent" />
+
+`<CopilotChat>` resolves its agent in the same order. To move the drawer and the chat to another agent together, set `agentId` once on the shared `<CopilotChatConfigurationProvider>` instead.
+
 ## Configuring the drawer#
 
 `<CopilotThreadsDrawer>` works with zero props. The optional ones:
 
 Prop| Description  
 ---|---  
-`agentId`| Agent whose threads to list (defaults to the chat configuration's agent).  
+`agentId`| Agent whose threads to list. Defaults to the chat configuration's agent, then `agentId` on `<CopilotKitProvider>`, then `"default"`. See Which agent's threads the drawer shows.  
 `label`| Accessible name for the drawer region and thread listbox. Defaults to `"Threads"`. The redesigned header has no visible title.  
 `recentLabel`| Section heading shown above the thread list. Defaults to `"Recent Conversations"`.  
 `onThreadSelect`| Escape hatch to take over thread selection yourself.  
@@ -250,7 +360,7 @@ The locked view appears whenever the Runtime reports no active entitlement: a se
 
 ## Related#
 
-  * [AG-UI Streams overview](https://docs.copilotkit.ai/strands/threads): compare thread UI and deployment paths
+  * [AG-UI Streams overview](https://docs.copilotkit.ai/strands/AG-UI-Streams): compare thread UI and deployment paths
   * [Headless Threads](https://docs.copilotkit.ai/strands/headless-threads): build a custom UI with the `useThreads` data layer
   * [Threads Drawer reference (React)](https://docs.copilotkit.ai/reference/components/CopilotThreadsDrawer)
   * [CopilotChat](https://docs.copilotkit.ai/strands/prebuilt-components/chat): the chat the drawer connects to
@@ -259,4 +369,4 @@ The locked view appears whenever the Runtime reports no active entitlement: a se
 
 ### On this page
 
-What is this?When should I use this?Set up the Threads DrawerUse the Drawer with a sidebar chatConfiguring the drawerCustomizationIntelligence accessRelated
+What is this?When should I use this?Set up the Threads DrawerUse the Drawer with a sidebar chatAdd your own "New conversation" buttonWhich agent's threads the drawer showsConfiguring the drawerCustomizationIntelligence accessRelated

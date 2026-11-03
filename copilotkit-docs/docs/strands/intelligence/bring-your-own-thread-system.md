@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/bring-your-own-thread-system/
 title: Bring your own thread system
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:35.488330+00:00
+fetched_at: 2026-11-03T10:43:37.057163+00:00
 ---
 
 # Bring your own thread system
@@ -61,11 +61,15 @@ Features
 
 AG-UI Streams
 
-[Overview](https://docs.copilotkit.ai/strands/threads)[Bring your own thread system](https://docs.copilotkit.ai/strands/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/strands/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/strands/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/strands/intelligence/threads-explained)
+[Overview](https://docs.copilotkit.ai/strands/AG-UI-Streams)[Bring your own thread system](https://docs.copilotkit.ai/strands/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/strands/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/strands/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/strands/intelligence/threads-explained)
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 

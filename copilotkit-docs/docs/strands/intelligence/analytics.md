@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/analytics/
 title: Product Analytics
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:33.940917+00:00
+fetched_at: 2026-11-03T10:43:39.051485+00:00
 ---
 
 # Product Analytics
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -125,7 +129,7 @@ Follow the [quickstart](https://docs.copilotkit.ai/strands/intelligence/quicksta
 
 ### Send a few messages#
 
-Use your app the way a person would: ask a question, trigger a tool, finish a conversation. Each run becomes a set of runtime events in the project. Confirm the run landed by opening the thread in [AG-UI Streams](https://docs.copilotkit.ai/strands/threads) or in the Inspector.
+Use your app the way a person would: ask a question, trigger a tool, finish a conversation. Each run becomes a set of runtime events in the project. Confirm the run landed by opening the thread in [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams) or in the Inspector.
 
 ### Open Product Analytics#
 

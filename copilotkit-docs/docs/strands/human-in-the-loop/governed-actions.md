@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/human-in-the-loop/governed-actions/
 title: Governed Action Approval UI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:33.642542+00:00
+fetched_at: 2026-11-03T10:43:39.348183+00:00
 ---
 
 # Governed Action Approval UI
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -336,8 +340,8 @@ For LLM-initiated pauses, register the approval checkpoint as a human-in-the-loo
 
 ## Going further#
 
-  * [Pausing the Agent for Input](https://docs.copilotkit.ai/strands/human-in-the-loop/governed-actions/useInterrupt) — use graph-enforced interrupts when the backend must stop before a side effect.
-  * [HITL Overview](https://docs.copilotkit.ai/strands/human-in-the-loop/human-in-the-loop) — compare tool-based and interrupt-based human-in-the-loop patterns.
-  * [Frontend Tools](https://docs.copilotkit.ai/strands/human-in-the-loop/frontend-tools) — register browser-side tools that can display approval UI or update application state.
+  * [Pausing the Agent for Input](https://docs.copilotkit.ai/useInterrupt) — use graph-enforced interrupts when the backend must stop before a side effect.
+  * [HITL Overview](https://docs.copilotkit.ai/human-in-the-loop) — compare tool-based and interrupt-based human-in-the-loop patterns.
+  * [Frontend Tools](https://docs.copilotkit.ai/frontend-tools) — register browser-side tools that can display approval UI or update application state.
 
 

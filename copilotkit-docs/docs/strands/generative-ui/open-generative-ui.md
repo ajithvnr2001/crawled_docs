@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/generative-ui/open-generative-ui/
 title: Open Generative UI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:24.540462+00:00
+fetched_at: 2026-11-03T10:43:40.928117+00:00
 ---
 
 # Open Generative UI
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -138,7 +142,7 @@ Key benefits:
 
 ## Minimal setup#
 
-Turning on Open Generative UI takes one flag in the runtime plus a plain `<CopilotChat />` on the frontend; the built-in activity renderer is auto-registered by `CopilotKit`, so no extra wiring is needed.
+Turning on Open Generative UI takes one flag in the runtime plus a plain `<CopilotChat />` on the frontend; the built-in activity renderer is auto-registered by `CopilotKit`, so no extra frontend wiring is needed. Your agent must still give the run's frontend tools to its model (see the warning below).
 
 ### Enable it in the runtime#
 
@@ -150,6 +154,16 @@ route.ts
           runtime: new CopilotRuntime({        // @ts-ignore -- see main route.ts        agents,        openGenerativeUI: {          agents: ["open-gen-ui", "open-gen-ui-advanced"],        },      }),
 
 The `OpenGenerativeUIMiddleware` then converts the agent's streamed `generateSandboxedUi` tool call into `open-generative-ui` activity events, which the built-in `OpenGenerativeUIActivityRenderer` mounts inside a sandboxed iframe.
+
+Your agent must pass frontend tools to its model
+
+`generateSandboxedUi` reaches the agent as a frontend tool in the run input. The agent calls it only if it gives the run's frontend tools to its model. If it binds only its own tools, the model never sees `generateSandboxedUi`, so nothing renders and no error appears.
+
+  * The built-in agent passes frontend tools already.
+  * A LangGraph agent built with `create_agent` (Python) or `createAgent` (TypeScript) adds `CopilotKitMiddleware()` (Python, from `copilotkit`) or `copilotkitMiddleware` (TypeScript, from `@copilotkit/sdk-js/langgraph`) to its `middleware`. A hand-built graph binds the frontend tools with its own tools: in Python, use `CopilotKitState` and bind `state["copilotkit"]["actions"]`; in TypeScript, spread `CopilotKitStateAnnotation.spec` into the state and bind `state.copilotkit.actions` (convert them with `convertActionsToDynamicStructuredTools` from `@copilotkit/sdk-js/langgraph`).
+  * Other agents forward the frontend tools from the run input. See [Frontend Tools](https://docs.copilotkit.ai/strands/frontend-tools).
+
+
 
 ### Drop `<CopilotChat />` into the page#
 

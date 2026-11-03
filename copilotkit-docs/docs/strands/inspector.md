@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/inspector/
 title: Inspector
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:33.994598+00:00
+fetched_at: 2026-11-03T10:43:39.119364+00:00
 ---
 
 # Inspector
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -181,7 +185,8 @@ Which agent ran, and what did it do?| **Agent**| [Agent configuration](https://d
 Which events crossed the AG-UI connection?| **AG-UI Events**| [AG-UI protocol](https://docs.copilotkit.ai/strands/agentic-protocols/ag-ui)  
 Which browser-side tools are registered?| **Frontend Tools**| [Frontend Tools](https://docs.copilotkit.ai/strands/frontend-tools)  
 What readable or document context was shared?| **Context**| [Agent read-only context](https://docs.copilotkit.ai/strands/shared-state/agent-readonly)  
-What did a saved conversation contain?| **Rich Threads** → **Conversation** , **AG-UI Events** , or **State**| [AG-UI Streams](https://docs.copilotkit.ai/strands/threads) and [Shared State](https://docs.copilotkit.ai/strands/shared-state)  
+Which components can the agent render, and what did it see?| **Generative UI**| [Components and surfaces](https://docs.copilotkit.ai/strands/generative-ui/components)  
+What did a saved conversation contain?| **Rich Threads** → **Conversation** , **AG-UI Events** , or **State**| [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams) and [Shared State](https://docs.copilotkit.ai/strands/shared-state)  
   
 In an official React `CopilotChat`, open an assistant message's toolbar and choose **View in Inspector** to jump directly to that message in its Thread. This local development shortcut is useful when you already know which response you need to explain. See the [`CopilotChat` reference](https://docs.copilotkit.ai/reference/components/CopilotChat) for its configuration.
 
@@ -189,11 +194,21 @@ In an official React `CopilotChat`, open an assistant message's toolbar and choo
 
 **Frontend Tools** appears only after your application registers a frontend tool. **Capabilities** appears only when an A2UI catalog is present; use it to toggle tools and catalog components while experimenting.
 
+**Generative UI** appears only when the provider has a `generativeUI` config. It has three tabs:
+
+  * **Surfaces** : the targets on the page, and each surface with its status, data model, user values, operations, and rejected operations. A tree shows the components that rendered, with their props. Hover over the card of a page surface to outline the surface and scroll to it.
+  * **Catalog** : the components and functions with their schemas, grouped by the catalog that declared them. The search filters both lists. A function with no handler gets a warning.
+  * **Prompt** : the envelope and the generative UI text of the last run, or of the next run.
+
+
+
+If a surface does not render, see [When something does not render](https://docs.copilotkit.ai/strands/generative-ui/components#when-something-does-not-render) for the tab to open.
+
 On narrow windows, or when Inspector is docked left, the sidebar collapses to icons. **Talk to an Engineer** remains in the sidebar footer.
 
 ## Reproduce an issue without changing the saved Thread#
 
-Use **Playground** when you have already observed a problem and want to vary the prompt, state, or next message without touching the original [Rich Thread](https://docs.copilotkit.ai/strands/threads). Its messages and state stay separate from your application chat and stored Threads, so you can run, stop, retry, and continue an experiment safely.
+Use **Playground** when you have already observed a problem and want to vary the prompt, state, or next message without touching the original [Rich Thread](https://docs.copilotkit.ai/strands/AG-UI-Streams). Its messages and state stay separate from your application chat and stored Threads, so you can run, stop, retry, and continue an experiment safely.
 
 To reproduce a problem from a real conversation:
 

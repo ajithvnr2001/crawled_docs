@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/overview/
 title: CopilotKit Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:38.244493+00:00
+fetched_at: 2026-11-03T10:43:34.639390+00:00
 ---
 
 # CopilotKit Intelligence
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -119,28 +123,25 @@ Connect an existing app in the [quickstart](https://docs.copilotkit.ai/strands/i
 
 Each capability is a page of its own, and every one works with the agent and frontend you already run. Open the one you want to add first.
 
-### [AG-UI StreamsLet users reconnect, catch up, and resume conversations across devices.](https://docs.copilotkit.ai/threads)### [User MemoriesKeep facts about a person after the conversation ends.](https://docs.copilotkit.ai/intelligence/memories)### [Automatic LearningTurn real usage into skills you can review and publish.](https://docs.copilotkit.ai/learning)### [Product AnalyticsSee what people do with your agent.](https://docs.copilotkit.ai/intelligence/analytics)### [ChannelsRun the same agent in Slack or Microsoft Teams.](https://docs.copilotkit.ai/intelligence/channels)### [InspectorWatch threads, learning, and tool calls from your app on localhost.](https://docs.copilotkit.ai/inspector)
+### [AG-UI StreamsComplement your existing threads with generative UI, multimodal inputs and file uploads, plus reconnection and catch-up across tabs and devices.](https://docs.copilotkit.ai/AG-UI-Streams)### [User MemoriesKeep facts about a person after the conversation ends.](https://docs.copilotkit.ai/intelligence/memories)### [Automatic LearningTurn real usage into skills you can review and publish.](https://docs.copilotkit.ai/learning)### [TrajectoriesCapture browser activity and connect it to agent conversations.](https://docs.copilotkit.ai/intelligence/trajectories)### [Product AnalyticsSee what people do with your agent.](https://docs.copilotkit.ai/intelligence/analytics)### [ChannelsRun the same agent in Slack or Microsoft Teams.](https://docs.copilotkit.ai/intelligence/channels)### [InspectorWatch threads, learning, and tool calls from your app on localhost.](https://docs.copilotkit.ai/inspector)
 
-## Already have LangGraph threads or ADK sessions?#
+Managed Slack and Teams Channels can [post JSX snapshots as images](https://docs.copilotkit.ai/channels/posting-jsx-as-images) or combine them with native actions using [Render and Carousel](https://docs.copilotkit.ai/channels/render-and-carousel).
+
+## Already have agent conversations?#
 
 Connect your existing app to Intelligence and add AG-UI streams around your current agent. If you need earlier history, import it once:
 
-  * [Import LangGraph threads](https://docs.copilotkit.ai/langgraph-python/threads-import) from LangGraph Server, LangGraph Platform, or LangSmith Deployments that expose the LangGraph SDK thread and run APIs. Arbitrary LangChain message stores, LangSmith traces, and embedded checkpointers are not supported sources.
+  * [Import LangGraph threads](https://docs.copilotkit.ai/langgraph-python/threads-import) from LangGraph Server / LangSmith deployments or Python FastAPI apps with durable persistence.
   * [Import Google ADK sessions](https://docs.copilotkit.ai/google-adk/threads-import) from supported ADK database session stores or Vertex/Agent Engine session history.
+  * Import AWS Strands conversations for [Python](https://docs.copilotkit.ai/strands/threads-import) or [TypeScript](https://docs.copilotkit.ai/strands-typescript/threads-import) from local session files or S3, plus native AgentCore Memory sessions for Python.
 
 
 
-Import copies history; it does not establish ongoing database replication. Future CopilotKit-mediated runs persist to Intelligence and continue through native persistence when your agent remains connected to a durable LangGraph checkpointer or deployment, or an ADK session service with appropriate retention. Keep that native persistence in place.
+Import copies history; it does not establish ongoing database replication. Future CopilotKit-mediated runs persist to Intelligence and continue through native persistence when your agent remains connected to its durable framework storage. Keep that native persistence in place.
 
 [Skill delivery](https://docs.copilotkit.ai/strands/intelligence/learned-skills) combines published Skills from several Learning containers in one agent, with one request for each refresh.
 
-To record what people do in your app as AG-UI events:
-
-  * [Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions) links clicks, page changes, and requests to the Thread, message, and tool call they belong to.
-  * [Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector) captures the same events in an app without CopilotKit.
-  * [Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data) lists every field and how to block or add data.
-
-
+Trajectories record browser activity alongside agent conversations. The [Trajectories quickstart](https://docs.copilotkit.ai/strands/intelligence/trajectories-quickstart) connects your app to a local Intelligence project and saves your first Trajectory. These guides are in early access.
 
 ## Choose where Intelligence runs#
 

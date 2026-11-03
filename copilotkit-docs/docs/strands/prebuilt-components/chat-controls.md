@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/prebuilt-components/chat-controls/
 title: Open, close, and feedback
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:44.691562+00:00
+fetched_at: 2026-11-03T10:43:31.586557+00:00
 ---
 
 # Open, close, and feedback
@@ -71,7 +71,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -182,7 +186,7 @@ You can also set the **initial** open state declaratively, and then let the surf
 
 ## Capture message feedback (thumbs up / down)#
 
-The assistant-message toolbar can show thumbs-up and thumbs-down buttons. In v2 you opt in by passing `onThumbsUp` / `onThumbsDown` to the **assistant message slot**. The buttons only render when a handler is provided:
+The assistant-message toolbar can show thumbs-up and thumbs-down buttons. In v2 you opt in by passing `onThumbsUp` / `onThumbsDown` to the **assistant message slot**. Without Automatic Learning capture, the buttons only render when a handler or a custom thumb slot is provided:
     
     
     import { CopilotChat } from "@copilotkit/react-core/v2";
@@ -205,6 +209,8 @@ Each handler receives the assistant `message`, so you can record the feedback ag
 When the slot is rendered through `CopilotChatMessageView`, a live assistant message created by a direct AG-UI `TEXT_MESSAGE_START` can also include that event's opaque `rawEvent` value. The join happens when the thumbs callback runs; canonical messages and future run input stay unchanged. Chunk, snapshot, persisted, legacy, and direct `CopilotChatAssistantMessage` paths don't provide this callback metadata.
 
 The button labels come from the chat labels (`assistantMessageToolbarThumbsUpLabel` defaults to `"Good response"`, `assistantMessageToolbarThumbsDownLabel` to `"Bad response"`); override them via [chat labels](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration#copilotchatlabels).
+
+With [Automatic Learning capture](https://docs.copilotkit.ai/strands/intelligence/capture-interactions#collect-reply-ratings) on and a Trajectory started, the buttons appear without handlers in every chat that renders messages with `CopilotChatMessageView` inside a `CopilotChatConfigurationProvider`, as `CopilotChat`, `CopilotPopup`, and `CopilotSidebar` do. A rating then also goes to the active Trajectory, the user can add a comment, and clicking the chosen thumb again removes the rating. Your handlers run when a rating is given, not when it is removed.
 
 Building a fully custom message component instead of using the slot? The underlying [`CopilotChatAssistantMessage`](https://docs.copilotkit.ai/reference/components/CopilotChatAssistantMessage) exposes the same `onThumbsUp` / `onThumbsDown` props directly, but callback metadata enrichment is owned by `CopilotChatMessageView`.
 

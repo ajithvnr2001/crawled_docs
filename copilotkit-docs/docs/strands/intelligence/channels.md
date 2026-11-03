@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/channels/
 title: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:35.541412+00:00
+fetched_at: 2026-11-03T10:43:36.951748+00:00
 ---
 
 # Channels
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -142,7 +146,7 @@ SlackTeams
 
 ### Your agent backend
 
-[CopilotKit](https://docs.copilotkit.ai/slack)[DeepAgents](https://docs.copilotkit.ai/slack/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/slack/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/slack/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/slack/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/slack/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/slack/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/slack/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/slack/ag2)[Agno](https://docs.copilotkit.ai/slack/agno)[LlamaIndex](https://docs.copilotkit.ai/slack/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/slack/crewai-crews)
+[CopilotKit](https://docs.copilotkit.ai/slack)[Langchain DeepAgents](https://docs.copilotkit.ai/slack/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/slack/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/slack/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/slack/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/slack/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/slack/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/slack/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/slack/ag2)[Agno](https://docs.copilotkit.ai/slack/agno)[LlamaIndex](https://docs.copilotkit.ai/slack/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/slack/crewai-crews)
 
 ## Where to go next#
 

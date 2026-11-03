@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/capture-interactions/
 title: Capture interactions
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:35.598978+00:00
+fetched_at: 2026-11-03T10:43:37.276517+00:00
 ---
 
 # Capture interactions
@@ -63,7 +63,13 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Quickstart](https://docs.copilotkit.ai/strands/intelligence/trajectories-quickstart)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[API reference](https://docs.copilotkit.ai/strands/intelligence/trajectories-reference)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -95,11 +101,11 @@ Talk to an engineer
 
 Capture interactions
 
-IntelligenceFeatures
+IntelligenceFeaturesTrajectories
 
 # Capture interactions
 
-Use the experimental custom-sink integration to capture browser interactions and CopilotKit context as AG-UI events.
+Send browser interactions to CopilotKit Intelligence as Trajectories with the learning provider prop.
 
 Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
 
@@ -109,156 +115,194 @@ Open your coding agent in your project's folder, or in an empty folder for a new
 
 ## Overview#
 
-This guide covers the experimental self-hosted integration that sends captured events to your own sink. It records browser interactions as AG-UI `CUSTOM` events. Core adds Thread, message, and tool context where available. These chat events and links belong to this custom-sink integration.
+Trajectories capture browser interactions as AG-UI `CUSTOM` events in CopilotKit Intelligence. This feature is in early access.
 
-When you are done, your app sends batches of events to a route you own. Each click inside the chat carries its `threadId`, `messageId`, and `toolCallId`.
+This guide connects an existing React app to Intelligence. To start the local environment, use the [Trajectories quickstart](https://docs.copilotkit.ai/strands/intelligence/trajectories-quickstart).
 
-Capture retains full URLs, page titles, referrers, element text, attributes, control values, browser-visible headers, and bounded body snapshots by default. It also records form edits and full agent message text. Passwords and credentials are replaced with `[redacted]` in the browser. See [Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data) for fields, limits, redaction, and explicit exclusions.
+Capture includes URLs, page titles, referrers, element text, attributes, form values, browser-visible headers, and bounded body snapshots. Recognized credential fields are redacted in the browser. Redaction has limits. Read [Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data) before you enable capture.
 
 ## Turn on capture#
 
-### Install the package#
-    
-    
-    npm install @copilotkit/learning
+### Connect your Runtime to Intelligence#
 
-### Add a route that receives the events#
+Complete the [Trajectories quickstart](https://docs.copilotkit.ai/strands/intelligence/trajectories-quickstart) or the [Intelligence quickstart](https://docs.copilotkit.ai/strands/intelligence/quickstart).
 
-The sink posts JSON batches to this route. This example only logs them. Store them where you want.
+The TypeScript Runtime needs `intelligence` and `identifyUser`, with Trajectories enabled for its project. `identifyUser` must return the user from your verified application session. Keep the project API key on the server.
 
-app/api/learning-events/route.ts
-    
-    
-    export async function POST(request: Request) {
-      const batch = await request.json();
-      console.log(batch.trajectoryId, batch.events.length, "events");
-      return Response.json({ ok: true });
-    }
+During early access, our engineering team enables Trajectories for your project. If you are unsure whether access is ready, [book time with our engineers](https://www.copilotkit.ai/talk-to-an-engineer) before you continue.
 
 ### Pass `learning` to the provider#
 
-A Trajectory groups the events of one session. Your app decides where a Trajectory starts. Here, each page load starts one.
+Add `learning` to your existing provider:
 
 app/providers.tsx
     
     
     "use client";
     
-    import { httpSink } from "@copilotkit/learning";
     import { CopilotKitProvider } from "@copilotkit/react-core/v2";
-    import { useState } from "react";
-    
-    const sink = httpSink("/api/learning-events");
     
     export function Providers({ children }: { children: React.ReactNode }) {
-      const [trajectoryId] = useState(() => crypto.randomUUID());
-    
       return (
-        <CopilotKitProvider
-          runtimeUrl="/api/copilotkit"
-          learning={{ sink, trajectoryId }}
-        >
+        <CopilotKitProvider runtimeUrl="/api/copilotkit" learning>
           {children}
         </CopilotKitProvider>
       );
     }
 
-Capture starts after the provider mounts and stops when it unmounts. CopilotKit's own runtime requests are never captured.
+Keep your existing Runtime URL and application authentication configuration. Capture starts after the provider mounts. A chat is not required.
+
+### Open the saved Trajectory#
+
+Click a control in your app. Wait at least two seconds for the next batch.
+
+Open **Trajectories** in the same Intelligence project. Open the newest Trajectory. On its **Timeline** , expand **Product trajectory** and find the click. Refresh the page and check that the event remains.
+
+To link a Thread, start an agent conversation while capture is active.
+
+Capture is on. The rest of this guide is optional.
+
+## Collect reply ratings#
+
+Once a Trajectory has started while a chat is open, each finished reply with text in `CopilotChat`, `CopilotPopup`, and `CopilotSidebar` gets a **Good response** and a **Bad response** button. You do not need to pass `onThumbsUp` or `onThumbsDown`. The buttons stay while capture reconnects or is stopped. A custom chat gets them when it renders its messages with `CopilotChatMessageView` inside a `CopilotChatConfigurationProvider`. To keep the thumbs to your own handlers, pass `messageFeedback: false` to the message view, for example `<CopilotChat messageView={{ messageFeedback: false }} />`.
+
+  * Clicking a thumb rates the reply. A field for an optional comment opens next to it. Enter or leaving the field saves the comment. Escape, or a click on either thumb, discards an unsaved change. Switching to the other thumb starts the new rating without a comment.
+  * Pointing at or keyboard-focusing the chosen thumb again opens its comment, so the user can add or change it later. On a touch screen, tapping the chosen thumb removes the rating instead.
+  * Clicking the chosen thumb again removes the rating.
+  * The chosen thumb and its comment stay while the page is open. After a reload the thumbs start unrated; a new rating replaces the earlier one in Intelligence.
+
+
+
+Each change sends a `message.feedback` event to the active Trajectory. The newest event for a `feedbackId` is the current rating, and `rating: null` means the user removed it:
+    
+    
+    {
+      "type": "CUSTOM",
+      "name": "message.feedback",
+      "timestamp": 1790841239012,
+      "value": {
+        "seq": 12,
+        "feedbackId": "5f0c6b1e-0b8f-4f6e-9a57-2f3d1c9a4e21:msg-42",
+        "threadId": "5f0c6b1e-0b8f-4f6e-9a57-2f3d1c9a4e21",
+        "messageId": "msg-42",
+        "agentId": "default",
+        "runId": "run-9",
+        "rating": "down",
+        "comment": "Picked the wrong deal",
+        "response": "I approved deal 41 for you."
+      }
+    }
+
+Like any Trajectory event, a rating given while capture reconnects or is stopped is not sent, and a failed send is not retried; the chat still shows it. A rating belongs to its Thread, so a later Trajectory can carry a change to it. Intelligence shows the rating next to the reply in the Trajectory, and Automatic Learning reads it with the session.
+
+Your own `onThumbsUp` and `onThumbsDown` handlers still run when the user gives a rating, but not when the user removes one. To change the thumbs' tooltips, the comment placeholder, or the send button label, set the [chat labels](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration#copilotchatlabels). To restyle or replace the comment field, use the assistant message's `feedbackComment` slot. The comment popover is marked `data-copilotkit-ignore`, so capture records the saved comment, not each keystroke. Clicks on the thumbs are still captured as `click` events.
+
+## Control capture programmatically#
+
+The sections below change when capture runs and what it records. For every option and method, see the [API reference](https://docs.copilotkit.ai/strands/intelligence/trajectories-reference).
+
+### Capture only after consent#
+
+Pass a boolean to tie capture to your application's consent control:
+    
+    
+    <CopilotKitProvider runtimeUrl="/api/copilotkit" learning={hasConsent}>
+      {children}
+    </CopilotKitProvider>
+
+The provider generates a Trajectory UUID. It stays the same across rerenders and reconnects while capture is on. When `hasConsent` becomes `false`, capture stops. Turning capture on again generates a new ID. Unmounting the provider also stops capture. Read the active ID from `copilotkit.trajectoryId`.
+
+### Start and stop a Trajectory yourself#
+
+Set `autoStart: false`. The provider then waits for your app to start capture:
+    
+    
+    <CopilotKitProvider
+      runtimeUrl="/api/copilotkit"
+      learning={{ autoStart: false }}
+    >
+      {children}
+    </CopilotKitProvider>
+
+Call Core when your app decides a session starts:
+    
+    
+    import { useCopilotKit } from "@copilotkit/react-core/v2";
+    
+    function StartCaptureButton() {
+      const { copilotkit } = useCopilotKit();
+    
+      async function startCapture() {
+        const result = await copilotkit.startTrajectory();
+        if (result.status === "error") {
+          console.warn("Trajectory capture:", result.code);
+        }
+      }
+    
+      return (
+        <button onClick={startCapture}>Start capture</button>
+      );
+    }
+
+One Trajectory runs at a time. `copilotkit.stopTrajectory()` ends it and attempts a final batch. It does not wait for delivery or guarantee that the last events are saved.
+
+### Record outcomes#
+
+A click shows what a person did. It does not show whether the work succeeded. After your application operation succeeds, emit the outcome:
+    
+    
+    import { useCopilotKit } from "@copilotkit/react-core/v2";
+    
+    function ApproveButton({
+      dealId,
+      approveDeal,
+    }: {
+      dealId: string;
+      approveDeal: (id: string) => Promise<void>;
+    }) {
+      const { copilotkit } = useCopilotKit();
+    
+      async function approve() {
+        await approveDeal(dealId);
+        copilotkit.emitTrajectoryEvent("deal.approved", { dealId });
+      }
+    
+      return (
+        <button onClick={approve}>
+          Approve
+        </button>
+      );
+    }
+
+The event belongs to the active Trajectory. Built-in names such as `click` are reserved. Your application controls the event payload. Automatic credential redaction does not inspect developer events.
 
 ### Name the actions that matter#
 
-Click events include the element's text, attributes, and control values. Add `data-copilotkit-action` for a stable action name:
+Click events include a short control name in `target.label`, such as `Approve`. See [Click labels](https://docs.copilotkit.ai/strands/intelligence/captured-data#click-labels) for the sources and redaction rules.
+
+Add `data-copilotkit-action` for a stable, explicit action name:
     
     
     <button data-copilotkit-action="deal.approve" onClick={approve}>
       Approve
     </button>
 
-Click **Approve** inside a tool's UI in the chat. Your route logs a batch with a click like this:
+### Handle capture errors#
+
+By default, Core logs setup errors with a code and a configuration hint. Pass `onError` to handle them in your app:
     
     
-    {
-      "type": "CUSTOM",
-      "name": "click",
-      "timestamp": 1790841234567,
-      "value": {
-        "seq": 7,
-        "target": {
-          "tag": "button",
-          "role": null,
-          "action": "deal.approve",
-          "text": "Approve",
-          "attributes": { "data-copilotkit-action": "deal.approve" },
-          "input": "pointer"
-        },
-        "route": "/deals/42",
-        "url": "https://app.example.com/deals/42?source=inbox#review",
-        "threadId": "5f0c6b1e-0b8f-4f6e-9a57-2f3d1c9a4e21",
-        "agentId": "default",
-        "messageId": "msg-42",
-        "runId": "run-9",
-        "toolCallId": "call-3",
-        "toolName": "approveDeal",
-        "toolStatus": "executing"
-      }
-    }
+    <CopilotKitProvider
+      runtimeUrl="/api/copilotkit"
+      learning={{
+        onError: ({ code }) => console.warn("Trajectory capture:", code),
+      }}
+    >
+      {children}
+    </CopilotKitProvider>
 
-## How a click finds its Thread#
-
-Core picks the Thread in this order:
-
-  1. A click inside a chat message uses the Thread of that message.
-  2. Otherwise, the one Thread that a chat on the page shows.
-  3. Otherwise, `threadId` is `null`.
-
-
-
-When two chats show different Threads, a click outside both gets `threadId: null` and a `threadAmbiguity` object with the candidates. Capture does not guess.
-
-Core also emits `thread.linked` when a chat shows a Thread: once at start, when a new chat opens, and when a chat switches Threads. `hasMessages: false` marks a new Thread that has no messages yet.
-
-With connected Core capture, Core emits `thread.linked` with only `threadId` when Runtime starts an agent run, once for each Thread. Runtime creates the Thread before the run starts, so Intelligence can link it.
-
-## Record outcomes#
-
-A click shows what a person did. It does not show whether the work succeeded. Record the outcome when your app knows it:
-    
-    
-    import { useCopilotKit } from "@copilotkit/react-core/v2";
-    
-    function ApproveButton({ dealId }: { dealId: string }) {
-      const { copilotkit } = useCopilotKit();
-      return (
-        <button onClick={() => copilotkit.emitTrajectoryEvent("deal.approved", { dealId })}>
-          Approve
-        </button>
-      );
-    }
-
-The event carries the open Thread. Built-in names such as `click` are reserved.
-
-## Start and stop a Trajectory yourself#
-
-Leave out `trajectoryId` on the prop, then call Core when your app decides a session starts:
-    
-    
-    import { useCopilotKit } from "@copilotkit/react-core/v2";
-    
-    function StartCaptureButton({ projectId }: { projectId: string }) {
-      const { copilotkit } = useCopilotKit();
-      return (
-        <button onClick={() => copilotkit.startTrajectory({ trajectoryId: `${projectId}-${Date.now()}` })}>
-          Start capture
-        </button>
-      );
-    }
-
-One Trajectory runs at a time. Starting the same ID again does nothing. `copilotkit.stopTrajectory()` removes every listener and sends queued events once. It does not wait for delivery or retry a failed send.
-
-Sequence numbers (`seq`) increase for the lifetime of the Core instance, including across stop/start cycles. They do not start at 0: each Core instance starts from its creation time, so a page reload or second tab that reuses a Trajectory ID continues above the earlier numbers.
-
-Need capture in an app without CopilotKit? Use the [standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector).
+Capture pauses during a connection loss and reconnects with fresh credentials. It does not buffer developer events during recovery or resend failed batches. See [Batches](https://docs.copilotkit.ai/strands/intelligence/captured-data#batches) for delivery limits and [Error codes](https://docs.copilotkit.ai/strands/intelligence/trajectories-reference#error-codes) for each code.
 
 ### On this page
 
-OverviewTurn on captureHow a click finds its ThreadRecord outcomesStart and stop a Trajectory yourself
+OverviewTurn on captureCollect reply ratingsControl capture programmaticallyCapture only after consentStart and stop a Trajectory yourselfRecord outcomesName the actions that matterHandle capture errors

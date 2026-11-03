@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/quickstart/
 title: Connect Intelligence in 5 minutes
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:38.572787+00:00
+fetched_at: 2026-11-03T10:43:35.312620+00:00
 ---
 
 # Connect Intelligence in 5 minutes
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -219,6 +223,8 @@ TypeScript rejects both options together. A JavaScript runtime throws this error
     `intelligence` is not supported.
 
 You can keep `runner` and omit `intelligence`. The runtime then stays in SSE mode, and Threads in Inspector stay locked. See [AgentRunner and persistence](https://docs.copilotkit.ai/strands/backend/agent-runner).
+
+Keep the other runtime options that you already pass, such as `mcpApps`, `a2ui`, and `openGenerativeUI`. They apply to the agent on each run, and they work the same way with `intelligence`. For an app that uses MCP Apps, see [MCP Apps with Intelligence](https://docs.copilotkit.ai/strands/generative-ui/mcp-apps#mcp-apps-with-intelligence).
 
 #### Mount the TypeScript handler
 

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/programmatic-control/
 title: Programmatic Control
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:48.594217+00:00
+fetched_at: 2026-11-03T10:43:30.047020+00:00
 ---
 
 # Programmatic Control
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -201,7 +205,7 @@ The resulting `{ pending, resolve }` tuple is pure data; any UI can drive it. Th
 
 ## See also#
 
-  * [Headless UI](https://docs.copilotkit.ai/strands/programmatic-control/headless) — the full `useRenderedMessages` composition that mirrors `<CopilotChatMessageView>` line-for-line.
-  * [Human-in-the-Loop](https://docs.copilotkit.ai/strands/programmatic-control/human-in-the-loop) — the `useHumanInTheLoop` and `useInterrupt` hooks with their render-prop contracts, for the "paused mid-chat" pattern this page's headless variant replaces.
+  * [Headless UI](https://docs.copilotkit.ai/headless) — the full `useRenderedMessages` composition that mirrors `<CopilotChatMessageView>` line-for-line.
+  * [Human-in-the-Loop](https://docs.copilotkit.ai/human-in-the-loop) — the `useHumanInTheLoop` and `useInterrupt` hooks with their render-prop contracts, for the "paused mid-chat" pattern this page's headless variant replaces.
 
 

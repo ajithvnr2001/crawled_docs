@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/threads-explained/
 title: AG-UI Streams & Framework Threads
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:40.609246+00:00
+fetched_at: 2026-11-03T10:43:32.169626+00:00
 ---
 
 # AG-UI Streams & Framework Threads
@@ -61,11 +61,15 @@ Features
 
 AG-UI Streams
 
-[Overview](https://docs.copilotkit.ai/strands/threads)[Bring your own thread system](https://docs.copilotkit.ai/strands/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/strands/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/strands/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/strands/intelligence/threads-explained)
+[Overview](https://docs.copilotkit.ai/strands/AG-UI-Streams)[Bring your own thread system](https://docs.copilotkit.ai/strands/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/strands/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/strands/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/strands/intelligence/threads-explained)
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -115,7 +119,7 @@ CopilotKit Intelligence AG-UI Streams keep messages, generative UI, and tool act
 
 ## Overview#
 
-Start with the [AG-UI Streams overview](https://docs.copilotkit.ai/strands/threads) to understand what AG-UI Streams provide and choose between the prebuilt Drawer and a custom headless UI. This page explains the persistence and replay architecture beneath both paths. For the client-side lifecycle (minting a `threadId`, hydrating history on load, and switching or starting threads), see [Thread & History Lifecycle](https://docs.copilotkit.ai/strands/threads-lifecycle).
+Start with the [AG-UI Streams overview](https://docs.copilotkit.ai/strands/AG-UI-Streams) to understand what AG-UI Streams provide and choose between the prebuilt Drawer and a custom headless UI. This page explains the persistence and replay architecture beneath both paths. For the client-side lifecycle (minting a `threadId`, hydrating history on load, and switching or starting threads), see [Thread & History Lifecycle](https://docs.copilotkit.ai/strands/threads-lifecycle).
 
 ## What are threads?#
 
@@ -267,7 +271,7 @@ The trade-off is that replay is more complex than loading a message array. The p
 ## Next steps#
 
   * **Client lifecycle:** [Thread & History Lifecycle](https://docs.copilotkit.ai/strands/threads-lifecycle) — how a `threadId` is minted, hydrated, and switched on the client
-  * **Overview:** [AG-UI Streams](https://docs.copilotkit.ai/strands/threads) — understand the feature and choose an implementation path
+  * **Overview:** [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams) — understand the feature and choose an implementation path
   * **Step-by-step guide:** [Headless Threads](https://docs.copilotkit.ai/strands/headless-threads) — build a custom thread-management UI
 
 

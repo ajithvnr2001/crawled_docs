@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/generative-ui/json-render/
 title: JSON Render
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:24.774463+00:00
+fetched_at: 2026-11-03T10:43:41.406250+00:00
 ---
 
 # JSON Render
@@ -34,6 +34,8 @@ Generative UI
 Controlled
 
 Declarative
+
+[Components and surfaces](https://docs.copilotkit.ai/strands/generative-ui/components)
 
 [A2UI](https://docs.copilotkit.ai/strands/generative-ui/a2ui)
 
@@ -67,7 +69,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -103,7 +109,7 @@ Generative UIDeclarative
 
 # JSON Render
 
-Bring your own component library. Have the agent emit a JSON spec and let json-render render it against a Zod-validated catalog of React components.
+Bring your own component library. Have the agent emit a JSON spec and render allowed component types through a typed React registry.
 
 Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
 
@@ -113,129 +119,52 @@ Open your coding agent in your project's folder, or in an empty folder for a new
 
 DemoCode
 
-byoc_json_render.py
-
 page.tsx
 
-json-render-renderer.tsx
+byoc_json_render.py
 
-registry.tsx
+route.ts
 
 catalog.ts
 
-metric-card.tsx
-
 bar-chart.tsx
+
+chart-config.ts
 
 pie-chart.tsx
 
-types.ts
+chat.tsx
+
+json-render-renderer.tsx
+
+metric-card.tsx
+
+registry.tsx
 
 suggestions.ts
 
-route.ts
+types.ts
     
     
-    """Strands agent specialization for the byoc-json-render demo (Wave 2).Emits a single JSON object shaped like `@json-render/react`'s flat specformat (`{ root, elements }`). The frontend validates against aZod-validated catalog of MetricCard, BarChart, PieChart.This module defines the system prompt as the canonical source of truth.The prompt is mirrored on the frontend (via `useAgentContext`) so theshared Strands agent emits the right shape even without a per-demo Agentinstance on the backend."""BYOC_JSON_RENDER_SYSTEM_PROMPT = """\You are a sales-dashboard UI generator for a BYOC json-render demo.When the user asks for a UI, respond with **exactly one JSON object** andnothing else — no prose, no markdown fences, no leading explanation. Theobject must match this schema (the "flat element map" format consumed by@json-render/react):{  "root": "<id of the root element>",  "elements": {    "<id>": {      "type": "<component name>",      "props": { ... component-specific props ... },      "children": [ "<id>", ... ]    },    ...  }}Available components (use each name verbatim as "type"):- MetricCard  props: { "label": string, "value": string, "trend": string | null }- BarChart  props: {    "title": string,    "description": string | null,    "data": [ { "label": string, "value": number }, ... ]  }- PieChart  props: {    "title": string,    "description": string | null,    "data": [ { "label": string, "value": number }, ... ]  }Rules:1. Output only valid JSON. No markdown code fences. No text outside the   object.2. Every id referenced in root or any children array must be a key in   elements.3. For a multi-component dashboard, use a root MetricCard and list the   charts in its children array.4. Use realistic sales-domain values.5. Never invent component types outside the three listed above."""def build_byoc_json_render_agent():    """Build a dedicated StrandsAgent for the byoc-json-render demo.    Returns an ``ag_ui_strands.StrandsAgent`` wrapper (mirrors    ``build_voice_agent`` / ``build_byoc_hashbrown_agent``) so it can be    mounted by ``create_strands_app`` and exposed as a dedicated AG-UI    endpoint. agent_server.py mounts it at ``/byoc-json-render`` and the    declarative-json-render route proxies there.    """    # Deferred imports so this module remains importable before the    # agent_server import-order patches run. Mirrors build_voice_agent /    # build_byoc_hashbrown_agent: the OpenAI model is built via the shared    # agents.agent._build_model factory.    from strands import Agent    from ag_ui_strands import StrandsAgent    from agents.agent import _build_model    strands_agent = Agent(        model=_build_model(),        system_prompt=BYOC_JSON_RENDER_SYSTEM_PROMPT,        tools=[],    )    return StrandsAgent(        agent=strands_agent,        name="byoc_json_render",        description="json-render flat-spec generator for the declarative-json-render demo.",    )
+    "use client";import { CopilotKit } from "@copilotkit/react-core/v2";import { AGENT_ID, Chat } from "./chat";export default function ByocJsonRenderDemo() {  return (    <CopilotKit      runtimeUrl="/api/copilotkit-declarative-json-render"      agent={AGENT_ID}    >      <div className="flex justify-center items-center h-screen w-full">        <div className="h-full w-full max-w-4xl">          <Chat />        </div>      </div>    </CopilotKit>  );}
 
-You have a chat surface and you want the agent to draw a dashboard from a typed JSON spec. By the end of this guide, the agent will emit a `{ root, elements }` object, [`@json-render/react`](https://www.npmjs.com/package/@json-render/react) will validate it against a Zod-described catalog, and the user sees the dashboard render as a single React tree.
+You have a chat surface and you want the agent to draw a dashboard from a typed JSON spec. By the end of this guide, the agent will emit a `{ root, elements }` object, and [`@json-render/react`](https://www.npmjs.com/package/@json-render/react) will render it through your React component registry.
 
 ## When to use this#
 
-  * **Structured UI with a typed contract** where the agent's output is validated against a known schema before it touches the DOM.
-  * **Tolerance for prose preamble + code fences** in the agent's output (json-render's parser handles them).
-  * **Cases where you already use json-render** elsewhere or prefer Zod-validated catalogs.
+  * **Structured UI with a typed contract** where the renderer accepts known component types.
+  * **Tolerance for prose preamble + code fences** in the agent's output (the demo's parser handles them).
+  * **Cases where you already use json-render** elsewhere or prefer a Zod-described catalog.
 
 
 
-If you'd rather have a streaming progressive render rather than a one-shot validated render, see the sibling page [Hashbrown](https://docs.copilotkit.ai/strands/generative-ui/hashbrown) for the same scenario with `@hashbrownai/react`.
+If you'd rather have a streaming progressive render than a one-shot JSON render, see the sibling page [Hashbrown](https://docs.copilotkit.ai/strands/generative-ui/hashbrown) for the same scenario with `@hashbrownai/react`.
 
 ## Frontend#
 
-The integration point is `<CopilotChat>`'s `messageView.assistantMessage` slot. Swap the default renderer for a json-render-backed one:
+The integration point is `<CopilotChat>`'s `messageView.assistantMessage` slot. The demo's **Code** tab has the complete framework-specific files, and the Markdown version of this page includes the key frontend source files. These demos use `@json-render/react` and `@json-render/core` version `0.18.0` with Zod 4 for the catalog. Check the selected demo's `package.json` in the repository for later version changes. Demos that also use Zod 3 import Zod 4 through the `zod4` package alias. `page.tsx` provides `<CopilotKit>`, `chat.tsx` installs `JsonRenderAssistantMessage` in the chat slot, and `json-render-renderer.tsx` parses the assistant content. The Code tab also shows the runtime route for the selected framework.
 
-frontend/src/app/page.tsx
-    
-    
-    import {
-      CopilotKit,
-      CopilotChat,
-      useConfigureSuggestions,
-    } from "@copilotkit/react-core/v2";
-    import { JsonRenderAssistantMessage } from "./json-render-renderer";
-    
-    export default function ByocJsonRenderDemo() {
-      useConfigureSuggestions({
-        suggestions: [
-          { title: "Sales dashboard", message: "Show me a sales dashboard." },
-          { title: "Region breakdown", message: "Break down sales by region." },
-        ],
-        available: "always",
-      });
-    
-      return (
-        <CopilotKit runtimeUrl="/api/copilotkit-byoc-json-render" agent="byoc_json_render">
-          <CopilotChat
-            messageView={{ assistantMessage: JsonRenderAssistantMessage }}
-          />
-        </CopilotKit>
-      );
-    }
-
-The custom renderer parses the streaming assistant content (tolerating partial tokens, code fences, and prose preamble), validates each element against a Zod-typed catalog, and feeds the resulting spec into `<Renderer />`:
-
-frontend/src/app/json-render-renderer.tsx
-    
-    
-    import { Renderer } from "@json-render/react";
-    import { catalog } from "./registry";
-    
-    export function JsonRenderAssistantMessage({ message }: { message: AssistantMessage }) {
-      const spec = parseSpec(message.content ?? "");
-      if (!spec) return null;
-      return <Renderer spec={spec} catalog={catalog} />;
-    }
-    
-    function parseSpec(content: string) {
-      const cleaned = stripCodeFencesAndPrelude(content);
-      const partial = tolerantJsonParse(cleaned);
-      return validateAgainstCatalog(partial);
-    }
-
-The catalog lives next to the renderer and pairs each component with a Zod schema describing its props:
-
-frontend/src/app/registry.tsx
-    
-    
-    import { z } from "zod";
-    import { MetricCard } from "./metric-card";
-    import { BarChart } from "./charts/bar-chart";
-    import { PieChart } from "./charts/pie-chart";
-    
-    export const catalog = {
-      MetricCard: {
-        component: MetricCard,
-        propsSchema: z.object({
-          title: z.string(),
-          value: z.number(),
-          delta: z.number().optional(),
-        }),
-      },
-      BarChart: {
-        component: BarChart,
-        propsSchema: z.object({
-          data: z.array(z.object({ label: z.string(), value: z.number() })),
-        }),
-      },
-      PieChart: {
-        component: PieChart,
-        propsSchema: z.object({
-          data: z.array(z.object({ label: z.string(), value: z.number() })),
-        }),
-      },
-    };
-
-Validation is the safety net: anything the agent emits that doesn't match a registered schema is rejected before it hits React, so the chat can't render arbitrary garbage.
+The renderer imports `registry` from `registry.tsx`, wraps `<Renderer spec={spec} registry={registry} />` in `<JSONUIProvider registry={registry}>`, and falls back to the normal assistant message until it can parse a spec. `catalog.ts` defines component names and Zod prop schemas with `defineCatalog`; `registry.tsx` uses `defineRegistry(catalog, …)` to bind those names to React components. Copy both files with the renderer. The demo's `parseSpec` allowlists component types and checks the basic object shape, but does **not** validate emitted props against the Zod schemas at runtime. Validate props before rendering if you rely on that guarantee.
 
 ## Backend#
 
@@ -245,24 +174,28 @@ example agent output
     
     
     {
-      "root": "dashboard",
+      "root": "revenue-card",
       "elements": {
-        "dashboard": {
-          "type": "Stack",
-          "children": ["revenue-card", "by-region"]
-        },
         "revenue-card": {
           "type": "MetricCard",
-          "props": { "title": "Total revenue", "value": 184302 }
+          "props": { "label": "Total revenue", "value": "$184,302", "trend": "+12%" },
+          "children": ["by-region"]
         },
         "by-region": {
           "type": "BarChart",
-          "props": { "data": [...] }
+          "props": {
+            "title": "Revenue by region",
+            "description": null,
+            "data": [
+              { "label": "North America", "value": 112000 },
+              { "label": "EMEA", "value": 72302 }
+            ]
+          }
         }
       }
     }
 
-Anything else (free-form text, code fences around the JSON, a "Here's your dashboard:" preamble) is stripped by the renderer's tolerant parser before validation. The agent doesn't need to be perfectly clean.
+The example uses a `MetricCard` root and its registered `BarChart` child. The renderer tolerates a prose preamble or code fence around the JSON, but the agent prompts ask for plain JSON.
 
 ## Comparing the two patterns#
 

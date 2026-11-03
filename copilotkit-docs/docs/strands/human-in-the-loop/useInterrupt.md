@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/human-in-the-loop/useInterrupt/
 title: Pausing the Agent for Input
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:33.814168+00:00
+fetched_at: 2026-11-03T10:43:39.680565+00:00
 ---
 
 # Pausing the Agent for Input
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -139,7 +143,7 @@ Reach for `useInterrupt` when the pause is a **graph-enforced checkpoint** where
 
 
 
-For LLM-initiated pauses where the model decides on the fly to ask the user, prefer [`useHumanInTheLoop`](https://docs.copilotkit.ai/strands/human-in-the-loop/human-in-the-loop).
+For LLM-initiated pauses where the model decides on the fly to ask the user, prefer [`useHumanInTheLoop`](https://docs.copilotkit.ai/human-in-the-loop).
 
 ## The backend: `interrupt()` inside a tool#
 
@@ -354,7 +358,7 @@ The `Interrupt` type exposes a `responseSchema` field (a JSON Schema object) tha
 
 ## Going further#
 
-  * [Tool-based HITL with `useHumanInTheLoop`](https://docs.copilotkit.ai/strands/human-in-the-loop/human-in-the-loop) — for LLM-initiated pauses.
-  * [Headless interrupts](https://docs.copilotkit.ai/strands/human-in-the-loop/useInterrupt/headless) — compose the lower-level primitives (`useAgent`, `agent.subscribe`, `copilotkit.runAgent`) to resolve interrupts outside a chat surface.
+  * [Tool-based HITL with `useHumanInTheLoop`](https://docs.copilotkit.ai/human-in-the-loop) — for LLM-initiated pauses.
+  * [Headless interrupts](https://docs.copilotkit.ai/headless) — compose the lower-level primitives (`useAgent`, `agent.subscribe`, `copilotkit.runAgent`) to resolve interrupts outside a chat surface.
 
 

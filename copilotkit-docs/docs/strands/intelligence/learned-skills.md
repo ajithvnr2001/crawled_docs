@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/learned-skills/
 title: Skill delivery
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:38.451351+00:00
+fetched_at: 2026-11-03T10:43:37.391222+00:00
 ---
 
 # Skill delivery
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Skill delivery](https://docs.copilotkit.ai/strands/intelligence/learned-skills)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/managed-intelligence-platform/
 title: Cloud-hosted Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:38.184740+00:00
+fetched_at: 2026-11-03T10:43:37.009518+00:00
 ---
 
 # Cloud-hosted Intelligence
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -161,7 +165,7 @@ The [CopilotKit CLI](https://docs.copilotkit.ai/strands/cli) uses the same sign-
 Choose a project to open its **Overview**. The project navigation groups its pages into two areas:
 
   * **Overview** , **Product Analytics** , and **Automatic Learning** show project activity and analysis. During the Developer trial, Product Analytics and Automatic Learning are marked **TRIAL**.
-  * **Project resources** contains [Threads](https://docs.copilotkit.ai/strands/threads), [Channels](https://docs.copilotkit.ai/strands/intelligence/channels), [User Memories](https://docs.copilotkit.ai/strands/intelligence/memories), and API Keys.
+  * **Project resources** contains [Threads](https://docs.copilotkit.ai/strands/AG-UI-Streams), [Channels](https://docs.copilotkit.ai/strands/intelligence/channels), [User Memories](https://docs.copilotkit.ai/strands/intelligence/memories), and API Keys.
 
 
 
@@ -175,7 +179,7 @@ Open one thread to read its event timeline.
 
 ![A cloud-hosted thread with its event timeline.](https://docs.copilotkit.ai/images/cloud-hosted/cloud-hosted-thread-detail.png)
 
-The thread page shows the agent, the app user, the status, the last update time, and the event timeline. Open an event when you need the raw payload. **Rename** , **Archive** , and **Delete** match the thread API in your app: archive hides the thread from the active list and keeps the history, delete removes it. Read [AG-UI Streams](https://docs.copilotkit.ai/strands/threads) for how a thread works in your app.
+The thread page shows the agent, the app user, the status, the last update time, and the event timeline. Open an event when you need the raw payload. **Rename** , **Archive** , and **Delete** match the thread API in your app: archive hides the thread from the active list and keeps the history, delete removes it. Read [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams) for how a thread works in your app.
 
 ## Create an API key#
 

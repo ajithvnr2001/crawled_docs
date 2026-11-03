@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/self-hosting/
 title: Self-host CopilotKit Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:41.106680+00:00
+fetched_at: 2026-11-03T10:43:35.196827+00:00
 ---
 
 # Self-host CopilotKit Intelligence
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -691,7 +695,7 @@ Per-service keys `podDisruptionBudget`, `podAntiAffinity`, and `networkPolicy` a
   * **Platform architecture:** [CopilotKit Intelligence architecture](https://docs.copilotkit.ai/strands/intelligence/intelligence-platform) — runtime/platform architecture, project boundaries, threads, and realtime sync
   * **CopilotKit Intelligence overview:** [CopilotKit Intelligence](https://docs.copilotkit.ai/strands/intelligence/overview) — features, hosting options, and where to go next
   * **Monitor the deployment:** [Monitor with OpenTelemetry](https://docs.copilotkit.ai/strands/intelligence/self-hosting-observability) — send traces, product events, and logs to your own collector
-  * **Use threads in your app:** [Threads](https://docs.copilotkit.ai/strands/threads) — the persistent-conversation surface powered by CopilotKit Intelligence you just deployed
+  * **Use threads in your app:** [Threads](https://docs.copilotkit.ai/strands/AG-UI-Streams) — the persistent-conversation surface powered by CopilotKit Intelligence you just deployed
 
 
 

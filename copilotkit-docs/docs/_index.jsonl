@@ -3667,7 +3667,7 @@
 {"url": "https://docs.copilotkit.ai/strands/shared-state/in-app-agent-read/", "file": "strands/shared-state/in-app-agent-read.md", "title": "Reading agent state", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/shared-state/streaming/", "file": "strands/shared-state/streaming.md", "title": "State Streaming", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/telemetry/", "file": "strands/telemetry.md", "title": "Open-source Telemetry", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.copilotkit.ai/strands/threads-import/", "file": "strands/threads-import.md", "title": "Add AG-UI Streams to Existing Threads", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/strands/threads-import/", "file": "strands/threads-import.md", "title": "Add AG-UI Streams to Strands Conversations", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/shared-state/rendering-in-app/", "file": "strands/shared-state/rendering-in-app.md", "title": "Render agent state in your app", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/threads-lifecycle/", "file": "strands/threads-lifecycle.md", "title": "Thread & History Lifecycle", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/strands/runtime-server-adapter/", "file": "strands/runtime-server-adapter.md", "title": "Deploy to any runtime", "method": "scrapling+scrapegraph"}

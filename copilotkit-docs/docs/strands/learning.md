@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/learning/
 title: Automatic Learning
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:44.507023+00:00
+fetched_at: 2026-11-03T10:43:32.253634+00:00
 ---
 
 # Automatic Learning
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Skill delivery](https://docs.copilotkit.ai/strands/intelligence/learned-skills)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -105,7 +109,7 @@ Turn real use of your app into skills you can review and publish.
 
 ## Overview#
 
-Automatic Learning turns patterns from real agent runs into skills you can publish. It reads completed conversations in [AG-UI Streams](https://docs.copilotkit.ai/strands/threads), writes insights, and proposes instructions you review before you publish them.
+Automatic Learning turns patterns from real agent runs into skills you can publish. It reads completed conversations in [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams), writes insights, and proposes instructions you review before you publish them.
 
 The video also shows [User Memory](https://docs.copilotkit.ai/strands/intelligence/memories), then an expense-review workflow that becomes a skill.
 
@@ -136,11 +140,29 @@ The learning loop has two connections. Run ingestion collects evidence in a Lear
 Connection| Configuration| Result  
 ---|---|---  
 Runtime to Automatic Learning| `CopilotKitIntelligence.getLearningContainerId`| Assigns selected Threads to a container for analysis.  
+Browser activity to Automatic Learning| `CopilotKitIntelligence.getTrajectoryLearningContainerIds`| Assigns captured Trajectories to existing Learning Spaces.  
 Learning to agent| An Intelligence SDK adapter for your framework| Makes published Skills available during agent invocations.  
   
 When an agent must learn from its own workflow, use the same project and container for both connections. The SDK adapters also work with native agents outside a CopilotKit frontend, but they do not collect those agents' runs automatically.
 
 For agent setup, use the [Mastra](https://docs.copilotkit.ai/strands/intelligence/learned-skills#mastra), [LangGraph TypeScript](https://docs.copilotkit.ai/strands/intelligence/learned-skills#langgraph-typescript), or [LangGraph Python](https://docs.copilotkit.ai/strands/intelligence/learned-skills#langgraph-python) example. The delivery guide also covers [Google ADK](https://docs.copilotkit.ai/strands/intelligence/learned-skills#google-adk), [BuiltInAgent](https://docs.copilotkit.ai/strands/intelligence/learned-skills#builtinagent), and [Microsoft Agent Framework](https://docs.copilotkit.ai/strands/intelligence/learned-skills#microsoft-agent-framework).
+
+## Assign browser activity to a Learning Space#
+
+For capture connected to Intelligence, select existing Learning Spaces in your Runtime's server configuration:
+    
+    
+    const intelligence = new CopilotKitIntelligence({
+      apiKey: process.env.CPK_INTELLIGENCE_API_KEY!,
+      getTrajectoryLearningContainerIds: ({ trajectoryId, user }) =>
+        ["expense-review"],
+    });
+
+Create the Space before capture starts. The callback receives the Trajectory ID chosen by the browser and the application user verified by your Runtime. It does not require a Thread or an agent conversation. Browser-supplied Space IDs are ignored. A linked Thread's Space does not add the Trajectory; to show a Trajectory's chat during analysis, also assign its Threads to the same Space with `getLearningContainerId`.
+
+Return `[]` to request no new assignments explicitly. Return `null` or `undefined` to omit assignments from the connect request. Each connect adds memberships and never removes existing ones, so keep the selection stable across reconnects. A membership removed in Intelligence stays removed.
+
+Assignment problems never stop capture. If a selected Space does not exist in the project, the Runtime logs a warning with the Trajectory and Space IDs and connects the Trajectory without any assignments, including the Spaces that exist. The callback has a five-second deadline. Its optional second argument is an `AbortSignal` that cancels when the request ends or the deadline expires. If the callback throws, returns invalid IDs, or exceeds its deadline, the Runtime logs the error and connects the Trajectory without assignments. Check your Runtime logs when Trajectories do not appear in a Space. Your Intelligence backend must support Trajectory inputs for Automatic Learning. Assignment alone does not start an analysis or guarantee an insight.
 
 ## Set up Automatic Learning manually#
 
@@ -148,13 +170,38 @@ When you are done, your Runtime will send selected Threads to a Learning contain
 
 ### Connect CopilotKit Intelligence#
 
-Complete the [Intelligence quickstart](https://docs.copilotkit.ai/strands/intelligence/quickstart). That page signs you in with the CLI and selects the project. Then send a message and make sure that it appears in [AG-UI Streams](https://docs.copilotkit.ai/strands/threads). Open your project in [CopilotKit Intelligence](https://dashboard.operations.copilotkit.ai/) and make sure that Learning is available.
+Complete the [Intelligence quickstart](https://docs.copilotkit.ai/strands/intelligence/quickstart). That page signs you in with the CLI and selects the project. Then send a message and make sure that it appears in [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams). Open your project in [CopilotKit Intelligence](https://dashboard.operations.copilotkit.ai/) and make sure that Learning is available.
 
 ### Create a Learning container#
 
 In your Intelligence project, open **Learning** and choose **Create Learning container**. Give the container a stable ID, a descriptive name, and optional guidance about what good work looks like.
 
 Keep each container focused on one kind of work, such as expense review, support quality, or customer onboarding. Stable IDs contain 1–64 lowercase letters, numbers, or single hyphens; for example, `expense-review`.
+
+You can also use the CLI. Run these commands in the folder where you selected the project. First, list the containers that already exist:
+
+Terminal
+    
+    
+    npx copilotkit@latest learning containers list
+
+If a container for this kind of work exists, reuse its ID. Do not create a second container for the same work.
+
+If no container fits, print the default container ID for your project. The CLI makes this ID from your project slug. It does not check whether the container exists.
+
+Terminal
+    
+    
+    npx copilotkit@latest learning containers default-id
+
+Then create the container with that ID and a name:
+
+Terminal
+    
+    
+    npx copilotkit@latest learning containers create --id <container-id> --name "<container name>"
+
+To give guidance about what good work looks like, you can also add `--prompt-context` with a text value, for example `--prompt-context "Use approved answers."`.
 
 ### Assign Threads from your Runtime#
 
@@ -211,6 +258,86 @@ See this in Inspector
 Open Inspector on localhost. Go to **Automatic Learning**. Review published Skills, their supporting Insights, and the Thread evidence behind each pattern. Inspector also shows when new Threads are ready for a Learning run; start runs and review Skill candidates in the Intelligence web app.
 
 More detail: [Inspector](https://docs.copilotkit.ai/strands/inspector).
+
+## Manage Learning from your server#
+
+`CopilotKitIntelligence` can list containers, start manual runs, and review proposed Skills from your application server. The experimental Learning management methods require an Intelligence deployment with the runtime Learning management API. Their SDK contracts can change before release. They use the project API key from the existing client configuration.
+
+Keep the key on your server. Authorize each application user before you call these methods. A project key can read evidence and publish Skills across that project. It does not represent the person who clicked a control in your application.
+
+### Select a container and start a run#
+
+Application server
+    
+    
+    import { CopilotKitIntelligence } from "@copilotkit/runtime/v2";
+    
+    const intelligence = new CopilotKitIntelligence({
+      apiKey: process.env.CPK_INTELLIGENCE_API_KEY!,
+    });
+    
+    const page = await intelligence.experimental.learning.listLearningContainers();
+    // Use page.nextCursor to request another page when it is not null.
+    const container = await intelligence.experimental.learning.getLearningContainer({
+      containerId: "expense-review",
+    });
+    
+    // Call only after the authorized user requests a manual run.
+    const admittedRun = await intelligence.experimental.learning.startLearningRun({
+      containerId: container.id,
+    });
+    const runs = await intelligence.experimental.learning.listLearningRuns({
+      containerId: container.id,
+    });
+    const progress = runs.find((run) => run.id === admittedRun.id);
+
+A successful start response confirms admission, not completion. `listLearningRuns` returns the latest 100 runs, including their status and failure code. A manual run analyzes eligible evidence across the selected container, including evidence from other applications that share it. These methods do not upload workspace files, move Threads, or change their assignments.
+
+### Review a proposed Skill#
+
+Application server
+    
+    
+    const candidates = await intelligence.experimental.learning.listLearningCandidates({
+      containerId: "expense-review",
+    });
+    const pending = candidates.find((item) => item.status === "pending_review");
+    if (pending) {
+      const candidate = await intelligence.experimental.learning.getLearningCandidate({
+        containerId: "expense-review",
+        candidateId: pending.id,
+      });
+      const evidence = await Promise.all(
+        candidate.supportingInsights.map((insight) =>
+          intelligence.experimental.learning.getLearningInsightEvidence({
+            containerId: "expense-review",
+            insightId: insight.id,
+          }),
+        ),
+      );
+      // Show candidate.bundle.files and evidence to the authorized reviewer.
+    }
+
+`listLearningCandidates` returns the latest 500 candidates, including completed reviews. Evidence includes availability fields for missing Threads and Trajectories.
+
+After the reviewer explicitly chooses **Approve** or **Reject** , call `reviewLearningCandidate` from your authorized server handler:
+
+Authorized review handler
+    
+    
+    const review = await intelligence.experimental.learning.reviewLearningCandidate({
+      containerId: "expense-review",
+      candidateId, // The candidate the reviewer inspected.
+      action: "approve", // Use "reject" for an explicit rejection.
+    });
+
+Approval publishes the proposed change to the shared container. Rejection does not publish it. Published Skill content remains available through [Skill delivery](https://docs.copilotkit.ai/strands/intelligence/learned-skills).
+
+### Handle errors and cancellation#
+
+All management methods accept an optional `signal: AbortSignal` and have a 30-second request deadline. Cancellation stops the request; it does not undo a run or review that the server already accepted. The SDK does not retry these requests automatically.
+
+HTTP errors use the exported `PlatformRequestError` with `status`, `retryable`, and an optional backend `code`. Error messages omit raw backend details. Invalid responses fail instead of returning partial data. If a write response is lost, read the current runs or candidate before you offer another action.
 
 ## Use published Skills#
 
@@ -286,7 +413,7 @@ Delivery status is unavailable| Select **Retry delivery status**. For self-hoste
 
   * [CopilotKit Intelligence overview](https://docs.copilotkit.ai/strands/intelligence/overview)
   * [Connect CopilotKit Intelligence](https://docs.copilotkit.ai/strands/intelligence/quickstart)
-  * [AG-UI Streams](https://docs.copilotkit.ai/strands/threads)
+  * [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams)
   * [AG-UI Streams & Framework Threads](https://docs.copilotkit.ai/strands/intelligence/threads-explained)
   * [CopilotKit CLI](https://docs.copilotkit.ai/strands/cli)
 
@@ -294,4 +421,4 @@ Delivery status is unavailable| Select **Retry delivery status**. For self-hoste
 
 ### On this page
 
-OverviewStart with your coding agentHow Automatic Learning worksCollect runs and deliver SkillsSet up Automatic Learning manuallyUse published SkillsSet up skill deliveryDownload Skills manuallyTroubleshootingRelated guides
+OverviewStart with your coding agentHow Automatic Learning worksCollect runs and deliver SkillsAssign browser activity to a Learning SpaceSet up Automatic Learning manuallyManage Learning from your serverSelect a container and start a runReview a proposed SkillHandle errors and cancellationUse published SkillsSet up skill deliveryDownload Skills manuallyTroubleshootingRelated guides

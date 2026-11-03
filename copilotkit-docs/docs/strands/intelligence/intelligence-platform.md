@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/intelligence/intelligence-platform/
 title: CopilotKit Intelligence architecture
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:31:35.457757+00:00
+fetched_at: 2026-11-03T10:43:36.893796+00:00
 ---
 
 # CopilotKit Intelligence architecture
@@ -65,7 +65,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 
@@ -143,7 +147,7 @@ Project API keys are issued per project. Threads, events, and dashboard history 
 
 ## Threads#
 
-A thread is the saved conversation for one user in one project. Read [AG-UI Streams](https://docs.copilotkit.ai/strands/threads) for the product. Read [how a thread is saved](https://docs.copilotkit.ai/strands/intelligence/threads-explained) for replay and sync.
+A thread is the saved conversation for one user in one project. Read [AG-UI Streams](https://docs.copilotkit.ai/strands/AG-UI-Streams) for the product. Read [how a thread is saved](https://docs.copilotkit.ai/strands/intelligence/threads-explained) for replay and sync.
 
 ## Realtime sync#
 
