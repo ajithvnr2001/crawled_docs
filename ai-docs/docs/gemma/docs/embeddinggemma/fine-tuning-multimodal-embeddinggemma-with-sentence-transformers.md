@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/embeddinggemma/fine-tuning-multimodal-embeddinggemma-with-sentence-transformers/
 title: Fine-tune Multimodal Embeddings with EmbeddingGemma 2 and Sentence Transformers
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T11:01:05.021679+00:00
+fetched_at: 2026-11-03T11:35:37.478499+00:00
 ---
 
 # Fine-tune Multimodal Embeddings with EmbeddingGemma 2 and Sentence Transformers
