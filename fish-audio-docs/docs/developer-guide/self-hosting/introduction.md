@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/introduction/
 title: Introduction - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T14:25:07.714462+00:00
+fetched_at: 2026-11-03T15:24:40.173161+00:00
 ---
 
 # Introduction - Fish Audio
@@ -59,9 +59,9 @@ Each model ships on two platforms. Your agreement decides which ones your team g
 ---|---|---  
 What it is| The model’s chart, installed on your cluster| One container on a single machine  
 Best for| Production clusters and elastic capacity| Evaluation, fixed-size appliances, strict air gaps  
-Scaling| Replicas across GPUs and nodes, with optional autoscaling| None: one worker and one vocoder  
+Scaling| Replicas across GPUs and nodes, with optional autoscaling| Add containers behind your own load balancer; each is one worker and one vocoder  
 Metrics| Prometheus metrics from the speech services| API metrics only, at `/metrics`  
-Timestamps| Optional, where available| Not included  
+Timestamps| Optional, where available| A separate build, where available  
 Guide| [Kubernetes deployment](https://docs.fish.audio/developer-guide/self-hosting/kubernetes)| [All-in-One container](https://docs.fish.audio/developer-guide/self-hosting/all-in-one)  
   
 The GPUs each model needs are on [Models](https://docs.fish.audio/developer-guide/self-hosting/models). On either platform, ingress, DNS, TLS, external load balancing, and network allowlists are yours to choose and configure.

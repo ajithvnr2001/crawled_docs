@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/all-in-one/
 title: All-in-One container - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T14:25:07.932735+00:00
+fetched_at: 2026-11-03T15:24:39.919694+00:00
 ---
 
 # All-in-One container - Fish Audio
@@ -41,7 +41,7 @@ This page covers what the appliance is and what to plan for. The commands, tunin
 
 What it cannot do
 
-The appliance runs one inference worker and one vocoder, on the cards its model takes — see [Models](https://docs.fish.audio/developer-guide/self-hosting/models). It does not autoscale or add workers on more GPUs or nodes, and it does not include timestamp alignment, so it returns no word or segment timings. For elastic or higher-throughput deployments, use the [Kubernetes chart](https://docs.fish.audio/developer-guide/self-hosting/kubernetes), which scales replicas across all GPUs and nodes.
+The appliance runs one inference worker and one vocoder, on the cards its model takes — see [Models](https://docs.fish.audio/developer-guide/self-hosting/models). A container does not scale itself: for more capacity, run more containers behind your own load balancer. To scale workers and vocoders separately, use the [Kubernetes chart](https://docs.fish.audio/developer-guide/self-hosting/kubernetes).
 
 ## 
 

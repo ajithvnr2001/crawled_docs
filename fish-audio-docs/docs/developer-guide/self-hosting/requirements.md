@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/requirements/
 title: Requirements - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T14:25:07.799917+00:00
+fetched_at: 2026-11-03T15:24:40.001457+00:00
 ---
 
 # Requirements - Fish Audio
@@ -46,7 +46,7 @@ Hosts| Linux x86-64 on every machine, CPU-only Kubernetes nodes included.
 GPU type| NVIDIA. The types, and the GPU count, depend on the model: see [Models](https://docs.fish.audio/developer-guide/self-hosting/models). Contact Fish Audio before standardizing on a GPU not listed there.  
 GPU count| **Two** in most deployments: one for the inference worker, one for the vocoder.  
 **One more** : timestamp alignment, where available.  
-**More** : scales throughput on Kubernetes; size it with your account team.  
+**More** : adds throughput as more replicas or containers; size it with your account team.  
 MIG| Disable MIG unless the configuration has been validated with Fish Audio.  
 NVIDIA driver| Must support CUDA 13.x and your card’s compute capability.  
   

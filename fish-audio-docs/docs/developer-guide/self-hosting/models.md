@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/models/
 title: Models - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T14:25:07.195846+00:00
+fetched_at: 2026-11-03T15:24:40.543415+00:00
 ---
 
 # Models - Fish Audio
@@ -49,7 +49,6 @@ Drama 3| `model: drama-3`| H200 or B300 recommended| At least two or three, depe
 S2.1 Pro
 
   * **The first start compiles for your GPU.** The result is cached on shared storage on Helm, and on the volume on the All-in-One, so later starts are quicker. Moving to a different GPU type compiles once more.
-  * **Timestamps offline.** A Helm install without internet access copies the timestamp model onto shared storage before turning timestamps on; the deployment runbook has the step.
 
 
 
