@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/widgets-migration/
 title: Widget System Migration for Frontend Extensions - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:22.776241+00:00
+fetched_at: 2026-11-04T15:15:50.427928+00:00
 ---
 
 # Widget System Migration for Frontend Extensions - ComfyUI

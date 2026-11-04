@@ -1,0 +1,37 @@
+---
+url: https://docs.comfy.org/es/custom-nodes/js/link-registration-migration/
+title: Migraci\u00f3n del registro de enlaces para extensiones del frontend - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-04T15:15:40.414729+00:00
+---
+
+# Migración del registro de enlaces para extensiones del frontend - ComfyUI
+
+> Source: https://docs.comfy.org/es/custom-nodes/js/link-registration-migration/
+
+Migration Guides
+
+# Migración del registro de enlaces para extensiones del frontend
+
+Copiar páginaCopiar página
+
+Cómo tratar addFloatingLink cuando devuelve undefined, las vistas graph.links respaldadas por el store y las colisiones de ID de enlace en las extensiones del frontend de ComfyUI.
+
+Copiar páginaCopiar página
+
+`LinkNetwork.addFloatingLink(link)` ahora devuelve `LLink | undefined`. Para un enlace de ejecución nuevo, pasa el ID de enlace sin asignar y usa el enlace devuelto:
+    
+    
+    const registeredLink = graph.addFloatingLink(link)
+    if (!registeredLink) return
+    
+
+El registro devuelve el enlace guardado cuando tiene éxito o cuando el mismo enlace ya está presente en el store de topología. Si otro enlace de ejecución ya posee el ID, el registro anota un error, deja el enlace entrante sin conectar y devuelve `undefined`. No sustituye en silencio el enlace activo ni le asigna otra identidad al enlace entrante. `graph.floatingLinks` sigue siendo la vista de compatibilidad filtrada para los enlaces con un solo extremo. `graph.links` y `graph.floatingLinks` son vistas de compatibilidad filtradas por propietario y respaldadas por el store, no almacenamiento nativo independiente de tipo `Map`. Sus métodos de lectura habituales de `Map` usan una instantánea de pertenencia en caché; obtén un iterador nuevo después de que cambie la pertenencia de la topología en lugar de conservar un iterador existente. Ambas vistas requieren una instancia activa de Pinia y ya no representan un store ausente como un grafo vacío. Igual que el `Map.set()` nativo, `view.set(id, link)` devuelve la vista, no un resultado de registro. El registro puede rechazar una colisión de ID o de destino conservando el enlace existente, así que las extensiones que insertan a través de una vista deben confirmar el éxito con `view.get(link.id) === link`. Tras una colisión de ID con un enlace de la misma vista, `has()` devuelve `true` y `get()` devuelve el enlace existente. Prefiere las API de conexión de grafo y de enlace flotante cuando cubran la operación, porque esas API coordinan el ciclo de vida que la rodea. No invoques métodos de `Map.prototype` directamente sobre ninguna de las dos vistas ni dependas del almacenamiento interno nativo de `Map`. La sustitución de una entrada confirma el enlace nuevo antes de las devoluciones de llamada de desconexión del enlace antiguo, así que las consultas de las devoluciones de llamada ven el enlace de reemplazo en lugar de una entrada vacía. Después siguen las devoluciones de llamada de conexión habituales. Las extensiones que antes ignoraban el valor devuelto deben tratar `undefined` antes de conservar, renderizar o modificar el enlace entrante. No preselecciones un ID de enlace positivo para un enlace de ejecución nuevo; deja que el grafo lo genere. La reparación de colisiones de ID persistidos corresponde a la importación y deserialización de flujos de trabajo. Las extensiones que importan topología serializada deben normalizar los ID en conflicto en ese límite antes de usar la API de registro en ejecución. Construir un `LGraph` raíz, o configurar uno a partir de datos serializados, requiere una instancia activa de Pinia, porque la topología del grafo se respalda en el store durante todo su ciclo de vida.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/link-registration-migration.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/link-registration-migration)
+
+[Migración de ID de nodo](https://docs.comfy.org/es/custom-nodes/js/node-id-migration)[Migración del sistema de widgets](https://docs.comfy.org/es/custom-nodes/js/widgets-migration)

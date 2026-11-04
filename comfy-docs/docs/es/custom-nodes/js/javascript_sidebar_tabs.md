@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs/
 title: Pesta\u00f1as de la barra lateral - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:23.120131+00:00
+fetched_at: 2026-11-04T15:15:50.170647+00:00
 ---
 
 # Pestañas de la barra lateral - ComfyUI
@@ -43,7 +43,7 @@ Uso básico
     
     app.extensionManager.registerSidebarTab({
       id: "customSidebar",
-      icon: "pi pi-compass",
+      icon: "icon-[lucide--compass]",
       title: "Custom Tab",
       tooltip: "My Custom Sidebar Tab",
       type: "custom",
@@ -80,13 +80,7 @@ La función `render` recibe un elemento DOM donde debes insertar el contenido de
 
 Opciones de iconos
 
-Los iconos de las pestañas de la barra lateral pueden usar varios conjuntos de iconos:
-
-  * Iconos de PrimeVue: `pi pi-[icon-name]` (por ejemplo, `pi pi-home`)
-  * Iconos de Material Design: `mdi mdi-[icon-name]` (por ejemplo, `mdi mdi-robot`)
-  * Iconos de Font Awesome: `fa-[style] fa-[icon-name]` (por ejemplo, `fa-solid fa-star`)
-
-Asegúrate de que la biblioteca de iconos correspondiente esté cargada antes de usar estos iconos.
+Los iconos de las pestañas de la barra lateral usan clases de iconos de [Lucide](https://lucide.dev/icons/) con el formato `icon-[lucide--<icon-name>]` (por ejemplo, `icon-[lucide--compass]`). El frontend genera estas clases al compilarse, así que solo están disponibles los iconos de Lucide que usa el propio frontend. Si un icono no se muestra, elige otro o define tu propia clase de icono en una hoja de estilos que cargue tu extensión. Las clases de PrimeIcons (`pi pi-*`) y de Material Design Icons (`mdi mdi-*`) todavía se muestran por ahora, pero se están retirando gradualmente. No las uses en código nuevo. Consulta la [migración por la eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration).
 
 ## 
 
@@ -99,7 +93,7 @@ Puedes crear pestañas que conservan su estado:
     
     app.extensionManager.registerSidebarTab({
       id: "statefulTab",
-      icon: "pi pi-list",
+      icon: "icon-[lucide--list]",
       title: "Notes",
       type: "custom",
       render: (el) => {
@@ -146,7 +140,7 @@ Puedes montar componentes de React en las pestañas de la barra lateral:
     // Registra la pestaña de la barra lateral con contenido de React
     app.extensionManager.registerSidebarTab({
       id: "reactSidebar",
-      icon: "mdi mdi-react",
+      icon: "icon-[lucide--blocks]",
       title: "React Tab",
       type: "custom",
       render: (el) => {
@@ -192,7 +186,7 @@ Puedes actualizar el contenido de la barra lateral en respuesta a cambios en el 
     
     app.extensionManager.registerSidebarTab({
       id: "dynamicSidebar",
-      icon: "pi pi-chart-line",
+      icon: "icon-[lucide--activity]",
       title: "Stats",
       type: "custom",
       render: (el) => {
@@ -237,4 +231,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_sidebar_tabs.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_sidebar_tabs)
 
-[Pestañas del panel inferior](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)[Selection Toolbox](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)
+[Pestañas del panel inferior](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)[Cuadro de herramientas de selección](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)

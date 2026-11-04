@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/changelog/
 title: Changelog - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:34.129079+00:00
+fetched_at: 2026-11-04T15:15:49.327352+00:00
 ---
 
 # Changelog - ComfyUI
@@ -13,6 +13,7 @@ fetched_at: 2026-10-28T13:54:34.129079+00:00
 
 Back to top
 
+  * v0.44.0
   * v0.43.1
   * v0.43.0
   * v0.42.4
@@ -167,6 +168,43 @@ Copy pageCopy page
 ComfyUI changelog: the latest features, improvements, and bug fixes in each release, updated as new versions ship.
 
 Copy pageCopy page
+
+​
+
+v0.44.0
+
+November 4, 2026
+
+**Partner Node Updates**
+
+  * [**MiniMax H3 Max editing nodes**](https://github.com/Comfy-Org/ComfyUI/pull/17424): Recast, Extend, Reframe, Insert, Lip Sync and Camera Control nodes for rewriting the cast of a clip, lengthening it, fitting it to a new aspect ratio, inserting a shot, syncing lips to new audio and steering the camera
+  * [**Pruna P-Video Upscale**](https://github.com/Comfy-Org/ComfyUI/pull/17443): Upscale a finished video to a larger resolution
+  * [**Topaz Wonder 4**](https://github.com/Comfy-Org/ComfyUI/pull/17491): A new model option on Topaz Image Enhance
+  * [**Sonilo Music 1.5**](https://github.com/Comfy-Org/ComfyUI/pull/17475): Turn lyrics with verse and chorus tags into a full song
+  * [**Ideogram 4.5 Precise Edit context windows**](https://github.com/Comfy-Org/ComfyUI/pull/17428): Edit a region of the image inside the Precise Edit node
+  * [**OpenAI GPT-6.1 Terra and Sol**](https://github.com/Comfy-Org/ComfyUI/pull/17493): Two new models in the OpenAI nodes
+  * [**Flux Video Upscale V2 targets**](https://github.com/Comfy-Org/ComfyUI/pull/17394): 1080p, 2K and 4K target resolutions
+  * [**Seedance 1.x deprecated**](https://github.com/Comfy-Org/ComfyUI/pull/17507): The ByteDance Seedance 1.x video nodes are marked deprecated
+
+**Open-Source Model Support**
+
+  * [**P-H3-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17506): Pruna AI’s few-step image model built on MiniMax H3, with text to image and image edit templates
+  * [**MiniMax H3 latent upscaler**](https://github.com/Comfy-Org/ComfyUI/pull/17412): Upscale H3 latents with the dedicated upscaler model
+  * [**MiniMax Sol-H3-VAE**](https://github.com/Comfy-Org/ComfyUI/pull/17411): Load the Sol-H3-VAE alongside the standard H3 VAEs
+  * [**MiniMax H3 context windows**](https://github.com/Comfy-Org/ComfyUI/pull/17425): Generate longer H3 video by running the model over overlapping context windows
+
+**New Nodes**
+
+  * [**Text Generate V2**](https://github.com/Comfy-Org/ComfyUI/pull/17492): Text generation that accepts a growing set of image inputs
+  * [**VAE compute dtype**](https://github.com/Comfy-Org/ComfyUI/pull/17450): Set the dtype used for VAE compute separately from the model
+
+**Improvements**
+
+  * [**ProRes video saving**](https://github.com/Comfy-Org/ComfyUI/pull/17463): Save video in ProRes, with a choice of chroma subsampling ([validation](https://github.com/Comfy-Org/ComfyUI/pull/17501))
+  * [**Job detail metadata**](https://github.com/Comfy-Org/ComfyUI/pull/17397): The API job detail response returns `execution_meta`
+  * [**fp8_e4m3fn_fast with dynamic VRAM**](https://github.com/Comfy-Org/ComfyUI/pull/16941): No longer falls back to bf16 compute
+
+
 
 ​
 

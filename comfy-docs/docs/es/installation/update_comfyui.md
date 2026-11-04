@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/update_comfyui/
 title: C\u00f3mo actualizar ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:04.570140+00:00
+fetched_at: 2026-11-04T15:15:50.757633+00:00
 ---
 
 # Cómo actualizar ComfyUI - ComfyUI
@@ -330,7 +330,7 @@ Sigue estos pasos para solucionar problemas:
 
 Cómo actualizar correctamente las dependencias principales
 
-  * Portable
+  * Portátil
 
   * Instalación manual
 
@@ -339,18 +339,18 @@ Cómo actualizar correctamente las dependencias principales
 
 
 
-**Método recomendado** : Usa el script de lote `ComfyUI_windows_portable\update\update_comfyui.bat`, que actualizará tanto el código de ComfyUI como todas las dependencias de Python.**Actualización manual de dependencias** : Si necesitas actualizar las dependencias manualmente, usa el siguiente comando:
+**Método recomendado** : usa el script por lotes `ComfyUI_windows_portable\update\update_comfyui.bat`, que actualiza tanto el código de ComfyUI como todas las dependencias de Python.**Actualización manual de dependencias** : Si necesitas actualizar las dependencias a mano, usa el siguiente comando:
     
     
-    # Abre la línea de comandos en el directorio de la versión portable
+    # Abre la línea de comandos en el directorio de la versión portátil
     .\python_embeded\python.exe -m pip install -r ComfyUI\requirements.txt
     
 
 1
 
-Activa el entorno de Python
+Activar el entorno de Python
 
-Si usas Conda para administrar entornos de Python, activa tu entorno primero:
+Si usas Conda para gestionar entornos de Python, activa tu entorno primero:
     
     
     conda activate comfyui  # o el nombre de otro entorno
@@ -358,9 +358,9 @@ Si usas Conda para administrar entornos de Python, activa tu entorno primero:
 
 2
 
-Actualiza el código
+Actualizar el código
 
-Navega al directorio raíz de ComfyUI y actualiza el código con Git:
+Ve al directorio raíz de ComfyUI y actualiza el código con Git:
     
     
     cd <ComfyUI_ROOT_PATH>
@@ -369,16 +369,16 @@ Navega al directorio raíz de ComfyUI y actualiza el código con Git:
 
 3
 
-Actualiza las dependencias
+Actualizar las dependencias
 
-Actualiza las dependencias de ComfyUI. Este paso es crucial, especialmente para el `comfyui-frontend-package`:
+Actualiza las dependencias de ComfyUI: este paso es importante, sobre todo para `comfyui-frontend-package`:
     
     
     pip install -r requirements.txt
     
 
-  * **Instancia de ComfyUI + dependencias de Python:** usa [Administrar → Actualizar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) (**Stable** o **Latest on GitHub**). Las actualizaciones de dependencias suelen aplicarse dentro de ese flujo.
-  * **La app Desktop en sí:** usa el menú de la app **Buscar actualizaciones** (es independiente del canal de actualización de ComfyUI).
+  * **Instancia de ComfyUI y dependencias de Python:** usa [Gestionar → Actualizar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) (**Stable** o **Latest on GitHub**). Las actualizaciones de dependencias se aplican normalmente como parte de ese flujo.
+  * **La propia aplicación Desktop:** usa el menú de la aplicación **Check for Updates** (es independiente del canal de actualización de ComfyUI).
   * Reinstala Desktop solo como último recurso.
 
 

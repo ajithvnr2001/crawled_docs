@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/macos/
 title: Comfy Desktop para macOS - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.242836+00:00
+fetched_at: 2026-11-04T15:15:49.902328+00:00
 ---
 
 # Comfy Desktop para macOS - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.242836+00:00
 > Source: https://docs.comfy.org/es/installation/desktop/macos/
 
 ## En esta página
+
+Volver arriba
 
   * Requisitos del sistema
   * Instalación
@@ -19,6 +21,8 @@ fetched_at: 2026-10-25T12:24:48.242836+00:00
   * Desinstalar
     * Eliminar Comfy Desktop
     * Lo que la desinstalación de la app NO elimina
+  * Si Comfy Desktop arranca con la interfaz rota
+    * Dónde está el registro de la app
 
 
 
@@ -28,7 +32,7 @@ Instalación
 
 Copiar páginaCopiar página
 
-Instala Comfy Desktop en macOS: requisitos del sistema, pasos de configuración, actualizaciones y una desinstalación limpia para ejecutar ComfyUI localmente en Macs con Apple Silicon.
+Instala Comfy Desktop en macOS: requisitos, pasos de configuración, actualizaciones y desinstalación limpia en Macs con Apple Silicon.
 
 Copiar páginaCopiar página
 
@@ -158,6 +162,28 @@ Para eliminar todo por completo:
   4. **Elimina la biblioteca de modelos compartida** en `~/ComfyUI-Shared` (solo si ya no necesitas estos archivos)
 
 
+
+## 
+
+​
+
+Si Comfy Desktop arranca con la interfaz rota
+
+Tras una actualización manual, Comfy Desktop puede arrancar sin estilos, con traducciones ausentes o con botones y menús desplegables que no responden. La causa habitual es un perfil de Chromium o una actualización pendiente en caché que dejó la versión anterior. Cierra Comfy Desktop primero y después ejecuta el script de restablecimiento del [repositorio Comfy-Desktop](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-mac.sh):
+    
+    
+    curl -fsSLO https://raw.githubusercontent.com/Comfy-Org/Comfy-Desktop/main/scripts/reset-mac.sh && bash reset-mac.sh
+    
+
+El script muestra cada ruta que va a borrar y pide confirmación antes de eliminar nada. Limpia las configuraciones, las cachés y el perfil de Chromium de la versión actual y de los nombres anteriores de la app, para que un perfil de una compilación antigua no vuelva a aplicarse. Se niega a ejecutarse mientras Comfy Desktop está abierto. La carpeta de registros también está entre las que borra, así que copia el registro antes si crees que vas a informar del problema, consulta Dónde está el registro de la app. Tus instalaciones de ComfyUI en `~/ComfyUI-Installs` y tus modelos compartidos en `~/ComfyUI-Shared` se conservan, pero el archivo que enumera las instalaciones se borra junto con el resto de los datos de la app, así que puede que tengas que volver a añadirlas con **Add Existing Instance** en el siguiente arranque. El script también enumera las copias adicionales de la app que encuentra en el Mac sin borrarlas, porque una segunda copia en el Dock suele ser la razón de que un restablecimiento parezca no cambiar nada.
+
+### 
+
+​
+
+Dónde está el registro de la app
+
+Si el restablecimiento no resuelve el problema y quieres informarlo en el [seguimiento de incidencias de Comfy-Desktop](https://github.com/Comfy-Org/Comfy-Desktop/issues), el archivo que hay que adjuntar es `app.log` en `~/Library/Logs/Comfy Desktop`. Esa carpeta también se borra con el restablecimiento, así que cópiala a otro sitio antes de ejecutar el script. Comfy Desktop escribe un `app.log` nuevo en cada arranque y conserva a su lado los 50 archivos anteriores más recientes como `app.log_<timestamp>.log`, así que elige el de la sesión que falló. Cada archivo rota al llegar a 5 MB, de modo que una sesión larga puede repartirse en varios archivos.
 
 ¿Esta página le ayudó?
 

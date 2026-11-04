@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox/
-title: Selection Toolbox - ComfyUI
+title: Cuadro de herramientas de selecci\u00f3n - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:25.317191+00:00
+fetched_at: 2026-11-04T15:15:51.712511+00:00
 ---
 
-# Selection Toolbox - ComfyUI
+# Cuadro de herramientas de selección - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox/
 
@@ -25,7 +25,7 @@ Volver arriba
 
 JavaScript (UI)
 
-# Selection Toolbox
+# Cuadro de herramientas de selección
 
 Copiar páginaCopiar página
 
@@ -55,7 +55,7 @@ Nota: el método `getSelectionToolboxCommands` se llama para cada elemento del c
         {
           id: "my-extension.duplicate-special",
           label: "Duplicate Special",
-          icon: "pi pi-copy",
+          icon: "icon-[lucide--copy]",
           function: (selectedItem) => {
             // Your command logic here
             console.log("Duplicating selected nodes with special behavior");
@@ -94,12 +94,7 @@ La `function` recibe el elemento o los elementos seleccionados como parámetro, 
 
 Opciones de iconos
 
-Los botones del cuadro de herramientas de selección admiten las mismas bibliotecas de iconos que otros elementos de la interfaz:
-
-  * Iconos de PrimeVue: `pi pi-[icon-name]` (por ejemplo, `pi pi-star`)
-  * Iconos de Material Design: `mdi mdi-[icon-name]` (por ejemplo, `mdi mdi-content-copy`)
-
-
+Los botones del cuadro de herramientas de selección usan clases de iconos de [Lucide](https://lucide.dev/icons/) con el formato `icon-[lucide--<icon-name>]` (por ejemplo, `icon-[lucide--star]`). El frontend genera estas clases al compilarse, así que solo están disponibles los iconos de Lucide que usa el propio frontend. Si un icono no se muestra, elige otro o define tu propia clase de icono en una hoja de estilos que cargue tu extensión. Las clases de PrimeIcons (`pi pi-*`) y de Material Design Icons (`mdi mdi-*`) todavía se muestran por ahora, pero se están retirando gradualmente. No las uses en código nuevo. Consulta la [migración por la eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration).
 
 ## 
 
@@ -116,7 +111,7 @@ Cada vez que cambia la selección se llama al método `getSelectionToolboxComman
         {
           id: "my-ext.align-nodes",
           label: "Align Nodes",
-          icon: "pi pi-align-left",
+          icon: "icon-[lucide--align-start-vertical]",
           function: () => {
             // Align multiple nodes
           }
@@ -124,7 +119,7 @@ Cada vez que cambia la selección se llama al método `getSelectionToolboxComman
         {
           id: "my-ext.configure-single",
           label: "Configure",
-          icon: "pi pi-cog",
+          icon: "icon-[lucide--settings]",
           function: () => {
             // Configure single node
           }
@@ -162,7 +157,7 @@ Accede a la información sobre los elementos seleccionados a través del objeto 
         {
           id: "my-ext.show-info",
           label: "Show Selection Info",
-          icon: "pi pi-info-circle",
+          icon: "icon-[lucide--info]",
           function: () => {
             const selectedItems = app.canvas.selectedItems;
             
@@ -198,7 +193,7 @@ Aquí tienes un ejemplo sencillo que muestra varias funciones del cuadro de herr
         {
           id: "selection-tools.count",
           label: "Count Selection",
-          icon: "pi pi-hashtag",
+          icon: "icon-[lucide--tag]",
           function: () => {
             const count = app.canvas.selectedItems?.size || 0;
             app.extensionManager.toast.add({
@@ -212,7 +207,7 @@ Aquí tienes un ejemplo sencillo que muestra varias funciones del cuadro de herr
         {
           id: "selection-tools.copy-ids",
           label: "Copy IDs",
-          icon: "pi pi-copy",
+          icon: "icon-[lucide--copy]",
           function: () => {
             const items = Array.from(app.canvas.selectedItems || []);
             const ids = items.map(item => item.id).filter(id => id !== undefined);
@@ -231,7 +226,7 @@ Aquí tienes un ejemplo sencillo que muestra varias funciones del cuadro de herr
         {
           id: "selection-tools.log-types",
           label: "Log Types",
-          icon: "pi pi-info-circle",
+          icon: "icon-[lucide--info]",
           function: () => {
             const items = Array.from(app.canvas.selectedItems || []);
             const typeCount = {};

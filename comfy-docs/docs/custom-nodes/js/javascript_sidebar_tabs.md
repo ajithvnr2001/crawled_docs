@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs/
 title: Sidebar Tabs - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:40.136369+00:00
+fetched_at: 2026-11-04T15:15:51.514891+00:00
 ---
 
 # Sidebar Tabs - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:40.136369+00:00
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs/
 
 ## On this page
+
+Back to top
 
   * Basic Usage
   * Tab Configuration
@@ -41,7 +43,7 @@ Basic Usage
     
     app.extensionManager.registerSidebarTab({
       id: "customSidebar",
-      icon: "pi pi-compass",
+      icon: "icon-[lucide--compass]",
       title: "Custom Tab",
       tooltip: "My Custom Sidebar Tab",
       type: "custom",
@@ -78,13 +80,7 @@ The `render` function receives a DOM element where you should insert your tab’
 
 Icon Options
 
-Sidebar tab icons can use various icon sets:
-
-  * PrimeVue icons: `pi pi-[icon-name]` (e.g., `pi pi-home`)
-  * Material Design icons: `mdi mdi-[icon-name]` (e.g., `mdi mdi-robot`)
-  * Font Awesome icons: `fa-[style] fa-[icon-name]` (e.g., `fa-solid fa-star`)
-
-Ensure the corresponding icon library is loaded before using these icons.
+Sidebar tab icons use [Lucide](https://lucide.dev/icons/) icon classes in the form `icon-[lucide--<icon-name>]` (e.g., `icon-[lucide--compass]`). The frontend generates these classes when it is built, so only the Lucide icons that the frontend itself uses are available. If an icon does not render, pick another icon, or define your own icon class in a stylesheet that your extension loads. PrimeIcons (`pi pi-*`) and Material Design Icons (`mdi mdi-*`) classes still render for now, but they are being phased out. Don’t use them in new code. See [PrimeVue removal migration](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration).
 
 ## 
 
@@ -97,7 +93,7 @@ You can create tabs that maintain state:
     
     app.extensionManager.registerSidebarTab({
       id: "statefulTab",
-      icon: "pi pi-list",
+      icon: "icon-[lucide--list]",
       title: "Notes",
       type: "custom",
       render: (el) => {
@@ -144,7 +140,7 @@ You can mount React components in sidebar tabs:
     // Register sidebar tab with React content
     app.extensionManager.registerSidebarTab({
       id: "reactSidebar",
-      icon: "mdi mdi-react",
+      icon: "icon-[lucide--blocks]",
       title: "React Tab",
       type: "custom",
       render: (el) => {
@@ -190,7 +186,7 @@ You can update sidebar content in response to graph changes:
     
     app.extensionManager.registerSidebarTab({
       id: "dynamicSidebar",
-      icon: "pi pi-chart-line",
+      icon: "icon-[lucide--activity]",
       title: "Stats",
       type: "custom",
       render: (el) => {
@@ -235,26 +231,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_sidebar_tabs.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_sidebar_tabs)
 
-[Bottom Panel TabsPrevious](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)[Selection ToolboxNext](https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Bottom Panel Tabs](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)[Selection Toolbox](https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/bria/fibo/
 title: Bria FIBO 2.0 en ComfyUI: texto a imagen y edici\u00f3n de imagen - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:46.828777+00:00
+fetched_at: 2026-11-04T15:15:42.368631+00:00
 ---
 
 # Bria FIBO 2.0 en ComfyUI: texto a imagen y edición de imagen - ComfyUI
@@ -97,6 +97,10 @@ Bria: FIBO 2.0 Text to Image
 
 Describe la imagen, elige una forma y ejecuta. FIBO 2.0 expande el prompt en un subtítulo estructurado, genera a 1 MP o 4 MP y devuelve el subtítulo junto a la imagen para que puedas reconstruirla o refinarla más tarde. ![Vista previa del flujo de trabajo Bria: FIBO 2.0 Text to Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bria_fibo2_t2i-1.webp)
 
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
 ## Descargar flujo de trabajo
 
 Descarga el JSON o busca “Bria: FIBO 2.0 Text to Image” en la Biblioteca de plantillas
@@ -177,4 +181,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/bria/fibo.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/bria/fibo)
 
-[Eliminación de fondo](https://docs.comfy.org/es/tutorials/partner-nodes/bria/background-removal)[Seedream 5 Pro](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedream-5-pro)
+[Eliminación de fondo](https://docs.comfy.org/es/tutorials/partner-nodes/bria/background-removal)[Seedream 5 Flash](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedream-5-flash)

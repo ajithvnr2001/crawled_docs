@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/
 title: Modelos de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:23.831828+00:00
+fetched_at: 2026-11-04T15:15:50.657137+00:00
 ---
 
 # Modelos de Comfy Router - ComfyUI
@@ -70,7 +70,7 @@ Todos los modelos que aparecen a continuación se sirven por la misma ruta, `POS
 
 Buscar por salida
 
-Video (76)
+Video (77)
 
   * [SwitchX](https://docs.comfy.org/es/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/es/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -112,6 +112,7 @@ Video (76)
   * [Video To Video](https://docs.comfy.org/es/development/comfy-router/models/moonvalley/video-to-video/code): `moonvalley/video-to-video`
   * [Pika 2.5 Image To Video](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-2-5-image-to-video/code): `pika/pika-2.5-image-to-video`
   * [Pika 2.5 Text To Video](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-2-5-text-to-video/code): `pika/pika-2.5-text-to-video`
+  * [Pika Soundtrack](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-soundtrack/code): `pika/pika-soundtrack`
   * [P Video 2](https://docs.comfy.org/es/development/comfy-router/models/pruna/p-video-2/code): `pruna/p-video-2`
   * [Aleph 2](https://docs.comfy.org/es/development/comfy-router/models/runway/aleph2/code): `runway/aleph2`
   * [Gen 4 Turbo](https://docs.comfy.org/es/development/comfy-router/models/runway/gen4-turbo/code): `runway/gen4_turbo`
@@ -247,7 +248,7 @@ Imagen (91)
 
 
 
-Audio (41)
+Audio (44)
 
   * [FLUX 3 Video](https://docs.comfy.org/es/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
   * [Dreamina Seedance 2.0 260128](https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code): `byteplus/dreamina-seedance-2-0-260128`
@@ -273,6 +274,9 @@ Audio (41)
   * [LTX 2.5 Fast](https://docs.comfy.org/es/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/es/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
   * [MiniMax H3](https://docs.comfy.org/es/development/comfy-router/models/minimax/minimax-h3/code): `minimax/minimax-h3`
+  * [Pika Music](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-music/code): `pika/pika-music`
+  * [Pika Sfx](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-sfx/code): `pika/pika-sfx`
+  * [Pika Soundtrack](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-soundtrack/code): `pika/pika-soundtrack`
   * [P Video 2](https://docs.comfy.org/es/development/comfy-router/models/pruna/p-video-2/code): `pruna/p-video-2`
   * [Clean Audio Video](https://docs.comfy.org/es/development/comfy-router/models/veed/clean-audio-video/code): `veed/clean-audio-video`
   * [Clean Audio](https://docs.comfy.org/es/development/comfy-router/models/veed/clean-audio/code): `veed/clean-audio`
@@ -308,7 +312,7 @@ Audio (41)
 
 
 
-Texto (42)
+Texto (44)
 
   * [Claude Fable 5.1](https://docs.comfy.org/es/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
   * [Claude Fable 5](https://docs.comfy.org/es/development/comfy-router/models/anthropic/claude-fable-5/code): `anthropic/claude-fable-5`
@@ -347,6 +351,8 @@ Texto (42)
   * [GPT 5 Mini](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5-mini/code): `openai/gpt-5-mini`
   * [GPT 5 Nano](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5-nano/code): `openai/gpt-5-nano`
   * [GPT 5](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5/code): `openai/gpt-5`
+  * [GPT 6.1 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-sol/code): `openai/gpt-6.1-sol`
+  * [GPT 6.1 Terra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-terra/code): `openai/gpt-6.1-terra`
   * [GPT 6 Astra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-astra/code): `openai/gpt-6-astra`
   * [GPT 6 Luna](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-luna/code): `openai/gpt-6-luna`
   * [GPT 6 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-sol/code): `openai/gpt-6-sol`
@@ -693,6 +699,8 @@ Modelo| ID| Entrada| Salida
 [GPT 5 Mini](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5-mini/code)| `openai/gpt-5-mini`| Texto, Imagen| Texto  
 [GPT 5 Nano](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5-nano/code)| `openai/gpt-5-nano`| Texto, Imagen| Texto  
 [GPT 5](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5/code)| `openai/gpt-5`| Texto, Imagen| Texto  
+[GPT 6.1 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-sol/code)| `openai/gpt-6.1-sol`| Texto, Imagen| Texto  
+[GPT 6.1 Terra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-terra/code)| `openai/gpt-6.1-terra`| Texto, Imagen| Texto  
 [GPT 6 Astra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-astra/code)| `openai/gpt-6-astra`| Texto, Imagen| Texto  
 [GPT 6 Luna](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-luna/code)| `openai/gpt-6-luna`| Texto, Imagen| Texto  
 [GPT 6 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-sol/code)| `openai/gpt-6-sol`| Texto, Imagen| Texto  
@@ -722,6 +730,9 @@ Modelo| ID| Entrada| Salida
 ---|---|---|---  
 [Pika 2.5 Image To Video](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-2-5-image-to-video/code)| `pika/pika-2.5-image-to-video`| Texto, Imagen| Video  
 [Pika 2.5 Text To Video](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-2-5-text-to-video/code)| `pika/pika-2.5-text-to-video`| Texto| Video  
+[Pika Music](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-music/code)| `pika/pika-music`| Texto, Audio| Audio  
+[Pika Sfx](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-sfx/code)| `pika/pika-sfx`| Texto| Audio  
+[Pika Soundtrack](https://docs.comfy.org/es/development/comfy-router/models/pika/pika-soundtrack/code)| `pika/pika-soundtrack`| Video, Texto| Video + Audio  
   
 ## 
 

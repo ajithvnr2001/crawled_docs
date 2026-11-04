@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/TopazImageEnhanceV2/
-title: TopazImageEnhanceV2 - ComfyUI Built-in Node Documentation - ComfyUI
+title: Topaz Image Enhance - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:11.198623+00:00
+fetched_at: 2026-11-04T15:15:49.776732+00:00
 ---
 
-# TopazImageEnhanceV2 - ComfyUI Built-in Node Documentation - ComfyUI
+# Topaz Image Enhance - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/TopazImageEnhanceV2/
 
 Topaz
 
-# TopazImageEnhanceV2 - ComfyUI Built-in Node Documentation
+# Topaz Image Enhance - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -19,7 +19,7 @@ Topaz Image Enhance applies industry-standard upscaling and image enhancement to
 
 Copy pageCopy page
 
-Topaz Image Enhance applies industry-standard upscaling and image enhancement to a single input image using Topaz models. It sends the image to the Topaz API, processes it with the selected model, and returns the enhanced result. You can choose from three models: Reimagine, Bloom 2, and Wonder 3.5.
+Topaz Image Enhance applies industry-standard upscaling and image enhancement to a single input image using Topaz models. It sends the image to the Topaz API, processes it with the selected model, and returns the enhanced result. You can choose from four models: Reimagine, Bloom 2, Wonder 3.5, and Wonder 4.
 
 ## 
 
@@ -39,8 +39,9 @@ Parameter| Description| Data Type| Required| Range
 `model`| The Topaz enhancement model to use. The selected model determines which model-specific settings appear.| DYNAMIC_COMBO| Yes| `"Reimagine"`  
 `"Bloom 2"`  
 `"Wonder 3.5"`  
-`output_width`| Zero value means to calculate automatically (usually it will be original size or scaled proportionally to `output_height` if specified). Wonder 3.5 supports upscale factors from 1x to 6x only. Bloom 2 and Wonder 3.5 preserve the input aspect ratio and treat the requested size as a target. (default: 0)| INT| No| 0 to 32000  
-`output_height`| Zero value means to output in the same height as original or scaled proportionally to `output_width` if specified. Wonder 3.5 supports upscale factors from 1x to 6x only. Bloom 2 and Wonder 3.5 preserve the input aspect ratio and treat the requested size as a target. (default: 0)| INT| No| 0 to 32000  
+`"Wonder 4"`  
+`output_width`| Zero value means to calculate automatically (usually it will be original size or scaled proportionally to `output_height` if specified). Wonder 3.5 and Wonder 4 support upscale factors from 1x to 6x, Bloom 2 from 1x to 12x. Bloom 2, Wonder 3.5 and Wonder 4 always keep the input aspect ratio: if both sizes are set and their ratio differs, the larger scale wins, so the output is bigger than the requested size and the price is higher than it would be for the requested size. (default: 0)| INT| No| 0 to 32000  
+`output_height`| Zero value means to output in the same height as original or scaled proportionally to `output_width` if specified. Wonder 3.5 and Wonder 4 support upscale factors from 1x to 6x, Bloom 2 from 1x to 12x. Bloom 2, Wonder 3.5 and Wonder 4 always keep the input aspect ratio: if both sizes are set and their ratio differs, the larger scale wins, so the output is bigger than the requested size and the price is higher than it would be for the requested size. (default: 0)| INT| No| 0 to 32000  
   
 ### 
 
@@ -114,7 +115,7 @@ false
 `grain_size`| Size of the grain particles. Is ignored if grain is disabled. (default: 1.0)| FLOAT| Yes| 1.0 to 5.0  
 `grain_density`| Intensity of the grain effect. Is ignored if grain is disabled. (default: 0.5)| FLOAT| Yes| 0.0 to 1.0  
   
-**Note:** Only one input image is supported; the node raises an error if the input batch contains more than one image. Grain settings (`grain_model`, `grain_strength`, `grain_size`, `grain_density`) are ignored unless `grain` is enabled. For Bloom 2, leaving `prompt` empty automatically generates a prompt from the input image. Wonder 3.5 supports upscale factors from 1x to 6x only; Bloom 2 and Wonder 3.5 preserve the input aspect ratio and treat the requested size as a target.
+**Note:** Only one input image is supported; the node raises an error if the input batch contains more than one image. Grain settings (`grain_model`, `grain_strength`, `grain_size`, `grain_density`) are ignored unless `grain` is enabled. For Bloom 2, leaving `prompt` empty automatically generates a prompt from the input image. Wonder 4 exposes only the common inputs. The output is capped at 179 megapixels and at 32000 pixels per side.
 
 ## 
 
@@ -130,7 +131,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `19bb03ca7354f1b0d1e559b742b83939678fce6d5f490b1030717b846043e0e6`
+**Source fingerprint (SHA-256):** `dd109d31ea4ab7928058414c3a62ae3829f879354ebdce329b599aacb9804d1b`
 
 Was this page helpful?
 
@@ -138,26 +139,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/TopazImageEnhanceV2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/TopazImageEnhanceV2)
 
-[TopazImageEnhance - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/TopazImageEnhance)[WanImageToImageApi - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/WanImageToImageApi)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Topaz Image Enhance (Legacy)](https://docs.comfy.org/built-in-nodes/TopazImageEnhance)[Wan Image to Image](https://docs.comfy.org/built-in-nodes/WanImageToImageApi)

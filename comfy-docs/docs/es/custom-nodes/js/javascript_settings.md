@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_settings/
 title: API de configuraciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:25.514221+00:00
+fetched_at: 2026-11-04T15:15:51.152341+00:00
 ---
 
 # API de configuraciones - ComfyUI
@@ -139,7 +139,7 @@ Escribir una configuración
 
 Configuración adicional
 
-Los tipos de configuración se basan en componentes de [PrimeVue](https://primevue.org/). Puedes definir las props descritas en la documentación de PrimeVue para las configuraciones de ComfyUI agregándolas en un campo `attrs`. Por ejemplo, esto agrega botones de incremento y decremento a una entrada de número:
+Cada tipo de configuración muestra un componente de formulario del frontend de ComfyUI. Puedes pasar props adicionales a ese componente en un campo `attrs`. Las props que admite cada tipo se indican en Tipos. Por ejemplo, esto limita una entrada de número a un rango y un paso:
     
     
     {
@@ -148,13 +148,17 @@ Los tipos de configuración se basan en componentes de [PrimeVue](https://primev
         type: "number",
         defaultValue: 0,
         attrs: {
-            showButtons: true,
+            min: 0,
+            max: 100,
+            step: 5,
         },
         onChange: (newVal, oldVal) => {
             console.log(`Setting was changed from ${oldVal} to ${newVal}`);
         },
     }
     
+
+Si tu extensión pasaba props de PrimeVue como `showButtons`, `maxFractionDigits`, `editable` o `filter`, consulta la [migración por la eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration). El panel de configuración ya no usa componentes de PrimeVue, así que esas props no tienen efecto.
 
 ## 
 
@@ -168,7 +172,7 @@ Tipos
 
 Booleano
 
-Muestra un interruptor de activado/desactivado. Basado en el [componente ToggleSwitch de PrimeVue](https://primevue.org/toggleswitch/).
+Muestra un interruptor de activado/desactivado.
     
     
     {
@@ -188,7 +192,7 @@ Muestra un interruptor de activado/desactivado. Basado en el [componente ToggleS
 
 Texto
 
-Es texto de forma libre. Basado en el [componente InputText de PrimeVue](https://primevue.org/inputtext/).
+Es texto de forma libre.
     
     
     {
@@ -208,7 +212,7 @@ Es texto de forma libre. Basado en el [componente InputText de PrimeVue](https:/
 
 Número
 
-Sirve para introducir números. Para permitir decimales, establece el atributo `maxFractionDigits` en un número mayor que cero. Basado en el [componente InputNumber de PrimeVue](https://primevue.org/inputnumber/).
+Sirve para introducir números. La entrada siempre muestra botones de incremento y decremento. Los `attrs` admitidos son `min`, `max`, `step` y `formatOptions`. `formatOptions` acepta [`Intl.NumberFormatOptions`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options), así que `maximumFractionDigits` controla cuántos decimales se muestran.
     
     
     {
@@ -217,8 +221,8 @@ Sirve para introducir números. Para permitir decimales, establece el atributo `
         type: "number",
         defaultValue: 42,
         attrs: {
-            showButtons: true,
-            maxFractionDigits: 1,
+            step: 0.1,
+            formatOptions: { maximumFractionDigits: 1 },
         },
         onChange: (newVal, oldVal) => {
             console.log(`Setting was changed from ${oldVal} to ${newVal}`);
@@ -232,7 +236,7 @@ Sirve para introducir números. Para permitir decimales, establece el atributo `
 
 Control deslizante
 
-Permite al usuario introducir un número directamente o mediante un control deslizante. Basado en el [componente Slider de PrimeVue](https://primevue.org/slider/). No se admiten rangos.
+Permite al usuario introducir un número directamente o mediante un control deslizante. Los `attrs` admitidos son `min`, `max` y `step`. No se admiten rangos.
     
     
     {
@@ -257,7 +261,7 @@ Permite al usuario introducir un número directamente o mediante un control desl
 
 Combo
 
-Permite al usuario elegir de una lista desplegable de valores. Puedes proporcionar las opciones como una cadena simple o como un objeto con los campos `text` y `value`. Si solo proporcionas una cadena simple, se usará tanto como texto como valor. Puedes permitir que el usuario introduzca texto libre aportando el atributo `editable: true`, o que busque aportando el atributo `filter: true`. Basado en el [componente Select de PrimeVue](https://primevue.org/select/). No se admiten grupos.
+Permite al usuario elegir de una lista desplegable de valores. Puedes proporcionar las opciones como una cadena simple o como un objeto con los campos `text` y `value`. Si solo proporcionas una cadena simple, se usará tanto como texto como valor. Puedes permitir que el usuario busque en la lista aportando el atributo `searchable: true`. No se admiten grupos ni la entrada de texto libre.
     
     
     {
@@ -270,8 +274,7 @@ Permite al usuario elegir de una lista desplegable de valores. Puedes proporcion
             "My second option",
         ],
         attrs: {
-            editable: true,
-            filter: true,
+            searchable: true,
         },
         onChange: (newVal, oldVal) => {
             console.log(`Setting was changed from ${oldVal} to ${newVal}`);
@@ -285,7 +288,7 @@ Permite al usuario elegir de una lista desplegable de valores. Puedes proporcion
 
 Color
 
-Permite al usuario seleccionar un color desde un selector de color o escribir una referencia hexadecimal. Ten en cuenta que el formato requiere seis dígitos hexadecimales completos: la forma abreviada de tres dígitos no funciona. Basado en el [componente ColorPicker de PrimeVue](https://primevue.org/colorpicker/).
+Permite al usuario seleccionar un color desde un selector de color o escribir una referencia hexadecimal. Ten en cuenta que el formato requiere seis dígitos hexadecimales completos (u ocho, con alfa). La forma abreviada de tres dígitos no funciona.
     
     
     {
@@ -305,7 +308,7 @@ Permite al usuario seleccionar un color desde un selector de color o escribir un
 
 Imagen
 
-Permite al usuario subir una imagen. La configuración se guarda como [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data). Basado en el [componente FileUpload de PrimeVue](https://primevue.org/fileupload/).
+Permite al usuario subir una imagen. La configuración se guarda como [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data).
     
     
     {

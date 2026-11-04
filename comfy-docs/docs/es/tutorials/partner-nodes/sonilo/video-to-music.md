@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/sonilo/video-to-music/
 title: Sonilo en ComfyUI: generaci\u00f3n de video a m\u00fasica y de texto a audio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:55.357505+00:00
+fetched_at: 2026-11-04T15:15:48.888435+00:00
 ---
 
 # Sonilo en ComfyUI: generación de video a música y de texto a audio - ComfyUI
@@ -31,7 +31,7 @@ Genera bandas sonoras sincronizadas con tu video en ComfyUI con los Nodos asocia
 
 Copiar páginaCopiar página
 
-Sonilo es un servicio de video a música impulsado por IA que genera bandas sonoras sincronizadas con tu metraje. Analiza las imágenes, el ritmo y las señales emocionales para producir música anclada a tu línea de tiempo, fotograma a fotograma. Puedes controlar la generación de música directamente desde tus grafos de nodos de ComfyUI, junto con tus flujos de trabajo existentes.
+Sonilo es un servicio de video a música impulsado por IA que genera bandas sonoras sincronizadas con tu metraje. Analiza las imágenes, el ritmo y las señales emocionales para producir música anclada a tu línea de tiempo, fotograma a fotograma. Puedes controlar la generación de música directamente desde tus grafos de nodos de ComfyUI, junto con tus flujos de trabajo existentes. Para generar una canción a partir de una letra, consulta [Sonilo Music 1.5](https://docs.comfy.org/es/tutorials/partner-nodes/sonilo/music-1-5).
 
 ## 
 
@@ -172,4 +172,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/sonilo/video-to-music.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/sonilo/video-to-music)
 
-[Seed Audio 1 0](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seed-audio-1-0)[HeyGen Voice 1.0](https://docs.comfy.org/es/tutorials/partner-nodes/heygen/heygen-voice-1)
+[Seed Audio 1 0](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seed-audio-1-0)[Music 1.5](https://docs.comfy.org/es/tutorials/partner-nodes/sonilo/music-1-5)

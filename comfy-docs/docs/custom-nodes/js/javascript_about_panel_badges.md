@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges/
 title: About Panel Badges - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:37.649769+00:00
+fetched_at: 2026-11-04T15:15:51.440130+00:00
 ---
 
 # About Panel Badges - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:37.649769+00:00
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges/
 
 ## On this page
+
+Back to top
 
   * Basic Usage
   * Badge Configuration
@@ -43,12 +45,12 @@ Basic Usage
         {
           label: "Documentation",
           url: "https://example.com/docs",
-          icon: "pi pi-file"
+          icon: "icon-[lucide--file]"
         },
         {
           label: "GitHub",
           url: "https://github.com/username/repo",
-          icon: "pi pi-github"
+          icon: "icon-[lucide--github]"
         }
       ]
     });
@@ -66,7 +68,7 @@ Each badge requires all of these properties:
     {
       label: string,           // Text to display on the badge
       url: string,             // URL to open when badge is clicked
-      icon: string             // Icon class (e.g., PrimeVue icon)
+      icon: string             // Icon class (e.g., "icon-[lucide--github]")
     }
     
 
@@ -76,17 +78,16 @@ Each badge requires all of these properties:
 
 Icon Options
 
-Badge icons use PrimeVue’s icon set. Here are some commonly used icons:
+Badge icons use [Lucide](https://lucide.dev/icons/) icon classes in the form `icon-[lucide--<icon-name>]`. Here are some commonly used icons:
 
-  * Documentation: `pi pi-file` or `pi pi-book`
-  * GitHub: `pi pi-github`
-  * External link: `pi pi-external-link`
-  * Information: `pi pi-info-circle`
-  * Download: `pi pi-download`
-  * Website: `pi pi-globe`
-  * Discord: `pi pi-discord`
+  * Documentation: `icon-[lucide--file]` or `icon-[lucide--book-open]`
+  * GitHub: `icon-[lucide--github]`
+  * External link: `icon-[lucide--external-link]`
+  * Information: `icon-[lucide--info]`
+  * Download: `icon-[lucide--download]`
+  * Website: `icon-[lucide--globe]`
 
-For a complete list of available icons, refer to the [PrimeVue Icons documentation](https://primevue.org/icons/).
+The frontend generates these classes when it is built, so only the Lucide icons that the frontend itself uses are available. If an icon does not render, pick another icon, or define your own icon class in a stylesheet that your extension loads. PrimeIcons classes such as `pi pi-file` still render for now, but they are being phased out. Don’t use them in new code. See [PrimeVue removal migration](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration).
 
 ## 
 
@@ -101,17 +102,17 @@ Example
         {
           label: "Website",
           url: "https://example.com",
-          icon: "pi pi-home"
+          icon: "icon-[lucide--globe]"
         },
         {
           label: "Donate",
           url: "https://example.com/donate",
-          icon: "pi pi-heart"
+          icon: "icon-[lucide--heart]"
         },
         {
           label: "Documentation",
           url: "https://example.com/docs",
-          icon: "pi pi-book"
+          icon: "icon-[lucide--book-open]"
         }
       ]
     });
@@ -125,26 +126,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_about_panel_badges.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_about_panel_badges)
 
-[ComfyUI Toast APIPrevious](https://docs.comfy.org/custom-nodes/js/javascript_toast)[Bottom Panel TabsNext](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Toast API](https://docs.comfy.org/custom-nodes/js/javascript_toast)[Bottom Panel Tabs](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)

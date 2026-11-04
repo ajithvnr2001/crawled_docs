@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/serialization-callbacks-migration/
 title: Serialization Callback Migration for Frontend Extensions - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:22.495386+00:00
+fetched_at: 2026-11-04T15:15:50.327500+00:00
 ---
 
 # Serialization Callback Migration for Frontend Extensions - ComfyUI

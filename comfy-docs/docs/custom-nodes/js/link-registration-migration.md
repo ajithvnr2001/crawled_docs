@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/link-registration-migration/
 title: Link Registration Migration for Frontend Extensions - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:22.632205+00:00
+fetched_at: 2026-11-04T15:15:50.803692+00:00
 ---
 
 # Link Registration Migration for Frontend Extensions - ComfyUI

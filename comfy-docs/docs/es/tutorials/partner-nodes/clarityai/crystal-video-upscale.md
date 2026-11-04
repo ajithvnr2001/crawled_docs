@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/clarityai/crystal-video-upscale/
 title: Clarity AI Crystal Video Upscaler en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:47.811194+00:00
+fetched_at: 2026-11-04T15:15:41.964435+00:00
 ---
 
 # Clarity AI Crystal Video Upscaler en ComfyUI - ComfyUI
@@ -97,6 +97,10 @@ Por lo tanto, si notas que falta algún nodo central en este documento, puede de
 Flujo de trabajo de Crystal Video Upscaler
 
 Carga un clip, define el factor de escalado y ejecuta. El flujo de trabajo envía el video al nodo Clarity AI Crystal Video Upscale y guarda el resultado escalado.
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 

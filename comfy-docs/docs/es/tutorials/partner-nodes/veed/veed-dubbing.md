@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/veed/veed-dubbing/
 title: VEED Dubbing: traduce y sincroniza los labios del habla de un video en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:25.181618+00:00
+fetched_at: 2026-11-04T15:15:42.238226+00:00
 ---
 
 # VEED Dubbing: traduce y sincroniza los labios del habla de un video en ComfyUI - ComfyUI
@@ -71,6 +71,10 @@ Flujo de trabajo disponible
 VEED Dubbing: traducción de video
 
 Traduce un clip que ya tengas. La interpretación, la toma y el tiempo se mantienen tal como se grabaron; lo que cambia es el idioma en el que se escucha al hablante. ![Vista previa del flujo de trabajo VEED Dubbing](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_veed_dubbing-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 

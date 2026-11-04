@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/black-forest-labs/flux-3-max/
 title: FLUX 3 Max en ComfyUI: video con fotogramas clave y audio nativo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:46.289415+00:00
+fetched_at: 2026-11-04T15:15:42.045495+00:00
 ---
 
 # FLUX 3 Max en ComfyUI: video con fotogramas clave y audio nativo - ComfyUI
@@ -90,6 +90,10 @@ Flujo de trabajo de texto a video con FLUX 3 Max
 
 Describe la toma, elige una duración y ejecuta. El sonido, el movimiento y el comportamiento de la cámara se generan juntos a partir del mismo prompt, así que describe el audio que quieres en el mismo párrafo que la acción.
 
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
 ## Descargar flujo de trabajo
 
 Descarga el JSON o busca “FLUX 3 Max: Text to Video” en la Biblioteca de plantillas
@@ -110,6 +114,10 @@ Descarga el JSON o busca “FLUX 3 Max: Text to Video” en la Biblioteca de pla
 Flujo de trabajo de imagen a video con FLUX 3 Max
 
 Convierte imágenes fijas en una sola toma en movimiento. Con una sola imagen, el clip abre con ella y el modelo inventa el resto de la acción; con varias, las imágenes anclan la composición en distintos puntos de la línea de tiempo.
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
 
 ## Descargar flujo de trabajo
 

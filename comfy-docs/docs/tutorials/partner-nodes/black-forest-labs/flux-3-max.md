@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-3-max/
 title: FLUX 3 Max in ComfyUI: Keyframed Video with Native Audio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:29.734185+00:00
+fetched_at: 2026-11-04T15:15:41.901616+00:00
 ---
 
 # FLUX 3 Max in ComfyUI: Keyframed Video with Native Audio - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:29.734185+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-3-max/
 
 ## On this page
+
+Back to top
 
   * What FLUX 3 Max is good at
   * Example outputs
@@ -88,6 +90,10 @@ FLUX 3 Max text-to-video workflow
 
 Describe the shot, choose a length, and run. Sound, motion, and camera behavior are generated together from the same prompt, so describe the audio you want in the same paragraph as the action.
 
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
 ## Download Workflow
 
 Download JSON or search “FLUX 3 Max: Text to Video” in Template Library
@@ -108,6 +114,10 @@ Download JSON or search “FLUX 3 Max: Text to Video” in Template Library
 FLUX 3 Max image-to-video workflow
 
 Turn stills into one moving shot. With a single image the clip opens on it and the model invents the rest of the action; with several, the images anchor the composition at points along the timeline.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
 
 ## Download Workflow
 

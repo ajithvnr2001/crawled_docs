@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/connection-callbacks-migration/
 title: Connection Callback Migration for Frontend Extensions - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:22.432993+00:00
+fetched_at: 2026-11-04T15:15:51.772764+00:00
 ---
 
 # Connection Callback Migration for Frontend Extensions - ComfyUI

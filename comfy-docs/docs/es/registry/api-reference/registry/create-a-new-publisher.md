@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/create-a-new-publisher/
 title: Create a new publisher - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:36.189123+00:00
+fetched_at: 2026-11-04T15:15:44.226900+00:00
 ---
 
 # Create a new publisher - ComfyUI

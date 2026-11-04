@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/TopazImageEnhanceV2/
 title: Mejora de Imagen Topaz - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:36.795750+00:00
+fetched_at: 2026-11-04T15:15:50.028061+00:00
 ---
 
 # Mejora de Imagen Topaz - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ Topaz Image Enhance aplica escalado y mejora de imagen estándar de la industria
 
 Copiar páginaCopiar página
 
-Topaz Image Enhance aplica escalado y mejora de imagen estándar de la industria a una sola imagen de entrada utilizando modelos de Topaz. Envía la imagen a la API de Topaz, la procesa con el modelo seleccionado y devuelve el resultado mejorado. Puede elegir entre tres modelos: Reimagine, Bloom 2 y Wonder 3.5.
+Topaz Image Enhance aplica escalado y mejora de imagen estándar de la industria a una sola imagen de entrada utilizando modelos de Topaz. Envía la imagen a la API de Topaz, la procesa con el modelo seleccionado y devuelve el resultado mejorado. Puede elegir entre cuatro modelos: Reimagine, Bloom 2, Wonder 3.5 y Wonder 4.
 
 ## 
 
@@ -39,8 +39,9 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 `model`| El modelo de mejora de Topaz que se va a usar. El modelo seleccionado determina qué ajustes específicos del modelo aparecen.| DYNAMIC_COMBO| Sí| `"Reimagine"`  
 `"Bloom 2"`  
 `"Wonder 3.5"`  
-`output_width`| Un valor de cero significa calcular automáticamente (normalmente será el tamaño original o se escalará proporcionalmente a `output_height` si se especifica). Wonder 3.5 solo admite factores de escalado de 1x a 6x. Bloom 2 y Wonder 3.5 conservan la relación de aspecto de la entrada y tratan el tamaño solicitado como un objetivo. (predeterminado: 0)| INT| No| 0 a 32000  
-`output_height`| Un valor de cero significa generar en la misma altura que el original o escalar proporcionalmente a `output_width` si se especifica. Wonder 3.5 solo admite factores de escalado de 1x a 6x. Bloom 2 y Wonder 3.5 conservan la relación de aspecto de la entrada y tratan el tamaño solicitado como un objetivo. (predeterminado: 0)| INT| No| 0 a 32000  
+`"Wonder 4"`  
+`output_width`| Un valor de cero significa calcular automáticamente (normalmente será el tamaño original o se escalará proporcionalmente a `output_height` si se especifica). Wonder 3.5 y Wonder 4 admiten factores de escalado de 1x a 6x, y Bloom 2 de 1x a 12x. Bloom 2, Wonder 3.5 y Wonder 4 siempre conservan la relación de aspecto de la entrada: si se definen ambos tamaños y su proporción difiere, prevalece el escalado mayor, de modo que la salida es mayor que el tamaño solicitado y el precio es superior al del tamaño solicitado. (predeterminado: 0)| INT| No| 0 a 32000  
+`output_height`| Un valor de cero significa generar en la misma altura que el original o escalar proporcionalmente a `output_width` si se especifica. Wonder 3.5 y Wonder 4 admiten factores de escalado de 1x a 6x, y Bloom 2 de 1x a 12x. Bloom 2, Wonder 3.5 y Wonder 4 siempre conservan la relación de aspecto de la entrada: si se definen ambos tamaños y su proporción difiere, prevalece el escalado mayor, de modo que la salida es mayor que el tamaño solicitado y el precio es superior al del tamaño solicitado. (predeterminado: 0)| INT| No| 0 a 32000  
   
 ### 
 
@@ -114,7 +115,7 @@ false
 `grain_size`| Tamaño de las partículas de grano. Se ignora si el grano está deshabilitado. (predeterminado: 1.0)| FLOAT| Sí| 1.0 a 5.0  
 `grain_density`| Intensidad del efecto de grano. Se ignora si el grano está deshabilitado. (predeterminado: 0.5)| FLOAT| Sí| 0.0 a 1.0  
   
-**Nota:** Solo se admite una imagen de entrada; el nodo genera un error si el lote de entrada contiene más de una imagen. Los ajustes de grano (`grain_model`, `grain_strength`, `grain_size`, `grain_density`) se ignoran a menos que `grain` esté habilitado. Para Bloom 2, dejar `prompt` vacío genera automáticamente un prompt a partir de la imagen de entrada. Wonder 3.5 solo admite factores de escalado de 1x a 6x; Bloom 2 y Wonder 3.5 conservan la relación de aspecto de la entrada y tratan el tamaño solicitado como un objetivo.
+**Nota:** Solo se admite una imagen de entrada; el nodo genera un error si el lote de entrada contiene más de una imagen. Los ajustes de grano (`grain_model`, `grain_strength`, `grain_size`, `grain_density`) se ignoran a menos que `grain` esté habilitado. Para Bloom 2, dejar `prompt` vacío genera automáticamente un prompt a partir de la imagen de entrada. Wonder 4 solo expone las entradas comunes. La salida está limitada a 179 megapíxeles y a 32000 píxeles por lado.
 
 ## 
 
@@ -130,7 +131,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `19bb03ca7354f1b0d1e559b742b83939678fce6d5f490b1030717b846043e0e6`
+**Source fingerprint (SHA-256):** `dd109d31ea4ab7928058414c3a62ae3829f879354ebdce329b599aacb9804d1b`
 
 ¿Esta página le ayudó?
 

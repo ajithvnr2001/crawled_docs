@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges/
 title: Insignias del panel Acerca de - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.513741+00:00
+fetched_at: 2026-11-04T15:15:50.861029+00:00
 ---
 
 # Insignias del panel Acerca de - ComfyUI
@@ -45,12 +45,12 @@ Uso básico
         {
           label: "Documentation",
           url: "https://example.com/docs",
-          icon: "pi pi-file"
+          icon: "icon-[lucide--file]"
         },
         {
           label: "GitHub",
           url: "https://github.com/username/repo",
-          icon: "pi pi-github"
+          icon: "icon-[lucide--github]"
         }
       ]
     });
@@ -68,7 +68,7 @@ Cada insignia requiere todas estas propiedades:
     {
       label: string,           // Texto que se muestra en la insignia
       url: string,             // URL que se abre al hacer clic en la insignia
-      icon: string             // Clase de icono (por ejemplo, un icono de PrimeVue)
+      icon: string             // Clase de icono (por ejemplo, "icon-[lucide--github]")
     }
     
 
@@ -78,17 +78,16 @@ Cada insignia requiere todas estas propiedades:
 
 Opciones de iconos
 
-Los iconos de las insignias usan el conjunto de iconos de PrimeVue. Estos son algunos de los iconos más usados:
+Los iconos de las insignias usan clases de iconos de [Lucide](https://lucide.dev/icons/) con el formato `icon-[lucide--<icon-name>]`. Estos son algunos de los iconos más usados:
 
-  * Documentación: `pi pi-file` o `pi pi-book`
-  * GitHub: `pi pi-github`
-  * Enlace externo: `pi pi-external-link`
-  * Información: `pi pi-info-circle`
-  * Descargar: `pi pi-download`
-  * Sitio web: `pi pi-globe`
-  * Discord: `pi pi-discord`
+  * Documentación: `icon-[lucide--file]` o `icon-[lucide--book-open]`
+  * GitHub: `icon-[lucide--github]`
+  * Enlace externo: `icon-[lucide--external-link]`
+  * Información: `icon-[lucide--info]`
+  * Descargar: `icon-[lucide--download]`
+  * Sitio web: `icon-[lucide--globe]`
 
-Para ver la lista completa de iconos disponibles, consulta la [documentación de iconos de PrimeVue](https://primevue.org/icons/).
+El frontend genera estas clases al compilarse, así que solo están disponibles los iconos de Lucide que usa el propio frontend. Si un icono no se muestra, elige otro o define tu propia clase de icono en una hoja de estilos que cargue tu extensión. Las clases de PrimeIcons como `pi pi-file` todavía se muestran por ahora, pero se están retirando gradualmente. No las uses en código nuevo. Consulta la [migración por la eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration).
 
 ## 
 
@@ -103,17 +102,17 @@ Ejemplo
         {
           label: "Website",
           url: "https://example.com",
-          icon: "pi pi-home"
+          icon: "icon-[lucide--globe]"
         },
         {
           label: "Donate",
           url: "https://example.com/donate",
-          icon: "pi pi-heart"
+          icon: "icon-[lucide--heart]"
         },
         {
           label: "Documentation",
           url: "https://example.com/docs",
-          icon: "pi pi-book"
+          icon: "icon-[lucide--book-open]"
         }
       ]
     });
@@ -127,4 +126,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_about_panel_badges.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_about_panel_badges)
 
-[API de diálogos](https://docs.comfy.org/es/custom-nodes/js/javascript_dialog)[Pestañas de la barra lateral](https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs)
+[API de Toast](https://docs.comfy.org/es/custom-nodes/js/javascript_toast)[Pestañas del panel inferior](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)

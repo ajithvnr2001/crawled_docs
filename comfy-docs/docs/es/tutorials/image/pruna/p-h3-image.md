@@ -1,0 +1,214 @@
+---
+url: https://docs.comfy.org/es/tutorials/image/pruna/p-h3-image/
+title: P-H3-Image en ComfyUI: texto a imagen y edici\u00f3n en 8 pasos - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-11-04T15:15:40.921335+00:00
+---
+
+# P-H3-Image en ComfyUI: texto a imagen y edición en 8 pasos - ComfyUI
+
+> Source: https://docs.comfy.org/es/tutorials/image/pruna/p-h3-image/
+
+## En esta página
+
+Volver arriba
+
+  * Requisitos
+  * Descarga de modelos
+  * Flujo de trabajo texto a imagen de P-H3-Image
+  * Flujo de trabajo de edición de imagen de P-H3-Image
+  * Consejos para los prompts
+  * Limitaciones
+
+
+
+Pruna
+
+# P-H3-Image en ComfyUI: texto a imagen y edición en 8 pasos
+
+Copiar páginaCopiar página
+
+Renderiza imágenes fotorrealistas de 8 MP en 8 pasos sin CFG y edita fotos con una imagen de origen y hasta ocho imágenes de referencia en ComfyUI.
+
+Copiar páginaCopiar página
+
+**P-H3-Image** es el modelo de imagen de pesos abiertos de Pruna AI, construido sobre [MiniMax H3](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3). Resuelve dos tareas en un solo checkpoint: generación de texto a imagen y edición de imágenes. Una imagen completa requiere 8 pasos de muestreo sin orientación libre de clasificador (CFG) y se genera a 8 megapíxeles por defecto. El modelo tiende a estéticas fotográficas y cinematográficas: fotografía documental y editorial, retratos con textura de piel real, anime con estética de pantalla de TV, carteles serigrafiados y diseño gráfico plano con texto corto entre comillas. Un upsampler de prompts basado en Qwen3.5-9B reescribe una petición de una sola línea en el prompt detallado que el modelo mejor renderiza, y devuelve ese prompt reescrito para que puedas leerlo antes de que llegue al sampler. En ComfyUI, P-H3-Image se ejecuta como dos plantillas de flujo de trabajo, una para texto a imagen y otra para edición de imágenes. Reutiliza el modelo de difusión MiniMax H3 y añade el codificador de texto de Pruna, el upsampler de prompts, el VAE y el LoRA: unos 35 GB de archivos de modelo en total. Los archivos int8 caben en unos 21 GB de VRAM. **Aspectos destacados del modelo**
+
+  * **8 pasos, sin CFG** : un único programa de muestreo destilado y un solo acondicionamiento positivo, sin prompt negativo
+  * **8 megapíxeles** : cuadrada, 4:3, 3:2, 16:9 y sus versiones verticales, hasta 3872 x 2176
+  * **Upsampler de prompts integrado** : tu petición de una línea se amplía a un prompt completo y el prompt ampliado se muestra en el flujo de trabajo
+  * **Edición con referencias** : la primera imagen es la que se edita y las siguientes se convierten en `<Picture 2>`, `<Picture 3>` y así sucesivamente en el prompt
+  * **Solo imagen** : P-H3-Image no genera video ni audio
+
+**Enlaces relacionados**
+
+  * [Hugging Face: P-H3-Image](https://huggingface.co/PrunaAI/P-H3-Image)
+  * [Hugging Face: archivos de P-H3-Image para ComfyUI](https://huggingface.co/PrunaAI/P-H3-Image-Comfy)
+  * [Publicación de lanzamiento de Pruna AI](https://www.pruna.ai/blog/oss-p-h3-image-launch)
+
+
+
+  * Usuarios locales
+
+  * Usuarios de Cloud
+
+
+
+
+Asegúrate de que tu ComfyUI esté actualizado.
+
+  * [Descargar ComfyUI](https://www.comfy.org/download)
+  * [Guía de actualización](https://docs.comfy.org/es/installation/update_comfyui)
+
+Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos de trabajo](https://docs.comfy.org/es/interface/features/template). Si no los encuentras en las plantillas, es posible que tu ComfyUI esté desactualizado.Si faltan nodos al cargar un flujo de trabajo, estas son las posibles razones:
+
+  1. No estás usando la última versión de ComfyUI (versión nocturna)
+  2. Algunos nodos fallaron al importarse durante el inicio
+
+
+
+  * [Cloud](https://cloud.comfy.org) se actualizará después del lanzamiento estable de ComfyUI.
+
+Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
+
+## 
+
+​
+
+Requisitos
+
+  * ComfyUI 0.44.0 o posterior. Ambas plantillas usan el nodo PH3ImageConditioning añadido en 0.44.0
+  * Aproximadamente 35 GB de archivos de modelo. El modelo de diffusion es el mismo que usan los flujos de trabajo de MiniMax H3, así que puede que ya lo tengas
+  * Una GPU con aproximadamente 21 GB de VRAM para los archivos int8
+
+P-H3-Image se distribuye bajo la Licencia Comunitaria de MiniMax H3, que excluye algunas regiones a menos que cuentes con una licencia independiente de MiniMax. Para uso comercial, solicita una licencia a través de [Comfy](https://comfy.org/minimax/license).
+
+## 
+
+​
+
+Descarga de modelos
+
+## Modelo de difusión (INT8)
+
+minimax_h3_fl2va_pruned_int8_convrot.safetensors → ComfyUI/models/diffusion_models/
+
+## Codificador de texto (INT8)
+
+p-h3-image_text_encoder_int8_convrot.safetensors → ComfyUI/models/text_encoders/
+
+## Ampliador de prompt (W4A8)
+
+p-h3-image_prompt_upsampler_w4a8.safetensors → ComfyUI/models/text_encoders/
+
+## VAE (INT8)
+
+p-h3-image_vae_int8_convrot.safetensors → ComfyUI/models/vae/
+
+## LoRA (BF16)
+
+p-h3-image_lora_bf16.safetensors → ComfyUI/models/loras/
+
+Coloca los archivos en los siguientes directorios:
+    
+    
+    📂 ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 diffusion_models/
+    │   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors
+    │   ├── 📂 text_encoders/
+    │   │   ├── p-h3-image_text_encoder_int8_convrot.safetensors
+    │   │   └── p-h3-image_prompt_upsampler_w4a8.safetensors
+    │   ├── 📂 vae/
+    │   │   └── p-h3-image_vae_int8_convrot.safetensors
+    │   └── 📂 loras/
+    │       └── p-h3-image_lora_bf16.safetensors
+    
+
+## 
+
+​
+
+Flujo de trabajo texto a imagen de P-H3-Image
+
+Genera una imagen de 8 megapíxeles a partir de una solicitud de una línea. La plantilla ejecuta primero el upsampler del prompt y después el programa de 8 pasos. ![Vista previa del flujo de trabajo texto a imagen de P-H3-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_p_h3_t2i-1.webp)
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “P-H3-Image: Text to Image” en la Biblioteca de plantillas
+
+Escribe la solicitud después de `Request:` en la caja de prompt y mantén la línea `Aspect ratio:` sincronizada con el Selector de resolución. El selector está configurado en 8 megapíxeles con un múltiplo de 32, lo que da estos lienzos:
+
+Relación del selector| Tamaño a 8 MP, múltiplo 32  
+---|---  
+1:1 (Cuadrado)| 2912 x 2912  
+4:3 (Estándar)| 3360 x 2496  
+3:2 (Foto)| 3552 x 2368  
+16:9 (Panorámica)| 3872 x 2176  
+3:4 (Retrato estándar)| 2496 x 3360  
+2:3 (Retrato foto)| 2368 x 3552  
+9:16 (Retrato panorámico)| 2176 x 3872  
+  
+  * **Muestreo** : los 8 pasos son el programa propio del modelo. Añadir pasos no agrega detalle, y no hay CFG ni prompt negativo que ajustar
+  * **Semilla** : configúrala en `randomize` para imágenes nuevas y vuelve a `fixed` para reproducir el ejemplo incluido
+  * **Prompt ampliado** : el nodo Preview Any muestra el prompt reescrito. Vale la pena leerlo antes de cambiar la solicitud
+
+
+
+## 
+
+​
+
+Flujo de trabajo de edición de imagen de P-H3-Image
+
+Edita una foto con una instrucción breve, usando hasta nueve imágenes en total. ![Vista previa del flujo de trabajo de edición de imagen de P-H3-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_p_h3_image_edit-1.webp)
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “P-H3-Image: Image Edit” en la Biblioteca de plantillas
+
+## Imagen de entrada: image_p_h3_image_edit_atrium_day.png
+
+Imagen fuente del flujo de trabajo, o usa tu propia foto.
+
+Carga la imagen que quieres cambiar en el nodo `Load Image` y describe el resultado después de `Request:`. La salida sigue la forma de esa imagen, así que las entradas de ancho y alto del nodo de acondicionamiento se quedan en 0.
+
+  * **Tamaño de origen** : la edición se renderiza al tamaño de la primera imagen, ampliada a un mínimo de 4 megapíxeles
+  * **Más referencias** : conecta imágenes adicionales para añadir `<Picture 2>`, `<Picture 3>` y más referencias al prompt
+  * **Qué conservar** : nombra lo que no debe cambiar. Sin eso, el modelo tiende a redibujar toda la escena
+
+
+
+## 
+
+​
+
+Consejos para los prompts
+
+  1. **Di qué es la imagen** : empieza con una frase que nombre el objeto real, por ejemplo “una fotografía de un fotógrafo callejero con experiencia” o “una impresión risográfica a dos colores”. Esto define el aspecto de forma más fiable que las palabras de estilo
+  2. **Describe una sola escena** : define un punto de vista, un sujeto principal captado en un momento, unos pocos elementos de apoyo y una iluminación con una fuente y una dirección
+  3. **Entrecomilla cada cadena de texto** : el texto sin sus palabras exactas se convierte en pseudotexto. Pon cada cadena entre comillas, que sea corta, indica dónde se ubica y termina con “no other text”
+  4. **Deja fuera las palabras de hype** : palabras como stunning, epic, cinematic u 8k empujan al modelo hacia un aspecto brillante y sobresaturado
+
+
+
+## 
+
+​
+
+Limitaciones
+
+  * **Las resoluciones más bajas muestran más artefactos** : las caras, las manos y los detalles pequeños se rompen más a menudo a 2 y 4 megapíxeles que a 8
+  * **Las manos y las personas del fondo pueden romperse** : las personas pequeñas del fondo pueden salir distorsionadas. Renderizar a 8 megapíxeles ayuda
+  * **El texto no es del todo fiable** : las cadenas cortas entre comillas se renderizan bien, pero el texto denso, como el cuerpo de texto o el código largo, se convierte en pseudotexto
+  * **Sensible al prompt** : los prompts muy largos empeoran las imágenes y los prompts muy cortos dan resultados débiles sin el upsampler
+
+
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/image/pruna/p-h3-image.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/image/pruna/p-h3-image)
+
+[Combinar ControlNet](https://docs.comfy.org/es/tutorials/controlnet/mixing-controlnets)[MOSS-Image](https://docs.comfy.org/es/tutorials/image/moss-image/moss-image)

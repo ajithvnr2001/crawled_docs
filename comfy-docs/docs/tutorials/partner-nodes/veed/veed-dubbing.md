@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/veed/veed-dubbing/
 title: VEED Dubbing: Translate and Lip Sync Video Speech in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T13:54:25.272168+00:00
+fetched_at: 2026-11-04T15:15:42.106330+00:00
 ---
 
 # VEED Dubbing: Translate and Lip Sync Video Speech in ComfyUI - ComfyUI
@@ -71,6 +71,10 @@ Available workflow
 VEED Dubbing: video translation
 
 Translate a clip you already have. The performance, the shot and the timing stay as recorded; what changes is the language the speaker is heard in. ![VEED Dubbing workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_veed_dubbing-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
 
 ## Download Workflow
 

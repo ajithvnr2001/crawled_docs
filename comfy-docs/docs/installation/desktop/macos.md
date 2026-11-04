@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/macos/
 title: Comfy Desktop for macOS - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:57.576042+00:00
+fetched_at: 2026-11-04T15:15:48.716156+00:00
 ---
 
 # Comfy Desktop for macOS - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:57.576042+00:00
 > Source: https://docs.comfy.org/installation/desktop/macos/
 
 ## On this page
+
+Back to top
 
   * System Requirements
   * Installation
@@ -19,6 +21,8 @@ fetched_at: 2026-10-17T10:50:57.576042+00:00
   * Uninstalling
     * Remove Comfy Desktop
     * What Uninstalling the App Does NOT Remove
+  * If Comfy Desktop Starts Up Broken
+    * Where the App Log Is
 
 
 
@@ -159,32 +163,32 @@ To fully remove everything:
 
 
 
+## 
+
+​
+
+If Comfy Desktop Starts Up Broken
+
+A manual update can leave Comfy Desktop launching with no styling, missing translations, or buttons and dropdowns that do nothing. The usual cause is a Chromium profile or a cached pending update left behind by the previous version. Quit Comfy Desktop first, then run the reset script from the [Comfy-Desktop repository](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-mac.sh):
+    
+    
+    curl -fsSLO https://raw.githubusercontent.com/Comfy-Org/Comfy-Desktop/main/scripts/reset-mac.sh && bash reset-mac.sh
+    
+
+The script lists every path it is about to delete and asks before deleting anything. It clears the app’s settings, caches, and Chromium profile for the current version and for the earlier app names, so a profile left by an older build cannot come back. It refuses to run while Comfy Desktop is open. Because the log folder is one of the paths it deletes, copy the log out first if you may need to report the problem, see Where the App Log Is. Your ComfyUI installations in `~/ComfyUI-Installs` and your shared models in `~/ComfyUI-Shared` stay on disk, but the file that lists the installations is deleted with the rest of the app data, so you may have to add them back with **Add Existing Instance** on the next launch. The script also reports any extra copies of the app it finds on the Mac without deleting them, because a second copy in the Dock is a common reason a reset seems to change nothing.
+
+### 
+
+​
+
+Where the App Log Is
+
+If the reset does not fix the problem and you want to report it on the [Comfy-Desktop issue tracker](https://github.com/Comfy-Org/Comfy-Desktop/issues), the file to attach is `app.log` in `~/Library/Logs/Comfy Desktop`. That folder is one of the paths the reset deletes, so copy it somewhere else before you run the script. Comfy Desktop writes a new `app.log` at each launch and keeps the 50 most recent earlier files beside it as `app.log_<timestamp>.log`, so pick the file from the session that failed. Each file rotates once it reaches 5 MB, so a long session can span more than one file.
+
 Was this page helpful?
 
 YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/macos.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/macos)
 
-[Comfy Desktop for WindowsPrevious](https://docs.comfy.org/installation/desktop/windows)[Comfy Desktop on LinuxNext](https://docs.comfy.org/installation/desktop/linux)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Windows](https://docs.comfy.org/installation/desktop/windows)[Linux](https://docs.comfy.org/installation/desktop/linux)

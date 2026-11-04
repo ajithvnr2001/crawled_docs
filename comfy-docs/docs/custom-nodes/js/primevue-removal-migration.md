@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/primevue-removal-migration/
 title: PrimeVue Removal Migration for Frontend Extensions - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:22.591398+00:00
+fetched_at: 2026-11-04T15:15:51.061537+00:00
 ---
 
 # PrimeVue Removal Migration for Frontend Extensions - ComfyUI

@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/ByteDanceFirstLastFrameNode/",
   "file": "built-in-nodes/ByteDanceFirstLastFrameNode.md",
-  "title": "ByteDanceFirstLastFrameNode - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "ByteDance First-Last-Frame to Video - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:47:29.044004+00:00",
-  "html_len": 637829,
-  "md_len": 5248,
-  "depth": 0
+  "fetched_at": "2026-11-04T15:15:49.010522+00:00"
 }

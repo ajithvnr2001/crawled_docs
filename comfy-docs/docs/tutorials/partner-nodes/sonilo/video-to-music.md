@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/sonilo/video-to-music/
 title: Sonilo in ComfyUI: Video to Music and Text to Audio Generation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:38.146884+00:00
+fetched_at: 2026-11-04T15:15:48.659584+00:00
 ---
 
 # Sonilo in ComfyUI: Video to Music and Text to Audio Generation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:38.146884+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/sonilo/video-to-music/
 
 ## On this page
+
+Back to top
 
   * What Sonilo Video to Music is good at
   * Use cases
@@ -29,7 +31,7 @@ Generate soundtracks synced to your video in ComfyUI with Sonilo partner nodes, 
 
 Copy pageCopy page
 
-Sonilo is an AI-powered video-to-music service that generates soundtracks synchronized to your footage. It analyzes visuals, pacing, and emotional cues to produce music locked to your timeline, frame by frame. You can drive music generation directly from your ComfyUI node graphs, alongside your existing workflows.
+Sonilo is an AI-powered video-to-music service that generates soundtracks synchronized to your footage. It analyzes visuals, pacing, and emotional cues to produce music locked to your timeline, frame by frame. You can drive music generation directly from your ComfyUI node graphs, alongside your existing workflows. For lyrics to song generation, see [Sonilo Music 1.5](https://docs.comfy.org/tutorials/partner-nodes/sonilo/music-1-5).
 
 ## 
 
@@ -170,26 +172,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/sonilo/video-to-music.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/sonilo/video-to-music)
 
-[ByteDance Seed Audio 1.0 - Universal Audio GenerationPrevious](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seed-audio-1-0)[LLMs in ComfyUI WorkflowsNext](https://docs.comfy.org/tutorials/partner-nodes/language/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Seed Audio 1 0](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seed-audio-1-0)[Music 1.5](https://docs.comfy.org/tutorials/partner-nodes/sonilo/music-1-5)

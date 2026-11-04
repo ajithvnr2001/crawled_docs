@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/custom-nodes/js/javascript_settings/
 title: Settings API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:40.340308+00:00
+fetched_at: 2026-11-04T15:15:50.954219+00:00
 ---
 
 # Settings API - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:49:40.340308+00:00
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_settings/
 
 ## On this page
+
+Back to top
 
   * Basic operation
     * Add a setting
@@ -137,7 +139,7 @@ Write a setting
 
 Extra configuration
 
-The setting types are based on [PrimeVue](https://primevue.org/) components. Props described in the PrimeVue documentation can be defined for ComfyUI settings by adding them in an `attrs` field. For instance, this adds increment/decrement buttons to a number input:
+Each setting type renders a ComfyUI frontend form component. You can pass extra props to that component in an `attrs` field. The props each type supports are listed under Types. For instance, this limits a number input to a range and step:
     
     
     {
@@ -146,13 +148,17 @@ The setting types are based on [PrimeVue](https://primevue.org/) components. Pro
         type: "number",
         defaultValue: 0,
         attrs: {
-            showButtons: true,
+            min: 0,
+            max: 100,
+            step: 5,
         },
         onChange: (newVal, oldVal) => {
             console.log(`Setting was changed from ${oldVal} to ${newVal}`);
         },
     }
     
+
+If your extension passed PrimeVue props such as `showButtons`, `maxFractionDigits`, `editable` or `filter`, see [PrimeVue removal migration](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration). The settings panel no longer uses PrimeVue components, so those props have no effect.
 
 ## 
 
@@ -166,7 +172,7 @@ Types
 
 Boolean
 
-This shows an on/off toggle. Based on the [ToggleSwitch PrimeVue component](https://primevue.org/toggleswitch/).
+This shows an on/off toggle.
     
     
     {
@@ -186,7 +192,7 @@ This shows an on/off toggle. Based on the [ToggleSwitch PrimeVue component](http
 
 Text
 
-This is freeform text. Based on the [InputText PrimeVue component](https://primevue.org/inputtext/).
+This is freeform text.
     
     
     {
@@ -206,7 +212,7 @@ This is freeform text. Based on the [InputText PrimeVue component](https://prime
 
 Number
 
-This for entering numbers. To allow decimal places, set the `maxFractionDigits` attribute to a number greater than zero. Based on the [InputNumber PrimeVue component](https://primevue.org/inputnumber/).
+This for entering numbers. The input always shows increment and decrement buttons. Supported `attrs` are `min`, `max`, `step` and `formatOptions`. `formatOptions` takes [`Intl.NumberFormatOptions`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options), so `maximumFractionDigits` controls how many decimal places are shown.
     
     
     {
@@ -215,8 +221,8 @@ This for entering numbers. To allow decimal places, set the `maxFractionDigits` 
         type: "number",
         defaultValue: 42,
         attrs: {
-            showButtons: true,
-            maxFractionDigits: 1,
+            step: 0.1,
+            formatOptions: { maximumFractionDigits: 1 },
         },
         onChange: (newVal, oldVal) => {
             console.log(`Setting was changed from ${oldVal} to ${newVal}`);
@@ -230,7 +236,7 @@ This for entering numbers. To allow decimal places, set the `maxFractionDigits` 
 
 Slider
 
-This lets the user enter a number directly or via a slider. Based on the [Slider PrimeVue component](https://primevue.org/slider/). Ranges are not supported.
+This lets the user enter a number directly or via a slider. Supported `attrs` are `min`, `max` and `step`. Ranges are not supported.
     
     
     {
@@ -255,7 +261,7 @@ This lets the user enter a number directly or via a slider. Based on the [Slider
 
 Combo
 
-This lets the user pick from a drop-down list of values. You can provide options either as a plain string or as an object with `text` and `value` fields. If you only provide a plain string, then it will be used for both. You can let the user enter freeform text by supplying the `editable: true` attribute, or search by supplying the `filter: true` attribute. Based on the [Select PrimeVue component](https://primevue.org/select/). Groups are not supported.
+This lets the user pick from a drop-down list of values. You can provide options either as a plain string or as an object with `text` and `value` fields. If you only provide a plain string, then it will be used for both. You can let the user search the list by supplying the `searchable: true` attribute. Groups and freeform text entry are not supported.
     
     
     {
@@ -268,8 +274,7 @@ This lets the user pick from a drop-down list of values. You can provide options
             "My second option",
         ],
         attrs: {
-            editable: true,
-            filter: true,
+            searchable: true,
         },
         onChange: (newVal, oldVal) => {
             console.log(`Setting was changed from ${oldVal} to ${newVal}`);
@@ -283,7 +288,7 @@ This lets the user pick from a drop-down list of values. You can provide options
 
 Color
 
-This lets the user select a color from a color picker or type in a hex reference. Note that the format requires six full hex digits - three digit shorthand does not work. Based on the [ColorPicker PrimeVue component](https://primevue.org/colorpicker/).
+This lets the user select a color from a color picker or type in a hex reference. Note that the format requires six full hex digits (or eight, with alpha). Three digit shorthand does not work.
     
     
     {
@@ -303,7 +308,7 @@ This lets the user select a color from a color picker or type in a hex reference
 
 Image
 
-This lets the user upload an image. The setting will be saved as a [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data). Based on the [FileUpload PrimeVue component](https://primevue.org/fileupload/).
+This lets the user upload an image. The setting will be saved as a [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data).
     
     
     {
@@ -380,26 +385,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_settings.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_settings)
 
-[Comfy ObjectsPrevious](https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking)[ComfyUI Dialog APINext](https://docs.comfy.org/custom-nodes/js/javascript_dialog)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Comfy Objects](https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking)[Dialog API](https://docs.comfy.org/custom-nodes/js/javascript_dialog)

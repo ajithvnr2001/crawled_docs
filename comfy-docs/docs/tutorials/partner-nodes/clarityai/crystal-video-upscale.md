@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/clarityai/crystal-video-upscale/
 title: Clarity AI Crystal Video Upscaler in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:29.897630+00:00
+fetched_at: 2026-11-04T15:15:42.299528+00:00
 ---
 
 # Clarity AI Crystal Video Upscaler in ComfyUI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:29.897630+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/clarityai/crystal-video-upscale/
 
 ## On this page
+
+Back to top
 
   * What Crystal Video Upscaler is good at
   * Example output
@@ -95,6 +97,10 @@ So, if you find any core node missing in this document, it might be because the 
 Crystal Video Upscaler workflow
 
 Load a clip, set the upscale factor, and run. The workflow sends the video to the Clarity AI Crystal Video Upscale node and saves the upscaled result.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
 
 ## Download Workflow
 
