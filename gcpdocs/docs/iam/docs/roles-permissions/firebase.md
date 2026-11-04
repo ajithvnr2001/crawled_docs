@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/firebase/
 title: Firebase roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:33:55.999614+00:00
+fetched_at: 2026-11-04T07:59:58.636956+00:00
 ---
 
 # Firebase roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -421,9 +421,13 @@ Role | Permissions
 `firebaseapphosting.*`
 
   * `firebaseapphosting.backends.create`
+  * `firebaseapphosting.backends.createTagBinding`
   * `firebaseapphosting.backends.delete`
+  * `firebaseapphosting.backends.deleteTagBinding`
   * `firebaseapphosting.backends.get`
   * `firebaseapphosting.backends.list`
+  * `firebaseapphosting.backends.listEffectiveTags`
+  * `firebaseapphosting.backends.listTagBindings`
   * `firebaseapphosting.backends.update`
   * `firebaseapphosting.builds.create`
   * `firebaseapphosting.builds.delete`
@@ -517,7 +521,9 @@ Role | Permissions
   * `firebasedataconnect.schemas.migrate`
   * `firebasedataconnect.schemas.update`
   * `firebasedataconnect.services.create`
+  * `firebasedataconnect.services.createTagBinding`
   * `firebasedataconnect.services.delete`
+  * `firebasedataconnect.services.deleteTagBinding`
   * `firebasedataconnect.services.executeGraphql`
   * `firebasedataconnect.services.executeGraphqlRead`
   * `firebasedataconnect.services.generateQuery`
@@ -525,6 +531,8 @@ Role | Permissions
   * `firebasedataconnect.services.get`
   * `firebasedataconnect.services.introspectGraphql`
   * `firebasedataconnect.services.list`
+  * `firebasedataconnect.services.listEffectiveTags`
+  * `firebasedataconnect.services.listTagBindings`
   * `firebasedataconnect.services.postgrestCallFunction`
   * `firebasedataconnect.services.postgrestDelete`
   * `firebasedataconnect.services.postgrestInsert`
@@ -1047,7 +1055,7 @@ Role | Permissions
   * `firebaseappdistro.testers.list`
   * `firebaseappdistro.testers.update`
 
-`firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
+`firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.backends.listEffectiveTags` `firebaseapphosting.backends.listTagBindings` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
 
   * `firebaseapphosting.locations.get`
   * `firebaseapphosting.locations.list`
@@ -1097,7 +1105,7 @@ Role | Permissions
   * `firebasedataconnect.locations.get`
   * `firebasedataconnect.locations.list`
 
-`firebasedataconnect.operations.get` `firebasedataconnect.operations.list` `firebasedataconnect.schemaRevisions.get` `firebasedataconnect.schemaRevisions.list` `firebasedataconnect.schemas.get` `firebasedataconnect.schemas.list` `firebasedataconnect.services.generateQuery` `firebasedataconnect.services.generateSchema` `firebasedataconnect.services.get` `firebasedataconnect.services.introspectGraphql` `firebasedataconnect.services.list` `firebasedynamiclinks.destinations.list` `firebasedynamiclinks.domains.create` `firebasedynamiclinks.domains.get` `firebasedynamiclinks.domains.list` `firebasedynamiclinks.domains.update` `firebasedynamiclinks.links.*`
+`firebasedataconnect.operations.get` `firebasedataconnect.operations.list` `firebasedataconnect.schemaRevisions.get` `firebasedataconnect.schemaRevisions.list` `firebasedataconnect.schemas.get` `firebasedataconnect.schemas.list` `firebasedataconnect.services.generateQuery` `firebasedataconnect.services.generateSchema` `firebasedataconnect.services.get` `firebasedataconnect.services.introspectGraphql` `firebasedataconnect.services.list` `firebasedataconnect.services.listEffectiveTags` `firebasedataconnect.services.listTagBindings` `firebasedynamiclinks.destinations.list` `firebasedynamiclinks.domains.create` `firebasedynamiclinks.domains.get` `firebasedynamiclinks.domains.list` `firebasedynamiclinks.domains.update` `firebasedynamiclinks.links.*`
 
   * `firebasedynamiclinks.links.create`
   * `firebasedynamiclinks.links.get`
@@ -1226,7 +1234,7 @@ Role | Permissions
   * `eventarc.providers.get`
   * `eventarc.providers.list`
 
-`eventarc.triggers.get` `eventarc.triggers.getIamPolicy` `eventarc.triggers.list` `eventarc.triggers.listEffectiveTags` `eventarc.triggers.listTagBindings` `fcmdata.deliverydata.list` `firebase.billingPlans.get` `firebase.clients.get` `firebase.clients.list` `firebase.links.list` `firebase.playLinks.get` `firebase.playLinks.list` `firebase.projects.get` `firebaseabt.experimentresults.get` `firebaseabt.experiments.get` `firebaseabt.experiments.list` `firebaseabt.projectmetadata.get` `firebaseanalytics.resources.googleAnalyticsReadAndAnalyze` `firebaseappcheck.appAttestConfig.get` `firebaseappcheck.automations.get` `firebaseappcheck.automations.list` `firebaseappcheck.debugTokens.get` `firebaseappcheck.deviceCheckConfig.get` `firebaseappcheck.playIntegrityConfig.get` `firebaseappcheck.recaptchaEnterpriseConfig.get` `firebaseappcheck.recaptchaV3Config.get` `firebaseappcheck.resourcePolicies.get` `firebaseappcheck.safetyNetConfig.get` `firebaseappcheck.services.get` `firebaseappdistro.groups.list` `firebaseappdistro.releases.list` `firebaseappdistro.testers.list` `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
+`eventarc.triggers.get` `eventarc.triggers.getIamPolicy` `eventarc.triggers.list` `eventarc.triggers.listEffectiveTags` `eventarc.triggers.listTagBindings` `fcmdata.deliverydata.list` `firebase.billingPlans.get` `firebase.clients.get` `firebase.clients.list` `firebase.links.list` `firebase.playLinks.get` `firebase.playLinks.list` `firebase.projects.get` `firebaseabt.experimentresults.get` `firebaseabt.experiments.get` `firebaseabt.experiments.list` `firebaseabt.projectmetadata.get` `firebaseanalytics.resources.googleAnalyticsReadAndAnalyze` `firebaseappcheck.appAttestConfig.get` `firebaseappcheck.automations.get` `firebaseappcheck.automations.list` `firebaseappcheck.debugTokens.get` `firebaseappcheck.deviceCheckConfig.get` `firebaseappcheck.playIntegrityConfig.get` `firebaseappcheck.recaptchaEnterpriseConfig.get` `firebaseappcheck.recaptchaV3Config.get` `firebaseappcheck.resourcePolicies.get` `firebaseappcheck.safetyNetConfig.get` `firebaseappcheck.services.get` `firebaseappdistro.groups.list` `firebaseappdistro.releases.list` `firebaseappdistro.testers.list` `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.backends.listEffectiveTags` `firebaseapphosting.backends.listTagBindings` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
 
   * `firebaseapphosting.locations.get`
   * `firebaseapphosting.locations.list`
@@ -1236,7 +1244,7 @@ Role | Permissions
   * `firebasedataconnect.locations.get`
   * `firebasedataconnect.locations.list`
 
-`firebasedataconnect.operations.get` `firebasedataconnect.operations.list` `firebasedataconnect.schemaRevisions.get` `firebasedataconnect.schemaRevisions.list` `firebasedataconnect.schemas.get` `firebasedataconnect.schemas.list` `firebasedataconnect.services.generateQuery` `firebasedataconnect.services.generateSchema` `firebasedataconnect.services.get` `firebasedataconnect.services.introspectGraphql` `firebasedataconnect.services.list` `firebasedynamiclinks.destinations.list` `firebasedynamiclinks.domains.get` `firebasedynamiclinks.domains.list` `firebasedynamiclinks.links.get` `firebasedynamiclinks.links.list` `firebasedynamiclinks.stats.get` `firebaseextensions.configs.list` `firebaseextensionspublisher.extensions.get` `firebaseextensionspublisher.extensions.list` `firebasehosting.sites.get` `firebasehosting.sites.list` `firebaseinappmessaging.campaigns.get` `firebaseinappmessaging.campaigns.list` `firebasemessagingcampaigns.campaigns.get` `firebasemessagingcampaigns.campaigns.list` `firebaseml.models.get` `firebaseml.models.list` `firebaseml.modelversions.get` `firebaseml.modelversions.list` `firebasenotifications.messages.get` `firebasenotifications.messages.list` `firebaseperformance.data.get` `firebaserules.releases.get` `firebaserules.releases.getExecutable` `firebaserules.releases.list` `firebaserules.rulesets.get` `firebaserules.rulesets.list` `firebasestorage.buckets.get` `firebasestorage.buckets.list` `firebasestorage.defaultBucket.get` `firebasevertexai.configs.get` `firebasevertexai.promptTemplates.get` `firebasevertexai.promptTemplates.list` `logging.logEntries.download` `logging.logEntries.list` `logging.views.access` `logging.views.listLogs` `logging.views.listResourceKeys` `logging.views.listResourceValues` `monitoring.timeSeries.list` `oauthconfig.verification.get` `recommender.cloudFunctionsPerformanceInsights.get` `recommender.cloudFunctionsPerformanceInsights.list` `recommender.cloudFunctionsPerformanceRecommendations.get` `recommender.cloudFunctionsPerformanceRecommendations.list` `recommender.locations.*`
+`firebasedataconnect.operations.get` `firebasedataconnect.operations.list` `firebasedataconnect.schemaRevisions.get` `firebasedataconnect.schemaRevisions.list` `firebasedataconnect.schemas.get` `firebasedataconnect.schemas.list` `firebasedataconnect.services.generateQuery` `firebasedataconnect.services.generateSchema` `firebasedataconnect.services.get` `firebasedataconnect.services.introspectGraphql` `firebasedataconnect.services.list` `firebasedataconnect.services.listEffectiveTags` `firebasedataconnect.services.listTagBindings` `firebasedynamiclinks.destinations.list` `firebasedynamiclinks.domains.get` `firebasedynamiclinks.domains.list` `firebasedynamiclinks.links.get` `firebasedynamiclinks.links.list` `firebasedynamiclinks.stats.get` `firebaseextensions.configs.list` `firebaseextensionspublisher.extensions.get` `firebaseextensionspublisher.extensions.list` `firebasehosting.sites.get` `firebasehosting.sites.list` `firebaseinappmessaging.campaigns.get` `firebaseinappmessaging.campaigns.list` `firebasemessagingcampaigns.campaigns.get` `firebasemessagingcampaigns.campaigns.list` `firebaseml.models.get` `firebaseml.models.list` `firebaseml.modelversions.get` `firebaseml.modelversions.list` `firebasenotifications.messages.get` `firebasenotifications.messages.list` `firebaseperformance.data.get` `firebaserules.releases.get` `firebaserules.releases.getExecutable` `firebaserules.releases.list` `firebaserules.rulesets.get` `firebaserules.rulesets.list` `firebasestorage.buckets.get` `firebasestorage.buckets.list` `firebasestorage.defaultBucket.get` `firebasevertexai.configs.get` `firebasevertexai.promptTemplates.get` `firebasevertexai.promptTemplates.list` `logging.logEntries.download` `logging.logEntries.list` `logging.views.access` `logging.views.listLogs` `logging.views.listResourceKeys` `logging.views.listResourceValues` `monitoring.timeSeries.list` `oauthconfig.verification.get` `recommender.cloudFunctionsPerformanceInsights.get` `recommender.cloudFunctionsPerformanceInsights.list` `recommender.cloudFunctionsPerformanceRecommendations.get` `recommender.cloudFunctionsPerformanceRecommendations.list` `recommender.locations.*`
 
   * `recommender.locations.get`
   * `recommender.locations.list`
@@ -1588,9 +1596,13 @@ Role | Permissions
 `firebaseapphosting.*`
 
   * `firebaseapphosting.backends.create`
+  * `firebaseapphosting.backends.createTagBinding`
   * `firebaseapphosting.backends.delete`
+  * `firebaseapphosting.backends.deleteTagBinding`
   * `firebaseapphosting.backends.get`
   * `firebaseapphosting.backends.list`
+  * `firebaseapphosting.backends.listEffectiveTags`
+  * `firebaseapphosting.backends.listTagBindings`
   * `firebaseapphosting.backends.update`
   * `firebaseapphosting.builds.create`
   * `firebaseapphosting.builds.delete`
@@ -1669,7 +1681,9 @@ Role | Permissions
   * `firebasedataconnect.schemas.migrate`
   * `firebasedataconnect.schemas.update`
   * `firebasedataconnect.services.create`
+  * `firebasedataconnect.services.createTagBinding`
   * `firebasedataconnect.services.delete`
+  * `firebasedataconnect.services.deleteTagBinding`
   * `firebasedataconnect.services.executeGraphql`
   * `firebasedataconnect.services.executeGraphqlRead`
   * `firebasedataconnect.services.generateQuery`
@@ -1677,6 +1691,8 @@ Role | Permissions
   * `firebasedataconnect.services.get`
   * `firebasedataconnect.services.introspectGraphql`
   * `firebasedataconnect.services.list`
+  * `firebasedataconnect.services.listEffectiveTags`
+  * `firebasedataconnect.services.listTagBindings`
   * `firebasedataconnect.services.postgrestCallFunction`
   * `firebasedataconnect.services.postgrestDelete`
   * `firebasedataconnect.services.postgrestInsert`
@@ -2071,7 +2087,7 @@ Role | Permissions
   * `eventarc.providers.get`
   * `eventarc.providers.list`
 
-`eventarc.triggers.get` `eventarc.triggers.getIamPolicy` `eventarc.triggers.list` `eventarc.triggers.listEffectiveTags` `eventarc.triggers.listTagBindings` `firebase.billingPlans.get` `firebase.clients.get` `firebase.clients.list` `firebase.links.list` `firebase.playLinks.get` `firebase.playLinks.list` `firebase.projects.get` `firebaseanalytics.resources.googleAnalyticsReadAndAnalyze` `firebaseappcheck.appAttestConfig.get` `firebaseappcheck.automations.get` `firebaseappcheck.automations.list` `firebaseappcheck.debugTokens.get` `firebaseappcheck.deviceCheckConfig.get` `firebaseappcheck.playIntegrityConfig.get` `firebaseappcheck.recaptchaEnterpriseConfig.get` `firebaseappcheck.recaptchaV3Config.get` `firebaseappcheck.resourcePolicies.get` `firebaseappcheck.safetyNetConfig.get` `firebaseappcheck.services.get` `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
+`eventarc.triggers.get` `eventarc.triggers.getIamPolicy` `eventarc.triggers.list` `eventarc.triggers.listEffectiveTags` `eventarc.triggers.listTagBindings` `firebase.billingPlans.get` `firebase.clients.get` `firebase.clients.list` `firebase.links.list` `firebase.playLinks.get` `firebase.playLinks.list` `firebase.projects.get` `firebaseanalytics.resources.googleAnalyticsReadAndAnalyze` `firebaseappcheck.appAttestConfig.get` `firebaseappcheck.automations.get` `firebaseappcheck.automations.list` `firebaseappcheck.debugTokens.get` `firebaseappcheck.deviceCheckConfig.get` `firebaseappcheck.playIntegrityConfig.get` `firebaseappcheck.recaptchaEnterpriseConfig.get` `firebaseappcheck.recaptchaV3Config.get` `firebaseappcheck.resourcePolicies.get` `firebaseappcheck.safetyNetConfig.get` `firebaseappcheck.services.get` `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.backends.listEffectiveTags` `firebaseapphosting.backends.listTagBindings` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
 
   * `firebaseapphosting.locations.get`
   * `firebaseapphosting.locations.list`
@@ -2081,7 +2097,7 @@ Role | Permissions
   * `firebasedataconnect.locations.get`
   * `firebasedataconnect.locations.list`
 
-`firebasedataconnect.operations.get` `firebasedataconnect.operations.list` `firebasedataconnect.schemaRevisions.get` `firebasedataconnect.schemaRevisions.list` `firebasedataconnect.schemas.get` `firebasedataconnect.schemas.list` `firebasedataconnect.services.generateQuery` `firebasedataconnect.services.generateSchema` `firebasedataconnect.services.get` `firebasedataconnect.services.introspectGraphql` `firebasedataconnect.services.list` `firebaseextensions.configs.list` `firebasehosting.sites.get` `firebasehosting.sites.list` `firebaseml.models.get` `firebaseml.models.list` `firebaseml.modelversions.get` `firebaseml.modelversions.list` `firebaserules.releases.get` `firebaserules.releases.getExecutable` `firebaserules.releases.list` `firebaserules.rulesets.get` `firebaserules.rulesets.list` `firebasestorage.buckets.get` `firebasestorage.buckets.list` `firebasestorage.defaultBucket.get` `firebasevertexai.configs.get` `firebasevertexai.promptTemplates.get` `firebasevertexai.promptTemplates.list` `logging.logEntries.list` `monitoring.timeSeries.list` `oauthconfig.verification.get` `recommender.cloudFunctionsPerformanceInsights.get` `recommender.cloudFunctionsPerformanceInsights.list` `recommender.cloudFunctionsPerformanceRecommendations.get` `recommender.cloudFunctionsPerformanceRecommendations.list` `recommender.locations.*`
+`firebasedataconnect.operations.get` `firebasedataconnect.operations.list` `firebasedataconnect.schemaRevisions.get` `firebasedataconnect.schemaRevisions.list` `firebasedataconnect.schemas.get` `firebasedataconnect.schemas.list` `firebasedataconnect.services.generateQuery` `firebasedataconnect.services.generateSchema` `firebasedataconnect.services.get` `firebasedataconnect.services.introspectGraphql` `firebasedataconnect.services.list` `firebasedataconnect.services.listEffectiveTags` `firebasedataconnect.services.listTagBindings` `firebaseextensions.configs.list` `firebasehosting.sites.get` `firebasehosting.sites.list` `firebaseml.models.get` `firebaseml.models.list` `firebaseml.modelversions.get` `firebaseml.modelversions.list` `firebaserules.releases.get` `firebaserules.releases.getExecutable` `firebaserules.releases.list` `firebaserules.rulesets.get` `firebaserules.rulesets.list` `firebasestorage.buckets.get` `firebasestorage.buckets.list` `firebasestorage.defaultBucket.get` `firebasevertexai.configs.get` `firebasevertexai.promptTemplates.get` `firebasevertexai.promptTemplates.list` `logging.logEntries.list` `monitoring.timeSeries.list` `oauthconfig.verification.get` `recommender.cloudFunctionsPerformanceInsights.get` `recommender.cloudFunctionsPerformanceInsights.list` `recommender.cloudFunctionsPerformanceRecommendations.get` `recommender.cloudFunctionsPerformanceRecommendations.list` `recommender.locations.*`
 
   * `recommender.locations.get`
   * `recommender.locations.list`
@@ -2673,6 +2689,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

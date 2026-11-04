@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-gemma4-26b-gke-trillium-vllm/
 title: Serve Gemma 4 26B on GKE with multi-host vLLM TorchTPU on Trillium TPUs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:38:45.948620+00:00
+fetched_at: 2026-11-04T07:55:50.968020+00:00
 ---
 
 # Serve Gemma 4 26B on GKE with multi-host vLLM TorchTPU on Trillium TPUs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -113,7 +113,7 @@ To create the GKE cluster and attach a multi-host TPU v6e node pool, complete th
          gcloud container clusters create "${CLUSTER_NAME}" \
              --project="${PROJECT_ID}" \
              --location="${REGION}" \
-             --machine-type=e2-standard-4 \
+             --machine-type=e2-standard-4
          
          gcloud container node-pools create "${NODE_POOL_NAME}" \
              --project="${PROJECT_ID}" \
@@ -152,7 +152,7 @@ To prepare your cluster for the multi-host deployment, complete the following st
 
   2. Install the LeaderWorkerSet CustomResourceDefinition and controller on your cluster:
          
-         kubectl apply --server-side -k "github.com/kubernetes-sigs/lws/config/default?ref=main"
+         kubectl apply --server-side -f https://github.com/kubernetes-sigs/lws/releases/download/v1.0.0/manifests.yaml
          echo "Waiting for LWS controller to be ready..."
          kubectl wait --for=condition=Available --timeout=300s deployment/lws-controller-manager -n lws-system
 
@@ -258,6 +258,10 @@ Alternatively, create a file named `gemma4-26b-multihost-v6e-2x4.yaml` with the 
                      value: "1"
                    - name: TMPDIR
                      value: "/data/tmp"
+                   - name: TPU_MIN_LOG_LEVEL
+                     value: "2"
+                   - name: TF_CPP_MIN_LOG_LEVEL
+                     value: "2"
                    volumeMounts:
                    - mountPath: /dev/shm
                      name: dshm
@@ -284,7 +288,6 @@ Alternatively, create a file named `gemma4-26b-multihost-v6e-2x4.yaml` with the 
                    topology.kubernetes.io/zone: "$ZONE"
                    cloud.google.com/gke-tpu-accelerator: tpu-v6e-slice
                    cloud.google.com/gke-tpu-topology: 2x4
-                   cloud.google.com/reservation-name: $RESERVATION_NAME
                  volumes:
                  - name: dshm
                    emptyDir:
@@ -346,6 +349,10 @@ Alternatively, create a file named `gemma4-26b-multihost-v6e-2x4.yaml` with the 
                      value: "1"
                    - name: TMPDIR
                      value: "/data/tmp"
+                   - name: TPU_MIN_LOG_LEVEL
+                     value: "2"
+                   - name: TF_CPP_MIN_LOG_LEVEL
+                     value: "2"
                    volumeMounts:
                    - mountPath: /dev/shm
                      name: dshm
@@ -355,7 +362,6 @@ Alternatively, create a file named `gemma4-26b-multihost-v6e-2x4.yaml` with the 
                    topology.kubernetes.io/zone: "$ZONE"
                    cloud.google.com/gke-tpu-accelerator: tpu-v6e-slice
                    cloud.google.com/gke-tpu-topology: 2x4
-                   cloud.google.com/reservation-name: $RESERVATION_NAME
                  volumes:
                  - name: dshm
                    emptyDir:
@@ -382,55 +388,23 @@ Alternatively, create a file named `gemma4-26b-multihost-v6e-2x4.yaml` with the 
 
   2. Apply the LeaderWorkerSet manifest:
          
-         MANIFEST="gemma4-26b-multihost-v6e-2x4.yaml"
-         echo "Applying LeaderWorkerSet (retrying if webhook is not fully ready)..."
-         MAX_ATTEMPTS=12
-         attempt=1
-         until envsubst '$RESERVATION_NAME $ZONE $VLLM_IMAGE' < "${MANIFEST}" | kubectl apply -f -; do
-           if [ "${attempt}" -ge "${MAX_ATTEMPTS}" ]; then
-             echo "Error: failed to apply ${MANIFEST} after ${MAX_ATTEMPTS} attempts." >&2
-             exit 1
-           fi
-           echo "Webhook not ready yet, retrying in 5 seconds (attempt ${attempt}/${MAX_ATTEMPTS})..."
-           attempt=$((attempt + 1))
-           sleep 5
-         done
+         envsubst '$RESERVATION_NAME $ZONE $VLLM_IMAGE' < gemma4-26b-multihost-v6e-2x4.yaml | kubectl apply -f -
 
   3. Monitor the leader Pod status and logs until application startup completes:
          
-         LIMIT=60
-         count=0
-         until kubectl get pod -l role=leader -o name | grep -q "vllm-tpu"; do
-           if [ "${count}" -ge "${LIMIT}" ]; then
-             echo "Error: timeout waiting for leader pod to be created." >&2
-             exit 1
-           fi
-           echo "Waiting for leader pod to be created..."
-           sleep 5
-           count=$((count + 1))
+         # Stream logs from the InitContainer to monitor model download
+         until kubectl get pod -l leaderworkerset.sigs.k8s.io/name=vllm-tpu-gemma4-26b -o jsonpath='{.items[*].status.initContainerStatuses[0].state}' 2>/dev/null | grep -qE "running|terminated"; do
+           sleep 2
          done
+         kubectl logs -f -l leaderworkerset.sigs.k8s.io/name=vllm-tpu-gemma4-26b -c prefetch-model --prefix
          
-         # Wait up to 20 minutes for the pod to start running (TPU nodes take a while to boot)
-         echo "Waiting for pod to be scheduled and running..."
-         if ! kubectl wait --for=jsonpath='{.status.phase}'=Running --timeout=1200s pod -l role=leader; then
-           echo "Pod failed to start running within 20 minutes! Here are the events:" >&2
-           kubectl describe pod -l role=leader
-           exit 1
-         fi
-         
-         echo "Pod is running. Streaming logs while waiting for it to become Ready (this includes model download)..."
-         # Stream logs in the background so the user can see what's happening
-         kubectl logs -f -l role=leader &
+         # When the pods transition to Running, monitor logs
+         kubectl wait --for=jsonpath='{.status.phase}'=Running --timeout=300s \
+           pod -l leaderworkerset.sigs.k8s.io/name=vllm-tpu-gemma4-26b
+         kubectl logs -f -l leaderworkerset.sigs.k8s.io/name=vllm-tpu-gemma4-26b --prefix &
          LOG_PID=$!
-         trap 'kill "${LOG_PID}" 2>/dev/null || true' EXIT
-         
-         if ! kubectl wait --for=condition=Ready --timeout=3600s pod -l role=leader; then
-           echo "Pod failed to become Ready within 60 minutes!" >&2
-           kubectl describe pod -l role=leader
-           exit 1
-         fi
-         
-         echo "Pod is Ready!"
+         kubectl wait --for=condition=Ready --timeout=3600s pod -l role=leader
+         kill "${LOG_PID}" 2>/dev/null || true
 
 Initial service startup takes approximately 9 minutes while the Pods prefetch the model weights, form the two-node Ray cluster across all eight TPU chips, and compile the model. Wait until the logs report `Application startup complete` before sending traffic.
 
@@ -543,6 +517,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/json-web-tokens/
 title: Authenticate with JWTs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:49.953703+00:00
+fetched_at: 2026-11-04T07:48:20.488408+00:00
 ---
 
 # Authenticate with JWTs  |  BigQuery  |  Google Cloud Documentation
@@ -92,11 +92,11 @@ The following example uses the [BigQuery client library for Java](https://docs.c
 
 ### Create JWTs with REST or the gcloud CLI
 
-For system-managed service accounts, you must manually assemble the JWT, then use the REST method [`projects.serviceAccounts.signJwt`](https://docs.cloud.google.com/iam/docs/reference/credentials/rest/v1/projects.serviceAccounts/signJwt) or the Google Cloud CLI command [`gcloud beta iam service-accounts sign-jwt`](https://cloud.google.com/sdk/gcloud/reference/beta/iam/service-accounts/sign-jwt) to sign the JWT. To use either of these approaches, you must be a member of the [Service Account Token Creator](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountTokenCreator) Identity and Access Management role.
+For system-managed service accounts, you must manually assemble the JWT, then use the REST method [`projects.serviceAccounts.signJwt`](https://docs.cloud.google.com/iam/docs/reference/credentials/rest/v1/projects.serviceAccounts/signJwt) or the Google Cloud CLI command [`gcloud iam service-accounts sign-jwt`](https://docs.cloud.google.com/sdk/gcloud/reference/iam/service-accounts/sign-jwt) to sign the JWT. To use either of these approaches, you must be a member of the [Service Account Token Creator](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountTokenCreator) Identity and Access Management role.
 
 #### gcloud CLI example
 
-The following example shows a bash script that assembles a JWT and then uses the `gcloud beta iam service-accounts sign-jwt` command to sign it.
+The following example shows a bash script that assembles a JWT and then uses the `gcloud iam service-accounts sign-jwt` command to sign it.
     
     
     #!/bin/bash
@@ -121,7 +121,7 @@ The following example shows a bash script that assembles a JWT and then uses the
     }
     EOF
     
-    gcloud beta iam service-accounts sign-jwt --iam-account $SA_EMAIL_ADDRESS $JWT_FILE $SIGNED_JWT_FILE
+    gcloud iam service-accounts sign-jwt --iam-account $SA_EMAIL_ADDRESS $JWT_FILE $SIGNED_JWT_FILE
     
     echo "Datasets:"
     curl -L -H "Authorization: Bearer $(cat $SIGNED_JWT_FILE)" \
@@ -140,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

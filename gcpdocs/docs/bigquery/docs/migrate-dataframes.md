@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migrate-dataframes/
 title: Migrate to BigQuery DataFrames version 2.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:28.469348+00:00
+fetched_at: 2026-11-04T07:48:19.282067+00:00
 ---
 
 # Migrate to BigQuery DataFrames version 2.0  |  Google Cloud Documentation
@@ -138,12 +138,12 @@ Replace LOCATION with the name of the BigQuery location that you want to connect
 
 ## Use the `bigframes.ml.llm` module
 
-In BigQuery DataFrames version 2.0, the default `model_name` for `GeminiTextGenerator` has been updated to `"gemini-2.0-flash-001"`. It is recommended that you supply a `model_name` directly to avoid breakages if the default model changes in the future.
+It is recommended that you supply a supported `model_name` directly (such as `"gemini-3.5-flash"`) to avoid breakages if the default model changes in the future.
     
     
     import bigframes.ml.llm
     
-    model = bigframes.ml.llm.GeminiTextGenerator(model_name="gemini-2.0-flash-001")
+    model = bigframes.ml.llm.GeminiTextGenerator(model_name="gemini-3.5-flash")
 
 ## What's next
 
@@ -159,6 +159,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/access-control/
 title: Control access to the appliance management console with IAM \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:49:11.410033+00:00
+fetched_at: 2026-11-04T07:55:21.307668+00:00
 ---
 
 # Control access to the appliance management console with IAM  |  Backup and DR  |  Google Cloud Documentation
@@ -78,32 +78,38 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
@@ -122,6 +128,7 @@ Role | Permissions
   * `backupdr.backupPlans.useForComputeDisk`
   * `backupdr.backupPlans.useForComputeInstance`
   * `backupdr.backupPlans.useForFilestoreInstance`
+  * `backupdr.backupPlans.useForNetappVolumes`
 
 `backupdr.backupVaults.*`
 
@@ -142,6 +149,7 @@ Role | Permissions
   * `backupdr.bvbackups.fetchForCloudSqlInstance`
   * `backupdr.bvbackups.fetchForComputeDisk`
   * `backupdr.bvbackups.fetchForComputeInstance`
+  * `backupdr.bvbackups.fetchForNetappVolumes`
   * `backupdr.bvbackups.get`
   * `backupdr.bvbackups.list`
   * `backupdr.bvbackups.restore`
@@ -149,6 +157,7 @@ Role | Permissions
   * `backupdr.bvbackups.useReadOnlyForAlloydbCluster`
   * `backupdr.bvbackups.useReadOnlyForCloudSqlInstance`
   * `backupdr.bvbackups.useReadOnlyForFilestoreInstance`
+  * `backupdr.bvbackups.useReadOnlyForNetappVolumes`
 
 `backupdr.bvdataSources.*`
 
@@ -169,9 +178,11 @@ Role | Permissions
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -279,32 +290,38 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
@@ -323,6 +340,7 @@ Role | Permissions
   * `backupdr.backupPlans.useForComputeDisk`
   * `backupdr.backupPlans.useForComputeInstance`
   * `backupdr.backupPlans.useForFilestoreInstance`
+  * `backupdr.backupPlans.useForNetappVolumes`
 
 `backupdr.backupVaults.associate` `backupdr.backupVaults.create` `backupdr.backupVaults.delete` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.backupVaults.update` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.*`
 
@@ -330,6 +348,7 @@ Role | Permissions
   * `backupdr.bvbackups.fetchForCloudSqlInstance`
   * `backupdr.bvbackups.fetchForComputeDisk`
   * `backupdr.bvbackups.fetchForComputeInstance`
+  * `backupdr.bvbackups.fetchForNetappVolumes`
   * `backupdr.bvbackups.get`
   * `backupdr.bvbackups.list`
   * `backupdr.bvbackups.restore`
@@ -337,6 +356,7 @@ Role | Permissions
   * `backupdr.bvbackups.useReadOnlyForAlloydbCluster`
   * `backupdr.bvbackups.useReadOnlyForCloudSqlInstance`
   * `backupdr.bvbackups.useReadOnlyForFilestoreInstance`
+  * `backupdr.bvbackups.useReadOnlyForNetappVolumes`
 
 `backupdr.bvdataSources.*`
 
@@ -357,9 +377,11 @@ Role | Permissions
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -384,19 +406,21 @@ Role | Permissions
   
 #### Backup and DR Viewer 
 
-(`roles/backupdr.viewer`) Provides read-only access to all Backup and DR resources.  |  `backupdr.appliedAutoProtectionPolicies.list` `backupdr.appliedAutoProtectionPolicies.viewMatchingResources` `backupdr.autoProtectionBindings.get` `backupdr.autoProtectionBindings.list` `backupdr.autoProtectionPolicies.get` `backupdr.autoProtectionPolicies.list` `backupdr.backupPlanAssociations.fetchForAlloydbCluster` `backupdr.backupPlanAssociations.fetchForCloudSqlInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.fetchForComputeInstance` `backupdr.backupPlanAssociations.fetchForFilestoreInstance` `backupdr.backupPlanAssociations.getForAlloydbCluster` `backupdr.backupPlanAssociations.getForCloudSqlInstance` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.getForComputeInstance` `backupdr.backupPlanAssociations.getForFilestoreInstance` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanRevisions.*`
+(`roles/backupdr.viewer`) Provides read-only access to all Backup and DR resources.  |  `backupdr.appliedAutoProtectionPolicies.list` `backupdr.appliedAutoProtectionPolicies.viewMatchingResources` `backupdr.autoProtectionBindings.get` `backupdr.autoProtectionBindings.list` `backupdr.autoProtectionPolicies.get` `backupdr.autoProtectionPolicies.list` `backupdr.backupPlanAssociations.fetchForAlloydbCluster` `backupdr.backupPlanAssociations.fetchForCloudSqlInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.fetchForComputeInstance` `backupdr.backupPlanAssociations.fetchForFilestoreInstance` `backupdr.backupPlanAssociations.fetchForNetappVolumes` `backupdr.backupPlanAssociations.getForAlloydbCluster` `backupdr.backupPlanAssociations.getForCloudSqlInstance` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.getForComputeInstance` `backupdr.backupPlanAssociations.getForFilestoreInstance` `backupdr.backupPlanAssociations.getForNetappVolumes` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanRevisions.*`
 
   * `backupdr.backupPlanRevisions.get`
   * `backupdr.backupPlanRevisions.list`
 
-`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
+`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -429,46 +453,54 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
   * `backupdr.backupPlanRevisions.get`
   * `backupdr.backupPlanRevisions.list`
 
-`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForAlloydbCluster` `backupdr.backupPlans.useForCloudSqlInstance` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupPlans.useForFilestoreInstance` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
+`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForAlloydbCluster` `backupdr.backupPlans.useForCloudSqlInstance` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupPlans.useForFilestoreInstance` `backupdr.backupPlans.useForNetappVolumes` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -576,14 +608,16 @@ Role | Permissions
   
 #### Backup and DR Restore User 
 
-(`roles/backupdr.restoreUser`) Allows the user to restore or mount from a backup. This role cannot create a backup plan.  |  `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
+(`roles/backupdr.restoreUser`) Allows the user to restore or mount from a backup. This role cannot create a backup plan.  |  `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvbackups.useReadOnlyForNetappVolumes` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -606,32 +640,38 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
@@ -650,15 +690,18 @@ Role | Permissions
   * `backupdr.backupPlans.useForComputeDisk`
   * `backupdr.backupPlans.useForComputeInstance`
   * `backupdr.backupPlans.useForFilestoreInstance`
+  * `backupdr.backupPlans.useForNetappVolumes`
 
-`backupdr.backupVaults.associate` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
+`backupdr.backupVaults.associate` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvbackups.useReadOnlyForNetappVolumes` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -753,6 +796,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

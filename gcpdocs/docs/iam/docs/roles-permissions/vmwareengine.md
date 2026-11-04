@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine/
 title: Google Cloud VMware Engine roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:36:43.419753+00:00
+fetched_at: 2026-11-04T07:56:33.825151+00:00
 ---
 
 # Google Cloud VMware Engine roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -32,6 +32,7 @@ Role | Permissions
 
 (`roles/vmwareengine.admin`) Admin role for vmwareengine  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.*`
 
+  * `vmwareengine.capacityAllocations.list`
   * `vmwareengine.clusters.create`
   * `vmwareengine.clusters.delete`
   * `vmwareengine.clusters.get`
@@ -156,7 +157,7 @@ Role | Permissions
   
 #### Vmwareengine Editor 
 
-(`roles/vmwareengine.editor`) Editor role for vmwareengine  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.clusters.create` `vmwareengine.clusters.delete` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.clusters.mountDatastore` `vmwareengine.clusters.unmountDatastore` `vmwareengine.clusters.update` `vmwareengine.datastores.create` `vmwareengine.datastores.delete` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.datastores.update` `vmwareengine.dnsBindPermission.*`
+(`roles/vmwareengine.editor`) Editor role for vmwareengine  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.capacityAllocations.list` `vmwareengine.clusters.create` `vmwareengine.clusters.delete` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.clusters.mountDatastore` `vmwareengine.clusters.unmountDatastore` `vmwareengine.clusters.update` `vmwareengine.datastores.create` `vmwareengine.datastores.delete` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.datastores.update` `vmwareengine.dnsBindPermission.*`
 
   * `vmwareengine.dnsBindPermission.get`
   * `vmwareengine.dnsBindPermission.grant`
@@ -236,7 +237,7 @@ Role | Permissions
   
 #### Vmwareengine Viewer 
 
-(`roles/vmwareengine.viewer`) Viewer role for vmwareengine  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.dnsBindPermission.get` `vmwareengine.dnsForwarding.get` `vmwareengine.externalAccessRules.get` `vmwareengine.externalAccessRules.list` `vmwareengine.externalAddresses.get` `vmwareengine.externalAddresses.list` `vmwareengine.hcxActivationKeys.get` `vmwareengine.hcxActivationKeys.getIamPolicy` `vmwareengine.hcxActivationKeys.list` `vmwareengine.locations.*`
+(`roles/vmwareengine.viewer`) Viewer role for vmwareengine  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.capacityAllocations.list` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.dnsBindPermission.get` `vmwareengine.dnsForwarding.get` `vmwareengine.externalAccessRules.get` `vmwareengine.externalAccessRules.list` `vmwareengine.externalAddresses.get` `vmwareengine.externalAddresses.list` `vmwareengine.hcxActivationKeys.get` `vmwareengine.hcxActivationKeys.getIamPolicy` `vmwareengine.hcxActivationKeys.list` `vmwareengine.locations.*`
 
   * `vmwareengine.locations.get`
   * `vmwareengine.locations.list`
@@ -255,7 +256,7 @@ Role | Permissions
   
 #### VMware Engine Service Admin 
 
-(`roles/vmwareengine.vmwareengineAdmin`) Admin has full access to VMware Engine Service  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.clusters.create` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.clusters.mountDatastore` `vmwareengine.clusters.setIamPolicy` `vmwareengine.clusters.unmountDatastore` `vmwareengine.clusters.update` `vmwareengine.datastores.*`
+(`roles/vmwareengine.vmwareengineAdmin`) Admin has full access to VMware Engine Service  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.capacityAllocations.list` `vmwareengine.clusters.create` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.clusters.mountDatastore` `vmwareengine.clusters.setIamPolicy` `vmwareengine.clusters.unmountDatastore` `vmwareengine.clusters.update` `vmwareengine.datastores.*`
 
   * `vmwareengine.datastores.create`
   * `vmwareengine.datastores.delete`
@@ -404,7 +405,7 @@ Role | Permissions
   
 #### VMware Engine Service Privileged User 
 
-(`roles/vmwareengine.vmwareenginePrivilegedUser`) Privileged User has access to VMWare Engine Service Privileged API, including accelerating private cloud deletion.  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.clusters.delete` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.dnsBindPermission.get` `vmwareengine.dnsForwarding.get` `vmwareengine.externalAccessRules.get` `vmwareengine.externalAccessRules.list` `vmwareengine.externalAddresses.get` `vmwareengine.externalAddresses.list` `vmwareengine.hcxActivationKeys.get` `vmwareengine.hcxActivationKeys.getIamPolicy` `vmwareengine.hcxActivationKeys.list` `vmwareengine.locations.*`
+(`roles/vmwareengine.vmwareenginePrivilegedUser`) Privileged User has access to VMWare Engine Service Privileged API, including accelerating private cloud deletion.  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.capacityAllocations.list` `vmwareengine.clusters.delete` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.dnsBindPermission.get` `vmwareengine.dnsForwarding.get` `vmwareengine.externalAccessRules.get` `vmwareengine.externalAccessRules.list` `vmwareengine.externalAddresses.get` `vmwareengine.externalAddresses.list` `vmwareengine.hcxActivationKeys.get` `vmwareengine.hcxActivationKeys.getIamPolicy` `vmwareengine.hcxActivationKeys.list` `vmwareengine.locations.*`
 
   * `vmwareengine.locations.get`
   * `vmwareengine.locations.list`
@@ -428,7 +429,7 @@ Role | Permissions
   
 #### VMware Engine Service Viewer 
 
-(`roles/vmwareengine.vmwareengineViewer`) Viewer has read-only access to VMware Engine Service  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.dnsBindPermission.get` `vmwareengine.dnsForwarding.get` `vmwareengine.externalAccessRules.get` `vmwareengine.externalAccessRules.list` `vmwareengine.externalAddresses.get` `vmwareengine.externalAddresses.list` `vmwareengine.hcxActivationKeys.get` `vmwareengine.hcxActivationKeys.getIamPolicy` `vmwareengine.hcxActivationKeys.list` `vmwareengine.locations.*`
+(`roles/vmwareengine.vmwareengineViewer`) Viewer has read-only access to VMware Engine Service  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `vmwareengine.capacityAllocations.list` `vmwareengine.clusters.get` `vmwareengine.clusters.getIamPolicy` `vmwareengine.clusters.list` `vmwareengine.datastores.get` `vmwareengine.datastores.getIamPolicy` `vmwareengine.datastores.list` `vmwareengine.dnsBindPermission.get` `vmwareengine.dnsForwarding.get` `vmwareengine.externalAccessRules.get` `vmwareengine.externalAccessRules.list` `vmwareengine.externalAddresses.get` `vmwareengine.externalAddresses.list` `vmwareengine.hcxActivationKeys.get` `vmwareengine.hcxActivationKeys.getIamPolicy` `vmwareengine.hcxActivationKeys.list` `vmwareengine.locations.*`
 
   * `vmwareengine.locations.get`
   * `vmwareengine.locations.list`
@@ -470,6 +471,11 @@ Role | Permissions
   * `dns.gkeClusters.bindDNSResponsePolicy`
   * `dns.gkeClusters.bindPrivateDNSZone`
 
+`dns.locations.*`
+
+  * `dns.locations.get`
+  * `dns.locations.list`
+
 `dns.managedZoneOperations.*`
 
   * `dns.managedZoneOperations.get`
@@ -482,6 +488,23 @@ Role | Permissions
   * `dns.networks.bindPrivateDNSZone`
   * `dns.networks.targetWithPeeringZone`
   * `dns.networks.useHealthSignals`
+
+`dns.operations.*`
+
+  * `dns.operations.cancel`
+  * `dns.operations.delete`
+  * `dns.operations.get`
+  * `dns.operations.list`
+
+`dns.outboundEndpoints.*`
+
+  * `dns.outboundEndpoints.bindPrivateDNSPolicy`
+  * `dns.outboundEndpoints.bindPrivateDNSZone`
+  * `dns.outboundEndpoints.create`
+  * `dns.outboundEndpoints.delete`
+  * `dns.outboundEndpoints.get`
+  * `dns.outboundEndpoints.list`
+  * `dns.outboundEndpoints.update`
 
 `dns.policies.create` `dns.policies.delete` `dns.policies.get` `dns.policies.list` `dns.policies.listEffectiveTags` `dns.policies.listTagBindings` `dns.policies.update` `dns.projects.get` `dns.resourceRecordSets.*`
 
@@ -518,6 +541,10 @@ Role | Permissions
 
 Permission | Included in roles  
 ---|---  
+  
+#### `vmwareengine.capacityAllocations.list`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [Vmwareengine Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.admin) (`roles/vmwareengine.admin`)  [Vmwareengine Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.editor) (`roles/vmwareengine.editor`)  [Vmwareengine Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.viewer) (`roles/vmwareengine.viewer`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  [VMware Engine Service Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.vmwareengineAdmin) (`roles/vmwareengine.vmwareengineAdmin`)  [VMware Engine Service Privileged User](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.vmwareenginePrivilegedUser) (`roles/vmwareengine.vmwareenginePrivilegedUser`)  [VMware Engine Service Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.vmwareengineViewer) (`roles/vmwareengine.vmwareengineViewer`)   
   
 #### `vmwareengine.clusters.create`
 
@@ -1015,6 +1042,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

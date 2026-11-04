@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/builders/
 title: Builders \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:08:33.528484+00:00
+fetched_at: 2026-11-04T05:37:11.340753+00:00
 ---
 
 # Builders  |  Buildpacks  |  Google Cloud Documentation
@@ -52,6 +52,7 @@ Language | Supported Versions | Applications | Functions
 ---|---|---|---  
 [Python](https://docs.cloud.google.com/docs/buildpacks/python) | 3.13.x | ✓ | ✓  
 | 3.14.x | ✓ | ✓  
+| 3.15.x | ✓ | ✓  
 [Node.js](https://docs.cloud.google.com/docs/buildpacks/nodejs) | 22.x.x | ✓ | ✓  
 | 24.x.x | ✓ | ✓  
 | 26.x.x | ✓ | ✓  
@@ -148,7 +149,7 @@ Language | Operating System | Location | Available Versions
 ---|---|---|---  
 Python | Ubuntu 18 | [http://us-central1-docker.pkg.dev/serverless-runtimes/google-18-full/builder/python](http://us-central1-docker.pkg.dev/serverless-runtimes/google-18-full/build/python) | Python 3.7, 3.8, 3.9, 3.10, 3.11  
 | Ubuntu 22 | [http://us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/builder/python](http://us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/build/python) | Python 3.10, 3.11, 3.12, 3.13  
-| Ubuntu 24 | [http://us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/builder/python](http://us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/build/python) | Python 3.14  
+| Ubuntu 24 | [http://us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/builder/python](http://us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/build/python) | Python 3.14, 3.15  
 Node.js | Ubuntu 18 | <http://us-central1-docker.pkg.dev/serverless-runtimes/google-18-full/builder/nodejs> | Node.js 10, 12, 14  
 | Ubuntu 22 | <http://us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/builder/nodejs> | Node.js 18, 20  
 | Ubuntu 24 | <http://us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/builder/nodejs> | Node.js 24, 26  
@@ -177,6 +178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

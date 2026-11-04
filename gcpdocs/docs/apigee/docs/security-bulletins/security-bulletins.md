@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:20:09.646920+00:00
+fetched_at: 2026-11-04T05:36:39.494355+00:00
 ---
 
 # Security bulletins  |  Apigee  |  Google Cloud Documentation
@@ -30,6 +30,265 @@ To get the latest security bulletins delivered to you, do one of the following:
 
 
 
+## GCP-2026-077
+
+**Published:** 2026-11-03
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+Following the private-key compromise of intermediate Certificate Authorities (CAs) associated with eMudhra (emSign), outbound TLS connections trusting affected roots—specifically `emSign ECC Root CA - G3`—are vulnerable to Man-in-the-Middle (MITM) interception. An attacker possessing compromised intermediate keys can issue fraudulent TLS certificates for arbitrary domain names. Outbound HTTPS connections made from Apigee runtimes (such as TargetEndpoints, TargetServers, ServiceCallouts, and outbound JWKS policy lookups) using default or unmanaged system trust stores may accept forged certificates. This security bulletin outlines required remediation steps for Apigee X, Apigee Hybrid, Apigee Edge (SaaS), and Apigee Edge for Private Cloud (OPDK).
+
+#### Impact of remediation
+
+Moving forward, outbound connections to endpoints using certificates signed by compromised roots will be blocked unless a custom trust store is configured in your outbound setup. Disruption of outbound connectivity resulting from the security revocation of compromised third-party certificates or customer trust store configurations does not constitute Google Cloud service downtime under applicable Service Level Agreements (SLAs).
+
+#### Affected products and versions
+
+  * For all Apigee products, you must review your custom TrustStores (in TargetEndpoint, TargetServer, or ServiceCallout configurations).
+
+| Product | Status / Action Required  
+---|---  
+Apigee Edge (SaaS) | Patch in progress / No customer action required for platform defaults. Customers must review custom TrustStores to ensure compromised roots are not part of the trust chain and consider adding a custom TrustStore if one does not exist to mitigate target server connections.  
+Apigee Edge for Private Cloud (OPDK) |  Manual remediation required (Update OS CA trust store, sanitize Java truststores, restart Apigee services). Customers must review custom TrustStores to ensure compromised roots are not part of the trust chain and consider adding a custom TrustStore if one does not exist to mitigate target server connections.  
+Apigee X | Patch in progress / No customer action required for platform defaults. Customers must review custom TrustStores to ensure compromised roots are not part of the trust chain and consider adding a custom TrustStore if one does not exist to mitigate target server connections.  
+Apigee Hybrid | Upgrade to patched Apigee Hybrid containers once released. Customers must review custom TrustStores to ensure compromised roots are not part of the trust chain and consider adding a custom TrustStore if one does not exist to mitigate target server connections.  
+  
+#### What should I do?
+
+**Important:** The remediation steps and commands provided herein are for guidance purposes only. Customers are solely responsible for testing modifications in a non-production environment and taking complete backups of keystores, trust stores, and system configurations prior to execution. Google provides these instructions "as-is" without warranty of any kind.
+
+##### Apigee X
+
+Google Cloud is conducting a rollout across Apigee X infrastructure to remediate affected trust stores and Go toolchains.
+
+**Customer Action Required:** Automated platform rollout handles control plane and runtime containers. Customers must review custom TrustStores in TargetEndpoint or TargetServer configurations to ensure compromised emSign or AAA Certificate Services certificates are not explicitly trusted. To verify trust store compliance, see Apigee X/Hybrid: Review and Update Custom TrustStores (eMudhra CA Compromise).
+
+##### Apigee Hybrid
+
+Apigee Hybrid containers do not bind-mount host OS certificate stores and use isolated trust stores baked into image builds; customers must upgrade to patched container images once released:
+
+  * **Custom TrustStores Audit & Configuration:** Inspect custom TargetServer, TargetEndpoint, and ServiceCallout TrustStores for compromised emSign or AAA Certificate Services intermediate/root certificates, and update them accordingly. To verify trust store compliance, see Apigee X/Hybrid: Review and Update Custom TrustStores (eMudhra CA Compromise).
+
+
+
+##### Apigee Edge (SaaS)
+
+Google Cloud is applying automated platform updates across all Apigee Edge infrastructure to remove compromised eMudhra and AAA Certificate Services root and intermediate certificates from system keystores.
+
+**Customer Action Required:** Automated platform rollout handles system trust stores. Customers must review custom TrustStores in TargetEndpoint or TargetServer settings to ensure compromised emSign or AAA Certificate Services certificates are not explicitly trusted. To review or create trust stores, see [Creating keystores and truststores using the Edge UI](https://docs.apigee.com/api-platform/system-administration/creating-keystores-and-truststore-cloud-using-edge-ui).
+
+##### Apigee Edge for Private Cloud (OPDK)
+
+Customers hosting Apigee Edge on-premises or in private cloud infrastructure (OPDK) must update their system environment, sanitize Java keystores, and perform a host/service reload across all cluster nodes.
+
+###### Phase 1: Update the Host OS CA Certificate Store
+
+For Red Hat Enterprise Linux / CentOS / Rocky Linux:
+    
+    
+    sudo yum update -y ca-certificates
+    sudo update-ca-trust extract
+    
+
+###### Phase 2: Sanitize FIPS JVM TrustStores
+
+1\. If you're FIPS-enabled and still use the shipped BCFKS store, set up your own first: after Phase 1, follow Option A in [Default Java keystore/truststore](https://docs.apigee.com/private-cloud/v4.53.01/fips-considerations-rhel-8#default-java-keystoretruststore) on the FIPS page. Then run the commands below against your store to confirm neither root is in it, and delete any that are. Don't edit the shipped store; Edge updates replace it.
+    
+    
+    # Path and password for the BCFKS truststore configured in /opt/apigee/customer/application/COMPONENT.properties:
+    BCFKS_PATH="/opt/apigee/customer/application/my-cacerts.bcfks"
+    BCFKS_PASS="YOUR_STORE_PASSWORD"
+    # Automatically resolve the bc-fips jar version
+    BC_FIPS_JAR=$(ls /opt/apigee/edge-gateway/lib/thirdparty/bc-fips-*.jar | head -n 1)
+    # 1. Inspect and identify the exact alias names in the BCFKS store
+    keytool -J-Dcom.redhat.fips=false -list \
+      -keystore "$BCFKS_PATH" \
+      -storetype BCFKS \
+      -storepass "$BCFKS_PASS" \
+      -providerclass org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider \
+      -providername BCFIPS \
+      -providerpath "$BC_FIPS_JAR" | grep -i -E "emudhra|emsign|aaa certificate|comodo"
+    # 2. Delete the compromised aliases (replace with the exact case-sensitive alias names from step 1)
+    sudo keytool -J-Dcom.redhat.fips=false -delete \
+      -alias "emsigneccrootca-g3" \
+      -keystore "$BCFKS_PATH" \
+      -storetype BCFKS \
+      -storepass "$BCFKS_PASS" \
+      -providerclass org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider \
+      -providername BCFIPS \
+      -providerpath "$BC_FIPS_JAR"
+    sudo keytool -J-Dcom.redhat.fips=false -delete \
+      -alias "comodoaaaservicesroot" \
+      -keystore "$BCFKS_PATH" \
+      -storetype BCFKS \
+      -storepass "$BCFKS_PASS" \
+      -providerclass org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider \
+      -providername BCFIPS \
+      -providerpath "$BC_FIPS_JAR"
+    # 3. Ensure file ownership remains apigee:apigee (since sudo was used)
+    sudo chown apigee:apigee "$BCFKS_PATH"
+    
+
+2\. Audit and Create Custom Target Server TrustStores: Review all custom TrustStores referenced by TargetEndpoint, TargetServer, or ServiceCallout TLS configurations and remove eMudhra/emSign or AAA Certificate Services certificates. If no custom TrustStore is used for outbound TLS, create and assign one to enforce explicit server certificate verification. For step-by-step guidance, see [Creating keystores and truststores using the Edge UI](https://docs.apigee.com/api-platform/system-administration/creating-keystores-and-truststore-cloud-using-edge-ui).
+
+###### Phase 3: Restart Apigee Edge Services
+
+Perform a rolling reboot of all Apigee Edge nodes:
+    
+    
+    /opt/apigee/apigee-service/bin/apigee-all stop
+    /opt/apigee/apigee-service/bin/apigee-all start
+    
+
+#### Detection
+
+Verify OS Trust Bundle:
+    
+    
+    grep -i "emSign ECC Root CA - G3" /etc/pki/tls/certs/ca-bundle.crt
+    
+
+##### Step-by-Step Remediation Validation & Keystore Configuration
+
+  * **Step 1 (Validate OS & JVM Trust Stores):** Execute the verification commands above to ensure affected CA certificates (such as `emSign ECC Root CA - G3`) are purged from system and JVM trust bundles.
+  * **Step 2 (Audit Existing Keystores/Truststores):** Use the Apigee Management API or UI to audit all existing Keystores and Truststores in your environment. Verify that no revoked or compromised intermediate/root certificates exist within your `SSLInfo` definitions.
+  * **Step 3 (Create & Update Custom Truststores):** If your outbound target configurations rely on default or system-wide trust stores, create a new custom TrustStore and upload only validated CA chains. Update your TargetEndpoint, TargetServer, or ServiceCallout `SSLInfo` configuration to reference the new TrustStore. For details, see [Creating keystores and truststores](https://docs.apigee.com/api-platform/system-administration/creating-keystores-and-truststore-cloud-using-edge-ui).
+  * **Step 4 (Test Target Connections):** Deploy updated API proxy revisions and test outbound connectivity to target backends to verify mTLS and TLS handshakes succeed without relying on system-wide trust stores.
+
+
+
+#### Apigee X/Hybrid: Review and Update Custom TrustStores (eMudhra CA Compromise)
+
+Following the compromise of intermediate Certificate Authorities associated with eMudhra (emSign) and cross-signed roots from Comodo AAA Certificate Services, Google Cloud is automatically updating Apigee X runtime and control plane platform trust bundles and releasing new versions of Apigee Hybrid.
+
+However, if your Apigee X or Apigee Hybrid API proxies use custom TrustStores in TargetEndpoint, TargetServer, or ServiceCallout configurations, you must manually inspect those TrustStores to ensure affected certificates are removed.
+
+##### Step 1: Identify if Custom TrustStores are in Use
+
+Custom TrustStores are configured at the environment level and referenced in your outbound TLS configurations.
+
+  * **TargetEndpoint or ServiceCallout:** Check if your proxy configuration specifies a `<TrustStore>` inside `<SSLInfo>`: 
+    * If `<TrustStore>` is present (for example, `<TrustStore>my-truststore</TrustStore>` or `<TrustStore>ref://myTrustStoreRef</TrustStore>`), a custom TrustStore is used.
+    * If `<TrustStore>` is omitted and only `<Enabled>true</Enabled>` is set, the proxy uses the platform default CA bundle. On Apigee X, Google Cloud updates it automatically. On Apigee Hybrid, the bundle is baked into the container images; see the Apigee Hybrid steps above.
+  * **TargetServer:** Inspect your TargetServers in each environment to check if `sSLInfo.trustStore` is set.
+
+
+
+##### Step 2: Inspect Certificates in Your TrustStores
+
+Review the certificates contained in each custom TrustStore across your Apigee environments using either the Google Cloud console or the Apigee REST API.
+
+###### Option A: Using the Google Cloud console
+
+  1. In the Google Cloud console, navigate to **Apigee** > **Management** > **Environments**.
+  2. Select an environment.
+  3. Click the **TLS Keystores** (or **Keystores**) tab.
+  4. Click each TrustStore to expand and view the uploaded certificates.
+  5. Review the **Subject** , **Issuer** , and **Alias** of each certificate.
+
+
+
+###### Option B: Using the Apigee REST API
+
+  1. List all keystores in the environment: 
+         
+         curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+           "https://apigee.googleapis.com/v1/organizations/ORGANIZATION/environments/ENVIRONMENT/keystores"
+         
+
+  2. List all certificates inside the keystore: 
+         
+         curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+           "https://apigee.googleapis.com/v1/organizations/ORGANIZATION/environments/ENVIRONMENT/keystores/KEYSTORE/aliases"
+         
+
+  3. Retrieve certificate details: 
+         
+         curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+           "https://apigee.googleapis.com/v1/organizations/ORGANIZATION/environments/ENVIRONMENT/keystores/KEYSTORE/aliases/CERT_ALIAS"
+         
+
+
+
+
+##### Step 3: Identify Affected Certificates
+
+Check if any certificate in your TrustStore matches the affected CA authorities:
+
+  * **eMudhra Roots:**
+    * Common Name (CN): `emSign ECC Root CA - G3`, `emSign Root TLS CA - G3`, `emSign Root CA - G1`, `emSign Root CA - G2`, `emSign Root CA - C1`, or `emSign ECC Root CA - C3`
+    * Organization (O): `eMudhra Technologies Limited` or `eMudhra Inc`
+    * SHA-256 Fingerprint for `emSign ECC Root CA - G3`: `86:A1:EC:BA:08:9C:4A:8D:3B:BE:27:34:C6:12:BA:34:1D:81:3E:04:3C:F9:E8:A8:62:CD:5C:57:A3:6B:BE:6B`
+    * SHA-256 Fingerprint for `emSign Root TLS CA - G3`: `7D:D7:8D:5F:4F:13:45:9A:83:DF:F9:AB:BB:A6:2E:DB:AF:6F:2D:10:2B:F2:57:FD:71:2F:4D:9F:27:46:ED:8D`
+  * **Cross-Signing Root (AAA Certificate Services):**
+    * Common Name (CN): `AAA Certificate Services`
+    * Organization (O): `Comodo CA Limited`
+    * SHA-256 Fingerprint for `AAA Certificate Services`: `D7:A7:A0:FB:5D:7E:27:31:D7:71:E9:48:4E:BC:DE:F7:1D:5F:0C:3E:0A:29:48:78:2B:C8:3E:E0:EA:69:9E:F4`
+  * **eMudhra Compromised Intermediate CAs:**
+    * Common Name (CN): `EM DV TLS CA - G3B`, `EM DV TLS CA - G3C`, `EM OV TLS CA - G3B`, `EM OV TLS CA - G3C`, `EM EV TLS CA - G3B`, `EM EV TLS CA - G3C`, `EM OV CS CA - G3B`, or `EM OV CS CA - G3C`
+
+
+
+##### Step 4: Verify Target Backend Server Certificates
+
+Before removing CA certificates from your TrustStore, verify that your backend servers are not actively using certificates issued by eMudhra:
+
+  1. Test the TLS certificate of your backend target server using OpenSSL: 
+         
+         echo | openssl s_client -connect BACKEND_HOST:443 -servername BACKEND_HOST -showcerts 2>/dev/null \
+           | openssl x509 -noout -subject -issuer
+         
+
+  2. Verify the issuer: 
+     * **If the issuer indicates`emSign` or `eMudhra`:** Your backend server is using a certificate from the compromised CA. You must replace and reissue the certificate from a trusted public CA (such as Google Trust Services, Let's Encrypt, or DigiCert) immediately.
+     * **If the issuer is another CA:** Your backend certificate doesn't need replacing. You still need to remove the affected roots from your TrustStore in Step 5.
+
+
+
+##### Step 5: Remove Distrusted Certificates from the TrustStore
+
+After verifying your target backend servers, remove any affected certificates from your Apigee TrustStore.
+
+###### Option A: Using the Google Cloud console
+
+  1. In the Google Cloud console, navigate to **Apigee** > **Management** > **Environments** > **ENVIRONMENT** > **TLS Keystores**.
+  2. Select your TrustStore.
+  3. Locate the certificate alias for the affected certificate.
+  4. Click the **Delete** icon (trash can) next to the certificate.
+  5. Confirm deletion.
+
+
+
+###### Option B: Using the Apigee REST API
+
+Delete the certificate by alias:
+    
+    
+    curl -X DELETE \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      "https://apigee.googleapis.com/v1/organizations/ORGANIZATION/environments/ENVIRONMENT/keystores/KEYSTORE/aliases/CERT_ALIAS"
+    
+
+**Note:** If your API proxies use a KeyStore Reference (`ref://myTrustStoreRef`), changes to the TrustStore take effect without proxy redeployment. If a proxy references the TrustStore by direct name, redeploy the proxy to ensure the updated TLS context is loaded.
+
+#### Vulnerability Details
+
+Vulnerability Type: MITM / CA Compromise (CVE-2026-111943)
+
+#### References
+
+For technical assistance or questions regarding custom TrustStore updates in Apigee Edge for Private Cloud, contact Cloud Customer Care or submit a ticket through the standard Apigee Support Portal.
+
+Additional Details:
+
+  * [CVE-2026-91403](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-91403)
+  * [CVE-2026-111943](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111943)
+
+Medium |  [CVE-2026-111943](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111943)  
+[CVE-2026-91403](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-91403)  
+  
 ## GCP-2026-072
 
 **Published:** 2026-10-24
@@ -394,6 +653,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

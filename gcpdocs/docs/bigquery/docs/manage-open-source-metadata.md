@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/manage-open-source-metadata/
 title: Manage open source metadata with BigLake metastore (classic) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:48.892923+00:00
+fetched_at: 2026-11-04T07:55:05.921798+00:00
 ---
 
 # Manage open source metadata with BigLake metastore (classic)  |  BigQuery  |  Google Cloud Documentation
@@ -20,17 +20,17 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Manage open source metadata with BigLake metastore (classic)
 
-**Warning:** BigLake metastore (classic) is no longer recommended for Google Cloud. Use [Lakehouse runtime catalog](https://docs.cloud.google.com/bigquery/docs/about-blms) instead.
+**Warning:** BigLake metastore (classic) is no longer recommended for Google Cloud. Use [Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs) instead.
 
 BigLake metastore (classic) is a unified physical metadata service for data analytics products on Google Cloud. BigLake metastore (classic) provides a single source of truth for metadata and lets you manage and access data from multiple sources. BigLake metastore (classic) is accessible from BigQuery and various open data processing engines on Managed Service for Apache Spark, making it a useful tool for data analysts and engineers.
 
-For management of business metadata, see [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog).
+For management of business metadata, see [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs).
 
 ## How BigLake metastore (classic) works
 
 BigLake metastore (classic) is a serverless service that does not require you to provision resources before you use it. You can use it as a serverless alternative to [Hive Metastore](https://cwiki.apache.org/confluence/display/Hive/Design#Design-Metastore) in Managed Service for Apache Spark clusters. BigLake metastore (classic) functions in the same way as Hive Metastore through its Hive-compatible APIs, and you are able to immediately query open-format tables in BigQuery without any further steps. BigLake metastore (classic) only supports [Apache Iceberg tables](https://iceberg.apache.org/docs/latest/).
 
-BigLake metastore (classic) provides [APIs](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest), client libraries, and data engine integration (such as [Apache Spark](https://spark.apache.org/)) to manage catalogs, databases, and tables.
+BigLake metastore (classic) provides [APIs](https://docs.cloud.google.com/lakehouse/docs/reference/rest), client libraries, and data engine integration (such as [Apache Spark](https://spark.apache.org/)) to manage catalogs, databases, and tables.
 
 ## Limitations
 
@@ -62,7 +62,7 @@ You need to enable billing and the BigLake API before using BigLake metastore (c
 
 ## Required roles
 
-  * To have full control over BigLake metastore (classic) resources, you need the BigLake Admin role (`roles/biglake.admin`). If you are using a [BigQuery Spark connector](https://docs.cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example) service account, a [Managed Service for Apache Spark service account](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/service-account), or a [Managed Service for Apache Spark VM service account](https://docs.cloud.google.com/dataproc/docs/concepts/iam/dataproc-principals#vm_service_account_data_plane_identity), grant the BigLake Admin role to the account.
+  * To have full control over BigLake metastore (classic) resources, you need the BigLake Admin role (`roles/biglake.admin`). If you are using a [BigQuery Spark connector](https://docs.cloud.google.com/managed-spark/docs/tutorials/bigquery-connector-spark-example) service account, a [Managed Service for Apache Spark service account](https://docs.cloud.google.com/managed-spark/docs/concepts/service-accounts-serverless), or a [Managed Service for Apache Spark VM service account](https://docs.cloud.google.com/dataproc/docs/concepts/iam/dataproc-principals#vm_service_account_data_plane_identity), grant the BigLake Admin role to the account.
   * To have read-only access to BigLake metastore (classic) resources, you need the BigLake Viewer role (`roles/biglake.viewer`). For example, when querying a BigLake metastore (classic) table in BigQuery, the user or the BigQuery connection service account must have the BigLake Viewer role.
   * To create BigQuery tables with connections, you need the BigQuery Connection User role (`roles/bigquery.connectionUser`). For more information about sharing connections, see [Share connections with users](https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection#share_connections).
 
@@ -73,7 +73,7 @@ Depending on the use case, the identity who calls BigLake metastore (classic) ca
   * **User:** when directly calling the BigLake API, or when querying an Apache Iceberg managed table table without a connection from BigQuery. BigQuery uses the user's credentials in this circumstance.
   * **[BigQuery Cloud Resource Connection](https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection):** when querying an Iceberg managed table with a connection from BigQuery. BigQuery uses the connection service account credential to access BigLake metastore (classic).
   * **[BigQuery Spark Connector](https://docs.cloud.google.com/bigquery/docs/connect-to-spark):** when using Spark with BigLake metastore (classic) in a BigQuery [Spark stored procedure](https://docs.cloud.google.com/bigquery/docs/spark-procedures). Spark uses the service account credential of the Spark Connector to access BigLake metastore (classic) and create BigQuery tables.
-  * **[Managed Service for Apache Spark service account](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/service-account):** when using Spark with BigLake in Managed Service for Apache Spark. Spark uses the service account credential.
+  * **[Managed Service for Apache Spark service account](https://docs.cloud.google.com/managed-spark/docs/concepts/service-accounts-serverless):** when using Spark with BigLake in Managed Service for Apache Spark. Spark uses the service account credential.
   * **[Managed Service for Apache Spark VM service account](https://docs.cloud.google.com/dataproc/docs/concepts/iam/dataproc-principals#vm_service_account_data_plane_identity):** when using Managed Service for Apache Spark (not Managed Service for Apache Spark). Apache Spark uses the VM service account credential.
 
 
@@ -98,7 +98,7 @@ The following sections explain how to connect to BigLake metastore (classic). Th
 
 To connect to BigLake metastore (classic) with a Managed Service for Apache Spark VM, do the following:
 
-  1. [Use SSH to connect to Managed Service for Apache Spark.](https://docs.cloud.google.com/dataproc/docs/concepts/accessing/ssh)
+  1. [Use SSH to connect to Managed Service for Apache Spark.](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/ssh)
   2. In the [Spark SQL CLI](https://spark.apache.org/docs/latest/sql-distributed-sql-engine-spark-sql-cli.html), use the following statement to install and configure the Apache Iceberg custom catalog to work with BigLake metastore (classic):
          
          spark-sql \
@@ -120,7 +120,7 @@ To connect to BigLake metastore (classic) with a Managed Service for Apache Spar
 
 Replace the following:
 
-  * `ICEBERG_SPARK_PACKAGE`: the version of Apache Iceberg with Spark to use. We recommend using the Spark version that matches the Spark version in your [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/versioning/dataproc-version-clusters) or [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/versions/spark-runtime-versions) instance. To view a list of available Apache Iceberg versions, see [Apache Iceberg downloads](https://iceberg.apache.org/releases/). For example, the flag for Apache Spark 3.3 is:  
+  * `ICEBERG_SPARK_PACKAGE`: the version of Apache Iceberg with Spark to use. We recommend using the Spark version that matches the Spark version in your [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-version-lists) or [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/serverless-versions) instance. To view a list of available Apache Iceberg versions, see [Apache Iceberg downloads](https://iceberg.apache.org/releases/). For example, the flag for Apache Spark 3.3 is:  
 `--packages org.apache.iceberg:iceberg-spark-runtime-3.3_2.13:1.2.1`
   * `BIGLAKE_ICEBERG_CATALOG_JAR`: the Cloud Storage URI of the Iceberg custom catalog plugin to install. Depending on your environment, select one of the following: 
     * `Iceberg 1.9.1`: gs://spark-lib/biglake/biglake-catalog-iceberg1.9.1-0.1.3-with-dependencies.jar
@@ -143,7 +143,7 @@ Replace the following:
 
 Alternatively, you can submit a Managed Service for Apache Spark job to a cluster. The following sample installs the appropriate [Iceberg Custom Catalog](https://iceberg.apache.org/docs/latest/custom-catalog/).
 
-To connect with a Managed Service for Apache Spark cluster, [submit a job](https://docs.cloud.google.com/dataproc/docs/guides/submit-job) with the following specifications:
+To connect with a Managed Service for Apache Spark cluster, [submit a job](https://docs.cloud.google.com/managed-spark/docs/guides/submit-job) with the following specifications:
     
     
     CONFS="spark.sql.catalog.SPARK_CATALOG=org.apache.iceberg.spark.SparkCatalog,"
@@ -172,7 +172,7 @@ Replace the following:
 
 ### Connect with Managed Service for Apache Spark
 
-Similarly, you can submit a batch workload to Managed Service for Apache Spark. To do so, follow the [batch workload instructions](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/spark-batch#submit_a_spark_batch_workload) with the following additional flags:
+Similarly, you can submit a batch workload to Managed Service for Apache Spark. To do so, follow the [batch workload instructions](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload) with the following additional flags:
 
   * `--properties="${CONFS}"`
   * `--jars=BIGLAKE_ICEBERG_CATALOG_JAR`
@@ -193,7 +193,7 @@ Catalog names have constraints; for more information, see Limitations. To create
 
 ###  API 
 
-Use the [`projects.locations.catalogs.create`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs/create) method and specify the name of a catalog.
+Use the [`projects.locations.catalogs.create`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs/create) method and specify the name of a catalog.
 
 ###  Spark SQL 
     
@@ -216,7 +216,7 @@ Database names have constraints; for more information, see Limitations. To ensur
 
 ###  API 
 
-Use the [`projects.locations.catalogs.databases.create`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases/create) method and specify the name of a database.
+Use the [`projects.locations.catalogs.databases.create`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases/create) method and specify the name of a database.
 
 ###  Spark SQL 
     
@@ -252,7 +252,7 @@ Table names have constraints. For more information, see [Table naming](https://d
 
 ###  API 
 
-Use the [`projects.locations.catalogs.databases.tables.create`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases.tables/create) method and specify the name of a table.
+Use the [`projects.locations.catalogs.databases.tables.create`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases.tables/create) method and specify the name of a table.
 
 ###  Spark SQL 
     
@@ -369,9 +369,9 @@ The following sections describe how to view resources in BigLake metastore (clas
 
 ### View catalogs
 
-To see all databases in a catalog, use the [`projects.locations.catalogs.list`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs/list) method and specify the name of a catalog.
+To see all databases in a catalog, use the [`projects.locations.catalogs.list`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs/list) method and specify the name of a catalog.
 
-To see information about a catalog, use the [`projects.locations.catalogs.get`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs/get) method and specify the name of a catalog.
+To see information about a catalog, use the [`projects.locations.catalogs.get`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs/get) method and specify the name of a catalog.
 
 ### View databases
 
@@ -396,9 +396,9 @@ To view a database and copy a link to it, do the following:
 
 ###  API 
 
-To see all tables in a database, use the [`projects.locations.catalogs.databases.list`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases/list) method and specify the name of a database.
+To see all tables in a database, use the [`projects.locations.catalogs.databases.list`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases/list) method and specify the name of a database.
 
-To see information about a database, use the [`projects.locations.catalogs.databases.get`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases/get) method and specify the name of a database.
+To see information about a database, use the [`projects.locations.catalogs.databases.get`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases/get) method and specify the name of a database.
 
 ###  Spark SQL 
 
@@ -446,7 +446,7 @@ To update a table, select one of the following options:
 
 ###  API 
 
-Use the [`projects.locations.catalogs.databases.tables.patch`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases.tables/patch) method and specify the name of a table.
+Use the [`projects.locations.catalogs.databases.tables.patch`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases.tables/patch) method and specify the name of a table.
 
 ###  Spark SQL 
 
@@ -458,7 +458,7 @@ To rename a table, select one of the following options:
 
 ###  API 
 
-Use the [`projects.locations.catalogs.databases.tables.rename`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases.tables/rename) method and specify the name of a table and a `newName` value.
+Use the [`projects.locations.catalogs.databases.tables.rename`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases.tables/rename) method and specify the name of a table and a `newName` value.
 
 ###  Spark SQL 
     
@@ -481,7 +481,7 @@ To delete a catalog, select one of the following options:
 
 ###  API 
 
-Use the [`projects.locations.catalogs.delete`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs/delete) method and specify the name of a catalog. This method does not delete the associated files on Google Cloud.
+Use the [`projects.locations.catalogs.delete`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs/delete) method and specify the name of a catalog. This method does not delete the associated files on Google Cloud.
 
 ###  Spark SQL 
     
@@ -494,7 +494,7 @@ To delete a database, select one of the following options:
 
 ###  API 
 
-Use the [`projects.locations.catalogs.databases.delete`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases/delete) method and specify the name of a database. This method does not delete the associated files on Google Cloud.
+Use the [`projects.locations.catalogs.databases.delete`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases/delete) method and specify the name of a database. This method does not delete the associated files on Google Cloud.
 
 ###  Spark SQL 
     
@@ -507,7 +507,7 @@ To delete a table, select one of the following options:
 
 ###  API 
 
-Use the [`projects.locations.catalogs.databases.tables.delete`](https://docs.cloud.google.com/bigquery/docs/reference/biglake/rest/v1/projects.locations.catalogs.databases.tables/delete) method and specify the name of a table. This method does not delete the associated files on Google Cloud.
+Use the [`projects.locations.catalogs.databases.tables.delete`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/projects.locations.catalogs.databases.tables/delete) method and specify the name of a table. This method does not delete the associated files on Google Cloud.
 
 ###  Spark SQL 
 
@@ -525,6 +525,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

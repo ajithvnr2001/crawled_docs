@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/snyk-issues/
 title: Collect Snyk Group Issues logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:36.857447+00:00
+fetched_at: 2026-11-04T07:48:57.383333+00:00
 ---
 
 # Collect Snyk Group Issues logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -280,10 +280,10 @@ Variable Name | Example Value
            
                    # Snyk API credentials
                    api_base = os.environ.get('API_BASE', 'https://api.snyk.io/rest').rstrip('/')
-                   snyk_token = os.environ.get('SNYK_TOKEN').strip()
+                   snyk_token = os.environ.get('&;SNYK_TOKEN').strip()
                    group_id = os.environ.get('GROUP_ID').strip()
            
-                   # Page sizes & limits
+                   # Page sizes  limits
                    audit_size = int(os.environ.get('AUDIT_PAGE_SIZE', '100'))
                    issues_limit = int(os.environ.get('ISSUES_PAGE_LIMIT', '100'))
                    max_pages = int(os.environ.get('MAX_PAGES', '20'))
@@ -295,13 +295,13 @@ Variable Name | Example Value
                    # First-run lookback
                    lookback_seconds = int(os.environ.get('LOOKBACK_SECONDS', '3600'))
            
-                   if not all([bucket_name, snyk_token, group_id]):
+                   if not a[ll](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)([bucket_name, snyk_token, group_id]):
                        print('Error: Missing required environment variables')
                        return
            
                    try:
                        # Get GCS bucket
-                       bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+                       bucket = storage_client.bucket(bucket_name)
            
                        # Load state
                        state = load_state(bucket, state_key)
@@ -328,7 +328,7 @@ Variable Name | Example Value
                        print('Successfully completed Snyk Group logs collection')
            
                    except Exception as e:
-                       print(f'Error processing logs: {str(e)}')
+               [        print(f&](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text)#39;Error processing logs: {str(e)}')
                        raise
            
                def load_state(bucket, key):
@@ -336,8 +336,8 @@ Variable Name | Example Value
                    try:
                        blob = bucket.blob(key)
                        if blob.exists():
-                           state_data = blob.[download_as_text](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text)()
-                           return json.loads(state_data)
+                           state_data = blob.download_as_text()
+                    [       return json](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string).loads(state_data)
                    except Exception as e:
                        print(f'Warning: Could not load state: {str(e)}')
                    return {}
@@ -346,7 +346,7 @@ Variable Name | Example Value
                    """Save state to GCS."""
                    try:
                        blob = bucket.blob(key)
-                       blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
+                       blob.upload_from_string(
                            json.dumps(state, separators=(',', ':')),
                            content_type='application/json'
                        )
@@ -365,7 +365,7 @@ Variable Name | Example Value
                            return json.loads(r.read().decode('utf-8'))
                    except HTTPError as e:
                        if e.code in (429, 500, 502, 503, 504):
-                           delay = int(e.headers.get('Retry-After', '1'))
+                           delay = int(e.headers.get('Retr[y-After'](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string), ';1'))
                            time.sleep(max(1, delay))
                            with urlopen(req, timeout=60) as r2:
                                return json.loads(r2.read().decode('utf-8'))
@@ -376,7 +376,7 @@ Variable Name | Example Value
                    ts = time.gmtime()
                    key = f"{prefix.rstrip('/')}/{time.strftime('%Y/%m/%d/%H%M%S', ts)}-snyk-{kind}.json"
                    blob = bucket.blob(key)
-                   blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
+                   blob.upload_from_string(
                        json.dumps(payload, separators=(',', ':')),
                        content_type='application/json'
                    )
@@ -386,7 +386,7 @@ Variable Name | Example Value
                    """Extract next href from links."""
                    if not links:
                        return None
-                   nxt = links.get('next')
+                   nxt[ = li](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state)nks.get('next')
                    if not nxt:
                        return None
                    if isinstance(nxt, str):
@@ -397,13 +397,13 @@ Variable Name | Example Value
            
                def pull_audit_logs(bucket, prefix, state, api_base, snyk_token, group_id,
                                    audit_api_version, audit_size, max_pages, lookback_seconds):
-                   """Pull audit logs from Snyk Group API."""
+                   """Pull audit logs from Snyk Grou<p API."""
                    headers = {
                        'Authorization': f'token {snyk_token}',
                        'Accept': 'application/vnd.api+json',
                    }
            
-                   cursor = [state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('audit_cursor')
+                   cursor = state.get('audit_cursor')
                    pages = 0
                    total = 0
                    base = f"{api_base}/groups/{group_id}/audit_logs/search"
@@ -419,12 +419,12 @@ Variable Name | Example Value
                        params['from'] = _iso(now - lookback_seconds)
                        params['to'] = _iso(now)
            
-                   while pages < max_pages:
+                   while pages  max_pages:
                        url = f"{base}?{urllib.parse.urlencode(params, doseq=True)}"
                        payload = _http_get(url, headers)
                        _write_page(bucket, prefix, 'audit', payload)
            
-                       data_items = (payload.get('data') or {}).get('items') or []
+            [     ](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state)      data_items = (payload.get('data') or {}).get('items') or []
                        if isinstance(data_items, list):
                            total += len(data_items)
            
@@ -433,7 +433,7 @@ Variable Name | Example Value
                            break
            
                        q = parse_qs(urlparse(nxt).query)
-                       cur = (q.get('cursor') or [None])[0]
+                       cur = (q.get('cursor') or [No[ne](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state)])[0]
                        if not cur:
                            break
            
@@ -445,10 +445,10 @@ Variable Name | Example Value
                        state['audit_cursor'] = cur
                        pages += 1
            
-                   return {
+                   re<turn {
                        'pages': pages + 1 if total else pages,
                        'items': total,
-                       'cursor': [state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('audit_cursor')
+                       'cursor': state.get('audit_cursor')
                    }
            
                def pull_issues(bucket, prefix, state, api_base, snyk_token, group_id,
@@ -459,7 +459,7 @@ Variable Name | Example Value
                        'Accept': 'application/vnd.api+json',
                    }
            
-                   cursor = [state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('issues_cursor')
+                   cursor = state.get('issues_cursor')
                    pages = 0
                    total = 0
                    base = f"{api_base}/groups/{group_id}/issues"
@@ -471,7 +471,7 @@ Variable Name | Example Value
                    if cursor:
                        params['starting_after'] = cursor
            
-                   while pages < max_pages:
+                   whil[e](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state) pages  max_pages:
                        url = f"{base}?{urllib.parse.urlencode(params, doseq=True)}"
                        payload = _http_get(url, headers)
                        _write_page(bucket, prefix, 'issues', payload)
@@ -500,7 +500,7 @@ Variable Name | Example Value
                    return {
                        'pages': pages + 1 if total else pages,
                        'items': total,
-                       'cursor': [state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get('issues_cursor')
+                       'cursor': state.get('issues_cursor')
                    }
                ```
            
@@ -571,7 +571,7 @@ Google SecOps uses a unique service account to read data from your GCS bucket. Y
 
 ### Get the service account email
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Snyk Group Audit/Issues`).
@@ -607,7 +607,7 @@ The Google SecOps service account needs **Storage Object Viewer** role on your G
 
 ## Configure a feed in Google SecOps to ingest Snyk Group logs
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Snyk Group Audit/Issues`).
@@ -705,6 +705,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

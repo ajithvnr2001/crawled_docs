@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/oci/
 title: Oracle Database@Google Cloud service agent roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:34:29.872859+00:00
+fetched_at: 2026-11-04T07:58:34.400768+00:00
 ---
 
 # Oracle Database@Google Cloud service agent roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ Role | Permissions
   * `compute.interconnectRemoteLocations.get`
   * `compute.interconnectRemoteLocations.list`
 
-`compute.interconnects.create` `compute.interconnects.delete` `compute.interconnects.get` `compute.interconnects.getMacsecConfig` `compute.interconnects.list` `compute.interconnects.setLabels` `compute.interconnects.update` `compute.interconnects.use` `compute.networks.get` `compute.networks.list` `compute.networks.updatePolicy` `compute.projects.get` `compute.regionOperations.get` `compute.regionOperations.list` `compute.regions.*`
+`compute.interconnects.create` `compute.interconnects.delete` `compute.interconnects.get` `compute.interconnects.getMacsecConfig` `compute.interconnects.list` `compute.interconnects.setLabels` `compute.interconnects.update` `compute.interconnects.use` `compute.networkAttachments.get` `compute.networks.get` `compute.networks.list` `compute.networks.updatePolicy` `compute.projects.get` `compute.regionOperations.get` `compute.regionOperations.list` `compute.regions.*`
 
   * `compute.regions.get`
   * `compute.regions.list`
@@ -100,7 +100,7 @@ Role | Permissions
   * `dns.responsePolicyRules.list`
   * `dns.responsePolicyRules.update`
 
-`networkconnectivity.internalRanges.create` `networkconnectivity.internalRanges.delete` `networkconnectivity.internalRanges.get` `networkconnectivity.internalRanges.list` `networkconnectivity.internalRanges.update` `networkconnectivity.operations.get` `networkconnectivity.operations.list` `oracledatabase.odbNetworks.create` `oracledatabase.odbNetworks.get` `oracledatabase.odbNetworks.list` `oracledatabase.odbSubnets.create` `oracledatabase.odbSubnets.get` `oracledatabase.odbSubnets.list` `oracledatabase.odbSubnets.use` `oracledatabase.operations.get` `oracledatabase.operations.list` `resourcemanager.projects.get` `resourcemanager.projects.updateLiens`  
+`networkconnectivity.internalRanges.create` `networkconnectivity.internalRanges.delete` `networkconnectivity.internalRanges.get` `networkconnectivity.internalRanges.list` `networkconnectivity.internalRanges.update` `networkconnectivity.operations.get` `networkconnectivity.operations.list` `oracledatabase.cloudVmClusters.disableIdentityConnector` `oracledatabase.cloudVmClusters.enableIdentityConnector` `oracledatabase.exadbVmClusters.disableIdentityConnector` `oracledatabase.exadbVmClusters.enableIdentityConnector` `oracledatabase.odbNetworks.create` `oracledatabase.odbNetworks.get` `oracledatabase.odbNetworks.list` `oracledatabase.odbSubnets.create` `oracledatabase.odbSubnets.get` `oracledatabase.odbSubnets.list` `oracledatabase.odbSubnets.use` `oracledatabase.operations.get` `oracledatabase.operations.list` `resourcemanager.projects.get` `resourcemanager.projects.updateLiens`  
   
 ## Oracle Database@Google Cloud service agent permissions
 
@@ -110,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep/
 title: Dataprep by Trifacta roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:34:53.438625+00:00
+fetched_at: 2026-11-04T07:56:16.134962+00:00
 ---
 
 # Dataprep by Trifacta roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ Role | Permissions
   * `bigquery.routines.update`
   * `bigquery.routines.updateTag`
 
-`bigquery.savedqueries.get` `bigquery.savedqueries.list` `bigquery.tables.create` `bigquery.tables.createIndex` `bigquery.tables.createSnapshot` `bigquery.tables.delete` `bigquery.tables.deleteIndex` `bigquery.tables.export` `bigquery.tables.get` `bigquery.tables.getData` `bigquery.tables.getIamPolicy` `bigquery.tables.list` `bigquery.tables.replicateData` `bigquery.tables.restoreSnapshot` `bigquery.tables.update` `bigquery.tables.updateData` `bigquery.tables.updateIndex` `bigquery.tables.updateTag` `bigquery.transfers.get` `bigquerymigration.translation.translate` `cloudbuild.builds.create` `cloudbuild.builds.get` `cloudbuild.builds.list` `cloudbuild.builds.update` `cloudbuild.locations.*`
+`bigquery.savedqueries.get` `bigquery.savedqueries.list` `bigquery.tables.create` `bigquery.tables.createIndex` `bigquery.tables.createSnapshot` `bigquery.tables.delete` `bigquery.tables.deleteIndex` `bigquery.tables.export` `bigquery.tables.get` `bigquery.tables.getData` `bigquery.tables.getIamPolicy` `bigquery.tables.list` `bigquery.tables.replicateData` `bigquery.tables.restoreSnapshot` `bigquery.tables.update` `bigquery.tables.updateData` `bigquery.tables.updateIndex` `bigquery.tables.updateTag` `bigquery.transfers.get` `bigquerymigration.translation.translate` `cloudaicompanion.operations.get` `cloudaicompanion.topics.create` `cloudbuild.builds.create` `cloudbuild.builds.get` `cloudbuild.builds.list` `cloudbuild.builds.update` `cloudbuild.locations.*`
 
   * `cloudbuild.locations.get`
   * `cloudbuild.locations.list`
@@ -102,7 +102,7 @@ Role | Permissions
   * `cloudbuild.operations.get`
   * `cloudbuild.operations.list`
 
-`compute.acceleratorTypes.*`
+`compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -188,7 +188,7 @@ Role | Permissions
   * `dataform.locations.get`
   * `dataform.locations.list`
 
-`dataform.repositories.create` `dataform.repositories.list` `dataplex.agentTasks.create` `dataplex.agentTasks.delete` `dataplex.agentTasks.get` `dataplex.agentTasks.getData` `dataplex.agentTasks.getIamPolicy` `dataplex.agentTasks.list` `dataplex.agentTasks.run` `dataplex.agentTasks.update` `dataplex.datascans.cancel` `dataplex.datascans.create` `dataplex.datascans.delete` `dataplex.datascans.get` `dataplex.datascans.getData` `dataplex.datascans.getIamPolicy` `dataplex.datascans.list` `dataplex.datascans.run` `dataplex.datascans.update` `dataplex.operations.get` `dataplex.operations.list` `dataplex.projects.search` `iam.serviceAccounts.actAs` `iam.serviceAccounts.get` `iam.serviceAccounts.list` `monitoring.timeSeries.create` `orgpolicy.policy.get` `recommender.dataflowDiagnosticsInsights.*`
+`dataform.repositories.create` `dataform.repositories.list` `dataplex.agentTasks.create` `dataplex.agentTasks.delete` `dataplex.agentTasks.get` `dataplex.agentTasks.getData` `dataplex.agentTasks.getIamPolicy` `dataplex.agentTasks.list` `dataplex.agentTasks.run` `dataplex.agentTasks.update` `dataplex.datascans.cancel` `dataplex.datascans.create` `dataplex.datascans.delete` `dataplex.datascans.get` `dataplex.datascans.getData` `dataplex.datascans.getIamPolicy` `dataplex.datascans.list` `dataplex.datascans.run` `dataplex.datascans.update` `dataplex.operations.get` `dataplex.operations.list` `dataplex.projects.search` `geminidataanalytics.locations.chat` `iam.serviceAccounts.actAs` `iam.serviceAccounts.get` `iam.serviceAccounts.list` `monitoring.timeSeries.create` `orgpolicy.policy.get` `recommender.dataflowDiagnosticsInsights.*`
 
   * `recommender.dataflowDiagnosticsInsights.get`
   * `recommender.dataflowDiagnosticsInsights.list`
@@ -247,6 +247,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

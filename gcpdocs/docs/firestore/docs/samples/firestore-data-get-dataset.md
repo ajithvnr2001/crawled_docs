@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-get-dataset/
 title: Get Firestore Documents created from custom classes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:35.520770+00:00
+fetched_at: 2026-11-04T08:02:05.257079+00:00
 ---
 
 # Get Firestore Documents created from custom classes  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/column-level-security-intro/
 title: Introduction to column-level access control \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:58.097853+00:00
+fetched_at: 2026-11-04T07:48:30.421647+00:00
 ---
 
 # Introduction to column-level access control  |  BigQuery  |  Google Cloud Documentation
@@ -33,6 +33,8 @@ To enhance column-level access control, you can optionally use [dynamic data mas
 
 This document describes using policy tags for column-level access control. As an alternative, you can use [data governance tags](https://docs.cloud.google.com/bigquery/docs/tags#data-governance-tags), which are Resource Manager tags used for column-level access control and data masking.
 
+**Note:** The `datacatalog.googleapis.com` API must remain enabled to create and manage the Data Catalog policy tags and taxonomies used for data masking and column-level security. Although Data Catalog metadata search and catalog features are deprecated and transitioning to Knowledge Catalog, the Policy Tag Manager service (taxonomies and policy tags), its `datacatalog.googleapis.com` API methods and audit logs, and the `roles/datacatalog` Identity and Access Management (IAM) roles aren't deprecated.
+
 ## Column-level access control workflow
 
 ![Workflow](https://docs.cloud.google.com/static/bigquery/images/column-level-security-workflow.png)
@@ -45,7 +47,7 @@ To restrict data access at the column level:
 
   3. **Enforce access control on the taxonomy**. Enforcing access control causes the access restrictions defined for all of the policy tags in the taxonomy to be applied.
 
-  4. **Manage access on the policy tags**. Use [Identity and Access Management](https://docs.cloud.google.com/iam) (IAM) policies to restrict access to each policy tag. The policy is in effect for each column that belongs to the policy tag.
+  4. **Manage access on the policy tags**. Use [IAM](https://docs.cloud.google.com/iam) policies to restrict access to each policy tag. The policy is in effect for each column that belongs to the policy tag.
 
 
 
@@ -164,7 +166,7 @@ Role/ID | Permissions | Description
 ---|---|---  
 Fine-Grained Reader/`datacatalog.categoryFineGrainedReader` | `datacatalog.categories.fineGrainedGet` |  Applies at the policy tag level.  This role grants the ability to access the content of columns restricted by a policy tag.   
   
-To learn more about Data Catalog roles, see [Data Catalog Identity and Access Management (IAM)](https://docs.cloud.google.com/data-catalog/docs/concepts/iam). To learn more about BigQuery roles, see [Access control with IAM](https://docs.cloud.google.com/bigquery/docs/access-control).
+To learn more about Data Catalog roles, see [Data Catalog IAM roles](https://docs.cloud.google.com/iam/docs/roles-permissions/datacatalog). To learn more about BigQuery roles, see [Access control with IAM](https://docs.cloud.google.com/bigquery/docs/access-control).
 
 ## Impact of writes
 
@@ -322,6 +324,8 @@ You can't use references across organizations. A table and any policy tags that 
 
   * You can't copy a table across regions if you enabled column-level or row-level access control. Any copies of tables across regions are rejected if there are any policy tags on the source tables.
 
+  * For information about policy tag and taxonomy quotas and limits, see [Data policies](https://docs.cloud.google.com/bigquery/quotas#data-policy-management).
+
 
 
 
@@ -357,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/redshift-sql/
 title: Amazon Redshift SQL translation guide \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:21.531791+00:00
+fetched_at: 2026-11-04T07:47:54.383703+00:00
 ---
 
 # Amazon Redshift SQL translation guide  |  BigQuery  |  Google Cloud Documentation
@@ -113,7 +113,7 @@ x/total AS probability,
 ROUND(100 * (x/total), 1) AS pct   
 FROM raw_data `  
   
-BigQuery also supports the following expressions in `SELECT` statements, which do not have a Amazon Redshift equivalent:
+BigQuery also supports the following expressions in `SELECT` statements, which do not have an Amazon Redshift equivalent:
 
   * [`EXCEPT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#select_except)
   * [`REPLACE`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#select_replace)
@@ -610,7 +610,7 @@ The following table shows mappings between common Amazon Redshift conditional ex
 
 **Amazon Redshift** | **BigQuery**  
 ---|---  
-`[CASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CASE_function.html)expression  
+`[CASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CASE_function.html) expression  
 WHEN value THEN result   
 [WHEN...]  
 [ELSE else_result]  
@@ -1026,7 +1026,7 @@ BigQuery also offers the following mathematical operator, which does not have a 
 `[DLOG10](https://docs.aws.amazon.com/redshift/latest/dg/r_DLOG10.html)(number)` | `[LOG10](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#log10)(number) `  
 `[EXP](https://docs.aws.amazon.com/redshift/latest/dg/r_EXP.html)(number)` | `[EXP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#exp)(number)`  
 `[FLOOR](https://docs.aws.amazon.com/redshift/latest/dg/r_FLOOR.html)(number)` | `[FLOOR](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#floor)(number)`  
-`[LN](https://docs.aws.amazon.com/redshift/latest/dg/r_LN.html)number)` | `[LN](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#ln)(number)`  
+`[LN](https://docs.aws.amazon.com/redshift/latest/dg/r_LN.html)(number)` | `[LN](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#ln)(number)`  
 `[LOG](https://docs.aws.amazon.com/redshift/latest/dg/r_LOG.html)(number)` | `[LOG10](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#log10)(number) `  
 `[MOD](https://docs.aws.amazon.com/redshift/latest/dg/r_MOD.html)(number1, number2)` | `[MOD](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#mod)(number1, number2)`  
 `[PI](https://docs.aws.amazon.com/redshift/latest/dg/r_PI.html)` | `[ACOS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/mathematical_functions#acos)(-1)`  
@@ -1311,7 +1311,7 @@ BigQuery also supports inserting values using a subquery (where one of the value
 
 ### `COPY` statement
 
-Amazon Redshift's [`COPY`](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html)command loads data into a table from data files or from an Amazon DynamoDB table. BigQuery does not use the `SQL COPY` command to load data, but you can use any of several non-SQL tools and options to [load data into BigQuery tables](https://docs.cloud.google.com/bigquery/docs/loading-data). You can also use data pipeline sinks provided in [Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage#other_sparkhadoop_clusters) or [Apache Beam](https://beam.apache.org/documentation/io/built-in/google-bigquery/#writing-to-bigquery) to write data into BigQuery.
+Amazon Redshift's [`COPY`](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html) command loads data into a table from data files or from an Amazon DynamoDB table. BigQuery does not use the `SQL COPY` command to load data, but you can use any of several non-SQL tools and options to [load data into BigQuery tables](https://docs.cloud.google.com/bigquery/docs/loading-data). You can also use data pipeline sinks provided in [Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage#other_sparkhadoop_clusters) or [Apache Beam](https://beam.apache.org/documentation/io/built-in/google-bigquery/#writing-to-bigquery) to write data into BigQuery.
 
 ### `UPDATE` statement
 
@@ -1572,7 +1572,7 @@ The following table shows equivalents between Amazon Redshift and BigQuery for t
 
 **Amazon Redshift** | **BigQuery**  
 ---|---  
-`CREATE VIEW view_name AS SELECT ...`code> | `[CREATE VIEW](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement) view_name AS SELECT ...`  
+`CREATE VIEW view_name AS SELECT ...` | `[CREATE VIEW](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement) view_name AS SELECT ...`  
 `CREATE OR REPLACE VIEW view_name AS SELECT ...` | `[CREATE OR REPLACE VIEW](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement)   
 view_name AS   
 SELECT ... `  
@@ -1883,6 +1883,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:25.239947+00:00
+fetched_at: 2026-11-04T08:00:43.246140+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,281 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## November 03, 2026
+
+**API Gateway**
+
+Feature
+
+**Call Google Cloud APIs from streaming gateways**
+
+Streaming gateways can now call Google Cloud APIs such as `aiplatform.googleapis.com`. A gateway with an `effectiveStreamingMode` of `EFFECTIVE_STREAMING_MODE_ENABLED` authenticates to backends whose host ends in `.googleapis.com` or `.vertexai.goog` with an access token for the gateway's service account. Other backends still receive an ID token. An existing streaming gateway switches when API Gateway next rolls out a gateway update, or immediately when you update it to a new API config.
+
+For more information, see [Securing backend services](https://docs.cloud.google.com/api-gateway/docs/securing-backend-services#other-gcp-apis).
+
+**Application Design Center**
+
+Feature
+
+Application Design Center is available in the following regions:
+
+  * Osaka, Japan (`asia-northeast2`)
+  * Mumbai, India (`asia-south1`)
+  * Bangkok, Thailand (`asia-southeast3`)
+  * Sydney, Australia (`australia-southeast1`)
+  * Berlin, Germany (`europe-west10`)
+  * Moncks Corner, South Carolina (`us-east1`)
+  * Dammam, Saudi Arabia (`me-central2`)
+
+
+
+For more information, see [App Design Center locations](https://docs.cloud.google.com/application-design-center/docs/locations).
+
+**BigQuery**
+
+Change
+
+In [BigQuery Studio](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui#studio-overview), the left pane has been updated with new tab names. The **Classic Explorer** tab has been renamed to the **Data** tab, and the **Repository** tab has been renamed to the **Source control** tab. The **Data** tab now includes the **Add data** button and focuses on data hierarchies. These changes are [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+**Cloud SDK**
+
+Breaking
+
+## 592.0.0 (2026-11-03)
+
+### Breaking Changes
+
+  * **(Cloud Datastore Emulator)** Removed support for running the Datastore emulator (`gcloud beta emulators datastore start`) in environment with Java versions prior to 25. Users can upgrade to Java 25 or above to continue using the latest Datastore emulator. Alternatively, users can use previous `gcloud` CLI versions to continue using the Datastore emulator with Java 21 support.
+  * **(Cloud Firestore Emulator)** Removed support for running the Firestore emulator (`gcloud emulators firestore start`) in environment with Java versions prior to 25. Users can upgrade to Java 25 or above to continue using the latest Firestore emulator. Alternatively, users can use previous `gcloud` CLI versions to continue using the previous Firestore emulator with Java 21 support.
+  * **(Docker)** Removed the system Python and C compiler from the Debian-based Docker images. gcloud, gsutil and bq now always run on the bundled Python, on both `linux/amd64` and `linux/arm64`. The removed packages differ by image: 
+    * `:latest`, `:slim`, `:debian_component_based`: `python3`, `python3-dev`, `python3-pip`, `python3-crcmod` and `gcc`.
+    * `:emulators`: `python3` and `python3-crcmod`.
+    * `:stable`: `python3-dev` and `python3-crcmod`, on `linux/arm64` only.
+  * **(Docker)** Setting `CLOUDSDK_PYTHON=python3` (or `CLOUDSDK_GSUTIL_PYTHON` / `CLOUDSDK_BQ_PYTHON`) in these images now makes every gcloud, gsutil or bq call fail, because there is no `python3` on `PATH`. Unset it to use the bundled Python.
+  * **(Docker)** If your workflow requires a system Python, install it on top of the image, for example with `apt-get install python3`. This does not change which Python gcloud uses. If you need to compile C extensions, also install `build-essential python3-dev`.
+
+
+
+### Google Cloud CLI
+
+  * Changed the Java dependency of the `google-cloud-cli-datastore-emulator`, `google-cloud-cli-firestore-emulator`, `google-cloud-cli-pubsub-emulator`, `google-cloud-cli-app-engine-java`, and `google-cloud-cli-bqms` deb and rpm packages from a full JDK to a headless JRE, preferring Java 25. The Datastore and Firestore emulator packages now require Java 25 or later.
+
+
+
+### Agent Registry
+
+  * Removed `--scanning-state` flag from `gcloud agent-registry skills create` and `gcloud agent-registry skills update`. Use `--scanning-policy` instead.
+
+
+
+### AlloyDB
+
+  * Updated AlloyDB Auth Proxy installation instructions in `gcloud alloydb connect` to v1.17.2.
+  * Added `--connection-pooling-authproxy-pooler-scaling-type` flag to `gcloud beta alloydb instances create`, `gcloud beta alloydb instances create-secondary`, and `gcloud beta alloydb instances update`.
+  * Promoted the following flags to GA on `gcloud alloydb instances create` and `gcloud alloydb instances update`: 
+    * `--enable-autoscaler`
+    * `--autoscaler-max-node-count`
+    * `--autoscaler-cool-down-period-seconds`
+    * `--autoscaler-target-cpu-usage`
+    * `--autoscaler-set-schedule`
+    * `--autoscaler-schedule-cron-exp`
+    * `--autoscaler-schedule-duration-seconds`
+    * `--autoscaler-schedule-time-zone`
+    * `--autoscaler-schedule-min-node-count`
+    * `--autoscaler-schedule-description`
+  * Promoted the following flags to GA on `gcloud alloydb instances update`: 
+    * `--autoscaler-delete-schedule`
+    * `--autoscaler-disable-schedule`
+    * `--autoscaler-enable-schedule`
+  * Added `--autoscaler-target-connections-count` flag to `gcloud alloydb instances create` and `gcloud alloydb instances update`.
+
+
+
+### App Engine
+
+  * Updated the Java SDK to version 5.2.0 build from the open source project <https://github.com/GoogleCloudPlatform/appengine-java-standard/releases/tag/v5.2.0>.
+  * Added `--from-image` and `--destination-repository` flags to `gcloud beta app migrate-to-run` for App Engine Standard environment.
+  * Updated `gcloud beta app migrate-to-run --from-image` to show the reason returned by the App Engine Admin API when exporting the image fails.
+  * Added support for the `vpc_access` configuration in `app.yaml` to `gcloud app deploy`, enabling Direct VPC egress for App Engine standard environment.
+
+
+
+### App Hub
+
+  * Added `MULTI_REGIONAL` choice to `--scope-type` flag of `gcloud apphub applications create`.
+
+
+
+### Artifact Registry
+
+  * Fixed an issue in `gcloud artifacts attachments download` where attachment file names were not validated before writing to `--destination`.
+
+
+
+### Beyondcorp
+
+  * Added `--dispatch-info-output-type` flag to `gcloud beyondcorp security-gateways create` and `gcloud beyondcorp security-gateways update`, and upstream `dispatchInfo` configuration to `gcloud beyondcorp security-gateways applications create` and `gcloud beyondcorp security-gateways applications update` to configure delegated dispatch info headers.
+  * Removed `gcloud beta beyondcorp app` and `gcloud beta beyondcorp client-connector` command groups.
+
+
+
+### BigLake
+
+  * Added `--kms-key` flag to `gcloud beta biglake hive catalogs create`, and `--kms-key` and `--clear-kms-key` flags to `gcloud beta biglake hive catalogs update` to support customer-managed encryption keys (CMEK).
+  * Added `--workday-api-client-client-id` flag to `gcloud beta biglake iceberg catalogs create` and `gcloud beta biglake iceberg catalogs update` to support Workday OIDC authentication.
+
+
+
+### Cloud Backup DR
+
+  * Removed default value (`-`) for `--location` flag in `gcloud beta backup-dr applied-auto-protection-policies list`. `--location` flag is now required.
+  * Promoted `gcloud backup-dr applied-auto-protection-policies` to GA.
+  * Fixed an issue where `gcloud backup-dr backup-plans update --backup-rules-from-file` failed with `update mask is required` when the file contained an empty `backup-rules` list.
+  * Fixed an issue where `gcloud backup-dr backup-plans update --backup-rules-from-file` cleared `--compute-instance-properties` and `--disk-properties` when they were specified in the same command.
+  * Promoted `gcloud backup-dr applied-auto-protection-policies` to GA.
+  * Promoted `gcloud backup-dr auto-protection-bindings` to GA.
+  * Promoted `gcloud backup-dr auto-protection-policies` commands to GA.
+  * Promoted `gcloud backup-dr binding-matching-resources` to GA.
+
+
+
+### Cloud Bigtable
+
+  * Added `--automated-backup-keep-hot-duration` flag to `gcloud bigtable instances tables create`, `gcloud bigtable instances tables update`, `gcloud bigtable tables create`, and `gcloud bigtable tables update` to create hot automated backups that remain hot for the specified duration before transitioning to standard backups.
+  * Added `--clear-automated-backup-keep-hot-duration` flag to `gcloud bigtable instances tables update` and `gcloud bigtable tables update` to stop creating hot automated backups.
+  * Added `--avro-schema-path` flag to `gcloud bigtable schema-bundles create` and `gcloud bigtable schema-bundles update`.
+
+
+
+### Cloud Dataplex
+
+  * Added `--custom-instructions` flag to `gcloud dataplex datascans create data-documentation` and `--custom-instructions` and `--clear-custom-instructions` flags to `gcloud dataplex datascans update data-documentation` to support specifying or clearing custom instructions that guide data documentation generation.
+  * Added `--sql-dialect` flag to `gcloud dataplex datascans create data-documentation` and `gcloud dataplex datascans update data-documentation` commands to specify the SQL dialect to use in generated SQL queries.
+
+
+
+### Cloud Dataproc
+
+  * Added `--scheduling-timeout` and `--requested-run-duration` flags to `gcloud dataproc clusters create` for creating Dynamic Workload Scheduler (DWS) scheduled clusters.
+
+
+
+### Cloud Datastream
+
+  * Fixed an issue where `gcloud datastream private-connections create` silently dropped user-supplied `--labels`.
+
+
+
+### Cloud Firestore Emulator
+
+  * Release Cloud Firestore emulator v1.23.0 
+    * Added support for Datastore merge join and multiple inequality index selection with `--require-indexes` in Datastore mode
+    * Added support for the `add_window_fields` stage in the Firestore Pipelines API with the `sum`, `average`, `count`, `minimum`, `maximum`, `first`, `last`, `array_agg`, `array_agg_distinct`, and `rank` window functions
+    * Allowed Enterprise data types for all database editions
+    * Fixed transaction conflict detection for concurrent writes against transactional queries
+    * Fixed `ArrayIndexOutOfBoundsException` on incomplete Firestore Rules permission traces
+    * Populated accurate `MoreResultsType` for Datastore mode queries and fixed Pipeline DML edge cases
+    * Updated minimum required Java JRE version to 25
+
+
+
+### Cloud Infrastructure Manager
+
+  * Updated `gcloud infra-manager deployments apply` to display a warning when `--tf-version-constraint` or the deployment configuration specifies a paid Terraform version (1.6.0 or later).
+
+
+
+### Cloud Key Management Service
+
+  * Added support for ECDH key encapsulation mechanism algorithms: `kem-ecdh-p256` and `kem-ecdh-p384`.
+
+
+
+### Cloud Run
+
+  * Added `--public` flag for Cloud Run services, allowing users to make a service public by disabling invoker IAM checks and Identity-Aware Proxy (IAP). This flag is available in `gcloud beta run deploy`, `gcloud beta run services update`, and `gcloud beta run multi-region-services update`.
+
+
+
+### Cloud SQL
+
+  * Added `gcloud sql instances reconcile-networking` to reconcile Private Service Connect (PSC) DNS networking configuration for a Cloud SQL instance.
+
+
+
+### Cloud Shell
+
+  * Updated `gcloud cloud-shell scp` to support passwordless authentication over the Cloud Shell TCP tunnel.
+  * Updated `gcloud cloud-shell ssh` to skip uploading an SSH public key when connecting with passwordless authentication.
+
+
+
+### Cloud Workstations
+
+  * Added `--direct-access-ports` flag to `gcloud beta workstations clusters create` command.
+  * Added `--direct-access-ports` flag to `gcloud beta workstations clusters update` command.
+
+
+
+### Compute Engine
+
+  * Fixed an issue where `gcloud compute` commands omitted troubleshooting documentation links from operation error messages.
+  * Promoted `--reservation-subblock` flag of `gcloud compute hosts describe`, `gcloud compute hosts list`, `gcloud compute reservations hosts describe`, and `gcloud compute reservations hosts list` to GA and beta.
+
+
+
+### Firebase Test Lab
+
+  * Deprecated `gcloud firebase test` command group. Firebase Test Lab is deprecated and will be fully shut down on September 30, 2027. To maintain your testing workflows, you can migrate to the Developer Device Platform on Google Cloud. See the Developer Device Platform Migration Guide (<https://docs.cloud.google.com/developer-device-platform/device-run/migrate>) and FAQ (<https://docs.cloud.google.com/developer-device-platform/troubleshooting>) for more details.
+
+
+
+### Kubernetes Engine
+
+  * Added `--enable-dataplane-v2` flag to `gcloud container clusters update` to initiate GKE Dataplane V2 migration for clusters.
+  * Added `--datapath-provider` flag to `gcloud container node-pools update` to update the datapath provider for a node pool.
+  * Promoted `--enable-ambient-networking` flag to GA for `gcloud container clusters create`, `gcloud container clusters create-auto`, and `gcloud container clusters update`.
+
+
+
+### Network Security
+
+  * Updated `SecurityProfile` and `SecurityProfileGroup` YAML schemas to support WildFire Analysis in beta and GA.
+
+
+
+Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
+
+**Gemini Enterprise**
+
+Feature
+
+**Gemini Enterprise: Salesforce federated data store**
+
+Connecting a Salesforce data source with Gemini Enterprise using data federation is generally available (GA). You can use the Gemini Enterprise app assistant to search across your Salesforce accounts, contacts, opportunities, cases, leads, and custom objects, get answers grounded in that content, and create, update, and delete records without needing to ingest the data.
+
+For more information, see [Set up a Salesforce data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store).
+
+**Google Kubernetes Engine**
+
+Feature
+
+In GKE version 1.37.0-gke.3570000 and later, you can split each Local SSD on a node between ephemeral storage and raw block storage. When you create a cluster or node pool, use the `capacity` property of the `--ephemeral-storage-local-ssd` flag to set how much Local SSD capacity GKE formats for ephemeral storage. GKE leaves the rest of each Local SSD unformatted, so that workloads like databases and caches can use it as raw block storage. This feature is available in GKE Standard clusters. For more information, see [Provision and use mixed Local SSDs for raw block and ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd).
+
+**Oracle Database@Google Cloud**
+
+Feature
+
+Oracle Database@Google Cloud introduces Database Connections using which you can connect to your Oracle databases and execute SQL statements. For more information, see [Create Database Connections](https://docs.cloud.google.com/oracle/database/docs/create-database-connection) and [Execute SQL statements](https://docs.cloud.google.com/oracle/database/docs/execute-sql).
+
+This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+
+**Sensitive Data Protection**
+
+Change
+
+Sensitive Data Protection now records the [last generated timestamp](https://docs.cloud.google.com/sensitive-data-protection/docs/metrics-reference) for [data profiles](https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles) with improved precision, close to the time when the resource data is read.
 
 ## November 02, 2026
 
@@ -171,6 +446,90 @@ Support for the [Python 3.15 runtime](https://docs.cloud.google.com/functions/do
 
 **Cloud Service Mesh**
 
+Announcement
+
+**1.31.3-asm.3 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/upgrade/upgrade). Cloud Service Mesh 1.31.3-asm.3 uses Envoy v1.39.5-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-076](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-076) ([ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)).
+
+Fixed
+
+Patch 1.31.3-asm.3 contains the fix for the following platform CVEs:
+
+CVE | Proxy | Control Plane | Distroless | CNI | Severity  
+---|---|---|---|---|---  
+[CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497) | Yes | Yes | No | Yes | High (9.8)  
+[CVE-2026-85091](https://nvd.nist.gov/vuln/detail/CVE-2026-85091) | Yes | Yes | No | Yes | Medium (8.3)  
+[CVE-2026-86409](https://nvd.nist.gov/vuln/detail/CVE-2026-86409) | Yes | Yes | No | Yes | Low (8.1)  
+[CVE-2026-86414](https://nvd.nist.gov/vuln/detail/CVE-2026-86414) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87862](https://nvd.nist.gov/vuln/detail/CVE-2026-87862) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87863](https://nvd.nist.gov/vuln/detail/CVE-2026-87863) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87864](https://nvd.nist.gov/vuln/detail/CVE-2026-87864) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92388](https://nvd.nist.gov/vuln/detail/CVE-2026-92388) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92389](https://nvd.nist.gov/vuln/detail/CVE-2026-92389) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92391](https://nvd.nist.gov/vuln/detail/CVE-2026-92391) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-94266](https://nvd.nist.gov/vuln/detail/CVE-2026-94266) | Yes | Yes | No | Yes | Low (0.0)  
+  
+Announcement
+
+**1.30.7-asm.3 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/v1.30/docs/upgrade/upgrade). Cloud Service Mesh 1.30.7-asm.3 uses Envoy v1.38.8-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-076](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-076) ([ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)).
+
+Fixed
+
+Patch 1.30.7-asm.3 contains the fix for the following platform CVEs:
+
+CVE | Proxy | Control Plane | Distroless | CNI | Severity  
+---|---|---|---|---|---  
+[CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497) | Yes | Yes | No | Yes | High (9.8)  
+[CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450) | No | No | Yes | No | Low (9.8)  
+[CVE-2026-85091](https://nvd.nist.gov/vuln/detail/CVE-2026-85091) | Yes | Yes | No | Yes | Medium (8.3)  
+[CVE-2026-86409](https://nvd.nist.gov/vuln/detail/CVE-2026-86409) | Yes | Yes | No | Yes | Low (8.1)  
+[CVE-2026-116587](https://nvd.nist.gov/vuln/detail/CVE-2026-116587) | Yes | Yes | Yes | Yes | High (7.5)  
+[CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928) | No | No | Yes | No | Low (7.5)  
+[CVE-2026-86414](https://nvd.nist.gov/vuln/detail/CVE-2026-86414) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87862](https://nvd.nist.gov/vuln/detail/CVE-2026-87862) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87863](https://nvd.nist.gov/vuln/detail/CVE-2026-87863) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87864](https://nvd.nist.gov/vuln/detail/CVE-2026-87864) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92388](https://nvd.nist.gov/vuln/detail/CVE-2026-92388) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92389](https://nvd.nist.gov/vuln/detail/CVE-2026-92389) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92391](https://nvd.nist.gov/vuln/detail/CVE-2026-92391) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-94266](https://nvd.nist.gov/vuln/detail/CVE-2026-94266) | Yes | Yes | No | Yes | Low (0.0)  
+  
+Announcement
+
+**1.29.10-asm.0 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/v1.29/docs/upgrade/upgrade). Cloud Service Mesh 1.29.10-asm.0 uses Envoy v1.37.10-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-076](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-076) ([ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)).
+
+Fixed
+
+Patch 1.29.10-asm.0 contains the fix for the following platform CVEs:
+
+CVE | Proxy | Control Plane | Distroless | CNI | Severity  
+---|---|---|---|---|---  
+[CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497) | Yes | Yes | No | Yes | High (9.8)  
+[CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450) | No | No | Yes | No | Low (9.8)  
+[CVE-2026-85091](https://nvd.nist.gov/vuln/detail/CVE-2026-85091) | Yes | Yes | No | Yes | Medium (8.3)  
+[CVE-2026-86409](https://nvd.nist.gov/vuln/detail/CVE-2026-86409) | Yes | Yes | No | Yes | Low (8.1)  
+[CVE-2026-116587](https://nvd.nist.gov/vuln/detail/CVE-2026-116587) | Yes | Yes | Yes | Yes | High (7.5)  
+[CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928) | No | No | Yes | No | Low (7.5)  
+[CVE-2026-86414](https://nvd.nist.gov/vuln/detail/CVE-2026-86414) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87862](https://nvd.nist.gov/vuln/detail/CVE-2026-87862) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87863](https://nvd.nist.gov/vuln/detail/CVE-2026-87863) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87864](https://nvd.nist.gov/vuln/detail/CVE-2026-87864) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92388](https://nvd.nist.gov/vuln/detail/CVE-2026-92388) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92389](https://nvd.nist.gov/vuln/detail/CVE-2026-92389) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92391](https://nvd.nist.gov/vuln/detail/CVE-2026-92391) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-94266](https://nvd.nist.gov/vuln/detail/CVE-2026-94266) | Yes | Yes | No | Yes | Low (0.0)  
+  
 Feature
 
 Configuring authorization policies (`GCPAuthzPolicy`) on Cloud Service Mesh sidecars on Google Kubernetes Engine (GKE) is now available ([Preview](https://cloud.google.com/products#product-launch-stages)). This feature is supported only for Cloud Service Mesh with the Gateway API. You can allow or deny inbound HTTP requests at the namespace or workload level, or delegate decisions to an external authorization engine (`GCPAuthzExtension`). For more information, see [Setup authorization policies on sidecars on GKE](https://docs.cloud.google.com/service-mesh/docs/gateway/authorization-policy-sidecar).
@@ -196,6 +555,22 @@ Serving tuned Gemini 3.x models on `global` endpoints is available in [General A
 For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models with supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#copy-tuned-model).
 
 **Google Cloud Contact Center as a Service**
+
+Announcement
+
+**Google Cloud CCaaS 6.29**
+
+We've released version 6.29 of Google Cloud CCaaS.
+
+The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://docs.cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
+
+Feature
+
+**Email session hiding (Apps API)**
+
+You can now hide email sessions from the agent adapter using two new Apps API endpoints. Hiding a session removes it from agent lists, counts, search, and the supervisor dashboard's live counters without deleting the session or changing its status. If an end-user replies to a hidden session, the session automatically unhides and follows your existing reply-handling rules. This capability is available through the Apps API only.
+
+By default, this capability is inactive. Contact Google Cloud Support to turn it on for your instance.
 
 Fixed
 
@@ -275,6 +650,14 @@ Oracle Database@Google Cloud supports creating custom DNS domains for your ODB N
 You can use custom DNS domains only for [Exadata VM clusters](https://docs.cloud.google.com/oracle/database/docs/create-clusters).
 
 This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+
+**Sensitive Data Protection**
+
+Feature
+
+Sensitive Data Protection can inspect TIFF images for sensitive data, including multi-page TIFF images with up to 50 pages. TIFF images are supported in [content inspection](https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images), [inspection jobs for Cloud Storage](https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage#inspecting-gcs), and [discovery](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types#file_clusters).
+
+For more information, see [Supported file types and scanning modes](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types).
 
 ## November 01, 2026
 
@@ -676,6 +1059,138 @@ Security and compliance findings in Storage Intelligence advisor are available i
 
 Change
 
+### cos-129-19506-578-33 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/d85203a42d8b86ef624aecfdbd44361fa8a62c51) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.578.33/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fixed an IDPF bug that could cause indefinite IPv4 route loss after a hard NIC reset.
+
+Feature
+
+Enabled EROFS support.
+
+Fixed
+
+Added support for NVIDIA driver v580.196.07.
+
+Fixed
+
+Added support for NVIDIA driver v595.112.07.
+
+Fixed
+
+Upgraded app-arch/zstd to v1.5.7-r1.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1229, Upgraded app-editors/vim-core to v9.2.1229.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.9.0.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded net-fs/nfs-utils to v2.6.4.
+
+Fixed
+
+Upgraded sys-libs/libxcrypt to v4.4.38-r1.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-33186 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-39834, CVE-2026-39832, CVE-2026-39831, CVE-2026-46595 in google-osconfig-agent.
+
+Security
+
+Fixed KCTF-d095321 in the Linux kernel.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Change
+
+### cos-125-19216-760-32 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/44bf8b7767ac63010cad3d8a3afa241b262193de) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.760.32/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fixed an IDPF bug that could cause indefinite IPv4 route loss after a hard NIC reset.
+
+Security
+
+Fixed CVE-2024-41110, CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-33186 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in guest-agent.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-33186, CVE-2026-46595, CVE-2026-39831 in docker.
+
+Security
+
+Fixed CVE-2026-39834, CVE-2026-39831 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-77214 in dev-libs/expat.
+
+Security
+
+Fixed KCTF-d095321 in the Linux kernel.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Change
+
 ### cos-133-19999-44-174 
 
 Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
@@ -774,6 +1289,35 @@ Feature
 
 The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/tools/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
 
+**Looker**
+
+Announcement
+
+On November 1, 2026, several Canadian provinces and territories—Manitoba, Alberta, British Columbia, and parts of the Northwest Territories—transition to permanent daylight saving time (DST) or remain on their summer UTC offsets year-round. On unpatched Looker instances, these changes affect scheduled content delivery fire times and [table calculations](https://docs.cloud.google.com/looker/docs/table-calculations) that use `now()` with the affected Canadian time zones (`America/Winnipeg`, `Canada/Central`, `America/Rainy_River`, `America/Edmonton`, `Canada/Mountain`, `America/Vancouver`, `Canada/Pacific`, and `America/Inuvik`). Patched Looker builds update the scheduler (Ruby) and browser (JavaScript) time zone data, while server-evaluated `now()` table calculations on the JVM still use the bundled JDK time zone database (`tzdb 2026b`). To learn how to upgrade to a patched Looker build or configure an alternative schedule delivery time zone, see [2026 Canadian time zone changes](https://docs.cloud.google.com/looker/docs/canada-permanent-dst-2026).
+
+**Managed Service for Apache Airflow**
+
+Issue
+
+Starting October 24, 2026, Managed Airflow (Gen 3) and Managed Airflow (Gen 2) environments running Python 3.11 with `google-api-core` package versions 2.28.0 to 2.43.0 (including versions 2.30.3 to 2.43.0, which weren't previously affected) might experience degraded performance because of a Python 3.11 deprecation check that scans installed package metadata on every new Python subprocess import. You might observe increased DAG parsing times, longer task execution times, higher CPU usage on Airflow DAG processors and workers, and frequent `FutureWarning` log entries from `google/api_core/_python_version_support.py` about Python 3.11 support ending on `2027-10-24`.
+
+For the list of affected builds and available workarounds (installing `google-api-core>=2.43.1` on compatible Airflow 3 builds or applying a `sitecustomize.py` runtime patch), see the known issue for [Managed Airflow (Gen 3)](https://docs.cloud.google.com/composer/docs/composer-3/known-issues#google-api-core-2-30-3-to-2-43-0) or [Managed Airflow (Gen 2)](https://docs.cloud.google.com/composer/docs/composer-2/known-issues#google-api-core-2-30-3-to-2-43-0).
+
+**NetApp Volumes**
+
+Announcement
+
+Google Cloud NetApp Volumes now supports the Flex Unified service level, including custom performance, in the following regions:
+
+  * northamerica-northeast1 (Montréal)
+
+  * northamerica-northeast2 (Toronto)
+
+
+
+
+For more information about available regions, see [Supported regions](https://docs.cloud.google.com/netapp/volumes/docs/discover/service-levels#supported_regions).
+
 **Resource Manager**
 
 Feature
@@ -817,6 +1361,26 @@ In GoogleSQL, you can also convert other data types to `JSON` using `CAST(expres
 Additionally, you can use search indexes to accelerate equality comparisons such as `=` or `IN` on JSONB and JSON columns and subpaths.
 
 For more information, see [JSON comparison and sorting](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/data-types#comparison_and_sorting) , [JSON comparison coercion](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/conversion_rules#json_comparison_coercion) , [CAST AS JSON](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/conversion_functions#cast_as_json) , [JSON search indexes](https://docs.cloud.google.com/spanner/docs/full-text-search/json-indexes) , and [Working with JSONB](https://docs.cloud.google.com/spanner/docs/working-with-jsonb).
+
+Feature
+
+Spanner Graph supports the following enhancements:
+
+  * You can create property graphs from SQL views that call [remote functions](https://docs.cloud.google.com/spanner/docs/cloud-run-remote-function) ([Preview](https://cloud.google.com/products#product-launch-stages)) to compute node and edge properties. For more information, see [Compute properties with remote functions](https://docs.cloud.google.com/spanner/docs/graph/graph-with-views-how-to#remote-functions-views).
+  * You can write simplified queries on schemaless dynamic properties without explicit conversions to SQL data types. This lets you group and sort dynamic properties, and compare them directly with literal values or other dynamic properties. For more information, see [Filter, compare, and sort by dynamic properties](https://docs.cloud.google.com/spanner/docs/graph/manage-schemaless-data#filter-property-values) and [JSON comparison and sorting](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/data-types#comparison_and_sorting).
+
+
+
+**reCAPTCHA**
+
+Change
+
+Fraud Defense Mobile SDK v18.9.4 is available for Android. This version includes the following:
+
+  * Fixes a memory leak where destroyed activities were retained by lifecycle callbacks ([Issue #194](https://github.com/GoogleCloudPlatform/recaptcha-enterprise-mobile-sdk/issues/194)).
+  * Fixes a dependency compatibility issue with Kotlin Coroutines and POM API dependencies.
+
+
 
 ## October 29, 2026
 
@@ -1294,6 +1858,93 @@ The Admin (`roles/admin`), Writer (`roles/writer`), and Reader (`roles/reader`) 
 
 The legacy basic roles—Owner (`roles/owner`), Editor (`roles/editor`), and Viewer (`roles/viewer`)—are still available for use and are being actively maintained. However, if you need to grant a basic role, we recommend granting the Admin, Writer, or Reader role instead of a legacy basic role. This is because the newer roles support additional features, such as the use of [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview).
 
+**Looker**
+
+Announcement
+
+Beginning October 26, 2026, the following features will be automatically enabled for Looker (original) and Looker (Google Cloud core) instances running Looker 26.20.
+
+Feature
+
+The ability to [generate a summary of an Explore by using Gemini assistance](https://docs.cloud.google.com/looker/docs/explore-summary-gemini) is now generally available.
+
+Feature
+
+The [bullet chart](https://docs.cloud.google.com/looker/docs/bullet-options) visualization type is now generally available. Bullet charts let you evaluate a single primary metric's performance as one or more bars and mark your goal with a target line. You can plot both against shaded background ranges that represent performance thresholds, such as "poor," "satisfactory," and "good." For more information, see [Bullet chart options](https://docs.cloud.google.com/looker/docs/bullet-options).
+
+Feature
+
+Looker now includes [network diagnostics](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#network-diagnostics) to help you troubleshoot database connectivity issues. When a [database connection test](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#troubleshooting) fails, Looker automatically tests DNS resolution and TCP connectivity for the connection's endpoints and appends the results to the error message. To [test network reachability](https://docs.cloud.google.com/looker/docs/admin-panel-database-connections#test-network-reachability) to any hostname and port without creating a connection, Looker administrators can click **Test Reachability** on the **Connections** page.
+
+**Note:** This item was added on October 30, 2026.
+
+Feature
+
+The **Table Row Grouping** feature and the [**Grouping** menu options](https://docs.cloud.google.com/looker/docs/table-options#grouping-menu-options) are now generally available. The **Grouping** menu options let you display and customize the appearance of table chart data hierarchically in groups.
+
+Feature
+
+The [**Visualization Assistant**](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) is now generally available.
+
+Feature
+
+Looker Continuous Integration (CI) now supports hub-and-spoke projects. If your Looker project uses [local project imports](https://docs.cloud.google.com/looker/docs/importing-projects#importing_local_projects) to import files from an upstream _hub_ project on the same Looker instance, then you can use CI to automatically test downstream _spoke_ projects. Testing runs whenever a pull request is opened or updated on the hub project. This capability lets you catch breaking changes in downstream Explores, content, or data tests before upstream LookML changes are merged. For more information, see [Creating a Continuous Integration suite](https://docs.cloud.google.com/looker/docs/ci-create-suite#imported-project-trigger).
+
+Feature
+
+Two new legacy features, [**Use Legacy Explore and Merge Query Experience**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience) and [**Use Legacy Explore and Merge Query Experience for Embed**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use_legacy_explore_and_merge_query_experience_for_embed), are now available for Looker (original) and Looker (Google Cloud core) instances. These features let administrators configure Explores and merged queries to open in the classic experience by default across an instance or in embedded contexts. For more information, see [Legacy feature schedule](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule).
+
+Feature
+
+Looker now includes a new [histogram chart](https://docs.cloud.google.com/looker/docs/histogram-options) visualization option. A histogram chart is a graphical representation of the data distribution of an attribute. A histogram creates intervals (bins) and counts how many values fall into each bin.
+
+Feature
+
+The [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) chart type is now generally available. The KPI (Single Value) chart type replaces the Single Value chart type.
+
+Feature
+
+The new Looker Explore and merge query experience is now generally available and is the default interface for [Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and for [joining data from multiple queries](https://docs.cloud.google.com/looker/docs/merged-results).
+
+Feature
+
+When you enter values in a string filter on dashboards, Looks, or Explores, clicking **Done** or clicking outside the input field no longer creates a filter chip from uncommitted text. To create a filter chip, press Enter, enter a comma (`,`), or paste values into the input field.
+
+Feature
+
+The new [**Dashboard Tile Groups** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#dashboard-tile-groups) lets you [organize related tiles into collapsible containers](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#organizing_tiles_into_groups) for improved visual organization. You can move, duplicate, or delete multiple tiles as a single unit on dashboards that use the newspaper layout. This update also adds LookML support for programmatically managing tile groups.
+
+Feature
+
+Now available in [preview](https://cloud.google.com/products#product-launch-stages), the [**Release Changelog**](https://docs.cloud.google.com/looker/docs/release-changelog) gives Looker users and administrators real-time visibility into the features, behavioral changes, and bug fixes that are available for their instance.
+
+Feature
+
+The [**Legacy features** page](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule) is now available in the **Admin** panel for Looker (Google Cloud core) instances. Legacy features that appear on the Looker (Google Cloud core) **Legacy features** page might differ from those that are available on Looker (original) instances. For more information, see [Looker (Google Cloud core) admin settings](https://docs.cloud.google.com/looker/docs/looker-core-admin-looker).
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.22**
+  * Latest version in the No Channel channel: **Looker 26.22**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
+
+Breaking
+
+Some elements of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics) have been renamed. The dashboard layout and capabilities remain the same.
+
+On the **Token usage** tab, the **Conversational Analytics API** value in the **Feature** column and the **Feature Name** filter has been renamed to **Looker API**. This value refers to the Conversational Analytics methods for the Looker API.
+
+This rename might cause a breaking change if you built custom dashboards that reference the former **Feature** column or **Feature Name** filter value.
+
+Change
+
+The **Use Legacy Connections Page** [legacy feature](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) and the legacy database connection workflow have been removed. All database connections now use the connection workflow that is described in [Connecting Looker to your database](https://docs.cloud.google.com/looker/docs/connecting-to-your-db).
+
 **Model Armor**
 
 Feature
@@ -1498,6 +2149,14 @@ For more information, see the [CodeMender documentation](https://docs.cloud.goog
 
 **Google SecOps**
 
+Fixed
+
+**Tools power-up: Environment filtering in Get Integration Instances**
+
+There was an issue where the **Get Integration Instances** action in the Tools power-up didn't correctly filter environments with names that contain an ampersand (`&`). This issue has been fixed in version 85.0 of the Tools power-up.
+
+For more information, see [Get Integration Instances](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/tools#get-integration-instances).
+
 Announcement
 
 **Final shutdown of legacy managed BigQuery export datasets (chronicle-tla) for non-Enterprise+ customers**
@@ -1679,10 +2338,6 @@ The **Apigee API Health & Availability** dashboard is now generally available in
 For more information, see [API Monitoring](https://docs.cloud.google.com/apigee/docs/api-monitoring).
 
 **BigQuery**
-
-Feature
-
-You can manage and version control SQL scripts and notebooks with [BigQuery Studio Git repositories](https://docs.cloud.google.com/bigquery/docs/git-repositories), which provide a streamlined, folder-based integration with remote Git repositories. This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
 Feature
 
@@ -2062,10 +2717,6 @@ Change
 
 Updated app-admin/google-guest-configs to v20261025.00.
 
-Fixed
-
-Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
-
 Security
 
 Fixed CVE-2026-33186 in google-osconfig-agent.
@@ -2108,10 +2759,6 @@ Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-
 Change
 
 Updated app-admin/google-guest-configs to v20261025.00.
-
-Fixed
-
-Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
 
 Security
 
@@ -2521,6 +3168,12 @@ Change
       * 1.33 to [1.33.13-gke.1915000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1915000)
 
 
+
+**Looker**
+
+Feature
+
+The latest version of the Looker-Excel Connector ODBC driver, version 1.0.7, is now available to download. See the [Looker-Excel Connector](https://docs.cloud.google.com/looker/docs/excel-connector#install-driver) documentation page for information.
 
 **Model Armor**
 
@@ -3050,6 +3703,16 @@ Feature
 Support for Looker (Google Cloud core) in Data lineage is now [generally available](https://cloud.google.com/products#product-launch-stages). This support includes lineage views for LookML views and Explores, Looker dashboards, dashboard elements, Looks, LookML dashboards, and Conversational Analytics agents. You can control data lineage ingestion at the organization, folder, and project levels. You can also visualize the end-to-end flow of your data from BigQuery sources through the Looker semantic layer to downstream assets.
 
 For more information, see [Track data lineage with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-lineage), [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage#other), and [About data lineage ingestion control](https://docs.cloud.google.com/knowledge-catalog/docs/control-lineage-ingestion#supported-service-integrations).
+
+**Looker**
+
+Feature
+
+[Looker (Google Cloud core) data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is now generally available (GA). The GA launch adds end-to-end visibility for [LookML dashboards](https://docs.cloud.google.com/looker/docs/building-lookml-dashboards) and [Conversational Analytics agents](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents). Lineage enablement is now managed independently through the Data Lineage API and service-level ingestion controls, which decouples it from Looker's internal Knowledge Catalog metadata settings. For more information, see [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage).
+
+Feature
+
+The [Looker-managed Model Context Protocol (MCP) server](https://docs.cloud.google.com/looker/docs/mcp) is now generally available (GA), allowing AI agents to securely interact with business data and LookML models without the need for additional middleware. This launch is supported by a new [**Manage OAuth Clients** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients), which provides a centralized interface for governing identity-based access for AI agents and other external applications. Administrators can now quickly enable pre-configured integrations from the Application Library or register custom OAuth clients with specific redirect URIs and group-based access controls.
 
 **Model Armor**
 
@@ -3603,6 +4266,18 @@ This release addresses the following issues:
 
 
 
+
+**Google SecOps**
+
+Breaking
+
+**GitSync power-up: Version 53.0 rolled back**
+
+Version 54.0 of the GitSync power-up reverts the Chronicle API refactoring that was [introduced in version 53.0](https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/release-notes#October_07_2026) and restores the version 52.0 code. All deployments must run on version 52.0 or version 54.0.
+
+If you're using version 53.0, roll back to version 52.0 or update to version 54.0. Then, point the **Branch** parameter back to your previous repository branch.
+
+For more information, see [Version 53.0 rollback](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
 
 **Google SecOps Marketplace**
 
@@ -4293,6 +4968,73 @@ In the enhanced Investigation Management experience, you can select up to 50 cas
 
 
 
+**Looker**
+
+Announcement
+
+**Looker 26.22** will roll out to Looker (original) instances on the following schedule:
+
+  * Expected Looker (original) deployment start: **Monday, October 26, 2026**
+  * Expected Looker (original) final deployment and download available: **Monday, November 9, 2026**
+
+
+
+The Looker 26.22 rollout for Looker (Google Cloud core) will be announced separately.
+
+Looker 26.22 is expected to include the following changes, features, and fixes.
+
+Fixed
+
+An issue has been fixed where table column options menus and search boxes appeared behind drill dialogs, which prevented users from interacting with them. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where configuring a LookML model could trigger unnecessary derived table rebuilds. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the **Show filters** option was displayed on dashboard tiles that failed to load data in view mode. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where drilling into results that were filtered by string dimensions that contained backslashes returned zero rows. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where pivoted queries in SQL Runner could fail to render or re-pivot unexpectedly. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the **View (Expanded / Full Screen)** option appeared in the tile action menu on embedded dashboards in view mode. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where custom visualization tiles were truncated in dashboard PDF exports when the **Expand tables to show all rows** option was enabled. This feature now performs as expected.
+
+Fixed
+
+Table row group subtotals are now displayed only for sum and count measures. For other measure types (such as `averages` and `count distinct`) and table calculations, subtotals are now left blank rather than displaying an inaccurate summed value.
+
+Fixed
+
+The System Activity `query_metrics` Explore now records connection acquisition time (`acquire_connection`) for queries that are canceled while waiting in the connection pool.
+
+Fixed
+
+Conversational Analytics `DELETE` endpoints now return `HTTP 404 Not Found` instead of `HTTP 204 No Content` when you attempt to delete nonexistent resources.
+
+Fixed
+
+The System Activity `query_metrics` Explore has been updated to accurately record model initialization time for models that are loaded from cache.
+
+Fixed
+
+An issue has been fixed where adding a new series to a categorical chart, such as adding a new pivot value, could cause category bars to appear ungrouped. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in the TypeScript and JavaScript SDKs where calling methods that have only optional parameters without passing an empty object could result in compilation or runtime errors. This feature now performs as expected.
+
 ## October 21, 2026
 
 **Apigee X**
@@ -4929,6 +5671,14 @@ Change
 
 
 
+**Looker**
+
+Feature
+
+[Automated cataloging and ingestion of Looker (Google Cloud core) metadata with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-dataplex) is now generally available (GA). This includes support for additional granular metadata (including dimension/measure definitions, default queries, and relationships) and new asset types: LookML dashboards, LookML dashboard elements, and agents.
+
+The [data lineage integration](https://docs.cloud.google.com/looker/docs/looker-core-lineage) remains in Preview.
+
 **Model Armor**
 
 Feature
@@ -5023,6 +5773,22 @@ This issue has been resolved. You can upgrade your cluster control plane to the 
 
 
 
+
+**Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Regular channel: **Looker 26.18**
+
+
+
+The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
+
+**Note:** This item was added on October 23, 2026.
+
+**Note:** This item was updated on October 29, 2026, to correct the latest version in the Regular channel to Looker 26.18.
 
 **Managed Service for Apache Airflow**
 
@@ -6051,6 +6817,25 @@ Administrators can make Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5
 
 This feature is generally available. For more information, see [Enable third-party models](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features#enable-third-party-models).
 
+**Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.20**
+  * Latest version in the No Channel channel: **Looker 26.20**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
+
+**Note:** This item was added on October 23, 2026.
+
+Feature
+
+The Looker 26.18 features have begun to be enabled for Looker (Google Cloud core) instances.
+
 **NetApp Volumes**
 
 Announcement
@@ -6738,6 +7523,16 @@ Change
       * 1.36 to [1.36.4-gke.1495003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
 
 
+
+**Google SecOps**
+
+Fixed
+
+**Email Utilities power-up: Entity creation in Parse Case Wall Email**
+
+There was an issue where the **Parse Case Wall Email** action in the Email Utilities power-up didn't create entities when the **Create Observed Entities** parameter was configured for specific entity types. This issue has been fixed in version 54.0 of the Email Utilities power-up.
+
+For more information, see [Email Utilities](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/email-utilities).
 
 **Google SecOps Marketplace**
 
@@ -8071,6 +8866,12 @@ Announcement
 
 The deadline for the migration of SOAR APIs to the Chronicle API has been extended from November 30, 2026 until March 31, 2027. For more information, refer to [SOAR Migration overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp)
 
+**Looker**
+
+Feature
+
+Looker (Google Cloud core) now supports [Workforce Identity Federation](https://docs.cloud.google.com/looker/docs/looker-core-workforce-identity) in [preview](https://cloud.google.com/products#product-launch-stages) for instances that use Looker 26.18 and later. Workforce Identity Federation allows users to authenticate by using external identity providers without the need to manage individual Google Accounts. Administrators can select Workforce Identity as the primary authentication method when they create or edit an instance and, optionally, enable secondary Google OAuth for secure backup access.
+
 **Managed Service for Apache Spark**
 
 Announcement
@@ -8229,6 +9030,60 @@ For alternative AI developer tools, use Antigravity, which is available through 
 Change
 
 The format for bootstrap addresses and broker URLs has changed for new Managed Service for Apache Kafka clusters. To learn how to get a cluster's bootstrap address, see [View a Managed Service for Apache Kafka cluster](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/view-cluster#view-bootstrap-address).
+
+**Looker**
+
+Announcement
+
+Beginning October 5, 2026, the following features will be automatically enabled for Looker (original) instances running Looker 26.18. Feature enablement for Looker (Google Cloud core) will be announced separately.
+
+Feature
+
+Looker now includes built-in support for the **Dremio 26.0+ (Arrow Flight SQL)** dialect. The **Dremio 26.0+ (Arrow Flight SQL)** uses the bundled Apache Arrow Flight SQL JDBC driver, so that you don't have to install unpackaged custom JDBC driver JAR files. See the [Dremio](https://docs.cloud.google.com/looker/docs/db-config-dremio) documentation page for more information.
+
+Feature
+
+The **AI-Assisted Quick Starts** feature, called [**Starter questions**](https://docs.cloud.google.com/looker/docs/gemini-quick-starts) in the new Explore experience, is now generally available.
+
+Feature
+
+The new [**Diagnose & Repair** tool](https://docs.cloud.google.com/looker/docs/diagnosing-and-repairing-git-projects) evaluates your LookML project repository across eight diagnostic test checks in either your personal development environment or the shared production environment. When issues are found, Looker can automatically perform repairs (such as removing stale lock files, fixing file permissions, or repairing corrupted object indexes) or rebuild damaged repositories while safeguarding uncommitted changes on a dedicated recovery branch.
+
+Feature
+
+[Looker Continuous Integration (CI)](https://docs.cloud.google.com/looker/docs/continuous-integration) now includes the [Style Validator](https://docs.cloud.google.com/looker/docs/ci-style-validator), which enforces LookML coding standards, naming conventions, and structural best practices across your LookML project. You can run the Style Validator with the default built-in ruleset or customize rule severities, file exclusions, path overrides, and custom rules by adding an `lkmlstyle.yaml` configuration file to your project repository.
+
+Feature
+
+Now available in [preview](https://cloud.google.com/products#product-launch-stages), [Conversational Analytics agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-agentic-workflows-overview) support [scheduled agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-scheduled-agentic-workflows) in addition to [triggered agentic workflows](https://docs.cloud.google.com/looker/docs/conversational-analytics-triggered-agentic-workflows). You can use scheduled agentic workflows to schedule recurring deliveries of AI-generated insights summaries, data tables, visualizations, and PDF reports to email or Slack by using natural language. Recipients can select **Investigate** in a workflow notification to open a private, persistent conversation with the data agent.
+
+Users and admins can manage workflows on the updated [**Manage Workflows** user page](https://docs.cloud.google.com/looker/docs/user-workflows) and [**Manage Workflows** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-workflows), respectively, and Looker admins can monitor scheduled workflow runs and troubleshoot errors on the new [**Workflow Executions** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-workflow-executions).
+
+Workflows that were created in versions earlier than Looker 26.14 appear on the **Legacy Workflows** tab and must be recreated.
+
+Feature
+
+Now available in preview, [Looker **Data Apps**](https://docs.cloud.google.com/looker/docs/data-apps) are freeform canvas dashboards that are built by local AI coding agents, such as Gemini CLI, Claude Code, or Cursor, from natural-language prompts. **Data Apps** give you complete visual layout control (including absolute positioning, overlapping elements, and custom web components) while remaining bound to Looker's governed LookML semantic layer and user permissions.
+
+Change
+
+In Conversational Analytics, the default [question mode](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data#ca-question-mode) is now **Fast** rather than **Thinking**. **Fast** mode is intended for answering quickly, and it directly maps your query to underlying LookML definitions without generating reasoning steps. You can still select **Thinking** mode from the question mode drop-down menu when asking complex, multi-step analytical questions about [Explores](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data#ca-question-mode) or [dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards#ca-question-mode).
+
+Change
+
+The [**Modern User Interface** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#modern_user_interface) toggle now defaults to **ON**.
+
+Change
+
+The [Modern visualization theme](https://docs.cloud.google.com/looker/docs/modern-ui#modern_visualizations) now supports map charts (static map points and regions), word cloud charts, and donut multiples. While support for donut multiples was previously documented, it is now officially available with this release. These additions expand the range of visualization options that are available with the modern theme.
+
+Feature
+
+Looker now supports connections to the ClickHouse 26+ dialect. ClickHouse 26+ uses modernized JDBC drivers and introduces support for [symmetric aggregates](https://docs.cloud.google.com/looker/docs/reference/param-explore-symmetric-aggregates). See the [ClickHouse](https://docs.cloud.google.com/looker/docs/db-config-clickhouse) documentation page for more information.
+
+Feature
+
+Enhanced observability metrics, including user engagement and estimated token usage data on the [**Token usage** tab](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#ca-sa-token-usage) of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics), are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This launch also adds a **Daily Token Utilization** visualization and supports token usage observability for [Conversational Analytics data agents that are published to Gemini Enterprise](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#publish-data-agents). (**Note** : This item was added on October 20, 2026.)
 
 **Model Armor**
 
@@ -8882,6 +9737,101 @@ The following log types were added without a default parser. Each parser is list
   * Twilio Segment (`TWILIO_SEGMENT`)
 
 
+
+**Looker**
+
+Announcement
+
+**Looker 26.20** will roll out to Looker (original) and Looker (Google Cloud core) instances on the following schedule:
+
+  * Expected deployment start: **Monday, October 12, 2026**
+  * Expected final deployment and download available: **Sunday, October 25, 2026**
+
+
+
+Looker 26.20 is expected to include the following changes, features, and fixes.
+
+Breaking
+
+Custom TopoJSON URL validation is updated to improve security. This change is isolated to Google Maps rendering in preview. Existing dashboards and Looks with the [Google Maps Enhancements preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#google-maps-enhancements) enabled that use custom TopoJSON files may be impacted.
+
+Feature
+
+The **Gemini in Looker** admin page has been restructured to allow Looker admins to selectively enable Conversational Analytics features and capabilities. Enablement for generally available Conversational Analytics features is now organized under the follow settings:
+
+  * **Conversational Analytics (Conversations page)** : Enables access to the [**Conversations** page](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data) for data agents with Explores and direct chats with an Explore.
+  * **Dashboard agents** : Enables [default data agents](https://docs.cloud.google.com/looker/docs/glossary#default-agent) on [user-defined and LookML dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards).
+  * **Additional options** : Allows Conversational Analytics data agent creators to enable the [**Advanced Analytics** feature](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-advanced-analytics) for all conversations with their data agent. To use Advanced Analytics, you must also enable whichever Conversational Analytics toggle corresponds to the content that you are querying (**Conversational Analytics (Conversations page)** or **Dashboard agents**). If both the **Conversational Analytics (Conversations page)** and **Dashboard agents** toggles are turned off, then **Advanced Analytics** cannot be enabled. If either **Conversational Analytics (Conversations page)** or **Dashboard agents** is enabled, **Advanced Analytics** can be enabled, but it is turned off by default.
+
+
+
+The **Conversational Analytics (Conversations page)** and **Dashboard agents** settings inherit the enablement state of the **Conversational Analytics** setting in previous versions of Looker.
+
+Conversational Analytics preview features can still be enabled selectively under the **Enable Trusted Tester Features** setting.
+
+(**Note** : This item was added on October 14, 2026.)
+
+Feature
+
+Conversational Analytics data agents for both [user-defined dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards) and [LookML dashboards](https://docs.cloud.google.com/release-notes/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards) are now generally available.
+
+(**Note** : This item was added on October 14, 2026.)
+
+Feature
+
+You can now apply [themes](https://docs.cloud.google.com/looker/docs/themes-for-internal-dashboards) to Looks in addition to internal dashboards.
+
+Fixed
+
+An issue has been fixed where duplicating a scheduled plan could fail to retain the custom message value. This feature now performs as expected.
+
+Fixed
+
+Table visualizations now proportionally scale left-pinned columns during automatic sizing, which prevents unnecessary horizontal scrollbars. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where enabling subtotals on table visualizations did not automatically disable the **Cell Visualizations** option. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where previews for Looker charts in Slack integrations could fail to be displayed. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where editing and saving a dashboard could cause the dashboard to reload indefinitely, forcing users to refresh the page. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where table cell visualizations that included both positive and negative values could display unwanted scrollbars and hide value labels. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the BigQuery JDBC driver could fail to properly parse certain data types, such as `BYTES`, `STRUCT/RECORD`, and nested `ARRAY` structures. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where linked filters on a dashboard could fail to display autocomplete suggestions even when a parent filter is selected. This feature now performs as expected.
+
+Fixed
+
+The System Activity `query_metrics` Explore has been updated to ensure that phase timings (such as connection acquisitions, execution runtimes, and optimistic pivot fallback retry loops) are successfully captured for queries that fail or time out. This feature now performs as expected.
+
+Fixed
+
+The System Activity **Dashboard Diagnostics** dashboard has been updated to fully support statistics, tile run counts, and performance recommendations for LookML dashboards. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the color palette popover in visualization settings failed to dynamically reposition when it expanded, causing controls to overlap or truncate. This feature now performs as expected.
+
+Breaking
+
+When you set up a connection, self-service modeling will now be available only if a role that grants `create_self_service_from_table` also selects it through that role's model set.
+
+Fixed
+
+The opacity for the comparison bar in short KPI visualizations has been reduced to increase legibility.
 
 **Memorystore for Redis**
 
@@ -11282,6 +12232,14 @@ Change
 
 
 
+**Looker**
+
+Feature
+
+Enhanced observability metrics, including user engagement and estimated token usage data on the [**Token usage** tab](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#ca-sa-token-usage) of the [Conversational Analytics System Activity dashboard](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#conversational-analytics), are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for Looker (original) instances that are on Looker 26.16 or later. This launch also adds a **Daily Token Utilization** visualization and supports token usage observability for [Conversational Analytics data agents that are published to Gemini Enterprise](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#publish-data-agents).
+
+(For Looker (Google Cloud core) instances, token usage observability remains in [Preview](https://cloud.google.com/products#product-launch-stages) when the [**Conversational Analytics Agent Token usage**](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#ca-agent-token-usage) preview feature is enabled.)
+
 **Managed Service for Apache Spark**
 
 Announcement
@@ -11555,6 +12513,19 @@ You can now configure a fixed **Denial message** on a semantic governance policy
 When a single request triggers denials from more than one policy, the policy engine combines the configured Denial messages, deduplicates them, and falls back to a generic message for firing policies that don't have one configured.
 
 For more information, see [Configure a semantic governance policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) and [Information exposure risk](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#natural-language-constraints-nlc).
+
+**Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.18**
+  * Latest version in the No Channel channel: **Looker 26.18**
+
+
+
+The Regular channel remains on **Looker 26.14**.
 
 **Network Connectivity Center**
 
@@ -12515,9 +13486,9 @@ Change
 
 New [Airflow builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3) are available in Managed Airflow (Gen 3):
 
-  * [composer-3-airflow-3.3.1-build.3](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-3)
-  * [composer-3-airflow-3.2.2-build.7](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-7)
-  * [composer-3-airflow-2.11.1-build.20](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-20) (default)
+  * [composer-3-airflow-3.3.1-build.3](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-3) (extended upgrade timeline version)
+  * [composer-3-airflow-3.2.2-build.7](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-7) (extended upgrade timeline version)
+  * [composer-3-airflow-2.11.1-build.20](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-20) (extended upgrade timeline version)
 
 
 
@@ -12525,7 +13496,7 @@ Change
 
 New [images](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-2) are available in Managed Airflow (Gen 2):
 
-  * [composer-2.17.14-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-14-airflow-2-11-1) (default)
+  * [composer-2.17.14-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-14-airflow-2-11-1) (extended upgrade timeline version)
 
 
 
@@ -13080,6 +14051,36 @@ Feature
 Data products now support configuring a default IAM role in an access group. The default role, once configured, is automatically granted on all packaged and supported assets in the data product. Data product owners can override the default role for individual assets. In addition, the assets table in a data product now shows the permission state of each asset (`Applied`, `Failed`, or `Unsupported`).
 
 For more information, see [Create data products](https://docs.cloud.google.com/knowledge-catalog/docs/create-data-products) and [Manage data products](https://docs.cloud.google.com/knowledge-catalog/docs/manage-data-products).
+
+**Looker**
+
+Announcement
+
+Beginning September 21, 2026, the following features will be automatically enabled for Looker (original) instances running Looker 26.16.
+
+Feature
+
+Looker now displays an **Authorize OAuth Connection** dialog when users initiate an OAuth authorization flow for database connections. This dialog notifies users that authorizing the connection allows Looker to access data on their behalf, and that privileged Looker users—such as administrators and developers—may have visibility into their data (for example, when an administrator runs queries by using another user's active OAuth token during a sudo session).
+
+Feature
+
+Looker now includes a [**Filters on Visualization Tiles** preview feature](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#filters-on-visualization-tiles) that lets dashboard creators place filter controls directly on individual visualization tiles rather than only in the dashboard filter bar.
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.16**
+  * Latest version in the Regular channel: **Looker 26.14**
+  * Latest version in the No Channel channel: **Looker 26.16**
+
+
+
+**Update:** Looker 26.16 won't be deployed to Looker (Google Cloud core); instead, Looker 26.18 will begin rolling out to Looker (Google Cloud core) on September 29, 2026. This update was added on September 29, 2026.
+
+Feature
+
+Looker now includes a long polling concurrency guard. This prevents issues where queries cause long poll requests that oversaturate Looker and cause Looker to freeze. If a query causes a long poll request, Looker will display the error message `Query polling capacity reached. Please try again later.`
 
 **Memorystore for Valkey**
 
@@ -16335,6 +17336,95 @@ Change
 
 
 
+**Looker**
+
+Announcement
+
+**Looker 26.18** will roll out to Looker (original) instances on the following schedule:
+
+  * Expected deployment start: **Monday, September 21, 2026**
+  * Expected final deployment and download available: **Sunday, October 4, 2026**
+
+
+
+Looker 26.18 is expected to include the following changes, features, and fixes.
+
+Fixed
+
+An issue has been fixed where custom content theme fonts were improperly applied to the Look edit mode bar. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where downloading a dashboard as a CSV or ZIP file could result in a `500` error if any dashboard elements lacked an explicit title. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where links created using the LookML `link` parameter could return a `500` error if no label was specified. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dashboard filter token chips didn't display an active highlighted background when a filter value was selected. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the Git connection test could fail to recognize Git credentials as sufficient if a branch protection rule on the Git provider restricted temporary branches. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where analytic models that referenced cross-database, schema-qualified, or dot-delimited table names failed to compile in BigQuery and Snowflake DDL generation. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where custom tooltips in Single Record visualizations appeared at the bottom of the Explore panel rather than directly beneath the selected row. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dashboard filter tokens and popover menus could fail to inherit fonts from custom themes. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dragging series between Y-axes on pivoted Cartesian charts could cause the Explore page to crash or prevent visualization configurations from being saved. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in Explores where you couldn't scroll within the **Chart Config Editor** dialog when editing JSON visualization configurations. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled PDF deliveries to Cloud Storage could produce corrupted files and unexpectedly replace spaces in filenames with underscores. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where attempting to visualize pivoted query results in SQL Runner resulted in a `TypeError` configuration error. This feature now performs as expected.
+
+Fixed
+
+API requests that target a LookML project whose files or directories aren't found on the instance now return a `404 Not Found` error instead of a `500 Internal Server Error`.
+
+Fixed
+
+In Conversational Analytics, the **Open in Explore** button and sidebar exploration links are now hidden or disabled with explanatory tooltips when you lack `explore` permissions for the underlying model.
+
+Fixed
+
+The embed preload page now supports custom theming using the `theme` URL query parameter.
+
+Fixed
+
+Donut Multiples visualizations now automatically hide overlapping value labels.
+
+Fixed
+
+An issue has been fixed in self-service analytics where CSV and Excel uploads to BigQuery and Snowflake could fail or corrupt data when files contained multiline headers, leading numeric characters, UTF-8 BOM markers, or special characters. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where creating a shared branch based on the production branch in a bare repository project could initialize from stale remote commits, causing the Looker IDE to immediately report the branch as being behind production. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries intermittently failed with permission errors such as `Cannot send all results` because user permissions were incorrectly cached across scheduled jobs on worker threads. This feature now performs as expected.
+
 **NetApp Volumes**
 
 Feature
@@ -17593,6 +18683,12 @@ For more information, see the following documentation:
 
 
 
+**Looker**
+
+Feature
+
+The [Looker extension for VS Code](https://docs.cloud.google.com/looker/docs/getting-started-vscode-extension) is now generally available, enabling local LookML development and [AI-assisted "vibe coding"](https://docs.cloud.google.com/looker/docs/ai-assisted-development-vscode) using the [Model Context Protocol (MCP)](https://docs.cloud.google.com/looker/docs/mcp). This update introduces an interactive onboarding walkthrough, support for populating workspaces from bare repositories, and enhanced synchronization between local Git branches and Looker [Development Mode](https://docs.cloud.google.com/looker/docs/dev-mode-prod-mode#development_mode). Additional improvements include support for OAuth with the Kiro IDE and more secure storage of API client secrets.
+
 **Network Connectivity Center**
 
 Feature
@@ -17778,6 +18874,12 @@ For more information, see the following documentation:
   * [Policy Assist REST reference](https://docs.cloud.google.com/policy-intelligence/docs/reference/policyassist/rest)
 
 
+
+**Looker**
+
+Deprecated
+
+The deprecation of the [Looker Mobile (Legacy) application](https://docs.cloud.google.com/looker/docs/mobile-app-legacy) has been postponed to January 31, 2027. Starting on January 31, 2027, support for the Looker Mobile (Legacy) app will be discontinued and the app will be unavailable for download from the App Store or Play Store. Although users will still be able to use the Looker Mobile (Legacy) app if they already have it installed, we recommend that you install the non-legacy [Looker mobile app](https://docs.cloud.google.com/looker/docs/mobile-app-installation).
 
 **NetApp Volumes**
 
@@ -18825,320 +19927,10 @@ Announcement
 
 [Release 6.3.99](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#August_30_2026) is now available for all regions.
 
-## September 04, 2026
-
-**Audit Manager**
-
-Feature
-
-The [remote Model Context Protocol (MCP) server](https://docs.cloud.google.com/audit-manager/docs/use-audit-manager-mcp) for Audit Manager is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
-
-**Cloud Billing**
-
-Change
-
-**Introducing the Incentives page, for tracking spend-based milestone credits, RaMP, and other conditional incentives**
-
-If you have a custom pricing contract, you might be enrolled in conditional incentives, where you earn credits or discounts for spending specific amounts on Google Cloud.
-
-The [**Incentives page**](https://docs.cloud.google.com/billing/docs/how-to/incentives-program-tracker) replaces the [_Spend-based Milestones tab_](https://docs.cloud.google.com/billing/docs/release-notes#July_22_2024) that was located in the _Credits_ page. The Incentives page provides a consolidated and enhanced experience for tracking your progress towards conditional incentives, including spend-based milestone credits and Rapid Migration & Modernization Program (RaMP) credits and discounts.
-
-Learn more about [tracking conditional incentives](https://docs.cloud.google.com/billing/docs/how-to/incentives-program-tracker).
-
-**Cloud SQL for MySQL**
-
-Feature
-
-The [C4 machine series](https://docs.cloud.google.com/sql/docs/mysql/machine-series-overview#c4) is now available for Cloud SQL for MySQL Enterprise Plus instances in the following regions:
-
-  * `africa-south1` — Johannesburg
-  * `asia-northeast3` — Seoul
-  * `asia-south2` — Delhi
-  * `europe-west6` — Zürich
-  * `southamerica-west1` — Santiago
-  * `us-west3` — Salt Lake City
-
-
-
-The C4 machine series provides the following benefits:
-
-  * Supports fifth and sixth generation Intel Xeon Scalable processors.
-  * Offers a price-performance balance that makes it suitable for high-demand workloads.
-
-
-
-Feature
-
-Cloud SQL supports in-place upgrades and downgrades to your instance's infrastructure. You can change all of the following in place:
-
-  * The edition that your Cloud SQL instance uses.
-  * The machine type.
-  * The storage type.
-  * The database version.
-
-
-
-Making in-place changes is the most direct and least error-prone way to reconfigure an instance.
-
-For more information about in-place upgrades and downgrades, see [Upgrade in place](https://docs.cloud.google.com/sql/docs/mysql/upgrade-in-place).
-
-**Cloud SQL for PostgreSQL**
-
-Feature
-
-The [C4 machine series](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview#c4) is now available for Cloud SQL for PostgreSQL Enterprise Plus instances in the following regions:
-
-  * `africa-south1` — Johannesburg
-  * `asia-northeast3` — Seoul
-  * `asia-south2` — Delhi
-  * `europe-west6` — Zürich
-  * `southamerica-west1` — Santiago
-  * `us-west3` — Salt Lake City
-
-
-
-The C4 machine series provides the following benefits:
-
-  * Supports fifth and sixth generation Intel Xeon Scalable processors.
-  * Offers a price-performance balance that makes it suitable for high-demand workloads.
-
-
-
-Feature
-
-Cloud SQL supports in-place upgrades and downgrades to your instance's infrastructure. You can change all of the following in place:
-
-  * The edition that your Cloud SQL instance uses.
-  * The machine type.
-  * The storage type.
-  * The database version.
-
-
-
-Making in-place changes is the most direct and least error-prone way to reconfigure an instance.
-
-For more information about in-place upgrades and downgrades, see [Upgrade in place](https://docs.cloud.google.com/sql/docs/postgres/upgrade-in-place).
-
-**Cloud SQL for SQL Server**
-
-Feature
-
-Cloud SQL for SQL Server supports the `sp_help_revlogin` stored procedure in the `msdb` database. You can enable this stored procedure by configuring the `cloud sql enable sp_help_revlogin` database flag to export SQL Server logins, password hashes, and security identifiers (SIDs) when migrating databases or synchronizing logins.
-
-For more information, see [Export SQL Server logins](https://docs.cloud.google.com/sql/docs/sqlserver/export-logins) and [Configure database flags](https://docs.cloud.google.com/sql/docs/sqlserver/flags).
-
-Feature
-
-Cloud SQL for SQL Server now supports connecting to instances with write endpoints using the Cloud SQL Auth Proxy or Cloud SQL language connectors. When you configure the proxy or a language connector with a write endpoint DNS name, connections are redirected automatically to the new primary instance during replica failover or switchover.
-
-For more information, see [Connect to an instance using a write endpoint](https://docs.cloud.google.com/sql/docs/sqlserver/connect-to-instance-using-write-endpoint).
-
-Feature
-
-The [C4 machine series](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#c4) is now available for Cloud SQL for SQL Server Enterprise Plus instances in the following regions:
-
-  * `africa-south1` — Johannesburg
-  * `asia-northeast3` — Seoul
-  * `asia-south2` — Delhi
-  * `europe-west6` — Zürich
-  * `southamerica-west1` — Santiago
-  * `us-west3` — Salt Lake City
-
-
-
-The C4 machine series provides the following benefits:
-
-  * Supports fifth and sixth generation Intel Xeon Scalable processors.
-  * Offers a price-performance balance that makes it suitable for high-demand workloads.
-
-
-
-Feature
-
-Cloud SQL supports in-place upgrades and downgrades to your instance's infrastructure. You can change all of the following in place:
-
-  * The edition that your Cloud SQL instance uses.
-  * The machine type.
-  * The storage type.
-  * The database version.
-
-
-
-Making in-place changes is the most direct and least error-prone way to reconfigure an instance.
-
-For more information about in-place upgrades and downgrades, see [Upgrade in place](https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-in-place).
-
-**Firestore**
-
-Feature
-
-The Security Rules simulator is now available in the Google Cloud console for Firestore (Standard and Enterprise editions). You can test draft security rules against simulated database requests and evaluate authentication tokens before deploying rules.
-
-For more information, see [Test rules with the rules simulator](https://docs.cloud.google.com/firestore/native/docs/using-console#test-rules-simulator) or [Test rules in the Google Cloud console](https://docs.cloud.google.com/firestore/native/docs/security/get-started#test-rules-cloud-console).
-
-**Gemini**
-
-Announcement
-
-New subscriptions for Gemini Code Assist can no longer be purchased through the Google Cloud console using billing accounts that don't have an active Gemini Code Assist subscription. Billing accounts that currently have an active Gemini Code Assist subscription are unaffected.
-
-For billing accounts that don't have an active Gemini Code Assist subscription, you can obtain a new Gemini Code Assist subscription by [contacting Google Cloud sales](https://cloud.google.com/contact). For alternative AI developer tools, use Antigravity, which is available through eligible [Gemini Enterprise subscriptions](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview) and through [Gemini Enterprise Agent Platform](https://antigravity.google/docs/enterprise/#gemini-enterprise-agent-platform-api-setup).
-
-Announcement
-
-New subscriptions for Gemini Code Assist can no longer be purchased through the Google Cloud console using billing accounts that don't have an active Gemini Code Assist subscription. Billing accounts that currently have an active Gemini Code Assist subscription are unaffected.
-
-For billing accounts that don't have an active Gemini Code Assist subscription, you can obtain a new Gemini Code Assist subscription by [contacting Google Cloud sales](https://cloud.google.com/contact). For alternative AI developer tools, use Antigravity, which is available through eligible [Gemini Enterprise subscriptions](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview) and through [Gemini Enterprise Agent Platform](https://antigravity.google/docs/enterprise/#gemini-enterprise-agent-platform-api-setup).
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: Monday federated data store (GA)**
-
-Connecting a Monday data source with Gemini Enterprise using data federation is generally available (GA). You can use the Gemini Enterprise app assistant to search across your Monday boards, items, updates, and docs, and get answers grounded in that content without needing to ingest the data.
-
-For more information, see [Set up a Monday data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/monday/set-up-data-store).
-
-Feature
-
-**Gemini Enterprise: Create and manage projects**
-
-You can create and manage projects in the Gemini Enterprise web app to build a dedicated knowledge base for your own work or to collaborate with your team. Within a project, you can upload files and chat privately with the assistant to get answers grounded in your project files and web search.
-
-This feature is generally available (GA). To make projects available to users, a Gemini Enterprise administrator must turn on the **Enable projects** toggle in the Google Cloud console.
-
-For more information, see the following:
-
-  * [Create and manage projects](https://docs.cloud.google.com/gemini/enterprise/docs/projects)
-  * [Manage web app features](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features)
-
-
-
-Feature
-
-**Gemini Enterprise: New data stores and support for new actions (Preview)**
-
-The following data stores are available in Public Preview in Gemini Enterprise:
-
-  * [CoinDesk](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/coindesk)
-  * [Relativity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/relativity)
-  * [Streak](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/streak) (actions supported)
-  * [Superhuman Mail](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/superhuman-mail)
-
-
-
-You can search and read data from these data stores, and perform actions using natural language.
-
-**Google Kubernetes Engine**
-
-Announcement
-
-#### Kubernetes 1.37 is available
-
-Kubernetes 1.37 is now available in the Rapid channel. For more information about the content of Kubernetes 1.37, read the [Kubernetes 1.37 Release Notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md) and Kubernetes [1.37 Release Blog](https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/).
-
-Deprecated
-
-#### Removed in 1.37
-
-  * Identity Service for GKE is no longer supported starting in GKE 1.37: Creating new clusters or upgrading existing clusters to GKE version 1.37 or later with Identity Service for GKE enabled is blocked. For external OIDC authentication, please migrate to [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation). For more information, refer to [Authenticate with third-party identity providers](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/oidc).
-
-
-
-Change
-
-#### Other changes in 1.37
-
-  * Starting with GKE version 1.37.0-gke.2100000, newly created clusters default to using control plane node creation, which improves cluster security by having the control plane manage node registration instead of kubelet self-registration. Existing clusters are not affected. If your workloads require legacy kubelet self-registration, you can opt out during cluster creation by specifying `--node-creation-mode=KUBELET`. For more information, see [Disable control plane node creation](https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation#disable_control_plane_node_creation).
-  * In version 1.37 and later, newly created node pools use an improved formula to calculate the default system reservation for CPU and memory resources on each node. This updated reservation algorithm reduces the system memory reservation by 10% to 15% when compared to the algorithm that's used in version 1.36 and earlier.
-  * The updated default reservation algorithm applies only to new node pools that are created on version 1.37 and later. Existing node pools that you upgrade to 1.37 or later from version 1.36 or earlier don't use the updated algorithm.
-  * Additionally, any new or existing node pool that runs GKE version 1.37 and later can modify the amount of CPU and memory that's reserved for system workloads in node pools by using the [`reservedResourcesConfig` option in the node system configuration file](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-system-config#kubelet-options).
-
-
-
-Feature
-
-#### New features in 1.37
-
-  * The [PodCertificateRequest](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#pod-certificate-requests) and [ClusterTrustBundle](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#cluster-trust-bundles) APIs are generally available and promoted to certificates.k8s.io/v1.
-  * [DRA device metadata publishing](https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/access-dra-device-metadata/) is enabled with beta support (for use with DRA drivers which include this feature).
-  * HorizontalPodAutoscaler enables beta support for [scaling to zero](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/#scaling-to-and-from-zero).
-  * [StatefulSet maxUnavailable support](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#maximum-unavailable-pods) is now enabled.
-
-
-
-**Google SecOps Marketplace**
-
-Change
-
-**Google Chronicle** : Version 94.0
-
-  * Reverted the execution mode to synchronous in the following action:
-
-    * **Is Value in Data Table**
-
-
-
-**Managed Service for Apache Spark**
-
-Announcement
-
-New [**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine) subminor cluster image versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-version-lists#supported-dataproc-image-versions):
-
-  * 2.1.119-debian11, 2.1.119-rocky8, 2.1.119-ubuntu20, 2.1.119-ubuntu20-arm
-  * 2.2.87-debian12, 2.2.87-rocky9, 2.2.87-ubuntu22, 2.2.87-ubuntu22-arm
-  * 2.3.36-debian12, 2.3.36-ml-ubuntu22, 2.3.36-rocky9, 2.3.36-ubuntu22, 2.3.36-ubuntu22-arm
-  * 3.0.2-debian13, 3.0.2-ml-ubuntu24, 3.0.2-rocky9, 3.0.2-ubuntu24
-
-
-
-Key updates in these image versions include:
-
-  * **Feature updates:**
-    * **Apache Hudi:** Added support for the Apache Hudi optional component in `3.0` images. Version `1.2.0` is available in `3.0` images.
-    * **Parquet footer caching:** Enabled Parquet footer caching by default for Lightning Engine (Velox). If executor out-of-memory (OOM) or task failure spikes on tiny files are observed, these can be mitigated by setting `spark.gluten.sql.columnar.backend.velox.cacheParquetFooters=false`.
-    * **Apache Iceberg 1.10:** Added support for Apache Iceberg `1.10` in `2.2` images. Users can opt-in by setting the cluster property, `dataproc:dataproc.iceberg.version=1.10`.
-    * **Lakehouse catalog:** Lakehouse catalog auto-loading is supported for image versions `2.2` and later.
-  * **Library updates:**
-    * **Cloud Storage connector:** Upgraded the Cloud Storage connector to `4.0.4` in `3.0` images.
-    * **OpenLineage:** Upgraded OpenLineage to `1.49` in `3.0` images to support lineage for tables created using the Lakehouse Runtime catalog.
-
-
-
-Breaking
-
-**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine):
-
-  * **Preconfigured Conda channels removed:** Preconfigured conda channels (such as `conda-forge`) have been removed from configurations. All image version aliases now point to the latest image without conda channel configuration. Support for earlier images with conda channels configuration to be announced in upcoming release notes. Recommendation: Migrate to the latest image versions as soon as possible. 
-    * **Affected image versions:** `1.3.96+`, `1.4.81+`, `1.5.92+`, `2.0.161+`, `2.1.119+`, `2.2.87+`, and `2.3.36+`.
-    * **Impact:** Additional conda package installation using the `dataproc:conda.packages` cluster property or direct `conda install <package>` command will fail.
-    * **Workaround:**
-      * Use the `<channel>::<package>==<version>` specification for the `dataproc:conda.packages` property (for example: `dataproc:conda.packages=conda-forge::pip==24.0`).
-      * Specify the channel name on the command line when running `conda install` (for example: `conda install <packages> -c conda-forge`).
-  * **google-guest-agent upgraded:** Upgraded `google-guest-agent` on Debian and Rocky Linux images (remediating CVE-2026-33186).
-  * **SSH metadata restriction:** Stricter SSH metadata restrictions are enforced by default; metadata SSH keys mapped directly to root are ignored. Connect using a standard non-root user (such as `dataproc`) with `sudo`, or use Google Cloud OS Login.
-
-
-
-Fixed
-
-**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine): Fixed a segmentation fault when OpenLineage parses complex SQL query strings with the Lakehouse Runtime catalog.
-
-**Model Armor**
-
-Feature
-
-**Clarification: August 5, 2026 release note for Melbourne and Seoul**
-
-In Melbourne (`australia-southeast2`) and Seoul (`asia-northeast3`), only the Sensitive Data Protection filter is supported when data residency is enforced. To use other Model Armor features in these regions, [disable data residency enforcement in the template](https://docs.cloud.google.com/model-armor/manage-templates#set-data-residency-compliance).
-
-For information about available Model Armor features for each region, see [Supported features by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region#supported-by-region).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

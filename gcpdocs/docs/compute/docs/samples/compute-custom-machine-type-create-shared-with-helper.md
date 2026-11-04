@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-custom-machine-type-create-shared-with-helper/
 title: Create a VM with shared-core machine type \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:41:18.877504+00:00
+fetched_at: 2026-11-04T07:48:21.614061+00:00
 ---
 
 # Create a VM with shared-core machine type  |  Compute Engine  |  Google Cloud Documentation
@@ -217,7 +217,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	}
     
     	ctx := context.Background()
-    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
+    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -238,7 +238,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     					},
     					AutoDelete: proto.Bool(true),
     					Boot:       proto.Bool(true),
-    					Type:       proto.String(computepb.AttachedDisk_PERSISTENT.String()),
+    					Type:       proto.String(computepb.[AttachedDisk_PERSISTENT](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AttachedDisk_UNDEFINED_TYPE_AttachedDisk_PERSISTENT_AttachedDisk_SCRATCH).String()),
     				},
     			},
     			MachineType: proto.String(machineType),
@@ -272,13 +272,13 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.AttachedDisk;
-    import com.google.cloud.compute.v1.AttachedDiskInitializeParams;
-    import com.google.cloud.compute.v1.InsertInstanceRequest;
-    import com.google.cloud.compute.v1.Instance;
-    import com.google.cloud.compute.v1.InstancesClient;
-    import com.google.cloud.compute.v1.NetworkInterface;
-    import com.google.cloud.compute.v1.Operation;
+    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html);
+    import com.google.cloud.compute.v1.[AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html);
+    import com.google.cloud.compute.v1.[InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html);
+    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
+    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
+    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
     import com.google.common.collect.ImmutableMap;
     import java.io.IOException;
     import java.util.Arrays;
@@ -436,14 +436,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `instancesClient.close()` method on the client to safely
         // clean up any remaining background resources.
-        try (InstancesClient instancesClient = InstancesClient.create()) {
+        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) instancesClient = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
     
-          AttachedDisk attachedDisk = AttachedDisk.newBuilder()
-              .setInitializeParams(
+          [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) attachedDisk = [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
+              .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)(
                   // Describe the size and source image of the boot disk to attach to the instance.
                   // The list of public images available in Compute Engine can be found here:
                   // https://cloud.google.com/compute/docs/images#list_of_public_images_available_on
-                  AttachedDiskInitializeParams.newBuilder()
+                  [AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
                       .setSourceImage(
                           String.format("projects/%s/global/images/family/%s", "debian-cloud",
                               "debian-13"))
@@ -452,34 +452,34 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
               )
               .setAutoDelete(true)
               .setBoot(true)
-              .setType(AttachedDisk.Type.PERSISTENT.name())
+              .setType([AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).Type.PERSISTENT.name())
               .build();
     
           // Create the Instance object with the relevant information.
-          Instance instance = Instance.newBuilder()
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instance = [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html).newBuilder()
               .setName(instanceName)
               .addDisks(attachedDisk)
               .setMachineType(machineTypeUri)
               .addNetworkInterfaces(
-                  NetworkInterface.newBuilder().setName("global/networks/default").build())
+                  [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder().setName("global/networks/default").build())
               .build();
     
           // Create the insert instance request object.
-          InsertInstanceRequest insertInstanceRequest = InsertInstanceRequest.newBuilder()
+          [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html) insertInstanceRequest = [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html).newBuilder()
               .setProject(project)
               .setZone(zone)
               .setInstanceResource(instance)
               .build();
     
           // Invoke the API with the request object and wait for the operation to complete.
-          Operation response = instancesClient.insertAsync(insertInstanceRequest)
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = instancesClient.insertAsync(insertInstanceRequest)
               .get(3, TimeUnit.MINUTES);
           // Check for errors.
-          if (response.hasError()) {
-            throw new Error("Instance creation failed!!" + response);
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+            throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("Instance creation failed!!" + response);
           }
           System.out.printf("Instance created : %s", instanceName);
-          System.out.println("Operation Status: " + response.getStatus());
+          System.out.println("Operation Status: " + response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     
@@ -488,7 +488,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
         if (!Arrays.asList(CpuSeries.E2_SMALL.cpuSeries, CpuSeries.E2_MICRO.cpuSeries,
             CpuSeries.E2_MEDIUM.cpuSeries).contains(cpuSeries)) {
-          throw new Error(String.format("Incorrect cpu type: %s", cpuSeries));
+          throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)(String.format("Incorrect cpu type: %s", cpuSeries));
         }
     
         int coreCount = 2;
@@ -503,7 +503,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // 1. Check the number of cores and if the coreCount is present in allowedCores.
         if (typeLimit.allowedCores.length > 0 && Arrays.stream(typeLimit.allowedCores)
             .noneMatch(x -> x == coreCount)) {
-          throw new Error(String.format(
+          throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)(String.format(
               "Invalid number of cores requested. "
                   + "Number of cores requested for CPU %s should be one of: %s",
               cpuSeries,
@@ -512,26 +512,26 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
         // 2. Memory must be a multiple of 256 MB
         if (memory % 256 != 0) {
-          throw new Error("Requested memory must be a multiple of 256 MB");
+          throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("Requested memory must be a multiple of 256 MB");
         }
     
         // 3. Check if the requested memory isn't too little
         if (memory < coreCount * typeLimit.minMemPerCore) {
-          throw new Error(
+          throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)(
               String.format("Requested memory is too low. Minimum memory for %s is %s MB per core",
                   cpuSeries, typeLimit.minMemPerCore));
         }
     
         // 4. Check if the requested memory isn't too much
         if (memory > coreCount * typeLimit.maxMemPerCore && !typeLimit.allowExtraMemory) {
-          throw new Error(String.format(
+          throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)(String.format(
               "Requested memory is too large.. Maximum memory allowed for %s is %s MB per core",
               cpuSeries, typeLimit.extraMemoryLimit));
         }
     
         // 5. Check if the requested memory isn't too large
         if (memory > typeLimit.extraMemoryLimit && typeLimit.allowExtraMemory) {
-          throw new Error(
+          throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)(
               String.format("Requested memory is too large.. Maximum memory allowed for %s is %s MB",
                   cpuSeries, typeLimit.extraMemoryLimit));
         }

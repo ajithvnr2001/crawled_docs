@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-text/
 title: Generate text by using the AI.GENERATE_TEXT function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:06.400192+00:00
+fetched_at: 2026-11-04T07:48:08.200616+00:00
 ---
 
 # Generate text by using the AI.GENERATE_TEXT function  |  BigQuery  |  Google Cloud Documentation
@@ -513,9 +513,9 @@ Wait until Terraform displays the "Apply complete!" message.
 
 You must grant the Agent Platform User role to the service account of the connection that the remote model uses.
 
-If you plan to specify the remote model's endpoint as a URL, for example `endpoint = 'https://us-central1-aiplatform.googleapis.com/v1/projects/myproject/locations/us-central1/publishers/google/models/gemini-2.0-flash'`, grant this role in the same project you specify in the URL.
+If you plan to specify the remote model's endpoint as a URL, for example `endpoint = 'https://us-central1-aiplatform.googleapis.com/v1/projects/myproject/locations/us-central1/publishers/google/models/gemini-3.5-flash'`, grant this role in the same project you specify in the URL.
 
-If you plan to specify the remote model's endpoint by using the model name, for example `endpoint = 'gemini-2.0-flash'`, grant this role in the same project where you plan to create the remote model.
+If you plan to specify the remote model's endpoint by using the model name, for example `endpoint = 'gemini-3.5-flash'`, grant this role in the same project where you plan to create the remote model.
 
 Granting the role in a different project results in the error `bqcx-1234567890-wxyz@gcp-sa-bigquery-condel.iam.gserviceaccount.com does not have the permission to access resource`.
 
@@ -1488,6 +1488,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

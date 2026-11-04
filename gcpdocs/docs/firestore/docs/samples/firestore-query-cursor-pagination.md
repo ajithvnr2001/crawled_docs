@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-cursor-pagination/
 title: Use start cursors and limits to paginate Firestore collections \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:32.069180+00:00
+fetched_at: 2026-11-04T08:01:54.606104+00:00
 ---
 
 # Use start cursors and limits to paginate Firestore collections  |  Google Cloud Documentation

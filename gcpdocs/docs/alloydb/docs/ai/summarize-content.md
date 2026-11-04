@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/summarize-content/
 title: Summarize content \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:29:11.348151+00:00
+fetched_at: 2026-11-04T05:36:41.294078+00:00
 ---
 
 # Summarize content  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -46,16 +46,20 @@ Make sure that you have the latest version of the `google_ml_integration.enable_
 To enable the `google_ml_integration.enable_preview_ai_functions` flag in AlloyDB, you use the `SET` command. This flag controls access to preview AI functions like `ai.summarize`.
 
   1. Make sure that your `google_ml_integration extension` is version 1.6.1 or higher. You can check the version by running the following:
-         
-         SELECT extversion FROM pg_extension WHERE extname = 'google_ml_integration';
-         
+
+
+    
+    
+      SELECT extversion FROM pg_extension WHERE extname = 'google_ml_integration';
+    
 
 If you need to upgrade to a version that includes these preview functions, call the following:
-         
-         CALL google_ml.upgrade_to_preview_version();
-         
+    
+    
+      CALL google_ml.upgrade_to_preview_version();
+    
 
-  2. Enable the flag for the current session or for the entire database. To enable the flag for your current session, execute the following:
+  1. Enable the flag for the current session or for the entire database. To enable the flag for your current session, execute the following:
          
          SET google_ml_integration.enable_preview_ai_functions = 'on';
          
@@ -294,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

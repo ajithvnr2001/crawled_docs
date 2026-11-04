@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-machine-learning-model-console/
 title: Create an ML model in BigQuery ML by using the Google Cloud console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:03.717281+00:00
+fetched_at: 2026-11-04T07:48:00.418363+00:00
 ---
 
 # Create an ML model in BigQuery ML by using the Google Cloud console  |  Google Cloud Documentation
@@ -280,7 +280,7 @@ The **Create new model** pane opens.
 **Important:** If you create a new connection, you must grant appropriate roles to the connection's service account before continuing. For more information about what roles to grant, see the reference documentation for the type of remote model that you are creating.
   11. In the **Required options** section, do one of the following:
 
-     * For remote models over Google models and partner models, specify the endpoint to use. This is the name of the model, for example `gemini-2.0-flash`. For more information about supported models, see [`ENDPOINT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model#endpoint).
+     * For remote models over Google models and partner models, specify the endpoint to use. This is the name of the model, for example `gemini-3.5-flash`. For more information about supported models, see [`ENDPOINT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model#endpoint).
      * For remote models over open models, copy and paste in the endpoint to use. This is the shared public endpoint of a model deployed to Agent Platform, in the format `https://location-aiplatform.googleapis.com/v1/projects/project/locations/location/endpoints/endpoint_id`. For more information, see [`ENDPOINT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-open#endpoint).
   12. Click **Create model**.
 
@@ -443,6 +443,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

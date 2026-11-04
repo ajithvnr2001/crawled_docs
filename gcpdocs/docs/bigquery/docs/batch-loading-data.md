@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/batch-loading-data/
 title: Batch load data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:42:41.389027+00:00
+fetched_at: 2026-11-04T07:55:10.183189+00:00
 ---
 
 # Batch load data  |  BigQuery  |  Google Cloud Documentation
@@ -315,7 +315,7 @@ The following command loads a local CSV file (`mydata.csv`) into a table named `
         qtr:STRING,sales:FLOAT,year:STRING
     
 
-**Note:** When you specify the schema on the command line, you cannot include a `RECORD` (`STRUCT`) type, you cannot include a field description, and you cannot specify the field mode. All field modes default to `NULLABLE`. To include field descriptions, modes, and `RECORD` types, supply a JSON schema file instead.
+**Note:** When you specify the schema on the command line, you cannot include a `RECORD` ([`STRUCT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct_type)) type, you cannot include a field description, and you cannot specify the field mode. All field modes default to `NULLABLE`. To include field descriptions, modes, and `RECORD` types, supply a [JSON schema file](https://docs.cloud.google.com/bigquery/docs/schemas#specifying_a_json_schema_file) instead.
 
 The following command loads a local CSV file (`mydata.csv`) into a table named `mytable` in `mydataset` in your default project. The schema is defined using [schema auto-detection](https://docs.cloud.google.com/bigquery/docs/schema-detect).
     
@@ -580,7 +580,7 @@ The following code demonstrates how to load a local CSV file to a new BigQuery t
     
     def load_from_file dataset_id = "your_dataset_id",
                        file_path  = "path/to/file.csv"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-connection-v1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table_id = "new_table_id"
     
@@ -684,6 +684,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

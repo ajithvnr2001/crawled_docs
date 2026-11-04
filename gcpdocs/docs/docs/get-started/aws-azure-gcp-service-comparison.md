@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison/
 title: Compare AWS and Azure services to Google Cloud \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:50:51.579123+00:00
+fetched_at: 2026-11-04T05:37:11.238616+00:00
 ---
 
 # Compare AWS and Azure services to Google Cloud  |  Get started  |  Google Cloud Documentation
@@ -246,7 +246,6 @@ Artificial intelligence & machine learning | Customer support assistance |  [ Ag
 Container Services | Security & Identity |  [ Policy Controller ](https://docs.cloud.google.com/kubernetes-engine/policy-controller/docs) | Enable the application and enforcement of programmable policies for your GKE clusters. |  |  Azure Policy for Kubernetes   
 Container Services | Security & Identity |  [ Custom organization policy for GKE ](https://cloud.google.com/kubernetes-engine/docs/how-to/custom-org-policies) | Create custom constraints for the Cluster or NodePool resources in GKE. |  |  Azure Policy for Kubernetes   
 Migration | Data warehouse migration |  [ BigQuery Migration Service ](https://cloud.google.com/bigquery/docs/migration-intro) | A comprehensive solution for migrating your data warehouse to BigQuery. |  AWS Schema Conversion Tool  |   
-Data analytics | Metadata processing |  [ Dataproc Metastore ](https://cloud.google.com/dataproc-metastore/docs) | A fully managed Apache Hive metastore (HMS) that runs on Google Cloud. |  AWS Glue Catalog  |   
 Cloud services | Compliance and data sovereignty |  [ Sovereign Controls by Partners ](https://cloud.google.com/sovereign-controls-by-partners/docs/overview) | Provide data sovereignty controls for Google Cloud workloads, operated by partners |  AWS European Sovereign Cloud  |  Microsoft Cloud for Sovereignty   
 Cloud services | Compliance and data sovereignty |  [ Sovereign Controls for EU ](https://cloud.google.com/assured-workloads/docs/eu-sovereign-controls-restrictions-limitations) | Provide data sovereignty controls for Google Cloud workloads in the European Union (EU). |  AWS European Sovereign Cloud  |  Microsoft Cloud for Sovereignty   
 Cloud services | Compliance and data sovereignty |  [ Sovereign Controls for Kingdom of Saudi Arabia ](https://cloud.google.com/assured-workloads/docs/ksa-sovereign-controls-restrictions-limitations) | Provide data sovereignty controls for Google Cloud workloads in the Kingdom of Saudi Arabia (KSA). |  |   
@@ -265,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

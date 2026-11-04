@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-data-agents/
 title: Create data agents \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:02.032628+00:00
+fetched_at: 2026-11-04T07:47:58.401377+00:00
 ---
 
 # Create data agents  |  BigQuery  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ Conversational analytics automatically runs queries on your behalf to answer you
 
 ### Generate insights
 
-You can optionally [generate data insights](https://docs.cloud.google.com/knowledge-catalog/docs/data-insights) in Knowledge Catalog for any table that you want to use as a knowledge source.
+You can optionally [generate data insights](https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data) in Knowledge Catalog for any table that you want to use as a knowledge source.
 
 Generated insights provide table metadata that the data agent can use to help generate responses to your questions.
 
@@ -194,7 +194,7 @@ Filtering and grouping | Fields that the agent should use to filter and group da
 Default filtering | Fields to filter on by default. | "Unless stated otherwise, always filter the data on order_status = 'Complete'."  
 Synonyms and business terms | Alternative terms for key fields. |  "If someone asks about 'Revenue' or 'Sales', use the total_sale_amount column." "We consider 'loyal' customers to be those with purchase_count > 5."   
 Excluded fields | Fields that the data agent should avoid using. | "Never use these fields: Transaction Date Derived, City Derived."  
-Join relationships |  How two or more tables are related to each other, and which columns are used to join them. The agent must use standard SQL JOINs on column pairs to combine data. See the example column.  |  **Customer Activity**
+Join relationships |  How two or more tables are related to each other, and which columns are used to join them. The agent must use GoogleSQL JOINs on column pairs to combine data. See the example column.  |  **Customer Activity**
 
   * `order_items.user_id` = `users.id`  
 (to link sales to customers) 
@@ -927,13 +927,13 @@ To retain your trace data, do the following:
 
   2. Find the location of your `_Trace` bucket:
          
-         gcloud beta observability buckets list --location=-
+         gcloud observability buckets list --location=-
 
 Note the location of your `_Trace` bucket for the next step.
 
   3. Create a [linked dataset](https://docs.cloud.google.com/bigquery/docs/analytics-hub-introduction#linked_datasets) in your BigQuery project that points to your `_Trace` bucket:
          
-         gcloud beta observability buckets datasets links create \
+         gcloud observability buckets datasets links create \
              projects/PROJECT_ID/locations/LOCATION/buckets/_Trace/datasets/Spans/links/LINK_NAME \
              --dataset=Spans \
              --bucket=_Trace \
@@ -1005,7 +1005,7 @@ In addition to project-level observability metrics in Cloud Monitoring and spans
 ## What's next
 
   * Learn more about [conversational analytics in BigQuery](https://docs.cloud.google.com/bigquery/docs/conversational-analytics).
-  * Learn more about the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview).
+  * Learn more about the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview).
   * [Analyze data with conversations](https://docs.cloud.google.com/bigquery/docs/create-conversations).
   * Learn more about how the [Gemini Data Analytics Data Agent Viewer (`roles/geminidataanalytics.dataAgentViewer`)](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/access-control#predefined-roles) role gives permission to view the data agent.
 
@@ -1015,6 +1015,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

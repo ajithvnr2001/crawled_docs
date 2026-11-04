@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/snyk-sdlc/
 title: Collect Snyk group-level audit logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:23.650087+00:00
+fetched_at: 2026-11-04T07:49:20.553780+00:00
 ---
 
 # Collect Snyk group-level audit logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -536,7 +536,7 @@ Google SecOps uses a unique service account to read data from your GCS bucket. Y
 
 ### Get the service account email
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Snyk Group Audit Logs`).
@@ -572,7 +572,7 @@ The Google SecOps service account needs **Storage Object Viewer** role on your G
 
 ## Configure a feed in Google SecOps to ingest Snyk Group level audit Logs
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Snyk Group Audit Logs`).
@@ -655,6 +655,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

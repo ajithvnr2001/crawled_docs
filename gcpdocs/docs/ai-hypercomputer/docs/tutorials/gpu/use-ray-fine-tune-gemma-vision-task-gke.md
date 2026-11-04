@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/use-ray-fine-tune-gemma-vision-task-gke/
 title: Use Ray to fine-tune Gemma 3 for vision tasks on GKE \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:05.246658+00:00
+fetched_at: 2026-11-04T07:55:51.839022+00:00
 ---
 
 # Use Ray to fine-tune Gemma 3 for vision tasks on GKE  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -645,6 +645,8 @@ To update the training script, you rerun the preceding command. It might take a 
              rayStartParams: {}
              template:
                spec:
+                 securityContext:
+                   fsGroup: 100
                  serviceAccountName: $RAY_SA
                  containers:
                  - name: ray-worker
@@ -667,15 +669,15 @@ To update the training script, you rerun the preceding command. It might take a 
                            name: hf-secret
                            key: hf_api_token
                      - name: PIP_CACHE_DIR
-                       value: /mnt/local-ssd/pip-cache
+                       value: /mnt/local-storage/pip-cache
                      - name: HF_HOME
-                       value: /mnt/local-ssd/hf-cache
+                       value: /mnt/local-storage/hf-cache
                      - name: RAY_TMPDIR
-                       value: /mnt/local-ssd/ray-tmp
+                       value: /mnt/local-storage/ray-tmp
                    volumeMounts:
                      - name: job-code
                        mountPath: /code/
-                     - mountPath: /mnt/local-ssd/
+                     - mountPath: /mnt/local-storage/
                        name: local-storage
                  volumes:
                    - name: job-code

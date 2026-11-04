@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-vpc-flow/
 title: Collect AWS VPC Flow Logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:07:48.774364+00:00
+fetched_at: 2026-11-04T07:51:31.672543+00:00
 ---
 
 # Collect AWS VPC Flow Logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -110,7 +110,7 @@ The following section outlines how to configure Amazon S3 and Identity and Acces
 
 ### Configure a feed in Google SecOps to ingest AWS VPC Flow Logs (S3 Text)
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **\+ Add New Feed**.
   3. In the **Feed name** field, enter a name for the feed (for example, `AWS VPC Flow Logs - S3 (Text)`).
   4. Select **Amazon S3 V2** as the **Source type**.
@@ -150,7 +150,7 @@ After setting up the flow logs to go to CloudWatch, this option provides an addi
 
 ### Create a feed in Google SecOps to get Endpoint URL and Secret Key
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **\+ Add New Feed**.
   3. In the **Feed name** field, enter a name for the feed (for example, `AWS VPC Flow Logs - CloudWatch via Firehose`).
   4. Select **Amazon Data Firehose** as the **Source type**.
@@ -273,7 +273,7 @@ After setting up the flow logs to go to CloudWatch, this option provides an addi
 
 ### Configure a feed in Google SecOps to ingest AWS VPC Flow Logs (CSV)
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **\+ Add New Feed**.
   3. In the **Feed name** field, enter a name for the feed (for example, `AWS VPC Flow Logs - S3 (CSV)`).
   4. Select **Amazon S3 V2** as the **Source type**.
@@ -451,6 +451,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

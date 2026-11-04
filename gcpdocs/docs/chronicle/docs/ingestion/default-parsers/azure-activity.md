@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/azure-activity/
 title: Collect Microsoft Azure Activity and Entra ID logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:13.410250+00:00
+fetched_at: 2026-11-04T07:51:32.263563+00:00
 ---
 
 # Collect Microsoft Azure Activity and Entra ID logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -211,7 +211,7 @@ Feed name | Event Hub Name | Google SecOps log type
   
 For each row in the table:
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
   4. In the **Feed name** field, enter the feed name (for example, `Azure Activity Logs`).
@@ -345,7 +345,7 @@ Google SecOps uses a unique service account to read data from your Azure Blob St
 
 #### Get the service account email
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a temporary name.
@@ -404,7 +404,7 @@ Container Name | Chronicle Log Type | Data Source
   
 #### Create a feed for Microsoft Azure Activity Logs
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
   4. In the **Feed name** field, enter `Microsoft Azure Activity Logs`.
@@ -450,7 +450,7 @@ Repeat the following steps for each Entra ID log type you configured in the diag
 
 **For Interactive Sign-in Logs:**
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter `Azure AD Interactive Sign-in Logs`.
@@ -574,6 +574,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-application-access/
 title: Collect Custom Application Access logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:37.297228+00:00
+fetched_at: 2026-11-04T07:51:17.157032+00:00
 ---
 
 # Collect Custom Application Access logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ Make sure you have the following prerequisites:
 
 The log type `CUSTOM_APPLICATION_ACCESS` does not exist as a prebuilt parser in Google SecOps. You must create a custom log type before ingesting logs.
 
-  1. Go to **SIEM Settings > Available Log Types**.
+  1. Go to **Settings > Data Management > Available Log Types**. If you are on a SIEM-only platform, go to **Settings > Available Log Types**.
   2. Click **Request a Log Type**.
   3. Under **Create a custom log type on your own** , enter the following details: 
      * **Vendor/Product** : Enter `Custom Application Access Logs`
@@ -126,7 +126,7 @@ Configure your custom application to write access logs to the GCS bucket you cre
 
 Google SecOps uses a unique service account to read data from your GCS bucket. You must grant this service account access to your bucket.
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Custom Application Access Logs - GCS`).
@@ -163,7 +163,7 @@ The Google SecOps service account needs the **Storage Object Viewer** role on yo
 
 ### Configure the feed in Google SecOps
 
-  1. Return to the feed creation page (or go to **SIEM Settings > Feeds > Add New Feed**).
+  1. Return to the feed creation page (or go to **Settings > Data Management > Feeds > Add New Feed**).
   2. Click **Next**.
   3. Specify values for the following input parameters:
 
@@ -227,7 +227,7 @@ Configure your custom application to write access logs to the S3 bucket you crea
 
 ### Configure a feed in Google SecOps to ingest logs from S3
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Custom Application Access Logs - S3`).
@@ -312,7 +312,7 @@ Configure your custom application to write access logs to the Azure Blob Storage
 
 ### Configure a feed in Google SecOps to ingest logs from Azure
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Custom Application Access Logs - Azure`).
@@ -348,7 +348,7 @@ Configure your custom application to write access logs to the Azure Blob Storage
 
 ### Create webhook feed in Google SecOps
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Custom Application Access Logs - Webhook`).
@@ -460,7 +460,7 @@ Configure your custom application to send HTTP POST requests to the Chronicle we
 
 ### Create a feed in Google SecOps
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `Custom Application Access Logs - Firehose`).
@@ -646,7 +646,7 @@ Configure your custom application to write access logs to a CloudWatch Log Group
 
 After ingesting logs, you must create a custom parser to normalize the data into UDM format.
 
-  1. Go to **SIEM Settings > Parsers**.
+  1. Go to **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Click **Create Parser**.
   3. Select **CUSTOM_APPLICATION_ACCESS_CUSTOM** as the **Log type**.
   4. Use the parser editor to create Grok patterns or parser extensions that map your log fields to UDM fields.
@@ -721,6 +721,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

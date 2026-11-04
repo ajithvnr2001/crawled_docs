@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/bigquery-connector-troubleshooting/
 title: Troubleshoot BigQuery connector errors and limitations \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:31.606856+00:00
+fetched_at: 2026-11-04T05:37:31.013905+00:00
 ---
 
 # Troubleshoot BigQuery connector errors and limitations  |  Data Studio  |  Google Cloud Documentation

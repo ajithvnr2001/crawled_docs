@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/teradata-overview/
 title: Teradata to BigQuery migration: Overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:21.115208+00:00
+fetched_at: 2026-11-04T07:48:05.894240+00:00
 ---
 
 # Teradata to BigQuery migration: Overview  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This document provides more information to help you understand the decisions you need to make when using the BigQuery Data Transfer Service to migrate schema and data from Teradata to [BigQuery](https://docs.cloud.google.com/bigquery/docs). For an introduction to the Teradata migration process, see [Introduction to a Teradata to BigQuery migration](https://docs.cloud.google.com/bigquery/docs/migration/teradata-migration-intro).
 
-Migrating schema and data is typically one of several steps needed to move a data warehouse from a different platform to BigQuery. For a description of a general migration process, see [Overview: Migrate data warehouses to BigQuery](https://docs.cloud.google.com/bigquery/docs/migration/migration-overview).
+Migrating schema and data is typically one of several steps needed to move a data warehouse from a different platform to BigQuery. For a description of a general migration process, see [Overview: Migrate data warehouses to BigQuery](https://docs.cloud.google.com/bigquery/docs/migration-intro).
 
 You can also use [batch SQL translation](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator) to migrate your SQL scripts in bulk, or [interactive SQL translation](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator) to translate ad hoc queries. Teradata SQL is fully supported by both SQL translation services.
 
@@ -124,7 +124,7 @@ The BigQuery Data Transfer Service uses the output of the BigQuery translation e
           },
           }" \
           -H "Content-Type:application/json" \
-          -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -X POST https://bigquerymigration.googleapis.com/v2alpha/projects/your_project_id/locations/your_location/workflows
+          -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -X POST https://bigquerymigration.googleapis.com/v2/projects/your_project_id/locations/your_location/workflows
          
 
 You can check the status of the batch translation job in the Google Cloud console by navigating to **BigQuery** -> **SQL Translation**. Once complete, the mapping file is stored in a Cloud Storage location specified in the `target_base_uri` flag.
@@ -528,7 +528,7 @@ The data transfer with BigQuery is free of charge. However, costs can be incurre
   * During data transfer, data is extracted to a directory on the local file system. Make sure there is adequate free space. 
     * When using the FastExport mode of extraction, you can set the maximum storage space to be used, and the limit strongly enforced by the migration agent. Set the `max-local-storage` setting in the [migration agent's configuration file](https://docs.cloud.google.com/bigquery/docs/migration/teradata#initialize_the_migration_agent) when [setting up a transfer from Teradata to BigQuery](https://docs.cloud.google.com/bigquery/docs/migration/teradata#set_up_a_transfer).
     * When using the TPT extraction method, make sure the file system has enough free space — larger than the largest table partition in the Teradata instance.
-  * The BigQuery Data Transfer Service converts schema automatically (if you don't supply a custom schema file) and transfers Teradata data to BigQuery. Data is mapped from Teradata to BigQuery types.
+  * The BigQuery Data Transfer Service converts schema automatically (if you don't supply a custom schema file) and transfers Teradata data to BigQuery. Data is [mapped from Teradata to BigQuery types](https://docs.cloud.google.com/bigquery/docs/migration/teradata-sql#data_types).
   * Files are **not** automatically deleted from your Cloud Storage bucket after being loaded into BigQuery. Consider deleting the data from your Cloud Storage bucket after loading it into BigQuery, to avoid additional storage costs. See Pricing.
   * The speed of the extraction is bounded by your JDBC connection.
   * The data extracted from Teradata is _**not**_ encrypted. Take appropriate steps to restrict access to the extracted files in the local file system, and ensure the Cloud Storage bucket is properly secured.
@@ -548,6 +548,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

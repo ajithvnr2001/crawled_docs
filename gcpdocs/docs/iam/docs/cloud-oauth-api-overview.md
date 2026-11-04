@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/cloud-oauth-api-overview/
 title: Cloud OAuth API overview \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:32:37.077869+00:00
+fetched_at: 2026-11-04T08:00:34.500077+00:00
 ---
 
 # Cloud OAuth API overview  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -28,6 +28,8 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 The Cloud OAuth API (`cloudoauth.googleapis.com`) provides OAuth 2.0 and OpenID Connect (OIDC) token exchange and authentication for [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation).
 
+**Important:** The Cloud OAuth API is available only for Looker. 
+
 The Cloud OAuth API authenticates Google Cloud users. This API lets your applications redirect users to the authorization endpoint (`https://auth.cloud.google/authorize`) to obtain authorization codes. Your applications can then exchange external credentials, authorization codes, or refresh tokens for short-lived OAuth 2.0 access tokens and OIDC ID tokens.
 
 The API is based on the [OAuth 2.0 Token Exchange (RFC 8693)](https://tools.ietf.org/html/rfc8693) and [OAuth 2.0 Authorization Framework (RFC 6749)](https://tools.ietf.org/html/rfc6749) specifications.
@@ -36,10 +38,11 @@ The API is based on the [OAuth 2.0 Token Exchange (RFC 8693)](https://tools.ietf
 
 Historically, Google Cloud's [Security Token Service](https://docs.cloud.google.com/iam/docs/reference/sts/rest) (`sts.googleapis.com`) handled token exchange for both Workforce Identity Federation and Workload Identity Federation.
 
-The Cloud OAuth API supports the same token exchanges as Security Token Service but is dedicated to Workforce Identity Federation traffic. This separation isolates workforce token exchanges from workload traffic, which helps prevent cross-service disruptions and lets workforce capacity scale independently of Security Token Service. Depending on your integration status, follow these guidelines:
+The Cloud OAuth API supports the same token exchanges as Security Token Service but is dedicated to Workforce Identity Federation traffic. This separation isolates workforce token exchanges from workload traffic, which helps prevent cross-service disruptions and lets workforce capacity scale independently of Security Token Service. Depending on your integration, follow these guidelines:
 
-  * **New integrations** : Redirect users to the authorization endpoint (`https://auth.cloud.google/authorize`) and exchange tokens using the Cloud OAuth API (`cloudoauth.googleapis.com`).
-  * **Existing integrations** : If you use Security Token Service (`sts.googleapis.com/v1/oauthtoken` or `sts.googleapis.com/v1/token`), transition to `cloudoauth.googleapis.com`.
+  * **New Looker integrations** : Redirect users to the authorization endpoint (`https://auth.cloud.google/authorize`) and exchange tokens by using the Cloud OAuth API (`cloudoauth.googleapis.com`).
+  * **Existing Looker integrations** : If your Looker integration uses Security Token Service (`sts.googleapis.com/v1/oauthtoken` or `sts.googleapis.com/v1/token`), transition to `cloudoauth.googleapis.com`.
+  * **Other integrations** : For other Workforce Identity Federation integrations, continue to use [Security Token Service](https://docs.cloud.google.com/iam/docs/workforce-obtaining-short-lived-credentials).
 
 
 
@@ -57,8 +60,7 @@ Endpoint | Method | URL | Description
 **JSON Web Key Set (JWKS) ** | `GET` |  `https://cloudoauth.googleapis.com/v1/organizations/ORGANIZATION_ID/.well-known/jwks.json` |  Returns the public JSON Web Keys (JWKs) used to verify the signatures of OIDC ID tokens issued for the organization.   
 **[User info](https://docs.cloud.google.com/iam/docs/cloud-oauth-userinfo) ** | `GET` |  `https://cloudoauth.googleapis.com/v1/organizations/ORGANIZATION_ID/userinfo` |  Retrieves OIDC standard claims, custom directory claims, and group memberships for the authenticated user.   
 **[Enterprise groups](https://docs.cloud.google.com/iam/docs/cloud-oauth-groups) ** | `GET` | `https://cloudoauth.googleapis.com/v1/common/groups` |  Retrieves paginated enterprise group memberships for the authenticated user.   
-**Important:** The `/.well-known/openid-configuration`, `/.well-known/jwks.json`, `/userinfo`, and `/groups` endpoints are available only for Looker. 
-
+  
 ## Authorization endpoint
 
 In an OAuth 2.0 and OIDC authorization code flow, your application redirects federated users to Google Cloud's unified authorization endpoint (`https://auth.cloud.google/authorize`) to sign in with their IdP. After authentication succeeds, the authorization endpoint redirects the user to your application's redirect URI with an authorization code. Your application then exchanges this code for tokens at the [token exchange endpoint](https://docs.cloud.google.com/iam/docs/cloud-oauth-exchange-tokens).
@@ -96,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

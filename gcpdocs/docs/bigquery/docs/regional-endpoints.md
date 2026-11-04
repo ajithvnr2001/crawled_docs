@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/regional-endpoints/
 title: BigQuery regional endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:55.949052+00:00
+fetched_at: 2026-11-04T07:48:20.655296+00:00
 ---
 
 # BigQuery regional endpoints  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ API | URL | Reference
 ---|---|---  
 BigQuery API | `bigquery.LOCATION.rep.googleapis.com` | [REST](https://docs.cloud.google.com/bigquery/docs/reference/rest)  
 BigQuery Storage API | `bigquerystorage.LOCATION.rep.googleapis.com` | [RPC](https://docs.cloud.google.com/bigquery/docs/reference/storage/rpc)  
-BigQuery Reservations API | `bigqueryreservation.LOCATION.rep.googleapis.com` | [RPC](https://docs.cloud.google.com/bigquery/docs/reference/reservations/rpc) and [REST](https://docs.cloud.google.com/bigquery/docs/reference/reservations/rest)  
+BigQuery Reservation API | `bigqueryreservation.LOCATION.rep.googleapis.com` | [RPC](https://docs.cloud.google.com/bigquery/docs/reference/reservations/rpc) and [REST](https://docs.cloud.google.com/bigquery/docs/reference/reservations/rest)  
 BigQuery Migration API | `bigquerymigration.LOCATION.rep.googleapis.com` | [REST](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest)  
 BigQuery Data Transfer Service API | `bigquerydatatransfer.LOCATION.rep.googleapis.com` | [RPC](https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/rpc) and [REST](https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/rest)  
   
@@ -153,6 +153,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/developer-overview/
 title: Introduction to developer tools \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:31.532847+00:00
+fetched_at: 2026-11-04T07:47:59.549388+00:00
 ---
 
 # Introduction to developer tools  |  BigQuery  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ To learn more about this solution, see [Use BigQuery agent analytics](https://do
 
 ### ODBC and JDBC drivers
 
-Open Database Connectivity (ODBC) and Java Database Connectivity (JDBC) drivers connect applications to databases. Google partners with [Simba](https://insightsoftware.com/simba/) to provide [ODBC and JDBC drivers for BigQuery](https://docs.cloud.google.com/bigquery/docs/reference/odbc-jdbc-drivers), which you can use to help build database-neutral software applications through your preferred tooling and infrastructure. The [Google-developed JDBC driver for BigQuery](https://docs.cloud.google.com/bigquery/docs/jdbc-for-bigquery) is also available in [Preview](https://cloud.google.com/products#product-launch-stages).
+Open Database Connectivity (ODBC) and Java Database Connectivity (JDBC) drivers connect applications to databases. Google partners with [Simba](https://insightsoftware.com/simba/) to provide [ODBC and JDBC drivers for BigQuery](https://docs.cloud.google.com/bigquery/docs/reference/odbc-jdbc-drivers), which you can use to help build database-neutral software applications through your preferred tooling and infrastructure. The [Google-developed JDBC driver for BigQuery](https://docs.cloud.google.com/bigquery/docs/jdbc-for-bigquery) is also available.
 
 ### Data Agent Kit
 
@@ -94,9 +94,9 @@ You can use [repositories](https://docs.cloud.google.com/bigquery/docs/repositor
 
 The following Google services and tools integrate with BigQuery and offer additional capabilities for building solutions:
 
-  * [**Managed Service for Apache Spark**](https://docs.cloud.google.com/dataproc/docs/concepts/overview). A fully managed service for running Apache Hadoop and Apache Spark jobs. Managed Service for Apache Spark provides the [BigQuery connector](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/bigquery), which lets Hadoop and Spark directly process data from BigQuery.
-  * [**Dataflow**](https://docs.cloud.google.com/dataflow/docs/about-dataflow). A fully managed service for running Apache Beam jobs at scale. The [BigQuery I/O connector for Beam](https://beam.apache.org/documentation/io/built-in/google-bigquery/) lets Beam pipelines read and write data to and from BigQuery.
-  * [**Managed Service for Apache Airflow**](https://docs.cloud.google.com/composer/docs/concepts/overview). A fully managed workflow scheduling service built on Apache Airflow. [BigQuery operators](https://airflow.apache.org/docs/apache-airflow-providers-google/stable/operators/cloud/bigquery.html) let Airflow workflows manage datasets and tables, run queries, and validate data.
+  * [**Managed Service for Apache Spark**](https://docs.cloud.google.com/managed-spark/docs/concepts/clusters-overview). A fully managed service for running Apache Hadoop and Apache Spark jobs. Managed Service for Apache Spark provides the [BigQuery connector](https://docs.cloud.google.com/managed-spark/docs/concepts/connectors/bigquery), which lets Hadoop and Spark directly process data from BigQuery.
+  * [**Dataflow**](https://docs.cloud.google.com/dataflow/docs/overview). A fully managed service for running Apache Beam jobs at scale. The [BigQuery I/O connector for Beam](https://beam.apache.org/documentation/io/built-in/google-bigquery/) lets Beam pipelines read and write data to and from BigQuery.
+  * [**Managed Service for Apache Airflow**](https://docs.cloud.google.com/composer/docs/composer-3/composer-overview). A fully managed workflow scheduling service built on Apache Airflow. [BigQuery operators](https://airflow.apache.org/docs/apache-airflow-providers-google/stable/operators/cloud/bigquery.html) let Airflow workflows manage datasets and tables, run queries, and validate data.
   * [**Pub/Sub**](https://docs.cloud.google.com/pubsub/docs/overview). An asynchronous and scalable messaging service. Pub/Sub provides [BigQuery subscriptions](https://docs.cloud.google.com/pubsub/docs/bigquery), which you can use for writing messages to an existing BigQuery table as they are received.
   * [**Dataform**](https://docs.cloud.google.com/dataform/docs/overview). A service for data analysts to develop, test, version control, and schedule complex SQL workflows for data transformation in BigQuery.
   * [**BigQuery Terraform module**](https://github.com/terraform-google-modules/terraform-google-bigquery/blob/master/README.md). A module to automate the instantiation and deployment of your BigQuery datasets and tables.
@@ -117,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

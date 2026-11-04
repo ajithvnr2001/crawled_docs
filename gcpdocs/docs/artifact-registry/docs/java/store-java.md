@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/java/store-java/
 title: Quickstart: Store Java packages in Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:54:25.648109+00:00
+fetched_at: 2026-11-04T07:48:43.636074+00:00
 ---
 
 # Quickstart: Store Java packages in Artifact Registry  |  Google Cloud Documentation

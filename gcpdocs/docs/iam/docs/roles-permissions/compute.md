@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/compute/
 title: Compute Engine roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:36:30.281820+00:00
+fetched_at: 2026-11-04T07:57:37.605923+00:00
 ---
 
 # Compute Engine roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -48,6 +48,12 @@ Role | Permissions
 
 `cloudkms.operations.get` `cloudkms.projects.showEffectiveAutokeyConfig` `compute.*`
 
+  * `compute.acceleratorInterconnectMemberInstances.list`
+  * `compute.acceleratorInterconnects.create`
+  * `compute.acceleratorInterconnects.delete`
+  * `compute.acceleratorInterconnects.get`
+  * `compute.acceleratorInterconnects.list`
+  * `compute.acceleratorInterconnects.queryFormability`
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
   * `compute.addresses.create`
@@ -1160,7 +1166,15 @@ Role | Permissions
   
 #### Compute Editor 
 
-(`roles/compute.editor`) Editor role for compute  |  `compute.acceleratorTypes.*`
+(`roles/compute.editor`) Editor role for compute  |  `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.*`
+
+  * `compute.acceleratorInterconnects.create`
+  * `compute.acceleratorInterconnects.delete`
+  * `compute.acceleratorInterconnects.get`
+  * `compute.acceleratorInterconnects.list`
+  * `compute.acceleratorInterconnects.queryFormability`
+
+`compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -4324,7 +4338,7 @@ Role | Permissions
   * Node template 
   * Snapshot 
 
-|  `compute.acceleratorTypes.*`
+|  `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -4905,6 +4919,50 @@ Role | Permissions
 
 Permission | Included in roles  
 ---|---  
+  
+#### `compute.acceleratorInterconnectMemberInstances.list`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Compute Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.admin) (`roles/compute.admin`)  [Compute Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.editor) (`roles/compute.editor`)  [Compute Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.viewer) (`roles/compute.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [Notebooks Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.admin) (`roles/notebooks.admin`)  [Notebooks Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.editor) (`roles/notebooks.editor`)  [Notebooks Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.viewer) (`roles/notebooks.viewer`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)  [Infrastructure Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.infrastructureAdmin) (`roles/iam.infrastructureAdmin`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Site Reliability Engineer](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.siteReliabilityEngineer) (`roles/iam.siteReliabilityEngineer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  [Notebooks Legacy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyAdmin) (`roles/notebooks.legacyAdmin`)  [Notebooks Legacy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyViewer) (`roles/notebooks.legacyViewer`)  [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) (`roles/notebooks.runner`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Dataprep Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.serviceAgent) (`roles/dataprep.serviceAgent`) 
+  * [AI Platform Notebooks Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.serviceAgent) (`roles/notebooks.serviceAgent`) 
+
+  
+  
+#### `compute.acceleratorInterconnects.create`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Compute Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.admin) (`roles/compute.admin`)  [Compute Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.editor) (`roles/compute.editor`)  [Infrastructure Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.infrastructureAdmin) (`roles/iam.infrastructureAdmin`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Notebooks Legacy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyAdmin) (`roles/notebooks.legacyAdmin`)   
+  
+#### `compute.acceleratorInterconnects.delete`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Compute Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.admin) (`roles/compute.admin`)  [Compute Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.editor) (`roles/compute.editor`)  [Infrastructure Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.infrastructureAdmin) (`roles/iam.infrastructureAdmin`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Notebooks Legacy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyAdmin) (`roles/notebooks.legacyAdmin`)   
+  
+#### `compute.acceleratorInterconnects.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Compute Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.admin) (`roles/compute.admin`)  [Compute Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.editor) (`roles/compute.editor`)  [Compute Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.viewer) (`roles/compute.viewer`)  [Notebooks Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.admin) (`roles/notebooks.admin`)  [Notebooks Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.editor) (`roles/notebooks.editor`)  [Notebooks Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.viewer) (`roles/notebooks.viewer`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)  [Infrastructure Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.infrastructureAdmin) (`roles/iam.infrastructureAdmin`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Site Reliability Engineer](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.siteReliabilityEngineer) (`roles/iam.siteReliabilityEngineer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  [Notebooks Legacy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyAdmin) (`roles/notebooks.legacyAdmin`)  [Notebooks Legacy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyViewer) (`roles/notebooks.legacyViewer`)  [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) (`roles/notebooks.runner`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Dataprep Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.serviceAgent) (`roles/dataprep.serviceAgent`) 
+  * [AI Platform Notebooks Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.serviceAgent) (`roles/notebooks.serviceAgent`) 
+
+  
+  
+#### `compute.acceleratorInterconnects.list`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Compute Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.admin) (`roles/compute.admin`)  [Compute Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.editor) (`roles/compute.editor`)  [Compute Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.viewer) (`roles/compute.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [Notebooks Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.admin) (`roles/notebooks.admin`)  [Notebooks Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.editor) (`roles/notebooks.editor`)  [Notebooks Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.viewer) (`roles/notebooks.viewer`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)  [Infrastructure Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.infrastructureAdmin) (`roles/iam.infrastructureAdmin`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Site Reliability Engineer](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.siteReliabilityEngineer) (`roles/iam.siteReliabilityEngineer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  [Notebooks Legacy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyAdmin) (`roles/notebooks.legacyAdmin`)  [Notebooks Legacy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyViewer) (`roles/notebooks.legacyViewer`)  [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) (`roles/notebooks.runner`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Dataprep Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.serviceAgent) (`roles/dataprep.serviceAgent`) 
+  * [AI Platform Notebooks Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.serviceAgent) (`roles/notebooks.serviceAgent`) 
+
+  
+  
+#### `compute.acceleratorInterconnects.queryFormability`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Compute Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.admin) (`roles/compute.admin`)  [Compute Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.editor) (`roles/compute.editor`)  [Compute Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.viewer) (`roles/compute.viewer`)  [Notebooks Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.admin) (`roles/notebooks.admin`)  [Notebooks Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.editor) (`roles/notebooks.editor`)  [Notebooks Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.viewer) (`roles/notebooks.viewer`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)  [Infrastructure Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.infrastructureAdmin) (`roles/iam.infrastructureAdmin`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Site Reliability Engineer](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.siteReliabilityEngineer) (`roles/iam.siteReliabilityEngineer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  [Notebooks Legacy Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyAdmin) (`roles/notebooks.legacyAdmin`)  [Notebooks Legacy Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.legacyViewer) (`roles/notebooks.legacyViewer`)  [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) (`roles/notebooks.runner`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Dataprep Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.serviceAgent) (`roles/dataprep.serviceAgent`) 
+  * [AI Platform Notebooks Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.serviceAgent) (`roles/notebooks.serviceAgent`) 
+
+  
   
 #### `compute.acceleratorTypes.get`
 
@@ -10444,6 +10502,7 @@ Permission | Included in roles
   * [Cluster Director Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/hypercomputecluster#hypercomputecluster.serviceAgent) (`roles/hypercomputecluster.serviceAgent`) 
   * [Cloud Life Sciences Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/lifesciences#lifesciences.serviceAgent) (`roles/lifesciences.serviceAgent`) 
   * [AI Platform Notebooks Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.serviceAgent) (`roles/notebooks.serviceAgent`) 
+  * [Workstations Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/workstations#workstations.serviceAgent) (`roles/workstations.serviceAgent`) 
 
   
   
@@ -12624,6 +12683,7 @@ Permission | Included in roles
   * [Managed Kafka Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedkafka#managedkafka.serviceAgent) (`roles/managedkafka.serviceAgent`) 
   * [Cloud Memorystore Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/memorystore#memorystore.serviceAgent) (`roles/memorystore.serviceAgent`) 
   * [AI Platform Notebooks Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.serviceAgent) (`roles/notebooks.serviceAgent`) 
+  * [Oracle Database@Google Cloud Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/oci#oci.serviceAgent) (`roles/oci.serviceAgent`) 
 
   
   
@@ -12736,6 +12796,7 @@ Permission | Included in roles
   * [Cloud Composer API Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/composer#composer.serviceAgent) (`roles/composer.serviceAgent`) 
   * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
   * [Cloud Dataflow Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/dataflow#dataflow.serviceAgent) (`roles/dataflow.serviceAgent`) 
+  * [Workstations Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/workstations#workstations.serviceAgent) (`roles/workstations.serviceAgent`) 
 
   
   
@@ -21412,6 +21473,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

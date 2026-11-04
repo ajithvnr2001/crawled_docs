@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement/
 title: GDC Hardware Management API roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:33:49.086177+00:00
+fetched_at: 2026-11-04T07:58:44.606491+00:00
 ---
 
 # GDC Hardware Management API roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -38,9 +38,13 @@ Role | Permissions
   * `gdchardwaremanagement.comments.get`
   * `gdchardwaremanagement.comments.list`
   * `gdchardwaremanagement.hardware.create`
+  * `gdchardwaremanagement.hardware.createTagBinding`
   * `gdchardwaremanagement.hardware.delete`
+  * `gdchardwaremanagement.hardware.deleteTagBinding`
   * `gdchardwaremanagement.hardware.get`
   * `gdchardwaremanagement.hardware.list`
+  * `gdchardwaremanagement.hardware.listEffectiveTags`
+  * `gdchardwaremanagement.hardware.listTagBindings`
   * `gdchardwaremanagement.hardware.update`
   * `gdchardwaremanagement.hardwareGroups.create`
   * `gdchardwaremanagement.hardwareGroups.delete`
@@ -54,22 +58,38 @@ Role | Permissions
   * `gdchardwaremanagement.operations.get`
   * `gdchardwaremanagement.operations.list`
   * `gdchardwaremanagement.orders.create`
+  * `gdchardwaremanagement.orders.createTagBinding`
   * `gdchardwaremanagement.orders.delete`
+  * `gdchardwaremanagement.orders.deleteTagBinding`
   * `gdchardwaremanagement.orders.get`
   * `gdchardwaremanagement.orders.list`
+  * `gdchardwaremanagement.orders.listEffectiveTags`
+  * `gdchardwaremanagement.orders.listTagBindings`
   * `gdchardwaremanagement.orders.submit`
   * `gdchardwaremanagement.orders.update`
   * `gdchardwaremanagement.sites.create`
+  * `gdchardwaremanagement.sites.createTagBinding`
   * `gdchardwaremanagement.sites.delete`
+  * `gdchardwaremanagement.sites.deleteTagBinding`
   * `gdchardwaremanagement.sites.get`
   * `gdchardwaremanagement.sites.list`
+  * `gdchardwaremanagement.sites.listEffectiveTags`
+  * `gdchardwaremanagement.sites.listTagBindings`
   * `gdchardwaremanagement.sites.update`
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
+  * `gdchardwaremanagement.zoneOperations.createTagBinding`
+  * `gdchardwaremanagement.zoneOperations.deleteTagBinding`
+  * `gdchardwaremanagement.zoneOperations.listEffectiveTags`
+  * `gdchardwaremanagement.zoneOperations.listTagBindings`
   * `gdchardwaremanagement.zones.create`
+  * `gdchardwaremanagement.zones.createTagBinding`
   * `gdchardwaremanagement.zones.delete`
+  * `gdchardwaremanagement.zones.deleteTagBinding`
   * `gdchardwaremanagement.zones.get`
   * `gdchardwaremanagement.zones.list`
+  * `gdchardwaremanagement.zones.listEffectiveTags`
+  * `gdchardwaremanagement.zones.listTagBindings`
   * `gdchardwaremanagement.zones.update`
 
 `resourcemanager.projects.get` `resourcemanager.projects.list`  
@@ -81,17 +101,17 @@ Role | Permissions
   * `gdchardwaremanagement.changeLogEntries.get`
   * `gdchardwaremanagement.changeLogEntries.list`
 
-`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
+`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardware.listEffectiveTags` `gdchardwaremanagement.hardware.listTagBindings` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
 
   * `gdchardwaremanagement.locations.get`
   * `gdchardwaremanagement.locations.list`
 
-`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.skus.*`
+`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.listEffectiveTags` `gdchardwaremanagement.orders.listTagBindings` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.listEffectiveTags` `gdchardwaremanagement.sites.listTagBindings` `gdchardwaremanagement.skus.*`
 
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
 
-`gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`gdchardwaremanagement.zoneOperations.listEffectiveTags` `gdchardwaremanagement.zoneOperations.listTagBindings` `gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `gdchardwaremanagement.zones.listEffectiveTags` `gdchardwaremanagement.zones.listTagBindings` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### GDC Hardware Management Operator Beta
 
@@ -109,9 +129,13 @@ Role | Permissions
 `gdchardwaremanagement.hardware.*`
 
   * `gdchardwaremanagement.hardware.create`
+  * `gdchardwaremanagement.hardware.createTagBinding`
   * `gdchardwaremanagement.hardware.delete`
+  * `gdchardwaremanagement.hardware.deleteTagBinding`
   * `gdchardwaremanagement.hardware.get`
   * `gdchardwaremanagement.hardware.list`
+  * `gdchardwaremanagement.hardware.listEffectiveTags`
+  * `gdchardwaremanagement.hardware.listTagBindings`
   * `gdchardwaremanagement.hardware.update`
 
 `gdchardwaremanagement.hardwareGroups.*`
@@ -127,17 +151,28 @@ Role | Permissions
   * `gdchardwaremanagement.locations.get`
   * `gdchardwaremanagement.locations.list`
 
-`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.create` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.update` `gdchardwaremanagement.sites.create` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.update` `gdchardwaremanagement.skus.*`
+`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.create` `gdchardwaremanagement.orders.createTagBinding` `gdchardwaremanagement.orders.deleteTagBinding` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.listEffectiveTags` `gdchardwaremanagement.orders.listTagBindings` `gdchardwaremanagement.orders.update` `gdchardwaremanagement.sites.create` `gdchardwaremanagement.sites.createTagBinding` `gdchardwaremanagement.sites.deleteTagBinding` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.listEffectiveTags` `gdchardwaremanagement.sites.listTagBindings` `gdchardwaremanagement.sites.update` `gdchardwaremanagement.skus.*`
 
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
 
+`gdchardwaremanagement.zoneOperations.*`
+
+  * `gdchardwaremanagement.zoneOperations.createTagBinding`
+  * `gdchardwaremanagement.zoneOperations.deleteTagBinding`
+  * `gdchardwaremanagement.zoneOperations.listEffectiveTags`
+  * `gdchardwaremanagement.zoneOperations.listTagBindings`
+
 `gdchardwaremanagement.zones.*`
 
   * `gdchardwaremanagement.zones.create`
+  * `gdchardwaremanagement.zones.createTagBinding`
   * `gdchardwaremanagement.zones.delete`
+  * `gdchardwaremanagement.zones.deleteTagBinding`
   * `gdchardwaremanagement.zones.get`
   * `gdchardwaremanagement.zones.list`
+  * `gdchardwaremanagement.zones.listEffectiveTags`
+  * `gdchardwaremanagement.zones.listTagBindings`
   * `gdchardwaremanagement.zones.update`
 
 `resourcemanager.projects.get` `resourcemanager.projects.list`  
@@ -149,17 +184,17 @@ Role | Permissions
   * `gdchardwaremanagement.changeLogEntries.get`
   * `gdchardwaremanagement.changeLogEntries.list`
 
-`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
+`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardware.listEffectiveTags` `gdchardwaremanagement.hardware.listTagBindings` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
 
   * `gdchardwaremanagement.locations.get`
   * `gdchardwaremanagement.locations.list`
 
-`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.skus.*`
+`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.listEffectiveTags` `gdchardwaremanagement.orders.listTagBindings` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.listEffectiveTags` `gdchardwaremanagement.sites.listTagBindings` `gdchardwaremanagement.skus.*`
 
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
 
-`gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`gdchardwaremanagement.zoneOperations.listEffectiveTags` `gdchardwaremanagement.zoneOperations.listTagBindings` `gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `gdchardwaremanagement.zones.listEffectiveTags` `gdchardwaremanagement.zones.listTagBindings` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 ## GDC Hardware Management API permissions
 
@@ -190,9 +225,17 @@ Permission | Included in roles
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
+#### `gdchardwaremanagement.hardware.createTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
 #### `gdchardwaremanagement.hardware.delete`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
+#### `gdchardwaremanagement.hardware.deleteTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
 #### `gdchardwaremanagement.hardware.get`
 
@@ -201,6 +244,14 @@ Permission | Included in roles
 #### `gdchardwaremanagement.hardware.list`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.hardware.listEffectiveTags`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.hardware.listTagBindings`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `gdchardwaremanagement.hardware.update`
 
@@ -254,9 +305,17 @@ Permission | Included in roles
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
+#### `gdchardwaremanagement.orders.createTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
 #### `gdchardwaremanagement.orders.delete`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)   
+  
+#### `gdchardwaremanagement.orders.deleteTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
 #### `gdchardwaremanagement.orders.get`
 
@@ -265,6 +324,14 @@ Permission | Included in roles
 #### `gdchardwaremanagement.orders.list`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.orders.listEffectiveTags`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.orders.listTagBindings`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `gdchardwaremanagement.orders.submit`
 
@@ -278,9 +345,17 @@ Permission | Included in roles
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
+#### `gdchardwaremanagement.sites.createTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
 #### `gdchardwaremanagement.sites.delete`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)   
+  
+#### `gdchardwaremanagement.sites.deleteTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
 #### `gdchardwaremanagement.sites.get`
 
@@ -289,6 +364,14 @@ Permission | Included in roles
 #### `gdchardwaremanagement.sites.list`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.sites.listEffectiveTags`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.sites.listTagBindings`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `gdchardwaremanagement.sites.update`
 
@@ -302,13 +385,37 @@ Permission | Included in roles
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
+#### `gdchardwaremanagement.zoneOperations.createTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
+#### `gdchardwaremanagement.zoneOperations.deleteTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
+#### `gdchardwaremanagement.zoneOperations.listEffectiveTags`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.zoneOperations.listTagBindings`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
 #### `gdchardwaremanagement.zones.create`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
+#### `gdchardwaremanagement.zones.createTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
 #### `gdchardwaremanagement.zones.delete`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
+  
+#### `gdchardwaremanagement.zones.deleteTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
   
 #### `gdchardwaremanagement.zones.get`
 
@@ -318,6 +425,14 @@ Permission | Included in roles
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
+#### `gdchardwaremanagement.zones.listEffectiveTags`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `gdchardwaremanagement.zones.listTagBindings`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [Gdchardwaremanagement Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.viewer) (`roles/gdchardwaremanagement.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)  [GDC Hardware Management Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.reader) (`roles/gdchardwaremanagement.reader`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
 #### `gdchardwaremanagement.zones.update`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [GDC Hardware Management Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.admin) (`roles/gdchardwaremanagement.admin`)  [GDC Hardware Management Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/gdchardwaremanagement#gdchardwaremanagement.operator) (`roles/gdchardwaremanagement.operator`)   
@@ -326,6 +441,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

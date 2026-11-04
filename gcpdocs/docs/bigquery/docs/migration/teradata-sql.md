@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/teradata-sql/
 title: Teradata SQL translation guide \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:54.428838+00:00
+fetched_at: 2026-11-04T07:48:07.744034+00:00
 ---
 
 # Teradata SQL translation guide  |  BigQuery  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ Use BigQuery's `BIGNUMERIC` (alias `BIGDECIMAL`) when the scale > 9\.  Use BigQu
 `[VARBYTE](https://docs.teradata.com/r/SQL-External-Routine-Programming/July-2021/SQL-Data-Type-Mapping/C-Data-Types/VARBYTE)` | `[BYTES](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#bytes_type)` |   
 `[DATE](https://docs.teradata.com/r/SQL-External-Routine-Programming/July-2021/SQL-Data-Type-Mapping/C-Data-Types/DATE)` | `[DATE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#date_type)` | BigQuery does not support custom formatting similar to what Teradata with DataForm in SDF supports.  
 `[TIME](https://docs.teradata.com/r/SQL-External-Routine-Programming/July-2021/SQL-Data-Type-Mapping/C-Data-Types/TIME)` | `[TIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#time_type)` |   
-`[TIME WITH TIME ZONE](https://docs.teradata.com/r/SQL-External-Routine-Programming/July-2021/SQL-Data-Type-Mapping/C-Data-Types/TIME-WITH-TIME-ZONE)` | `[TIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#time_type)` | Teradata stores the `TIME` data type in UTC and allows you to pass an offset from UTC using the `WITH TIME ZONE` syntax.` `The `TIME` data type in BigQuery represents a time that's independent of any date or time zone.   
+`[TIME WITH TIME ZONE](https://docs.teradata.com/r/SQL-External-Routine-Programming/July-2021/SQL-Data-Type-Mapping/C-Data-Types/TIME-WITH-TIME-ZONE)` | `[TIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#time_type)` | Teradata stores the `TIME` data type in UTC and allows you to pass an offset from UTC using the `WITH TIME ZONE` syntax. The `TIME` data type in BigQuery represents a time that's independent of any date or time zone.   
 `[TIMESTAMP](https://docs.teradata.com/r/SQL-External-Routine-Programming/July-2021/SQL-Data-Type-Mapping/C-Data-Types/TIMESTAMP)` | `[TIMESTAMP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp_type)` | Both Teradata and BigQuery `[TIMESTAMP](https://docs.teradata.com/r/SQL-External-Routine-Programming/July-2021/SQL-Data-Type-Mapping/C-Data-Types/TIMESTAMP)` data types have microsecond precision (but Teradata supports leap seconds, while BigQuery does not).  
   
 Both Teradata and BigQuery data types are usually associated with a UTC time zone ([details](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#time_zones)).   
@@ -866,7 +866,7 @@ DML scripts in BigQuery have slightly different consistency semantics than equiv
 
 In Teradata, the [`ACTIVITY_COUNT`](https://docs.teradata.com/r/SQL-Stored-Procedures-and-Embedded-SQL/July-2021/Result-Code-Variables/ACTIVITY_COUNT) variable is a Teradata ANSI SQL extension populated with the number of rows affected by a DML statement.
 
-The [`@@row_count` system variable](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting#system_variables) in the [Scripting feature](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting) has similar functionality. In BigQuery it would be more common to check the [`numDmlAffectedRows`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query#body.QueryResponse.FIELDS.num_dml_affected_rows) return value in the audit logs or the [`INFORMATION_SCHEMA`](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs) views.
+The [`@@row_count` system variable](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting#system_variables) in the [Scripting feature](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) has similar functionality. In BigQuery it would be more common to check the [`numDmlAffectedRows`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query#body.QueryResponse.FIELDS.num_dml_affected_rows) return value in the audit logs or the [`INFORMATION_SCHEMA`](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs) views.
 
 ## DDL syntax
 
@@ -918,7 +918,7 @@ _col1_ STRING
 
 Teradata supports [volatile](https://docs.teradata.com/r/SQL-Fundamentals/July-2021/Database-Objects/Tables/Volatile-Tables) tables, which are often used to store intermediate results in scripts. There are several ways to achieve something similar to volatile tables in BigQuery:
 
-  * **[`CREATE TEMPORARY TABLE`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)** can be used in [Scripting](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting), and is valid during the lifetime of the script. If the table has to exist beyond a script, you can use the other options in this list.
+  * **[`CREATE TEMPORARY TABLE`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)** can be used in [Scripting](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language), and is valid during the lifetime of the script. If the table has to exist beyond a script, you can use the other options in this list.
 
   * **Dataset TTL:** Create a dataset that has a short time to live (for example, 1 hour) so that any tables created in the dataset are effectively temporary since they won't persist longer than the dataset's time to live. You can prefix all the table names in this dataset with `temp` to clearly denote that the tables are temporary.
 
@@ -933,7 +933,7 @@ Teradata supports [volatile](https://docs.teradata.com/r/SQL-Fundamentals/July-2
 
 
 
-An often-used pattern in Teradata scripts ([BTEQ](https://docs.teradata.com/r/Basic-Teradata-Query-Reference/February-2022/Introduction-to-BTEQ/Overview-of-BTEQ)) is to create a permanent table, insert a value in it, use this like a temporary table in ongoing statements, and then delete or truncate the table afterwards. In effect, this uses the table as a constant variable (a semaphore). This approach is not efficient in BigQuery, and we recommend using [real variables](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting#set) in [Scripting](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting) instead, or using `CREATE OR REPLACE` with [`AS SELECT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement) query syntax to create a table that already has values in it.
+An often-used pattern in Teradata scripts ([BTEQ](https://docs.teradata.com/r/Basic-Teradata-Query-Reference/February-2022/Introduction-to-BTEQ/Overview-of-BTEQ)) is to create a permanent table, insert a value in it, use this like a temporary table in ongoing statements, and then delete or truncate the table afterwards. In effect, this uses the table as a constant variable (a semaphore). This approach is not efficient in BigQuery, and we recommend using [real variables](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#set) in [Scripting](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) instead, or using `CREATE OR REPLACE` with [`AS SELECT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement) query syntax to create a table that already has values in it.
 
 ### `CREATE VIEW` statement
 
@@ -981,7 +981,7 @@ WHEN NOT MATCHED THEN
 INSERT (_col1_ ,_col2_ ,_col3_ ,_col4_ ,_col5_ ,_col6_ ,_col7_ ,_col8_) VALUES(_col1_ ,_col2_ ,_col3_ ,_col4_ ,_col5_ ,_col6_ ,CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());  
 `  
   
-More often, users prefer to [remove duplicates independently](https://docs.cloud.google.com/bigquery/streaming-data-into-bigquery#manually_removing_duplicates) in order to find errors in downstream systems.  
+More often, users prefer to [remove duplicates independently](https://docs.cloud.google.com/bigquery/docs/write-api-rest#manually_removing_duplicates) in order to find errors in downstream systems.  
 BigQuery does not support `DEFAULT` and `IDENTITY` (sequences) columns.
 
 #### Indexing to achieve locking
@@ -1001,7 +1001,7 @@ This section describes how to convert procedural SQL statements that are used in
 
 ### `CREATE PROCEDURE` statement
 
-Stored procedures are supported as part of BigQuery [Scripting](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting).
+Stored procedures are supported as part of BigQuery [Scripting](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
 
 In BigQuery, Scripting refers to any use of control statements, whereas procedures are named scripts (with arguments if needed) that can be called from other Scripts and stored permanently, if needed. A user-defined function (UDF) can also be written in JavaScript.
 
@@ -1050,7 +1050,7 @@ Because BigQuery doesn't support cursors or sessions, the following statements a
 
 ### Dynamic SQL statements
 
-The [Scripting feature](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting) in BigQuery supports dynamic SQL statements like those shown in the following table.
+The [Scripting feature](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) in BigQuery supports dynamic SQL statements like those shown in the following table.
 
 Teradata | BigQuery  
 ---|---  
@@ -1065,7 +1065,7 @@ The following Dynamic SQL statements are not used in BigQuery:
 
 ### Flow-of-control statements
 
-The [Scripting feature](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting) in BigQuery supports flow-of-control statements like those shown in the following table.
+The [Scripting feature](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) in BigQuery supports flow-of-control statements like those shown in the following table.
 
 Teradata | BigQuery  
 ---|---  
@@ -1098,7 +1098,7 @@ WHERE
 table_name=_table_name_ `  
   
 The same query is valid to get column information for views.  
-For more information, see the [Column view in the BigQuery `INFORMATION_SCHEMA`](https://docs.cloud.google.com/bigquery/docs/information-schema-tables#columns_view).  
+For more information, see the [Column view in the BigQuery `INFORMATION_SCHEMA`](https://docs.cloud.google.com/bigquery/docs/information-schema-columns).  
 `SELECT * FROM dbc.tables WHERE tablekind = 'T';`  
   
 (Teradata DBC view) | ` SELECT  
@@ -1157,7 +1157,7 @@ Both Teradata and BigQuery are atomic—that is, ACID-compliant on a per-mutatio
 
 Teradata provides either Read Uncommitted (allowing dirty reads) or Serializable transaction [isolation level](https://docs.teradata.com/r/SQL-Data-Definition-Language-Detailed-Topics/July-2021/END-LOGGING-SET-TIME-ZONE/SET-SESSION-CHARACTERISTICS-AS-TRANSACTION-ISOLATION-LEVEL/Definition-of-Isolation-Level) when running in session mode (instead of auto-commit mode). In the best case, Teradata achieves strictly serializable isolation by using pessimistic locking against a row hash across all columns of rows across all partitions. Deadlocks are possible. DDL always forces a transaction boundary. Teradata Fastload jobs run independently, but only on empty tables.
 
-BigQuery also [supports transactions](https://docs.cloud.google.com/bigquery/docs/transactions). BigQuery helps ensure [optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) (first to commit wins) with [snapshot isolation](https://en.wikipedia.org/wiki/Snapshot_isolation), in which a query reads the last committed data before the query starts. This approach guarantees the same level of consistency on a per-row, per-mutation basis and across rows within the same DML statement, yet avoids deadlocks. In the case of multiple `UPDATE` statements against the same table, BigQuery switches to [pessimistic concurrency control](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language#limitations) and [queues](https://cloud.google.com/blog/products/data-analytics/dml-without-limits-now-in-bigquery) multiple `UPDATE` statements, automatically retrying in case of conflicts. `INSERT` DML statements and load jobs can run concurrently and independently to append to tables.
+BigQuery also [supports transactions](https://docs.cloud.google.com/bigquery/docs/transactions). BigQuery helps ensure [optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) (first to commit wins) with [snapshot isolation](https://en.wikipedia.org/wiki/Snapshot_isolation), in which a query reads the last committed data before the query starts. This approach guarantees the same level of consistency on a per-row, per-mutation basis and across rows within the same DML statement, yet avoids deadlocks. In the case of multiple `UPDATE` statements against the same table, BigQuery switches to [pessimistic concurrency control](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language#dml_statement_conflicts) and [queues](https://cloud.google.com/blog/products/data-analytics/dml-without-limits-now-in-bigquery) multiple `UPDATE` statements, automatically retrying in case of conflicts. `INSERT` DML statements and load jobs can run concurrently and independently to append to tables.
 
 ### Rollback
 
@@ -1167,7 +1167,7 @@ BigQuery supports the [`ROLLBACK TRANSACTION` statement](https://docs.cloud.goog
 
 ## Database limits
 
-Always check [the BigQuery public documentation ](https://docs.cloud.google.com/bigquery/quotas)for the latest quotas and limits. Many quotas for large-volume users can be raised by contacting the Cloud Support team. The following table shows a comparison of the Teradata and BigQuery database limits.
+Always check [the BigQuery public documentation](https://docs.cloud.google.com/bigquery/quotas) for the latest quotas and limits. Many quotas for large-volume users can be raised by contacting the Cloud Support team. The following table shows a comparison of the Teradata and BigQuery database limits.
 
 Limit | Teradata | BigQuery  
 ---|---|---  
@@ -1195,6 +1195,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

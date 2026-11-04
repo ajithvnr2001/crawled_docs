@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/release-notes/
 title: AI Commerce Search release notes \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:00.673776+00:00
+fetched_at: 2026-11-04T08:00:53.830823+00:00
 ---
 
 # AI Commerce Search release notes  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page documents production updates to AI Commerce Search. Check this page fo
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/retail-release-notes.xml) directly. 
+
+## November 01, 2026
+
+Feature
+
+Organization Policy Service custom constraints are available in [Preview](https://cloud.google.com/products#product-launch-stages) for AI Commerce Search. For more information, see [Use custom organization policies](https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/custom-constraints).
 
 ## June 29, 2026
 

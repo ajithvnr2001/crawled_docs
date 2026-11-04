@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden/
 title: Agent Garden \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:31.914116+00:00
+fetched_at: 2026-11-04T07:54:20.719987+00:00
 ---
 
 # Agent Garden  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -97,12 +97,24 @@ Once deployed, you have several options to interact with your new agent:
   * **Debug** : Toggle the **Show debug panel** to see the underlying reasoning, tool calls, and retrieval steps the agent is taking.
   * **Expand** : Use the **Tools** menu to connect your agent to external APIs or private data stores.
 
-**Tip:** If you want to modify the core behavior, use the [Open GitHub](https://www.google.com/search?q=https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents) link on the sample page to clone the repository and deploy your custom version using the Agent Platform SDK.
+**Tip:** If you want to modify the core behavior, use the [Open GitHub](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents) link on the sample page to clone the repository and deploy your custom version using the Agent Platform SDK.
+
+## Reference code samples and GitHub repositories
+
+To accelerate custom agent development, test deployment patterns, and explore production architectures, explore the following official Google Cloud code repositories and reference samples:
+
+  * **[Agent Garden generative AI samples](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents)** : Prebuilt agent templates, RAG workflows, and multi-agent interaction patterns in the official Google Cloud Generative AI GitHub repository.
+  * **[Agent Development Kit (ADK) code recipes](https://github.com/google/adk-recipes)** : Production-ready recipes for building agents with ADK, including database toolboxes, RAG retrieval, cross-session memory, and multi-agent collaboration in Python and Java.
+  * **[Multi-tenant agentic AI Terraform blueprint](https://github.com/GoogleCloudPlatform/architecture-center-samples/tree/main/terraform-google-multi-tenant-agentic-ai)** : Declarative Terraform configuration files and deployment scripts from Cloud Architecture Center to provision multi-tenant agent systems with central governance, load balancing, and Model Armor.
+  * **[Applied AI engineering samples](https://github.com/GoogleCloudPlatform/applied-ai-engineering-samples)** : End-to-end enterprise solution templates and reference architectures built with Google Cloud AI and agent technologies.
+  * **[Agent starter pack](https://github.com/GoogleCloudPlatform/agent-starter-pack)** : Production templates and CI/CD deployment pipelines for enterprise agent deployments.
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/parameter-manager/docs/cmek/
 title: Enable customer-managed encryption keys for Parameter Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:29.734568+00:00
+fetched_at: 2026-11-04T06:11:46.447820+00:00
 ---
 
 # Enable customer-managed encryption keys for Parameter Manager  |  Google Cloud Documentation
@@ -423,7 +423,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     #
     def create_param_with_kms_key project_id:, parameter_id:, kms_key:
       # Create a Parameter Manager client.
-      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
+      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
     
       # Build the resource name of the parent project.
       parent = client.[location_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager-V1-ParameterManager-Paths.html) project: project_id, location: "global"
@@ -804,7 +804,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
       api_endpoint = "parametermanager.#{location_id}.rep.googleapis.com"
     
       # Create the Parameter Manager client.
-      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
+      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
         config.endpoint = api_endpoint
       end
     
@@ -830,7 +830,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
              --project "KMS_PROJECT_ID" \
              --location "LOCATION" \
              --keyring "parameter-manager-cmek" \
-             --member "service-PROJECT_NUMBER@gcp-sa-pm.iam.gserviceaccount.com" \
+             --member "serviceAccount:service-PROJECT_NUMBER@gcp-sa-pm.iam.gserviceaccount.com" \
              --role "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 
 Replace PROJECT_NUMBER with the project number of the Google Cloud project where the parameter is stored.
@@ -883,7 +883,7 @@ To change the encryption key used to protect your data, follow these steps:
              --project "KMS_PROJECT_ID" \
              --location "LOCATION" \
              --keyring "parameter-manager-cmek" \
-             --member "service-PROJECT_NUMBER@gcp-sa-pm.iam.gserviceaccount.com" \
+             --member "serviceAccount:service-PROJECT_NUMBER@gcp-sa-pm.iam.gserviceaccount.com" \
              --role "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 
   3. Modify the CMEK configuration on a parameter by updating the parameter to use the new Cloud KMS key resource names.
@@ -1239,7 +1239,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
          #
          def update_param_kms_key project_id:, parameter_id:, kms_key:
            # Create a Parameter Manager client.
-           client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
+           client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
          
            # Build the resource name of the parent project.
            name = client.[parameter_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager-V1-ParameterManager-Paths.html) project: project_id, location: "global", parameter: parameter_id
@@ -1646,7 +1646,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
            api_endpoint = "parametermanager.#{location_id}.rep.googleapis.com"
          
            # Create the Parameter Manager client.
-           client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
+           client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
              config.endpoint = api_endpoint
            end
          
@@ -2055,7 +2055,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     #
     def remove_param_kms_key project_id:, parameter_id:
       # Create a Parameter Manager client.
-      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
+      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html)
     
       # Build the resource name of the parent project.
       name = client.[parameter_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager-V1-ParameterManager-Paths.html) project: project_id, location: "global", parameter: parameter_id
@@ -2445,7 +2445,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
       api_endpoint = "parametermanager.#{location_id}.rep.googleapis.com"
     
       # Create the Parameter Manager client.
-      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
+      client = Google::Cloud::[ParameterManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest/Google-Cloud-ParameterManager.html).[parameter_manager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest/Google-Cloud-ParameterManager.html) do |config|
         config.endpoint = api_endpoint
       end
     
@@ -2493,6 +2493,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

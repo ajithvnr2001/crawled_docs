@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/snowflake-sql/
 title: Snowflake SQL translation guide \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:30.216521+00:00
+fetched_at: 2026-11-04T07:48:01.376276+00:00
 ---
 
 # Snowflake SQL translation guide  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Snowflake SQL translation guide
 
-This document details the similarities and differences in SQL syntax between Snowflake and BigQuery to help accelerate the planning and execution of moving your EDW (Enterprise Data Warehouse) to BigQuery. Snowflake data warehousing is designed to work with Snowflake-specific SQL syntax. Scripts written for Snowflake might need to be altered before you can use them in BigQuery, because the SQL dialects vary between the services. Use [batch SQL translation](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator) to migrate your SQL scripts in bulk, or [interactive SQL translation](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator) to translate ad hoc queries. Snowflake SQL is supported by both tools in [preview](https://cloud.google.com/products#product-launch-stages).
+This document details the similarities and differences in SQL syntax between Snowflake and BigQuery to help accelerate the planning and execution of moving your EDW (Enterprise Data Warehouse) to BigQuery. Snowflake data warehousing is designed to work with Snowflake-specific SQL syntax. Scripts written for Snowflake might need to be altered before you can use them in BigQuery, because the SQL dialects vary between the services. Use [batch SQL translation](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator) to migrate your SQL scripts in bulk, or [interactive SQL translation](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator) to translate ad hoc queries. Snowflake SQL is supported by both tools.
 
 **Note:** In some cases, there is no direct mapping between a SQL element in Snowflake and BigQuery. However, in most cases, you can achieve the same functionality in BigQuery that you can in Snowflake using an alternative means, as shown in the examples in this document.
 
@@ -63,8 +63,8 @@ The `STRING` data type in BigQuery is stored as variable length UTF-8 encoded Un
 `[TIME](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#time)` | `[TIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#time_type)` | The TIME type in Snowflake supports 0 to 9 nanoseconds of precision, whereas the TIME type in BigQuery supports 0 to 6 nanoseconds of precision.  
 `[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#timestamp)` | `[DATETIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#datetime_type)` | `TIMESTAMP` is a user-configurable alias which defaults to `[TIMESTAMP_NTZ](https://docs.snowflake.com/en/sql-reference/data-types-datetime#timestamp-ltz-timestamp-ntz-timestamp-tz)` which maps to `DATETIME` in BigQuery.  
 `[TIMESTAMP_LTZ](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#timestamp-ltz-timestamp-ntz-timestamp-tz)` | `[TIMESTAMP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp_type)` |   
-`[TIMESTAMP_NTZ/DATETIME``](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#timestamp-ltz-timestamp-ntz-timestamp-tz) `  
-`[DATETIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#datetime_type)` |  | `[TIMESTAMP_TZ](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#timestamp-ltz-timestamp-ntz-timestamp-tz)` | `[TIMESTAMP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp_type)` |   
+`[TIMESTAMP_NTZ/DATETIME](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#timestamp-ltz-timestamp-ntz-timestamp-tz)` | `[DATETIME](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#datetime_type)` |   
+`[TIMESTAMP_TZ](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#timestamp-ltz-timestamp-ntz-timestamp-tz)` | `[TIMESTAMP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp_type)` |   
 `[OBJECT](https://docs.snowflake.com/en/sql-reference/data-types-semistructured.html#object)` | `[JSON](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#json_type)` |   
   
 `[VARIANT](https://docs.snowflake.com/en/sql-reference/data-types-semistructured#variant)` | `[JSON](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#json_type)` |    
@@ -110,7 +110,7 @@ Note: BigQuery supports using ANY TYPE as argument type. The function will accep
   
 BigQuery also supports the `CREATE FUNCTION IF NOT EXISTS` statement which treats the query as successful and takes no action if a function with the same name already exists.
 
-BigQuery's `CREATE FUNCTION` statement also supports creating [`TEMPORARY or TEMP functions`](https://docs.cloud.google.com/bigquery/docs/user-defined-functions), which do not have a Snowflake equivalent. See [calling UDFs](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/syntax#calling_persistent_user-defined_functions_udfs) for details on executing a BigQuery persistent UDF.
+BigQuery's `CREATE FUNCTION` statement also supports creating [`TEMPORARY or TEMP functions`](https://docs.cloud.google.com/bigquery/docs/user-defined-functions), which do not have a Snowflake equivalent. See [calling UDFs](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/functions-reference#calling_persistent_user-defined_functions_udfs) for details on executing a BigQuery persistent UDF.
 
 ## `DROP FUNCTION` syntax
 
@@ -149,7 +149,7 @@ In Snowflake, [SHOW USER FUNCTIONS](https://docs.snowflake.net/manuals/sql-refer
 
 ## Stored procedures
 
-Snowflake [stored procedures](https://docs.snowflake.net/manuals/sql-reference/stored-procedures-usage.html) are written in JavaScript, which can execute SQL statements by calling a JavaScript API. In BigQuery, stored procedures are defined using a [block](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/scripting#begin) of SQL statements.
+Snowflake [stored procedures](https://docs.snowflake.net/manuals/sql-reference/stored-procedures-usage.html) are written in JavaScript, which can execute SQL statements by calling a JavaScript API. In BigQuery, stored procedures are defined using a [block](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#begin) of SQL statements.
 
 ### `CREATE PROCEDURE` syntax
 
@@ -255,6 +255,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/troubleshoot-quotas/
 title: Troubleshoot quota and limit errors \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:06.754066+00:00
+fetched_at: 2026-11-04T07:48:04.163690+00:00
 ---
 
 # Troubleshoot quota and limit errors  |  BigQuery  |  Google Cloud Documentation
@@ -180,7 +180,7 @@ To resolve this quota error, do the following:
 
 
 
-For more information about streaming inserts, see [streaming data into BigQuery](https://docs.cloud.google.com/bigquery/docs/streaming-data-into-bigquery).
+For more information about streaming inserts, see [streaming data into BigQuery](https://docs.cloud.google.com/bigquery/docs/write-api-rest).
 
 ### Streaming table creation rate limit errors
 
@@ -373,7 +373,7 @@ It might take several days to review and process the request.
 
 BigQuery returns this error when you reach the rate limit for the number of API requests to a BigQuery API per user per method—for example, the [`tables.get` method](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/get) calls from a service account, or the [`jobs.insert` method](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/jobs/insert) calls from a different user email—or when a user exceeds the rate limit for `INFORMATION_SCHEMA` queries.
 
-Most BigQuery API core methods have a maximum of 100 API requests per user per method; however, some of these core methods can have different rate limits; for example:
+Most BigQuery API core methods have a maximum of 100 API requests per second per user per method; however, some of these core methods can have different rate limits; for example:
 
   * The [`jobs.get` method](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/jobs/get) has a limit of 1000 API requests per user per second.
   * The [`projects.list` method](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/projects/list) and the [`tables.insert` method](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/insert) both have a limit of 10 requests per user per second.
@@ -1164,6 +1164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

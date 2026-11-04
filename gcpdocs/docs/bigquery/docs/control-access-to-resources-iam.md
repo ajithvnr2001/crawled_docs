@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam/
 title: Control access to resources with IAM \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:25.977793+00:00
+fetched_at: 2026-11-04T07:47:56.930146+00:00
 ---
 
 # Control access to resources with IAM  |  BigQuery  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ This document assumes familiarity with [IAM](https://docs.cloud.google.com/iam/d
   * Routines inside external or linked datasets don't support access controls.
   * Tables inside external or linked datasets don't support access controls.
   * Routine access controls can't be set with Terraform.
-  * Routine access controls can't be set with the Google Cloud SDK.
+  * Routine access controls can't be set with the Google Cloud CLI.
   * Routine access controls can't be set using the [BigQuery data control language (DCL)](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language).
   * The [`INFORMATION_SCHEMA.OBJECT_PRIVILEGES` view](https://docs.cloud.google.com/bigquery/docs/information-schema-object-privileges) doesn't show access controls for routines.
 
@@ -1810,7 +1810,7 @@ Before trying this sample, follow the Node.js setup instructions in the [BigQuer
 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
 
-Call the [`Table#getIamPolicy()` function](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#_google_cloud_bigquery_Table_getIamPolicy_member_1_) to retrieve the current IAM policy for a table or view, modify the policy by adding new bindings, and then use [`Table#setIamPolicy()` function](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#setiampolicy) to save changes to the access policy. 
+Call the [`Table#getIamPolicy()` function](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#_google_cloud_bigquery_Table_getIamPolicy_member_1_) to retrieve the current IAM allow policy for a table or view, modify the policy by adding new bindings, and then use [`Table#setIamPolicy()` function](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#setiampolicy) to save changes to the access policy. 
     
     
     /**
@@ -2216,7 +2216,7 @@ Before trying this sample, follow the Node.js setup instructions in the [BigQuer
 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
 
-Retrieve the IAM policy for a table or view using the [`Table#getIamPolicy()` function](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#_google_cloud_bigquery_Table_getIamPolicy_member_1_y). The access policy details are available in the returned policy object. 
+Retrieve the IAM allow policy for a table or view using the [`Table#getIamPolicy()` function](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#_google_cloud_bigquery_Table_getIamPolicy_member_1_y). The access policy details are available in the returned policy object. 
     
     
     /**
@@ -2524,7 +2524,7 @@ Before trying this sample, follow the Node.js setup instructions in the [BigQuer
 
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
 
-Retrieve the current IAM policy for a table or view using the [`Table#getIamPolicy()`](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#_google_cloud_bigquery_Table_getIamPolicy_member_1_y) method. Modify the policy to remove the desired role or principal, and then apply the updated policy using the [`Table#setIamPolicy()`](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#setiampolicy) method. 
+Retrieve the current IAM allow policy for a table or view using the [`Table#getIamPolicy()`](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#_google_cloud_bigquery_Table_getIamPolicy_member_1_y) method. Modify the policy to remove the desired role or principal, and then apply the updated policy using the [`Table#setIamPolicy()`](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/table#setiampolicy) method. 
     
     
     /**
@@ -2937,7 +2937,7 @@ You can examine the inherited IAM roles for a resource by using the BigQuery web
 ![The Inherited from a parent resource icon](https://docs.cloud.google.com/bigquery/images/inherited-icon.png)
 
 
-**Note:** You can also [view all allow and deny policies](https://docs.cloud.google.com/iam/docs/troubleshoot-policies#applicable-policies) for a resource's parent project, folder, and organization by using the [`gcloud beta projects get-ancestors-iam-policy` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/projects/get-ancestors-iam-policy).
+**Note:** You can also [view all allow and deny policies](https://docs.cloud.google.com/iam/docs/troubleshoot-policies#applicable-policies) for a resource's parent project, folder, and organization by using the [`gcloud projects get-ancestors-iam-policy` command](https://docs.cloud.google.com/sdk/gcloud/reference/projects/get-ancestors-iam-policy).
 
 ## Deny access to a resource
 
@@ -3007,6 +3007,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

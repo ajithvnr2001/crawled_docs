@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/entity-resolution-setup/
 title: Configure and use entity resolution in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:30.222735+00:00
+fetched_at: 2026-11-04T07:48:41.151762+00:00
 ---
 
 # Configure and use entity resolution in BigQuery  |  Google Cloud Documentation
@@ -273,8 +273,8 @@ After you configure your tables and grant dataset access, you can start an entit
     
     
     CALL `PROJECT_ID.DATASET_ID.TransUnion_get_identities`(
-      "PROJECT_ID.DATASET_ID.TransUnion_er_metadata",
-      "CONFIG_ID");
+      &quot;PROJECT_ID.DATASET_ID.TransUnion_er_metadata&quot;,
+      &quot;CONFIG_ID");
     
 
 Replace the following:

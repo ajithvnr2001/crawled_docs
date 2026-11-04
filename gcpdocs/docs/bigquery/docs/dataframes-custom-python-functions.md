@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/dataframes-custom-python-functions/
 title: Customize Python functions for BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:41.996885+00:00
+fetched_at: 2026-11-04T07:13:01.312617+00:00
 ---
 
 # Customize Python functions for BigQuery DataFrames  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## User-defined functions (UDFs)
 
-With UDFs ([Preview](https://cloud.google.com/products/#product-launch-stages)), you can turn your custom Python function into a [Python UDF](https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python). For an example usage, see [Create a persistent Python UDF](https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python#bigquery-dataframes).
+With UDFs ([Preview](https://cloud.google.com/products/#product-launch-stages)), you can turn your custom Python function into a [Python UDF](https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python). For an example usage, see [Create a persistent Python UDF](https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python#create-python-udf).
 
 Creating a UDF in BigQuery DataFrames creates a BigQuery routine as the Python UDF in the specified dataset. For a full set of supported parameters, see [bigframes.pandas.udf](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.udf.html#bigframes.pandas.udf).
 
@@ -67,7 +67,7 @@ The BigQuery DataFrames UDF deploys a user-defined BigQuery Python function, and
 
 ## Remote functions
 
-BigQuery DataFrames lets you turn your custom scalar functions into [BigQuery remote functions](https://docs.cloud.google.com/bigquery/docs/remote-functions). For an example usage, see [Create a remote function](https://docs.cloud.google.com/bigquery/docs/remote-functions#bigquery-dataframes). For a full set of supported parameters, see [remote_function](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.remote_function.html#bigframes.pandas.remote_function).
+BigQuery DataFrames lets you turn your custom scalar functions into [BigQuery remote functions](https://docs.cloud.google.com/bigquery/docs/remote-functions). For an example usage, see [Create a remote function](https://docs.cloud.google.com/bigquery/docs/remote-functions#create_a_remote_function). For a full set of supported parameters, see [remote_function](https://dataframes.bigquery.dev/reference/api/bigframes.pandas.remote_function.html#bigframes.pandas.remote_function).
 
 Creating a remote function in BigQuery DataFrames creates the following:
 
@@ -193,6 +193,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image/workbench-container-slim/
 title: Image release notes: workbench-container-slim \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:13.648002+00:00
+fetched_at: 2026-11-04T08:00:56.280961+00:00
 ---
 
 # Image release notes: workbench-container-slim  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation
@@ -27,6 +27,24 @@ This page documents image releases for the `workbench-container-slim` image fami
 For the versioning scheme and lifecycle dates, see [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning). For product-level updates that aren't specific to an image, see [Agent Platform Workbench release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes). 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## November 01, 2026
+
+Change
+
+### 20261101-2230-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated the CA certificate configuration.
+
+Security
+
+Upgraded the container host to the latest Container-Optimized OS LTS release, rebasing onto the newest operating system, Go, and containerd security fixes.
 
 ## October 25, 2026
 

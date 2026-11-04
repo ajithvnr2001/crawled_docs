@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-quickstart/
 title: Bigtable quickstart \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:26.374013+00:00
+fetched_at: 2026-11-04T07:48:22.797398+00:00
 ---
 
 # Bigtable quickstart  |  Google Cloud Documentation
@@ -306,25 +306,25 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     import argparse
     
-    from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
+    from google.cloud.bigtable.data import BigtableDataClient
     
     
     def main(project_id="project-id", instance_id="instance-id", table_id="my-table"):
         # Create a Cloud Bigtable client.
-        client = [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html)(project=project_id)
-    
-        # Connect to an existing Cloud Bigtable instance.
-        instance = [client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.html).[instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html#google_cloud_bigtable_client_Client_instance)(instance_id)
+        client = BigtableDataClient(project=project_id)
     
         # Open an existing table.
-        table = instance.table(table_id)
+        table = client.get_table(instance_id, table_id)
     
         row_key = "r1"
-        row = table.read_row(row_key.encode("utf-8"))
+        row = table.read_row(row_key)
     
         column_family_id = "cf1"
-        column_id = "c1".encode("utf-8")
-        value = row.[cells](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.row.PartialRowData.html#google_cloud_bigtable_row_PartialRowData_cells)[column_family_id][column_id][0].value.decode("utf-8")
+        column_id = b"c1"
+        value = [row](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row.html).[get_cells](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row.Row.html#google_cloud_bigtable_data_row_Row_get_cells)(column_family_id, column_id)[0].value.decode("utf-8")
+    
+        table.close()
+        client.close()
     
         print("Row key: {}\nData: {}".format(row_key, value))
     
@@ -343,6 +343,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
         args = parser.parse_args()
         main(args.project_id, args.instance_id, args.table)
+    
 
 ### Ruby
 
@@ -355,7 +356,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     require "google/cloud/bigtable"
     
     # Instantiates a client
-    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
+    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable-v2/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
     
     # Your Cloud Bigtable instance ID
     # instance_id = "my-instance"

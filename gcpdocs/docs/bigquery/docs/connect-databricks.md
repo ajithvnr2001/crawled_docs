@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connect-databricks/
 title: Connect to Databricks \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:46.472111+00:00
+fetched_at: 2026-11-04T07:47:55.242982+00:00
 ---
 
 # Connect to Databricks  |  BigQuery  |  Google Cloud Documentation
@@ -199,7 +199,7 @@ The following SQL query allows you to visualize the word count in Shakespeare af
 
 **Note:** The output is in tabular format by default. To change it to a bar graph, click the bar graph icon to select from the available Databricks visualizations.
 
-The cell runs a Apache Spark SQL query against the dataframe in your Databricks cluster, not in BigQuery. The benefit of this approach is that data analysis occurs on a Apache Spark level, no further BigQuery API calls are issued, and you incur no additional BigQuery costs.
+The cell runs an Apache Spark SQL query against the dataframe in your Databricks cluster, not in BigQuery. The benefit of this approach is that data analysis occurs on an Apache Spark level, no further BigQuery API calls are issued, and you incur no additional BigQuery costs.
 
   3. As an alternative, you can delegate the execution of a SQL query to BigQuery with the `query()` API and optimize for reducing the transfer size of the resulting data frame. Unlike in the previous example, where the processing was done in Apache Spark, if you use this approach, pricing and query optimizations apply for executing the query on BigQuery.
 
@@ -241,7 +241,7 @@ BigQuery tables exist in [datasets](https://docs.cloud.google.com/bigquery/docs/
 
   2. Expand the more_vert **Actions** option, click **Create dataset** , and then name it `together`.
 
-  3. In the Databricks Python notebook, create a Apache Spark dataframe from a Python list with three string entries using the following code snippet:
+  3. In the Databricks Python notebook, create an Apache Spark dataframe from a Python list with three string entries using the following code snippet:
          
          from pyspark.sql.types import StringType
          mylist = ["Google", "Databricks", "better together"]
@@ -293,6 +293,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

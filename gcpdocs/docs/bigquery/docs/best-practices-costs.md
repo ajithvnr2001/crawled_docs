@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-costs/
 title: Estimate and control costs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:31.861211+00:00
+fetched_at: 2026-11-04T07:48:15.479459+00:00
 ---
 
 # Estimate and control costs  |  BigQuery  |  Google Cloud Documentation
@@ -679,9 +679,9 @@ If the billing amount is larger than the value you calculated by querying the `I
 
 The general advice is following the recommended way of calculating the on-demand job usage for billing in our [public documentation](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs#compare_on-demand_job_usage_to_billing_data).
 
-#### Billed for BigQuery Reservations API usage even though the API is disabled and not reservations or commitments used
+#### Billed for BigQuery Reservation API usage even though the API is disabled and not reservations or commitments used
 
-Inspect the SKU to better understand what services are charged. If the SKU billed is `BigQuery Governance SKU`—these are charges coming from Knowledge Catalog. Some Knowledge Catalog functionalities trigger job execution using BigQuery. These charges are now processed under the corresponding BigQuery Reservations API SKU. See the [Knowledge Catalog Pricing](https://cloud.google.com/dataplex/pricing?e=48754805#dataplex-universal-catalog-pricing) documentation for more details.
+Inspect the SKU to better understand what services are charged. If the SKU billed is `BigQuery Governance SKU`—these are charges coming from Knowledge Catalog. Some Knowledge Catalog functionalities trigger job execution using BigQuery. These charges are now processed under the corresponding BigQuery Reservation API SKU. See the [Knowledge Catalog Pricing](https://cloud.google.com/dataplex/pricing?e=48754805#dataplex-universal-catalog-pricing) documentation for more details.
 
 #### Project is assigned to a reservation, but still seeing BigQuery Analysis on-demand costs
 
@@ -695,7 +695,7 @@ In the Cloud Billing report, apply a filter with the label `goog-bq-feature-type
 
 In the Cloud Billing report, apply a filter with the label `goog-bq-feature-type` with the value `SPARK_PROCEDURE`. The usage you will see is metered as pay-as-you go slots under the [BigQuery Enterprise edition](https://docs.cloud.google.com/bigquery/docs/editions-intro). These are charges for using the [BigQuery Apache Spark procedures](https://docs.cloud.google.com/bigquery/docs/spark-procedures#pricing), which are charged this way regardless of the computing model used by the project.
 
-#### BigQuery Reservations API charges appearing after the Reservation API is disabled
+#### BigQuery Reservation API charges appearing after the Reservation API is disabled
 
 Disabling the BigQuery won't stop commitment charges. In order to stop commitment charges, you will need to delete a commitment. Set the renewal plan to `NONE`, and the commitment will be automatically deleted when it expires.
 
@@ -751,6 +751,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/search-allow-policies/
 title: Search for IAM allow policies on resources \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:41:15.051149+00:00
+fetched_at: 2026-11-04T07:48:27.789140+00:00
 ---
 
 # Search for IAM allow policies on resources  |  Cloud Asset Inventory  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-create-table/
 title: Create a table \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:02.533327+00:00
+fetched_at: 2026-11-04T07:48:22.598883+00:00
 ---
 
 # Create a table  |  Bigtable  |  Google Cloud Documentation
@@ -213,18 +213,31 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.api_core.exceptions import AlreadyExists
+    
+    from google.cloud import bigtable_admin_v2
+    
+    # the data client only supports the data API. Table creation is an admin operation
+    # use admin client to create the table
     print("Creating the {} table.".format(table_id))
-    table = instance.table(table_id)
+    admin_client = bigtable_admin_v2.[BigtableTableAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html)()
+    instance_path = admin_client.[instance_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_instance_path)(project_id, instance_id)
     
     print("Creating column family cf1 with Max Version GC rule...")
     # Create a column family with GC policy : most recent N versions
     # Define the GC policy to retain only the most recent 2 versions
-    max_versions_rule = bigtable.column_family.MaxVersionsGCRule(2)
-    column_family_id = b"cf1"
-    column_families = {column_family_id: max_versions_rule}
-    if not table.exists():
-        table.create(column_families=column_families)
-    else:
+    max_versions_rule = bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(max_num_versions=2)
+    column_family_id = "cf1"
+    column_families = {
+        column_family_id: bigtable_admin_v2.[ColumnFamily](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ColumnFamily.html)(gc_rule=max_versions_rule)
+    }
+    try:
+        admin_client.[create_table](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_create_table)(
+            parent=instance_path,
+            table_id=table_id,
+            table=bigtable_admin_v2.[Table](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.Table.html)(column_families=column_families),
+        )
+    except AlreadyExists:
         print("Table {} already exists.".format(table_id))
 
 ### Ruby

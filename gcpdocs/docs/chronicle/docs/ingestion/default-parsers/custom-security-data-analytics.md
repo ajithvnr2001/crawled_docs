@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/
 title: Collect Custom Security Data Analytics logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:27.211848+00:00
+fetched_at: 2026-11-04T07:51:16.461775+00:00
 ---
 
 # Collect Custom Security Data Analytics logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ Use this method when your custom security application can send HTTP POST request
 
 #### Create the feed
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `custom-security-analytics-webhook`).
@@ -427,7 +427,7 @@ Configure your custom security application to write log files to the S3 bucket. 
 
 ### Configure Google SecOps feed for S3
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `custom-security-analytics-s3`).
@@ -526,7 +526,7 @@ Configure your custom security application to write log files to the GCS bucket 
 
 ### Get Google SecOps service account
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `custom-security-analytics-gcs`).
@@ -561,7 +561,7 @@ Configure your custom security application to write log files to the GCS bucket 
 
 ### Configure Google SecOps feed for GCS
 
-  1. Continue from the feed creation page (or go to **SIEM Settings > Feeds > Add New Feed**).
+  1. Continue from the feed creation page (or go to **Settings > Data Management > Feeds > Add New Feed**).
   2. Click **Next**.
   3. Specify values for the following input parameters:
 
@@ -690,7 +690,7 @@ Configure your custom security application to write log files to the Azure Blob 
 
 ### Configure Google SecOps feed for Azure Blob
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `custom-security-analytics-azure`).
@@ -731,7 +731,7 @@ Use this method when your custom security application writes logs to Amazon Clou
 
 ### Create Google SecOps Firehose feed
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. In the **Feed name** field, enter a name for the feed (for example, `custom-security-analytics-firehose`).
   4. Select **Amazon Data Firehose** as the **Source type**.
@@ -918,7 +918,7 @@ Create a custom parser when:
 
 ### Create custom log type
 
-  1. Go to **SIEM Settings > Available Log Types**.
+  1. Go to **Settings > Data Management > Available Log Types**. If you are on a SIEM-only platform, go to **Settings > Available Log Types**.
   2. Click **Request a Log Type**.
   3. Under the **Create a custom log type or request a prebuilt log type** section, select **Create a custom log type**.
   4. Provide the following information: 
@@ -932,7 +932,7 @@ Create a custom parser when:
 
 ### Create custom parser
 
-  1. Go to **SIEM Settings > Parsers**.
+  1. Go to **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Click **Create Parser**.
   3. Select **Custom Parser**.
   4. Provide the following information: 
@@ -993,7 +993,7 @@ After you configure your feed, verify that data is being ingested successfully.
 
 ### Check feed status
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Find your feed in the list.
   3. Check the **Status** column: 
      * **Active** : Feed is running and ingesting data
@@ -1021,7 +1021,7 @@ After you configure your feed, verify that data is being ingested successfully.
 
 ### Monitor feed metrics
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click on your feed name.
   3. Go to the **Metrics** tab.
   4. Review the following metrics: 
@@ -1113,6 +1113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

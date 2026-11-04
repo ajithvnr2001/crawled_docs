@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-performance-compute/
 title: Optimize query computation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:31.163917+00:00
+fetched_at: 2026-11-04T07:48:17.689821+00:00
 ---
 
 # Optimize query computation  |  BigQuery  |  Google Cloud Documentation
@@ -346,7 +346,7 @@ You can overcome the limitation on cached result size by using the following opt
 
 
 
-You can page through the results using the BigQuery REST API. For more information, see [Paging through table data](https://docs.cloud.google.com/bigquery/docs/paging-results).
+You can page through the results using the BigQuery API. For more information, see [Paging through table data](https://docs.cloud.google.com/bigquery/docs/paging-results).
 
 **Note:** Writing very large result sets to destination tables impacts query performance (I/O). In addition, you incur a small cost for storing the destination table. You can automatically delete a large destination table by using the dataset's [default table expiration](https://docs.cloud.google.com/bigquery/docs/datasets#create-dataset). For more information, see [Use the expiration settings](https://docs.cloud.google.com/bigquery/docs/best-practices-storage#use-expiration-settings) in the storage best practices.
 
@@ -356,7 +356,7 @@ The following best practices provide guidance on avoiding query anti-patterns th
 
 ### Avoid self joins
 
-**Best practice:** Instead of using self-joins, use a [window (analytic) function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/analytic-function-concepts) or the [`PIVOT` operator](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#pivot_operator).
+**Best practice:** Instead of using self-joins, use a [window (analytic) function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/window-function-calls) or the [`PIVOT` operator](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#pivot_operator).
 
 Typically, self-joins are used to compute row-dependent relationships. The result of using a self-join is that it potentially squares the number of output rows. This increase in output data can cause poor performance.
 
@@ -381,9 +381,9 @@ To avoid performance issues associated with joins that generate more outputs tha
 
 Using point-specific DML statements is an attempt to treat BigQuery like an Online Transaction Processing (OLTP) system. BigQuery focuses on Online Analytical Processing (OLAP) by using table scans and not point lookups. If you need OLTP-like behavior (single-row updates or inserts), consider a database designed to support OLTP use cases such as [Cloud SQL](https://docs.cloud.google.com/sql/docs).
 
-BigQuery DML statements are intended for bulk updates. `UPDATE` and `DELETE` DML statements in BigQuery are oriented towards periodic rewrites of your data, not single row mutations. The `INSERT` DML statement is intended to be used sparingly. Inserts consume the same modification [quotas](https://docs.cloud.google.com/bigquery/quotas#data-manipulation-language-statements) as load jobs. If your use case involves frequent single row inserts, consider [streaming](https://docs.cloud.google.com/bigquery/docs/streaming-data-into-bigquery) your data instead.
+BigQuery DML statements are intended for bulk updates. `UPDATE` and `DELETE` DML statements in BigQuery are oriented towards periodic rewrites of your data, not single row mutations. The `INSERT` DML statement is intended to be used sparingly. Inserts are subject to DML [quotas](https://docs.cloud.google.com/bigquery/quotas#data-manipulation-language-statements). If your use case involves frequent single row inserts, consider [streaming](https://docs.cloud.google.com/bigquery/docs/write-api-rest) your data instead.
 
-If batching your `UPDATE` statements yields many tuples in very long queries, you might approach the query length limit of 256 KB. To work around the query length limit, consider whether your updates can be handled based on a logical criteria instead of a series of direct tuple replacements.
+If batching your `UPDATE` statements yields many tuples in very long queries, you might approach the query length limit of 1 MB. To work around the query length limit, consider whether your updates can be handled based on a logical criteria instead of a series of direct tuple replacements.
 
 For example, you could load your set of replacement records into another table, then write the DML statement to update all values in the original table if the non-updated columns match. For example, if the original data is in table `t` and the updates are staged in table `u`, the query would look like the following:
     
@@ -429,6 +429,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

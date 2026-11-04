@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-authorized-views/
 title: Create an authorized view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:37.274129+00:00
+fetched_at: 2026-11-04T07:48:31.353092+00:00
 ---
 
 # Create an authorized view  |  BigQuery  |  Google Cloud Documentation
@@ -162,13 +162,13 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     client = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html)()
     source_dataset_id = "github_source_data"
-    source_dataset_id_full = "{}.{}".format(client.project, source_dataset_id)
+    source_dataset_id_full = "{}.{}".format(client.project, source_dataset_id)[
     
     
-    source_dataset = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html)(source_dataset_id_full)
+    sourc](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)e[_datase](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html)t = bigquery.Dataset(source_dataset_id_full)
     # Specify the geographic location where the dataset should reside.
-    source_dataset.location = "US"
-    source_dataset = client.[create_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_dataset)(source_dataset)  # API request
+    source_dataset.location = "US&[quot;](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_dataset)
+    source_dataset = client.create_dataset(source_dataset)  # API request
 
 ## Create a table and load your source data
 
@@ -663,13 +663,13 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     Table view =
         bigquery.create(TableInfo.of(TableId.of(sharedDatasetId, sharedViewId), viewDefinition));
     
-    // Assign access controls to the dataset containing the view
-    List<Acl> viewAcl = new ArrayList<>(sharedDataset.getAcl());
+    // Assign access controls< to> the dataset containing <>the view
+    ListAcl viewAcl = new ArrayList(sharedDataset.getAcl());
     viewAcl.add(Acl.of(new Acl.Group("example-analyst-group@google.com"), Acl.Role.READER));
     sharedDataset.toBuilder().setAcl(viewAcl).build().update();
     
-    // Authorize the view to access the source dataset
-    List<Acl> srcAcl = new ArrayList<>(sourceDataset.getAcl());
+    // Au<tho>rize the view to access<> the source dataset
+    ListAcl srcAcl = new ArrayList(sourceDataset.getAcl());
     srcAcl.add(Acl.of(new Acl.View(view.getTableId())));
     sourceDataset.toBuilder().setAcl(srcAcl).build().update();
 
@@ -686,24 +686,24 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     client = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html)()
     source_dataset_id = "github_source_data"
-    source_dataset_id_full = "{}.{}".format(client.project, source_dataset_id)
+    source_dataset_id_full = "{}.{}".format(client.project, source_dataset_id)[
     
     
-    source_dataset = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html)(source_dataset_id_full)
+    sourc](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)e[_datase](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html)t = bigquery.Dataset(source_dataset_id_full)
     # Specify the geographic location where the dataset should reside.
-    source_dataset.location = "US"
-    source_dataset = client.[create_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_dataset)(source_dataset)  # API request
+    source_dataset.location = "US&[quot;](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_dataset)
+    source_dataset = client.create_dataset(source_dataset)  # API request
     
     # Populate a source table
-    source_table_id = "github_contributors"
-    job_config = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[QueryJobConfig](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.job.QueryJobConfig.html)()
-    job_config.destination = source_dataset.[table](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_table)(source_table_id)
+    source_table_id = "[;github_](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)c[ontributors&qu](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.job.QueryJobConfig.html)ot;
+    job_config = bigquery.QueryJobConfig()
+    [job_c](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_table)onfig.destination = source_dataset.table(source_table_id)
     sql = """
         SELECT commit, author, committer, repo_name
-        FROM `bigquery-public-data.github_repos.commits`
+        FROM `bigquery-publi[c-data.github_](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_query_and_wait)repos.commits`
         LIMIT 1000
     """
-    client.[query_and_wait](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_query_and_wait)(
+    client.query_and_wait(
         sql,
         # Location must match that of the dataset(s) referenced in the query
         # and of the destination table.
@@ -713,46 +713,46 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     # Create a separate dataset to store your view
     shared_dataset_id = "shared_views"
-    shared_dataset_id_full = "{}.{}".format(client.project, shared_dataset_id)
+    shar[ed_datas](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)e[t_id_fu](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html)ll = "{}.{}".format(client.project, shared_dataset_id)
     
     
-    shared_dataset = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html)(shared_dataset_id_full)
+    shared_datase[t](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_dataset) = bigquery.Dataset(shared_dataset_id_full)
     shared_dataset.location = "US"
-    shared_dataset = client.[create_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_dataset)(shared_dataset)  # API request
+    shared_dataset = client.create_dataset(share[d_datase](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)t[)  # ](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.table.Table.html)API request
     
-    # Create the view in the new dataset
+    # C[reate](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_table) the view in the new dataset
     shared_view_id = "github_analyst_view"
-    view = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Table](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.table.Table.html)(shared_dataset.[table](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_table)(shared_view_id))
-    sql_template = """
-        SELECT
+    view = bigquery.Table(shared_dataset.table(shared_view_id))
+    sql_template = ""&[quot](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html#google_cloud_bigquery_dataset_AccessEntry_view);[
+        SELEC](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.table.Table.html#google_cloud_bigquery_table_Table_view_query)T
             commit, author.name as author,
             committer.name as committer, repo_name
-        FROM
+        FRO[M](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_table)
             `{}.{}.{}`
     """
-    [view](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html#google_cloud_bigquery_dataset_AccessEntry_view).[view_query](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.table.Table.html#google_cloud_bigquery_table_Table_view_query) = sql_template.format(
+    view.view_query = sql_template.format(
         client.project, source_dataset_id, source_table_id
     )
-    view = client.[create_table](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_create_table)(view)  # API request
+    view = client.create_table(view)  # API req[uest](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)
     
-    # Assign access controls to the dataset containing the view
-    # analyst_group_email = 'data_analysts@example.com'
-    access_entries = shared_dataset.[access_entries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)
-    [access_entries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries).append(
-        [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[AccessEntry](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html)("READER", [EntityTypes](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.enums.EntityTypes.html).GROUP_BY_EMAIL, analyst_group_email)
+    # Assign [access control](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)s to the data[set cont](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)a[ining the v](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html)iew
+    # analy[st_group_em](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.enums.EntityTypes.html)ail = 'data_analysts@example.com'
+    access_entrie[s](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries) = shared_dataset.access_entries
+    access_entries.append([
+        bigquery.](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)AccessEntry("READER", EntityTypes.GROUP_BY_EMAIL, analyst_group_email)
     )
-    shared_dataset.[access_entries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries) = access_entries
-    shared_dataset = client.[update_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)(
-        shared_dataset, ["access_entries"]
-    )  # API request
+    shared_dataset.access_entries = access_entries
+    shared_data[set](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries) = client.up[date_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)(
+        shared_da[taset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest), [&[quot;access](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html)_entrie[s"](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.enums.EntityTypes.html)]
+    )  # API [requ](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html#google_cloud_bigquery_dataset_AccessEntry_view)est
     
-    # Authorize the view to access the source dataset
-    access_entries = source_dataset.[access_entries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)
-    [access_entries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries).append(
-        [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[AccessEntry](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html)(None, [EntityTypes](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.enums.EntityTypes.html).VIEW, [view](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.AccessEntry.html#google_cloud_bigquery_dataset_AccessEntry_view).reference.to_api_repr())
+    # Authorize the view to access the sou[rce dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries)
+    access_entries = source_dataset.access_entri[es](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)
+    access_entries.append(
+        bigquery.AccessEntry(None, EntityTypes.VIEW, view.reference.to_api_repr())
     )
-    source_dataset.[access_entries](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.dataset.Dataset.html#google_cloud_bigquery_dataset_Dataset_access_entries) = access_entries
-    source_dataset = client.[update_dataset](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_update_dataset)(
+    source_dataset.access_entries = access_entries
+    source_dataset = client.update_dataset(
         source_dataset, ["access_entries"]
     )  # API request
 

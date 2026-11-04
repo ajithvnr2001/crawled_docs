@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/biglake-intro/
 title: Introduction to BigLake tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:06.221766+00:00
+fetched_at: 2026-11-04T07:55:08.619532+00:00
 ---
 
 # Introduction to BigLake tables  |  BigQuery  |  Google Cloud Documentation
@@ -38,8 +38,8 @@ You can use BigLake tables with the following datastores:
 To query data stored in these datastores, you must first create BigLake tables and then query them using GoogleSQL syntax:
 
   * [Create Cloud Storage BigLake tables](https://docs.cloud.google.com/bigquery/docs/create-cloud-storage-table-biglake) and then [query](https://docs.cloud.google.com/bigquery/docs/query-cloud-storage-using-biglake).
-  * [Create Amazon S3 BigLake tables](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table) and then [query](https://docs.cloud.google.com/bigquery/docs/omni-aws-introduction).
-  * [Create Azure Blob Storage BigLake tables](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-external-table) and then [query](https://docs.cloud.google.com/bigquery/docs/omni-aws-introduction).
+  * [Create Amazon S3 BigLake tables](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table) and then [query](https://docs.cloud.google.com/bigquery/docs/omni-introduction).
+  * [Create Azure Blob Storage BigLake tables](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-external-table) and then [query](https://docs.cloud.google.com/bigquery/docs/omni-introduction).
 
 
 
@@ -51,8 +51,8 @@ BigLake tables let you query structured data in external datastores with access 
 
 You can use BigLake tables with the following datastores:
 
-  * [Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-aws-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
-  * [Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
+  * [Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
+  * [Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
   * [Cloud Storage](https://docs.cloud.google.com/bigquery/docs/query-cloud-storage-using-biglake)
 
 
@@ -209,7 +209,7 @@ For example, the following diagram demonstrates how the [BigQuery Storage API](h
 
 ![BigLake architecture.](https://docs.cloud.google.com/static/bigquery/images/biglake_arch.png)
 
-For more information about connectors supported by BigQuery, see [BigQuery connectors](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/bigquery).
+For more information about connectors supported by BigQuery, see [BigQuery connectors](https://docs.cloud.google.com/managed-spark/docs/concepts/connectors/bigquery).
 
 ## BigLake tables on object stores
 
@@ -223,7 +223,7 @@ You can use [external tables](https://docs.cloud.google.com/bigquery/docs/extern
 
   * All [limitations for external tables](https://docs.cloud.google.com/bigquery/docs/external-tables#limitations) apply to BigLake tables.
   * BigLake tables on object stores are subject to the same limitations as BigQuery tables. For more information, see [Quotas](https://docs.cloud.google.com/bigquery/quotas#external_tables).
-  * BigLake does not support downscoped credentials from [Managed Service for Apache Spark Personal Cluster Authentication](https://docs.cloud.google.com/dataproc/docs/concepts/iam/personal-auth). As a workaround, to use clusters with Personal Cluster Authentication, you must inject your credentials using an empty [Credential Access Boundary](https://docs.cloud.google.com/managed-spark/docs/concepts/iam/personal-auth#create_a_cluster_and_enable_an_interactive_session) with the `--access-boundary=<(echo -n "{}")` flag. For example, the following command enables a credential propagation session in a project named `myproject` for the cluster named `mycluster`: 
+  * BigLake does not support downscoped credentials from [Managed Service for Apache Spark Personal Cluster Authentication](https://docs.cloud.google.com/managed-spark/docs/concepts/iam/personal-auth). As a workaround, to use clusters with Personal Cluster Authentication, you must inject your credentials using an empty [Credential Access Boundary](https://docs.cloud.google.com/managed-spark/docs/concepts/iam/personal-auth#create_a_cluster_and_enable_an_interactive_session) with the `--access-boundary=<(echo -n "{}")` flag. For example, the following command enables a credential propagation session in a project named `myproject` for the cluster named `mycluster`: 
         
         gcloud dataproc clusters enable-personal-auth-session \
             --region=us \
@@ -234,7 +234,7 @@ You can use [external tables](https://docs.cloud.google.com/bigquery/docs/extern
 
 **Caution:** Using an empty credential access boundary removes one layer of protection against attacks through stolen credentials from Managed Service for Apache Spark clusters. Stolen credentials have a larger blast radius without downscoping.
 
-As an alternative, you can disable Personal Cluster Authentication and use the [Managed Service for Apache Spark virtual machine (VM) service account](https://docs.cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts) as a proxy for user groups.
+As an alternative, you can disable Personal Cluster Authentication and use the [Managed Service for Apache Spark virtual machine (VM) service account](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/service-accounts) as a proxy for user groups.
 
   * BigLake tables are read-only. You cannot modify BigLake tables using DML statements or other methods.
 
@@ -344,9 +344,9 @@ To find information about metadata refresh jobs, query the [`INFORMATION_SCHEMA.
     ORDER BY start_time DESC
     LIMIT 10;
 
-For Cloud Storage BigLake tables that are based on Parquet files, [table statistics](https://docs.cloud.google.com/bigquery/docs/metadata-caching#table_statistics) are collected during the metadata cache refresh and used to improve query plans.
+For Cloud Storage BigLake tables that are based on Parquet files, [table statistics](https://docs.cloud.google.com/bigquery/docs/metadata-caching-external-tables#table_statistics) are collected during the metadata cache refresh and used to improve query plans.
 
-To learn more, see [Metadata caching](https://docs.cloud.google.com/bigquery/docs/metadata-caching).
+To learn more, see [Metadata caching](https://docs.cloud.google.com/bigquery/docs/metadata-caching-external-tables).
 
 For more information on setting metadata caching options, see [Create Amazon S3 BigLake tables](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table) or [Create Cloud Storage BigLake tables](https://docs.cloud.google.com/bigquery/docs/create-cloud-storage-table-biglake).
 
@@ -419,7 +419,7 @@ When BigQuery interacts with Cloud Storage, you might incur the following Cloud 
   * Learn how to [create a Cloud Storage BigLake table](https://docs.cloud.google.com/bigquery/docs/create-cloud-storage-table-biglake).
   * Learn how to [create an Amazon S3 BigLake table](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table).
   * Learn how to [create a Blob Storage BigLake table](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-external-table).
-  * Learn how to [create data quality checks with Knowledge Catalog](https://docs.cloud.google.com/bigquery/docs/dataplex-shared-introduction). 
+  * Learn how to [create data quality checks with Knowledge Catalog](https://docs.cloud.google.com/bigquery/docs/data-quality-scan). 
 
 
 
@@ -427,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/release-notes/
 title: Managed Service for Apache Airflow release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:06.116035+00:00
+fetched_at: 2026-11-04T07:13:48.008117+00:00
 ---
 
 # Managed Service for Apache Airflow release notes  |  Google Cloud Documentation
@@ -36,6 +36,14 @@ You can also:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/composer-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Issue
+
+Starting October 24, 2026, Managed Airflow (Gen 3) and Managed Airflow (Gen 2) environments running Python 3.11 with `google-api-core` package versions 2.28.0 to 2.43.0 (including versions 2.30.3 to 2.43.0, which weren't previously affected) might experience degraded performance because of a Python 3.11 deprecation check that scans installed package metadata on every new Python subprocess import. You might observe increased DAG parsing times, longer task execution times, higher CPU usage on Airflow DAG processors and workers, and frequent `FutureWarning` log entries from `google/api_core/_python_version_support.py` about Python 3.11 support ending on `2027-10-24`.
+
+For the list of affected builds and available workarounds (installing `google-api-core>=2.43.1` on compatible Airflow 3 builds or applying a `sitecustomize.py` runtime patch), see the known issue for [Managed Airflow (Gen 3)](https://docs.cloud.google.com/composer/docs/composer-3/known-issues#google-api-core-2-30-3-to-2-43-0) or [Managed Airflow (Gen 2)](https://docs.cloud.google.com/composer/docs/composer-2/known-issues#google-api-core-2-30-3-to-2-43-0).
 
 ## October 20, 2026
 
@@ -167,9 +175,9 @@ Change
 
 New [Airflow builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3) are available in Managed Airflow (Gen 3):
 
-  * [composer-3-airflow-3.3.1-build.3](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-3)
-  * [composer-3-airflow-3.2.2-build.7](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-7)
-  * [composer-3-airflow-2.11.1-build.20](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-20) (default)
+  * [composer-3-airflow-3.3.1-build.3](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-3) (extended upgrade timeline version)
+  * [composer-3-airflow-3.2.2-build.7](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-7) (extended upgrade timeline version)
+  * [composer-3-airflow-2.11.1-build.20](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-20) (extended upgrade timeline version)
 
 
 
@@ -177,7 +185,7 @@ Change
 
 New [images](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-2) are available in Managed Airflow (Gen 2):
 
-  * [composer-2.17.14-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-14-airflow-2-11-1) (default)
+  * [composer-2.17.14-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-14-airflow-2-11-1) (extended upgrade timeline version)
 
 
 

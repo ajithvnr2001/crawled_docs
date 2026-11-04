@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-analysis/docs/pub-sub-notifications/
 title: Configure Pub/Sub notifications \u00a0|\u00a0 Artifact Analysis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:11.152009+00:00
+fetched_at: 2026-11-04T07:55:35.909939+00:00
 ---
 
 # Configure Pub/Sub notifications  |  Artifact Analysis  |  Google Cloud Documentation
@@ -392,7 +392,7 @@ To authenticate to Artifact Analysis, set up Application Default Credentials. Fo
     
     require "google/cloud/pubsub"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html) project_id: project_id
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html) project_id: project_id
     subscription_admin = pubsub.[subscription_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
     subscription = subscription_admin.create_subscription \
       name: pubsub.subscription_path(subscription_id),

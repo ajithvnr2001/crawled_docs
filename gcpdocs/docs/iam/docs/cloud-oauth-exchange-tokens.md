@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/cloud-oauth-exchange-tokens/
 title: Exchange tokens with the Cloud OAuth API \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:32:41.150730+00:00
+fetched_at: 2026-11-04T08:00:35.130646+00:00
 ---
 
 # Exchange tokens with the Cloud OAuth API  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -27,6 +27,8 @@ Send feedback
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 You can use the Cloud OAuth API (`cloudoauth.googleapis.com`) to exchange authorization codes or refresh tokens for short-lived Google Cloud OAuth 2.0 access tokens and OpenID Connect (OIDC) ID tokens. In [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation) integrations, your applications can then verify the returned ID tokens using your organization's public keys and use the access tokens to call Google Cloud APIs on behalf of federated users.
+
+**Important:** The Cloud OAuth API is available only for Looker. 
 
 ## Before you begin
 
@@ -137,8 +139,6 @@ For information about error responses returned by the Cloud OAuth API, see [Clou
 
 For Looker OIDC integrations, you can verify the cryptographic signature of the `id_token` returned by the Cloud OAuth API by using your organization's public JSON Web Keys (JWKs).
 
-**Important:** The `/.well-known/openid-configuration` and `/.well-known/jwks.json` endpoints are available only for Looker. 
-
 Retrieve the organization's public JWKs in one of the following ways:
 
   * **Query the JSON Web Key Set (JWKS) endpoint directly** : Send an HTTP `GET` request to `https://cloudoauth.googleapis.com/v1/organizations/ORGANIZATION_ID/.well-known/jwks.json`.
@@ -162,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

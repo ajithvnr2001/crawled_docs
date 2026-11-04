@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/choose-ml-text-function/
 title: Choose a natural language processing function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:59.451202+00:00
+fetched_at: 2026-11-04T07:47:55.078864+00:00
 ---
 
 # Choose a natural language processing function  |  BigQuery  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Purpose | Perform any NLP task by passing a prompt to a [Gemini or partner model
 Billing | Incurs BigQuery ML charges for data processed. For more information, see [BigQuery ML pricing](https://cloud.google.com/bigquery/pricing#bigquery-ml-pricing). Incurs Gemini Enterprise Agent Platform charges for calls to the model. If you are using a Gemini 2.0 or greater model, the call is billed at the batch API rate. For more information, see [Cost of building and deploying AI models in Agent Platform](https://docs.cloud.google.com/vertex-ai/generative-ai/pricing). | Incurs BigQuery ML charges for data processed. For more information, see [BigQuery ML pricing](https://cloud.google.com/bigquery/pricing#bigquery-ml-pricing).  
   
 Incurs charges for calls to the Cloud Translation API. For more information, see [Cloud Translation API pricing](https://docs.cloud.google.com/translate/pricing). | Incurs BigQuery ML charges for data processed. For more information, see [BigQuery ML pricing](https://cloud.google.com/bigquery/pricing#bigquery-ml-pricing). Incurs charges for calls to the Cloud Natural Language API. For more information, see [Cloud Natural Language API pricing](https://docs.cloud.google.com/translate/pricing).  
-Requests per minute | Not applicable for Gemini models. Between 25 and 60 for partner models. For more information, see [Requests per minute limits](https://docs.cloud.google.com/bigquery/quotas#requests_per_minute_limits).  |  200\. For more information, see [Cloud AI service functions](https://docs.cloud.google.com/bigquery/quotas#cloud_ai_service_functions).  |  600\. For more information, see [Cloud AI service functions](https://docs.cloud.google.com/bigquery/quotas#cloud_ai_service_functions).   
+Requests per minute | Not applicable for Gemini models. Between 25 and 60 for partner models. For more information, see [Requests per minute limits](https://docs.cloud.google.com/bigquery/quotas#requests_per_minute_limits).  |  6,000. For more information, see [Cloud AI service functions](https://docs.cloud.google.com/bigquery/quotas#cloud_ai_service_functions).  |  600\. For more information, see [Cloud AI service functions](https://docs.cloud.google.com/bigquery/quotas#cloud_ai_service_functions).   
 Tokens per minute | Ranges from 8,192 to over 1 million, depending on the model used.  |  No token limit. However, `ML_TRANSLATE` does have a [30,000 bytes limit](https://docs.cloud.google.com/translate/quotas#content-limit).  | [100,000](https://docs.cloud.google.com/natural-language/quotas#content).   
 Input data | Supports both text and unstructured data from BigQuery standard tables and object tables. | Supports text data from BigQuery standard tables. | Supports text data from BigQuery standard tables.  
 Function output | Output can vary for calls to the model, even with the same prompt.  | Produces the same output for a given task type for each successful call to the API. The output includes information about the input language.  | Produces the same output for a given task type for each successful call to the API. The output includes information about the magnitude of the sentiment for sentiment analysis tasks.   
@@ -65,6 +65,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/chromeos-xdr/
 title: Collect ChromeOS XDR logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:03:52.203232+00:00
+fetched_at: 2026-11-04T07:52:54.112698+00:00
 ---
 
 # Collect ChromeOS XDR logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ Before you create a Pub/Sub Push feed, bind the Google Cloud project that hosts 
 
 ### Check whether the project is already bound
 
-  1. In your Google SecOps instance, go to **SIEM Settings > Projects**.
+  1. In your Google SecOps instance, go to **Settings > Administration > Google Cloud Platform**.
   2. Check whether your Google Cloud project is listed.
   3. If it is listed, the project is already bound. Continue to the next section.
 
@@ -61,7 +61,7 @@ Before you create a Pub/Sub Push feed, bind the Google Cloud project that hosts 
 
 ### Bind the project
 
-  1. Go to **SIEM Settings > Projects**.
+  1. Go to **Settings > Administration > Google Cloud Platform**.
   2. Click **Add Project**.
   3. In the **Project ID** field, enter your Google Cloud project ID.
   4. Click **Add**.
@@ -146,7 +146,7 @@ ChromeOS XDR publishes events using a Google-managed service account. This servi
 
 ### Create the feed
 
-  1. In your Google SecOps instance, go to **SIEM Settings > Feeds**.
+  1. In Google SecOps, go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed (for example, `ChromeOS XDR events`).
@@ -463,6 +463,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

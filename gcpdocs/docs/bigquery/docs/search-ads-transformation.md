@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/search-ads-transformation/
 title: Search Ads 360 report transformation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:27.326935+00:00
+fetched_at: 2026-11-04T07:47:56.107887+00:00
 ---
 
 # Search Ads 360 report transformation  |  BigQuery  |  Google Cloud Documentation
@@ -1595,7 +1595,7 @@ segments_date | Date to which metrics apply, in yyyy-MM-dd format. For example: 
 segments_device | Device to which metrics apply.  
 visit_ad_id | Ad ID. A value of 0 indicates that the ad is unattributed.  
 visit_click_id | A unique string for each visit that is passed to the landing page as the click id URL parameter.  
-visit_criterion_id | Search Ads 360 keyword ID. A value of 0 indicates that the keyword is unattributed..  
+visit_criterion_id | Search Ads 360 keyword ID. A value of 0 indicates that the keyword is unattributed.  
 visit_id | The ID of the visit.  
 visit_merchant_id | The Search Ads 360 inventory account ID containing the product that was clicked on. Search Ads 360 generates this ID when you link an inventory account in Search Ads 360.  
 visit_product_channel | The sales channel of the product that was clicked on: Online or Local.  
@@ -1688,6 +1688,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

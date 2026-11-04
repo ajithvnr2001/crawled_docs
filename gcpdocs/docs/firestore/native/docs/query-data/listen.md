@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/listen/
 title: Get real-time updates \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:10.861017+00:00
+fetched_at: 2026-11-04T08:01:14.773147+00:00
 ---
 
 # Get real-time updates  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -230,7 +230,7 @@ Often, you want your UI to react to changes in the contents of a Firestore docum
     # Watch the document
     doc_watch = doc_ref.on_snapshot(on_snapshot)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L676-L689)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/b9084952b990f2e305bec115b6c98f7a8aca76ed/firestore/cloud-client/snippets.py#L676-L689)
 
 ##### C++
     
@@ -311,7 +311,7 @@ Often, you want your UI to react to changes in the contents of a Firestore docum
     }
     
     
-    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_document.go#L18-L61)
+    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/listen_document.go#L18-L61)
 
 ##### PHP
     
@@ -1068,7 +1068,7 @@ Android
     query_watch = col_query.on_snapshot(on_snapshot)
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L712-L728)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/b9084952b990f2e305bec115b6c98f7a8aca76ed/firestore/cloud-client/snippets.py#L712-L728)
 
 ##### C++
     
@@ -1158,7 +1158,7 @@ Android
     }
     
     
-    [listen_multiple.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_multiple.go#L18-L67)
+    [listen_multiple.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/listen_multiple.go#L18-L67)
 
 ##### PHP
     
@@ -1490,7 +1490,7 @@ Android
     query_watch = col_query.on_snapshot(on_snapshot)
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L747-L768)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/b9084952b990f2e305bec115b6c98f7a8aca76ed/firestore/cloud-client/snippets.py#L747-L768)
 
 ##### Node.js
     
@@ -1564,7 +1564,7 @@ Android
     }
     
     
-    [listen_changes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_changes.go#L18-L65)
+    [listen_changes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/listen_changes.go#L18-L65)
 
 ##### PHP
     
@@ -1793,7 +1793,7 @@ Android
     # Terminate watch on a document
     doc_watch.unsubscribe()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/firestore/cloud-client/snippets.py#L704-L705)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/b9084952b990f2e305bec115b6c98f7a8aca76ed/firestore/cloud-client/snippets.py#L704-L705)
 
 ##### C++
     
@@ -1827,7 +1827,7 @@ Android
     ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
     defer cancel()
     
-    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_document.go#L33-L35)
+    [listen_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/listen_document.go#L33-L35)
 
 ##### PHP
     
@@ -2065,7 +2065,7 @@ Android
     }
     
     
-    [listen_errors.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/f8950d3aa3b973b237f87d88a193a21c244f7894/firestore/listen_errors.go#L18-L61)
+    [listen_errors.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/listen_errors.go#L18-L61)
 
 ##### PHP
     
@@ -2136,6 +2136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

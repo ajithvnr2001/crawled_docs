@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-conversations/
 title: Analyze data with conversations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:31.628387+00:00
+fetched_at: 2026-11-04T07:48:29.730058+00:00
 ---
 
 # Analyze data with conversations  |  BigQuery  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ Additionally, in the following situations, you must have the following roles:
   * If a table uses [column-level access control](https://docs.cloud.google.com/bigquery/docs/column-level-security-intro), you need the [Fine-Grained Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/datacatalog#datacatalog.categoryFineGrainedReader) (`roles/datacatalog.categoryFineGrainedReader`) role. This role is assigned to principals as part of configuring a policy tag. For more information, see [Roles used with column-level access control](https://docs.cloud.google.com/bigquery/docs/column-level-security-intro#roles).
   * If a data table uses [row-level access control](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro), you must be granted access through the role-level access policy on that table. For more information, see [Create or update row-level access policies](https://docs.cloud.google.com/bigquery/docs/managing-row-level-security#create-policy).
   * If a data table uses [data masking](https://docs.cloud.google.com/bigquery/docs/column-data-masking-intro), you must be granted the [Masked Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquerydatapolicy#bigquerydatapolicy.maskedReader) (`roles/bigquerydatapolicy.maskedReader`) role through the appropriate data policy. For more information, see [Roles for querying masked data](https://docs.cloud.google.com/bigquery/docs/column-data-masking-intro#roles_for_querying_masked_data).
-  * To converse with a dataset or project, you need the [Data Catalog Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/datacatalog#datacatalog.viewer) ( `roles/datacatalog.viewer`) on the project.
+  * To converse with a dataset or project, you need the [Dataplex Catalog Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogViewer) (`roles/dataplex.catalogViewer`) role on the project.
 
   * If a data agent has [conversation logging](https://docs.cloud.google.com/bigquery/docs/create-data-agents#configure_settings) enabled, you need the [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) (`roles/bigquery.dataViewer`) role on the knowledge-source tables and the [BigQuery Job User](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) (`roles/bigquery.jobUser`) role on the project that runs your queries so that the pre-turn [privacy check](https://docs.cloud.google.com/bigquery/docs/conversation-logging-overview#conversation-logging-privacy) can verify that the tables don't use row-level security, column-level security, or data masking. Alternatively, a custom role with the `bigquery.tables.get` and `bigquery.rowAccessPolicies.list` permissions on the knowledge-source tables also satisfies this check. You don't need write access to the log dataset.
 
@@ -388,6 +388,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

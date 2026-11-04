@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-5-397b-ironwood-vllm-torchtpu/
 title: Serve Qwen3.5-397B on GKE with vLLM TorchTPU on TPU7x accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:38:45.752414+00:00
+fetched_at: 2026-11-04T07:55:51.331513+00:00
 ---
 
 # Serve Qwen3.5-397B on GKE with vLLM TorchTPU on TPU7x accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ Send feedback
 #  Serve Qwen3.5-397B on GKE with vLLM TorchTPU on TPU7x accelerators Stay organized with collections  Save and categorize content based on your preferences. 
 
 This tutorial shows you how to deploy and serve the mixture of experts model [Qwen3.5-397B (`Qwen/Qwen3.5-397B-A17B-FP8`)](https://huggingface.co/Qwen/Qwen3.5-397B-A17B-FP8) on Google Kubernetes Engine (GKE) using a single-host [TPU7x (Ironwood)](https://docs.cloud.google.com/tpu/docs/tpu7x) accelerator and the [vLLM TPU serving framework](https://github.com/vllm-project/vllm-torchtpu) with TorchTPU (`torchtpu`). Because Qwen3.5-397B requires a minimum of four TPU7x chips, you can run the workload on a single `tpu7x-standard-4t` node in a `2x2x1` topology with data parallelism and expert parallelism enabled.
+
+To run a similar single-host vLLM TorchTPU serving workflow on [TPU v6e (Trillium)](https://docs.cloud.google.com/tpu/docs/v6e) accelerators with the Qwen3-30B-A3B model, see [Serve Qwen3-30B-A3B on GKE with vLLM TorchTPU on TPU v6e accelerators](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-30b-v6e-vllm-torchtpu).
 
 ## Objectives
 
@@ -114,7 +116,7 @@ Set up your environment variables:
     export HF_TOKEN="YOUR_HF_TOKEN"
     export NETWORK="YOUR_NETWORK_NAME"
     export SUBNETWORK="YOUR_SUBNETWORK_NAME"
-    export VLLM_IMAGE="YOUR_VLLM_TPU_IMAGE"
+    export VLLM_IMAGE="vllm/vllm-torchtpu:v0.29.0@sha256:3976ccc1a69ffd361e0a7d2831fe317f6b685636014f426321a39ae02f8da0dc"
     
     gcloud config set project "${PROJECT_ID}"
     gcloud config set billing/quota_project "${PROJECT_ID}"
@@ -143,6 +145,7 @@ To create a GKE cluster in Standard mode and attach a single-host TPU7x node poo
              --project="${PROJECT_ID}" \
              --location="${REGION}" \
              --node-locations="${ZONE}" \
+             --machine-type=e2-standard-4 \
              --network="${NETWORK}" \
              --subnetwork="${SUBNETWORK}"
 
@@ -198,8 +201,17 @@ Create a Kubernetes Secret named `hf-secret` to store your Hugging Face access t
 The workload manifest (`qwen3_5_server.yaml`) defines the following resources:
 
   * A StorageClass (`hyperdisk-balanced-qwen3-5`) and a 1,500 GiB PersistentVolumeClaim (`hd-claim-qwen3-5`) backed by Google Cloud Hyperdisk Balanced storage to store the downloaded model weights, XLA compilation cache, and PyTorch compile cache.
-  * A Deployment (`vllm-qwen3-5`) scheduled on a single TPU7x node with a `2x2x1` topology (`google.com/tpu: '4'`). The container runs `vllm serve` for `Qwen/Qwen3.5-397B-A17B-FP8` with `--data-parallel-size=8`, `--tensor-parallel-size=1`, `--enable-expert-parallel`, `--kv-cache-dtype=fp8`, `--max-model-len=9236`, and `--max-num-seqs=64`.
+
+  * A Deployment (`vllm-qwen3-5`) scheduled on a single TPU7x node with a `2x2x1` topology (`google.com/tpu: '4'`). The container runs `vllm serve` for `Qwen/Qwen3.5-397B-A17B-FP8` with the following flags:
+
+    * `--data-parallel-size=8`
+    * `--tensor-parallel-size=1`
+    * `--enable-expert-parallel`
+    * `--kv-cache-dtype=fp8`
+    * `--max-model-len=9236`
+    * `--max-num-seqs=64`
   * A `ClusterIP` Service (`vllm-qwen3-5-service`) that exposes port `8000`.
+
 
 
 
@@ -456,6 +468,7 @@ Alternately, create a file named `qwen3_5-benchmark-8k1k.yaml` with the followin
 
   3. Monitor the benchmark logs:
          
+         kubectl wait --for=jsonpath='{.status.phase}'=Running pod --field-selector=metadata.name=qwen3-5-bench-8k1k --timeout=600s
          kubectl logs -f qwen3-5-bench-8k1k
 
 The benchmark takes approximately 25 to 30 minutes to complete.
@@ -469,6 +482,7 @@ To avoid incurring additional ongoing charges to your Google Cloud account for t
 
   1. Delete the vLLM TorchTPU server Deployment, Service, PersistentVolumeClaim, and benchmark Pod:
          
+         kubectl delete -f qwen3_5-benchmark-8k1k.yaml --ignore-not-found || true
          kubectl delete -f qwen3_5_server.yaml --ignore-not-found || true
          kubectl delete secret hf-secret --ignore-not-found || true
 
@@ -500,6 +514,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

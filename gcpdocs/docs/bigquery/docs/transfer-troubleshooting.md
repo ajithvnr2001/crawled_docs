@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/transfer-troubleshooting/
 title: Troubleshoot transfer configurations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:12.888374+00:00
+fetched_at: 2026-11-04T07:48:06.802826+00:00
 ---
 
 # Troubleshoot transfer configurations  |  BigQuery  |  Google Cloud Documentation
@@ -376,7 +376,7 @@ Replace `BUCKET_NAME` with the name of the bucket that you use for notification.
 
     
 
-If there are messages, check if the same Pub/Sub subscription is used in another event-driven transfer configs. The same Pub/Sub subscription cannot be reused by multiple event-driven transfer configs. For more information about event-driven transfers, see [Event-driven transfers](https://docs.cloud.google.com/bigquery/docs/event-driven-transfer).
+If there are messages, check if the same Pub/Sub subscription is used in another event-driven transfer config. The same Pub/Sub subscription cannot be reused by multiple event-driven transfer configs. For more information about event-driven transfers, see [Event-driven transfers](https://docs.cloud.google.com/bigquery/docs/event-driven-transfer).
 
 ## Amazon S3 transfer issues
 
@@ -533,7 +533,7 @@ Error: `AuthorizationError.TWO_STEP_VERIFICATION_NOT_ENROLLED`
 Error: `Quota exceeded: Your project exceeded quota for imports per project`
     
 
-**Resolution:** Transfers are subject to BigQuery [quotas on load jobs](https://docs.cloud.google.com/bigquery/quotas#load_jobs). If you hit the quota limit for load job, try to reduce unnecessary loadings by using [table_filter](https://docs.cloud.google.com/bigquery/docs/google-ads-transfer#setup-data-transfer), deleting unused transfer configs or reducing the refresh window. If you need to increase your quota, contact your Google Cloud sales representative. For more information, see [Quotas and limits](https://docs.cloud.google.com/bigquery/quotas).
+**Resolution:** Transfers are subject to BigQuery [quotas on load jobs](https://docs.cloud.google.com/bigquery/quotas#load_jobs). If you hit the quota limit for load jobs, try to reduce unnecessary loadings by using [table_filter](https://docs.cloud.google.com/bigquery/docs/google-ads-transfer#setup-data-transfer), deleting unused transfer configs or reducing the refresh window. If you need to increase your quota, contact your Google Cloud sales representative. For more information, see [Quotas and limits](https://docs.cloud.google.com/bigquery/quotas).
 
 ## Google Ad Manager transfer issues
 
@@ -1025,6 +1025,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

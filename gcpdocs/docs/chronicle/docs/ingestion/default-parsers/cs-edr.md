@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cs-edr/
 title: Collect CrowdStrike Falcon logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:04.766458+00:00
+fetched_at: 2026-11-04T07:50:03.708536+00:00
 ---
 
 # Collect CrowdStrike Falcon logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ Ensure that you have the following prerequisites:
 
 There are two different entry points to set up feeds in the Google SecOps platform:
 
-  * **SIEM Settings > Feeds > Add New Feed**
+  * **Settings > Data Management > Feeds > Add New Feed** (On SIEM-only platform, **Settings > Feeds > Add New Feed**)
   * **Content Hub > Content Packs > Get Started**
 
 **Note:** The Content Hub is not available on the SIEM standalone platform. To upgrade, contact your Google SecOps representative.
@@ -141,7 +141,7 @@ This method involves setting up a Google Security Operations feed to pull EDR lo
 
 To set up an ingestion feed using an S3 bucket, follow these steps:
 
-  1. Go to **SIEM Settings > Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
   4. In the **Feed name** field, enter a name for the feed; for example, **Crowdstrike Falcon Logs**.
@@ -175,7 +175,7 @@ You can configure CrowdStrike to send EDR logs to a Cloud Storage bucket, and th
      2. Grant write permissions to the service account provided by CrowdStrike. Follow the instructions from CrowdStrike Support.
   3. **Configure the Google SecOps feed:**
 
-     1. In your Google SecOps instance, go to **Settings > Feeds** and click **Add New**.
+     1. In your Google SecOps instance, go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
      2. Enter a descriptive **Feed name** (for example, `CS-EDR-GCS`).
      3. For **Source type** , select **Google Cloud Storage V2**.
 
@@ -214,7 +214,7 @@ To ingest CrowdStrike Falcon alerts, you configure a feed that uses the CrowdStr
      5. Click **Create**. Note the generated **Client ID** , **Client Secret** , and **Base URL**.
   2. **In Google Security Operations:**
 
-     1. Go to **Settings > Feeds** and click **Add New**.
+     1. In your Google SecOps instance, go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
      2. Select **Third Party API** for **Source type**.
      3. Select **CrowdStrike Alerts API** for **Log type**.
      4. Click **Next** and populate the following fields using the values from the CrowdStrike API client:
@@ -245,7 +245,7 @@ To ingest CrowdStrike Falcon detection logs, you also use the CrowdStrike API.
      3. Create a new API client key pair. This key pair must have `READ` permissions for `Detections`.
   2. **In Google Security Operations:**
 
-     1. Go to **Settings > Feeds** and click **Add New**.
+     1. In your Google SecOps instance, go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
      2. Select **Third Party API** for **Source type**.
      3. Select **CrowdStrike Detection Monitoring** for **Log type**.
      4. Click **Next** and then **Submit**. You will be prompted for the API credentials you created.
@@ -619,6 +619,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle/
 title: Google Security Operations roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:33:24.796129+00:00
+fetched_at: 2026-11-04T07:57:48.591646+00:00
 ---
 
 # Google Security Operations roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -34,6 +34,24 @@ Role | Permissions
 
   * `chronicle.agentSettings.get`
   * `chronicle.agentSettings.update`
+
+`chronicle.agenticCaseReportTemplates.*`
+
+  * `chronicle.agenticCaseReportTemplates.delete`
+  * `chronicle.agenticCaseReportTemplates.get`
+  * `chronicle.agenticCaseReportTemplates.update`
+
+`chronicle.agenticCaseReports.*`
+
+  * `chronicle.agenticCaseReports.delete`
+  * `chronicle.agenticCaseReports.get`
+  * `chronicle.agenticCaseReports.publish`
+  * `chronicle.agenticCaseReports.update`
+
+`chronicle.aiBillingSettings.*`
+
+  * `chronicle.aiBillingSettings.get`
+  * `chronicle.aiBillingSettings.update`
 
 `chronicle.ais.*`
 
@@ -1131,7 +1149,20 @@ Role | Permissions
   * `chronicle.agentSettings.get`
   * `chronicle.agentSettings.update`
 
-`chronicle.ais.*`
+`chronicle.agenticCaseReportTemplates.*`
+
+  * `chronicle.agenticCaseReportTemplates.delete`
+  * `chronicle.agenticCaseReportTemplates.get`
+  * `chronicle.agenticCaseReportTemplates.update`
+
+`chronicle.agenticCaseReports.*`
+
+  * `chronicle.agenticCaseReports.delete`
+  * `chronicle.agenticCaseReports.get`
+  * `chronicle.agenticCaseReports.publish`
+  * `chronicle.agenticCaseReports.update`
+
+`chronicle.aiBillingSettings.get` `chronicle.ais.*`
 
   * `chronicle.ais.createFeedback`
   * `chronicle.ais.translateUdmQuery`
@@ -1874,7 +1905,7 @@ Role | Permissions
   
 #### Chronicle API Viewer 
 
-(`roles/chronicle.viewer`) Read-only access to the Chronicle API resources.  |  `chronicle.agentSettings.get` `chronicle.ais.*`
+(`roles/chronicle.viewer`) Read-only access to the Chronicle API resources.  |  `chronicle.agentSettings.get` `chronicle.agenticCaseReportTemplates.get` `chronicle.agenticCaseReports.get` `chronicle.aiBillingSettings.get` `chronicle.ais.*`
 
   * `chronicle.ais.createFeedback`
   * `chronicle.ais.translateUdmQuery`
@@ -2036,7 +2067,7 @@ Role | Permissions
   
 #### Chronicle API Limited Viewer 
 
-(`roles/chronicle.limitedViewer`) Grants read-only access to Chronicle API resources, excluding Rules and Retrohunts.  |  `chronicle.agentSettings.get` `chronicle.analyticValues.list` `chronicle.analytics.list` `chronicle.cases.countPriorities` `chronicle.chatSessionMessages.list` `chronicle.chatSessions.list` `chronicle.conversations.get` `chronicle.conversations.list` `chronicle.coverageDetails.*`
+(`roles/chronicle.limitedViewer`) Grants read-only access to Chronicle API resources, excluding Rules and Retrohunts.  |  `chronicle.agentSettings.get` `chronicle.aiBillingSettings.get` `chronicle.analyticValues.list` `chronicle.analytics.list` `chronicle.cases.countPriorities` `chronicle.chatSessionMessages.list` `chronicle.chatSessions.list` `chronicle.conversations.get` `chronicle.conversations.list` `chronicle.coverageDetails.*`
 
   * `chronicle.coverageDetails.get`
   * `chronicle.coverageDetails.list`
@@ -2117,7 +2148,7 @@ Role | Permissions
   
 #### Chronicle API Restricted Data Access Viewer Beta
 
-(`roles/chronicle.restrictedDataAccessViewer`) Grants readonly access to Chronicle API resources without global data access scope.  |  `chronicle.agentSettings.get` `chronicle.ais.*`
+(`roles/chronicle.restrictedDataAccessViewer`) Grants readonly access to Chronicle API resources without global data access scope.  |  `chronicle.agentSettings.get` `chronicle.agenticCaseReportTemplates.get` `chronicle.agenticCaseReports.get` `chronicle.ais.*`
 
   * `chronicle.ais.createFeedback`
   * `chronicle.ais.translateUdmQuery`
@@ -2247,7 +2278,20 @@ Role | Permissions
   
 #### Chronicle SOAR Admin 
 
-(`roles/chronicle.soarAdmin`) Grants admin access to Chronicle SOAR.  |  `chronicle.alertGroupingRules.*`
+(`roles/chronicle.soarAdmin`) Grants admin access to Chronicle SOAR.  |  `chronicle.agenticCaseReportTemplates.*`
+
+  * `chronicle.agenticCaseReportTemplates.delete`
+  * `chronicle.agenticCaseReportTemplates.get`
+  * `chronicle.agenticCaseReportTemplates.update`
+
+`chronicle.agenticCaseReports.*`
+
+  * `chronicle.agenticCaseReports.delete`
+  * `chronicle.agenticCaseReports.get`
+  * `chronicle.agenticCaseReports.publish`
+  * `chronicle.agenticCaseReports.update`
+
+`chronicle.alertGroupingRules.*`
 
   * `chronicle.alertGroupingRules.delete`
   * `chronicle.alertGroupingRules.get`
@@ -2794,17 +2838,26 @@ Role | Permissions
   
 #### Chronicle Service Agent 
 
-(`roles/chronicle.serviceAgent`) Grants Chronicle global data access to customer project  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `bigquery.connections.create` `bigquery.connections.delegate` `bigquery.connections.delete` `bigquery.connections.get` `bigquery.connections.getIamPolicy` `bigquery.connections.list` `bigquery.connections.update` `bigquery.connections.updateTag` `bigquery.connections.use` `bigquery.datasets.create` `bigquery.jobs.create` `bigquery.jobs.get` `bigquery.tables.create` `bigquery.tables.delete` `bigquery.tables.get` `bigquery.tables.update` `bigquery.tables.updateData` `chronicle.caseAlerts.get` `chronicle.caseComments.update` `chronicle.conversations.create` `chronicle.dashboards.copy` `chronicle.dashboards.create` `chronicle.dashboards.get` `chronicle.dashboards.list` `chronicle.dataTableRows.bulkCreate` `chronicle.dataTableRows.delete` `chronicle.dataTableRows.list` `chronicle.dataTables.get` `chronicle.dataTables.list` `chronicle.enrichmentAgent.*`
+(`roles/chronicle.serviceAgent`) Grants Chronicle global data access to customer project  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `aiplatform.agents.get` `aiplatform.agents.list` `aiplatform.agents.update` `aiplatform.tasks.*`
+
+  * `aiplatform.tasks.cancel`
+  * `aiplatform.tasks.create`
+  * `aiplatform.tasks.delete`
+  * `aiplatform.tasks.get`
+  * `aiplatform.tasks.list`
+  * `aiplatform.tasks.update`
+
+`bigquery.connections.create` `bigquery.connections.delegate` `bigquery.connections.delete` `bigquery.connections.get` `bigquery.connections.getIamPolicy` `bigquery.connections.list` `bigquery.connections.update` `bigquery.connections.updateTag` `bigquery.connections.use` `bigquery.datasets.create` `bigquery.jobs.create` `bigquery.jobs.get` `bigquery.tables.create` `bigquery.tables.delete` `bigquery.tables.get` `bigquery.tables.update` `bigquery.tables.updateData` `chronicle.caseAlerts.get` `chronicle.caseComments.update` `chronicle.caseWallRecords.get` `chronicle.cases.get` `chronicle.cases.update` `chronicle.connectorEvents.get` `chronicle.contextProperties.get` `chronicle.conversations.create` `chronicle.customFieldValues.get` `chronicle.customLists.get` `chronicle.dashboards.copy` `chronicle.dashboards.create` `chronicle.dashboards.get` `chronicle.dashboards.list` `chronicle.dataTableRows.bulkCreate` `chronicle.dataTableRows.delete` `chronicle.dataTableRows.list` `chronicle.dataTables.get` `chronicle.dataTables.list` `chronicle.enrichmentAgent.*`
 
   * `chronicle.enrichmentAgent.execute`
   * `chronicle.enrichmentAgent.get`
 
-`chronicle.entities.findRelatedEntities` `chronicle.entities.summarize` `chronicle.entities.summarizeFromQuery` `chronicle.events.udmSearch` `chronicle.globalDataAccessScopes.permit` `chronicle.instances.get` `chronicle.integrationInstances.get` `chronicle.integrations.get` `chronicle.investigations.get` `chronicle.investigations.list` `chronicle.investigations.trigger` `chronicle.legacies.legacyCreateSoarAlert` `chronicle.legacies.legacyGetDetection` `chronicle.legacies.legacySearchArtifactIoCDetails` `chronicle.legacies.legacySearchAssetEvents` `chronicle.legacies.legacySearchCuratedDetections` `chronicle.legacies.legacySearchDetections` `chronicle.legacies.legacySearchEnterpriseWideIoCs` `chronicle.legacies.legacyStreamDetectionAlerts` `chronicle.legacies.legacyUpdateAlert` `chronicle.legacyCases.runManualAction` `chronicle.legacySdk.*`
+`chronicle.entities.findRelatedEntities` `chronicle.entities.searchEntities` `chronicle.entities.summarize` `chronicle.entities.summarizeFromQuery` `chronicle.events.udmSearch` `chronicle.globalDataAccessScopes.permit` `chronicle.instances.get` `chronicle.integrationInstances.get` `chronicle.integrations.get` `chronicle.investigations.get` `chronicle.investigations.list` `chronicle.investigations.trigger` `chronicle.involvedEntities.get` `chronicle.iocAssociations.batchGet` `chronicle.iocAssociations.fetchRelated` `chronicle.iocs.batchGet` `chronicle.iocs.findIocs` `chronicle.legacies.legacyCreateSoarAlert` `chronicle.legacies.legacyGetAlert` `chronicle.legacies.legacyGetDetection` `chronicle.legacies.legacySearchArtifactIoCDetails` `chronicle.legacies.legacySearchAssetEvents` `chronicle.legacies.legacySearchCuratedDetections` `chronicle.legacies.legacySearchDetections` `chronicle.legacies.legacySearchEnterpriseWideIoCs` `chronicle.legacies.legacyStreamDetectionAlerts` `chronicle.legacies.legacyUpdateAlert` `chronicle.legacyCases.runManualAction` `chronicle.legacyPlaybooks.get` `chronicle.legacySdk.*`
 
   * `chronicle.legacySdk.get`
   * `chronicle.legacySdk.update`
 
-`chronicle.messages.create` `chronicle.messages.delete` `chronicle.moduleSettings.get` `chronicle.moduleSettingsProperties.get` `chronicle.preferenceSets.update` `chronicle.referenceLists.get` `chronicle.referenceLists.list` `chronicle.referenceLists.update` `chronicle.retrohunts.create` `chronicle.rules.get` `cloudaicompanion.geminiGcpEnablementSettings.get` `cloudaicompanion.geminiGcpEnablementSettings.list` `geminicloudassist.agents.invoke` `geminicloudassist.locations.*`
+`chronicle.messages.create` `chronicle.messages.delete` `chronicle.moduleSettings.get` `chronicle.moduleSettingsProperties.get` `chronicle.preferenceSets.update` `chronicle.referenceLists.get` `chronicle.referenceLists.list` `chronicle.referenceLists.update` `chronicle.retrohunts.create` `chronicle.rules.get` `chronicle.threatCollections.fetchEntityMetadata` `chronicle.threatCollections.fetchRelated` `cloudaicompanion.geminiGcpEnablementSettings.get` `cloudaicompanion.geminiGcpEnablementSettings.list` `geminicloudassist.agents.invoke` `geminicloudassist.locations.*`
 
   * `geminicloudassist.locations.get`
   * `geminicloudassist.locations.list`
@@ -2845,6 +2898,42 @@ Permission | Included in roles
 #### `chronicle.agentSettings.update`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)   
+  
+#### `chronicle.agenticCaseReportTemplates.delete`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)   
+  
+#### `chronicle.agenticCaseReportTemplates.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `chronicle.agenticCaseReportTemplates.update`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)   
+  
+#### `chronicle.agenticCaseReports.delete`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)   
+  
+#### `chronicle.agenticCaseReports.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `chronicle.agenticCaseReports.publish`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)   
+  
+#### `chronicle.agenticCaseReports.update`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)   
+  
+#### `chronicle.aiBillingSettings.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `chronicle.aiBillingSettings.update`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)   
   
 #### `chronicle.ais.createFeedback`
 
@@ -3036,7 +3125,11 @@ Permission | Included in roles
   
 #### `chronicle.caseWallRecords.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.caseWallRecords.update`
 
@@ -3056,7 +3149,11 @@ Permission | Included in roles
   
 #### `chronicle.cases.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.cases.removeTag`
 
@@ -3068,7 +3165,11 @@ Permission | Included in roles
   
 #### `chronicle.cases.update`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.cases.updateTag`
 
@@ -3128,7 +3229,11 @@ Permission | Included in roles
   
 #### `chronicle.connectorEvents.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.connectorInstanceLogs.get`
 
@@ -3196,7 +3301,11 @@ Permission | Included in roles
   
 #### `chronicle.contextProperties.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.contextProperties.update`
 
@@ -3284,7 +3393,11 @@ Permission | Included in roles
   
 #### `chronicle.customFieldValues.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.customFieldValues.update`
 
@@ -3308,7 +3421,11 @@ Permission | Included in roles
   
 #### `chronicle.customLists.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.customLists.update`
 
@@ -3720,7 +3837,11 @@ Permission | Included in roles
   
 #### `chronicle.entities.searchEntities`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.entities.summarize`
 
@@ -4284,7 +4405,11 @@ Permission | Included in roles
   
 #### `chronicle.involvedEntities.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.involvedEntities.update`
 
@@ -4292,11 +4417,19 @@ Permission | Included in roles
   
 #### `chronicle.iocAssociations.batchGet`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.iocAssociations.fetchRelated`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.iocAssociations.get`
 
@@ -4312,7 +4445,11 @@ Permission | Included in roles
   
 #### `chronicle.iocs.batchGet`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.iocs.fetchRelated`
 
@@ -4324,7 +4461,11 @@ Permission | Included in roles
   
 #### `chronicle.iocs.findIocs`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.iocs.get`
 
@@ -4448,7 +4589,11 @@ Permission | Included in roles
   
 #### `chronicle.legacies.legacyGetAlert`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.legacies.legacyGetCuratedRulesTrends`
 
@@ -4680,7 +4825,11 @@ Permission | Included in roles
   
 #### `chronicle.legacyPlaybooks.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle SOAR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.soarAdmin) (`roles/chronicle.soarAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.legacyPlaybooks.import`
 
@@ -5572,7 +5721,11 @@ Permission | Included in roles
   
 #### `chronicle.threatCollections.fetchEntityMetadata`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.threatCollections.fetchIocMatchMetadata`
 
@@ -5580,7 +5733,11 @@ Permission | Included in roles
   
 #### `chronicle.threatCollections.fetchRelated`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Chronicle API Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.admin) (`roles/chronicle.admin`)  [Chronicle API Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.editor) (`roles/chronicle.editor`)  [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer) (`roles/chronicle.viewer`)  [Chronicle API Limited Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.limitedViewer) (`roles/chronicle.limitedViewer`)  [Chronicle API Restricted Data Access Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.restrictedDataAccessViewer) (`roles/chronicle.restrictedDataAccessViewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Chronicle Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.serviceAgent) (`roles/chronicle.serviceAgent`) 
+
+  
   
 #### `chronicle.threatCollections.get`
 
@@ -5750,6 +5907,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

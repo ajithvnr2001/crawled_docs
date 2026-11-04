@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings/
 title: Tune text embeddings \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:02.997689+00:00
+fetched_at: 2026-11-04T08:00:50.341259+00:00
 ---
 
 # Tune text embeddings  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -134,7 +134,7 @@ Tuning is executed within your project using the [ Gemini Enterprise Agent Platf
 
 The pipeline executes training code under two service agents. These service agents must be granted specific roles in order to begin training using your project and dataset.
 
-**Note:** If your dataset and pipeline job are in the same project, these service accounts will have access to your dataset by default. The only preparation necessary is granting the Compute Engine default service account (or your custom service account) the `Agent Platform User` role.
+**Note:** If your dataset and pipeline job are in the same project, these service accounts will have access to your dataset by default. The only preparation necessary is granting the Compute Engine default service account (or your custom service account) the Agent Platform User role.
 
 ##### Compute Engine default service account
     
@@ -146,7 +146,7 @@ This service account requires:
 
   * `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
   * `Storage Object User` access to the output Cloud Storage directory of your pipeline, PIPELINE_OUTPUT_DIRECTORY.
-  * `Agent Platform User` access to your project.
+  * Agent Platform User access to your project.
 
 
 
@@ -692,6 +692,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

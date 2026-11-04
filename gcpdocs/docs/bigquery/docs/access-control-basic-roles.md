@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/access-control-basic-roles/
 title: Basic roles and permissions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:31.920447+00:00
+fetched_at: 2026-11-04T07:55:14.575483+00:00
 ---
 
 # Basic roles and permissions  |  BigQuery  |  Google Cloud Documentation
@@ -69,26 +69,26 @@ Dataset role | Capabilities
 `READER` | 
 
   * Can read, query, copy or export tables in the dataset. Can read routines in the dataset 
-    * Can call [get](https://docs.cloud.google.com/bigquery/docs/reference/v2/datasets/get) on the dataset
-    * Can call [get](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/get) and [list](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/list) on tables in the dataset
-    * Can call [get](https://docs.cloud.google.com/bigquery/docs/reference/v2/routines/get) and [list](https://docs.cloud.google.com/bigquery/docs/reference/v2/routines/list) on routines in the dataset
-    * Can call [list](https://docs.cloud.google.com/bigquery/docs/reference/v2/tabledata/list) on table data for tables in the dataset
+    * Can call [get](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/datasets/get) on the dataset
+    * Can call [get](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/get) and [list](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/list) on tables in the dataset
+    * Can call [get](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/routines/get) and [list](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/routines/list) on routines in the dataset
+    * Can call [list](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tabledata/list) on table data for tables in the dataset
 
 The [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) (`roles/bigquery.dataViewer`) predefined IAM role is mapped to the `READER` BigQuery basic role. When you grant BigQuery Data Viewer to a principal at the dataset level, the principal is granted `READER` access to the dataset.  
 `WRITER` | 
 
   * Same as `READER`, plus: 
     * Can edit or append data in the dataset 
-      * Can call [insert](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/insert), [insertAll](https://docs.cloud.google.com/bigquery/docs/reference/v2/tabledata/insertAll), [update](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/update) or [delete](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/delete) on tables
+      * Can call [insert](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/insert), [insertAll](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tabledata/insertAll), [update](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/update) or [delete](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/delete) on tables
       * Can use tables in the dataset as destinations for load, copy or query jobs
-      * Can call [insert](https://docs.cloud.google.com/bigquery/docs/reference/v2/routines/insert), [update](https://docs.cloud.google.com/bigquery/docs/reference/v2/routines/update), or [delete](https://docs.cloud.google.com/bigquery/docs/reference/v2/routines/delete) on routines
+      * Can call [insert](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/routines/insert), [update](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/routines/update), or [delete](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/routines/delete) on routines
 
 The [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) (`roles/bigquery.dataEditor`) predefined IAM role is mapped to the `WRITER` BigQuery basic role. When you grant BigQuery Data Editor to a principal at the dataset level, the principal is granted `WRITER` access to the dataset.  
 `OWNER` | 
 
   * Same as `WRITER`, plus: 
-    * Can call [update](https://docs.cloud.google.com/bigquery/docs/reference/v2/datasets/update) on the dataset
-    * Can call [delete](https://docs.cloud.google.com/bigquery/docs/reference/v2/datasets/delete) on the dataset
+    * Can call [update](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/datasets/update) on the dataset
+    * Can call [delete](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/datasets/delete) on the dataset
 
 A dataset must have at least one entity with the `OWNER` role. A user with the `OWNER` role can't remove their own `OWNER` role. The [BigQuery Data Owner](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataOwner) (`roles/bigquery.dataOwner`) predefined IAM role is mapped to the `OWNER` BigQuery basic role. When you grant BigQuery Data Owner to a principal at the dataset level, the principal is granted `OWNER` access to the dataset.  
   
@@ -107,6 +107,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

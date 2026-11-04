@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/reference/app-yaml/
 title: app.yaml Configuration File \u00a0|\u00a0 App Engine flexible environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:29:25.597114+00:00
+fetched_at: 2026-11-04T07:55:49.712213+00:00
 ---
 
 # app.yaml Configuration File  |  App Engine flexible environment  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ Specifying `python` selects a full implementation of the Python 2.7 or 3.7 runti
     
     runtime_config:
         operating_system: "ubuntu24"
-        runtime_version: "3.14"
+        runtime_version: "3.15"
 
   * `operating_system`: Specifies the version of the Ubuntu operating system that you want to use. Required for Python version 3.8 and later. Not supported for Python version 3.7 and earlier. See the supported Ubuntu versions and runtimes on the [Python runtimes](https://docs.cloud.google.com/appengine/docs/flexible/python/runtime) page.
   * `runtime_version`: Optional for all runtime versions. Specifies the version of the Python runtime that you want to use. See the supported versions and the default values on the [Python runtimes](https://docs.cloud.google.com/appengine/docs/flexible/python/runtime) page. 
@@ -327,6 +327,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

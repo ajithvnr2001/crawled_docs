@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights/
 title: Database Insights roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:36:05.854850+00:00
+fetched_at: 2026-11-04T08:00:02.672943+00:00
 ---
 
 # Database Insights roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -78,6 +78,13 @@ Role | Permissions
   * `databaseinsights.resourceMetadata.fetch`
   * `databaseinsights.resourceRecommendations.query`
   * `databaseinsights.systemMetrics.fetch`
+  * `databaseinsights.tasks.applyTaskRemediation`
+  * `databaseinsights.tasks.dismissTask`
+  * `databaseinsights.tasks.fixTask`
+  * `databaseinsights.tasks.getTask`
+  * `databaseinsights.tasks.listTasks`
+  * `databaseinsights.tasks.markTaskAsDone`
+  * `databaseinsights.tasks.restoreTask`
   * `databaseinsights.telemetryConfig.fetch`
   * `databaseinsights.timeSeries.query`
   * `databaseinsights.traces.fetch`
@@ -90,6 +97,7 @@ Role | Permissions
   * `databaseinsights.virtualDbaAgent.disable`
   * `databaseinsights.virtualDbaAgent.enable`
   * `databaseinsights.virtualDbaAgent.fetchContextService`
+  * `databaseinsights.virtualDbaAgent.get`
   * `databaseinsights.virtualDbaAgent.getAgentPolicy`
   * `databaseinsights.virtualDbaAgent.getGoal`
   * `databaseinsights.virtualDbaAgent.getTask`
@@ -157,6 +165,13 @@ Role | Permissions
   * `databaseinsights.resourceMetadata.fetch`
   * `databaseinsights.resourceRecommendations.query`
   * `databaseinsights.systemMetrics.fetch`
+  * `databaseinsights.tasks.applyTaskRemediation`
+  * `databaseinsights.tasks.dismissTask`
+  * `databaseinsights.tasks.fixTask`
+  * `databaseinsights.tasks.getTask`
+  * `databaseinsights.tasks.listTasks`
+  * `databaseinsights.tasks.markTaskAsDone`
+  * `databaseinsights.tasks.restoreTask`
   * `databaseinsights.telemetryConfig.fetch`
   * `databaseinsights.timeSeries.query`
   * `databaseinsights.traces.fetch`
@@ -169,6 +184,7 @@ Role | Permissions
   * `databaseinsights.virtualDbaAgent.disable`
   * `databaseinsights.virtualDbaAgent.enable`
   * `databaseinsights.virtualDbaAgent.fetchContextService`
+  * `databaseinsights.virtualDbaAgent.get`
   * `databaseinsights.virtualDbaAgent.getAgentPolicy`
   * `databaseinsights.virtualDbaAgent.getGoal`
   * `databaseinsights.virtualDbaAgent.getTask`
@@ -198,7 +214,7 @@ Role | Permissions
   * `databaseinsights.performanceIssues.detect`
   * `databaseinsights.performanceIssues.investigate`
 
-`databaseinsights.queryMetrics.fetch` `databaseinsights.queryStats.fetch` `databaseinsights.queryTimeSeries.fetch` `databaseinsights.recommendations.query` `databaseinsights.resourceMetadata.fetch` `databaseinsights.resourceRecommendations.query` `databaseinsights.systemMetrics.fetch` `databaseinsights.timeSeries.query` `databaseinsights.traces.fetch` `databaseinsights.virtualDbaAgent.fetchContextService` `databaseinsights.virtualDbaAgent.getAgentPolicy` `databaseinsights.virtualDbaAgent.getGoal` `databaseinsights.virtualDbaAgent.listGoals` `databaseinsights.virtualDbaAgent.listTodos` `databaseinsights.virtualDbaAgent.query` `databaseinsights.virtualDbxAgent.query` `databaseinsights.waitEventStats.fetch` `databaseinsights.waitEventTimeSeries.fetch` `databaseinsights.workloadRecommendations.fetch` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`databaseinsights.queryMetrics.fetch` `databaseinsights.queryStats.fetch` `databaseinsights.queryTimeSeries.fetch` `databaseinsights.recommendations.query` `databaseinsights.resourceMetadata.fetch` `databaseinsights.resourceRecommendations.query` `databaseinsights.systemMetrics.fetch` `databaseinsights.tasks.getTask` `databaseinsights.tasks.listTasks` `databaseinsights.timeSeries.query` `databaseinsights.traces.fetch` `databaseinsights.virtualDbaAgent.fetchContextService` `databaseinsights.virtualDbaAgent.get` `databaseinsights.virtualDbaAgent.getAgentPolicy` `databaseinsights.virtualDbaAgent.getGoal` `databaseinsights.virtualDbaAgent.listGoals` `databaseinsights.virtualDbaAgent.listTodos` `databaseinsights.virtualDbaAgent.query` `databaseinsights.virtualDbxAgent.query` `databaseinsights.waitEventStats.fetch` `databaseinsights.waitEventTimeSeries.fetch` `databaseinsights.workloadRecommendations.fetch` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### Database Insights assistant viewer Beta
 
@@ -228,7 +244,7 @@ Role | Permissions
   
 #### Database Insights performing operations 
 
-(`roles/databaseinsights.operationsAdmin`) Admin role for performing Database Insights operations  |  `databaseinsights.activeQuery.terminate` `databaseinsights.operations.get` `databaseinsights.virtualDbaAgent.disable` `databaseinsights.virtualDbaAgent.enable`  
+(`roles/databaseinsights.operationsAdmin`) Admin role for performing Database Insights operations  |  `databaseinsights.activeQuery.terminate` `databaseinsights.operations.get` `databaseinsights.virtualDbaAgent.disable` `databaseinsights.virtualDbaAgent.enable` `databaseinsights.virtualDbaAgent.get`  
   
 #### Database Insights recommendation viewer 
 
@@ -564,6 +580,34 @@ Permission | Included in roles
 
   
   
+#### `databaseinsights.tasks.applyTaskRemediation`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)   
+  
+#### `databaseinsights.tasks.dismissTask`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)   
+  
+#### `databaseinsights.tasks.fixTask`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)   
+  
+#### `databaseinsights.tasks.getTask`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)  [Database Insights Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.viewer) (`roles/databaseinsights.viewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `databaseinsights.tasks.listTasks`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)  [Database Insights Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.viewer) (`roles/databaseinsights.viewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `databaseinsights.tasks.markTaskAsDone`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)   
+  
+#### `databaseinsights.tasks.restoreTask`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)   
+  
 #### `databaseinsights.telemetryConfig.fetch`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)  [Telemetry Config Fetcher](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.telemetryConfigFetcher) (`roles/databaseinsights.telemetryConfigFetcher`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
@@ -615,6 +659,10 @@ Permission | Included in roles
 #### `databaseinsights.virtualDbaAgent.fetchContextService`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)  [Database Insights Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.viewer) (`roles/databaseinsights.viewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `databaseinsights.virtualDbaAgent.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Database Insights Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.admin) (`roles/databaseinsights.admin`)  [Database Insights Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.editor) (`roles/databaseinsights.editor`)  [Database Insights Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.viewer) (`roles/databaseinsights.viewer`)  [Database Insights performing operations](https://docs.cloud.google.com/iam/docs/roles-permissions/databaseinsights#databaseinsights.operationsAdmin) (`roles/databaseinsights.operationsAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `databaseinsights.virtualDbaAgent.getAgentPolicy`
 
@@ -692,6 +740,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

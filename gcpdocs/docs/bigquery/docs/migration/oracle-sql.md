@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/oracle-sql/
 title: Oracle SQL translation guide \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:00.940238+00:00
+fetched_at: 2026-11-04T07:47:51.401281+00:00
 ---
 
 # Oracle SQL translation guide  |  BigQuery  |  Google Cloud Documentation
@@ -439,7 +439,7 @@ Oracle  | BigQuery
 `[ INITCAP](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/INITCAP.html)` | `[INITCAP](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#initcap)`  
 `[ INSTR/INSTR2/INSTR4/INSTRB/INSTRC](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/INSTR.html)` | Custom user-defined function.   
 `[ LENGTH/LENGTH2/LENGTH4/LENGTHB/LENGTHC](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LENGTH.html)` | `[LENGTH](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#length)`  
-`[ LOWER](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LOWER.html)` | `[](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#lower)LOWER`  
+`[ LOWER](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LOWER.html)` | `[LOWER](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#lower)`  
 `[ LPAD](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LPAD.html)` | `[LPAD](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#lpad)`  
 `[ LTRIM](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/LTRIM.html)` | `[LTRIM](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#ltrim)`  
 `[ NLS_INITCAP](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/NLS_INITCAP.html)` | Custom user-defined function.   
@@ -795,7 +795,7 @@ Oracle  | BigQuery
   
 ### UTL functions
 
-[`UTL_File`](https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS069) package is mainly used for reading and writing the operating system files from PL/SQL. Cloud Storage can be used for any kind of raw file staging. [External tables](https://docs.cloud.google.com/bigquery/external-table-definition) and BigQuery [load](https://docs.cloud.google.com/bigquery/docs/loading-data) and [export](https://docs.cloud.google.com/bigquery/docs/exporting-data) should be used to read and write files from and to Cloud Storage. For more information, see [Introduction to external data sources](https://docs.cloud.google.com/bigquery/external-data-sources).
+[`UTL_File`](https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS069) package is mainly used for reading and writing the operating system files from PL/SQL. Cloud Storage can be used for any kind of raw file staging. [External tables](https://docs.cloud.google.com/bigquery/docs/external-table-definition) and BigQuery [load](https://docs.cloud.google.com/bigquery/docs/loading-data) and [export](https://docs.cloud.google.com/bigquery/docs/exporting-data) should be used to read and write files from and to Cloud Storage. For more information, see [Introduction to external data sources](https://docs.cloud.google.com/bigquery/docs/external-data-sources).
 
 ### Spatial functions
 
@@ -825,7 +825,7 @@ INTO _table_ (col1, col2) VALUES ('val3_1', 'val3_2')
 .  
 .  
 SELECT 1 FROM DUAL;` | `[INSERT INTO](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#insert_statement) _table_ VALUES (1,2,3), (4,5,6),  
-(7,8,9);` BigQuery imposes [DML quotas](https://docs.cloud.google.com/bigquery/quotas#data-manipulation-language-statements), which restrict the number of DML statements you can execute daily. To make the best use of your quota, consider the following approaches:
+(7,8,9);` BigQuery imposes [DML quotas](https://docs.cloud.google.com/bigquery/quotas#data-manipulation-language-statements), which restrict the rate and concurrency of DML statements you can execute per table. To make the best use of your quota, consider the following approaches:
 
   * Combine multiple rows in a single `INSERT` statement, instead of one row per `INSERT` operation. 
   * Combine multiple DML statements (including `INSERT`) using a `MERGE` statement. 
@@ -1023,7 +1023,7 @@ WHEN NOT MATCHED THEN \
 INSERT (_col1_ ,_col2_ ,_col3_ ,_col4_ ,_col5_ ,_col6_ ,_col7_ ,_col8_)  
 VALUES(_col1_ ,_col2_ ,_col3_ ,_col4_ ,_col5_ ,_col6_ , CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());`  
   
-More often, users prefer to [remove duplicates independently](https://docs.cloud.google.com/bigquery/streaming-data-into-bigquery#manually_removing_duplicates) in order to find errors in downstream systems.
+More often, users prefer to [remove duplicates independently](https://docs.cloud.google.com/bigquery/docs/write-api-rest#manually_removing_duplicates) in order to find errors in downstream systems.
 
 BigQuery does not support `DEFAULT` and `IDENTITY` (sequences) columns.
 
@@ -1155,7 +1155,7 @@ Oracle  | BigQuery
 `[GATHER_STATS_JOB](https://docs.oracle.com/cd/B19306_01/server.102/b14211/stats.htm#i37048)` | Not used in BigQuery yet.   
 `[LOCK TABLE](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_9015.htm) _table_name_ IN [SHARE/EXCLUSIVE] MODE NOWAIT; ` | Not used in BigQuery yet.   
 `Alter session set isolation_level=serializable; /` `[SET TRANSACTION](https://docs.oracle.com/cd/B28359_01/server.111/b28286/statements_10005.htm#SQLRF01705) ...` | BigQuery always uses Snapshot Isolation. For details, see Consistency guarantees and transaction isolation in this document.   
-`[EXPLAIN PLAN](https://docs.oracle.com/cd/B19306_01/server.102/b14211/ex_plan.htm#g42231) ...` | Not used in BigQuery.  Similar features are the [query plan explanation in the BigQuery web UI](https://docs.cloud.google.com/bigquery/query-plan-explanation) and the slot allocation, and in [audit logging in Stackdriver](https://docs.cloud.google.com/bigquery/docs/monitoring).   
+`[EXPLAIN PLAN](https://docs.oracle.com/cd/B19306_01/server.102/b14211/ex_plan.htm#g42231) ...` | Not used in BigQuery.  Similar features are the [query plan explanation in the BigQuery web UI](https://docs.cloud.google.com/bigquery/docs/query-plan-explanation) and the slot allocation, and in [audit logging in Stackdriver](https://docs.cloud.google.com/bigquery/docs/monitoring).   
 `SELECT * FROM DBA_[*];` (Oracle DBA_/ALL_/V$ views)  | `SELECT * FROM mydataset.INFORMATION_SCHEMA.TABLES;` For more information, see [Introduction to BigQuery INFORMATION_SCHEMA](https://docs.cloud.google.com/bigquery/docs/information-schema-intro).   
 `SELECT * FROM [GV$SESSION](https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_2088.htm#REFRN30223);` `SELECT * FROM [V$ACTIVE_SESSION_HISTORY](https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_1007.htm#REFRN30299);` | BigQuery does not have the traditional session concept. You can view query jobs in the UI or export stackdriver audit logs to BigQuery and analyze BigQuery logs for analyzing jobs. For more information, see [View job details](https://docs.cloud.google.com/bigquery/docs/managing-jobs#view-job).   
 `START TRANSACTION;` `LOCK TABLE _table_A_ IN EXCLUSIVE MODE NOWAIT;` `DELETE FROM _table_A_ ;` `INSERT INTO _table_A_ SELECT * FROM _table_B_ ;` `COMMIT;` | Replacing the contents of a table with query output is the equivalent of a transaction. You can do this with either a [query](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#bq_query) or a [copy](https://docs.cloud.google.com/bigquery/docs/managing-tables#copy-table) operation.  Using a query:  `bq query --replace --_destination_table_ _table_A_ 'SELECT * FROM _table_B_ ';` Using a copy: `bq cp -f _table_A_ _table_B_`  
@@ -1166,7 +1166,7 @@ Both Oracle and BigQuery support transactions (sessions) and therefore support s
 
 ## Error codes and messages
 
-[Oracle error codes](https://docs.oracle.com/database/121/DRDAS/error_code.htm#DRDAS513) and [BigQuery error codes](https://docs.cloud.google.com/bigquery/troubleshooting-errors) are different. If your application logic is currently catching the errors, try to eliminate the source of the error, because BigQuery doesn't return the same error codes.
+[Oracle error codes](https://docs.oracle.com/database/121/DRDAS/error_code.htm#DRDAS513) and [BigQuery error codes](https://docs.cloud.google.com/bigquery/docs/error-messages) are different. If your application logic is currently catching the errors, try to eliminate the source of the error, because BigQuery doesn't return the same error codes.
 
 ## Consistency guarantees and transaction isolation
 
@@ -1209,6 +1209,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/python/release-notes/
 title: App Engine flexible environment for Python release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:48:28.144952+00:00
+fetched_at: 2026-11-04T08:08:16.656871+00:00
 ---
 
 # App Engine flexible environment for Python release notes  |  Google Cloud Documentation
@@ -25,6 +25,12 @@ Send feedback
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gaeflex-py-release-notes.xml) directly. 
+
+## November 02, 2026
+
+Feature
+
+Support for the [Python 3.15 runtime](https://docs.cloud.google.com/appengine/docs/flexible/python/runtime) is in [Preview](https://cloud.google.com/products/#product-launch-stages).
 
 ## October 24, 2026
 

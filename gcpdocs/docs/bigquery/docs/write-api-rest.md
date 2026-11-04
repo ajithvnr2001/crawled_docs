@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/write-api-rest/
 title: Use the Storage Write API (REST) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:42:38.886808+00:00
+fetched_at: 2026-11-04T07:48:39.587840+00:00
 ---
 
 # Use the Storage Write API (REST)  |  BigQuery  |  Google Cloud Documentation
@@ -70,7 +70,7 @@ Before trying this sample, follow the C# setup instructions in the [BigQuery qui
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
     
     
-    using [Google.Cloud.BigQuery.V2](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.html);
+    using Google.Cloud.BigQuery.V2;
     
     public class BigQueryTableInsertRows
     {
@@ -80,21 +80,21 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
             string tableId = "your_table_id"
         )
         {
-            [BigQueryClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryClient.html) client = [BigQueryClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryClient.html#Google_Cloud_BigQuery_V2_BigQueryClient_Create_System_String_Google_Apis_Auth_OAuth2_GoogleCredential_)(projectId);
-            [BigQueryInsertRow](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryInsertRow.html)[] rows = new [BigQueryInsertRow](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryInsertRow.html)[]
+            BigQueryClient client = BigQueryClient.Create(projectId);
+            BigQueryInsertRow[] rows = new BigQueryInsertRow[]
             {
                 // The insert ID is optional, but can avoid duplicate data
                 // when retrying inserts.
-                new [BigQueryInsertRow](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryInsertRow.html)(insertId: "row1") {
+                new BigQueryInsertRow(insertId: "row1") {
                     { "name", "Washington" },
                     { "post_abbr", "WA" }
                 },
-                new [BigQueryInsertRow](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryInsertRow.html)(insertId: "row2") {
+                new BigQueryInsertRow(insertId: "row2") {
                     { "name", "Colorado" },
                     { "post_abbr", "CO" }
                 }
             };
-            client.[InsertRows](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest/Google.Cloud.BigQuery.V2.BigQueryClient.html#Google_Cloud_BigQuery_V2_BigQueryClient_InsertRows_Google_Apis_Bigquery_v2_Data_TableReference_Google_Cloud_BigQuery_V2_BigQueryInsertRow___)(datasetId, tableId, rows);
+            client.InsertRows(datasetId, tableId, rows);
         }
     }
 
@@ -120,11 +120,11 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     // Save implements the ValueSaver interface.
     // This example disables best-effort de-duplication, which allows for higher throughput.
-    func (i *Item) Save() (map[string]bigquery.[Value](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_Value), string, error) {
-    	return map[string]bigquery.[Value](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_Value){
+    func (i *Item) Save() (map[string]bigquery.Value, string, error) {
+    	return map[string]bigquery.Value{
     		"full_name": i.Name,
     		"age":       i.Age,
-    	}, bigquery.[NoDedupeID](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_NoDedupeID), nil
+    	}, bigquery.NoDedupeID, nil
     }
     
     // insertRows demonstrates inserting data into a table using the streaming insert mechanism.
@@ -145,7 +145,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     		{Name: "Phred Phlyntstone", Age: 32},
     		{Name: "Wylma Phlyntstone", Age: 29},
     	}
-    	if err := inserter.[Put](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/index.html#cloud_google_com_go_bigquery_Inserter_Put)(ctx, items); err != nil {
+    	if err := inserter.Put(ctx, items); err != nil {
     		return err
     	}
     	return nil
@@ -159,13 +159,13 @@ Before trying this sample, follow the Java setup instructions in the [BigQuery q
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.bigquery.[BigQuery](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html);
-    import com.google.cloud.bigquery.[BigQueryError](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryError.html);
-    import com.google.cloud.bigquery.[BigQueryException](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html);
-    import com.google.cloud.bigquery.[BigQueryOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html);
-    import com.google.cloud.bigquery.[InsertAllRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.InsertAllRequest.html);
-    import com.google.cloud.bigquery.[InsertAllResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.InsertAllResponse.html);
-    import com.google.cloud.bigquery.[TableId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.TableId.html);
+    import com.google.cloud.bigquery.BigQuery;
+    import com.google.cloud.bigquery.BigQueryError;
+    import com.google.cloud.bigquery.BigQueryException;
+    import com.google.cloud.bigquery.BigQueryOptions;
+    import com.google.cloud.bigquery.InsertAllRequest;
+    import com.google.cloud.bigquery.InsertAllResponse;
+    import com.google.cloud.bigquery.TableId;
     import java.util.HashMap;
     import java.util.List;
     import java.util.Map;
@@ -226,8 +226,8 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     // Import the Google Cloud client library
-    const {BigQuery} = require('[@google-cloud/bigquery](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/overview.html)');
-    const bigquery = new [BigQuery](https://docs.cloud.google.com/nodejs/docs/reference/bigquery/latest/bigquery/bigquery.html)();
+    const {BigQuery} = require('@google-cloud/bigquery');
+    const bigquery = new BigQuery();
     
     async function insertRowsAsStream() {
       // Inserts the JSON objects into my_dataset:my_table.
@@ -304,10 +304,10 @@ Before trying this sample, follow the Python setup instructions in the [BigQuery
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
     
     
-    from google.cloud import [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)
+    from google.cloud import bigquery
     
     # Construct a BigQuery client object.
-    client = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html)()
+    client = bigquery.Client()
     
     # TODO(developer): Set table_id to the ID of table to append to.
     # table_id = "your-project.your_dataset.your_table"
@@ -317,7 +317,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         {"full_name": "Wylma Phlyntstone", "age": 29},
     ]
     
-    errors = client.[insert_rows_json](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_insert_rows_json)(table_id, rows_to_insert)  # Make an API request.
+    errors = client.insert_rows_json(table_id, rows_to_insert)  # Make an API request.
     if errors == []:
         print("New rows have been added.")
     else:
@@ -333,7 +333,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def table_insert_rows dataset_id = "your_dataset_id", table_id = "your_table_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::Bigquery.new
       dataset  = bigquery.dataset dataset_id
       table    = dataset.table table_id
     
@@ -361,13 +361,13 @@ Before trying this sample, follow the Java setup instructions in the [BigQuery q
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.bigquery.[BigQuery](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html);
-    import com.google.cloud.bigquery.[BigQueryError](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryError.html);
-    import com.google.cloud.bigquery.[BigQueryException](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html);
-    import com.google.cloud.bigquery.[BigQueryOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html);
-    import com.google.cloud.bigquery.[InsertAllRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.InsertAllRequest.html);
-    import com.google.cloud.bigquery.[InsertAllResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.InsertAllResponse.html);
-    import com.google.cloud.bigquery.[TableId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.TableId.html);
+    import com.google.cloud.bigquery.BigQuery;
+    import com.google.cloud.bigquery.BigQueryError;
+    import com.google.cloud.bigquery.BigQueryException;
+    import com.google.cloud.bigquery.BigQueryOptions;
+    import com.google.cloud.bigquery.InsertAllRequest;
+    import com.google.cloud.bigquery.InsertAllResponse;
+    import com.google.cloud.bigquery.TableId;
     import com.google.common.collect.ImmutableList;
     import java.util.HashMap;
     import java.util.List;
@@ -426,10 +426,10 @@ Before trying this sample, follow the Python setup instructions in the [BigQuery
 To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
     
     
-    from google.cloud import [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest)
+    from google.cloud import bigquery
     
     # Construct a BigQuery client object.
-    client = [bigquery](https://docs.cloud.google.com/python/docs/reference/bigquery/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html)()
+    client = bigquery.Client()
     
     # TODO(developer): Set table_id to the ID of table to append to.
     # table_id = "your-project.your_dataset.your_table"
@@ -439,7 +439,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         {"full_name": "Wylma Phlyntstone", "age": 29},
     ]
     
-    errors = client.[insert_rows_json](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_insert_rows_json)(
+    errors = client.insert_rows_json(
         table_id, rows_to_insert, row_ids=[None] * len(rows_to_insert)
     )  # Make an API request.
     if errors == []:

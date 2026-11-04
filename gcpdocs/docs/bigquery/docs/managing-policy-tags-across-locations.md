@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-policy-tags-across-locations/
 title: Managing policy tags across locations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:33.106236+00:00
+fetched_at: 2026-11-04T07:49:04.363307+00:00
 ---
 
 # Managing policy tags across locations  |  BigQuery  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ When you replicate them, the taxonomy and policy tags retain the same IDs in eac
 
 **Caution:** Syncing a taxonomy across locations syncs only the taxonomy and policy tags in the taxonomy. The permissions granted to a policy tag and the columns governed by that policy tag are not synced, and can vary by location.
 
-The taxonomy and policy tags can be synced again, to keep them unified across multiple locations. Explicit replication of a taxonomy is accomplished by a call to the [Data Catalog](https://docs.cloud.google.com/data-catalog/docs) API. Future syncs of the replicated taxonomy use the same API command, which overwrites the previous taxonomy.
+The taxonomy and policy tags can be synced again, to keep them unified across multiple locations. Explicit replication of a taxonomy is accomplished by a call to the [Data Catalog API](https://docs.cloud.google.com/data-catalog/docs/reference/rest). Future syncs of the replicated taxonomy use the same API command, which overwrites the previous taxonomy.
 
 To facilitate syncing of the taxonomy, you can use [Cloud Scheduler](https://docs.cloud.google.com/scheduler/docs) to periodically perform a sync of the taxonomy across regions, either on a set schedule or with a manual button push. To use Cloud Scheduler, you need to set up a service account.
 
@@ -177,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

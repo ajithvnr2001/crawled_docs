@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/column-data-masking/
 title: Mask column data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:35:24.929771+00:00
+fetched_at: 2026-11-04T07:47:52.089491+00:00
 ---
 
 # Mask column data  |  BigQuery  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ You implement data masking by adding a data policy to a column. To add a data ma
 
   1. Create a taxonomy with at least one policy tag.
   2. Optional: Grant the Data Catalog Fine-Grained Reader role to one or more principals on one or more of the policy tags you created.
-  3. Create up to three data policies for the policy tag, to map masking rules and principals (which represent users or groups) to that tag.
+  3. Create up to eight data policies for the policy tag, to map masking rules and principals (which represent users or groups) to that tag.
   4. Set the policy tag on a column. That maps the data policies associated with the policy tag to the selected column.
   5. Assign users who should have access to masked data to the BigQuery Masked Reader role. As a best practice, assign the BigQuery Masked Reader role at the data policy level. Assigning the role at the project level or higher grants users permissions to all data policies under the project, which can lead to issues caused by excess permissions.
 
@@ -98,7 +98,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
   9. If you are creating a data policy that references a [custom masking routine](https://docs.cloud.google.com/bigquery/docs/column-data-masking-intro#custom_mask), create the associated masking UDF so that it is available in the following steps. 
 
-**Note:** The `datacatalog.googleapis.com` API must remain enabled to create and manage the Data Catalog policy tags and taxonomies used for data masking and column-level security. Although Data Catalog metadata search and cataloging features are deprecated and transitioning to Knowledge Catalog, the specific Data Catalog API functionality for policy tags isn't deprecated.
+**Note:** The `datacatalog.googleapis.com` API must remain enabled to create and manage the Data Catalog policy tags and taxonomies used for data masking and column-level security. Although Data Catalog metadata search and catalog features are deprecated and transitioning to Knowledge Catalog, the Policy Tag Manager service (taxonomies and policy tags), its `datacatalog.googleapis.com` API methods and audit logs, and the `roles/datacatalog` Identity and Access Management (IAM) roles aren't deprecated.
 
 ### Create taxonomies
 
@@ -1649,6 +1649,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

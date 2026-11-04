@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/setup/cluster-blueprint/
 title: Cluster blueprint overview \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:59.806447+00:00
+fetched_at: 2026-11-04T07:16:50.286193+00:00
 ---
 
 # Cluster blueprint overview  |  Cluster Toolkit  |  Google Cloud Documentation
@@ -151,16 +151,25 @@ Deploys a basic autoscaling cluster with Slurm that uses default settings. The b
       deployment_name: hpc-slurm
       region: us-central1
       zone: us-central1-a
-      # The following settings are safe to override via `-d deployment.yaml` or
-      # `--vars` without editing the module blocks below.
+      # Optional overrides (defaults shown)
       # Maximum number of dynamically provisioned nodes in the debug partition.
-      debug_node_count_max: 4
+      debug_node_count_dynamic_max: 4
+      # Machine type for the debug partition.
+      debug_machine_type: n2-standard-2
+      # Use Spot VMs for the debug partition.
+      debug_enable_spot_vm: false
       # Maximum number of dynamically provisioned nodes in the compute partition.
-      compute_node_count_max: 20
+      compute_node_count_dynamic_max: 20
       # Machine type for the compute partition.
       compute_machine_type: c2-standard-60
       # Use Spot VMs for the compute partition.
       compute_enable_spot_vm: false
+      # Maximum number of dynamically provisioned nodes in the h3 partition.
+      h3_node_count_dynamic_max: 20
+      # Use Spot VMs for the h3 partition.
+      h3_enable_spot_vm: false
+      # Machine type for the login node.
+      login_machine_type: n2-standard-4
     
     # Documentation for each of the modules used below can be found at
     # https://github.com/GoogleCloudPlatform/hpc-toolkit/blob/main/modules/README.md
@@ -193,8 +202,9 @@ Deploys a basic autoscaling cluster with Slurm that uses default settings. The b
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network]
         settings:
-          node_count_dynamic_max: $(vars.debug_node_count_max)
-          machine_type: n2-standard-2
+          node_count_dynamic_max: $(vars.debug_node_count_dynamic_max)
+          machine_type: $(vars.debug_machine_type)
+          enable_spot_vm: $(vars.debug_enable_spot_vm)
           allow_automatic_updates: false
     
       - id: debug_partition
@@ -210,7 +220,7 @@ Deploys a basic autoscaling cluster with Slurm that uses default settings. The b
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network]
         settings:
-          node_count_dynamic_max: $(vars.compute_node_count_max)
+          node_count_dynamic_max: $(vars.compute_node_count_dynamic_max)
           machine_type: $(vars.compute_machine_type)
           enable_spot_vm: $(vars.compute_enable_spot_vm)
           bandwidth_tier: gvnic_enabled
@@ -227,7 +237,8 @@ Deploys a basic autoscaling cluster with Slurm that uses default settings. The b
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network]
         settings:
-          node_count_dynamic_max: 20
+          node_count_dynamic_max: $(vars.h3_node_count_dynamic_max)
+          enable_spot_vm: $(vars.h3_enable_spot_vm)
           # Note that H3 is available in only specific zones. https://cloud.google.com/compute/docs/regions-zones
           machine_type: h3-standard-88
           # H3 does not support pd-ssd and pd-standard
@@ -247,7 +258,7 @@ Deploys a basic autoscaling cluster with Slurm that uses default settings. The b
         source: community/modules/scheduler/schedmd-slurm-gcp-v6-login
         use: [network]
         settings:
-          machine_type: n2-standard-4
+          machine_type: $(vars.login_machine_type)
           enable_login_public_ips: true
     
       - id: slurm_controller
@@ -303,6 +314,25 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
       instance_image_custom: false
       metadata: # Workaround for https://github.com/GoogleCloudPlatform/cluster-toolkit/discussions/3243
         VmDnsSetting: GlobalOnly
+      # Optional overrides (defaults shown)
+      # Maximum number of dynamically provisioned nodes in the n2 partition.
+      n2_node_count_dynamic_max: 4
+      # Maximum number of dynamically provisioned nodes in the c2 partition.
+      c2_node_count_dynamic_max: 20
+      # Maximum number of dynamically provisioned nodes in the c2d partition.
+      c2d_node_count_dynamic_max: 20
+      # Maximum number of dynamically provisioned nodes in the c3 partition.
+      c3_node_count_dynamic_max: 20
+      # Maximum number of dynamically provisioned nodes in the a2_8 partition.
+      a2_8_node_count_dynamic_max: 16
+      # Maximum number of dynamically provisioned nodes in the a2_16 partition.
+      a2_16_node_count_dynamic_max: 16
+      # Maximum number of dynamically provisioned nodes in the h3 partition.
+      h3_node_count_dynamic_max: 16
+      # Machine type for the login node.
+      login_machine_type: n2-standard-4
+      # Size in GiB of the /lustre Managed Lustre instance.
+      lustre_size_gib: 36000
     
     # Recommended to use GCS backend for Terraform state
     # See https://github.com/GoogleCloudPlatform/hpc-toolkit/tree/main/examples#optional-setting-up-a-remote-terraform-state
@@ -382,13 +412,13 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
           name: $(vars.lustre_instance_id)
           local_mount: /lustre
           remote_mount: lustrefs
-          size_gib: 36000
+          size_gib: $(vars.lustre_size_gib)
     
       - id: n2_nodeset
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network, compute_sa]
         settings:
-          node_count_dynamic_max: 4
+          node_count_dynamic_max: $(vars.n2_node_count_dynamic_max)
           machine_type: n2-standard-2
           instance_image: $(vars.slurm_image)
           allow_automatic_updates: false
@@ -407,7 +437,7 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network, compute_sa]
         settings:
-          node_count_dynamic_max: 20
+          node_count_dynamic_max: $(vars.c2_node_count_dynamic_max)
           machine_type: c2-standard-60  # this is the default
           bandwidth_tier: tier_1_enabled
           instance_image: $(vars.slurm_image)
@@ -429,7 +459,7 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network, compute_sa]
         settings:
-          node_count_dynamic_max: 20
+          node_count_dynamic_max: $(vars.c2d_node_count_dynamic_max)
           machine_type: c2d-standard-112
           instance_image: $(vars.slurm_image)
           bandwidth_tier: tier_1_enabled
@@ -447,7 +477,7 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network, compute_sa]
         settings:
-          node_count_dynamic_max: 20
+          node_count_dynamic_max: $(vars.c3_node_count_dynamic_max)
           machine_type: c3-highcpu-176
           instance_image: $(vars.slurm_image)
           bandwidth_tier: tier_1_enabled
@@ -465,7 +495,7 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network, compute_sa]
         settings:
-          node_count_dynamic_max: 16
+          node_count_dynamic_max: $(vars.a2_8_node_count_dynamic_max)
           machine_type: a2-ultragpu-8g
           # This makes this nodeset look for machines in any of the following zones
           # https://github.com/GoogleCloudPlatform/hpc-toolkit/tree/develop/community/modules/compute/schedmd-slurm-gcp-v6-nodeset#compute-vm-zone-policies
@@ -495,7 +525,7 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network, compute_sa]
         settings:
-          node_count_dynamic_max: 16
+          node_count_dynamic_max: $(vars.a2_16_node_count_dynamic_max)
           machine_type: a2-megagpu-16g
           # This makes this nodeset look for machines in any of the following zones
           # https://github.com/GoogleCloudPlatform/hpc-toolkit/tree/develop/community/modules/compute/schedmd-slurm-gcp-v6-nodeset#compute-vm-zone-policies // !!!
@@ -525,7 +555,7 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
         source: community/modules/compute/schedmd-slurm-gcp-v6-nodeset
         use: [network, compute_sa]
         settings:
-          node_count_dynamic_max: 16
+          node_count_dynamic_max: $(vars.h3_node_count_dynamic_max)
           # Note that H3 is available in only specific zones. https://cloud.google.com/compute/docs/regions-zones
           machine_type: h3-standard-88
           bandwidth_tier: gvnic_enabled  # https://cloud.google.com/compute/docs/compute-optimized-machines#h3_network
@@ -549,7 +579,7 @@ Deploys a cluster with Slurm that has a tiered file systems for higher performan
         use: [network, login_sa]
         settings:
           instance_image: $(vars.slurm_image)
-          machine_type: n2-standard-4
+          machine_type: $(vars.login_machine_type)
           # we recommend disabling public IPs if possible
           # but that requires your network to have a NAT or
           # private access configured

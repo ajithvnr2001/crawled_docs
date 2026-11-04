@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-template-list/
 title: List instance templates in a project \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:41:20.111288+00:00
+fetched_at: 2026-11-04T07:54:24.926839+00:00
 ---
 
 # List instance templates in a project  |  Compute Engine  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// projectID := "your_project_id"
     
     	ctx := context.Background()
-    	instanceTemplatesClient, err := compute.NewInstanceTemplatesRESTClient(ctx)
+    	instanceTemplatesClient, err := compute.[NewInstanceTemplatesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstanceTemplatesClient_NewInstanceTemplatesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstanceTemplatesRESTClient: %w", err)
     	}
@@ -66,7 +66,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	it := instanceTemplatesClient.List(ctx, req)
     	for {
     		instance, err := it.Next()
-    		if err == iterator.Done {
+    		if err == iterator.[Done](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Done) {
     			break
     		}
     		if err != nil {
@@ -86,9 +86,9 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.InstanceTemplate;
-    import com.google.cloud.compute.v1.InstanceTemplatesClient;
-    import com.google.cloud.compute.v1.InstanceTemplatesClient.ListPagedResponse;
+    import com.google.cloud.compute.v1.[InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html);
+    import com.google.cloud.compute.v1.[InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html);
+    import com.google.cloud.compute.v1.[InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).ListPagedResponse;
     import java.io.IOException;
     
     public class ListInstanceTemplates {
@@ -102,11 +102,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
       // Get a list of InstanceTemplate objects available in a project.
       public static ListPagedResponse listInstanceTemplates(String projectId) throws IOException {
-        try (InstanceTemplatesClient instanceTemplatesClient = InstanceTemplatesClient.create()) {
+        try ([InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html) instanceTemplatesClient = [InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).create()) {
           int count = 0;
           System.out.println("Listing instance templates...");
           ListPagedResponse templates = instanceTemplatesClient.list(projectId);
-          for (InstanceTemplate instanceTemplate : templates.iterateAll()) {
+          for ([InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html) instanceTemplate : templates.iterateAll()) {
             System.out.printf("%s. %s%n", ++count, instanceTemplate.getName());
           }
           return templates;
@@ -126,11 +126,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
      */
     // const projectId = 'YOUR_PROJECT_ID';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Print a list of instance template objects available in a project.
     async function listInstanceTemplates() {
-      const instanceTemplatesClient = new compute.InstanceTemplatesClient();
+      const instanceTemplatesClient = new compute.[InstanceTemplatesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const instanceTemplates = instanceTemplatesClient.listAsync({
         project: projectId,

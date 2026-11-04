@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/dns/
 title: Cloud DNS roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:34:51.205168+00:00
+fetched_at: 2026-11-04T07:57:05.656244+00:00
 ---
 
 # Cloud DNS roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -43,6 +43,8 @@ Role | Permissions
   * `dns.dnsKeys.list`
   * `dns.gkeClusters.bindDNSResponsePolicy`
   * `dns.gkeClusters.bindPrivateDNSZone`
+  * `dns.locations.get`
+  * `dns.locations.list`
   * `dns.managedZoneOperations.get`
   * `dns.managedZoneOperations.list`
   * `dns.managedZones.create`
@@ -57,6 +59,17 @@ Role | Permissions
   * `dns.networks.bindPrivateDNSZone`
   * `dns.networks.targetWithPeeringZone`
   * `dns.networks.useHealthSignals`
+  * `dns.operations.cancel`
+  * `dns.operations.delete`
+  * `dns.operations.get`
+  * `dns.operations.list`
+  * `dns.outboundEndpoints.bindPrivateDNSPolicy`
+  * `dns.outboundEndpoints.bindPrivateDNSZone`
+  * `dns.outboundEndpoints.create`
+  * `dns.outboundEndpoints.delete`
+  * `dns.outboundEndpoints.get`
+  * `dns.outboundEndpoints.list`
+  * `dns.outboundEndpoints.update`
   * `dns.policies.create`
   * `dns.policies.createTagBinding`
   * `dns.policies.delete`
@@ -103,6 +116,11 @@ Role | Permissions
   * `dns.gkeClusters.bindDNSResponsePolicy`
   * `dns.gkeClusters.bindPrivateDNSZone`
 
+`dns.locations.*`
+
+  * `dns.locations.get`
+  * `dns.locations.list`
+
 `dns.managedZoneOperations.*`
 
   * `dns.managedZoneOperations.get`
@@ -115,6 +133,23 @@ Role | Permissions
   * `dns.networks.bindPrivateDNSZone`
   * `dns.networks.targetWithPeeringZone`
   * `dns.networks.useHealthSignals`
+
+`dns.operations.*`
+
+  * `dns.operations.cancel`
+  * `dns.operations.delete`
+  * `dns.operations.get`
+  * `dns.operations.list`
+
+`dns.outboundEndpoints.*`
+
+  * `dns.outboundEndpoints.bindPrivateDNSPolicy`
+  * `dns.outboundEndpoints.bindPrivateDNSZone`
+  * `dns.outboundEndpoints.create`
+  * `dns.outboundEndpoints.delete`
+  * `dns.outboundEndpoints.get`
+  * `dns.outboundEndpoints.list`
+  * `dns.outboundEndpoints.update`
 
 `dns.policies.create` `dns.policies.delete` `dns.policies.get` `dns.policies.list` `dns.policies.listEffectiveTags` `dns.policies.listTagBindings` `dns.policies.update` `dns.projects.get` `dns.resourceRecordSets.*`
 
@@ -149,12 +184,17 @@ Role | Permissions
   * `dns.dnsKeys.get`
   * `dns.dnsKeys.list`
 
+`dns.locations.*`
+
+  * `dns.locations.get`
+  * `dns.locations.list`
+
 `dns.managedZoneOperations.*`
 
   * `dns.managedZoneOperations.get`
   * `dns.managedZoneOperations.list`
 
-`dns.managedZones.get` `dns.managedZones.getIamPolicy` `dns.managedZones.list` `dns.policies.get` `dns.policies.list` `dns.policies.listEffectiveTags` `dns.policies.listTagBindings` `dns.projects.get` `dns.resourceRecordSets.get` `dns.resourceRecordSets.list` `dns.responsePolicies.get` `dns.responsePolicies.list` `dns.responsePolicyRules.get` `dns.responsePolicyRules.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`dns.managedZones.get` `dns.managedZones.getIamPolicy` `dns.managedZones.list` `dns.operations.get` `dns.operations.list` `dns.outboundEndpoints.get` `dns.outboundEndpoints.list` `dns.policies.get` `dns.policies.list` `dns.policies.listEffectiveTags` `dns.policies.listTagBindings` `dns.projects.get` `dns.resourceRecordSets.get` `dns.resourceRecordSets.list` `dns.responsePolicies.get` `dns.responsePolicies.list` `dns.responsePolicyRules.get` `dns.responsePolicyRules.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### DNS Peer 
 
@@ -171,12 +211,17 @@ Role | Permissions
   * `dns.dnsKeys.get`
   * `dns.dnsKeys.list`
 
+`dns.locations.*`
+
+  * `dns.locations.get`
+  * `dns.locations.list`
+
 `dns.managedZoneOperations.*`
 
   * `dns.managedZoneOperations.get`
   * `dns.managedZoneOperations.list`
 
-`dns.managedZones.get` `dns.managedZones.list` `dns.policies.get` `dns.policies.list` `dns.policies.listEffectiveTags` `dns.policies.listTagBindings` `dns.projects.get` `dns.resourceRecordSets.get` `dns.resourceRecordSets.list` `dns.responsePolicies.get` `dns.responsePolicies.list` `dns.responsePolicyRules.get` `dns.responsePolicyRules.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`dns.managedZones.get` `dns.managedZones.list` `dns.operations.get` `dns.operations.list` `dns.outboundEndpoints.get` `dns.outboundEndpoints.list` `dns.policies.get` `dns.policies.list` `dns.policies.listEffectiveTags` `dns.policies.listTagBindings` `dns.projects.get` `dns.resourceRecordSets.get` `dns.resourceRecordSets.list` `dns.responsePolicies.get` `dns.responsePolicies.list` `dns.responsePolicyRules.get` `dns.responsePolicyRules.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 ### Service agent roles
 
@@ -285,6 +330,30 @@ Permission | Included in roles
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
 
   * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.locations.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [DNS Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.viewer) (`roles/dns.viewer`)  [DNS Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.reader) (`roles/dns.reader`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.locations.list`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [DNS Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.viewer) (`roles/dns.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [DNS Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.reader) (`roles/dns.reader`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
   * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
   * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
   * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
@@ -510,6 +579,135 @@ Permission | Included in roles
   * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
   * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
   * [Oracle Database@Google Cloud Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/oci#oci.serviceAgent) (`roles/oci.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.operations.cancel`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.operations.delete`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.operations.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [DNS Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.viewer) (`roles/dns.viewer`)  [DNS Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.reader) (`roles/dns.reader`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.operations.list`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [DNS Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.viewer) (`roles/dns.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [DNS Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.reader) (`roles/dns.reader`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.outboundEndpoints.bindPrivateDNSPolicy`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.outboundEndpoints.bindPrivateDNSZone`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.outboundEndpoints.create`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.outboundEndpoints.delete`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.outboundEndpoints.get`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [DNS Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.viewer) (`roles/dns.viewer`)  [DNS Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.reader) (`roles/dns.reader`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.outboundEndpoints.list`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [DNS Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.viewer) (`roles/dns.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [DNS Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.reader) (`roles/dns.reader`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
+  * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
+  * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
+
+  
+  
+#### `dns.outboundEndpoints.update`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [DNS Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) (`roles/dns.admin`)  [DNS Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.editor) (`roles/dns.editor`)  [Network Administrator](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.networkAdmin) (`roles/iam.networkAdmin`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
+  * [Cloud Managed Identities Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/managedidentities#managedidentities.serviceAgent) (`roles/managedidentities.serviceAgent`) 
+  * [Multi-Cluster Service Discovery Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/multiclusterservicediscovery#multiclusterservicediscovery.serviceAgent) (`roles/multiclusterservicediscovery.serviceAgent`) 
   * [Service Networking Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking#servicenetworking.serviceAgent) (`roles/servicenetworking.serviceAgent`) 
   * [VMware Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vmwareengine#vmwareengine.serviceAgent) (`roles/vmwareengine.serviceAgent`) 
 
@@ -858,6 +1056,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/introduction-sql/
 title: Introduction to SQL in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:42:32.265799+00:00
+fetched_at: 2026-11-04T07:13:00.162894+00:00
 ---
 
 # Introduction to SQL in BigQuery  |  Google Cloud Documentation
@@ -424,7 +424,7 @@ To use legacy SQL syntax in a query job, pass the option `legacy_sql: true` with
     require "google/cloud/bigquery"
     
     def query_legacy
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-connection-v1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       sql = "SELECT name FROM [bigquery-public-data:usa_names.usa_1910_2013] " \
             "WHERE state = 'TX' " \
             "LIMIT 100"

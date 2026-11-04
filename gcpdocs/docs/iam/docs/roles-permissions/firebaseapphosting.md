@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting/
 title: Firebase App Hosting roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:36:00.320484+00:00
+fetched_at: 2026-11-04T07:58:47.302856+00:00
 ---
 
 # Firebase App Hosting roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -33,9 +33,13 @@ Role | Permissions
 (`roles/firebaseapphosting.admin`) Full access to Firebase App Hosting API resources.  |  `firebaseapphosting.*`
 
   * `firebaseapphosting.backends.create`
+  * `firebaseapphosting.backends.createTagBinding`
   * `firebaseapphosting.backends.delete`
+  * `firebaseapphosting.backends.deleteTagBinding`
   * `firebaseapphosting.backends.get`
   * `firebaseapphosting.backends.list`
+  * `firebaseapphosting.backends.listEffectiveTags`
+  * `firebaseapphosting.backends.listTagBindings`
   * `firebaseapphosting.backends.update`
   * `firebaseapphosting.builds.create`
   * `firebaseapphosting.builds.delete`
@@ -65,7 +69,7 @@ Role | Permissions
   
 #### Firebase App Hosting Viewer 
 
-(`roles/firebaseapphosting.viewer`) Grants readonly access to Firebase App Hosting resources, but not permission to invoke the backend. Intended for auditors, PMs, ect. Includes minimal viewer permissions for Firebase Console.  |  `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
+(`roles/firebaseapphosting.viewer`) Grants readonly access to Firebase App Hosting resources, but not permission to invoke the backend. Intended for auditors, PMs, ect. Includes minimal viewer permissions for Firebase Console.  |  `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.backends.listEffectiveTags` `firebaseapphosting.backends.listTagBindings` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
 
   * `firebaseapphosting.locations.get`
   * `firebaseapphosting.locations.list`
@@ -106,7 +110,7 @@ Role | Permissions
   * `artifactregistry.pythonpackages.get`
   * `artifactregistry.pythonpackages.list`
 
-`artifactregistry.repositories.createOnPush` `artifactregistry.repositories.downloadArtifacts` `artifactregistry.repositories.exportArtifacts` `artifactregistry.repositories.get` `artifactregistry.repositories.list` `artifactregistry.repositories.listEffectiveTags` `artifactregistry.repositories.listTagBindings` `artifactregistry.repositories.readViaVirtualRepository` `artifactregistry.repositories.uploadArtifacts` `artifactregistry.rules.get` `artifactregistry.rules.list` `artifactregistry.tags.create` `artifactregistry.tags.get` `artifactregistry.tags.list` `artifactregistry.tags.update` `artifactregistry.versions.get` `artifactregistry.versions.list` `artifactregistry.yumartifacts.create` `cloudtrace.traces.patch` `developerconnect.connections.get` `developerconnect.gitRepositoryLinks.fetchReadToken` `developerconnect.gitRepositoryLinks.get` `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.builds.update` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
+`artifactregistry.repositories.createOnPush` `artifactregistry.repositories.downloadArtifacts` `artifactregistry.repositories.exportArtifacts` `artifactregistry.repositories.get` `artifactregistry.repositories.list` `artifactregistry.repositories.listEffectiveTags` `artifactregistry.repositories.listTagBindings` `artifactregistry.repositories.readViaVirtualRepository` `artifactregistry.repositories.uploadArtifacts` `artifactregistry.rules.get` `artifactregistry.rules.list` `artifactregistry.tags.create` `artifactregistry.tags.get` `artifactregistry.tags.list` `artifactregistry.tags.update` `artifactregistry.versions.get` `artifactregistry.versions.list` `artifactregistry.yumartifacts.create` `cloudtrace.traces.patch` `developerconnect.connections.get` `developerconnect.gitRepositoryLinks.fetchReadToken` `developerconnect.gitRepositoryLinks.get` `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.backends.listEffectiveTags` `firebaseapphosting.backends.listTagBindings` `firebaseapphosting.builds.get` `firebaseapphosting.builds.list` `firebaseapphosting.builds.update` `firebaseapphosting.domains.get` `firebaseapphosting.domains.list` `firebaseapphosting.locations.*`
 
   * `firebaseapphosting.locations.get`
   * `firebaseapphosting.locations.list`
@@ -135,7 +139,7 @@ Role | Permissions
   
 #### Firebase App Hosting Developer 
 
-(`roles/firebaseapphosting.developer`) Grants read & update access to Firebase App Hosting backend, builds, and releases resources, plus permission to invoke the backend, but doesn't allow for new backends to be created.  |  `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.backends.update` `firebaseapphosting.builds.*`
+(`roles/firebaseapphosting.developer`) Grants read & update access to Firebase App Hosting backend, builds, and releases resources, plus permission to invoke the backend, but doesn't allow for new backends to be created.  |  `firebaseapphosting.backends.get` `firebaseapphosting.backends.list` `firebaseapphosting.backends.listEffectiveTags` `firebaseapphosting.backends.listTagBindings` `firebaseapphosting.backends.update` `firebaseapphosting.builds.*`
 
   * `firebaseapphosting.builds.create`
   * `firebaseapphosting.builds.delete`
@@ -204,9 +208,17 @@ Permission | Included in roles
 
   
   
+#### `firebaseapphosting.backends.createTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Firebase Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.admin) (`roles/firebase.admin`)  [Firebase App Hosting Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.admin) (`roles/firebaseapphosting.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [Firebase Develop Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.developAdmin) (`roles/firebase.developAdmin`)   
+  
 #### `firebaseapphosting.backends.delete`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Firebase Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.admin) (`roles/firebase.admin`)  [Firebase App Hosting Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.admin) (`roles/firebaseapphosting.admin`)  [Firebase Develop Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.developAdmin) (`roles/firebase.developAdmin`)   
+  
+#### `firebaseapphosting.backends.deleteTagBinding`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Firebase Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.admin) (`roles/firebase.admin`)  [Firebase App Hosting Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.admin) (`roles/firebaseapphosting.admin`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [Firebase Develop Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.developAdmin) (`roles/firebase.developAdmin`)   
   
 #### `firebaseapphosting.backends.get`
 
@@ -223,6 +235,14 @@ Permission | Included in roles
   * [Firebase App Hosting Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.serviceAgent) (`roles/firebaseapphosting.serviceAgent`) 
 
   
+  
+#### `firebaseapphosting.backends.listEffectiveTags`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Firebase Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.admin) (`roles/firebase.admin`)  [Firebase Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.editor) (`roles/firebase.editor`)  [Firebase Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.viewer) (`roles/firebase.viewer`)  [Firebase App Hosting Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.admin) (`roles/firebaseapphosting.admin`)  [Firebase App Hosting Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.viewer) (`roles/firebaseapphosting.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [Firebase Develop Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.developAdmin) (`roles/firebase.developAdmin`)  [Firebase Develop Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.developViewer) (`roles/firebase.developViewer`)  [Firebase App Hosting Compute Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.computeRunner) (`roles/firebaseapphosting.computeRunner`)  [Firebase App Hosting Developer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.developer) (`roles/firebaseapphosting.developer`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
+#### `firebaseapphosting.backends.listTagBindings`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Firebase Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.admin) (`roles/firebase.admin`)  [Firebase Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.editor) (`roles/firebase.editor`)  [Firebase Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.viewer) (`roles/firebase.viewer`)  [Firebase App Hosting Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.admin) (`roles/firebaseapphosting.admin`)  [Firebase App Hosting Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.viewer) (`roles/firebaseapphosting.viewer`)  [Tag User](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagUser) (`roles/resourcemanager.tagUser`)  [Tag Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.tagViewer) (`roles/resourcemanager.tagViewer`)  [DLP Organization Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.orgdriver) (`roles/dlp.orgdriver`)  [DLP Project Data Profiles Driver](https://docs.cloud.google.com/iam/docs/roles-permissions/dlp#dlp.projectdriver) (`roles/dlp.projectdriver`)  [Firebase Develop Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.developAdmin) (`roles/firebase.developAdmin`)  [Firebase Develop Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebase#firebase.developViewer) (`roles/firebase.developViewer`)  [Firebase App Hosting Compute Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.computeRunner) (`roles/firebaseapphosting.computeRunner`)  [Firebase App Hosting Developer](https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseapphosting#firebaseapphosting.developer) (`roles/firebaseapphosting.developer`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `firebaseapphosting.backends.update`
 
@@ -392,6 +412,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

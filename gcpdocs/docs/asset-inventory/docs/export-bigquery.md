@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/export-bigquery/
 title: Export asset metadata to BigQuery \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:41:17.752387+00:00
+fetched_at: 2026-11-04T05:37:14.456962+00:00
 ---
 
 # Export asset metadata to BigQuery  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -2395,16 +2395,16 @@ To learn how to install and use the client library for Cloud Asset Inventory, se
 To authenticate to Cloud Asset Inventory, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import asset_v1
+    from google.cloud import [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest)
     
     # TODO project_id = 'Your Google Cloud Project ID'
     # TODO dataset = 'Your BigQuery dataset path'
     # TODO table = 'Your BigQuery table name'
     # TODO content_type ="Content type to export"
     
-    client = asset_v1.[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
+    client = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[AssetServiceClient](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.services.asset_service.AssetServiceClient.html)()
     parent = f"projects/{project_id}"
-    output_config = asset_v1.[OutputConfig](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.OutputConfig.html)()
+    output_config = [asset_v1](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest).[OutputConfig](https://docs.cloud.google.com/python/docs/reference/cloudasset/latest/google.cloud.asset_v1.types.OutputConfig.html)()
     output_config.bigquery_destination.dataset = dataset
     output_config.bigquery_destination.table = table
     output_config.bigquery_destination.force = True

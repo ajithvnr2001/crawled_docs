@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/support/sdk-version-support-status/
 title: SDK version support status \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:58.976889+00:00
+fetched_at: 2026-11-04T08:08:13.196536+00:00
 ---
 
 # SDK version support status  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -1495,16 +1495,12 @@ Google Cloud I/O connectors under module apache_beam.io.gcp
 2.7.0 | Deprecated |  |  Deprecated as of October 3, 2019.  
 2.6.0 | Deprecated |  | Deprecated as of August 8, 2019.   
 2.5.0 | Deprecated |  | Deprecated as of June 6, 2019.   
-2.4.0 | Deprecated |  |  Deprecated as of March 20, 2019.   
-2.3.0 | Deprecated |  |  Deprecated as of January 30, 2019.  
-  
-2.2.0 | Deprecated |  |  Deprecated as of December 2, 2018.  
-  
+2.4.0 | Decommissioned |  |  Decommissioned as of Aug 12, 2020.  
+2.3.0 | Decommissioned |  |  Decommissioned as of Aug 12, 2020.  
+2.2.0 | Decommissioned |  |  Decommissioned as of Aug 12, 2020.  
 2.1.1  
-2.1.0 | Deprecated |  |  Deprecated as of August 23, 2018.  
-  
-2.0.0 | Deprecated |  |  Deprecated as of May 17, 2018.  
-  
+2.1.0 | Decommissioned |  |  Decommissioned as of Aug 12, 2020.  
+2.0.0 | Decommissioned |  |  Decommissioned as of Aug 12, 2020.  
   
 ### Go
 
@@ -1898,21 +1894,12 @@ See the [Dataflow SDK 2.x for Python release notes](https://docs.cloud.google.co
 SDK version | Status | Details  
 ---|---|---  
 2.5.0 | Deprecated | Deprecated as of June 6, 2019.  
-2.4.0 | Deprecated |  Deprecated as of March 20, 2019.  
-  
-2.3.0 | Deprecated |  Deprecated as of January 30, 2019.  
-  
-2.2.0 | Deprecated |  Deprecated as of December 2, 2018.  
-  
-2.1.1 | Deprecated |  Deprecated as of August 23, 2018.  
-Fixes a compatibility issue with the Python `six` package.  
-See the [release notes](https://docs.cloud.google.com/dataflow/release-notes/release-notes-python#211_september_22_2017) for more information.   
-2.1.0 | Deprecated |  Deprecated as of August 23, 2018.  
-This release has a compatibility issue with the Python `six` 1.11.0 package.  
-See the [Release Notes](https://docs.cloud.google.com/dataflow/release-notes/release-notes-python#210_september_1_2017) for more information.   
-2.0.0 | Deprecated |  Deprecated as of May 17, 2018.  
-This release has a compatibility issue with the Python `six` 1.11.0 package.  
-See the [Release Notes](https://docs.cloud.google.com/dataflow/release-notes/release-notes-python#200_may_31_2017) for more information.   
+2.4.0 | Decommissioned |  Decommissioned as of Aug 12, 2020.  
+2.3.0 | Decommissioned |  Decommissioned as of Aug 12, 2020.  
+2.2.0 | Decommissioned |  Decommissioned as of Aug 12, 2020.  
+2.1.1 | Decommissioned |  Decommissioned as of Aug 12, 2020. Fixes a compatibility issue with the Python `six` package. See the [release notes](https://docs.cloud.google.com/dataflow/release-notes/release-notes-python#211_september_22_2017) for more information.  
+2.1.0 | Decommissioned |  Decommissioned as of Aug 12, 2020. This release has a compatibility issue with the Python `six` 1.11.0 package. See the [release notes](https://docs.cloud.google.com/dataflow/release-notes/release-notes-python#210_september_1_2017) for more information.  
+2.0.0 | Decommissioned |  Decommissioned as of Aug 12, 2020. This release has a compatibility issue with the Python `six` 1.11.0 package. See the [release notes](https://docs.cloud.google.com/dataflow/release-notes/release-notes-python#200_may_31_2017) for more information.  
 0.6.0  
 0.5.5  
 0.5.1  
@@ -1928,6 +1915,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

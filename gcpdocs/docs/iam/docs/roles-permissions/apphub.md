@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/apphub/
 title: App Hub roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:35:24.099733+00:00
+fetched_at: 2026-11-04T07:59:07.740850+00:00
 ---
 
 # App Hub roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -286,6 +286,7 @@ Permission | Included in roles
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [App Hub Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.admin) (`roles/apphub.admin`)  [App Hub Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.editor) (`roles/apphub.editor`)  [Application Design Center Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/designcenter#designcenter.admin) (`roles/designcenter.admin`)  [Gemini Cloud Assist Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/geminicloudassist#geminicloudassist.admin) (`roles/geminicloudassist.admin`)  [Gemini Cloud Assist Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/geminicloudassist#geminicloudassist.editor) (`roles/geminicloudassist.editor`)  [Gemini Cloud Assist User](https://docs.cloud.google.com/iam/docs/roles-permissions/geminicloudassist#geminicloudassist.user) (`roles/geminicloudassist.user`)  [Application Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/designcenter#designcenter.applicationAdmin) (`roles/designcenter.applicationAdmin`)  [Application Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/designcenter#designcenter.applicationEditor) (`roles/designcenter.applicationEditor`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
 
   * [DesignCenter Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/designcenter#designcenter.serviceAgent) (`roles/designcenter.serviceAgent`) 
+  * [SaaS Service Management Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/saasservicemgmt#saasservicemgmt.serviceAgent) (`roles/saasservicemgmt.serviceAgent`) 
 
   
   
@@ -487,7 +488,11 @@ Permission | Included in roles
   
 #### `apphub.services.delete`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [App Hub Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.admin) (`roles/apphub.admin`)  [App Hub Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.editor) (`roles/apphub.editor`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [App Hub Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.admin) (`roles/apphub.admin`)  [App Hub Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.editor) (`roles/apphub.editor`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [SaaS Service Management Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/saasservicemgmt#saasservicemgmt.serviceAgent) (`roles/saasservicemgmt.serviceAgent`) 
+
+  
   
 #### `apphub.services.get`
 
@@ -502,6 +507,7 @@ Permission | Included in roles
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [App Hub Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.admin) (`roles/apphub.admin`)  [App Hub Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.editor) (`roles/apphub.editor`)  [App Hub Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.viewer) (`roles/apphub.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [App Management Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.appManagementViewer) (`roles/apphub.appManagementViewer`)  [Cloud Hub Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudhub#cloudhub.operator) (`roles/cloudhub.operator`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  [Wiz Cloud Inventory Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/wiz#wiz.cloudInventoryViewer) (`roles/wiz.cloudInventoryViewer`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
 
   * [Developer Connect Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/developerconnect#developerconnect.serviceAgent) (`roles/developerconnect.serviceAgent`) 
+  * [SaaS Service Management Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/saasservicemgmt#saasservicemgmt.serviceAgent) (`roles/saasservicemgmt.serviceAgent`) 
 
   
   
@@ -520,7 +526,11 @@ Permission | Included in roles
   
 #### `apphub.workloads.delete`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [App Hub Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.admin) (`roles/apphub.admin`)  [App Hub Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.editor) (`roles/apphub.editor`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [App Hub Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.admin) (`roles/apphub.admin`)  [App Hub Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.editor) (`roles/apphub.editor`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+  * [SaaS Service Management Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/saasservicemgmt#saasservicemgmt.serviceAgent) (`roles/saasservicemgmt.serviceAgent`) 
+
+  
   
 #### `apphub.workloads.get`
 
@@ -535,6 +545,7 @@ Permission | Included in roles
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [App Hub Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.admin) (`roles/apphub.admin`)  [App Hub Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.editor) (`roles/apphub.editor`)  [App Hub Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.viewer) (`roles/apphub.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [App Management Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/apphub#apphub.appManagementViewer) (`roles/apphub.appManagementViewer`)  [Cloud Hub Operator](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudhub#cloudhub.operator) (`roles/cloudhub.operator`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  [Wiz Cloud Inventory Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/wiz#wiz.cloudInventoryViewer) (`roles/wiz.cloudInventoryViewer`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
 
   * [Developer Connect Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/developerconnect#developerconnect.serviceAgent) (`roles/developerconnect.serviceAgent`) 
+  * [SaaS Service Management Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/saasservicemgmt#saasservicemgmt.serviceAgent) (`roles/saasservicemgmt.serviceAgent`) 
 
   
   
@@ -546,6 +557,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

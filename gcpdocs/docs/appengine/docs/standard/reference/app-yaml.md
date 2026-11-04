@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/reference/app-yaml/
 title: App Engine app.yaml reference \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:41:08.876981+00:00
+fetched_at: 2026-11-04T07:54:46.605149+00:00
 ---
 
 # App Engine app.yaml reference  |  App Engine standard environment  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ URL and file path patterns use [POSIX extended regular expression syntax](https:
 The following is an example of an `app.yaml` file:
     
     
-    runtime: python314
+    runtime: python315
     
     instance_class: F2
     
@@ -106,7 +106,7 @@ This example allows your application to use only Datastore and Memcache bundled 
 `default_expiration` |  Optional. Sets a global default cache period for all static file handlers for an application. You can also configure a cache duration for specific static file handlers. The value is a string of numbers and units, separated by spaces, where units can be d for days, h for hours, m for minutes, and s for seconds. For example, `"4d 5h"` sets cache expiration to 4 days and 5 hours after the file is first requested. If omitted, the production server sets the expiration to 10 minutes.  **Python example:**
     
     
-    runtime: python314
+    runtime: python315
     
     default_expiration: "4d 5h"
     
@@ -165,7 +165,7 @@ The error_code is optional; if it's not specified, the given file is the default
 `runtime` |  Required. The name of the runtime environment that is used by your app. For example, to specify the runtime environment, use: 
     
     
-    runtime: python314  
+    runtime: python315  
   
 `service` |  Required if creating a [ service](https://docs.cloud.google.com/appengine/docs/an-overview-of-app-engine). Optional for the `default` service. Each service and each version must have a name. A name can contain numbers, letters, and hyphens. The combined length of `VERSION-dot-SERVICE-dot-PROJECT_ID`, where `VERSION` is the name of your version, `SERVICE` is the name of your service, and `PROJECT_ID` is your project ID, cannot be longer than 63 characters and cannot start or end with a hyphen. Choose a unique name for each service and each version. Don't reuse names between services and versions.  Example: 
     
@@ -427,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

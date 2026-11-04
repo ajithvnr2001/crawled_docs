@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule/
 title: Runtime support schedule \u00a0|\u00a0 App Engine flexible environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:41:13.439884+00:00
+fetched_at: 2026-11-04T05:37:49.149625+00:00
 ---
 
 # Runtime support schedule  |  App Engine flexible environment  |  Google Cloud Documentation
@@ -78,6 +78,7 @@ Node.js 8 | Ubuntu 16.04 | `8` | 2024-07-10 | 2025-07-10 |
 
 Runtime | Environment | Runtime Version | End of support | Deprecated | Decommission  
 ---|---|---|---|---|---  
+Python 3.15 (Preview) | Ubuntu 24.04 | `3.15` |  |  |   
 Python 3.14 | Ubuntu 24.04 | `3.14` | 2030-10-10 | 2031-10-10 |   
 Python 3.13 | Ubuntu 22.04 | `3.13` | 2029-10-10 | 2030-10-10 |   
 Python 3.12 | Ubuntu 22.04 | `3.12` | 2028-10-02 | 2029-10-02 |   
@@ -132,6 +133,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

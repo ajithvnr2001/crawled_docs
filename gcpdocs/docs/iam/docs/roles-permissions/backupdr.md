@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr/
 title: Backup and Disaster Recovery roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:35:22.824133+00:00
+fetched_at: 2026-11-04T07:59:04.946710+00:00
 ---
 
 # Backup and Disaster Recovery roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -58,32 +58,38 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
@@ -102,6 +108,7 @@ Role | Permissions
   * `backupdr.backupPlans.useForComputeDisk`
   * `backupdr.backupPlans.useForComputeInstance`
   * `backupdr.backupPlans.useForFilestoreInstance`
+  * `backupdr.backupPlans.useForNetappVolumes`
 
 `backupdr.backupVaults.*`
 
@@ -122,6 +129,7 @@ Role | Permissions
   * `backupdr.bvbackups.fetchForCloudSqlInstance`
   * `backupdr.bvbackups.fetchForComputeDisk`
   * `backupdr.bvbackups.fetchForComputeInstance`
+  * `backupdr.bvbackups.fetchForNetappVolumes`
   * `backupdr.bvbackups.get`
   * `backupdr.bvbackups.list`
   * `backupdr.bvbackups.restore`
@@ -129,6 +137,7 @@ Role | Permissions
   * `backupdr.bvbackups.useReadOnlyForAlloydbCluster`
   * `backupdr.bvbackups.useReadOnlyForCloudSqlInstance`
   * `backupdr.bvbackups.useReadOnlyForFilestoreInstance`
+  * `backupdr.bvbackups.useReadOnlyForNetappVolumes`
 
 `backupdr.bvdataSources.*`
 
@@ -149,9 +158,11 @@ Role | Permissions
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -259,32 +270,38 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
@@ -303,6 +320,7 @@ Role | Permissions
   * `backupdr.backupPlans.useForComputeDisk`
   * `backupdr.backupPlans.useForComputeInstance`
   * `backupdr.backupPlans.useForFilestoreInstance`
+  * `backupdr.backupPlans.useForNetappVolumes`
 
 `backupdr.backupVaults.associate` `backupdr.backupVaults.create` `backupdr.backupVaults.delete` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.backupVaults.update` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.*`
 
@@ -310,6 +328,7 @@ Role | Permissions
   * `backupdr.bvbackups.fetchForCloudSqlInstance`
   * `backupdr.bvbackups.fetchForComputeDisk`
   * `backupdr.bvbackups.fetchForComputeInstance`
+  * `backupdr.bvbackups.fetchForNetappVolumes`
   * `backupdr.bvbackups.get`
   * `backupdr.bvbackups.list`
   * `backupdr.bvbackups.restore`
@@ -317,6 +336,7 @@ Role | Permissions
   * `backupdr.bvbackups.useReadOnlyForAlloydbCluster`
   * `backupdr.bvbackups.useReadOnlyForCloudSqlInstance`
   * `backupdr.bvbackups.useReadOnlyForFilestoreInstance`
+  * `backupdr.bvbackups.useReadOnlyForNetappVolumes`
 
 `backupdr.bvdataSources.*`
 
@@ -337,9 +357,11 @@ Role | Permissions
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -364,19 +386,21 @@ Role | Permissions
   
 #### Backup and DR Viewer 
 
-(`roles/backupdr.viewer`) Provides read-only access to all Backup and DR resources.  |  `backupdr.appliedAutoProtectionPolicies.list` `backupdr.appliedAutoProtectionPolicies.viewMatchingResources` `backupdr.autoProtectionBindings.get` `backupdr.autoProtectionBindings.list` `backupdr.autoProtectionPolicies.get` `backupdr.autoProtectionPolicies.list` `backupdr.backupPlanAssociations.fetchForAlloydbCluster` `backupdr.backupPlanAssociations.fetchForCloudSqlInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.fetchForComputeInstance` `backupdr.backupPlanAssociations.fetchForFilestoreInstance` `backupdr.backupPlanAssociations.getForAlloydbCluster` `backupdr.backupPlanAssociations.getForCloudSqlInstance` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.getForComputeInstance` `backupdr.backupPlanAssociations.getForFilestoreInstance` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanRevisions.*`
+(`roles/backupdr.viewer`) Provides read-only access to all Backup and DR resources.  |  `backupdr.appliedAutoProtectionPolicies.list` `backupdr.appliedAutoProtectionPolicies.viewMatchingResources` `backupdr.autoProtectionBindings.get` `backupdr.autoProtectionBindings.list` `backupdr.autoProtectionPolicies.get` `backupdr.autoProtectionPolicies.list` `backupdr.backupPlanAssociations.fetchForAlloydbCluster` `backupdr.backupPlanAssociations.fetchForCloudSqlInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.fetchForComputeInstance` `backupdr.backupPlanAssociations.fetchForFilestoreInstance` `backupdr.backupPlanAssociations.fetchForNetappVolumes` `backupdr.backupPlanAssociations.getForAlloydbCluster` `backupdr.backupPlanAssociations.getForCloudSqlInstance` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.getForComputeInstance` `backupdr.backupPlanAssociations.getForFilestoreInstance` `backupdr.backupPlanAssociations.getForNetappVolumes` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanRevisions.*`
 
   * `backupdr.backupPlanRevisions.get`
   * `backupdr.backupPlanRevisions.list`
 
-`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
+`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -409,46 +433,54 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
   * `backupdr.backupPlanRevisions.get`
   * `backupdr.backupPlanRevisions.list`
 
-`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForAlloydbCluster` `backupdr.backupPlans.useForCloudSqlInstance` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupPlans.useForFilestoreInstance` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
+`backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForAlloydbCluster` `backupdr.backupPlans.useForCloudSqlInstance` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupPlans.useForFilestoreInstance` `backupdr.backupPlans.useForNetappVolumes` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -556,14 +588,16 @@ Role | Permissions
   
 #### Backup and DR Restore User 
 
-(`roles/backupdr.restoreUser`) Allows the user to restore or mount from a backup. This role cannot create a backup plan.  |  `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
+(`roles/backupdr.restoreUser`) Allows the user to restore or mount from a backup. This role cannot create a backup plan.  |  `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvbackups.useReadOnlyForNetappVolumes` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -586,32 +620,38 @@ Role | Permissions
   * `backupdr.backupPlanAssociations.createForComputeDisk`
   * `backupdr.backupPlanAssociations.createForComputeInstance`
   * `backupdr.backupPlanAssociations.createForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.createForNetappVolumes`
   * `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
   * `backupdr.backupPlanAssociations.deleteForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.deleteForComputeDisk`
   * `backupdr.backupPlanAssociations.deleteForComputeInstance`
   * `backupdr.backupPlanAssociations.deleteForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.deleteForNetappVolumes`
   * `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
   * `backupdr.backupPlanAssociations.fetchForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.fetchForComputeDisk`
   * `backupdr.backupPlanAssociations.fetchForComputeInstance`
   * `backupdr.backupPlanAssociations.fetchForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.fetchForNetappVolumes`
   * `backupdr.backupPlanAssociations.getForAlloydbCluster`
   * `backupdr.backupPlanAssociations.getForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.getForComputeDisk`
   * `backupdr.backupPlanAssociations.getForComputeInstance`
   * `backupdr.backupPlanAssociations.getForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.getForNetappVolumes`
   * `backupdr.backupPlanAssociations.list`
   * `backupdr.backupPlanAssociations.triggerBackupForAlloydbCluster`
   * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk`
   * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance`
   * `backupdr.backupPlanAssociations.triggerBackupForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
   * `backupdr.backupPlanAssociations.updateForAlloydbCluster`
   * `backupdr.backupPlanAssociations.updateForCloudSqlInstance`
   * `backupdr.backupPlanAssociations.updateForComputeDisk`
   * `backupdr.backupPlanAssociations.updateForComputeInstance`
   * `backupdr.backupPlanAssociations.updateForFilestoreInstance`
+  * `backupdr.backupPlanAssociations.updateForNetappVolumes`
 
 `backupdr.backupPlanRevisions.*`
 
@@ -630,15 +670,18 @@ Role | Permissions
   * `backupdr.backupPlans.useForComputeDisk`
   * `backupdr.backupPlans.useForComputeInstance`
   * `backupdr.backupPlans.useForFilestoreInstance`
+  * `backupdr.backupPlans.useForNetappVolumes`
 
-`backupdr.backupVaults.associate` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
+`backupdr.backupVaults.associate` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.backupVaults.listEffectiveTags` `backupdr.backupVaults.listTagBindings` `backupdr.bindingMatchingResources.list` `backupdr.bvbackups.fetchForCloudSqlInstance` `backupdr.bvbackups.fetchForComputeDisk` `backupdr.bvbackups.fetchForComputeInstance` `backupdr.bvbackups.fetchForNetappVolumes` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.useReadOnlyForAlloydbCluster` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvbackups.useReadOnlyForFilestoreInstance` `backupdr.bvbackups.useReadOnlyForNetappVolumes` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.useReadOnlyForAlloydbCluster` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.dataSourceReferences.*`
 
   * `backupdr.dataSourceReferences.fetchForAlloydbCluster`
   * `backupdr.dataSourceReferences.fetchForCloudSqlInstance`
   * `backupdr.dataSourceReferences.fetchForFilestoreInstance`
+  * `backupdr.dataSourceReferences.fetchForNetappVolumes`
   * `backupdr.dataSourceReferences.getForAlloydbCluster`
   * `backupdr.dataSourceReferences.getForCloudSqlInstance`
   * `backupdr.dataSourceReferences.getForFilestoreInstance`
+  * `backupdr.dataSourceReferences.getForNetappVolumes`
   * `backupdr.dataSourceReferences.list`
 
 `backupdr.locations.*`
@@ -781,6 +824,10 @@ Permission | Included in roles
 
   
   
+#### `backupdr.backupPlanAssociations.createForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)   
+  
 #### `backupdr.backupPlanAssociations.deleteForAlloydbCluster`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [AlloyDB Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.admin) (`roles/alloydb.admin`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [AlloyDB Admin for BackupDR](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.backupDrAdmin) (`roles/alloydb.backupDrAdmin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)   
@@ -835,6 +882,10 @@ Permission | Included in roles
 
   
   
+#### `backupdr.backupPlanAssociations.deleteForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)   
+  
 #### `backupdr.backupPlanAssociations.fetchForAlloydbCluster`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [AlloyDB Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.admin) (`roles/alloydb.admin`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [AlloyDB Admin for BackupDR](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.backupDrAdmin) (`roles/alloydb.backupDrAdmin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
@@ -875,6 +926,10 @@ Permission | Included in roles
 
   
   
+#### `backupdr.backupPlanAssociations.fetchForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Google Cloud NetApp Volumes Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.viewer) (`roles/netapp.viewer`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
 #### `backupdr.backupPlanAssociations.getForAlloydbCluster`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [AlloyDB Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.admin) (`roles/alloydb.admin`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [AlloyDB Admin for BackupDR](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.backupDrAdmin) (`roles/alloydb.backupDrAdmin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
@@ -914,6 +969,10 @@ Permission | Included in roles
   * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
 
   
+  
+#### `backupdr.backupPlanAssociations.getForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Google Cloud NetApp Volumes Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.viewer) (`roles/netapp.viewer`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `backupdr.backupPlanAssociations.list`
 
@@ -983,6 +1042,10 @@ Permission | Included in roles
 
   
   
+#### `backupdr.backupPlanAssociations.triggerBackupForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)   
+  
 #### `backupdr.backupPlanAssociations.updateForAlloydbCluster`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [AlloyDB Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.admin) (`roles/alloydb.admin`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [AlloyDB Admin for BackupDR](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.backupDrAdmin) (`roles/alloydb.backupDrAdmin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)   
@@ -1036,6 +1099,10 @@ Permission | Included in roles
   * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
 
   
+  
+#### `backupdr.backupPlanAssociations.updateForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)   
   
 #### `backupdr.backupPlanRevisions.get`
 
@@ -1141,6 +1208,10 @@ Permission | Included in roles
 
   
   
+#### `backupdr.backupPlans.useForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)   
+  
 #### `backupdr.backupVaults.associate`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Backup Vault Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupvaultAdmin) (`roles/backupdr.backupvaultAdmin`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)   
@@ -1229,6 +1300,10 @@ Permission | Included in roles
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR Restore User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.restoreUser) (`roles/backupdr.restoreUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
+#### `backupdr.bvbackups.fetchForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Google Cloud NetApp Volumes Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.viewer) (`roles/netapp.viewer`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR Restore User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.restoreUser) (`roles/backupdr.restoreUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
 #### `backupdr.bvbackups.get`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR Backup Vault Accessor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupvaultAccessor) (`roles/backupdr.backupvaultAccessor`)  [Backup and DR Backup Vault Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupvaultAdmin) (`roles/backupdr.backupvaultAdmin`)  [Backup and DR Backup Vault Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupvaultViewer) (`roles/backupdr.backupvaultViewer`)  [Backup and DR Restore User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.restoreUser) (`roles/backupdr.restoreUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)  Service agent roles **Warning:** Don't grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
@@ -1273,6 +1348,10 @@ Permission | Included in roles
   * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
 
   
+  
+#### `backupdr.bvbackups.useReadOnlyForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Backup and DR Restore User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.restoreUser) (`roles/backupdr.restoreUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)   
   
 #### `backupdr.bvdataSources.abandonBackup`
 
@@ -1350,6 +1429,10 @@ Permission | Included in roles
 
   
   
+#### `backupdr.dataSourceReferences.fetchForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Google Cloud NetApp Volumes Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.viewer) (`roles/netapp.viewer`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR Restore User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.restoreUser) (`roles/backupdr.restoreUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+  
 #### `backupdr.dataSourceReferences.getForAlloydbCluster`
 
 |  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [AlloyDB Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.admin) (`roles/alloydb.admin`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [AlloyDB Admin for BackupDR](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.backupDrAdmin) (`roles/alloydb.backupDrAdmin`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR Restore User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.restoreUser) (`roles/backupdr.restoreUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Databases Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.databasesAdmin) (`roles/iam.databasesAdmin`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
@@ -1369,6 +1452,10 @@ Permission | Included in roles
   * [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent) (`roles/container.serviceAgent`) 
 
   
+  
+#### `backupdr.dataSourceReferences.getForNetappVolumes`
+
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Backup and DR Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.admin) (`roles/backupdr.admin`)  [Backupdr Editor](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.editor) (`roles/backupdr.editor`)  [Backup and DR Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.viewer) (`roles/backupdr.viewer`)  [Google Cloud NetApp Volumes Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.admin) (`roles/netapp.admin`)  [Google Cloud NetApp Volumes Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/netapp#netapp.viewer) (`roles/netapp.viewer`)  [Backup and DR Backup User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.backupUser) (`roles/backupdr.backupUser`)  [Backup and DR Restore User](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.restoreUser) (`roles/backupdr.restoreUser`)  [Backup and DR User V2](https://docs.cloud.google.com/iam/docs/roles-permissions/backupdr#backupdr.userv2) (`roles/backupdr.userv2`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `backupdr.dataSourceReferences.list`
 
@@ -1663,6 +1750,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

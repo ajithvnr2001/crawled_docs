@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/default-connections/
 title: Default connection overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:38.532439+00:00
+fetched_at: 2026-11-04T07:12:59.954452+00:00
 ---
 
 # Default connection overview  |  BigQuery  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ BigQuery supports default connections in the following resources:
 
   * [Cloud Storage BigLake tables](https://docs.cloud.google.com/bigquery/docs/create-cloud-storage-table-biglake)
   * [Object tables](https://docs.cloud.google.com/bigquery/docs/object-tables)
-  * [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/iceberg-tables#create-iceberg-tables)
+  * [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery#create-iceberg-tables)
   * [Remote models](https://docs.cloud.google.com/bigquery/docs/bqml-introduction#remote_models)
 
 
@@ -148,7 +148,7 @@ Type of table or model | Remote resource | Roles assigned to the connection's se
 `roles/storage.legacyObjectReader`  
 [Object Table](https://docs.cloud.google.com/bigquery/docs/object-tables) | Cloud Storage | `roles/storage.legacyBucketReader`  
 `roles/storage.legacyObjectReader`  
-[Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/iceberg-tables#create-iceberg-tables) | Cloud Storage | `roles/storage.legacyBucketWriter`  
+[Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery#create-iceberg-tables) | Cloud Storage | `roles/storage.legacyBucketWriter`  
 `roles/storage.legacyObjectOwner`  
 [BigQuery ML remote models over Gemini Enterprise Agent Platform models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-https) | Google owned models | `roles/aiplatform.user`  
 Deployable to an endpoint from Model Garden  
@@ -190,7 +190,7 @@ The following SQL expression creates an [object table](https://docs.cloud.google
 
 ### Example: Create a Iceberg managed tables with a default connection
 
-The following SQL expression creates a [Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/iceberg-tables#create-iceberg-tables) with a default connection:
+The following SQL expression creates a [Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery#create-iceberg-tables) with a default connection:
     
     
     CREATE TABLE `myproject.tpch_clustered.nation` (
@@ -217,7 +217,7 @@ The following SQL expression creates a [remote model](https://docs.cloud.google.
     
     CREATE OR REPLACE MODEL `mydataset.flash_model`
       REMOTE WITH CONNECTION DEFAULT
-      OPTIONS(ENDPOINT = 'gemini-2.0-flash');
+      OPTIONS(ENDPOINT = 'gemini-3.5-flash');
     
 
 ### Example: Create a remote model over a Cloud AI service
@@ -252,6 +252,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

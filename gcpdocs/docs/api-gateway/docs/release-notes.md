@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/release-notes/
 title: API Gateway release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:20:46.851524+00:00
+fetched_at: 2026-11-04T08:08:16.495460+00:00
 ---
 
 # API Gateway release notes  |  Google Cloud Documentation
@@ -26,6 +26,18 @@ This page contains release notes for features and updates to API Gateway.
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigateway-release-notes.xml) directly. 
+
+## November 03, 2026
+
+preview & v1
+
+Feature
+
+**Call Google Cloud APIs from streaming gateways**
+
+Streaming gateways can now call Google Cloud APIs such as `aiplatform.googleapis.com`. A gateway with an `effectiveStreamingMode` of `EFFECTIVE_STREAMING_MODE_ENABLED` authenticates to backends whose host ends in `.googleapis.com` or `.vertexai.goog` with an access token for the gateway's service account. Other backends still receive an ID token. An existing streaming gateway switches when API Gateway next rolls out a gateway update, or immediately when you update it to a new API config.
+
+For more information, see [Securing backend services](https://docs.cloud.google.com/api-gateway/docs/securing-backend-services#other-gcp-apis).
 
 ## October 07, 2026
 

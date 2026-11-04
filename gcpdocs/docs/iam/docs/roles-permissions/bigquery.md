@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery/
 title: BigQuery roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:34:15.269039+00:00
+fetched_at: 2026-11-04T08:00:21.621406+00:00
 ---
 
 # BigQuery roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -354,19 +354,7 @@ This role can also be granted on Resource Manager resources (projects, folders, 
   * `developerconnect.accountConnectors.list`
   * `developerconnect.accountConnectors.update`
 
-`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.*`
-
-  * `developerconnect.gitRepositoryLinks.create`
-  * `developerconnect.gitRepositoryLinks.delete`
-  * `developerconnect.gitRepositoryLinks.fetchGitRefs`
-  * `developerconnect.gitRepositoryLinks.fetchReadToken`
-  * `developerconnect.gitRepositoryLinks.fetchReadWriteToken`
-  * `developerconnect.gitRepositoryLinks.get`
-  * `developerconnect.gitRepositoryLinks.gitProxyRead`
-  * `developerconnect.gitRepositoryLinks.gitProxyWrite`
-  * `developerconnect.gitRepositoryLinks.list`
-
-`developerconnect.locations.*`
+`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.create` `developerconnect.gitRepositoryLinks.delete` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.fetchReadToken` `developerconnect.gitRepositoryLinks.fetchReadWriteToken` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -647,7 +635,7 @@ This role can also be granted on Resource Manager resources (projects, folders, 
   
 #### BigQuery Job User 
 
-(`roles/bigquery.jobUser`) Provides permissions to run jobs, including queries, within the project.  This role can only be granted on Resource Manager resources (projects, folders, and organizations). |  `bigquery.config.get` `bigquery.jobs.create` `cloudaicompanion.topics.create` `dataform.folders.create` `dataform.locations.*`
+(`roles/bigquery.jobUser`) Provides permissions to run jobs, including queries, within the project.  This role can only be granted on Resource Manager resources (projects, folders, and organizations). |  `bigquery.config.get` `bigquery.jobs.create` `cloudaicompanion.operations.get` `cloudaicompanion.topics.create` `dataform.folders.create` `dataform.locations.*`
 
   * `dataform.locations.get`
   * `dataform.locations.list`
@@ -1279,19 +1267,7 @@ This role can also be granted on Resource Manager resources (projects, folders, 
   * `developerconnect.accountConnectors.list`
   * `developerconnect.accountConnectors.update`
 
-`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.*`
-
-  * `developerconnect.gitRepositoryLinks.create`
-  * `developerconnect.gitRepositoryLinks.delete`
-  * `developerconnect.gitRepositoryLinks.fetchGitRefs`
-  * `developerconnect.gitRepositoryLinks.fetchReadToken`
-  * `developerconnect.gitRepositoryLinks.fetchReadWriteToken`
-  * `developerconnect.gitRepositoryLinks.get`
-  * `developerconnect.gitRepositoryLinks.gitProxyRead`
-  * `developerconnect.gitRepositoryLinks.gitProxyWrite`
-  * `developerconnect.gitRepositoryLinks.list`
-
-`developerconnect.locations.*`
+`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.create` `developerconnect.gitRepositoryLinks.delete` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.fetchReadToken` `developerconnect.gitRepositoryLinks.fetchReadWriteToken` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -1421,7 +1397,7 @@ This role can also be granted on Resource Manager resources (projects, folders, 
   * `dataprocrm.workloads.get`
   * `dataprocrm.workloads.list`
 
-`developerconnect.accountConnectors.fetchUserRepositories` `developerconnect.accountConnectors.get` `developerconnect.accountConnectors.gitProxyRead` `developerconnect.accountConnectors.gitProxyWrite` `developerconnect.accountConnectors.httpProxyRead` `developerconnect.accountConnectors.httpProxyWrite` `developerconnect.accountConnectors.list` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
+`developerconnect.accountConnectors.fetchUserRepositories` `developerconnect.accountConnectors.get` `developerconnect.accountConnectors.gitProxyRead` `developerconnect.accountConnectors.gitProxyWrite` `developerconnect.accountConnectors.httpProxyRead` `developerconnect.accountConnectors.httpProxyWrite` `developerconnect.accountConnectors.list` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.listEffectiveTags` `developerconnect.connections.listTagBindings` `developerconnect.gitRepositoryLinks.addPullRequestComment` `developerconnect.gitRepositoryLinks.addPullRequestReviewComment` `developerconnect.gitRepositoryLinks.diffCommit` `developerconnect.gitRepositoryLinks.fetchCommit` `developerconnect.gitRepositoryLinks.fetchCommitList` `developerconnect.gitRepositoryLinks.fetchFileBlame` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.fetchPullRequest` `developerconnect.gitRepositoryLinks.fetchPullRequestList` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.gitRepositoryLinks.modifyPullRequest` `developerconnect.gitRepositoryLinks.openPullRequest` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -1442,7 +1418,7 @@ This role can also be granted on Resource Manager resources (projects, folders, 
   * `bigquery.readsessions.getData`
   * `bigquery.readsessions.update`
 
-`bigquery.reservationAssignments.list` `bigquery.reservationAssignments.search` `bigquery.reservationGroups.get` `bigquery.reservationGroups.list` `bigquery.reservations.get` `bigquery.reservations.list` `bigquery.reservations.listFailoverDatasets` `bigquery.reservations.use` `bigquery.routines.list` `bigquery.savedqueries.get` `bigquery.savedqueries.list` `bigquery.tables.list` `bigquery.transfers.get` `bigquerymigration.translation.translate` `cloudkms.keyHandles.*`
+`bigquery.reservationAssignments.list` `bigquery.reservationAssignments.search` `bigquery.reservationGroups.get` `bigquery.reservationGroups.list` `bigquery.reservations.get` `bigquery.reservations.list` `bigquery.reservations.listFailoverDatasets` `bigquery.reservations.use` `bigquery.routines.list` `bigquery.savedqueries.get` `bigquery.savedqueries.list` `bigquery.tables.list` `bigquery.transfers.get` `bigquerymigration.translation.translate` `cloudaicompanion.operations.get` `cloudaicompanion.topics.create` `cloudkms.keyHandles.*`
 
   * `cloudkms.keyHandles.create`
   * `cloudkms.keyHandles.get`
@@ -1453,7 +1429,7 @@ This role can also be granted on Resource Manager resources (projects, folders, 
   * `dataform.locations.get`
   * `dataform.locations.list`
 
-`dataform.repositories.create` `dataform.repositories.list` `dataplex.projects.search` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`dataform.repositories.create` `dataform.repositories.list` `dataplex.projects.search` `geminidataanalytics.locations.chat` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### BigQuery Filtered Data Viewer 
 
@@ -3259,6 +3235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

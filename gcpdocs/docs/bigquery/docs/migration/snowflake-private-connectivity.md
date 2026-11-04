@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/snowflake-private-connectivity/
 title: Configure private connectivity for Snowflake transfers \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:14.110337+00:00
+fetched_at: 2026-11-04T07:12:52.315692+00:00
 ---
 
 # Configure private connectivity for Snowflake transfers  |  BigQuery  |  Google Cloud Documentation
@@ -35,11 +35,11 @@ Create a private link that connects your Snowflake account to your cloud provide
 
 ###  AWS 
 
-[Configure AWS PrivateLink](https://docs.snowflake.com/en/user-guide/admin-security-privatelink) to connect your Snowflake account to your AWS account. Your AWS account must contain the [Amazon S3 staging bucket required for a Snowflake transfer](https://docs.cloud.google.com/bigquery/docs/migration/snowflake-private-connectivity#aws_3).
+[Configure AWS PrivateLink](https://docs.snowflake.com/en/user-guide/admin-security-privatelink) to connect your Snowflake account to your AWS account. Your AWS account must contain the Amazon S3 staging bucket required for a Snowflake transfer.
 
 ###  Azure 
 
-[Configure Azure Private Link](https://docs.snowflake.com/en/user-guide/privatelink-azure) to connect your Azure Virtual Network (VNet) to the Snowflake VNet in Azure. Your Azure account must contain the [Blob staging bucket required for a Snowflake transfer](https://docs.cloud.google.com/bigquery/docs/migration/snowflake-private-connectivity#azure_3).
+[Configure Azure Private Link](https://docs.snowflake.com/en/user-guide/privatelink-azure) to connect your Azure Virtual Network (VNet) to the Snowflake VNet in Azure. Your Azure account must contain the Blob staging bucket required for a Snowflake transfer.
 
 ###  Google Cloud 
 
@@ -260,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

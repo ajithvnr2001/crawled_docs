@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform/
 title: Provision agents with Terraform \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:31.043831+00:00
+fetched_at: 2026-11-04T07:54:21.045888+00:00
 ---
 
 # Provision agents with Terraform  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ The instructions on this page correspond to the sample containerized agent imple
 Before using Terraform to deploy an agent, ensure that you have completed the following setup:
 
   1. [Install Terraform](https://developer.hashicorp.com/terraform/downloads) (version 1.5.0 or later) and review the official HashiCorp Terraform Registry documentation for the `google_vertex_ai_reasoning_engine` resource ([GA provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine) and [Beta provider](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/vertex_ai_reasoning_engine)).
-  2. [Set up your Google Cloud environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) and enable the Vertex AI API (`aiplatform.googleapis.com`), Artifact Registry API (`artifactregistry.googleapis.com`), and Cloud Build API (`cloudbuild.googleapis.com`).
+  2. [Set up your Google Cloud environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) and enable the Agent Platform API (`aiplatform.googleapis.com`), Artifact Registry API (`artifactregistry.googleapis.com`), and Cloud Build API (`cloudbuild.googleapis.com`).
   3. Authenticate your local environment using Google Cloud credentials:
          
          gcloud auth application-default login
@@ -527,6 +527,8 @@ In enterprise multi-project architectures, you can manage a central governance p
 
 
 
+To deploy an end-to-end multi-tenant agent system across isolated projects with centralized governance, see the [Multi-tenant agentic AI system](https://docs.cloud.google.com/architecture/multi-tenant-agentic-ai-system#deployment) reference architecture and deploy the [`terraform-google-multi-tenant-agentic-ai` module](https://github.com/GoogleCloudPlatform/architecture-center-samples/tree/main/terraform-google-multi-tenant-agentic-ai) from GitHub.
+
 ## Execution and lifecycle
 
 Execute the standard Terraform lifecycle to plan, deploy, invoke, and destroy your agent resources.
@@ -593,9 +595,12 @@ To clean up resources and prevent unexpected billing charges, change into your `
 ## What's next
 
   * [Route Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
+  * [Multi-tenant agentic AI system architecture blueprint](https://docs.cloud.google.com/architecture/multi-tenant-agentic-ai-system)
+  * [Multi-tenant agentic AI Terraform module (GitHub)](https://github.com/GoogleCloudPlatform/architecture-center-samples/tree/main/terraform-google-multi-tenant-agentic-ai)
   * [HashiCorp Terraform Registry — `google_vertex_ai_reasoning_engine` (GA)](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine)
   * [HashiCorp Terraform Registry — `google_vertex_ai_reasoning_engine` (Beta)](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/vertex_ai_reasoning_engine)
   * [Google Cloud Generative AI — Agent Runtime Terraform Deployment Tutorial (GitHub)](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_get_started_with_agent_engine_terraform_deployment.ipynb)
+  * [Agent Development Kit (ADK) code recipes (GitHub)](https://github.com/google/adk-recipes)
   * [Google Developer Forum — Deploy Your Agent Runtime with Terraform the Enterprise Way](https://discuss.google.dev/t/deploy-your-agent-engine-with-terraform-the-enterprise-way/271921)
 
 
@@ -604,6 +609,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

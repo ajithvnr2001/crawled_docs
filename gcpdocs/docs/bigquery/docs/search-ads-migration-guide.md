@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/search-ads-migration-guide/
 title: Search Ads 360 migration guide \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:04.536509+00:00
+fetched_at: 2026-11-04T07:47:57.497238+00:00
 ---
 
 # Search Ads 360 migration guide  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Search Ads 360 migration guide
 
-The Search Ads 360 connector (formerly known as _Doubleclick Search_) relies on the new [Search Ads 360 reporting API](https://developers.google.com/search-ads/reporting/overview). The [old Search Ads 360 reporting API](https://developers.google.com/search-ads/v2/how-tos/reporting) is no longer supported, so you should migrate your BigQuery Data Transfer Service workflows to be compatible with the new Search Ads 360 reporting API. This document shows you the changes of the new Search Ads 360 from the old Search Ads 360 and provides mapping information to migrate your existing resources to the new Search Ads 360.
+The Search Ads 360 connector (formerly known as _DoubleClick Search_) relies on the new [Search Ads 360 reporting API](https://developers.google.com/search-ads/reporting/overview). The [old Search Ads 360 reporting API](https://developers.google.com/search-ads/v2/how-tos/reporting) is no longer supported, so you should migrate your BigQuery Data Transfer Service workflows to be compatible with the new Search Ads 360 reporting API. This document shows you the changes of the new Search Ads 360 from the old Search Ads 360 and provides mapping information to migrate your existing resources to the new Search Ads 360.
 
 ## What's new with Search Ads 360
 
@@ -189,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

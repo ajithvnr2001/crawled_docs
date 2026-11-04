@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/python3/runtime/
 title: Python 3 Runtime Environment \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:40:39.291517+00:00
+fetched_at: 2026-11-04T07:47:58.834587+00:00
 ---
 
 # Python 3 Runtime Environment  |  App Engine standard environment  |  Google Cloud Documentation
@@ -29,13 +29,13 @@ The Python runtime for App Engine in the standard environment is declared in the
     
     runtime: pythonVERSION
 
-Where VERSION is the Python `MAJOR` and `MINOR` version numbers. For example, to use the latest Python version, Python 3.14, specify `314`.
+Where VERSION is the Python `MAJOR` and `MINOR` version numbers. For example, to use the latest Python version, Python 3.15 (preview), specify `315`.
 
 For other supported Python versions, and the corresponding Ubuntu version for your Python version, see the [Runtime support schedule](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#python).
 
 ## Python 3 versions
 
-The latest supported Python version is 3.14. The Python runtime uses the latest stable release of the version that is specified in your `app.yaml` file. App Engine automatically updates to new patch versions, but it does not automatically update the minor version.
+The latest supported Python version is 3.15 (preview). The Python runtime uses the latest stable release of the version that is specified in your `app.yaml` file. App Engine automatically updates to new patch versions, but it does not automatically update the minor version.
 
 For example, your application might be deployed at Python 3.7.0 and later automatically updated to Python 3.7.1, but it will not be automatically updated to the next minor version Python 3.8.0.
 
@@ -185,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

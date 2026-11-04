@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration-assessment/
 title: Migration assessment \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:59:15.166741+00:00
+fetched_at: 2026-11-04T07:55:05.765880+00:00
 ---
 
 # Migration assessment  |  BigQuery  |  Google Cloud Documentation
@@ -1272,9 +1272,9 @@ The report is updated with new data as they are processed. Refresh the tab with 
 
 ###  API 
 
-Call the [`create`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2alpha/projects.locations.workflows/create) method with a defined [workflow](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2alpha/projects.locations.workflows).
+Call the [`create`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2/projects.locations.workflows/create) method with a defined [workflow](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2/projects.locations.workflows).
 
-Then call the [`start`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2alpha/projects.locations.workflows/start) method to start the assessment workflow.
+Then call the [`start`](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2/projects.locations.workflows/start) method to start the assessment workflow.
 
 The assessment creates tables in the BigQuery dataset you created earlier. You can query these for information about the tables and queries used in your existing data warehouse. For information about the output files of the translation, see [Batch SQL translator](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator#explore_the_translation_output).
 
@@ -1288,7 +1288,7 @@ For Amazon Redshift, Teradata, and Snowflake assessments, in addition to the pre
 
 To find, inspect, and securely share the dataset with other users, see Query the migration assessment output tables.
 
-The feature is on by default, but you can opt out using the [public API](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2alpha/projects.locations.workflows/create).
+The feature is on by default, but you can opt out using the [public API](https://docs.cloud.google.com/bigquery/docs/reference/migration/rest/v2/projects.locations.workflows/create).
 
 ### Assessment details
 
@@ -2003,7 +2003,7 @@ For more information about the `dwh-migration-dumper` tool, see [dwh-migration-t
 
 You can also learn more about the following steps in data warehouse migration:
 
-  * [Migration overview](https://docs.cloud.google.com/bigquery/docs/migration/migration-overview)
+  * [Migration overview](https://docs.cloud.google.com/bigquery/docs/migration-intro)
   * [Schema and data transfer overview](https://docs.cloud.google.com/bigquery/docs/migration/schema-data-overview)
   * [Data pipelines](https://docs.cloud.google.com/bigquery/docs/migration/pipelines)
   * [Batch SQL translation](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator)
@@ -2017,6 +2017,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/reference/system-packages/
 title: System packages and extensions \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:42.307567+00:00
+fetched_at: 2026-11-04T07:54:45.723736+00:00
 ---
 
 # System packages and extensions  |  App Engine standard environment  |  Google Cloud Documentation

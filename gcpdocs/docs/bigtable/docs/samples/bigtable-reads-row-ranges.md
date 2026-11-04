@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-row-ranges/
 title: Read row ranges \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:05.636133+00:00
+fetched_at: 2026-11-04T07:48:23.510306+00:00
 ---
 
 # Read row ranges  |  Bigtable  |  Google Cloud Documentation
@@ -208,26 +208,29 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.cloud.bigtable.data import (
+        BigtableDataClient,
+        [ReadRowsQuery](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.read_rows_query.ReadRowsQuery.html),
+        [RowRange](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.read_rows_query.RowRange.html),
+    )
+    
     def read_row_ranges(project_id, instance_id, table_id):
-        from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
-        from google.cloud.bigtable.row_set import [RowSet](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.row_set.RowSet.html)
+        with BigtableDataClient(project=project_id) as client:
+            with client.get_table(instance_id, table_id) as table:
+                row_ranges = [
+                    RowRange(
+                        start_key=b"phone#4c410523#20190501",
+                        end_key=b"phone#4c410523#201906201",
+                    ),
+                    RowRange(
+                        start_key=b"phone#5c10102#20190501",
+                        end_key=b"phone#5c10102#201906201",
+                    ),
+                ]
+                query = ReadRowsQuery(row_ranges=row_ranges)
     
-        client = [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html)(project=project_id, admin=True)
-        instance = [client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.html).[instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html#google_cloud_bigtable_client_Client_instance)(instance_id)
-        table = instance.table(table_id)
-    
-        row_set = RowSet()
-        [row_set](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.row_set.html).[add_row_range_from_keys](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.row_set.RowSet.html#google_cloud_bigtable_row_set_RowSet_add_row_range_from_keys)(
-            start_key=b"phone#4c410523#20190501", end_key=b"phone#4c410523#201906201"
-        )
-        [row_set](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.row_set.html).[add_row_range_from_keys](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.row_set.RowSet.html#google_cloud_bigtable_row_set_RowSet_add_row_range_from_keys)(
-            start_key=b"phone#5c10102#20190501", end_key=b"phone#5c10102#201906201"
-        )
-    
-        rows = table.read_rows(row_set=row_set)
-        for row in rows:
-            print_row(row)
-    
+                for row in table.read_rows_stream(query):
+                    print(row)
     
 
 ### Ruby
@@ -239,7 +242,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     # instance_id = "my-instance"
     # table_id    = "my-table"
-    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
+    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable-v2/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
     table = bigtable.table instance_id, table_id
     
     ranges = []

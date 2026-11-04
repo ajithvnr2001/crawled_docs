@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/runtime-support/
 title: Runtime support \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:27:34.042451+00:00
+fetched_at: 2026-11-04T08:00:59.520043+00:00
 ---
 
 # Runtime support  |  Cloud Run functions  |  Google Cloud Documentation
@@ -105,6 +105,8 @@ Node.js 6 | 1st gen, Run functions | nodejs6 |  Decommissioned  |  Decommissione
 
 Runtime | Generation | Runtime ID | Stacks | Runtime base image | Deprecation | Decommission  
 ---|---|---|---|---|---|---  
+Python 3.15   
+(Preview) | Run functions | python315 |  google-24 (default) google-24-full  |  [google-24/python315](http://us-central1-docker.pkg.dev/serverless-runtimes/google-24/runtimes/python315) [google-24-full/python315](http://us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/runtimes/python315) |  |   
 Python 3.14 | Run functions | python314 |  google-24 (default) google-24-full  |  [google-24/python314](http://us-central1-docker.pkg.dev/serverless-runtimes/google-24/runtimes/python314) [google-24-full/python314](http://us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/runtimes/python314) | 2030-10-10 | 2031-04-10  
 Python 3.13 | Run functions | python313 |  google-22 (default) google-22-full  |  [google-22/python313](http://us-central1-docker.pkg.dev/serverless-runtimes/google-22/runtimes/python313) [google-22-full/python313](http://us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python313) | 2029-10-10 | 2030-04-10  
 Python 3.12 | 1st gen, Run functions | python312 |  google-22 (default) google-22-full  |  [google-22/python312](http://us-central1-docker.pkg.dev/serverless-runtimes/google-22/runtimes/python312) [google-22-full/python312](http://us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python312) | 2028-10-02 | 2029-04-02  
@@ -178,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_nppes_npi/set-up-data-store/
 title: Set up an NPPES NPI Registry data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:45:09.921150+00:00
+fetched_at: 2026-11-04T05:36:52.373819+00:00
 ---
 
 # Set up an NPPES NPI Registry data store  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ To create the NPPES NPI Registry data store, follow these steps:
 
   9. In the **Configuration** section, do the following:
 
-     1. From the **Multi-region** list, select the location for your data connector: `global` or `us`.
+     1. From the **Multi-region** list, select the location for your data store: `global` or `us`.
      2. In the **Your data connector name** field, enter a name for your connector.
      3. If you selected `us` as the location, configure the **Encryption settings** :
 
@@ -86,7 +86,7 @@ For more information, see [Customer-managed encryption keys](https://docs.cloud.
 
 
 
-On the **Data Stores** page, click your data store name to see the status. After the data store state changes from **Creating** to **Active** , the NPPES NPI Registry data store is ready to use.
+On the **Data stores** page, click your data store name to see the status. After the data store state changes from **Creating** to **Active** , the NPPES NPI Registry data store is ready to use.
 
 After creating the data store, connect the data store you just created to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) it to the new app. Because this connector uses public data, no user authorization is required.
 
@@ -128,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

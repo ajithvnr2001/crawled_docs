@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/deny-permissions-support/
 title: Permissions supported in deny policies \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:35:35.779905+00:00
+fetched_at: 2026-11-04T08:00:34.207658+00:00
 ---
 
 # Permissions supported in deny policies  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -115,6 +115,11 @@ Agent Registry |  `agentregistry.googleapis.com/*.*`
 `agentregistry.googleapis.com/agents.get`  
 `agentregistry.googleapis.com/agents.list`  
 `agentregistry.googleapis.com/agents.search`  
+`agentregistry.googleapis.com/aiApplications.*`  
+`agentregistry.googleapis.com/aiApplications.get`  
+`agentregistry.googleapis.com/aiApplications.getIamPolicy`  
+`agentregistry.googleapis.com/aiApplications.list`  
+`agentregistry.googleapis.com/aiApplications.setIamPolicy`  
 `agentregistry.googleapis.com/bindings.*`  
 `agentregistry.googleapis.com/bindings.create`  
 `agentregistry.googleapis.com/bindings.delete`  
@@ -282,6 +287,14 @@ Gemini Enterprise Agent Platform |  `aiplatform.googleapis.com/*.*`
 `aiplatform.googleapis.com/deploymentResourcePools.list`  
 `aiplatform.googleapis.com/deploymentResourcePools.queryDeployedModels`  
 `aiplatform.googleapis.com/deploymentResourcePools.update`  
+`aiplatform.googleapis.com/detectors.*`  
+`aiplatform.googleapis.com/detectors.create`  
+`aiplatform.googleapis.com/detectors.delete`  
+`aiplatform.googleapis.com/detectors.disable`  
+`aiplatform.googleapis.com/detectors.enable`  
+`aiplatform.googleapis.com/detectors.get`  
+`aiplatform.googleapis.com/detectors.list`  
+`aiplatform.googleapis.com/detectors.update`  
 `aiplatform.googleapis.com/edgeDeploymentJobs.*`  
 `aiplatform.googleapis.com/edgeDeploymentJobs.create`  
 `aiplatform.googleapis.com/edgeDeploymentJobs.delete`  
@@ -1021,14 +1034,20 @@ Backup and Disaster Recovery |  `backupdr.googleapis.com/appliedAutoProtectionPo
 `backupdr.googleapis.com/autoProtectionPolicies.update`  
 `backupdr.googleapis.com/backupPlanAssociations.createForCloudSqlInstance`  
 `backupdr.googleapis.com/backupPlanAssociations.createForComputeInstance`  
+`backupdr.googleapis.com/backupPlanAssociations.createForNetappVolumes`  
 `backupdr.googleapis.com/backupPlanAssociations.deleteForComputeInstance`  
+`backupdr.googleapis.com/backupPlanAssociations.deleteForNetappVolumes`  
 `backupdr.googleapis.com/backupPlanAssociations.fetchForComputeInstance`  
+`backupdr.googleapis.com/backupPlanAssociations.fetchForNetappVolumes`  
 `backupdr.googleapis.com/backupPlanAssociations.getForCloudSqlInstance`  
 `backupdr.googleapis.com/backupPlanAssociations.getForComputeInstance`  
+`backupdr.googleapis.com/backupPlanAssociations.getForNetappVolumes`  
 `backupdr.googleapis.com/backupPlanAssociations.list`  
 `backupdr.googleapis.com/backupPlanAssociations.triggerBackupForComputeInstance`  
+`backupdr.googleapis.com/backupPlanAssociations.triggerBackupForNetappVolumes`  
 `backupdr.googleapis.com/backupPlanAssociations.updateForCloudSqlInstance`  
 `backupdr.googleapis.com/backupPlanAssociations.updateForComputeInstance`  
+`backupdr.googleapis.com/backupPlanAssociations.updateForNetappVolumes`  
 `backupdr.googleapis.com/backupPlanRevisions.*`  
 `backupdr.googleapis.com/backupPlanRevisions.get`  
 `backupdr.googleapis.com/backupPlanRevisions.list`  
@@ -1039,6 +1058,7 @@ Backup and Disaster Recovery |  `backupdr.googleapis.com/appliedAutoProtectionPo
 `backupdr.googleapis.com/backupPlans.update`  
 `backupdr.googleapis.com/backupPlans.useForCloudSqlInstance`  
 `backupdr.googleapis.com/backupPlans.useForComputeInstance`  
+`backupdr.googleapis.com/backupPlans.useForNetappVolumes`  
 `backupdr.googleapis.com/backupVaults.*`  
 `backupdr.googleapis.com/backupVaults.associate`  
 `backupdr.googleapis.com/backupVaults.create`  
@@ -1054,6 +1074,7 @@ Backup and Disaster Recovery |  `backupdr.googleapis.com/appliedAutoProtectionPo
 `backupdr.googleapis.com/bindingMatchingResources.list`  
 `backupdr.googleapis.com/bvbackups.delete`  
 `backupdr.googleapis.com/bvbackups.fetchForCloudSqlInstance`  
+`backupdr.googleapis.com/bvbackups.fetchForNetappVolumes`  
 `backupdr.googleapis.com/bvbackups.get`  
 `backupdr.googleapis.com/bvbackups.list`  
 `backupdr.googleapis.com/bvbackups.restore`  
@@ -1070,7 +1091,9 @@ Backup and Disaster Recovery |  `backupdr.googleapis.com/appliedAutoProtectionPo
 `backupdr.googleapis.com/compute.*`  
 `backupdr.googleapis.com/compute.restoreFromBackupVault`  
 `backupdr.googleapis.com/dataSourceReferences.fetchForCloudSqlInstance`  
+`backupdr.googleapis.com/dataSourceReferences.fetchForNetappVolumes`  
 `backupdr.googleapis.com/dataSourceReferences.getForCloudSqlInstance`  
+`backupdr.googleapis.com/dataSourceReferences.getForNetappVolumes`  
 `backupdr.googleapis.com/locations.*`  
 `backupdr.googleapis.com/locations.get`  
 `backupdr.googleapis.com/locations.list`  
@@ -1716,6 +1739,18 @@ Gemini Enterprise for Customer Experience |  `ces.googleapis.com/agents.*`
 Google Security Operations |  `chronicle.googleapis.com/agentSettings.*`  
 `chronicle.googleapis.com/agentSettings.get`  
 `chronicle.googleapis.com/agentSettings.update`  
+`chronicle.googleapis.com/agenticCaseReportTemplates.*`  
+`chronicle.googleapis.com/agenticCaseReportTemplates.delete`  
+`chronicle.googleapis.com/agenticCaseReportTemplates.get`  
+`chronicle.googleapis.com/agenticCaseReportTemplates.update`  
+`chronicle.googleapis.com/agenticCaseReports.*`  
+`chronicle.googleapis.com/agenticCaseReports.delete`  
+`chronicle.googleapis.com/agenticCaseReports.get`  
+`chronicle.googleapis.com/agenticCaseReports.publish`  
+`chronicle.googleapis.com/agenticCaseReports.update`  
+`chronicle.googleapis.com/aiBillingSettings.*`  
+`chronicle.googleapis.com/aiBillingSettings.get`  
+`chronicle.googleapis.com/aiBillingSettings.update`  
 `chronicle.googleapis.com/ais.*`  
 `chronicle.googleapis.com/ais.createFeedback`  
 `chronicle.googleapis.com/ais.translateUdmQuery`  
@@ -3844,7 +3879,15 @@ Managed Service for Apache Airflow |  `composer.googleapis.com/dags.*`
 `composer.googleapis.com/userworkloadssecrets.get`  
 `composer.googleapis.com/userworkloadssecrets.list`  
 `composer.googleapis.com/userworkloadssecrets.update`  
-Compute Engine |  `compute.googleapis.com/acceleratorTypes.*`  
+Compute Engine |  `compute.googleapis.com/acceleratorInterconnectMemberInstances.*`  
+`compute.googleapis.com/acceleratorInterconnectMemberInstances.list`  
+`compute.googleapis.com/acceleratorInterconnects.*`  
+`compute.googleapis.com/acceleratorInterconnects.create`  
+`compute.googleapis.com/acceleratorInterconnects.delete`  
+`compute.googleapis.com/acceleratorInterconnects.get`  
+`compute.googleapis.com/acceleratorInterconnects.list`  
+`compute.googleapis.com/acceleratorInterconnects.queryFormability`  
+`compute.googleapis.com/acceleratorTypes.*`  
 `compute.googleapis.com/acceleratorTypes.get`  
 `compute.googleapis.com/acceleratorTypes.list`  
 `compute.googleapis.com/addresses.*`  
@@ -5607,6 +5650,7 @@ Database Insights |  `databaseinsights.googleapis.com/activeQueries.*`
 `databaseinsights.googleapis.com/resourceRecommendations.query`  
 `databaseinsights.googleapis.com/systemMetrics.*`  
 `databaseinsights.googleapis.com/systemMetrics.fetch`  
+`databaseinsights.googleapis.com/tasks.fixTask`  
 `databaseinsights.googleapis.com/telemetryConfig.*`  
 `databaseinsights.googleapis.com/telemetryConfig.fetch`  
 `databaseinsights.googleapis.com/timeSeries.*`  
@@ -5765,6 +5809,7 @@ Data Lineage API |  `datalineage.googleapis.com/configs.*`
 `datalineage.googleapis.com/events.getFields`  
 `datalineage.googleapis.com/events.list`  
 `datalineage.googleapis.com/locations.*`  
+`datalineage.googleapis.com/locations.importLineage`  
 `datalineage.googleapis.com/locations.processOpenLineageMessage`  
 `datalineage.googleapis.com/locations.searchLinks`  
 `datalineage.googleapis.com/operations.*`  
@@ -6314,7 +6359,9 @@ Developer Connect |  `developerconnect.googleapis.com/accountConnectors.*`
 `developerconnect.googleapis.com/connections.*`  
 `developerconnect.googleapis.com/connections.constructGitHubAppManifest`  
 `developerconnect.googleapis.com/connections.create`  
+`developerconnect.googleapis.com/connections.createTagBinding`  
 `developerconnect.googleapis.com/connections.delete`  
+`developerconnect.googleapis.com/connections.deleteTagBinding`  
 `developerconnect.googleapis.com/connections.fetchGitHubInstallations`  
 `developerconnect.googleapis.com/connections.fetchLinkableGitRepositories`  
 `developerconnect.googleapis.com/connections.generateGitHubStateToken`  
@@ -6322,6 +6369,8 @@ Developer Connect |  `developerconnect.googleapis.com/accountConnectors.*`
 `developerconnect.googleapis.com/connections.httpProxyRead`  
 `developerconnect.googleapis.com/connections.httpProxyWrite`  
 `developerconnect.googleapis.com/connections.list`  
+`developerconnect.googleapis.com/connections.listEffectiveTags`  
+`developerconnect.googleapis.com/connections.listTagBindings`  
 `developerconnect.googleapis.com/connections.processGitHubAppCreationCallback`  
 `developerconnect.googleapis.com/connections.processGitHubOAuthCallback`  
 `developerconnect.googleapis.com/connections.update`  
@@ -6329,15 +6378,25 @@ Developer Connect |  `developerconnect.googleapis.com/accountConnectors.*`
 `developerconnect.googleapis.com/deploymentEvents.get`  
 `developerconnect.googleapis.com/deploymentEvents.list`  
 `developerconnect.googleapis.com/gitRepositoryLinks.*`  
+`developerconnect.googleapis.com/gitRepositoryLinks.addPullRequestComment`  
+`developerconnect.googleapis.com/gitRepositoryLinks.addPullRequestReviewComment`  
 `developerconnect.googleapis.com/gitRepositoryLinks.create`  
 `developerconnect.googleapis.com/gitRepositoryLinks.delete`  
+`developerconnect.googleapis.com/gitRepositoryLinks.diffCommit`  
+`developerconnect.googleapis.com/gitRepositoryLinks.fetchCommit`  
+`developerconnect.googleapis.com/gitRepositoryLinks.fetchCommitList`  
+`developerconnect.googleapis.com/gitRepositoryLinks.fetchFileBlame`  
 `developerconnect.googleapis.com/gitRepositoryLinks.fetchGitRefs`  
+`developerconnect.googleapis.com/gitRepositoryLinks.fetchPullRequest`  
+`developerconnect.googleapis.com/gitRepositoryLinks.fetchPullRequestList`  
 `developerconnect.googleapis.com/gitRepositoryLinks.fetchReadToken`  
 `developerconnect.googleapis.com/gitRepositoryLinks.fetchReadWriteToken`  
 `developerconnect.googleapis.com/gitRepositoryLinks.get`  
 `developerconnect.googleapis.com/gitRepositoryLinks.gitProxyRead`  
 `developerconnect.googleapis.com/gitRepositoryLinks.gitProxyWrite`  
 `developerconnect.googleapis.com/gitRepositoryLinks.list`  
+`developerconnect.googleapis.com/gitRepositoryLinks.modifyPullRequest`  
+`developerconnect.googleapis.com/gitRepositoryLinks.openPullRequest`  
 `developerconnect.googleapis.com/insightsConfigs.*`  
 `developerconnect.googleapis.com/insightsConfigs.create`  
 `developerconnect.googleapis.com/insightsConfigs.delete`  
@@ -6889,6 +6948,9 @@ Cloud DNS |  `dns.googleapis.com/changes.*`
 `dns.googleapis.com/gkeClusters.*`  
 `dns.googleapis.com/gkeClusters.bindDNSResponsePolicy`  
 `dns.googleapis.com/gkeClusters.bindPrivateDNSZone`  
+`dns.googleapis.com/locations.*`  
+`dns.googleapis.com/locations.get`  
+`dns.googleapis.com/locations.list`  
 `dns.googleapis.com/managedZoneOperations.*`  
 `dns.googleapis.com/managedZoneOperations.get`  
 `dns.googleapis.com/managedZoneOperations.list`  
@@ -6906,6 +6968,19 @@ Cloud DNS |  `dns.googleapis.com/changes.*`
 `dns.googleapis.com/networks.bindPrivateDNSZone`  
 `dns.googleapis.com/networks.targetWithPeeringZone`  
 `dns.googleapis.com/networks.useHealthSignals`  
+`dns.googleapis.com/operations.*`  
+`dns.googleapis.com/operations.cancel`  
+`dns.googleapis.com/operations.delete`  
+`dns.googleapis.com/operations.get`  
+`dns.googleapis.com/operations.list`  
+`dns.googleapis.com/outboundEndpoints.*`  
+`dns.googleapis.com/outboundEndpoints.bindPrivateDNSPolicy`  
+`dns.googleapis.com/outboundEndpoints.bindPrivateDNSZone`  
+`dns.googleapis.com/outboundEndpoints.create`  
+`dns.googleapis.com/outboundEndpoints.delete`  
+`dns.googleapis.com/outboundEndpoints.get`  
+`dns.googleapis.com/outboundEndpoints.list`  
+`dns.googleapis.com/outboundEndpoints.update`  
 `dns.googleapis.com/policies.*`  
 `dns.googleapis.com/policies.create`  
 `dns.googleapis.com/policies.createTagBinding`  
@@ -7211,9 +7286,13 @@ Firebase App Check |  `firebaseappcheck.googleapis.com/automations.*`
 Firebase App Hosting |  `firebaseapphosting.googleapis.com/*.*`  
 `firebaseapphosting.googleapis.com/backends.*`  
 `firebaseapphosting.googleapis.com/backends.create`  
+`firebaseapphosting.googleapis.com/backends.createTagBinding`  
 `firebaseapphosting.googleapis.com/backends.delete`  
+`firebaseapphosting.googleapis.com/backends.deleteTagBinding`  
 `firebaseapphosting.googleapis.com/backends.get`  
 `firebaseapphosting.googleapis.com/backends.list`  
+`firebaseapphosting.googleapis.com/backends.listEffectiveTags`  
+`firebaseapphosting.googleapis.com/backends.listTagBindings`  
 `firebaseapphosting.googleapis.com/backends.update`  
 `firebaseapphosting.googleapis.com/builds.*`  
 `firebaseapphosting.googleapis.com/builds.create`  
@@ -7278,7 +7357,9 @@ Firebase Data Connect |  `firebasedataconnect.googleapis.com/*.*`
 `firebasedataconnect.googleapis.com/schemas.update`  
 `firebasedataconnect.googleapis.com/services.*`  
 `firebasedataconnect.googleapis.com/services.create`  
+`firebasedataconnect.googleapis.com/services.createTagBinding`  
 `firebasedataconnect.googleapis.com/services.delete`  
+`firebasedataconnect.googleapis.com/services.deleteTagBinding`  
 `firebasedataconnect.googleapis.com/services.executeGraphql`  
 `firebasedataconnect.googleapis.com/services.executeGraphqlRead`  
 `firebasedataconnect.googleapis.com/services.generateQuery`  
@@ -7286,6 +7367,8 @@ Firebase Data Connect |  `firebasedataconnect.googleapis.com/*.*`
 `firebasedataconnect.googleapis.com/services.get`  
 `firebasedataconnect.googleapis.com/services.introspectGraphql`  
 `firebasedataconnect.googleapis.com/services.list`  
+`firebasedataconnect.googleapis.com/services.listEffectiveTags`  
+`firebasedataconnect.googleapis.com/services.listTagBindings`  
 `firebasedataconnect.googleapis.com/services.postgrestCallFunction`  
 `firebasedataconnect.googleapis.com/services.postgrestDelete`  
 `firebasedataconnect.googleapis.com/services.postgrestInsert`  
@@ -7358,9 +7441,13 @@ GDC Hardware Management API |  `gdchardwaremanagement.googleapis.com/*.*`
 `gdchardwaremanagement.googleapis.com/comments.list`  
 `gdchardwaremanagement.googleapis.com/hardware.*`  
 `gdchardwaremanagement.googleapis.com/hardware.create`  
+`gdchardwaremanagement.googleapis.com/hardware.createTagBinding`  
 `gdchardwaremanagement.googleapis.com/hardware.delete`  
+`gdchardwaremanagement.googleapis.com/hardware.deleteTagBinding`  
 `gdchardwaremanagement.googleapis.com/hardware.get`  
 `gdchardwaremanagement.googleapis.com/hardware.list`  
+`gdchardwaremanagement.googleapis.com/hardware.listEffectiveTags`  
+`gdchardwaremanagement.googleapis.com/hardware.listTagBindings`  
 `gdchardwaremanagement.googleapis.com/hardware.update`  
 `gdchardwaremanagement.googleapis.com/hardwareGroups.*`  
 `gdchardwaremanagement.googleapis.com/hardwareGroups.create`  
@@ -7378,25 +7465,42 @@ GDC Hardware Management API |  `gdchardwaremanagement.googleapis.com/*.*`
 `gdchardwaremanagement.googleapis.com/operations.list`  
 `gdchardwaremanagement.googleapis.com/orders.*`  
 `gdchardwaremanagement.googleapis.com/orders.create`  
+`gdchardwaremanagement.googleapis.com/orders.createTagBinding`  
 `gdchardwaremanagement.googleapis.com/orders.delete`  
+`gdchardwaremanagement.googleapis.com/orders.deleteTagBinding`  
 `gdchardwaremanagement.googleapis.com/orders.get`  
 `gdchardwaremanagement.googleapis.com/orders.list`  
+`gdchardwaremanagement.googleapis.com/orders.listEffectiveTags`  
+`gdchardwaremanagement.googleapis.com/orders.listTagBindings`  
 `gdchardwaremanagement.googleapis.com/orders.submit`  
 `gdchardwaremanagement.googleapis.com/orders.update`  
 `gdchardwaremanagement.googleapis.com/sites.*`  
 `gdchardwaremanagement.googleapis.com/sites.create`  
+`gdchardwaremanagement.googleapis.com/sites.createTagBinding`  
 `gdchardwaremanagement.googleapis.com/sites.delete`  
+`gdchardwaremanagement.googleapis.com/sites.deleteTagBinding`  
 `gdchardwaremanagement.googleapis.com/sites.get`  
 `gdchardwaremanagement.googleapis.com/sites.list`  
+`gdchardwaremanagement.googleapis.com/sites.listEffectiveTags`  
+`gdchardwaremanagement.googleapis.com/sites.listTagBindings`  
 `gdchardwaremanagement.googleapis.com/sites.update`  
 `gdchardwaremanagement.googleapis.com/skus.*`  
 `gdchardwaremanagement.googleapis.com/skus.get`  
 `gdchardwaremanagement.googleapis.com/skus.list`  
+`gdchardwaremanagement.googleapis.com/zoneOperations.*`  
+`gdchardwaremanagement.googleapis.com/zoneOperations.createTagBinding`  
+`gdchardwaremanagement.googleapis.com/zoneOperations.deleteTagBinding`  
+`gdchardwaremanagement.googleapis.com/zoneOperations.listEffectiveTags`  
+`gdchardwaremanagement.googleapis.com/zoneOperations.listTagBindings`  
 `gdchardwaremanagement.googleapis.com/zones.*`  
 `gdchardwaremanagement.googleapis.com/zones.create`  
+`gdchardwaremanagement.googleapis.com/zones.createTagBinding`  
 `gdchardwaremanagement.googleapis.com/zones.delete`  
+`gdchardwaremanagement.googleapis.com/zones.deleteTagBinding`  
 `gdchardwaremanagement.googleapis.com/zones.get`  
 `gdchardwaremanagement.googleapis.com/zones.list`  
+`gdchardwaremanagement.googleapis.com/zones.listEffectiveTags`  
+`gdchardwaremanagement.googleapis.com/zones.listTagBindings`  
 `gdchardwaremanagement.googleapis.com/zones.update`  
 Gemini Cloud Assist |  `geminicloudassist.googleapis.com/agents.*`  
 `geminicloudassist.googleapis.com/agents.invoke`  
@@ -8416,13 +8520,57 @@ Memorystore for Memcached |  `memcache.googleapis.com/instances.createTagBinding
 `memcache.googleapis.com/instances.deleteTagBinding`  
 `memcache.googleapis.com/instances.listEffectiveTags`  
 `memcache.googleapis.com/instances.listTagBindings`  
-Memorystore |  `memorystore.googleapis.com/backupCollections.*`  
+Memorystore |  `memorystore.googleapis.com/aclPolicies.*`  
+`memorystore.googleapis.com/aclPolicies.create`  
+`memorystore.googleapis.com/aclPolicies.delete`  
+`memorystore.googleapis.com/aclPolicies.get`  
+`memorystore.googleapis.com/aclPolicies.list`  
+`memorystore.googleapis.com/aclPolicies.update`  
+`memorystore.googleapis.com/aclPolicyRevisions.*`  
+`memorystore.googleapis.com/aclPolicyRevisions.get`  
+`memorystore.googleapis.com/aclPolicyRevisions.list`  
+`memorystore.googleapis.com/authTokens.*`  
+`memorystore.googleapis.com/authTokens.create`  
+`memorystore.googleapis.com/authTokens.delete`  
+`memorystore.googleapis.com/authTokens.get`  
+`memorystore.googleapis.com/authTokens.list`  
+`memorystore.googleapis.com/backupCollections.*`  
+`memorystore.googleapis.com/backupCollections.createTagBinding`  
+`memorystore.googleapis.com/backupCollections.deleteTagBinding`  
 `memorystore.googleapis.com/backupCollections.get`  
 `memorystore.googleapis.com/backupCollections.list`  
+`memorystore.googleapis.com/backupCollections.listEffectiveTags`  
+`memorystore.googleapis.com/backupCollections.listTagBindings`  
+`memorystore.googleapis.com/backups.*`  
+`memorystore.googleapis.com/backups.delete`  
 `memorystore.googleapis.com/backups.export`  
+`memorystore.googleapis.com/backups.get`  
+`memorystore.googleapis.com/backups.list`  
 `memorystore.googleapis.com/instances.backup`  
+`memorystore.googleapis.com/instances.create`  
+`memorystore.googleapis.com/instances.createTagBinding`  
+`memorystore.googleapis.com/instances.delete`  
+`memorystore.googleapis.com/instances.deleteTagBinding`  
 `memorystore.googleapis.com/instances.finishMigration`  
+`memorystore.googleapis.com/instances.get`  
+`memorystore.googleapis.com/instances.list`  
+`memorystore.googleapis.com/instances.listEffectiveTags`  
+`memorystore.googleapis.com/instances.listTagBindings`  
 `memorystore.googleapis.com/instances.startMigration`  
+`memorystore.googleapis.com/instances.update`  
+`memorystore.googleapis.com/locations.*`  
+`memorystore.googleapis.com/locations.get`  
+`memorystore.googleapis.com/locations.list`  
+`memorystore.googleapis.com/operations.*`  
+`memorystore.googleapis.com/operations.cancel`  
+`memorystore.googleapis.com/operations.delete`  
+`memorystore.googleapis.com/operations.get`  
+`memorystore.googleapis.com/operations.list`  
+`memorystore.googleapis.com/tokenAuthUsers.*`  
+`memorystore.googleapis.com/tokenAuthUsers.create`  
+`memorystore.googleapis.com/tokenAuthUsers.delete`  
+`memorystore.googleapis.com/tokenAuthUsers.get`  
+`memorystore.googleapis.com/tokenAuthUsers.list`  
 Cloud Service Mesh |  `meshconfig.googleapis.com/*.*`  
 `meshconfig.googleapis.com/projects.*`  
 `meshconfig.googleapis.com/projects.init`  
@@ -9091,14 +9239,19 @@ Oracle Database@Google Cloud |  `oracledatabase.googleapis.com/autonomousDatabas
 `oracledatabase.googleapis.com/autonomousDatabaseCharacterSets.*`  
 `oracledatabase.googleapis.com/autonomousDatabaseCharacterSets.list`  
 `oracledatabase.googleapis.com/autonomousDatabases.*`  
+`oracledatabase.googleapis.com/autonomousDatabases.changeDisasterRecoveryConfig`  
 `oracledatabase.googleapis.com/autonomousDatabases.clone`  
 `oracledatabase.googleapis.com/autonomousDatabases.create`  
+`oracledatabase.googleapis.com/autonomousDatabases.createTagBinding`  
 `oracledatabase.googleapis.com/autonomousDatabases.delete`  
+`oracledatabase.googleapis.com/autonomousDatabases.deleteTagBinding`  
 `oracledatabase.googleapis.com/autonomousDatabases.failover`  
 `oracledatabase.googleapis.com/autonomousDatabases.generateWallet`  
 `oracledatabase.googleapis.com/autonomousDatabases.get`  
 `oracledatabase.googleapis.com/autonomousDatabases.list`  
+`oracledatabase.googleapis.com/autonomousDatabases.listEffectiveTags`  
 `oracledatabase.googleapis.com/autonomousDatabases.listRefreshableClones`  
+`oracledatabase.googleapis.com/autonomousDatabases.listTagBindings`  
 `oracledatabase.googleapis.com/autonomousDatabases.refresh`  
 `oracledatabase.googleapis.com/autonomousDatabases.restart`  
 `oracledatabase.googleapis.com/autonomousDatabases.restore`  
@@ -9110,16 +9263,26 @@ Oracle Database@Google Cloud |  `oracledatabase.googleapis.com/autonomousDatabas
 `oracledatabase.googleapis.com/autonomousDbVersions.list`  
 `oracledatabase.googleapis.com/cloudExadataInfrastructures.*`  
 `oracledatabase.googleapis.com/cloudExadataInfrastructures.create`  
+`oracledatabase.googleapis.com/cloudExadataInfrastructures.createTagBinding`  
 `oracledatabase.googleapis.com/cloudExadataInfrastructures.delete`  
+`oracledatabase.googleapis.com/cloudExadataInfrastructures.deleteTagBinding`  
 `oracledatabase.googleapis.com/cloudExadataInfrastructures.get`  
 `oracledatabase.googleapis.com/cloudExadataInfrastructures.list`  
+`oracledatabase.googleapis.com/cloudExadataInfrastructures.listEffectiveTags`  
+`oracledatabase.googleapis.com/cloudExadataInfrastructures.listTagBindings`  
 `oracledatabase.googleapis.com/cloudExadataInfrastructures.update`  
 `oracledatabase.googleapis.com/cloudExadataInfrastructures.use`  
 `oracledatabase.googleapis.com/cloudVmClusters.*`  
 `oracledatabase.googleapis.com/cloudVmClusters.create`  
+`oracledatabase.googleapis.com/cloudVmClusters.createTagBinding`  
 `oracledatabase.googleapis.com/cloudVmClusters.delete`  
+`oracledatabase.googleapis.com/cloudVmClusters.deleteTagBinding`  
+`oracledatabase.googleapis.com/cloudVmClusters.disableIdentityConnector`  
+`oracledatabase.googleapis.com/cloudVmClusters.enableIdentityConnector`  
 `oracledatabase.googleapis.com/cloudVmClusters.get`  
 `oracledatabase.googleapis.com/cloudVmClusters.list`  
+`oracledatabase.googleapis.com/cloudVmClusters.listEffectiveTags`  
+`oracledatabase.googleapis.com/cloudVmClusters.listTagBindings`  
 `oracledatabase.googleapis.com/cloudVmClusters.update`  
 `oracledatabase.googleapis.com/databaseCharacterSets.*`  
 `oracledatabase.googleapis.com/databaseCharacterSets.list`  
@@ -9147,17 +9310,27 @@ Oracle Database@Google Cloud |  `oracledatabase.googleapis.com/autonomousDatabas
 `oracledatabase.googleapis.com/dbSystemShapes.list`  
 `oracledatabase.googleapis.com/dbSystems.*`  
 `oracledatabase.googleapis.com/dbSystems.create`  
+`oracledatabase.googleapis.com/dbSystems.createTagBinding`  
 `oracledatabase.googleapis.com/dbSystems.delete`  
+`oracledatabase.googleapis.com/dbSystems.deleteTagBinding`  
 `oracledatabase.googleapis.com/dbSystems.get`  
 `oracledatabase.googleapis.com/dbSystems.list`  
+`oracledatabase.googleapis.com/dbSystems.listEffectiveTags`  
+`oracledatabase.googleapis.com/dbSystems.listTagBindings`  
 `oracledatabase.googleapis.com/dbSystems.update`  
 `oracledatabase.googleapis.com/dbVersions.*`  
 `oracledatabase.googleapis.com/dbVersions.list`  
 `oracledatabase.googleapis.com/entitlements.*`  
+`oracledatabase.googleapis.com/entitlements.createTagBinding`  
+`oracledatabase.googleapis.com/entitlements.deleteTagBinding`  
 `oracledatabase.googleapis.com/entitlements.list`  
+`oracledatabase.googleapis.com/entitlements.listEffectiveTags`  
+`oracledatabase.googleapis.com/entitlements.listTagBindings`  
 `oracledatabase.googleapis.com/exadbVmClusters.*`  
 `oracledatabase.googleapis.com/exadbVmClusters.create`  
 `oracledatabase.googleapis.com/exadbVmClusters.delete`  
+`oracledatabase.googleapis.com/exadbVmClusters.disableIdentityConnector`  
+`oracledatabase.googleapis.com/exadbVmClusters.enableIdentityConnector`  
 `oracledatabase.googleapis.com/exadbVmClusters.get`  
 `oracledatabase.googleapis.com/exadbVmClusters.list`  
 `oracledatabase.googleapis.com/exadbVmClusters.update`  
@@ -9889,10 +10062,22 @@ SaaS Service Management |  `saasservicemgmt.googleapis.com/*.*`
 `saasservicemgmt.googleapis.com/units.list`  
 `saasservicemgmt.googleapis.com/units.update`  
 Secret Manager |  `secretmanager.googleapis.com/*.*`  
+`secretmanager.googleapis.com/backups.*`  
+`secretmanager.googleapis.com/backups.create`  
+`secretmanager.googleapis.com/backups.delete`  
+`secretmanager.googleapis.com/backups.get`  
+`secretmanager.googleapis.com/backups.list`  
+`secretmanager.googleapis.com/backups.restore`  
+`secretmanager.googleapis.com/backups.update`  
 `secretmanager.googleapis.com/locations.*`  
 `secretmanager.googleapis.com/locations.get`  
 `secretmanager.googleapis.com/locations.list`  
+`secretmanager.googleapis.com/operations.*`  
+`secretmanager.googleapis.com/operations.cancel`  
+`secretmanager.googleapis.com/operations.get`  
+`secretmanager.googleapis.com/operations.list`  
 `secretmanager.googleapis.com/secrets.*`  
+`secretmanager.googleapis.com/secrets.backup`  
 `secretmanager.googleapis.com/secrets.create`  
 `secretmanager.googleapis.com/secrets.createTagBinding`  
 `secretmanager.googleapis.com/secrets.delete`  
@@ -9903,6 +10088,7 @@ Secret Manager |  `secretmanager.googleapis.com/*.*`
 `secretmanager.googleapis.com/secrets.list`  
 `secretmanager.googleapis.com/secrets.listEffectiveTags`  
 `secretmanager.googleapis.com/secrets.listTagBindings`  
+`secretmanager.googleapis.com/secrets.restore`  
 `secretmanager.googleapis.com/secrets.rotate`  
 `secretmanager.googleapis.com/secrets.setIamPolicy`  
 `secretmanager.googleapis.com/secrets.update`  
@@ -10715,7 +10901,9 @@ VM Migration |  `vmmigration.googleapis.com/groups.createTagBinding`
 `vmmigration.googleapis.com/sources.deleteTagBinding`  
 `vmmigration.googleapis.com/sources.listEffectiveTags`  
 `vmmigration.googleapis.com/sources.listTagBindings`  
-Google Cloud VMware Engine |  `vmwareengine.googleapis.com/clusters.*`  
+Google Cloud VMware Engine |  `vmwareengine.googleapis.com/capacityAllocations.*`  
+`vmwareengine.googleapis.com/capacityAllocations.list`  
+`vmwareengine.googleapis.com/clusters.*`  
 `vmwareengine.googleapis.com/clusters.create`  
 `vmwareengine.googleapis.com/clusters.delete`  
 `vmwareengine.googleapis.com/clusters.get`  
@@ -10953,6 +11141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

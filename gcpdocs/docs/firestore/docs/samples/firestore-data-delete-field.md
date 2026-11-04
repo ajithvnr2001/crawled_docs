@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-delete-field/
 title: Delete a Firestore field \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:35.312337+00:00
+fetched_at: 2026-11-04T08:02:06.183683+00:00
 ---
 
 # Delete a Firestore field  |  Google Cloud Documentation
