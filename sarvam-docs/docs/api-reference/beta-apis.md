@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/beta-apis/
 title: Beta APIs and Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:16.771637+00:00
+fetched_at: 2026-11-04T06:32:49.660062+00:00
 ---
 
 # Beta APIs and Models | Sarvam API Docs
@@ -34,7 +34,7 @@ This page is for API Reference.
 
 The following models on those endpoints are in **beta**. Their behaviour, limits, and availability may change before general availability.
 
-Beta models are enabled **per API key**. A key without access gets `400 invalid_request_error` (“This model is currently in beta”) for these model IDs, even though [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) still lists them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to enable beta models for your key.
+Beta access is enabled **per organisation** , for all beta models at once: every API key in an organisation with access can call them. Without access, requests get `400 invalid_request_error` (“This model is currently in beta”) for these model IDs, even though [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) still lists them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to enable beta models for your organisation.
 
 Model ID| Chat Completion V2| Responses  
 ---|---|---  
@@ -150,6 +150,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

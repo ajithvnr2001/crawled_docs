@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/build/tools/call-transfer/
 title: Transfer a voice agent call to a human or SIP | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:58.329726+00:00
+fetched_at: 2026-11-04T06:32:51.626892+00:00
 ---
 
 # Transfer a voice agent call to a human or SIP | Sarvam API Docs
@@ -53,7 +53,7 @@ Write a clear instruction so the model transfers at the right moment. Typical tr
 
 Be specific in the [instruction](https://docs.sarvam.ai/voice-agents/build/system-prompt). Type `@` and insert the **`call_transfer`** tool so the agent knows exactly what to call. “When the caller asks for a refund, confirm they want a human, then transfer using `call_transfer`” works better than “transfer the call”.
 
-![The Instructions editor with a refund-handoff prompt that ends in the call_transfer tool chip.](https://docs.sarvam.ai/_fern-img/1dd2186771cf94a3924b16aa06c3516ee02416b0f849dcd14b7f76eebdfec749.webp)
+![The Instructions editor with a refund-handoff prompt that ends in the call_transfer tool chip.](https://docs.sarvam.ai/_fern-files/_img/1dd2186771cf94a3924b16aa06c3516ee02416b0f849dcd14b7f76eebdfec749.webp)
 
 Instruction that transfers a refund request with the call_transfer tool.
 
@@ -63,10 +63,11 @@ Provider| Call transfer
 ---|---  
 **[Vobiz](https://docs.sarvam.ai/voice-agents/deploy/telephony/vobiz)** (your own account or [Rent from Sarvam](https://docs.sarvam.ai/voice-agents/deploy/telephony/rent-from-sarvam))| Supported end to end. No extra setup on the Vobiz platform.  
 **[Plivo](https://docs.sarvam.ai/voice-agents/deploy/telephony/plivo)**|  Supported end to end. No extra setup on the Plivo platform.  
+**[Exotel](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel)**|  Supported. Needs extra applets in your Exotel App - see [Enable call transfer on Exotel](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#enable-call-transfer).  
   
 Call transfer is not self-serve on other telephony providers.
 
-Prefer Vobiz or Plivo if you want to configure and test transfers yourself. Numbers rented through **Rent from Sarvam** use Vobiz underneath, so they support call transfer the same way.
+Numbers rented through **Rent from Sarvam** use Vobiz underneath, so they support call transfer with no extra setup.
 
 ## Destination types
 
@@ -85,7 +86,7 @@ The destination must answer. A number that rings out, goes to voicemail, or reje
 
 Call transfer is configured as **Call forwarding** under **Settings → In Call Actions**.
 
-![Call forwarding settings with the toggle on, Destination type set to Phone number, Value type set to Static value, and Forward to set to +919876543210.](https://docs.sarvam.ai/_fern-img/a77d63216ef1ba4bbf222c8f589c2f5e3acba59f51434aabf76b1934706775bf.webp)
+![Call forwarding settings with the toggle on, Destination type set to Phone number, Value type set to Static value, and Forward to set to +919876543210.](https://docs.sarvam.ai/_fern-files/_img/a77d63216ef1ba4bbf222c8f589c2f5e3acba59f51434aabf76b1934706775bf.webp)
 
 Call forwarding in Settings → In Call Actions: destination type, value type, and the number to forward to.
 
@@ -161,7 +162,7 @@ Symptom| What to check
 The agent says it cannot transfer| Call transfer is not enabled on the agent, or the call is not on a [supported provider](https://docs.sarvam.ai/voice-agents/build/tools/call-transfer#supported-telephony).  
 The agent says it will transfer, but nothing happens| The model announced the intent and did not call the tool. Tighten the instruction so the transfer step is unambiguous.  
 The transfer fires, but nobody picks up| The destination did not answer. Confirm the number or SIP URI, and that a person or queue is staffed.  
-You are on Exotel and transfers do not complete| Call transfer on Exotel is not self-serve. [Contact the Sarvam team](mailto:support@sarvam.ai).  
+You are on Exotel and transfers do not complete| Check that your Exotel App has the transfer applets configured. See [Enable call transfer on Exotel](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#enable-call-transfer).  
 Browser or chat tests never transfer| Expected. Use **test agent → Phone** , or a live inbound / campaign call.  
   
 ## Next
@@ -172,7 +173,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/build/tools/core-tools)[Call your APIs from a voice agent with the API toolNext](https://docs.sarvam.ai/voice-agents/build/tools/https-tool)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/build/tools/core-tools)[Call your APIs from a voice agent with the API toolNext](https://docs.sarvam.ai/voice-agents/build/tools/https-tool)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -362,6 +363,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

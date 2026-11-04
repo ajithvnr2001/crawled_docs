@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T06:38:48.330475+00:00
+fetched_at: 2026-11-04T06:32:38.203947+00:00
 ---
 
 # Create Response | Sarvam API Docs
@@ -392,7 +392,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/chat/models-v2)[Chat Completion V1Next](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/chat/models-v2)[Decide (Sarvam Prism)Next](https://docs.sarvam.ai/api-reference/decisions/systemone)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -417,6 +417,8 @@ YesNo
 
       * Responses API
         * [POSTCreate Response](https://docs.sarvam.ai/api-reference/responses/create)
+
+      * Decisions
 
     * Chat Completion (Legacy V1)
 
@@ -485,6 +487,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

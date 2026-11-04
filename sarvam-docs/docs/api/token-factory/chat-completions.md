@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/chat-completions/
 title: Chat Completion API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:17.071876+00:00
+fetched_at: 2026-11-04T06:32:52.730002+00:00
 ---
 
 # Chat Completion API | Sarvam API Docs
@@ -129,7 +129,7 @@ Model ID| Type| Context| Reasoning| Guide
 `mimo-v2.6-flash`| Open-weight (beta)| 1M, text + image + audio + video| On by default; on/off| [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)  
 `mimo-v2.6-pro`| Open-weight (beta)| 1M, text + image + audio + video| On by default; on/off| [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)  
   
-Confirm what your key can use with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2).
+List the served model IDs with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2). Beta models also need [beta access](https://docs.sarvam.ai/api-reference/beta-apis) for your organisation.
 
 ### Session affinity for multi-turn conversations
 
@@ -995,6 +995,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -1050,6 +1051,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -1060,6 +1062,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/developer-tools/mcp/
 title: MCP Server | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:15.374729+00:00
+fetched_at: 2026-11-04T06:32:48.234738+00:00
 ---
 
 # MCP Server | Sarvam API Docs
@@ -139,7 +139,7 @@ Tool| What it does| Default model
 `sarvam_tools_stt_batch_status`| Poll a batch job, returns the transcript when completed| —  
 `sarvam_tools_stt_batch_download`| Fresh presigned download URLs for a finished batch job| —  
   
-See [Batch Speech-to-Text](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/apis/batch) for the underlying job pipeline.
+See [Batch Speech-to-Text](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/batch-api) for the underlying job pipeline.
 
 #### Text-to-speech
 
@@ -182,7 +182,7 @@ Tool| What it does| Default model
 `sarvam_tools_dubbing_submit`| Start an official dubbing job for a video or audio file — creates the job, uploads the media, starts processing| —  
 `sarvam_tools_dubbing_status`| Poll a dubbing job, or fetch signed export URLs (video, audio, mp3, srt) that last about 24 hours| —  
   
-See [Dubbing API](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/apis/overview) for pipeline and export formats.
+See [Dubbing API](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview) for pipeline and export formats.
 
 #### Pronunciation dictionaries
 
@@ -264,6 +264,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -323,6 +324,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -333,6 +335,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)

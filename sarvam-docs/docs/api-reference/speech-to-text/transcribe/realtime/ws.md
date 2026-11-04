@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/speech-to-text/transcribe/realtime/ws/
 title: Realtime Streaming | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T06:38:46.368274+00:00
+fetched_at: 2026-11-04T06:32:36.739801+00:00
 ---
 
 # Realtime Streaming | Sarvam API Docs
@@ -413,6 +413,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

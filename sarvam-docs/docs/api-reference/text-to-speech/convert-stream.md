@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/text-to-speech/convert-stream/
 title: REST Stream | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T06:38:46.491028+00:00
+fetched_at: 2026-11-04T06:32:35.951266+00:00
 ---
 
 # REST Stream | Sarvam API Docs
@@ -292,6 +292,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

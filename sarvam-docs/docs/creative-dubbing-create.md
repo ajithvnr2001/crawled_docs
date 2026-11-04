@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative-dubbing-create/
 title: Creating a Dub | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:33:48.283557+00:00
+fetched_at: 2026-11-04T06:32:29.936309+00:00
 ---
 
 # Creating a Dub | Sarvam API Docs
@@ -21,7 +21,7 @@ On this page
 
 Scroll to top
 
-[Content Studio](https://docs.sarvam.ai/creative-dubbing)[Dubbing (Beta)](https://docs.sarvam.ai/creative-dubbing)
+[Content Studio](https://docs.sarvam.ai/creative-dubbing)[Dubbing](https://docs.sarvam.ai/creative-dubbing)
 
 # Creating a Dub
 
@@ -73,24 +73,28 @@ The full dubbing setup form - project name, source language, speaker count, targ
 
 ### Name Your Project
 
-The **Project name** field is pre-filled from your source filename - edit it to something you’ll recognize later, especially if you’re running several dubs at once.
+The **Project name** is pre-filled from the filename; rename it so you can find it later.
 
 [2](https://docs.sarvam.ai/creative-dubbing-create#set-the-source-language)
 
 ### Set the Source Language
 
-Search or scroll the **Source language** dropdown and select the language actually spoken in your file.
+Select the language spoken in the file from **Source language**.
 
-  * Each language shows a colored icon alongside its name, making the list easy to scan visually as well as by search.
-  * This tells the model which phonemes and speech patterns to expect, which affects transcription and speaker-separation accuracy before translation even starts.
+  * It drives transcription and speaker separation, so pick the spoken language, not the subtitle language.
+  * Besides the 11 Indian languages and English, 11 more scheduled Indian languages and 15 international languages are available as sources only.
+  * Bodo, Dogri, Kashmiri, Maithili, Manipuri, Sanskrit, Santali and Sindhi show **Lower transcription accuracy** : review the transcript before exporting.
+  * **Auto-detect** (first option) detects the language after you create the dub.
 
 
+
+Detection is not always accurate: select the language whenever you know it. If it cannot be detected, the dub fails and asks you to select the source language.
 
 [3](https://docs.sarvam.ai/creative-dubbing-create#select-the-number-of-speakers)
 
 ### Select the Number of Speakers
 
-Choose a count from the **Number of speakers** dropdown (1, 4, 5, 6, 7, 8, and more on scroll).
+Pick the count from **Number of speakers**.
 
   * On the Enterprise plan, you can also choose **Auto (detect speakers)** and Content Studio works out how many people speak. To get access, [contact us](https://www.sarvam.ai/contact-us).
   * Round upward for multi-speaker conversations - undercounting is worse than overcounting.
@@ -102,10 +106,9 @@ Choose a count from the **Number of speakers** dropdown (1, 4, 5, 6, 7, 8, and m
 
 ### Select Your Target Languages
 
-Add as many languages as you need to the **Target languages** field. Each one appears as a removable tag (with an x), and the dropdown stays open to add more.
+Add one or more languages to **Target languages**.
 
-  * Real-world usage skews heavily toward Hindi and Telugu, with the full set covering most major Indian languages plus English.
-  * Adding multiple targets in one pass produces several localized versions from a single upload - no need to re-process the source per language.
+  * Each target is a separate dubbed version from the same upload.
 
 
 
@@ -113,10 +116,10 @@ Add as many languages as you need to the **Target languages** field. Each one ap
 
 ### Match Speaker Strategy to Your Use Case
 
-Choose how the dubbed voice should be generated from the **Voice** dropdown:
+Choose the **Voice** :
 
-  * **Clone speaker voice** \- zero-shot vocal trait tracking. Use this when audience recognition of the original speaker matters (a host, a founder, a recurring instructor). This is the default.
-  * **Use Sarvam voices** \- native artist personas. Faster to review since the persona is already familiar and consistent across projects.
+  * **Clone speaker voice** (default): keeps the original speaker’s voice.
+  * **Use Sarvam voices** : a Sarvam voice instead.
 
 
 
@@ -136,14 +139,13 @@ Open **Advanced options** , then pick from the **Translation Model** dropdown:
 
 ### Set the Translation Register
 
-Choose a style from the dropdown, or leave it on **Auto** :
+Choose a **Translation style** , or leave it on **Auto** :
 
-  * **Auto** \- automatically picks the best style for the content. Default.
-  * **Formal** \- polished, professional language for official content.
-  * **Urban colloquial** \- modern, trend-aware localization with urban phrasing and idioms.
-  * **Standard colloquial** \- everyday spoken language that feels natural without being overly trendy.
-  * **Traditional colloquial** \- conventional spoken language that preserves local linguistic and cultural nuance.
-  * Style changes register and word choice, not just vocabulary - a serious lecture translated in `Urban colloquial` style will read as too casual, even if every fact is correct.
+  * **Auto** (default): picks the style for the content.
+  * **Formal** : polished, for official content.
+  * **Urban colloquial** : modern, urban phrasing.
+  * **Standard colloquial** : everyday spoken language.
+  * **Traditional colloquial** : conventional, keeps local nuance.
 
 
 
@@ -184,7 +186,7 @@ YesNo
     * [Overview](https://docs.sarvam.ai/creative/studio-overview)
   * Content Studio
 
-    * [Dubbing (Beta)](https://docs.sarvam.ai/creative-dubbing)
+    * [Dubbing](https://docs.sarvam.ai/creative-dubbing)
       * [Creating a Dub](https://docs.sarvam.ai/creative-dubbing-create)
       * [Editing a Dub](https://docs.sarvam.ai/creative-dubbing-edit)
       * [Dubbing Best Practices](https://docs.sarvam.ai/creative-dubbing-best-practices)
@@ -205,7 +207,7 @@ YesNo
 
 
   * [Overview](https://docs.sarvam.ai/creative/studio-overview)
-  * [Dubbing (Beta)](https://docs.sarvam.ai/creative-dubbing)
+  * [Dubbing](https://docs.sarvam.ai/creative-dubbing)
   * [Creating a Dub](https://docs.sarvam.ai/creative-dubbing-create)
   * [Editing a Dub](https://docs.sarvam.ai/creative-dubbing-edit)
   * [Dubbing Best Practices](https://docs.sarvam.ai/creative-dubbing-best-practices)

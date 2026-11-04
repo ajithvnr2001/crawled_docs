@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview/
 title: Migrating from Fireworks AI: Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:16.605787+00:00
+fetched_at: 2026-11-04T06:32:52.988787+00:00
 ---
 
 # Migrating from Fireworks AI: Overview | Sarvam API Docs
@@ -138,7 +138,7 @@ Sarvam’s `deepseekv4-pro` is the newer 0813 snapshot of DeepSeek V4 Pro, so ou
 
 Gemma 4 31B and DeepSeek V4 Pro need a dedicated deployment on Fireworks. On Sarvam, call them by model ID like any other model, with no deployment to create or manage.
 
-Model IDs are case-sensitive. An unknown ID returns `404 not_found_error`. [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the available models. Beta models need per-key access: without it, they return `400 invalid_request_error`, even though the list shows them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access.
+Model IDs are case-sensitive. An unknown ID returns `404 not_found_error`. [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the available models. Beta models need beta access for your organisation: without it, they return `400 invalid_request_error`, even though the list shows them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access.
 
 ## Models not on Sarvam
 
@@ -224,6 +224,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -289,6 +290,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -299,6 +301,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)

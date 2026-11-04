@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-a-voice/
 title: How to choose a voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:23.507427+00:00
+fetched_at: 2026-11-04T06:32:48.557744+00:00
 ---
 
 # How to choose a voice | Sarvam API Docs
@@ -89,11 +89,11 @@ Preset voices are single-speaker only. The API resolves your parameters like thi
 
 `num_speakers`| `voice_cloning`| What you get  
 ---|---|---  
-`1` (default)| `false`| The preset `voice_id` you named. `voice_id` is **required** ; omitting it fails with `422`.  
+`1` (default)| `false`| The preset `voice_id` you named. `voice_id` is **required** ; omitting it fails with `400` `InvalidInputError`.  
 `1` (default)| `true` (default)| The cloned original voice. `voice_id` and `pace_preset` are discarded.  
 `> 1` or `-1` (auto-detect)| any value| Cloning, always. Multi-speaker jobs force `voice_cloning: true` and discard `voice_id` silently, because one preset voice cannot represent several speakers.  
   
-`voice_id` is case- and whitespace-insensitive, so `"Ishita"` and `" ishita "` both resolve to `ishita`. An unrecognised name fails with a `422 unprocessable_entity_error` that lists every accepted value. The Python SDK types it as a plain string rather than an enum, so your editor will not autocomplete it or catch a typo.
+`voice_id` is case- and whitespace-insensitive, so `"Ishita"` and `" ishita "` both resolve to `ishita`. An unrecognised name fails with `400` `InvalidInputError`, whose `message` lists every accepted value. The Python SDK types it as a plain string rather than an enum, so your editor will not autocomplete it or catch a typo.
 
 ## Adjusting the pace
 
@@ -262,6 +262,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -326,6 +327,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -336,6 +338,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)

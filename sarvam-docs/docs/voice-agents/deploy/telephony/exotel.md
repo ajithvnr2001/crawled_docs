@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel/
 title: Connect Exotel to an AI voice agent | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:53.358621+00:00
+fetched_at: 2026-11-04T06:32:51.879198+00:00
 ---
 
 # Connect Exotel to an AI voice agent | Sarvam API Docs
@@ -17,6 +17,9 @@ On this page
   * Add the connection on Voice Agents
   * Configure the call flow on Exotel
   * After connecting
+  * Enable call transfer
+  * Sarvam URLs
+  * Configure the applets
   * Next
 
 
@@ -155,7 +158,111 @@ Place a test call to the number and confirm your agent answers. See [Manage Phon
 
 **Outbound calling** uses this same connection - dial out by adding the number to a [Campaign](https://docs.sarvam.ai/voice-agents/deploy/campaigns). No separate credentials are required.
 
-**Call transfer** on Exotel is not self-serve. [Contact the Sarvam team](mailto:support@sarvam.ai) to enable it.
+* * *
+
+## Enable call transfer
+
+Call transfer on Exotel needs additional applets in your Exotel App. Set up [Call transfer](https://docs.sarvam.ai/voice-agents/build/tools/call-transfer) on the agent first.
+
+### Sarvam URLs
+
+Name| URL  
+---|---  
+**Voice Bot**| `https://apps.sarvam.ai/api/app-runtime/channels/exotel`  
+**Call Transfer Status**| `https://apps.sarvam.ai/api/app-runtime/v1/channel-providers/exotel/call-transfer/status`  
+**Call Transfer Destination**| `https://apps.sarvam.ai/api/app-runtime/v1/channel-providers/exotel/call-transfer/destination`  
+**Call Transfer Details**| `https://apps.sarvam.ai/api/app-runtime/v1/channel-providers/exotel/call-transfer/webhooks/status`  
+  
+### Configure the applets
+
+In the Exotel dashboard, open your App in **App Bazaar** and build the flow below.
+
+[1](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#greeting)
+
+### Greeting
+
+In the **Call Start** flow, add a **Greeting** applet. Under **Audio Choice** , choose **Type Text** , enter a single period (`.`), and click **Save**. Under **Next** , add a **Voicebot** applet.
+
+[2](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#voicebot)
+
+### Voicebot
+
+Setting| Value  
+---|---  
+**Which bot you want to connect the enduser?**|  Voice Bot URL  
+**Record this?**|  Checked  
+**Recording Channels?**|  Single  
+**Recording Format?**|  MP3  
+  
+Under **Next** , add a **Passthru** applet.
+
+![Exotel Voicebot applet with the Sarvam URL, recording enabled in single-channel MP3, and Passthru as the next applet.](https://docs.sarvam.ai/_fern-files/_img/10dafcce5af15f08f9c7dde089a3f92a30a0ca778d54d741b4af3184cecd2a9b.webp)
+
+Voicebot applet pointing at Sarvam, followed by a Passthru applet.
+
+[3](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#passthru-transfer-status)
+
+### Passthru: transfer status
+
+  * Set the URL to the **Call Transfer Status** URL.
+  * Leave **Make Passthru Async** unchecked.
+  * Under **Once the URL returns OK (200 OK)** , add a **Switch Case** applet.
+  * Under **If the url returns anything else** , add a **Hangup** applet.
+
+
+
+![Exotel Passthru applet with the Sarvam call-transfer status URL, async unchecked, Switch Case on 200 OK, and Hangup otherwise.](https://docs.sarvam.ai/_fern-files/_img/ef767db1f7c541c75aa157b524f1d7c10ef8fb0146b04d9ae426d6f2340609c3.webp)
+
+Passthru applet calling the Call Transfer Status URL.
+
+[4](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#switch-case)
+
+### Switch Case
+
+Input| Applet  
+---|---  
+`true`| **Connect**  
+`false`| **Hangup**  
+Default| **Hangup**  
+  
+![Exotel Switch Case applet with true mapped to Connect, false mapped to Hangup, and Hangup as the default.](https://docs.sarvam.ai/_fern-files/_img/8bcd9dd10f186f4aee11487461fe825786654a576742010e73db7392954bf67d.webp)
+
+Switch Case: transfer on true, hang up otherwise.
+
+[5](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#connect)
+
+### Connect
+
+Under **Dial Whom** , select **Dial phone number(s) returned by URL**.
+
+Setting| Value  
+---|---  
+**Primary URL**|  Call Transfer Destination URL  
+**Fetch numbers after every call attempt**|  Checked  
+**Record this call?**|  Checked  
+**Recording Channels?**|  Single  
+  
+![Exotel Connect applet with Dial phone numbers returned by URL selected, the Sarvam destination URL as the primary URL, and Fetch numbers after every call attempt checked.](https://docs.sarvam.ai/_fern-files/_img/8156944c1c17a254e70c81efc4c16353fd5cd22bf204077ab0c8fd896bb2499f.webp)
+
+Connect applet fetching the transfer destination from Sarvam.
+
+[6](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#passthru-transfer-details)
+
+### Passthru: transfer details
+
+In the Connect applet, add a **Passthru** applet under each of **After the call conversation ends…** , **If nobody answers…** , and **We didn’t dial anyone…**.
+
+In each Passthru, set the URL to the **Call Transfer Details** URL and add a **Hangup** applet under both responses.
+
+![Exotel Connect applet outcome slots, each containing a Passthru applet.](https://docs.sarvam.ai/_fern-files/_img/1de96c44b546f86ac3ecbfdacc3aa4445b15fa0458569ec76bfa90a39ad5d773.webp)
+
+Passthru applets on every Connect outcome.
+
+[7](https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel#save)
+
+### Save
+
+Save the App and make sure it is assigned to your Exophone under **My Numbers**.
 
 ## Next
 
@@ -165,7 +272,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/deploy/telephony/bring-your-own)[Twilio AI calling agent setupNext](https://docs.sarvam.ai/voice-agents/deploy/telephony/twilio)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/deploy/telephony/bring-your-own)[Twilio AI calling agent setupNext](https://docs.sarvam.ai/voice-agents/deploy/telephony/twilio)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -353,6 +460,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

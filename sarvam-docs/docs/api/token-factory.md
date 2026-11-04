@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/
 title: Token Factory | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:16.311228+00:00
+fetched_at: 2026-11-04T06:32:49.208109+00:00
 ---
 
 # Token Factory | Sarvam API Docs
@@ -75,7 +75,9 @@ Model| Model ID| Best for| Input / output price (₹ per 1M tokens)
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| `gemma4`| Images and low-latency answers| ₹35 / ₹90  
 [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| `deepseekv4.1-flash-1017`| Long documents and cost-sensitive reasoning| ₹25 / ₹105  
   
-[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per API key. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing) for their rates and for cached-input rates.
+Need a yes/no, a label, or a score instead of generated text? [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) (`sarvam-prism`) is a System-1 decision model built on Sarvam 105B. On [`POST /v2/systemone`](https://docs.sarvam.ai/api-reference/decisions/systemone) it returns a calibrated probability for every option, at ₹4 per 1M input tokens (₹0 output).
+
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per organisation. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing) for their rates and for cached-input rates.
 
 Moving from another provider? Follow the guide for [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview).
 
@@ -101,6 +103,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -156,6 +159,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -166,6 +170,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)

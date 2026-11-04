@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub/
 title: Create Dubbing Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T06:38:54.185920+00:00
+fetched_at: 2026-11-04T06:32:46.277603+00:00
 ---
 
 # Create Dubbing Job | Sarvam API Docs
@@ -126,9 +126,9 @@ This endpoint expects an object.
 
 src_langenumRequired
 
-Source language of the input media (BCP-47).
+Source language of the input media (BCP-47), or `auto` to detect it. Pass the language when you know it: detection is not always accurate. See [Specify Language Codes](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/specify-language-codes).
 
-Show 12 enum values
+Show 39 enum values
 
 target_langslist of enumsRequired
 
@@ -194,13 +194,13 @@ Show 9 properties
 
 ### Errors
 
+400
+
+Bad Request Error
+
 401
 
 Unauthorized Error
-
-422
-
-Unprocessable Entity Error
 
 500
 
@@ -303,6 +303,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/
 title: Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:15.497839+00:00
+fetched_at: 2026-11-04T06:32:49.039226+00:00
 ---
 
 # Models | Sarvam API Docs
@@ -40,7 +40,7 @@ This page is for Model APIs.
 Model APIs come in two families that share one API key, one SDK, and one credit balance:
 
   * **Sarvam Models** : Sarvam’s own models for Indian languages, covering speech to text, text to speech, translation, and document intelligence. Each is trained and evaluated on Indian languages, accents, and code-mixed input.
-  * **Token Factory (Open-Weight)** : open-weight LLMs (Sarvam 105B, GLM, Gemma, DeepSeek, Kimi, and MiMo) on an OpenAI-compatible `/v2` API.
+  * **Token Factory (Open-Weight)** : open-weight LLMs (Sarvam 105B, GLM, Gemma, DeepSeek, Kimi, and MiMo) on an OpenAI-compatible `/v2` API, plus Sarvam Prism, a System-1 decision model built on Sarvam 105B.
 
 
 
@@ -73,6 +73,7 @@ Model| Context window| Modality| Reasoning
 ---|---|---|---  
 [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)| 128K tokens| Text → text| Yes, `low` by default  
 [Sarvam 105B Conversations](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant)| 32K tokens| Text → text| No  
+[Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)| 32,768 tokens per question| Text → probabilities ([Decisions API](https://docs.sarvam.ai/api-reference/decisions/systemone))| No  
 [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| 1,048,576 tokens| Text → text| Yes  
 [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| 1,048,576 tokens| Text + image → text| Yes  
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| 262,144 tokens| Text + image → text| Yes, off by default  
@@ -189,6 +190,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -244,6 +246,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -254,6 +257,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)

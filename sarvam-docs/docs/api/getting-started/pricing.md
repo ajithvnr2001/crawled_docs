@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/pricing/
 title: Pricing, Credits & Rate Limits | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:15.232557+00:00
+fetched_at: 2026-11-04T06:32:47.977006+00:00
 ---
 
 # Pricing, Credits & Rate Limits | Sarvam API Docs
@@ -110,7 +110,10 @@ Model| Input| Cached input| Output| Status
 ---|---|---|---|---  
 Sarvam 105B (`sarvam-105b`)| ₹15| ₹5| ₹60| Available  
 Sarvam 105B Chat (`sarvam-105b-conversations`)| ₹15| ₹5| ₹60| Available  
+Sarvam Prism (`sarvam-prism`)| ₹4| —| ₹0| Available  
   
+[Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) is billed on input tokens only: output is ₹0 because it returns probabilities, not text. The state is counted once per request, so asking 3 short questions about a 1,000-token state bills a little over 1,000 input tokens. See [Token usage](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism#token-usage).
+
 ### Open-Weight Models
 
 Model| Input| Cached input| Output| Status  
@@ -409,6 +412,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -464,6 +468,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -474,6 +479,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)

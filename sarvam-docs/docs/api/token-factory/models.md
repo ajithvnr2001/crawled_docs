@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/
 title: Open-Weight Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:34:14.882801+00:00
+fetched_at: 2026-11-04T06:32:49.534378+00:00
 ---
 
 # Open-Weight Models | Sarvam API Docs
@@ -37,6 +37,8 @@ This page is for Model APIs.
 Run leading **open-weight models** on Sarvam infrastructure through the same OpenAI-compatible `/v2` API, with your existing Sarvam API key and credits. Switching models is a one-line change to the `model` field.
 
 Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 are generally available. DeepSeek V4 Pro, Kimi K3, MiMo V2.6 Flash, and MiMo V2.6 Pro are in [beta](https://docs.sarvam.ai/api-reference/beta-apis).
+
+For classification, routing, or scoring, use [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) on the [Decisions API](https://docs.sarvam.ai/api-reference/decisions/systemone). It returns a calibrated probability for every option instead of generated text, so it is not in the chat catalog below.
 
 ## Choose a model
 
@@ -372,8 +374,8 @@ Reasoning tokens count toward `max_tokens` and are billed as output. If you see 
 Symptom| Likely cause| Fix  
 ---|---|---  
 `403 invalid_api_key_error`| Missing or wrong key header| Check `api-subscription-key` or the Bearer token  
-`404 not_found_error`| Unknown or wrongly cased model ID| IDs are case-sensitive. List the models enabled for your key with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2)  
-`400` “This model is currently in beta”| Your key doesn’t have beta access| [Contact us](https://docs.sarvam.ai/api/getting-started/help) to enable beta models for your key  
+`404 not_found_error`| Unknown or wrongly cased model ID| IDs are case-sensitive. List the served model IDs with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2)  
+`400` “This model is currently in beta”| Your organisation doesn’t have beta access| [Contact us](https://docs.sarvam.ai/api/getting-started/help) to enable beta models for your organisation  
 Empty `content`, `finish_reason: "length"`| Reasoning used the token budget| Raise `max_tokens` or lower `reasoning_effort`  
 `400 invalid_request_error` on a specific parameter| Parameter unsupported by this model| Check the model’s own Supported Parameters table  
 `402 insufficient_quota_error`| No credits left| Add credits in the [dashboard](https://indus.sarvam.ai/billing?ref=docs)  
@@ -416,7 +418,7 @@ Read the model ID from configuration, for example `model=os.environ.get("SARVAM_
 
   * **Chat:** `POST https://api.sarvam.ai/v2/chat/completions`, see the [API reference](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2).
   * **Responses:** `POST https://api.sarvam.ai/v2/responses`, see the [API reference](https://docs.sarvam.ai/api-reference/responses/create).
-  * **Models:** [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the models enabled for your key. Beta models appear only for keys that have beta access.
+  * **Models:** [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the served models, including beta models your organisation may not have access to yet.
 
 
 
@@ -449,6 +451,7 @@ YesNo
     * [Models](https://docs.sarvam.ai/api/token-factory/models)
       * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
       * [Sarvam 105B Conversations](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant "Sarvam 105B Conversations")
+      * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
       * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
       * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
       * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -460,6 +463,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -515,6 +519,7 @@ YesNo
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
   * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
@@ -525,6 +530,7 @@ YesNo
   * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
