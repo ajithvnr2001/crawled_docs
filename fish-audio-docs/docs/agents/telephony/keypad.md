@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/keypad/
 title: Keypad Menu and Input - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T14:25:07.899713+00:00
+fetched_at: 2026-11-04T15:37:55.377603+00:00
 ---
 
 # Keypad Menu and Input - Fish Audio
@@ -46,7 +46,7 @@ Callers can use their phone keypad in two ways:
   * **Keypad menu** : on inbound calls, before the agent’s first reply, the agent plays a short menu (“For appointments, press 1”), takes one key press or a spoken option, and stores the choice in a [dynamic variable](https://docs.fish.audio/agents/build/dynamic-variables). The system prompt, first message, transfers, and webhook tools can act on it. It replaces a separate phone menu in front of the agent, so callers reach the agent without a second hop and a second greeting.
   * **Keypad input** : during inbound and outbound phone calls, digits the caller types, such as a member ID ending with `#`, reach the agent as one message.
 
-Both are off by default and only apply to phone calls.
+Both are off by default and only apply to phone calls; [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp) carry no key presses.
 
 ## 
 
@@ -204,7 +204,7 @@ First message prompt
 
 Sessions without the menu
 
-Outbound calls, web and API sessions, preview calls, and agent tests skip the menu. There the variable renders like any other custom variable, from its [default value](https://docs.fish.audio/agents/build/dynamic-variables#default-values) and then `on_missing`. Give the menu’s variable a default, usually the same as the fallback value, so these sessions read well. Without one, `on_missing: reject` rejects them.
+Outbound calls, [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp), web and API sessions, preview calls, and agent tests skip the menu. There the variable takes the menu’s fallback value, so texts that mention it read well. Without a fallback value it renders like any other custom variable, from its [default value](https://docs.fish.audio/agents/build/dynamic-variables#default-values) and then `on_missing`; with neither, `on_missing: reject` rejects the session.
 
 ### 
 

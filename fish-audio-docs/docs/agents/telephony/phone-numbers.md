@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/phone-numbers/
 title: Phone Numbers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:45.295095+00:00
+fetched_at: 2026-11-04T15:37:55.272562+00:00
 ---
 
 # Phone Numbers - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:45.295095+00:00
 > Source: https://docs.fish.audio/agents/telephony/phone-numbers/
 
 ## On this page
+
+Back to top
 
   * Search available numbers
   * Purchase a number
@@ -95,6 +97,8 @@ A `409` means the number is already on the platform; a `502` means the provider 
 
 Already have a number at your own carrier? The same endpoint imports it with `provider: "sip"` instead of buying one: no rental fee, no telephony charges. See [Bring your own number](https://docs.fish.audio/agents/telephony/byo-sip).
 
+A WhatsApp Business number is connected in the console from your own Meta app and then listed here with `provider: "whatsapp"`. See [WhatsApp Business Calling](https://docs.fish.audio/agents/telephony/whatsapp).
+
 ## 
 
 ​
@@ -132,7 +136,7 @@ Field| Description
 ---|---  
 `phone_number_id`| Unique identifier; use it in URL paths  
 `phone_number`| The number in E.164 format  
-`provider`| Telephony provider backing the number  
+`provider`| `twilio`, `sip`, or `whatsapp`, the provider backing the number  
 `label`| Free-form label you assign  
 `agent_id`| The agent that answers calls to this number; `null` when unbound  
 `status`| `provisioning`, `active`, or `error`  

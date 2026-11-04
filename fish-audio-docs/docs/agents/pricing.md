@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/pricing/
 title: Pricing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-18T12:09:27.320322+00:00
+fetched_at: 2026-11-04T15:37:55.012511+00:00
 ---
 
 # Pricing - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-18T12:09:27.320322+00:00
 > Source: https://docs.fish.audio/agents/pricing/
 
 ## On this page
+
+Back to top
 
   * Rates
     * Per-session charges
@@ -57,7 +59,7 @@ Agent conversation| $0.06 per minute| All-inclusive: STT, TTS, the basic LLMs, k
 LLM usage| Covered for the basic LLMs, by token usage for the rest| The other LLMs are billed on the tokens each request uses. See LLM models. Custom LLM endpoints carry no LLM charge  
 Phone call surcharge| +$0.01 per minute| Added to the conversation rate on phone calls. Some outbound destinations carry a higher rate instead. See Outbound destinations  
   
-Usage is counted per second. A plus sign marks a charge on top of the conversation rate. Calls on [imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip) carry no phone surcharge and no transfer fees. They bill like web sessions.
+Usage is counted per second. A plus sign marks a charge on top of the conversation rate. Calls on [imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip) and [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp) carry no phone surcharge and no transfer fees. They bill like web sessions.
 
 ### 
 
@@ -84,7 +86,7 @@ Item| Price| Notes
 ---|---|---  
 Phone number rental| $1.20 per month| Charged in daily slices while you hold the number, and stops when you release it  
   
-[Imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip) carry no rental.
+[Imported SIP numbers](https://docs.fish.audio/agents/telephony/byo-sip) and [WhatsApp Business numbers](https://docs.fish.audio/agents/telephony/whatsapp) carry no rental.
 
 ### 
 

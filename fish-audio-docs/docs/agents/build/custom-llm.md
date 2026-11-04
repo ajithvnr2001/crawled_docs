@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/custom-llm/
 title: Custom LLM - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:24.644700+00:00
+fetched_at: 2026-11-04T15:37:53.626064+00:00
 ---
 
 # Custom LLM - Fish Audio
@@ -180,7 +180,7 @@ The console doesn’t show or edit headers, so set them through the API. Saving 
 
 Failure behavior
 
-A custom LLM never silently falls back to a platform model, because a platform model answering with the wrong persona and no memory would be worse than a failed turn.
+By default (`llm.fallback` at `platform`), a custom LLM never falls back to another model. A platform model answering with the wrong persona and no memory would be worse than a failed turn. To opt in, set `llm.fallback.mode` to `manual` and list the models to try when your endpoint fails. Platform models and other endpoints both work. Your endpoint can also be a fallback entry for another agent. See [LLM Fallback](https://docs.fish.audio/agents/build/llm-fallback).
 
   * Each request gets one retry and a 10 second response cap.
   * When a generation still fails, the agent speaks a brief hold line and stays on the call.
@@ -237,4 +237,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/build/custom-llm.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/build/custom-llm)
 
-[Dynamic Variables](https://docs.fish.audio/agents/build/dynamic-variables)[Preview Calls](https://docs.fish.audio/agents/test/preview-calls)
+[Dynamic Variables](https://docs.fish.audio/agents/build/dynamic-variables)[LLM Fallback](https://docs.fish.audio/agents/build/llm-fallback)

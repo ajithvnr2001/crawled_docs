@@ -1,0 +1,219 @@
+---
+url: https://docs.fish.audio/agents/telephony/whatsapp/
+title: WhatsApp Business Calling - Fish Audio
+method: scrapling+scrapegraph
+fetched_at: 2026-11-04T15:37:54.022251+00:00
+---
+
+# WhatsApp Business Calling - Fish Audio
+
+> Source: https://docs.fish.audio/agents/telephony/whatsapp/
+
+## On this page
+
+Back to top
+
+  * How it works
+  * Prerequisites
+  * Connect the number
+  * Point your Meta app at Fish Audio
+  * Answer calls
+  * Manage the number
+  * Billing
+  * API
+  * Troubleshooting
+  * Going further
+
+
+
+Telephony
+
+# WhatsApp Business Calling
+
+Copy pageCopy page
+
+Let an agent answer WhatsApp voice calls to your WhatsApp Business number through your own Meta app: no rental, no telephony charges
+
+Copy pageCopy page
+
+People who already message your business on WhatsApp can call it there too. Connect the WhatsApp Business number from your own Meta app, bind an agent, and the agent answers WhatsApp voice calls to that number. The number stays in your WhatsApp Business Account, Meta keeps delivering the calls, and on Fish Audio each call bills as an ordinary agent session: no monthly rental, no phone surcharge, no transfer fees.
+
+## 
+
+​
+
+How it works
+
+When someone calls your WhatsApp Business number, Meta sends a call event to Fish Audio’s webhook. The platform accepts the call, connects its audio to a session, and hands it to the agent bound to the number, which greets the caller within a few seconds. From there it behaves like an [inbound call](https://docs.fish.audio/agents/telephony/inbound-calls): the session shows up in [Conversation history](https://docs.fish.audio/agents/monitor/conversation-history) with `source: "whatsapp"`, the [inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks#inbound-call-webhook) runs before the first reply, and post-call webhooks and analysis follow as usual. Either side can hang up; the session ends with `user_hangup` or `agent_hangup`. Compared with phone calls, a WhatsApp call has no telephone-network leg, so:
+
+Capability| WhatsApp calls  
+---|---  
+Inbound calls| Yes  
+Outbound calls| No  
+[Call transfers](https://docs.fish.audio/agents/telephony/transfers)| No  
+[Keypad menu and keypad input](https://docs.fish.audio/agents/telephony/keypad)| No key presses. The menu does not play; its variable takes the menu’s fallback value, so the first message and prompt still read well.  
+[Inbound call webhook](https://docs.fish.audio/agents/monitor/webhooks)| Yes, with the caller’s WhatsApp number as `caller_number` and your business number as `dialed_number`  
+  
+## 
+
+​
+
+Prerequisites
+
+  * A Meta app with the **WhatsApp** product added, and access to its App Dashboard. You need the app’s **App ID** and **App secret**.
+  * A WhatsApp Business Account (WABA) with a phone number registered for the Cloud API: the **WhatsApp Business Account ID** and the number’s **Phone number ID**.
+  * A **System User access token** for that app with the `whatsapp_business_management` and `whatsapp_business_messaging` permissions.
+  * Calling enabled on the number. The import turns it on for you; Meta grants it once the business has completed Business Verification. A number Meta declines still connects, with calling off and Meta’s reason kept on the number (shown on its status badge, and as `status_detail` over the API).
+  * Team owner or admin role in the console.
+
+
+
+## 
+
+​
+
+Connect the number
+
+1
+
+Open the import form
+
+On the workspace **Phone numbers** page, choose **Add number** → **Import third party** (or **Import number** when the list is empty), and set **Provider** to **WhatsApp Business**.
+
+2
+
+Enter your Meta credentials
+
+Fill in the App ID, App secret, Phone number ID, WhatsApp Business Account ID, and System User access token. The **Phone number** field is only a cross-check: the number Meta reports for the Phone number ID is the one that gets connected, and the form warns you if it differs. Optionally add a label, bind an agent right away, and, if the number is not yet registered for the Cloud API, its six-digit two-step verification PIN.
+
+3
+
+Import
+
+The platform validates the token against your app, reads the number at Meta, subscribes your app to the account’s webhooks, and enables calling. The number then appears in the list with provider **WhatsApp** , and the webhook setup panel opens.
+
+4
+
+Point your Meta app at Fish Audio
+
+Copy the two values from the panel into your Meta app, as described in the next section. Until then, calls do not reach the agent.
+
+A `422` means Meta refused the credentials: a wrong App secret, a token that belongs to another app, or a token without the required permissions. The error carries Meta’s own message, never your token. A `409` means the number is already connected on the platform, or the WhatsApp Business Account is connected to another workspace.
+
+The App secret and the access token are stored encrypted and never shown again. The secret verifies the signature of every webhook Meta sends; the token answers and ends calls on your behalf.
+
+## 
+
+​
+
+Point your Meta app at Fish Audio
+
+Meta delivers call events to a callback URL that you configure once per app. The panel that opens after the import shows both values, and you can reopen it any time from the number’s row menu as **Verify configuration** :
+
+Callback URL
+    
+    
+    https://api.fish.audio/webhooks/whatsapp
+    
+
+The **verify token** is generated for your account and shown next to it.
+
+1
+
+Open the webhook settings
+
+In the Meta App Dashboard open your app → **WhatsApp** → **Configuration** → **Webhook** , and click **Edit**.
+
+2
+
+Save the callback
+
+Paste the callback URL and the verify token, then click **Verify and save**. Meta verifies the URL immediately.
+
+3
+
+Subscribe to calls
+
+Under **Webhook fields** , subscribe to `calls`.
+
+The badge on the panel reads **Pending** until Meta’s verification reaches the platform, then **Verified**. The first call that arrives marks the account verified too, because Meta signs every delivery with your App secret. Meta repeats its verification only when the callback URL changes, so if you edit the verify token alone, expect the badge to turn green with the first call instead.
+
+## 
+
+​
+
+Answer calls
+
+Bind an agent to the number from its row menu, the same way as for any phone number. The agent must be [published](https://docs.fish.audio/agents/deploy/versions-publishing). A call is declined, and no session is created, when the number has no agent, the agent is unpublished, calling is off on the number, the number is not active, or the team has no credit left. Callers see the call ring and get answered within a few seconds. The session’s `caller_number` is the caller’s WhatsApp number in E.164 format and `dialed_number` is your business number, so [dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables), the inbound call webhook, and your own records all line up.
+
+## 
+
+​
+
+Manage the number
+
+  * **Bind, unbind, label** : as for any number, from the row menu or with [`PATCH /v1/agent/phone-numbers/{phone_number_id}`](https://docs.fish.audio/agents/telephony/phone-numbers#bind-or-unbind-an-agent).
+  * **A second number on the same account** : import it the same way; it joins the account already holding the WhatsApp Business Account. One WhatsApp Business Account connects to one workspace.
+  * **Release** : from the row menu or with `DELETE /v1/agent/phone-numbers/{phone_number_id}`. The number stays yours at Meta. Releasing the account’s last number also disconnects the account and unsubscribes your app from its webhooks. If the same workspace connects the number again later, it keeps the same verify token, so nothing changes in your Meta app.
+
+The number counts toward your team’s phone number quota like any other.
+
+## 
+
+​
+
+Billing
+
+WhatsApp calls bill at the agent conversation rate only: no phone surcharge, no transfer fees, and no rental for the number; see [Pricing](https://docs.fish.audio/agents/pricing). Whatever Meta charges for WhatsApp Business calling is between you and Meta.
+
+## 
+
+​
+
+API
+
+The public API has no endpoint for connecting a WhatsApp number; the connection happens in the console. Once connected, the number is a regular entry of [`/v1/agent/phone-numbers`](https://docs.fish.audio/agents/telephony/phone-numbers) with `provider: "whatsapp"`, and its calls are sessions with `source: "whatsapp"` on [`GET /v1/agent/sessions`](https://docs.fish.audio/agents/monitor/conversation-history).
+
+## 
+
+​
+
+Troubleshooting
+
+Symptom| What to check  
+---|---  
+Import returns `422`| The App secret matches the App ID, the token was issued for this app, and the token has `whatsapp_business_management` and `whatsapp_business_messaging`.  
+Import returns `409`| The number is already connected, or the WhatsApp Business Account is connected to another workspace. Release it there first.  
+The badge stays **Pending**|  Meta has not verified the callback yet: check the callback URL and the verify token in your Meta app and click **Verify and save** again. A first call verifies the account as well.  
+Calls are declined or never ring the agent| The number has an agent bound and the agent is published; calling is on for the number (Meta refuses it on businesses without Business Verification); your Meta app is subscribed to the `calls` webhook field; the team has credit.  
+The WhatsApp app shows no call button for the number| Meta declined to enable calling when the number was connected; the reason is on the number’s status badge. Calling needs a business that has completed Business Verification.  
+  
+## 
+
+​
+
+Going further
+
+## Inbound calls
+
+What happens when someone calls a bound number.
+
+## Phone numbers
+
+The shared lifecycle: list, bind, label, release.
+
+## Webhooks
+
+The inbound call webhook and post-call events.
+
+## Conversation history
+
+Review WhatsApp sessions, transcripts, and recordings.
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/telephony/whatsapp.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/telephony/whatsapp)
+
+[Bring Your Own Number](https://docs.fish.audio/agents/telephony/byo-sip)[Inbound Calls](https://docs.fish.audio/agents/telephony/inbound-calls)

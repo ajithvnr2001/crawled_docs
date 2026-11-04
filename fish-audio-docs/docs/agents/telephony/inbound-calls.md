@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/inbound-calls/
 title: Inbound Calls - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:51:59.033169+00:00
+fetched_at: 2026-11-04T15:37:55.100028+00:00
 ---
 
 # Inbound Calls - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:51:59.033169+00:00
 > Source: https://docs.fish.audio/agents/telephony/inbound-calls/
 
 ## On this page
+
+Back to top
 
   * Set up inbound calling
   * Phone sessions in history
@@ -93,7 +95,7 @@ The number-to-agent binding is resolved on each incoming call, so a rebind takes
 
 Phone sessions in history
 
-Every answered call becomes a session with `source: "phone"` and these attribution fields:
+Every answered call becomes a session with `source: "phone"` (`"whatsapp"` for [WhatsApp calls](https://docs.fish.audio/agents/telephony/whatsapp)) and these attribution fields:
 
 Field| Description  
 ---|---  
@@ -200,4 +202,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/agents/telephony/inbound-calls.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agents/telephony/inbound-calls)
 
-[Bring Your Own Number](https://docs.fish.audio/agents/telephony/byo-sip)[Outbound Calls](https://docs.fish.audio/agents/telephony/outbound-calls)
+[WhatsApp Business Calling](https://docs.fish.audio/agents/telephony/whatsapp)[Outbound Calls](https://docs.fish.audio/agents/telephony/outbound-calls)

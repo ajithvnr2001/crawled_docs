@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 title: Authenticated Sessions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:27:48.775961+00:00
+fetched_at: 2026-11-04T15:37:53.824821+00:00
 ---
 
 # Authenticated Sessions - Fish Audio
@@ -190,6 +190,7 @@ Field| Type| Effect for this session
 `language`| the code of one of the [52 supported languages](https://docs.fish.audio/agents/build/voice-language#speaking-language)| Pins  
 the conversation language, taking precedence over the configured [speaking language](https://docs.fish.audio/agents/build/voice-language#speaking-language).| |   
 `asr.model`| one of the [speech recognition models](https://docs.fish.audio/agents/build/voice-language#speech-recognition-model)| The model that transcribes the caller, in place of the agent’s `asr.model`. Nested like the agent’s `asr` configuration: `"asr": { "model": "deepgram:nova-3" }`.  
+`llm.fallback`| object, same shape as the agent’s [`llm.fallback`](https://docs.fish.audio/agents/build/llm-fallback)| Replaces the agent’s fallback configuration for this session. Each `custom` entry carries its own `api_key`. Needs an API key session and `llm.fallback` in the agent’s `overrides_allowed`.  
       
     
     {
@@ -198,6 +199,22 @@ the conversation language, taking precedence over the configured [speaking langu
         "first_message": "Welcome back, {{name}}, picking up where we left off.",
         "voice_id": "802e3bc2b27e49c2995d23ef70e6ac89",
         "language": "ja"
+      }
+    }
+    
+
+`llm.fallback` is nested one level deeper. It has the same shape as the agent’s own [`llm.fallback`](https://docs.fish.audio/agents/build/llm-fallback):
+    
+    
+    {
+      "agent_id": "YOUR_AGENT_ID",
+      "overrides": {
+        "llm": {
+          "fallback": {
+            "mode": "manual",
+            "models": [{ "model": "google/gemini-3.6-flash" }]
+          }
+        }
       }
     }
     

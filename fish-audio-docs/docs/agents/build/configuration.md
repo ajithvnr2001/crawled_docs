@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/configuration/
 title: Configuration - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:27:49.054737+00:00
+fetched_at: 2026-11-04T15:37:53.944072+00:00
 ---
 
 # Configuration - Fish Audio
@@ -284,7 +284,7 @@ Section| What it holds| Documented in
 `analysis`| Post-call summary, data fields, and success criteria| [Post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis)  
 `webhooks`| Post-call webhook delivery and the inbound call webhook| [Webhooks](https://docs.fish.audio/agents/monitor/webhooks)  
 `variables`| Default values for the `{{placeholders}}` in the configured text and what a placeholder without a value does| [Dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables#default-values)  
-`llm`| Conversation model settings, including a custom LLM endpoint| [Custom LLM](https://docs.fish.audio/agents/build/custom-llm)  
+`llm`| Conversation model settings, including a custom LLM endpoint and fallback models| [Custom LLM](https://docs.fish.audio/agents/build/custom-llm), [LLM Fallback](https://docs.fish.audio/agents/build/llm-fallback)  
   
 ## 
 

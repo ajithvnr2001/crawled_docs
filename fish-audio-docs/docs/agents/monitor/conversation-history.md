@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/conversation-history/
 title: Conversation History - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:23.998423+00:00
+fetched_at: 2026-11-04T15:37:54.166788+00:00
 ---
 
 # Conversation History - Fish Audio
@@ -21,6 +21,7 @@ Back to top
   * Get a session
     * Item types
     * LLM endpoint errors
+    * LLM fallbacks
     * Transfer items
     * After the transfer
     * Correlate with live events
@@ -244,7 +245,7 @@ Item types
 
 `type`| What it is  
 ---|---  
-`message`| One utterance. `role` is `user` or `assistant` (system prompt content is never exposed). `turn_id` groups items belonging to the same conversational turn. `fallback_reason` is `"llm_error"` on a fixed line the agent spoke because its LLM failed, and `null` otherwise.  
+`message`| One utterance. `role` is `user` or `assistant` (system prompt content is never exposed). `turn_id` groups items belonging to the same conversational turn. `fallback_reason` is `"llm_error"` on a fixed line the agent spoke because its LLM failed, and `null` otherwise. `answered_by_model` names the model that wrote an `assistant` message, the agent’s own or an [LLM fallback](https://docs.fish.audio/agents/build/llm-fallback). It is `null` on `user` items and on sessions from before the field existed.  
 `tool_call`| A tool invocation as it started. `input` is a JSON string, stored in full with no truncation.  
 `tool_result`| The paired outcome, matched by `call_id`. `status` is `completed` or `failed`. `latency_ms` is the execution time.  
 `transfer`| One [call transfer](https://docs.fish.audio/agents/telephony/transfers) attempt, successful or not. See Transfer items.  
@@ -296,6 +297,45 @@ Sessions on a [custom LLM](https://docs.fish.audio/agents/build/custom-llm) also
   * `response_body` is the start of what your endpoint sent back, on `http_error` and `not_event_stream` only. It is at most 300 characters, and your API key is masked. It is `null` when the body was empty.
   * `duration_ms` is the time from the request to the response or the failure. It is `null` when it was not measured.
   * `consecutive_failures` counts failures in a row. The agent hangs up at the third.
+
+
+
+### 
+
+​
+
+LLM fallbacks
+
+`llm_fallbacks` lists every reply that moved to another model, oldest first. See [LLM Fallback](https://docs.fish.audio/agents/build/llm-fallback). It is empty when the agent’s own model answered every reply.
+    
+    
+    {
+      "llm_fallbacks": [
+        {
+          "occurred_at": "2026-10-15T15:45:10Z",
+          "turn_id": 3,
+          "from": { "model": "google/gemini-3.6-flash" },
+          "to": { "custom": { "base_url": "https://llm.example.com/v1", "model": "backup-70b" } },
+          "reason": "ttft_timeout"
+        }
+      ]
+    }
+    
+
+  * `turn_id` is the turn the reply belonged to, the same numbering as `message` items.
+  * `from` and `to` each name a model. A platform model is `{ "model": "<platform model id>" }`. A custom endpoint is `{ "custom": { "base_url": "…", "model": "…" } }`. The endpoint’s key is never included.
+  * `reason` is one of:
+
+`reason`| Meaning  
+---|---  
+`error`| The model’s provider returned an error.  
+`timeout`| No reply within the platform’s own time limit (outside `manual` mode).  
+`ttft_timeout`| No first token within the model’s `ttft_timeout_ms`.  
+`total_timeout`| The reply did not finish within the model’s `total_timeout_ms` and nothing was spoken yet.  
+`empty`| The response stream broke off with no output and no end signal. A reply that finished normally with nothing in it is the agent staying silent. That is not a fallback.  
+`kick_in`| The fallback ran in parallel and its reply was used. The agent’s own model had no first token within `kick_in_ms`.  
+  
+New reasons may be added.
 
 
 
