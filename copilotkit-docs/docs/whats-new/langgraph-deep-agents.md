@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/whats-new/langgraph-deep-agents/
 title: LangGraph Deep Agents in CopilotKit
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:33.597656+00:00
+fetched_at: 2026-11-04T10:46:43.762560+00:00
 ---
 
 # LangGraph Deep Agents in CopilotKit

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/managed-intelligence-platform/
 title: Cloud-hosted Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:25.593168+00:00
+fetched_at: 2026-11-04T10:46:52.980661+00:00
 ---
 
 # Cloud-hosted Intelligence

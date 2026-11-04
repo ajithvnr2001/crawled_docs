@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/human-in-the-loop/headless/
 title: Headless Interrupts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:23.870347+00:00
+fetched_at: 2026-11-04T10:46:56.560558+00:00
 ---
 
 # Headless Interrupts

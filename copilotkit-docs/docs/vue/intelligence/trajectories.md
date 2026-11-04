@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/trajectories/
 title: Trajectories
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:26.836714+00:00
+fetched_at: 2026-11-04T10:46:51.122606+00:00
 ---
 
 # Trajectories

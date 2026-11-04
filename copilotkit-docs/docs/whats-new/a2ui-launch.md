@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/whats-new/a2ui-launch/
 title: A2UI Launches with full AG-UI Support
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:33.526241+00:00
+fetched_at: 2026-11-04T10:46:45.229101+00:00
 ---
 
 # A2UI Launches with full AG-UI Support

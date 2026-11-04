@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/generative-ui/tool-based/
 title: Components as Tools
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:24.068686+00:00
+fetched_at: 2026-11-04T10:46:56.909324+00:00
 ---
 
 # Components as Tools

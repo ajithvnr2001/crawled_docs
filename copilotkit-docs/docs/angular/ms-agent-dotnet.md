@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/ms-agent-dotnet/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T10:43:21.618742+00:00
+fetched_at: 2026-11-04T10:46:41.744069+00:00
 ---
 
 # Introduction

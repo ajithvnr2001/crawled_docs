@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/deploy/aws-lambda/
 title: AWS Lambda
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:22.694242+00:00
+fetched_at: 2026-11-04T10:46:57.873093+00:00
 ---
 
 # AWS Lambda

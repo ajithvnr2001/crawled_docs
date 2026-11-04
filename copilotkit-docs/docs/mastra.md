@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/mastra/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T10:43:18.910206+00:00
+fetched_at: 2026-11-04T10:46:40.108348+00:00
 ---
 
 # Introduction

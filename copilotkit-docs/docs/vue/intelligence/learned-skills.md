@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/learned-skills/
 title: Skill delivery
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:25.928465+00:00
+fetched_at: 2026-11-04T10:46:55.403697+00:00
 ---
 
 # Skill delivery

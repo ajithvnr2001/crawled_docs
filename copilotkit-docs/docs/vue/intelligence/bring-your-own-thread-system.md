@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/bring-your-own-thread-system/
 title: Bring your own thread system
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:24.426339+00:00
+fetched_at: 2026-11-04T10:46:54.848080+00:00
 ---
 
 # Bring your own thread system

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/self-hosting-local/
 title: Evaluate Intelligence locally
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:26.902072+00:00
+fetched_at: 2026-11-04T10:46:53.049599+00:00
 ---
 
 # Evaluate Intelligence locally

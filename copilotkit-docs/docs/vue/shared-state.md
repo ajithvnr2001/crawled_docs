@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/shared-state/
 title: Shared State
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:29.379639+00:00
+fetched_at: 2026-11-04T10:46:48.987578+00:00
 ---
 
 # Shared State

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/threads-explained/
 title: AG-UI Streams & Framework Threads
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:26.954500+00:00
+fetched_at: 2026-11-04T10:46:51.083203+00:00
 ---
 
 # AG-UI Streams & Framework Threads

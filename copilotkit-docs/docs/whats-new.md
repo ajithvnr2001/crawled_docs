@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/whats-new/
 title: Recent Updates
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:33.725484+00:00
+fetched_at: 2026-11-04T10:46:45.100300+00:00
 ---
 
 # Recent Updates

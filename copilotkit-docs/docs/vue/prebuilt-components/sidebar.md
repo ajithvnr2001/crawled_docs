@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/prebuilt-components/sidebar/
 title: CopilotSidebar
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:28.902993+00:00
+fetched_at: 2026-11-04T10:46:49.104338+00:00
 ---
 
 # CopilotSidebar

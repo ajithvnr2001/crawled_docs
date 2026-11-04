@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/intelligence-platform/
 title: CopilotKit Intelligence architecture
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:25.510354+00:00
+fetched_at: 2026-11-04T10:46:55.006813+00:00
 ---
 
 # CopilotKit Intelligence architecture
