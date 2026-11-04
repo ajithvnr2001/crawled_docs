@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/
 title: Secure MCP servers \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:59.315427+00:00
+fetched_at: 2026-11-04T08:48:22.166623+00:00
 ---
 
 # Secure MCP servers · Cloudflare One docs
@@ -15,14 +15,14 @@ fetched_at: 2026-10-23T16:39:59.315427+00:00
 
 [Access controls](https://developers.cloudflare.com/cloudflare-one/access-controls/)
 
-  4. /AI controls
+  4. /MCP portals
   5. /Secure MCP servers
 
 
 
 # Secure MCP servers
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCustomer-managed third-party MCP serverSaaS-managed third-party MCP server Prerequisites 1\. Deploy an example MCP server 2\. Create an Access for SaaS app 3\. Configure your MCP server 4\. Test the connectionNext steps
 
@@ -38,7 +38,7 @@ SaaS-managed third-party MCP server | Third-party MCP servers hosted by the prov
 Use this setup when the MCP server runs on a hostname you control in Cloudflare, but the server code is managed by a third party and already handles its own OAuth flow. In this setup, do not enable Access Managed OAuth. You also do not need to add the MCP server hostname as a public hostname on the generated Access application.
 
   1. Ensure the MCP server hostname has **Proxy status** turned on in Cloudflare DNS.
-  2. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **AI controls**.
+  2. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **MCP Portals**.
   3. Go to the **MCP servers** tab.
   4. Select **Add an MCP server**.
   5. Enter a name for the server.

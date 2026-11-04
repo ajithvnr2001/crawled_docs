@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/
 title: Authorization cookie \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:13.485830+00:00
+fetched_at: 2026-11-04T08:48:22.271526+00:00
 ---
 
 # Authorization cookie · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:13.485830+00:00
 
 # Authorization cookie
 
-Last updated Aug 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess JWTs Multi-domain applicationsAccess cookies CF_Authorization (team domain) CF_Authorization (Access application domain) CF_Binding CF_Session CF_AppSession CF_DeviceCookie settings SameSite Attribute HttpOnly Binding cookie Cookie Path Attribute Eager redirect cookieAllow third-party cookies in the browser
 
@@ -118,7 +118,7 @@ Cloudflare Access provides optional security settings that can be added to the b
 To enable these settings:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Locate the application you would like to configure and select **Configure**.
+  2. Locate the application you would like to configure and select **Edit**.
   3. Select **Advanced settings** and scroll down to **Cookie settings**.
   4. Configure the desired cookie settings.
   5. Select **Save**.

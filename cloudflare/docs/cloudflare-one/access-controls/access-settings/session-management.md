@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/session-management/
 title: Session management \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:10.387064+00:00
+fetched_at: 2026-11-04T08:48:23.835845+00:00
 ---
 
 # Session management · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-15T14:53:10.387064+00:00
 
 # Session management
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSession durations Global session duration Policy session duration Application session duration Cloudflare One Client session duration MFA session duration Order of enforcementRevoke user sessions Per-Application Per-User Subsequent LoginsLog out as a userAJAX
 
@@ -80,7 +80,7 @@ By default, the policy session duration is equal to the application session dura
 To set the policy session duration:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Policies**.
-  2. Choose a policy and select **Configure**.
+  2. Choose a policy and select **Edit**.
   3. Select a **Session Duration** from the dropdown menu.
   4. Save the policy.
 
@@ -95,7 +95,7 @@ The application session duration is the default policy session duration for all 
 To set the application session duration:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Choose an application and select **Configure**.
+  2. Choose an application and select **Edit**.
   3. Select a **Session Duration** from the dropdown menu.
   4. Save the application.
 
@@ -143,10 +143,10 @@ The following flowchart illustrates how Access enforces user sessions for a self
 
 Flowchart setting | Dashboard location  
 ---|---  
-Authenticate with Cloudflare One Client | **Access controls** > **Applications** > select an application > **Configure** > **Authentication** > **Authenticate with Cloudflare One Client**  
+Authenticate with Cloudflare One Client | **Access controls** > **Applications** > select an application > **Edit** > **Authentication** > **Authenticate with Cloudflare One Client**  
 Cloudflare One Client session duration | **Access controls** > **Access settings** > **Cloudflare One Client authentication** > **Session duration**  
-Policy session duration | **Access controls** > **Policies** > select a policy > **Configure** > **Session duration**  
-Application session duration | **Access controls** > **Applications** > select an application > **Configure** > **Overview** > **Session Duration**  
+Policy session duration | **Access controls** > **Policies** > select a policy > **Edit** > **Session duration**  
+Application session duration | **Access controls** > **Applications** > select an application > **Edit** > **Overview** > **Session Duration**  
 Global session duration | **Access controls** > **Access settings** > **Set your global session duration**  
       
     
@@ -183,7 +183,7 @@ Access provides two options for revoking user sessions: per-application and per-
 To immediately terminate all active sessions for a specific application:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Locate the application for which you would like to revoke active sessions and select **Configure**.
+  2. Locate the application for which you would like to revoke active sessions and select **Edit**.
   3. Select **Revoke existing tokens**.
 
 

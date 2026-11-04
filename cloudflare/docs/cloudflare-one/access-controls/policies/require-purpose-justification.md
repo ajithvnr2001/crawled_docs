@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/require-purpose-justification/
 title: Require purpose justification after login \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:23.372381+00:00
+fetched_at: 2026-11-04T08:48:21.343731+00:00
 ---
 
 # Require purpose justification after login · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:23.372381+00:00
 
 # Require purpose justification
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/require-purpose-justification/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Cloudflare Access allows security and IT teams to present users with a purpose justification screen directly after they log in to an Access application. This allows organizations to audit not only for who is accessing their resources, but also for why they are requesting access.
 
@@ -31,9 +31,9 @@ The purpose justification screen will show for any new sessions of an applicatio
 Configuring a purpose justification screen is done as part of configuring an Access policy.
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Choose an application and select **Configure**.
+  2. Choose an application and select **Edit**.
   3. Go to **Policies**.
-  4. Choose an **Allow** policy and select **Configure**.
+  4. Choose an **Allow** policy and select **Edit**.
   5. Under **Additional settings** , turn on **Purpose justification**.
   6. (Optional) Set a custom purpose justification message. This will appear on the purpose justification screen and will be visible to the user.
   7. Save the policy.

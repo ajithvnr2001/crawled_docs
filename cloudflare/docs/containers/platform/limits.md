@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/platform/limits/
 title: Limits and Instance Types \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:27.073312+00:00
+fetched_at: 2026-11-04T08:48:23.967092+00:00
 ---
 
 # Limits and Instance Types · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:27.073312+00:00
 
 # Limits and Instance Types
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstance Types Custom Instance TypesAccount limitsOutbound HTTP request body sizeSnapshot limits
 
@@ -116,7 +116,7 @@ Restoring a snapshot refreshes its 30-day time-to-live.
 
 ## Footnotes
 
-  1. Delete container images with `wrangler containers delete` to free up space. If you delete a container image and then [roll back](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/) your Worker to a previous version, this version may no longer work. ↩
+  1. Delete a tagged container image with [`wrangler containers images delete IMAGE:TAG`](https://developers.cloudflare.com/workers/wrangler/commands/containers/#containers-images-delete) to free up space. If you delete a container image and then [roll back](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/) your Worker to a previous version, this version may no longer work. ↩
 
 
 

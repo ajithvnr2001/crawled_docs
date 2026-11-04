@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/
 title: Access policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:20.993813+00:00
+fetched_at: 2026-11-04T08:48:20.118911+00:00
 ---
 
 # Access policies · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:08:20.993813+00:00
 
 # Policies
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare Access policy actions Allow Block Bypass Service AuthCloudflare Access rule types Include Exclude RequireCloudflare Access selectorsConnection context in Cloudflare AccessCloudflare Access policy order of executionCommon Cloudflare Access misconfigurations Include everyone Include all valid emailsAdditional Cloudflare Access resources
 
@@ -175,6 +175,7 @@ Everyone | Allows, denies, or bypasses access to everyone. | ✅ | ❌ | ❌
 Common Name | The request will need to present a valid certificate with an expected common name. | ✅ | ✅ | ❌  
 Valid Certificate | The request will need to present any valid client certificate. | ✅ | ✅ | ❌  
 Service Token | The request will need to present the correct service token headers configured for the specific application. Requires the Service Auth action. | ✅ | ✅ | ❌  
+Service Token Tag | Checks that the request presents a valid service token with an exact, case-sensitive tag key-value pair. Requires the Service Auth action. Refer to [Authorize service tokens by tag](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/#authorize-service-tokens-by-tag). | ✅ | ✅ | ❌  
 Any Access Service Token | The request will need to present the headers for any [service token](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/) created for this account. Requires the Service Auth action. | ✅ | ✅ | ❌  
 User Risk Score | The user's current [risk score](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/) (Low, Medium, High, or Unscored). Matches only the values selected in the rule. This selector only displays for Enterprise plans. | ✅ | ✅ | ✅  
 Linked App Token | Checks for a valid [OAuth access token](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/linked-app-token/) issued to a specific Access application. Requires the Service Auth action. | ✅ | ✅ | ❌  

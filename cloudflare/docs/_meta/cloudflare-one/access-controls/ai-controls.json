@@ -1,10 +1,7 @@
 {
   "url": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/",
   "file": "cloudflare-one/access-controls/ai-controls.md",
-  "title": "AI controls \u00b7 Cloudflare One docs",
+  "title": "MCP portals \u00b7 Cloudflare One docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:08:10.190473+00:00",
-  "html_len": 270288,
-  "md_len": 1229,
-  "depth": 0
+  "fetched_at": "2026-11-04T08:48:22.052791+00:00"
 }

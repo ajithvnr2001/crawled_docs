@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/pi/
 title: Pi \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:22.785008+00:00
+fetched_at: 2026-11-04T08:48:18.467515+00:00
 ---
 
 # Pi · Cloudflare Agents docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-30T08:19:22.785008+00:00
 
 # Pi
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow it worksInstallCreate the agentOptionsAdd tools and a system promptSend prompts Label input the user did not type Inputs queued behind a failed runWork with sessionsStream events to clientsRecovery Parked tasksLimitationsRelated resources
+OverviewHow it worksInstallCreate the agentOptionsAdd tools and a system promptSend prompts Label input the user did not type Inputs queued behind a failed runWork with sessionsWatch sessions from clientsRecovery Tasks that keep crashingLimitationsRelated resources
 
 [Pi ↗︎](https://pi.dev/) is a minimal, extensible agent harness. The Agents SDK provides first-class support for building agents using the Pi harness, and this page shows how to run [Pi Durable ↗︎](https://earendil.com/posts/pi-durable/) in a Cloudflare Durable Object with `PiHarness` from the Agents SDK.
 
@@ -41,29 +41,29 @@ To start from a complete app, deploy the [Pi harness example ↗︎](https://git
 
 
 
-`PiHarness` does not choose how clients reach a session. It gives you each session's event stream, and you send it over WebSockets, HTTP, or RPC.
+`PiHarness` does not choose how clients reach a session. It gives you a watch of each session's state, and you send it over WebSockets, HTTP, or RPC.
 
 ## Install
 
-Install `agents` with Pi Durable, Pi AI, and Chord:
+Install `agents` with Pi Durable, Pi AI, Pi Schema, and Chord:
 
 npmyarnpnpmbun
     
     
-    npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord
     
     
-    yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord
     
     
-    pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord
     
     
-    bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord
 
-The Pi packages are optional peer dependencies of `agents`, at `~1.4.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
+The Pi packages are optional peer dependencies of `agents`, at `~1.5.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
 
-Agents SDK 0.30.0 and later support Pi 1.4.
+Agents SDK 0.33.0 and later support Pi 1.5. A new Pi minor version can store conversations in a format the previous one cannot read. After a conversation runs on Pi 1.5, rolling your Worker back to an Agents SDK version on Pi 1.4 leaves that conversation unreadable, so roll forward to fix a bad deploy instead.
 
 The `agents/models/pi-ai` entry point supports AI Gateway and Workers AI models, so you can get started with Cloudflare models right away or use your existing Pi AI provider. The examples on this page use Workers AI through the `AI` binding and the [Pi AI model provider](https://developers.cloudflare.com/agents/models/pi-ai/). Add the binding and a SQLite-backed Durable Object to your Wrangler configuration:
     
@@ -73,7 +73,7 @@ The `agents/models/pi-ai` entry point supports AI Gateway and Workers AI models,
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-30",
+    	"compatibility_date": "2026-11-04",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": {
     		"binding": "AI",
@@ -89,7 +89,7 @@ The `agents/models/pi-ai` entry point supports AI Gateway and Workers AI models,
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-30"
+    compatibility_date = "2026-11-04"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -200,21 +200,21 @@ The factory runs inside the object's startup, before any session is used, and ag
 Option | Description  
 ---|---  
 `harness` | Required. Receives `{ storage, context, onWake }` and returns Pi's `Harness`, usually from `Harness.open()`. Pass `onWake` on to `Harness.open()`.  
-`defaults` | What a new session starts with: `model`, a Pi AI `Model` such as `ai("@cf/...")`, and `thinkingLevel`. Change one session's model later with `session.setModel()`.  
+`defaults` | What a new session starts with: `model`, a Pi AI `Model` such as `ai("@cf/...")`, `thinkingLevel`, and `maxTurns`, the most tool rounds one run takes. Change one session's model later with `session.setModel()`.  
   
-Without a model, a session's prompts end unanswered until you set one.
+Without a model, a session's prompts end unanswered until you set one. A run that reaches `maxTurns` runs that round's tools, then ends unanswered with reason `turn_limit`. Like the other defaults, `maxTurns` applies to new sessions only. Changing it does not change sessions that already exist. Without it, a run takes as many tool rounds as the model asks for.
 
-Settings for the whole harness go in Pi's `settings`, passed to `Harness.open()`. For example, `settings: { retry: { enabled: true, maxRetries: 2, baseDelayMs: 500 } }` retries a failed model request. `compaction` and `toolExecution` set how Pi compacts long transcripts and runs a round's tools.
+Settings for the whole harness go in Pi's `settings`, passed to `Harness.open()`. For example, Pi retries a failed model request 3 times by default, and `settings: { retry: { maxRetries: 2, baseDelayMs: 500 } }` changes that. `compaction` and `toolExecution` set how Pi compacts long transcripts and runs a round's tools.
 
 ## Add tools and a system prompt
 
 Both tools and system prompt sections are provided to the Pi `Harness` via extensions. A Pi extension is a plain object with a `name`, `tools`, and `sections`. Install it on the registry you open Pi with:
     
     
-    import { Type } from "@earendil-works/pi-ai";
     import type { ToolRegistration } from "@earendil-works/pi-durable";
+    import { obj, str } from "@earendil-works/pi-schema";
     
-    const WordCount = Type.Object({ text: Type.String() });
+    const WordCount = obj({ text: str() });
     
     const wordCount: ToolRegistration<typeof WordCount> = {
     	name: "word_count",
@@ -254,9 +254,9 @@ For long runs, submit and wait separately. `submit()` returns once Pi has durabl
 
 An `operationId` makes a submission idempotent. Submitting the same id again returns the same operation with `accepted: false`. Use an id that survives your own retries, such as an inbound event id.
 
-A submission made while the session is running is queued and answered after the current run, as its own run. Set `whenBusy: "steer"`, or call `session.steer()`, to join the running work after its current tool round instead.
+A submission made while the session is running is queued and answered after the current run, as its own run. Set `whenBusy: "steer"`, or call `session.steer()`, to join the running work after its current tool round instead. Set `whenIdle: "reject"` so an idle session refuses the input with Pi's `ConversationIdle` instead of starting a run. With `whenBusy: "steer"` as well, the input joins the running work or is refused, without racing the end of the run.
 
-`harness.pending()` lists submissions Pi has not finished, with their status: `queued`, `running`, or `parked`. A submission is `parked` when Pi's restart limit stopped its work (refer to Recovery).
+`harness.pending()` lists submissions Pi has not finished, with their status: `queued` or `running`.
 
 ### Label input the user did not type
 
@@ -272,13 +272,13 @@ Pi records every submitted input as a `pi.user` entry, as if the user typed it. 
     	entry: { kind: "app.approval", data: { approved: true, by: "ben" } },
     });
 
-The model sees no difference: it still gets the text as a user message. Only the transcript changes. The input is stored with your `kind` and `data` instead of `pi.user`, and `messages()` and `events()` return both, so your UI can show it differently, for example as "Approved by ben" rather than as something the user said. Pi reserves kinds that start with `pi.`, so use a prefix of your own, such as `app.`.
+The model sees no difference: it still gets the text as a user message. Only the transcript changes. The input is stored with your `kind` and `data` instead of `pi.user`, and `messages()`, `watch()`, and `entries()` return both, so your UI can show it differently, for example as "Approved by ben" rather than as something the user said. Pi reserves kinds that start with `pi.`, so use a prefix of your own, such as `app.`.
 
 The kind is a label, not a permission. It records what your code said the input was, and nothing checks it. The model reads the input as if the user wrote it, so do not put anything in it that you would not let the user send.
 
 ### Inputs queued behind a failed run
 
-A run fails with `model_error` when the model errors and Pi does not retry it, or the error outlasts Pi's retries. It fails with `no_model` when the session has no usable model. The run's own submission settles `unanswered` with that reason. Pi's `settings.afterFailedRun` decides what happens to the submissions queued behind it:
+A run fails with `model_error` when the model errors and Pi does not retry it, or the error outlasts Pi's retries. It fails with `no_model` when the session has no usable model, and with `turn_limit` when it reaches `defaults.maxTurns`. The run's own submission settles `unanswered` with that reason. Once you have fixed the cause, call `session.continue()` to answer the transcript as it is, without a new message. Pi's `settings.afterFailedRun` decides what happens to the submissions queued behind it:
 
 Value | Result  
 ---|---  
@@ -330,41 +330,60 @@ A session is a Pi conversation. The root session has the id `"1"` and exists fro
 
 Method | Description  
 ---|---  
-`submit(input, options)` | Durably submit input with `operationId`, `whenBusy`, or `entry`. Returns a receipt.  
+`submit(input, options)` | Durably submit input with `operationId`, `whenBusy`, `whenIdle`, or `entry`. Returns a receipt.  
+`continue(options)` | Start a run on the transcript as it is, without a new message. Only an idle session takes one.  
 `prompt(input, options)` | Submit and wait for the answer and the updated transcript.  
 `steer(input)` | Submit with `whenBusy: "steer"`.  
 `wait(operationId, signal)` | Wait for an operation. Aborting `signal` stops the wait, not the work.  
 `abort(operationId)` | Withdraw a queued operation, or abort the run it joined. With no id, abort everything in the session.  
-`pending()` | Operations Pi has not settled yet: `queued`, `running`, or `parked`.  
-`retry()` | Run the tasks Pi's restart limit parked again. Resolves `false` when nothing was parked.  
+`pending()` | Operations Pi has not settled yet: `queued` or `running`.  
 `reset(handoff)` | Start a new context, optionally from a handoff note.  
 `setModel(model)` | Change this session's model to a Pi AI `Model`, such as `ai("@cf/zai-org/glm-5.3-flash")`.  
 `messages()` | The active transcript, as Pi's `EntryRecord` entries since the newest reset.  
-`events()` | Pi's event stream for this session.  
+`watch(window)` | Pi's view of the session: the newest transcript entries and the session's live state.  
+`entries(query, limit)` | A page of the session's transcript, including entries before its resets.  
 `busy()` | Whether the session is running.  
   
 `sessions.create()` makes a new top-level session with the harness defaults. `sessions.fork(id)` makes a session that sees another's history up to its newest entry. `sessions.list()` includes sessions that Pi's subagent tools created.
 
 Session ids are Pi's conversation ids, so you cannot choose them. To give each user or chat its own agent, use one Durable Object per conversation and the root session in each.
 
-## Stream events to clients
+`session.continue()` answers the transcript as it is, for example after a run ended unanswered because the model errored or the run reached `maxTurns`. A busy session rejects it with Pi's `ConversationBusy`. A transcript that already ends in an answer has nothing to continue, so the operation settles `unanswered` with reason `nothing_to_answer`. Like `submit()`, it takes an `operationId` and returns a receipt for `wait()`.
 
-`session.events()` returns Pi's `AgentEventStream`: a `snapshot` of the session, then one batch of events for each change Pi commits:
+## Watch sessions from clients
+
+`session.watch()` returns Pi's view of the session: the newest transcript entries, and the session's live state in `pi.live`, such as the answer being streamed, running tools, and why the last run ended without an answer. Render the first value, then each new one:
     
     
-    const stream = await this.harness.session().events();
-    send(stream.snapshot);
+    import type { ConversationView, LiveState } from "@earendil-works/pi-durable";
     
-    stream.start(async (events) => {
-    	for (const event of events) send(event);
+    const watch = await this.harness.session().watch();
+    render(watch.value);
+    
+    watch.start(async (call) => {
+    	if (call.kind === "value") render(call.value);
     });
     
+    function render(view: ConversationView) {
+    	// A session that has never run has no pi.live yet.
+    	const live = (view.docs["pi.live"] ?? {}) as LiveState;
+    	drawEntries(view.entries);
+    	if (live.generation?.message) drawStreaming(live.generation.message);
+    	if (live.runFailure) drawFailure(live.runFailure);
+    }
+    
     // When the client goes away:
-    await stream.stop();
+    await watch.stop();
 
-A client that connects mid-run gets a snapshot that includes the partial answer, then follows the live events. The stream lives in memory. After the object restarts, open a new stream and send a fresh snapshot.
+To send a session over a socket, send `watch.value` once, then each change's `call.ops`. The client applies them to its copy of the view with `applyImmutable()` from `@earendil-works/chord/delta`.
 
-`messages()` and `snapshot.entries` are Pi's transcript entries, not a chat UI format. Map them to what your client renders.
+`live.run` is set while the session is running. `live.runFailure` stays after a failed run until the next run starts, so check `live.run === undefined` to tell whether the session is idle.
+
+The view holds the newest 50 entries and grows to 100 before its oldest entries leave. Unlike `messages()`, its entries include those before a reset or compaction: Pi adds the reset or summary entry in place instead of cutting the transcript there. To render a longer transcript, merge each value into Pi's `ConversationTranscript`, which pages older entries with `session.entries()`. After a client reconnects, pass the transcript's `resume` window to `session.watch()` to get only the entries it missed.
+
+A client that connects mid-run gets the partial answer in its first value. A watch lives in memory. After the object restarts, open a new watch and send its first value again.
+
+The entries in `messages()` and the view are Pi's transcript entries, not a chat UI format. Map them to what your client renders.
 
 For anything `PiHarness` does not cover, `await harness.pi()` returns the opened Pi `Harness`.
 
@@ -374,7 +393,7 @@ What happens | Result
 ---|---  
 The object is evicted, crashes, or exceeds its memory or CPU limit | The wake-up job's next alarm restarts the object, and Pi continues from its last checkpoint.  
 A deploy happens mid-run | Same as a crash. The runtime gives in-flight work 30 seconds, then the alarm restarts the object.  
-The model was streaming | Pi keeps the partial answer it stored and makes the model call again.  
+The model was streaming | Pi keeps the partial answer it stored. The request counts as a failed attempt under `settings.retry`, so Pi calls the model again after the retry backoff. With no retry left, the run ends unanswered with reason `interrupted`.  
 A tool with `replay: "safe"` was running | Pi runs the tool again.  
 Any other tool was running | Pi does not run it again. The model gets an interrupted result and decides what to do next.  
   
@@ -384,14 +403,24 @@ While Pi has work, the job's heartbeat alarm fires every 30 seconds. A crashed o
 
 While Pi's tasks sleep, such as during a retry backoff, the job is due when the first one wakes. Pi reports when through the `onWake` callback that the factory passes to `Harness.open()`, and sets no in-memory timer, so the object can hibernate until then.
 
-### Parked tasks
+Pi shows a streaming answer and running tool output in the view at once, but stores them in batches: with the next change that depends on them, such as the end of the answer, and at the latest after `settings.progress.persistWithinMs` (default 1,000 ms). A crash mid-stream loses up to that much of the stream. To store every update instead, at the cost of one storage write each, set `settings: { progress: { persistWithinMs: 0 } }` in `Harness.open()`.
 
-A task that keeps crashing the object would restart it forever. Pi parks a task that a crash or eviction cuts off `settings.restartLimit` times in a row (default 5) without progress. A parked task is not work, so the job completes and the object can hibernate. Its operations show as `parked` in `pending()`, and `wait()` keeps waiting. If the factory passes `onReport` to `Harness.open()`, Pi reports it there as `task_parked`. Once you have dealt with the cause, `session.retry()` runs it again. `session.abort()` gives up on it instead.
+If the factory passes `onReport` to `Harness.open()`, Pi reports failures there as one report tagged by `kind`, such as `storage_failed` when a storage error closes Pi.
+
+### Tasks that keep crashing
+
+A task that keeps crashing the object would restart it forever. Pi ends a task that a crash or eviction cuts off `settings.restartLimit` times in a row (default 5):
+
+  * A tool call ends with an error result that the model sees, and the run goes on.
+  * A model request ends its run, and the run's operations settle `unanswered` with reason `restart_limit`.
+
+
+
+Either way, the job completes and the object can hibernate. Pi reports the task to `onReport` as `task_interrupted`. To run the work again once you have dealt with the cause, call `session.continue()` or submit it again.
 
 ## Limitations
 
   * **Approvals.** Pi Durable has no approval or permission step for tool calls yet.
-  * **Event replay.** Event streams always start from a snapshot. There is no cursor to resume a stream from.
   * **Abort and tools.** `abort()` waits until the session is idle. A tool that ignores its abort signal keeps the session busy until it returns.
   * **Long model calls.** The wake-up job waits inside an alarm invocation, and an alarm invocation runs for up to 15 minutes. The harness hands off to a new alarm every 10 minutes, but one model request that streams for more than 15 minutes can be cut off.
   * **Background tasks.** Work that Pi runs in the background is checked on each heartbeat, so the harness notices it finish up to 30 seconds late.

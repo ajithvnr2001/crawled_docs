@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/platform/limits-pricing/
 title: Limits & pricing \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:20.497736+00:00
+fetched_at: 2026-11-04T08:48:20.160842+00:00
 ---
 
 # Limits & pricing Â· Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:20.497736+00:00
 
 # Limits & pricing
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLimitsPricing How ingestion tokens are countedHistorical billing
 
@@ -53,7 +53,7 @@ To request an adjustment to a limit, complete the [Limit Increase Request Form â
 
 ## Pricing
 
-AI Search billing begins on November 1, 2026. Cloudflare will send a reminder email the week before billing begins.
+AI Search billing begins on December 1, 2026.
 
 Every account receives the following included usage each month:
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/unified-billing/
 title: Unified Billing \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:54.057415+00:00
+fetched_at: 2026-11-04T08:48:20.657933+00:00
 ---
 
 # Unified Billing · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:03:54.057415+00:00
 
 # Unified Billing
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPre-requisitesLoad credits Auto-top upCredential precedencePrevent Unified Billing fallback for BYOK third-party providersUse Unified Billing AI binding HTTP API Spend limits Zero Data Retention (ZDR)
 
@@ -40,6 +40,10 @@ In rare instances, your credit balance may go negative. If this happens, Cloudfl
 
 ## Load credits
 
+Note
+
+You can only purchase AI Gateway credits with a credit card. Other payment methods, such as PayPal, are not supported for credit purchases.
+
 To load credits for AI Gateway:
 
   1. In the Cloudflare dashboard, go to the **AI Gateway** page.
@@ -50,7 +54,7 @@ The **Credits Available** card on the top right shows how many AI gateway credit
 
   2. In **Credits Available** , select **Manage**.
 
-  3. If your account does not have an available payment method, AI Gateway will prompt you to add a payment method to purchase credits. Add a payment method.
+  3. If your account does not have a credit card on file, AI Gateway will prompt you to add one to purchase credits. Add a credit card.
 
   4. Select **Top-up credits**.
 

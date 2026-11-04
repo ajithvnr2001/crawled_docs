@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/pingfederate-saml/
 title: PingFederate \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:05.502633+00:00
+fetched_at: 2026-11-04T08:48:20.746336+00:00
 ---
 
 # PingFederate · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # PingFederate
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/pingfederate-saml/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up PingFederate as an identity providerExample API configuration
 
@@ -96,7 +96,7 @@ You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cl
 
 
 
-To test that your connection is working, go to **Authentication** > **Login methods** and select **Test** next to the login method you want to test.
+To test the connection, go to **Integrations** > **Identity providers** and select **Test** next to the login method.
 
 ## Example API configuration
     

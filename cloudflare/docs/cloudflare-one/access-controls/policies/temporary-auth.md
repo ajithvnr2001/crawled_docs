@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/temporary-auth/
 title: Temporary authentication \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.548823+00:00
+fetched_at: 2026-11-04T08:48:20.842706+00:00
 ---
 
 # Temporary authentication · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-21T06:51:30.548823+00:00
 
 # Temporary authentication
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up temporary authenticationTemporary authentication requestsReview temporary authentication logs
 
@@ -31,8 +31,8 @@ With Cloudflare Access, you can require that users obtain approval before they c
 ## Set up temporary authentication
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Choose a **Self-hosted** or **SaaS** application and select **Configure**.
-  3. Choose an **Allow** policy and select **Configure**.
+  2. Choose a **Self-hosted** or **SaaS** application and select **Edit**.
+  3. Choose an **Allow** policy and select **Edit**.
   4. Under **Additional settings** , turn on [**Purpose justification**](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/require-purpose-justification/).
   5. Turn on **Temporary authentication**.
   6. Enter the **Email addresses of the approvers**. 

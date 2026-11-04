@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/usage/websockets-api/non-realtime-api/
 title: Non-realtime WebSockets API \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:35.998538+00:00
+fetched_at: 2026-11-04T08:48:16.885141+00:00
 ---
 
 # Non-realtime WebSockets API · Cloudflare AI Gateway docs
@@ -22,7 +22,7 @@ Using AI Gateway
 
 # Non-realtime WebSockets API
 
-Last updated May 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/usage/websockets-api/non-realtime-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up WebSockets APIExample requestExample responseExample streaming request
 
@@ -30,7 +30,7 @@ The Non-realtime WebSockets API allows you to establish persistent connections f
 
 ## Set up WebSockets API
 
-  1. Generate an AI Gateway token with appropriate AI Gateway Run and opt in to using an authenticated gateway.
+  1. Generate a Cloudflare API token with the **AI Gateway Run** permission. New gateways require authentication. If you use an existing gateway with authentication turned off, [turn it on](https://developers.cloudflare.com/ai-gateway/configuration/authentication/).
   2. Use the `wss://` protocol to initiate a WebSocket connection: 
          
          wss://gateway.ai.cloudflare.com/v1/{account_id}/{gateway_id}
@@ -75,7 +75,7 @@ Alternatively, we also support authentication via the `sec-websocket-protocol` h
     			},
     		}),
     	);
-    })
+    });
     
     ws.on("message", (message) => {
     	console.log(message.toString());

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/mfa-requirements/
 title: Enforce MFA \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:23.056871+00:00
+fetched_at: 2026-11-04T08:48:21.660740+00:00
 ---
 
 # Enforce MFA · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:23.056871+00:00
 
 # Enforce MFA
 
-Last updated Aug 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/mfa-requirements/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIdentity provider-based MFA Authentication methods in the JWTIndependent MFA Prerequisites Configure independent MFA for an application Configure independent MFA for a policy MFA session duration Precedence exampleInfrastructure applications Configure MFA for an infrastructure application Configure MFA for an infrastructure policy MFA session duration for SSH Precedence and conflict resolution
 
@@ -52,11 +52,11 @@ To enforce an IdP MFA requirement on an application:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
 
-  2. Find the application for which you want to enforce MFA and select **Configure**. Alternatively, [create a new application](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/).
+  2. Find the application for which you want to enforce MFA and select **Edit**. Alternatively, [create a new application](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/).
 
   3. Go to **Policies**.
 
-  4. If your application already has a policy containing an identity requirement, find it and select **Configure**.
+  4. If your application already has a policy containing an identity requirement, find it and select **Edit**.
 
 Note
 
@@ -120,8 +120,8 @@ Option | Behavior
 To configure MFA for an application:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Find the application you want to configure and select **Configure**.
-  3. Scroll down to **Authentication** and select the **MFA**.tab.
+  2. Find the application you want to configure and select **Edit**.
+  3. Scroll down to **Authentication** and select the **MFA** tab.
   4. Select one of the following options: 
      * To inherit the organization setting, select **Respect global enforcement setting**.
      * To set custom requirements, select **Custom MFA settings** , then configure the [allowed MFA methods](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/#supported-mfa-methods) and authentication duration.
@@ -137,7 +137,7 @@ To configure MFA for an infrastructure application, refer to Infrastructure appl
 Each policy has the same three MFA options described in Configure independent MFA for an application. Policy-level settings override application-level settings.
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Policies**.
-  2. Choose an **Allow** policy and select **Configure**.
+  2. Choose an **Allow** policy and select **Edit**.
   3. Under **Multi-factor authentication (MFA)** , select an option: 
      * To inherit the application or organization setting, select **Respect global enforcement setting**.
      * To set custom requirements for users who match this policy, select **Custom MFA settings** , then configure the [allowed MFA methods](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/#supported-mfa-methods) and authentication duration.
@@ -165,8 +165,8 @@ Access checks MFA sessions from most specific to least specific:
 To require MFA every time a user logs in to an application, set the authentication duration to **Require every login**. This prevents Access from caching a successful MFA session.
 
   * **Organization** — Go to **Zero Trust** > **Access controls** > **Access settings** > **Allow multi-factor authentication (MFA)**. Set **Authentication duration** to **Require every login**. This applies to all applications unless overridden at the application or policy level. For more details, refer to [independent MFA settings](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/).
-  * **Application** — Go to **Zero Trust** > **Access controls** > **Applications** > select your application > **Configure** > **Authentication** > **MFA** tab. Select **Custom MFA settings** and set **Authentication duration** to **Require every login**.
-  * **Policy** — Go to **Zero Trust** > **Access controls** > **Policies** > select your policy > **Configure**. Under **Multi-factor authentication (MFA)** , select **Custom MFA settings** and set **Authentication duration** to **Require every login**.
+  * **Application** — Go to **Zero Trust** > **Access controls** > **Applications** > select your application > **Edit** > **Authentication** > **MFA** tab. Select **Custom MFA settings** and set **Authentication duration** to **Require every login**.
+  * **Policy** — Go to **Zero Trust** > **Access controls** > **Policies** > select your policy > **Edit**. Under **Multi-factor authentication (MFA)** , select **Custom MFA settings** and set **Authentication duration** to **Require every login**.
 
 
 
@@ -242,7 +242,7 @@ Infrastructure applications: If MFA is globally required but your global setting
 Dashboard
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Find your infrastructure application and select **Configure**.
+  2. Find your infrastructure application and select **Edit**.
   3. Go to the **Authentication** tab and select **MFA**.
   4. Select one of the following options: 
      * **Respect global enforcement setting** — Uses the [organization-level](https://developers.cloudflare.com/cloudflare-one/access-controls/access-settings/independent-mfa/) MFA configuration. This is the default.
@@ -282,7 +282,7 @@ You can set different MFA requirements for different SSH usernames by configurin
 Dashboard
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Find your infrastructure application and select **Configure**.
+  2. Find your infrastructure application and select **Edit**.
   3. Go to **Policies** and select the policy you want to configure.
   4. Under **Multi-factor authentication (MFA)** , select an option: 
      * **Respect global enforcement setting** — Inherits the application or organization setting.

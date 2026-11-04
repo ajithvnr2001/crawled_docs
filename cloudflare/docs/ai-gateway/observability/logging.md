@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/observability/logging/
 title: Logging \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:32.769065+00:00
+fetched_at: 2026-11-04T08:48:17.200509+00:00
 ---
 
 # Logging · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-27T07:31:32.769065+00:00
 
 # Logging
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefault configurationPer-request logging Collect logs (cf-aig-collect-log) Collect log payload (cf-aig-collect-log-payload)DLP fields in logs
 
@@ -34,7 +34,7 @@ New AI Gateway customers who create their first gateway on or after September 24
 
 AI Gateway customers who created a gateway before September 24, 2026 use [Legacy Logs](https://developers.cloudflare.com/ai-gateway/observability/logging/legacy-logs/).
 
-Use an [authenticated gateway](https://developers.cloudflare.com/ai-gateway/configuration/authentication/) to prevent unauthorized access. Authentication also prevents invalid requests from increasing log volume.
+New gateways require [authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/). If you use an existing gateway with authentication turned off, turn it on to prevent unauthorized access and invalid requests from increasing log volume.
 
 ## Default configuration
 

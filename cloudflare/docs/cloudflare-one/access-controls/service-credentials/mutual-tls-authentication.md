@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/mutual-tls-authentication/
 title: Mutual TLS \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:23.097350+00:00
+fetched_at: 2026-11-04T08:48:21.258785+00:00
 ---
 
 # Mutual TLS · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-13T08:48:23.097350+00:00
 
 # Mutual TLS
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnforce mTLS authentication Prerequisites Add mTLS to your Access applicationTest mTLS Test using cURL Test in a browserGenerate mTLS certificates OpenSSL Cloudflare PKIAdd Client-Cert and Client-Cert-Chain headers (RFC 9440) Security considerations Size limits Example Transform Rules Cloudflare WorkersForward a client certificate (legacy) Cloudflare API Managed Transforms Cloudflare WorkersKnown limitationsNotifications for mutual TLS certificates
 
@@ -123,7 +123,7 @@ Service Auth | Include | Common Name | `John Doe`
   
   10. Save the policy, then go to **Access controls** > **Applications**.
 
-  11. Select the application you would like to enforce mTLS on and select **Configure**. The application must be included in the **Associated hostnames** list from Step 5.
+  11. Select the application you would like to enforce mTLS on and select **Edit**. The application must be included in the **Associated hostnames** list from Step 5.
 
   12. In the **Policies** tab, add your mTLS policy.
 

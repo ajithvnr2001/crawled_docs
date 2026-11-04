@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/how-to/tiered-cache/
 title: Tiered Cache \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:45.327256+00:00
+fetched_at: 2026-11-04T08:48:18.943037+00:00
 ---
 
 # Tiered Cache · Cloudflare Cache (CDN) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:45.327256+00:00
 
 # Tiered Cache
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/how-to/tiered-cache/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTiered Cache Topology Smart Tiered Cache Generic Global Tiered Cache Regional Tiered Cache Custom Tiered CacheTiered Cache and cache eligibilityAvailabilityBandwidth AllianceEnable Tiered Cache Enable Tiered Cache in the dashboard Enable Tiered Cache via API Set a cloud region hint
 
@@ -85,6 +85,8 @@ Custom Tiered cache allows Enterprise customers to work with their account team 
 ## Tiered Cache and cache eligibility
 
 Tiered Cache applies only to requests eligible for cache at request time. Origin-response cacheability is evaluated later, so an eligible request can be routed through an upper tier before Cloudflare treats the origin response as uncacheable. For details and request-time bypass options, refer to [Investigate uncached responses](https://developers.cloudflare.com/cache/troubleshooting/investigating-uncached-responses/).
+
+For orange-to-orange (O2O) traffic from a customer zone to a SaaS provider zone, Tiered Cache settings on the customer zone do not apply. The SaaS provider zone determines whether Tiered Cache is used. Tiered Cache continues to apply to non-O2O traffic on the customer zone. For more information, refer to [Product compatibility](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/product-compatibility/).
 
 For intermittent slowness that only affects requests routed through an upper tier, refer to [Investigate latency on tiered requests](https://developers.cloudflare.com/cache/troubleshooting/investigating-tiered-cache-latency/).
 

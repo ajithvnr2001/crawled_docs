@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/bundling/
 title: Bundling \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:06.375009+00:00
+fetched_at: 2026-11-04T08:48:20.398851+00:00
 ---
 
 # Bundling · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:18:06.375009+00:00
 
 # Bundling
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/wrangler/bundling/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewIncluding non-JavaScript modulesFind additional modulesNODE_ENVConditional exportsDisable bundlingGenerated Wrangler configuration
+OverviewRuntime module loadingIncluding non-JavaScript modulesFind additional modulesNODE_ENVConditional exportsDisable bundlingGenerated Wrangler configuration
 
 By default, Wrangler bundles your Worker code using [`esbuild` ↗︎](https://esbuild.github.io/). This means that Wrangler has built-in support for importing modules from [npm ↗︎](https://www.npmjs.com/) defined in your `package.json`. To review the exact code that Wrangler will upload to Cloudflare, run `npx wrangler deploy --dry-run --outdir dist`, which will show your Worker code after Wrangler's bundling.
 
@@ -31,6 +31,12 @@ Wrangler uses `esbuild`. We periodically update the `esbuild` version included w
 Note
 
 Wrangler's inbuilt bundling usually provides the best experience, but we understand there are cases where you will need more flexibility. You can provide `rules` and set `find_additional_modules` in your configuration to control which files are included in the deployed Worker but not bundled into the entry-point file. Furthermore, we have an escape hatch in the form of [Custom Builds](https://developers.cloudflare.com/workers/wrangler/custom-builds/), which lets you run your own build before Wrangler's built-in one.
+
+## Runtime module loading
+
+The runtime's module registry resolves and loads the modules that your build uploads. For compatibility dates on or after November 17, 2026, JavaScript Workers use the [new module registry](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#new-module-registry) by default. With earlier dates, add `new_module_registry` to opt in. Use `legacy_module_registry` to opt out with a later date.
+
+The new registry supports `import.meta.url`, `import.meta.main`, and `import.meta.resolve()`, URL-based module resolution, and validated import attributes. Your bundler may transform these expressions before the runtime receives your code. To preserve your module graph, use [unbundled deployments](https://developers.cloudflare.com/workers/wrangler/configuration/#bundling) or configure additional modules.
 
 ## Including non-JavaScript modules
 

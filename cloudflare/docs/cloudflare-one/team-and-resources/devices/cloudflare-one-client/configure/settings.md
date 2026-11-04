@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/
 title: Device client settings \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:01.385685+00:00
+fetched_at: 2026-11-04T08:48:17.653985+00:00
 ---
 
 # Device client settings · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Device client settings
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGlobal device client settings Allow admin override codes Install CA to system certificate store Assign a unique IP address to each device Allow all Cloudflare One traffic to reach enrolled devicesGlobal disconnection settings Disconnect the Cloudflare One Client on all devices Manage device connection using an external signal Manage device connection using a local fileDevice profile settings Captive portal detection Mode switch Device tunnel protocol Lock device client switch Allow device to leave organization Device Management Protection  Allow updates Auto connect Support URL Service mode Local Domain Fallback Split Tunnels Directly route Microsoft 365 traffic Allow users to enable local network exclusion Client interface IP DNS registration SCCM VPN boundary support NetBIOS over TCPIP VNET availability  DNS search suffixes 
 
@@ -82,7 +82,9 @@ To retrieve the one-time code for a user:
 
 
 
-The user will have an unlimited amount of time to activate their code.
+The user must enter the override code before the **Timeout** elapses, counted from the start of the hour in which the code was retrieved. The override then lasts for the **Timeout** , minus one hour for each new hour that has started since the code was retrieved.
+
+For example, with a 3-hour **Timeout** , a code retrieved at 9:15 AM can be entered until 12:00 PM. If entered at 9:15 AM, the override lasts until 12:15 PM; at 10:02 AM, until 12:02 PM; at 11:50 AM, until 12:50 PM.
 
 #### Enter the override code
 

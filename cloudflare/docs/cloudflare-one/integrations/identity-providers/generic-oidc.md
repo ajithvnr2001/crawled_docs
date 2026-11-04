@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/
 title: Generic OIDC \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:21.374844+00:00
+fetched_at: 2026-11-04T08:48:21.026915+00:00
 ---
 
 # Generic OIDC · Cloudflare One docs
@@ -22,7 +22,7 @@ Integrations
 
 # Generic OIDC
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create an application in your identity provider2\. Add an OIDC provider to Cloudflare One3\. Test the connectionSynchronize users and groups Prerequisites 1\. Enable SCIM in Cloudflare One 2\. Configure SCIM in the IdP 3\. Verify SCIM provisioningOptional configurations Custom OIDC claimsSupported algorithms for generic OIDC tokens
 
@@ -136,7 +136,7 @@ Add an Access identity providerbash
 
 ## 3\. Test the connection
 
-To test that your connection is working, go to **Authentication** > **Login methods** and select **Test** next to the login method you want to test. On success, a confirmation screen displays.
+To test the connection, go to **Integrations** > **Identity providers** and select **Test** next to the login method. A confirmation screen displays when the test succeeds.
 
 ## Synchronize users and groups
 

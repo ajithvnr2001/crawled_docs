@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/policies/policy-management/
 title: Manage Access policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:23.266689+00:00
+fetched_at: 2026-11-04T08:48:21.124176+00:00
 ---
 
 # Manage Access policies · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:23.266689+00:00
 
 # Manage Access policies
 
-Last updated Jun 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/policy-management/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a policyEdit a policyDelete a policyTest your policies Test a single policy Test all policies in an applicationLegacy policies Migrate to reusable policies Convert a legacy policy
 
@@ -54,7 +54,7 @@ You can now add this policy to an [Access application](https://developers.cloudf
 To make changes to an existing Access policy:
 
   1. In [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Policies**.
-  2. Locate the policy you want to update and select **Configure**.
+  2. Locate the policy you want to update and select **Edit**.
   3. Once you have made the necessary changes, select **Save**.
 
 
@@ -85,7 +85,7 @@ The Access policy builder allows you to test your rules before saving any change
 To test an individual Access policy:
 
   1. In [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Policies**.
-  2. Locate the policy you want to test and select **Configure**.
+  2. Locate the policy you want to test and select **Edit**.
   3. Go to **Policy tester** and select **Test policies**.
 
 
@@ -100,7 +100,7 @@ To test if users have access to an application:
 
   1. In [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
 
-  2. Locate the application you want to test and select **Configure**.
+  2. Locate the application you want to test and select **Edit**.
 
   3. Go to **Policies** > **Policy tester**.
 

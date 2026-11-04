@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/
 title: MCP server portals \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:00.794951+00:00
+fetched_at: 2026-11-04T08:48:22.659135+00:00
 ---
 
 # MCP server portals · Cloudflare One docs
@@ -15,14 +15,14 @@ fetched_at: 2026-10-29T08:14:00.794951+00:00
 
 [Access controls](https://developers.cloudflare.com/cloudflare-one/access-controls/)
 
-  4. /AI controls
+  4. /MCP portals
   5. /MCP server portals
 
 
 
 # MCP server portals
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewKey featuresHow it works Transport Client identity header Built-in portal tools Session lifecycle NamingPrerequisitesAdd an MCP server Connect a private MCP server Configure manual OAuth credentials MCP Apps Server status Reauthenticate the MCP server Synchronize the MCP server Upstream OAuth callback URLsCreate a portal Customize login settingsManage tools and prompts Turn off individual tools or prompts Use an allowlist pattern Rename tools and prompts with aliases Tool and prompt namespacing Portal-native toolsManage portals via API List portals Create a portal List MCP servers Create an MCP server View tool-call analytics Force sync an MCP server Delete a portalConfigure via TerraformCode Mode Code Mode policies Upstream servers with Code Mode turned on Configure a Code Mode policy Connect with Code ModeRoute portal traffic through Gateway How Gateway routing works TLS decryption Supported transports Enable Gateway routing Example Gateway policy What happens when a request is blocked LimitationsConnect to a portal Portal homepage Sign out of a portal Connect with a service token Device authenticationOptimize context Minimize tools Search and executeManage portal sessions Return to the server selection page Enable or disable a server inline Reauthenticate a server Authorize new serversView portal logs Log fields Export logs with LogpushKnown limitationsPolicy limitationsTroubleshooting Portal creation fails because of a zone hold After authenticating to the portal, my user receives the error No allowed servers available, check your Zero Trust Policies. The portal URL does not prompt for authentication when it is added to an MCP client. The portal returns a 522 error. An MCP server is stuck in Waiting status. An MCP server shows Stale status. Tool calls fail with an unauthorized error. OAuth authentication fails with a redirect URI error when connecting to an upstream MCP server. Tool calls fail when Gateway routing is turned on. Users cannot connect from an MCP client The portal homepage shows the wrong name or domain.
 
@@ -220,7 +220,7 @@ Ready | The server connected successfully and its tools and prompts were synchro
   
 #### Error details
 
-When an MCP server is in the **Error** or **Sync Required** state, hover over its status in the dashboard to view available diagnostic information. The API returns these details in the `error_details` object:
+When an MCP server is in the **Error** or **Sync required** state, hover over its status in the dashboard to view available diagnostic information. The API returns these details in the `error_details` object:
 
 Field | Description  
 ---|---  
@@ -238,8 +238,7 @@ To reauthenticate an MCP server in Cloudflare Access:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **MCP Portals**.
   2. Go to the **MCP servers** tab.
-  3. Select the server that you want to reauthenticate, then select **Edit**.
-  4. Select **Authenticate server**.
+  3. Find the server that you want to reauthenticate, select the three dots, and select **Re-authenticate server**.
 
 
 
@@ -253,7 +252,7 @@ Resources are not synchronized or stored. When an MCP client sends a `resources/
 
 Note
 
-Synchronization uses the admin credential, not individual user credentials. If the admin credential's refresh token has expired or been revoked, the server status will change to **Sync Required** and you will need to reauthenticate the server. This will not impact end users' ability to connect to the MCP server. It will impact the ability to fetch tool and prompt information or additions and removals.
+Synchronization uses the admin credential, not individual user credentials. If the admin credential's refresh token has expired or been revoked, the server status will change to **Sync required** and you will need to reauthenticate the server. This will not impact end users' ability to connect to the MCP server. It will impact the ability to fetch tool and prompt information or additions and removals.
 
 To manually refresh the MCP server in Zero Trust:
 
@@ -334,7 +333,7 @@ To create an MCP server portal:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **MCP Portals**.
 
-  2. Select **Add MCP server portal**.
+  2. Select **Add server portal**.
 
   3. Enter any name for the portal.
 
@@ -352,7 +351,7 @@ Caution
 
 [Independent MFA](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/mfa-requirements/#independent-mfa), [purpose justification](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/require-purpose-justification/), and [temporary authentication](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/temporary-auth/) will not be enforced for MCP servers that are authorized through an MCP portal. For example, if independent MFA is enabled on a policy assigned to a server, users will not be prompted to perform MFA to authorize the server after authenticating to the portal. Refer to Policy limitations for details.
 
-  9. Select **Add an MCP server portal**.
+  9. Select **Save portal**.
 
   10. (Optional) Customize the login experience for the portal.
 
@@ -996,7 +995,7 @@ To route traffic from every MCP server in a portal through Gateway:
 
 To route traffic from one MCP server through Gateway without enabling Gateway routing for the entire portal:
 
-  1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **AI controls**.
+  1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **MCP Portals**.
   2. Go to the **MCP servers** tab.
   3. Find the server you want to configure, then select the three dots > **Edit**.
   4. Under **Basic information** , turn on **Route traffic through Cloudflare Gateway**.
@@ -1312,7 +1311,7 @@ MCP server portals have the following known limitations:
   * **Only remote HTTP MCP servers are supported.** MCP servers that use [stdio transport only ↗︎](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports) (for example, `github/github-mcp-server`) do not expose a remote HTTP endpoint and cannot be added to an MCP server portal. To use a stdio-only server, you must self-host it behind an HTTP endpoint and authenticate with a bearer token or custom headers.
   * **Some MCP servers block proxy-based clients.** Certain MCP servers reject requests from proxy-based clients like MCP server portals, returning a `403` error on the registration endpoint. These servers are not compatible with MCP server portals until those providers add Cloudflare as a supported MCP client.
   * **Manual OAuth capabilities are captured during the first user authorization.** Servers configured with manual OAuth credentials remain in **Waiting** status until a user completes upstream OAuth. Cloudflare stores the tools and prompts returned during that connection. Background and manual capability synchronization do not refresh them.
-  * **Admin OAuth tokens can expire silently.** The admin credential used to authenticate an MCP server is subject to the upstream provider's token expiration policy. When the token expires, the server status changes to **Error** or **Sync Required** and the server will not appear in the portal for end users. Admins are not notified when this happens. Periodically check the server status and reauthenticate servers that show an error.
+  * **Admin OAuth tokens can expire silently.** The admin credential used to authenticate an MCP server is subject to the upstream provider's token expiration policy. When the token expires, the server status changes to **Error** or **Sync required** and the server will not appear in the portal for end users. Admins are not notified when this happens. Periodically check the server status and reauthenticate servers that show an error.
   * **Each portal supports up to 80 MCP servers.**
 
 
@@ -1342,7 +1341,7 @@ Cloudflare creates a custom hostname for each portal custom domain. Portal creat
 ### After authenticating to the portal, my user receives the error `No allowed servers available, check your Zero Trust Policies`.
 
   1. An MCP portal and server must both have an attached Access policy. Ensure that all MCP servers assigned to the portal have their own associated policy.
-  2. The server's admin authentication may be expired. Check that the server's status is **Ready**. If the status shows **Error** or **Sync Required** , reauthenticate the server.
+  2. The server's admin authentication may be expired. Check that the server's status is **Ready**. If the status shows **Error** or **Sync required** , reauthenticate the server.
 
 
 
@@ -1383,7 +1382,7 @@ To resolve this, reauthenticate the server with valid admin credentials.
 ### Tool calls fail with an `unauthorized` error.
 
   1. If the server uses per-user OAuth (**Require user auth** is turned on), the user's OAuth token may have expired. Ask the user to reauthenticate the server from their MCP client.
-  2. If the server uses admin credentials, check the server status. A status of **Error** or **Sync Required** indicates the admin credential needs to be refreshed.
+  2. If the server uses admin credentials, check the server status. A status of **Error** or **Sync required** indicates the admin credential needs to be refreshed.
   3. If the user recently changed permissions on the upstream service (for example, revoked OAuth scopes), they will need to reauthenticate.
 
 

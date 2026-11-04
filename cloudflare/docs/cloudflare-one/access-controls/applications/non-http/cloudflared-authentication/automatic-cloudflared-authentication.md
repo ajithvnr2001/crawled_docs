@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/cloudflared-authentication/automatic-cloudflared-authentication/
 title: Enable automatic cloudflared authentication \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:20.433482+00:00
+fetched_at: 2026-11-04T08:48:21.880374+00:00
 ---
 
 # Enable automatic cloudflared authentication · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:20.433482+00:00
 
 # Enable automatic cloudflared authentication
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/cloudflared-authentication/automatic-cloudflared-authentication/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 When users connect to an Access application through `cloudflared`, the browser prompts them to allow access by displaying this page:
 
@@ -33,7 +33,7 @@ Automatic `cloudflared` authentication allows users to skip this login page if t
 To enable automatic `cloudflared` authentication:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Locate your application and select **Configure**.
+  2. Locate your application and select **Edit**.
   3. Go to **Authentication**.
   4. Turn on **Allow automatic Cloudflared authentication**.
   5. Select **Save**.

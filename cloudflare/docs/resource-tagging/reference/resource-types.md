@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/resource-tagging/reference/resource-types/
 title: Supported resource types \u00b7 Cloudflare Resource Tagging docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:45.103556+00:00
+fetched_at: 2026-11-04T08:48:19.448611+00:00
 ---
 
 # Supported resource types · Cloudflare Resource Tagging docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:45.103556+00:00
 
 # Supported resource types
 
-Last updated Sep 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/resource-tagging/reference/resource-types/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccount-level resourcesZone-level resourcesExtra fields worker_version access_application_policy
 
@@ -33,6 +33,7 @@ Resource type | Required extra fields | Description
 `account` | None | The Cloudflare account itself  
 `access_application` | None | Access application  
 `access_group` | None | Access group  
+`access_service_token` | None | [Access service token](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/#tag-service-tokens)  
 `account_ruleset` | None | Account-level ruleset  
 `ai_gateway` | None | AI Gateway  
 `alerting_policy` | None | Notification policy  

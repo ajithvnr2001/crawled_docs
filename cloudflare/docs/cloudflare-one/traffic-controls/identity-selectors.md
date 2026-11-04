@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/traffic-controls/identity-selectors/
 title: Identity-based policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:46:34.765509+00:00
+fetched_at: 2026-11-04T08:48:19.338181+00:00
 ---
 
 # Identity-based policies · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:46:34.765509+00:00
 
 # Identity-based policies
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGateway identity checks Automatic SCIM IdP updates Extended email addressesIdentity-based selectors OIDC Claims SAML Attributes User Email User Group IDs User Group Email User Group Names User NameIdP groups in Gateway Microsoft Entra ID GitHub Google Okta (OIDC) Okta (SAML) Generic SAML IdP Generic OIDC IdP
 
@@ -99,13 +99,13 @@ To force Gateway to match all email address variants, go to **Traffic policies**
 
 Specify a value from a [custom OIDC claim](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/#custom-oidc-claims) configured on your identity provider.
 
-Note
+You can use this selector with [Generic OIDC](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/), [Microsoft Entra ID](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/entra-id/), and [Okta (OIDC)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/okta/) integrations. Add the claim name under **OIDC Claims** in your identity provider integration, then re-authenticate the Cloudflare One Client. Verify that the claim appears in `oidc_fields` in the [user identity](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/users/).
 
-This selector is only available for the [Generic OIDC](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/) identity provider integration. Named OIDC providers such as Okta and Microsoft Entra ID do not support custom OIDC claims in Gateway policies — use the User Group Names or User Group IDs selectors for those providers instead.
+For array claims, Gateway matches individual values. For example, an `amr` claim containing `["pwd", "mfa"]` can match `amr=mfa`.
 
 UI name | API example  
 ---|---  
-OIDC Claims | `any(identity.oidc_claims[*] == "\"department=engineering\"")`  
+OIDC Claims | `any(identity.oidc_claims[*] == "department=engineering")`  
   
 ### SAML Attributes
 

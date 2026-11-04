@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/common-issues/
 title: Common issues \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:03.188162+00:00
+fetched_at: 2026-11-04T08:48:17.359644+00:00
 ---
 
 # Common issues · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Common issues
 
-Last updated Sep 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/common-issues/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConnectivity and registration Stuck on "Disconnected" or frequent flapping Registration error (Authentication Expired) (Linux) DNS connectivity check failed (Mac/Linux) Invalid character in resolv.confBrowser and certificate issues "Your connection is not private" or untrusted warnings 2025 Certificate migrationWindows-specific issues Windows shows "No Internet access" Setup Wizard ends prematurelyOther environment issues WSL2 connectivity SMTP port 25 blocked Admin override codes expiredNext steps
 
@@ -131,7 +131,7 @@ The client blocks outgoing traffic on port `25` to prevent spam and reputational
 
 ### Admin override codes expired
 
-[Admin override codes](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#allow-admin-override-codes) are time-sensitive and adhere to fixed-hour blocks. A code generated at 9:30 AM with a 1-hour timeout will expire at 10:00 AM because its validity is counted within the 9:00 AM-10:00 AM window.
+[Admin override codes](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#allow-admin-override-codes) are time-sensitive and adhere to fixed-hour blocks. A code retrieved at 9:30 AM with a 1-hour **Timeout** must be entered before 10:00 AM. Once entered, the override lasts one hour.
 
 * * *
 

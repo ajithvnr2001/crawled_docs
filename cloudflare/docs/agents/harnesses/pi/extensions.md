@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/pi/extensions/
 title: Extensions \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:21.220370+00:00
+fetched_at: 2026-11-04T08:48:18.183123+00:00
 ---
 
 # Extensions · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:21.220370+00:00
 
 # Extensions
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall an extensionWrite a toolMark tools replay-safeWrite a prompt sectionAdd skillsUse more of Pi Durable
 
@@ -36,14 +36,14 @@ src/index.jsjs
     
     
     import { DurableObject } from "cloudflare:workers";
-    import { Type } from "@earendil-works/pi-ai";
     import { createModels } from "@earendil-works/pi-ai/models";
     import { createRegistry, Harness } from "@earendil-works/pi-durable";
+    import { obj, str } from "@earendil-works/pi-schema";
     import { PiHarness } from "agents/harness/pi";
     import { Lifecycle } from "agents/lifecycle";
     import { createAI } from "agents/models/pi-ai";
     
-    const WordCount = Type.Object({ text: Type.String() });
+    const WordCount = obj({ text: str() });
     
     const wordCount = {
     	name: "word_count",
@@ -88,18 +88,18 @@ src/index.tsts
     
     
     import { DurableObject } from "cloudflare:workers";
-    import { Type } from "@earendil-works/pi-ai";
     import { createModels } from "@earendil-works/pi-ai/models";
     import {
     	createRegistry,
     	Harness,
     	type ToolRegistration,
     } from "@earendil-works/pi-durable";
+    import { obj, str } from "@earendil-works/pi-schema";
     import { PiHarness } from "agents/harness/pi";
     import { Lifecycle } from "agents/lifecycle";
     import { createAI } from "agents/models/pi-ai";
     
-    const WordCount = Type.Object({ text: Type.String() });
+    const WordCount = obj({ text: str() });
     
     const wordCount: ToolRegistration<typeof WordCount> = {
     	name: "word_count",
@@ -148,7 +148,7 @@ Create the registry per object, as a class field, not at module scope. Pi keeps 
 
 A tool is a Pi Durable `ToolRegistration`:
 
-  * **Typed arguments.** Type a tool as `ToolRegistration<typeof Parameters>`, and `execute` gets arguments typed from the schema. Pi validates them against `parameters` before it calls `execute`. A bare `ToolRegistration` types its arguments as `unknown`.
+  * **Typed arguments.** Build `parameters` with the schema builders from `@earendil-works/pi-schema`, such as `obj()`, `str()`, and `num()`. Type a tool as `ToolRegistration<typeof Parameters>`, and `execute` gets arguments typed from the schema. Pi validates them against `parameters` before it calls `execute`. `obj()` rejects properties it does not list unless you pass `{ open: true }`. A bare `ToolRegistration` types its arguments as `unknown`.
   * **What a running call can use.** `execute(args, api, context)` gets Pi's operations for the call. `api.output()` streams running output, `api.details()` sends data for a UI, and `api.memo()` stores values that survive an eviction.
   * **Abort.** `context.abortSignal` is aborted when the call is. Honor it: `session.abort()` waits until every running tool returns.
   * **Parallel calls.** Pi runs the tool calls in one model round at the same time by default. Set `executionMode: "sequential"` on a tool whose calls must run one after another. One sequential call makes its whole round sequential.
@@ -156,7 +156,7 @@ A tool is a Pi Durable `ToolRegistration`:
 
     
     
-    const FetchPage = Type.Object({ url: Type.String() });
+    const FetchPage = obj({ url: str() });
     
     const fetchPage: ToolRegistration<typeof FetchPage> = {
     	name: "fetch_page",

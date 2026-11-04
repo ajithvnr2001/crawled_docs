@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/managed-oauth/
 title: Managed OAuth \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:12.536269+00:00
+fetched_at: 2026-11-04T08:48:19.715914+00:00
 ---
 
 # Managed OAuth · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:12.536269+00:00
 
 # Managed OAuth
 
-Last updated Jul 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/managed-oauth/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesEnable managed OAuth on a self-hosted applicationEnable managed OAuth on an MCP server applicationEnable managed OAuth on an MCP server portalManaged OAuth settingsAuthorization flow Token format Multi-domain applicationsManaged OAuth vs service tokens
 
@@ -139,7 +139,7 @@ To test, open an MCP client and connect to the protected MCP server. The client 
 
 Managed OAuth is available on [MCP server portals](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/) and is the mechanism that allows MCP clients to authenticate users through the portal without a browser cookie flow.
 
-  1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **AI controls**.
+  1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **MCP Portals**.
   2. Find the portal you want to configure, then select the three dots on the right > **Edit**.
   3. Go to the **Advanced settings** tab, turn on **Managed OAuth**.
   4. (Optional) Configure Managed OAuth settings.
@@ -188,7 +188,7 @@ Configure these settings in the **Advanced settings** tab of your self-hosted ap
 
   * **Allow localhost clients** : Allow any client with redirect URIs on `localhost`.
   * **Allow loopback clients** : Allow any client with redirect URIs on `127.0.0.1`.
-  * **Allowed redirect URIs** : Redirect URIs allowed for dynamically registered clients (for example, `https://playground.ai.cloudflare.com/*`). The URL must use `https`. Paths may end in `/*` to match all sub-paths.
+  * **Allowed redirect URIs** : Redirect URIs allowed for dynamically registered clients. HTTP and HTTPS paths may end in `/*` to match all sub-paths (for example, `https://playground.ai.cloudflare.com/*`). Native applications may use private-use URI schemes such as `cursor://anysphere.cursor-mcp/oauth/callback` or `com.example.app:/oauth/callback`. Custom-scheme URIs must be listed explicitly and match exactly; they cannot contain wildcards, credentials, or fragments.
   * **Grant session duration** : How long the OAuth refresh token remains valid.
   * **Access token lifetime** : How long an OIDC Access token can be used to authenticate with your application. Cloudflare recommends configuring a short **Access token lifetime** (default 15 minutes) in conjunction with a longer **Grant session duration**. When the access token expires, Cloudflare uses the refresh token to issue a new one after re-evaluating the user against your Access policies. When the refresh token expires, the user must re-authenticate with the identity provider.
 

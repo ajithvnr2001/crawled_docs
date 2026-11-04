@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/browser-rendering/
 title: Browser-rendered terminal \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:19.675779+00:00
+fetched_at: 2026-11-04T08:48:21.438795+00:00
 ---
 
 # Browser-rendered terminal · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:19.675779+00:00
 
 # Browser-rendered terminal
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/browser-rendering/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLimitationsTurn on browser rendering SSH and VNC RDP SSH key exchange algorithms
 
@@ -45,7 +45,7 @@ Cloudflare can render SSH, VNC, and RDP applications in a browser without the ne
 To turn on browser rendering for an SSH or VNC application:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Locate the SSH or VNC application you created when [connecting the server to Cloudflare](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/ssh/). Select **Configure**.
+  2. Locate the SSH or VNC application you created when [connecting the server to Cloudflare](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/ssh/). Select **Edit**.
   3. Turn on **Allow access through browser-based RDP, SSH, or VNC sessions** , then select _SSH_ or _VNC_. 
 
 Note

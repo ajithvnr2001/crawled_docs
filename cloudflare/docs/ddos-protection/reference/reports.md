@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/reference/reports/
 title: DDoS reports \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:54.896059+00:00
+fetched_at: 2026-11-04T08:48:20.290777+00:00
 ---
 
 # DDoS reports · Cloudflare DDoS Protection docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:54.896059+00:00
 
 # Reports
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/reference/reports/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWeekly DDoS reports Example report Manage reporting subscriptions
 
@@ -34,7 +34,7 @@ To receive DDoS reports by email you must have opted in to the **Analytics** cat
 
 ## Weekly DDoS reports
 
-Cloudflare sends DDoS reports via email from `no-reply@notify.cloudflare.com` to users with the Super Administrator role on accounts with prefixes advertised by Cloudflare.
+Cloudflare sends DDoS reports via email from `noreply@notify.cloudflare.com` to users with the Super Administrator role on accounts with prefixes advertised by Cloudflare.
 
 Reports contain the following information:
 

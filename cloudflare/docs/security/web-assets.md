@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/security/web-assets/
 title: Web Assets \u00b7 Security dashboard docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:30.782344+00:00
+fetched_at: 2026-11-04T08:48:24.323010+00:00
 ---
 
 # Web Assets · Security dashboard docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:15:30.782344+00:00
 
 # Web Assets
 
-Last updated Aug 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/security/web-assets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewDefinition of an operationHow Cloudflare identifies operationsOperation states and profile learningDescribe operations contextDefine security protections
+OverviewDefinition of an operationHow Cloudflare identifies operationsOperation states and profile learningDescribe operations contextConfigure field extractionDefine security protections
 
 Web Assets automatically discovers operations in web applications proxied through Cloudflare. Operation context helps you define security protections against application-specific functionalities.
 
@@ -80,6 +80,10 @@ For the profile lifecycle, refer to [Application Profiles](https://developers.cl
 Cloudflare defines managed labels. Some managed labels can be discovered automatically, but not every managed label is currently auto-discovered.
 
 Custom labels let you organize operations for your own workflows. They do not replace managed labels for Cloudflare security detections.
+
+## Configure field extraction
+
+[Field extraction](https://developers.cloudflare.com/security/web-assets/field-extraction/) tells Cloudflare where to find application data that security products should inspect. Currently, you can define custom LLM prompt locations for [AI Security for Apps](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/).
 
 ## Define security protections
 

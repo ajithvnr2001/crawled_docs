@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/get-started/
 title: Get started with AI Security for Apps \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:40.321979+00:00
+fetched_at: 2026-11-04T08:48:24.227917+00:00
 ---
 
 # Get started with AI Security for Apps · Cloudflare Web Application Firewall (WAF) docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:16:40.321979+00:00
 
 # Get started with AI Security for Apps
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview1\. Turn on AI Security for Apps2\. Review or add an LLM-related operation3\. Add cf-llm label to endpoint4\. (Optional) Generate API traffic5\. Review labeled traffic and detection behavior6\. Mitigate harmful requests
+Overview1\. Turn on AI Security for Apps2\. Review or add an LLM-related operation3\. Add cf-llm label to endpoint4\. (Optional) Configure custom prompt extraction5\. (Optional) Generate API traffic6\. Review labeled traffic and detection behavior7\. Mitigate harmful requests
 
 ## 1\. Turn on AI Security for Apps
 
@@ -105,7 +105,13 @@ Add the `cf-llm` label to the endpoint you added:
 
 Once you add a label to the endpoint, Cloudflare will start labeling incoming traffic for the endpoint with the label you selected.
 
-## 4\. (Optional) Generate API traffic
+## 4\. (Optional) Configure custom prompt extraction
+
+AI Security for Apps extracts prompts from common JSON request structures. If your application stores prompts in another supported request field or location, configure field extraction before generating test traffic.
+
+Field extraction lets you define expressions that return prompt values from supported request fields or locations. For instructions, refer to [Configure field extraction](https://developers.cloudflare.com/security/web-assets/field-extraction/).
+
+## 5\. (Optional) Generate API traffic
 
 You may need to issue some `POST` requests to the endpoint so that there is some labeled traffic to review in the following step.
 
@@ -118,7 +124,7 @@ For example, the following command sends a `POST` request to the API endpoint yo
 
 The PII category for this request would be `EMAIL_ADDRESS`.
 
-## 5\. Review labeled traffic and detection behavior
+## 6\. Review labeled traffic and detection behavior
 
 Use [Security Analytics](https://developers.cloudflare.com/waf/analytics/security-analytics/) to validate that Cloudflare is correctly labeling traffic for the endpoint.
 
@@ -147,7 +153,7 @@ The displayed logs now refer to incoming requests where personally identifiable 
 
 Alternatively, you can also create a custom rule with a _Log_ action (only available on Enterprise plans) to check for potentially harmful traffic related to LLM prompts. This rule will generate [security events](https://developers.cloudflare.com/waf/analytics/security-events/) that will allow you to validate your AI Security for Apps configuration.
 
-## 6\. Mitigate harmful requests
+## 7\. Mitigate harmful requests
 
 [Create a custom rule](https://developers.cloudflare.com/waf/custom-rules/create-dashboard/) that blocks requests where Cloudflare detected personally identifiable information (PII) in the incoming request (as part of an LLM prompt), returning a custom JSON body:
 

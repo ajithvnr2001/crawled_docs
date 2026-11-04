@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/security/web-assets/define-security-protections/
 title: Define security protections \u00b7 Security dashboard docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:30.873830+00:00
+fetched_at: 2026-11-04T08:48:24.000992+00:00
 ---
 
 # Define security protections · Security dashboard docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:30.873830+00:00
 
 # Define security protections
 
-Last updated Jun 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/security/web-assets/define-security-protections/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProtection workflowExample: Protect AI-powered operationsValidate detection behaviorMitigate matched traffic
 
@@ -88,7 +88,7 @@ For example, a rule can match requests addressed to an operation labeled `cf-llm
 
 You can use [custom rules](https://developers.cloudflare.com/waf/custom-rules/create-dashboard/) to log, challenge, block, or skip traffic. You can use [rate limiting rules](https://developers.cloudflare.com/waf/rate-limiting-rules/) to limit high-volume activity.
 
-[PreviousLabel operations](https://developers.cloudflare.com/security/web-assets/label-operations/)[NextSecurity rules](https://developers.cloudflare.com/security/rules/)
+[PreviousConfigure field extraction](https://developers.cloudflare.com/security/web-assets/field-extraction/)[NextSecurity rules](https://developers.cloudflare.com/security/rules/)
 
 Was this helpful?
 

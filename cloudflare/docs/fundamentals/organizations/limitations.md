@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/organizations/limitations/
 title: Limitations and troubleshooting \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:25.236968+00:00
+fetched_at: 2026-11-04T08:48:19.069862+00:00
 ---
 
 # Limitations and troubleshooting · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:25.236968+00:00
 
 # Limitations and troubleshooting
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccount and zone limitsAPI authenticationEnterprise OrganizationsMSSP/Distributor OrganizationsTroubleshooting Organization creation errors Member invitation errors Account assignment errors
 
@@ -62,7 +62,7 @@ Sub-Organizations | Not available. Enterprise Organizations use a flat, single-t
 Moving accounts | Accounts cannot be moved between Organizations.  
 Roles | Organization Super Administrator is the only role available. Additional roles (read-only, billing, audit log) will be available in a future release.  
 Organization deletion | To delete an Organization, use the [API](https://developers.cloudflare.com/api/resources/organizations/methods/delete). Dashboard support is not yet available.  
-Account removal | Self-service account removal is not yet available. To remove an account from your Organization, contact [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).  
+Account removal | Self-service account removal is not yet available. To remove an account from your Organization, contact [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/). When removed, the account becomes standalone — all zones, configurations, members, and resources are preserved. **Removing an account is not the same as[deleting an account](https://developers.cloudflare.com/fundamentals/user-profiles/delete-account/) — account deletion is permanent and cannot be undone.**  
   
 ## MSSP/Distributor Organizations
 
@@ -75,7 +75,7 @@ Sub-Organizations | Distributors can create child MSSP Organizations. MSSP/Distr
 Moving accounts | Accounts can be moved between MSSP Organizations within the same Distributor Organization.  
 Roles | Organization Super Administrator is the only role available. Additional roles (read-only, billing, audit log) will be available in a future release.  
 Organization deletion | To delete an Organization, use the [API](https://developers.cloudflare.com/api/resources/organizations/methods/delete). Dashboard support is not yet available.  
-Account removal | Self-service account removal is not yet available. To remove an account from your Organization, contact [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).  
+Account removal | Self-service account removal is not yet available. To remove an account from your Organization, contact [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/). When removed, the account becomes standalone — all zones, configurations, members, and resources are preserved. **Removing an account is not the same as[deleting an account](https://developers.cloudflare.com/fundamentals/user-profiles/delete-account/) — account deletion is permanent and cannot be undone.**  
 Organization type conversion | Organization type (Enterprise vs MSSP/Distributor) is set at creation and cannot be changed. To switch types, a new Organization must be created.  
   
 ## Troubleshooting

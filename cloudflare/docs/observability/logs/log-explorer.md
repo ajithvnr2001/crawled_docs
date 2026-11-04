@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/logs/log-explorer/
 title: Log Explorer (Legacy) \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:37:10.163296+00:00
+fetched_at: 2026-11-04T08:48:17.973830+00:00
 ---
 
 # Log Explorer (Legacy) · Cloudflare Observability docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:37:10.163296+00:00
 
 # Log Explorer (Legacy)
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPermissionsFeaturesRelated products
 
@@ -48,7 +48,8 @@ Feature | Member role | API token permission | Description
 **Log Search** | Log Share Reader (Log Share and Administrator Read Only also work) | `Logs Read` | Query logs in the dashboard or via API.  
 **Log Search (save query)** | Super Administrator or Administrator | `Logs Edit` | Save, edit, or delete log search queries.  
 **Manage datasets** | Super Administrator or Administrator | `Logs Edit` | Add, enable, or disable datasets.  
-**Custom dashboards** | Analytics | `Analytics Read` | Create and view custom dashboards.  
+**Custom dashboards (view)** | Super Administrator, Administrator, Administrator Read Only, or Analytics | — | View custom dashboards.  
+**Custom dashboards (edit)** | Super Administrator or Administrator | — | Create, edit, or delete custom dashboards.  
   
 The API lists `Logs Edit` as `Logs Write`. They are the same permission.
 

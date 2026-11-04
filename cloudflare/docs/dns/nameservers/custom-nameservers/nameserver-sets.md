@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/
 title: Nameserver sets \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:23.035106+00:00
+fetched_at: 2026-11-04T08:48:24.391375+00:00
 ---
 
 # Nameserver sets · Cloudflare DNS docs
@@ -22,11 +22,11 @@ fetched_at: 2026-10-31T08:10:23.035106+00:00
 
 # Nameserver sets
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityHow nameserver sets workIP setsLimits Set namesCreate a nameserver set Standard nameserver set Advanced Custom Nameserver setRename a nameserver setPrepare nameserver address recordsAssign a nameserver set to a zoneUpdate the nameserversActivation requirementsDelete a nameserver set
 
-A nameserver set is an account-level group of two to five custom nameserver names, together with the IP addresses that Cloudflare assigns to those names. You create a set once and then assign it to zones in the same account. Each set has a name to identify it.
+A nameserver set is an account-level group of up to five custom nameserver names, together with the IP addresses that Cloudflare assigns to those names. You create a set once and then assign it to zones in the same account. Each set has a name to identify it.
 
 Nameserver sets are a separate configuration from [zone](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/zone-custom-nameservers/), [account](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/account-custom-nameservers/), and [tenant](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/tenant-custom-nameservers/) custom nameservers. A zone uses either a nameserver set or one of those configurations, never both. Existing configurations cannot be converted into nameserver sets.
 
@@ -67,10 +67,16 @@ The following limits apply to nameserver sets:
 
 Item | Limit  
 ---|---  
-Nameserver names per set | 2 to 5  
+Nameserver names per set | 1 to 5  
 IPv4 and IPv6 addresses per nameserver name | 1 to 3 each (`ip_count`, defaults to 1)  
   
 All nameserver names in an Advanced set must use the same `ip_count` value.
+
+Caution
+
+A zone should have at least two listed authoritative nameservers. For details, refer to [RFC 2182, section 5 ↗︎](https://www.rfc-editor.org/rfc/rfc2182.html#section-5).
+
+Single-name sets are intended only for [multi-provider DNS setups](https://developers.cloudflare.com/dns/nameservers/nameserver-options/#multi-provider-dns). In these setups, another provider supplies additional authoritative nameservers.
 
 ### Set names
 

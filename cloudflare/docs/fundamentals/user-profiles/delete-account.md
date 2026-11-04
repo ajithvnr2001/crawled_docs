@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/user-profiles/delete-account/
 title: Delete your Cloudflare account \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:28.098318+00:00
+fetched_at: 2026-11-04T08:48:19.130168+00:00
 ---
 
 # Delete your Cloudflare account · Cloudflare Fundamentals docs
@@ -18,13 +18,19 @@ fetched_at: 2026-10-08T07:11:28.098318+00:00
 
 # Delete your Cloudflare account
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/user-profiles/delete-account/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWho can delete their accountPrerequisitesDelete your Cloudflare account
 
 Note
 
 These steps do not apply to accounts under contract. Contact your account team for more information.
+
+Note
+
+If your account is part of a [Cloudflare Organization](https://developers.cloudflare.com/fundamentals/organizations/) and you want to **detach it from the Organization** rather than delete it, that is a separate process. Detaching an account preserves all zones, configurations, and members — the account remains active as a standalone account.
+
+**To detach an account from an Organization, contact[Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/)** and specify the [account ID](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/). Do not follow the deletion steps below if your intent is only to remove the account from an Organization.
 
 ## Who can delete their account
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/
 title: Transform via fetch \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:36.196577+00:00
+fetched_at: 2026-11-04T08:48:24.464982+00:00
 ---
 
 # Transform via fetch · Cloudflare Images docs
@@ -22,9 +22,9 @@ Optimization
 
 # Transform via fetch
 
-Last updated Jul 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow it worksConfigure a Worker Prevent request loopsLack of preview in the dashboardLocal developmentError handlingAn example workerWarning about cacheKey
+OverviewHow it worksConfigure a Worker Prevent request loopsLack of preview in the dashboardLocal developmentError handlingAn example workerUnsupported fetch options resolveOverrideWarning about cacheKey
 
 Workers lets you optimize images with a custom URL scheme.
 
@@ -207,6 +207,33 @@ Assuming you [set up a Worker](https://developers.cloudflare.com/workers/get-sta
     };
 
 When testing image resizing, please deploy the script first. Resizing will not be active in the online editor in the dashboard.
+
+## Unsupported fetch options
+
+Some [`cf` properties](https://developers.cloudflare.com/workers/runtime-apis/request/#the-cf-property-requestinitcfproperties) that work on a regular `fetch()` subrequest are not applied when the same subrequest also sets `cf.image`.
+
+### `resolveOverride`
+
+[`resolveOverride`](https://developers.cloudflare.com/workers/runtime-apis/request/#the-cf-property-requestinitcfproperties) is ignored on a `fetch()` subrequest that includes `cf.image`. Cloudflare fetches the original image using the hostname in the image URL, not the hostname set in `resolveOverride`.
+    
+    
+    // resolveOverride is ignored because cf.image is set.
+    // The original image is fetched from images.example.com, not origin.example.com.
+    fetch("https://images.example.com/photo.jpg", {
+    	cf: {
+    		image: { width: 800 },
+    		resolveOverride: "origin.example.com",
+    	},
+    });
+
+To fetch the original image from a different origin, use a hostname that resolves to that origin in the image URL itself. The request to the origin then uses that hostname in the `Host` header.
+    
+    
+    fetch("https://origin.example.com/photo.jpg", {
+    	cf: {
+    		image: { width: 800 },
+    	},
+    });
 
 ## Warning about `cacheKey`
 

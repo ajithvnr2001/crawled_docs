@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/cors/
 title: CORS \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:11.660594+00:00
+fetched_at: 2026-11-04T08:48:22.380971+00:00
 ---
 
 # CORS · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:11.660594+00:00
 
 # CORS
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/cors/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAllow simple requests Authenticate manuallyAllow preflighted requests Bypass OPTIONS requests to origin Configure response to preflight requestsSend authentication token with Cloudflare Worker Prerequisites 1\. Generate a service token 2\. Add a Service Auth policy 3\. Create a new Worker 4\. Configure the Worker 5\. Update HTTP request URLsTroubleshooting
 
@@ -80,7 +80,7 @@ There are three ways you can resolve this error:
 You can configure Cloudflare to send OPTIONS requests directly to your origin server. To bypass Access for OPTIONS requests:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Locate the origin that will be receiving OPTIONS requests and select **Configure**.
+  2. Locate the origin that will be receiving OPTIONS requests and select **Edit**.
   3. Go to **Advanced settings** > **Cross-Origin Resource Sharing (CORS) settings**.
   4. Turn on **Bypass options requests to origin**. This will remove all existing CORS settings for this application.
 
@@ -96,7 +96,7 @@ To configure how Cloudflare responds to preflight requests:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
 
-  2. Locate the origin that will be receiving OPTIONS requests and select **Configure**.
+  2. Locate the origin that will be receiving OPTIONS requests and select **Edit**.
 
   3. Go to **Advanced settings** > **Cross-Origin Resource Sharing (CORS) settings**.
 
@@ -161,7 +161,7 @@ Follow [these instructions](https://developers.cloudflare.com/cloudflare-one/acc
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
 
-  2. Find your `api.mysite.com` application and select **Configure**.
+  2. Find your `api.mysite.com` application and select **Edit**.
 
   3. Select the **Policies** tab.
 
@@ -197,6 +197,7 @@ For setup, select the following options:
   * For _Which template would you like to use?_ , choose `Worker only`.
   * For _Which language do you want to use?_ , choose `JavaScript`.
   * For _Do you want to use git for version control?_ , choose `Yes`.
+  * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
   * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
 

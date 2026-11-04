@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/transformations/sources/
 title: Define source origins \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:35.949882+00:00
+fetched_at: 2026-11-04T08:48:23.735076+00:00
 ---
 
 # Define source origins · Cloudflare Images docs
@@ -22,7 +22,7 @@ Optimization
 
 # Define source origins
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/optimization/transformations/sources/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksAllow source images only from allowed originsAllow source images from any origin
 
@@ -32,9 +32,9 @@ On this page, you will learn how to define and manage the origins for the source
 
 Note
 
-The allowed origins setting applies to requests from [Workers](https://developers.cloudflare.com/workers/).
+The allowed origins setting only applies to [transformation URLs](https://developers.cloudflare.com/images/optimization/features/#url-interface) that use the `/cdn-cgi/image/` format.
 
-If you use a Worker to optimize remote images via a `fetch()` subrequest, then this setting may conflict with existing logic that handles source images.
+It does not apply when you use a [Worker](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/) to optimize remote images via a `fetch()` subrequest. If your Worker accepts source image URLs from user input, then validate them in your Worker code.
 
 ## How it works
 

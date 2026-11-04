@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/user-profiles/multi-factor-email-authentication/
 title: Multi-Factor Email Authentication \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:28.128556+00:00
+fetched_at: 2026-11-04T08:48:20.320672+00:00
 ---
 
 # Multi-Factor Email Authentication · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:28.128556+00:00
 
 # Multi-Factor Email Authentication
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/user-profiles/multi-factor-email-authentication/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewTroubleshoot MFARelated resources
 
@@ -40,7 +40,7 @@ Email MFA can only be disabled by enabling [two-factor authentication](https://d
 
 ## Troubleshoot MFA
 
-Cloudflare emails are sometimes flagged as spam by the recipient's email service. If you are expecting an authentication token, you should check the spam folder for any Cloudflare emails and configure a filter to allow Cloudflare emails from _[no-reply@notify.cloudflare.com](mailto:no-reply@notify.cloudflare.com)_ _**.** _
+Cloudflare emails are sometimes flagged as spam by the recipient's email service. If you are expecting an authentication token, you should check the spam folder for any Cloudflare emails and configure a filter to allow Cloudflare emails from `noreply@notify.cloudflare.com`.
 
 Other times, emails are rejected by the recipient email service. Cloudflare will try again it will flag your email address after several attempts and no further emails will be sent.
 

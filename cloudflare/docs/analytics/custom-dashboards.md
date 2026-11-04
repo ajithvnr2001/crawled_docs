@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/analytics/custom-dashboards/
 title: Custom dashboards \u00b7 Cloudflare Analytics docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:11.650282+00:00
+fetched_at: 2026-11-04T08:48:17.786179+00:00
 ---
 
 # Custom dashboards · Cloudflare Analytics docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:05:11.650282+00:00
 
 # Custom dashboards
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/analytics/custom-dashboards/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewWhat you can doAvailabilityGet started Start from a template Build from scratchCreate charts Natural language prompts Manual configuration Chart typesDashboard filtersWorkers Observability dataLog Explorer dataManage dashboardsFurther analysis
+OverviewWhat you can doAvailabilityPermissionsGet started Start from a template Build from scratchCreate charts Natural language prompts Manual configuration Chart typesDashboard filtersWorkers Observability dataLog Explorer dataManage dashboardsFurther analysis
 
 Custom dashboards allow you to build personalized views that highlight the metrics most critical to your infrastructure and security posture. Move beyond standard product dashboards and consolidate data from multiple Cloudflare products into a single, unified view.
 
@@ -39,6 +39,15 @@ Investigate incidents so that when something goes wrong, you can create focused 
 
 Custom Dashboards are available to all Cloudflare customers. Each account can have up to 100 dashboards.
 
+## Permissions
+
+Access to Custom Dashboards depends on your [member role](https://developers.cloudflare.com/fundamentals/manage-members/roles/):
+
+Action | Member role  
+---|---  
+View dashboards | Super Administrator, Administrator, Administrator Read Only, or Analytics  
+Create, edit, or delete dashboards | Super Administrator or Administrator  
+  
 ## Get started
 
 ### Start from a template
@@ -180,7 +189,7 @@ When creating a chart, Log Explorer customers can select from Log Explorer datas
 
 ## Manage dashboards
 
-Dashboards belong to the account, so everyone with access to the account can view them, and they are organized in a list view where you can see all dashboards in your account. From any dashboard, you can add, remove, or rearrange charts, and changes are saved automatically when you exit edit mode.
+Dashboards belong to the account, so every member with a role that can view dashboards can see them. They are organized in a list view where you can see all dashboards in your account. From any dashboard, you can add, remove, or rearrange charts, and changes are saved automatically when you exit edit mode.
 
 Each chart has a menu with options to edit its configuration, duplicate it, or drill down into related data in Security Analytics or Log Search.
 

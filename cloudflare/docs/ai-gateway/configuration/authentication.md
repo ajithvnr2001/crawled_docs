@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/configuration/authentication/
 title: Authenticated Gateway \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:27.955651+00:00
+fetched_at: 2026-11-04T08:48:17.029925+00:00
 ---
 
 # Authenticated Gateway · Cloudflare AI Gateway docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:04:27.955651+00:00
 
 # Authenticated Gateway
 
-Last updated Jun 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/configuration/authentication/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSetting up Authenticated Gateway using the dashboardExample requestsExpected behavior
+OverviewSetting up Authenticated Gateway using the dashboardConfigure authentication through the APIExample requestsExpected behavior
 
-AI Gateway requires a valid Cloudflare API token for each request. This prevents unauthorized access and protects against invalid requests that can inflate log storage usage.
+New AI Gateways require authentication. Existing gateways with authentication turned off can continue without it or turn it on. Once authentication is on, you cannot turn it off. Authentication prevents unauthorized access and protects against invalid requests that can inflate log storage usage.
 
 When using the [REST API](https://developers.cloudflare.com/ai-gateway/usage/rest-api/), pass your Cloudflare API token in the standard `Authorization` header. When using [provider-native endpoints](https://developers.cloudflare.com/ai-gateway/usage/providers/) at `gateway.ai.cloudflare.com`, use the `cf-aig-authorization` header instead.
 
@@ -32,12 +32,12 @@ The `cf-aig-authorization` header is used with the `gateway.ai.cloudflare.com` e
 
 ## Setting up Authenticated Gateway using the dashboard
 
-  1. Go to the Settings for the specific gateway you want to enable authentication for.
+  1. Go to **Settings** for your gateway. Authentication is already required for new gateways.
   2. Select **Create authentication token** to generate a custom token with the required `Run` permissions. Be sure to securely save this token, as it will not be displayed again.
   3. Include the API token in each request: 
      * If using the REST API (`/ai/run`), include your Cloudflare API token in the standard `Authorization` header.
      * If using [provider-native endpoints](https://developers.cloudflare.com/ai-gateway/usage/providers/) at `gateway.ai.cloudflare.com`, use the `cf-aig-authorization` header.
-  4. Return to the settings page and toggle on Authenticated Gateway.
+  4. If you are using an existing gateway with authentication turned off, return to the settings page and turn on **Authenticated Gateway**. You cannot turn it off again.
 
 
 
@@ -46,6 +46,14 @@ AI Gateway API tokens are account-scoped
 The `AI Gateway Read`, `Run`, and `Edit` permissions cannot be restricted to a single gateway — unlike R2, which supports per-bucket scoping. Any token with `AI Gateway Run` can send requests through every gateway in the account, including any configured with stored provider keys through [Bring Your Own Keys (BYOK)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/), consuming those credentials.
 
 For isolation between gateways or tenants, use separate Cloudflare accounts or a Worker-side [AI Gateway binding](https://developers.cloudflare.com/ai-gateway/integrations/aig-workers-ai-binding/) rather than relying on token scope.
+
+## Configure authentication through the API
+
+When [creating a gateway](https://developers.cloudflare.com/api/resources/ai_gateway/methods/create/), authentication defaults to `true` if you omit the field. Requests with `authentication: false` return HTTP `400`.
+
+When [updating a gateway](https://developers.cloudflare.com/api/resources/ai_gateway/methods/update/), omit `authentication` to preserve its current setting. Set `authentication: true` to turn it on permanently. Setting `authentication: false` on an authenticated gateway returns HTTP `400` with the message `Authentication cannot be disabled once enabled.`
+
+Existing unauthenticated gateways can still accept `authentication: false` in update requests. This does not allow authentication to be turned off after it is on.
 
 ## Example requests
     
@@ -89,7 +97,7 @@ Note
 When an AI Gateway is accessed from a Cloudflare Worker using a **binding** , the `cf-aig-authorization` header does not need to be manually included.  
 Requests made through bindings are **pre-authenticated** within the associated Cloudflare account.
 
-The following table outlines gateway behavior based on the authentication settings and header status:
+The following table outlines gateway behavior based on the authentication settings and header status. The **Off** setting applies only to existing gateways that have not enabled authentication. Once enabled, authentication cannot be disabled:
 
 Authentication Setting | Header Info | Gateway State | Response  
 ---|---|---|---  

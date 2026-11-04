@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/
 title: robots.txt setting \u00b7 Cloudflare bot solutions docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:05.032166+00:00
+fetched_at: 2026-11-04T08:48:24.137446+00:00
 ---
 
 # robots.txt setting · Cloudflare bot solutions docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:05.032166+00:00
 
 # robots.txt setting
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCompatibility with existing robots.txt files Existing robots.txt file No robots.txt fileImplementationContent Signals PolicyContent use signalAvailability
 
@@ -30,7 +30,7 @@ When does the managed content appear?
 
 Cloudflare prepends managed directives and the Content Signals Policy to your `robots.txt` only when **Enable Bot Preference Sync** is turned on and at least one of your Search, Agent, or Training policies is set to **Block** , **Block on pages with ads** , or, for Training, **Disallow**. With every policy set to allow, there is nothing to prepend and your `robots.txt` is served unchanged.
 
-After you save your AI bot policies, the managed content appears within a few seconds. Reload your `robots.txt` to verify — no cache purge is required.
+After you save AI Crawler and Agent access policies, the managed content appears within a few seconds. Reload your `robots.txt` to verify — no cache purge is required.
 
 Note
 
@@ -137,7 +137,7 @@ To add managed directives for AI training crawlers:
 [ Go to **Settings** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/security/settings)
   2. Filter by **Bot traffic**.
 
-  3. Select **Configure AI bot policies**.
+  3. Select **AI Crawler and Agent access policies**.
 
   4. For **Training** , select _Disallow_.
 
@@ -158,7 +158,7 @@ Content Signals are a set of machine-readable directives in a `robots.txt` file 
 
 Domains on the Free plan that do not have their own `robots.txt` file and do not use the managed `robots.txt` feature will display the Content Signals Policy when a crawler requests the `robots.txt` file for your domain.
 
-The Content Signals Policy defines these categories but does not express any specific preferences about your content. To set preferences (for example, `ai-train=no`), configure your AI bot policies and enable Bot Preference Sync.
+The Content Signals Policy defines these categories but does not express any specific preferences about your content. To set preferences (for example, `ai-train=no`), configure AI Crawler and Agent access policies and enable Bot Preference Sync.
 
 Content Signals Policytxt
     

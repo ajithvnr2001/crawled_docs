@@ -1,24 +1,24 @@
 ---
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/
-title: AI controls \u00b7 Cloudflare One docs
+title: MCP portals \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:10.190232+00:00
+fetched_at: 2026-11-04T08:48:22.052398+00:00
 ---
 
-# AI controls · Cloudflare One docs
+# MCP portals · Cloudflare One docs
 
 > Source: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Cloudflare One](https://developers.cloudflare.com/cloudflare-one/)
-  3. /[Access Controls](https://developers.cloudflare.com/cloudflare-one/access-controls/)
-  4. /Ai Controls
+  3. /[Access controls](https://developers.cloudflare.com/cloudflare-one/access-controls/)
+  4. /MCP portals
 
 
 
-# AI controls
+# MCP portals
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
   * [MCP server portals](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/)
   * [Secure MCP servers](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/)

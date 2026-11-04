@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/management-and-monitoring/api-routing/
 title: API Routing \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:17.781191+00:00
+fetched_at: 2026-11-04T08:48:18.973940+00:00
 ---
 
 # API Routing · Cloudflare API Shield docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-08T07:05:17.781191+00:00
 
 # API Routing
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/management-and-monitoring/api-routing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProcess Create a route Verify a routeAvailabilityLimitations
+
+Legacy feature
+
+API Routing is a legacy feature and is not available to new customers. Customers with existing access can continue to use the feature. Cloudflare will provide advance notice before deprecating API Routing.
 
 API Shield Routing allows you to expose a single external API that routes requests to different back-end services, even when those services use different paths or hostnames than your zone.
 
@@ -78,7 +82,7 @@ If API Shield returns unexpected results, check your Source Endpoint host, metho
 
 ## Availability
 
-API Shield Routing is currently in an open beta and is only available for Enterprise customers subscribed to API Shield. Enterprise customers who have not purchased API Shield can preview [API Shield as a non-contract service ↗︎](https://dash.cloudflare.com/?to=/:account/:zone/security/api-shield) in the Cloudflare dashboard or by contacting your account team.
+API Shield Routing is only available to customers with existing access.
 
 ## Limitations
 

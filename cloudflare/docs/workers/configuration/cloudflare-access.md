@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/cloudflare-access/
 title: Cloudflare Access \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:36.658270+00:00
+fetched_at: 2026-11-04T08:48:23.931745+00:00
 ---
 
 # Cloudflare Access · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:36.658270+00:00
 
 # Cloudflare Access
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startChoose what to protectProtect all WorkersProtect one WorkerProtect a specific hostname, Custom Domain, or pathMake a Worker public when all Workers are protectedPolicy optionsRead authenticated user identity with ctx.access ctx.access limitationsTest ctx.access locally Example Worker Identity fieldsDisable AccessUnderstand Access hierarchyRelated resources
 
@@ -286,6 +286,8 @@ If the caller instead sends a `fetch()` subrequest to an Access-protected hostna
 Workers with [Static Assets](https://developers.cloudflare.com/workers/static-assets/) execute behind an internal router Worker. Access still protects the application and its assets. However, the router does not pass `ctx.access` to the user Worker.
 
 The Cloudflare Vite plugin can add `assets` to the generated deployment configuration when the input Wrangler configuration omits it. Frameworks that use the plugin, including TanStack Start, can therefore be affected even when their source configuration does not declare Static Assets.
+
+When a request is authenticated via a non-browser client over [WARP](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/), `ctx.access` only populates the `aud` field. The [`Cf-Access-Jwt-Assertion`](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/) request header remains complete and can be validated directly if you need the full JWT claims.
 
 ## Test ctx.access locally
 

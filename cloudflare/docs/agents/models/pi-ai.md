@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/pi-ai/
 title: Pi AI \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:00.389939+00:00
+fetched_at: 2026-11-04T08:48:18.116741+00:00
 ---
 
 # Pi AI · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:00.389939+00:00
 
 # Pi AI
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/models/pi-ai/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallCall a modelName a modelUse it with the Pi harnessCache, tag, and time out requestsFall back to another modelRead gateway metadataResume a dropped streamHow requests are routedGenerate imagesRelated resources
 
@@ -26,7 +26,7 @@ OverviewInstallCall a modelName a modelUse it with the Pi harnessCache, tag, and
 
 ## Install
 
-The provider needs `@earendil-works/pi-ai@~1.4.0`, an optional peer dependency of `agents`:
+The provider needs `@earendil-works/pi-ai@~1.5.0`, an optional peer dependency of `agents`:
 
 npmyarnpnpmbun
     
@@ -294,7 +294,7 @@ Image generation uses Workers AI models:
 
 
 
-[PreviousAI SDK](https://developers.cloudflare.com/agents/models/ai-sdk/)[NextOverview](https://developers.cloudflare.com/agents/harnesses/)
+[PreviousAI SDK](https://developers.cloudflare.com/agents/models/ai-sdk/)[NextSkills](https://developers.cloudflare.com/agents/skills/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/resource-tagging/reference/limits/
 title: Limits and validation \u00b7 Cloudflare Resource Tagging docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:51.033569+00:00
+fetched_at: 2026-11-04T08:48:19.809631+00:00
 ---
 
 # Limits and validation · Cloudflare Resource Tagging docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:39:51.033569+00:00
 
 # Limits and validation
 
-Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/resource-tagging/reference/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPI limitsCase sensitivityTag key validation Allowed Not allowed ExamplesPagination
 
@@ -33,6 +33,8 @@ Maximum tag filters per query | 20 | `1010`
 Maximum OR values per filter | 10 | `1013`  
 Results per page | 100 (fixed) | N/A  
   
+[Access service tokens](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/#tag-service-tokens) have resource-specific limits: up to five tags per token, with keys and values each limited to 256 characters.
+
 When a limit is exceeded, the API returns `400 Bad Request` with the corresponding error code.
 
 During the beta, each account is limited to 10,000 total tags. If you need a higher limit, contact [Cloudflare support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).

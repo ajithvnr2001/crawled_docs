@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/browser/
 title: Browser \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:23.045598+00:00
+fetched_at: 2026-11-04T08:48:18.367441+00:00
 ---
 
 # Browser · Cloudflare Agents docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-30T08:19:23.045598+00:00
 
 # Browser
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use another harnessInternal hostnames Add internal hostnames Let the model choose what a host serves LimitsLive View and human takeover Hand off to a person Close the browserRecordingBrowser APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
+OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use it in Pi's code mode Use another harnessInternal hostnames Add internal hostnames Let the model choose what a host serves LimitsLive View and human takeover Hand off to a person Close the browserRecordingBrowser APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
 
 Give your agent a browser it can return to on later turns. [Browser Run](https://developers.cloudflare.com/browser-run/) keeps the remote browser open, so your agent can continue from the same page with its tabs, cookies, and login session intact while the browser session remains alive.
 
@@ -39,18 +39,18 @@ Start with a [Pi Durable agent](https://developers.cloudflare.com/agents/harness
 npmyarnpnpmbun
     
     
-    npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
+    npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/codemode
     
     
-    yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
+    yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/codemode
     
     
-    pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
+    pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/codemode
     
     
-    bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
+    bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/pi-schema @earendil-works/chord @cloudflare/codemode
 
-The Pi packages are optional peer dependencies of `agents`, at `~1.4.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
+The Pi packages are optional peer dependencies of `agents`, at `~1.5.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
 
 This example installs a `Browser` and `PiHarness` on a plain Durable Object. Pi chooses when to call the browser tool. [Lifecycle](https://developers.cloudflare.com/agents/runtime/lifecycle/) starts both components and provides their storage.
 
@@ -167,7 +167,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     	"name": "persistent-browser-agent",
     	"main": "src/index.ts",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-30",
+    	"compatibility_date": "2026-11-04",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI" },
     	"browser": { "binding": "BROWSER" },
@@ -182,7 +182,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     name = "persistent-browser-agent"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-10-30"
+    compatibility_date = "2026-11-04"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -212,19 +212,56 @@ To try persistence, send two prompts to the same assistant within the browser's 
     curl http://localhost:8787 --data 'Open https://example.com and tell me the page title.'
     curl http://localhost:8787 --data 'Take a screenshot of the page you already opened without navigating again.'
 
-The second turn can use the existing tab. Pi stores a returned screenshot as an image in the tool result. An image-capable model can see it, and a UI can display it from the transcript. This example's HTTP response only returns the final text; refer to [Pi event streaming](https://developers.cloudflare.com/agents/harnesses/pi/#stream-events-to-clients) to build a UI.
+The second turn can use the existing tab. Pi stores a returned screenshot as an image in the tool result. An image-capable model can see it, and a UI can display it from the transcript. This example's HTTP response only returns the final text; refer to [Watch sessions from clients](https://developers.cloudflare.com/agents/harnesses/pi/#watch-sessions-from-clients) to build a UI.
 
 ### Tabs, logins, and interruptions
 
 Each Pi conversation gets its own active tab by default. Sessions, forks, and subagents can work on different pages, but cookies and logins remain shared within the `Browser`. A tab scope is not a separate browser profile. Use separate browsers when users need separate login sessions.
 
-Within a conversation, browser calls run sequentially. The model can use `sessionId: "active"` in its CDP commands to return to its active tab. To share a tab deliberately, pass the same `scope` string to the Pi tools.
+Within a conversation, browser calls run sequentially, and wait for any of your own sessions in the same scope opened with `lock: true`. The wait does not count toward `timeoutMs`. The model can use `sessionId: "active"` in its CDP commands to return to its active tab. To share a tab deliberately, pass the same `scope` string to the Pi tools.
 
 If a browser expires, closes, or crashes, the next use creates a replacement. The result's `notice` tells a returning scope that its previous browser state is gone. The tool runs against the new browser. It does not restore the old session. `notice` also tells the model when the page opened new tabs, or when another conversation closed its tab or is working in it too.
 
-Pi does not automatically replay a browser call interrupted by eviction: repeating it could submit a form or click a button twice. The model receives an interrupted result and can decide how to continue. Stopping a conversation does not cancel a browser call already running. The call finishes or reaches `timeoutMs`, which defaults to 60 seconds.
+Pi does not automatically replay a browser call interrupted by eviction: repeating it could submit a form or click a button twice. The model receives an interrupted result and can decide how to continue. Each call times out after `timeoutMs`, which defaults to 60 seconds.
+
+When the harness aborts a browser call, for example because the user stopped the conversation, a call still waiting for its tab gives up, and a running call ends with an error result and frees the tab. Anything its code already did in the browser stays done. This applies to the Pi, AI SDK, and TanStack AI adapters.
 
 Set `keepAliveMs`, `recording`, and hostname `guardrails` on `browserRun(binding, options)`. From your application, call `browser.liveView()` to let a person inspect or control the same browser, and `browser.close()` to close it. The persistent browser currently supports Browser Run's Chromium engine.
+
+### Use it in Pi's code mode
+
+Pi Durable's code mode lets the model write one script that calls several tools. Install Pi's code mode extension beside the browser tool, and scripts can call `tools.browser({ code })` with no other setup. Code mode needs `@earendil-works/pi-codemode` and a `CodemodeSandboxDurableObject` deployed as its own Worker. For setup, refer to the [Pi Code Mode README ↗︎](https://github.com/earendil-works/pi/tree/main/packages/codemode).
+    
+    
+    import { RemoteCodemodeSandbox } from "@earendil-works/pi-codemode/cloudflare";
+    import { createCodemodeExtension } from "@earendil-works/pi-durable/codemode";
+    
+    this.registry.install(
+    	createCodemodeExtension({
+    		sandbox: new RemoteCodemodeSandbox({
+    			remote: () => this.env.CODEMODE_SANDBOX.getByName(this.ctx.id.toString()),
+    		}),
+    	}),
+    );
+    
+    
+    import { RemoteCodemodeSandbox } from "@earendil-works/pi-codemode/cloudflare";
+    import { createCodemodeExtension } from "@earendil-works/pi-durable/codemode";
+    
+    this.registry.install(
+    	createCodemodeExtension({
+    		sandbox: new RemoteCodemodeSandbox({
+    			remote: () => this.env.CODEMODE_SANDBOX.getByName(this.ctx.id.toString()),
+    		}),
+    	}),
+    );
+
+  * `tools.browser()` resolves to the run as an object, `{ status, executionId, result, error, logs, notice }`, including when the browser code fails, so check `status`.
+  * A screenshot's `result` is an image block. Pass it to `image()` so the model sees it.
+  * A script's browser calls run in its conversation's tab, one at a time, even under `Promise.all`.
+  * The browser code is still a string inside the script, and each call runs in its own Dynamic Worker, as a direct call does.
+
+
 
 ### Use another harness
 
@@ -277,7 +314,7 @@ For a harness without a prebuilt adapter, or to drive the browser from your own 
     	});
     } finally {
     	const report = await session.close();
-    	// { restarted, newTabs, tabClosed, tabShared }, or undefined if unused
+    	// { restarted, newTabs, tabClosed, tabShared, notices }, or undefined if unused
     }
     
     
@@ -290,8 +327,20 @@ For a harness without a prebuilt adapter, or to drive the browser from your own 
     	});
     } finally {
     	const report = await session.close();
-    	// { restarted, newTabs, tabClosed, tabShared }, or undefined if unused
+    	// { restarted, newTabs, tabClosed, tabShared, notices }, or undefined if unused
     }
+
+`report.notices` holds the same report as sentences for the model, the ones `browserTool` returns in its `notice`.
+
+To give model-written code the same `browser` object that `browserTool` does, for example in a sandbox of your own, pass it `session.functions`, the `browser.*` functions bound to the session. Describe them to the model with `this.browser.functionDocs()`, which returns `{ functions, rules }`: the functions in Markdown, and the rules for using them. Add rules about how your own code runs, such as its timeouts and what happens to screenshots.
+
+Runs in one scope drive one tab. If your runs can overlap with each other or with `browserTool` calls, open the session with `lock: true`. It takes the scope's lock at its first call and holds it until `close()`. Other locking sessions in the scope, including `browserTool` runs, wait for it in order instead of failing. To wait for the lock before your own time limit starts, call `await session.lock({ signal })` first. `session.waitedForLockMs` reports how long the session waited.
+
+Caution
+
+A locking session holds the lock until `close()`, even if its signal aborts, it loses the browser, or you stop using it. Until then, other locking sessions in the scope wait until the Durable Object restarts. Close every locking session in a `finally` block, including when connecting failed.
+
+To share a tab with a Pi conversation, use `conversationScope(String(conversationId))` from `agents/browser`. It returns the scope that the Pi `browserTool` uses for that conversation. It takes a string and throws on an empty one.
 
 ## Internal hostnames
 

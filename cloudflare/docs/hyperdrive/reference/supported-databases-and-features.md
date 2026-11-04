@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/reference/supported-databases-and-features/
 title: Supported databases and features \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:03.390534+00:00
+fetched_at: 2026-11-04T08:48:18.514374+00:00
 ---
 
 # Supported databases and features · Cloudflare Hyperdrive docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:14:03.390534+00:00
 
 # Supported databases and features
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDatabase supportSupported database providersSupported TLS (SSL) modes PostgreSQL MySQLSupported PostgreSQL authentication modesUnsupported PostgreSQL features:Unsupported MySQL features:
 
@@ -94,7 +94,7 @@ Hyperdrive supports the following [authentication modes ↗︎](https://www.post
 Hyperdrive does not support the following PostgreSQL features:
 
   * SQL-level management of prepared statements, such as using `PREPARE`, `DISCARD`, `DEALLOCATE`, or `EXECUTE`.
-  * Advisory locks ([PostgreSQL documentation ↗︎](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS)).
+  * Session-level advisory locks: `pg_advisory_lock`, `pg_advisory_lock_shared`, `pg_try_advisory_lock`, and `pg_try_advisory_lock_shared` ([PostgreSQL documentation ↗︎](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS)). Hyperdrive does not reject these commands, but a session-level lock can remain held by a pooled connection after your client disconnects, blocking other clients. Use transaction-level advisory locks within an explicit transaction instead. Refer to [Pooling mode](https://developers.cloudflare.com/hyperdrive/concepts/how-hyperdrive-works/#pooling-mode).
   * `LISTEN` and `NOTIFY`.
   * `PREPARE` and `DEALLOCATE`.
   * Any modification to per-session state not explicitly documented as supported elsewhere.

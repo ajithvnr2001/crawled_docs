@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/
 title: Syncing \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:39.501791+00:00
+fetched_at: 2026-11-04T08:48:20.253705+00:00
 ---
 
 # Syncing · Cloudflare AI Search docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:39.501791+00:00
 
 # Syncing
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExternal data sources Sync interval Trigger syncs from automated pipelinesBuilt-in storageControlsPerformanceAutomatic pausing for inactive instancesBest practices
 
@@ -30,15 +30,15 @@ AI Search automatically indexes your content for search. How indexing works depe
 
 ## External data sources
 
-For instances connected to a [website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/) or [R2 bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/), AI Search creates jobs to sync your data source. Jobs run automatically on a schedule, every 6 hours by default, and process new, modified, or deleted files to keep your search index up to date.
+For instances connected to a [website](https://developers.cloudflare.com/ai-search/configuration/data-source/website/) or [R2 bucket](https://developers.cloudflare.com/ai-search/configuration/data-source/r2/), AI Search creates jobs to sync your data source. Jobs run automatically on a schedule, every 24 hours by default, and process new, modified, or deleted files to keep your search index up to date.
 
 You can view job status and history in the **Jobs** tab in the dashboard or using the [Instances API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/).
 
 ### Sync interval
 
-By default, AI Search runs a sync job every 6 hours. To change how often scheduled syncs run, use the **Sync interval** setting in the dashboard, or set the `sync_interval` field when you [create](https://developers.cloudflare.com/ai-search/api/instances/workers-binding/#create) or [update](https://developers.cloudflare.com/ai-search/api/instances/workers-binding/#update) an instance through the Workers binding or [REST API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/).
+By default, AI Search runs a sync job every 24 hours. To change how often scheduled syncs run, use the **Sync interval** setting in the dashboard, or set the `sync_interval` field when you [create](https://developers.cloudflare.com/ai-search/api/instances/workers-binding/#create) or [update](https://developers.cloudflare.com/ai-search/api/instances/workers-binding/#update) an instance through the Workers binding or [REST API](https://developers.cloudflare.com/ai-search/api/instances/rest-api/).
 
-The interval can be 15 minutes, 30 minutes, 1 hour, 2 hours, 4 hours, 6 hours, 12 hours, or 24 hours. In the API, `sync_interval` is specified in seconds. The allowed values are `900`, `1800`, `3600`, `7200`, `14400`, `21600` (the default), `43200`, and `86400`.
+The interval can be 15 minutes, 30 minutes, 1 hour, 2 hours, 4 hours, 6 hours, 12 hours, or 24 hours. In the API, `sync_interval` is specified in seconds. The allowed values are `900`, `1800`, `3600`, `7200`, `14400`, `21600`, `43200`, and `86400` (the default).
 
 ### Trigger syncs from automated pipelines
 

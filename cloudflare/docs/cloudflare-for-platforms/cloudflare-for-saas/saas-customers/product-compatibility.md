@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/product-compatibility/
 title: Product compatibility \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:02.098280+00:00
+fetched_at: 2026-11-04T08:48:18.890876+00:00
 ---
 
 # Product compatibility · Cloudflare for Platforms docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:02.098280+00:00
 
 # Product compatibility
 
-Last updated Sep 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/product-compatibility/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 As a general rule, settings on the customer zone will override settings on the SaaS zone. In addition, [O2O](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/) does not permit traffic directed to a custom hostname zone into another custom hostname zone.
 
@@ -44,7 +44,9 @@ Product | Customer zone | SaaS provider zone | Notes
   
 Your SaaS provider likely performs its own caching outside of Cloudflare and caching on your zone might lead to out-of-sync or stale cache states.  
   
-Customer zones can still cache content that are not routed through a SaaS provider's zone.  
+For O2O traffic, Tiered Cache settings on the customer zone do not apply. The SaaS provider zone controls Tiered Cache for these requests.  
+  
+Tiered Cache continues to apply to non-O2O traffic on the customer zone.  
 [China Network](https://developers.cloudflare.com/china-network/) | No | No |   
 [DNS](https://developers.cloudflare.com/dns/) | Yes* | Yes | As a SaaS customer, do not remove the records related to your Cloudflare for SaaS setup.  
   

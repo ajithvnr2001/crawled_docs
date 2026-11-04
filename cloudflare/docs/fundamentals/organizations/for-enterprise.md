@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/organizations/for-enterprise/
 title: Organizations for Enterprise \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:24.163961+00:00
+fetched_at: 2026-11-04T08:48:19.188674+00:00
 ---
 
 # Organizations for Enterprise · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:24.163961+00:00
 
 # Organizations for Enterprise
 
-Last updated Oct 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/organizations/for-enterprise/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWho is this for?Hierarchy structureExample: Company ASet up your Organization Prerequisites Create an Organization Assign accounts Create new accountsManage members Organization Super Administrator Implicit access Invite members Member authentication requirementsShare policiesView aggregate analyticsManage your Organization Rename your Organization Edit customer identification data View audit logs API TerraformWhat you cannot do Create sub-organizations Move accounts
 
@@ -136,6 +136,14 @@ After creating an Organization, you can assign existing accounts to manage them 
 The assigned account now appears on the Organization overview page. From here, you can view the account, copy its ID, or rename it.
 
 To remove an account from your Organization, contact [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).
+
+Note
+
+Removing an account from an Organization detaches it and returns it to standalone status. All zones, WAF rules, members, and configurations are preserved — the account continues to exist and function normally.
+
+This is different from [deleting an account](https://developers.cloudflare.com/fundamentals/user-profiles/delete-account/), which is a permanent action that cannot be undone.
+
+**When contacting Support, specify that you want the account removed from the Organization, not deleted** , and include the [account ID](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/).
 
 ### Create new accounts
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/reusable-components/packet-filtering-fields/
 title: Packet filtering fields \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:47.857534+00:00
+fetched_at: 2026-11-04T08:48:19.603617+00:00
 ---
 
 # Packet filtering fields · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:09:47.857534+00:00
 
 # Packet filtering (Cloudflare Network Firewall) fields
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/reusable-components/packet-filtering-fields/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewcf.colo.namecf.colo.regionicmpicmp.typeicmp.codeipip.dstip.dst.countryip.src.countryip.hdr_lenip.lenip.opt.typeip.protoip.srcip.src.countryip.ttlsiptcptcp.flagstcp.flags.acktcp.flags.cwrtcp.flags.ecntcp.flags.fintcp.flags.pushtcp.flags.resettcp.flags.syntcp.flags.urgtcp.srcporttcp.dstportudpudp.dstportudp.srcport
 
@@ -122,9 +122,9 @@ For Cloudflare Network Firewall, the `ip.geoip.country` field (which is deprecat
 
 `ip.hdr_len` `Number`
 
-The length of the IPv4 header in bytes.
+The length of the IPv4 header in 32-bit words.
 
-Example value: `5`
+Example value: `5` represents five 32-bit words, or 20 bytes.
 
 * * *
 

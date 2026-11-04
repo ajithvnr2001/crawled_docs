@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/bots/concepts/bot/verified-bots/
 title: Verified bots \u00b7 Cloudflare bot solutions docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:27.797412+00:00
+fetched_at: 2026-11-04T08:48:19.765506+00:00
 ---
 
 # Verified bots · Cloudflare bot solutions docs
@@ -22,7 +22,7 @@ Concepts
 
 # Verified bots
 
-Last updated Oct 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewClassificationBecoming a Verified bot Track your submission Breach of policyLegacy categoriesAvailability
 
@@ -110,6 +110,8 @@ The following are examples of breaches of policy:
   * An AI Crawler that does not respect the crawl-delay directive in robots.txt.
 
 
+
+Cloudflare may revoke Verified status for all bots and agents owned or operated by an organization if that organization commits repeated policy violations, such as failing to consistently identify its agents, or complies with the policy for one bot or agent while violating it with another.
 
 ## Legacy categories
 
@@ -259,7 +261,7 @@ Cloudflare reserves the right to re-assign Verified bot categories if the bot's 
 
 ## Availability
 
-Historically, Verified bots have been excluded in default bot configurations across all plans. Now, all customers have the option to [configure AI bot policies](https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/) to define their block vs. allow expectations.
+Historically, Verified bots have been excluded in default bot configurations across all plans. Now, all customers have the option to configure [AI Crawler and Agent access policies](https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/) to define their block vs. allow expectations.
 
 [PreviousOverview](https://developers.cloudflare.com/bots/concepts/bot/)[NextBot scores](https://developers.cloudflare.com/bots/concepts/bot-score/)
 

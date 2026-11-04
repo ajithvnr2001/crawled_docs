@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/
 title: Validate JWTs \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:28.460273+00:00
+fetched_at: 2026-11-04T08:48:21.797434+00:00
 ---
 
 # Validate JWTs · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:28.460273+00:00
 
 # Validate JWTs
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess signing keysVerify the JWT manuallyProgrammatic verification Get your AUD tag Cloudflare Workers example Golang example Python example JavaScript (Node.js) example
 
@@ -121,7 +121,7 @@ Cloudflare Access assigns a unique AUD tag to each application. The `aud` claim 
 To get the AUD tag:
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Access controls** > **Applications**.
-  2. Select **Configure** for your application.
+  2. Select **Edit** for your application.
   3. From **Additional settings** , copy the **Application Audience (AUD) Tag**.
 
 

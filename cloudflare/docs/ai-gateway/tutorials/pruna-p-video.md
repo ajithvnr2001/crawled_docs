@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/tutorials/pruna-p-video/
 title: Use Pruna P-video through AI Gateway \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:32.690346+00:00
+fetched_at: 2026-11-04T08:48:17.087097+00:00
 ---
 
 # Use Pruna P-video through AI Gateway · Cloudflare AI Gateway docs
@@ -10,15 +10,15 @@ fetched_at: 2026-10-08T07:04:32.690346+00:00
 > Source: https://developers.cloudflare.com/ai-gateway/tutorials/pruna-p-video/
 
   1. [Home](https://developers.cloudflare.com/)
-  2. /[Ai Gateway](https://developers.cloudflare.com/ai-gateway/)
+  2. /[AI Gateway](https://developers.cloudflare.com/ai-gateway/)
   3. /[Tutorials](https://developers.cloudflare.com/ai-gateway/tutorials/)
-  4. /Pruna P Video
+  4. /Use Pruna P-video through AI Gateway
 
 
 
 # Use Pruna P-video through AI Gateway
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/tutorials/pruna-p-video/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Get a Replicate API token2\. Create an AI Gateway3\. Construct the gateway URL4\. Generate a video5\. (Optional) Use async polling for longer requestsNext steps
 
@@ -70,7 +70,7 @@ To set up an AI Gateway using the API:
 
 Note your **Account ID** and **Gateway name** for use in later steps.
 
-To add authentication to your gateway, refer to [Authenticated Gateway](https://developers.cloudflare.com/ai-gateway/configuration/authentication/).
+New gateways require authentication. To create a token or turn on authentication for an existing gateway, refer to [Authenticated Gateway](https://developers.cloudflare.com/ai-gateway/configuration/authentication/).
 
 ## 3\. Construct the gateway URL
 
@@ -143,12 +143,12 @@ The response includes a prediction `id`:
     
     
     {
-      "id": "xyz789...",
-      "status": "starting",
-      "urls": {
-        "get": "https://api.replicate.com/v1/predictions/xyz789...",
-        "cancel": "https://api.replicate.com/v1/predictions/xyz789.../cancel"
-      }
+    	"id": "xyz789...",
+    	"status": "starting",
+    	"urls": {
+    		"get": "https://api.replicate.com/v1/predictions/xyz789...",
+    		"cancel": "https://api.replicate.com/v1/predictions/xyz789.../cancel"
+    	}
     }
 
 Poll the prediction status until it completes:
