@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-firewall-endpoints/
 title: Firewall endpoint overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:29.136353+00:00
+fetched_at: 2026-11-05T11:10:53.892533+00:00
 ---
 
 # Firewall endpoint overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ You use [firewall endpoint association](https://docs.cloud.google.com/firewall/d
 
   * Firewall endpoints can process up to 2 Gbps of traffic with Transport Layer Security (TLS) inspection, and 10 Gbps of traffic without TLS inspection. Excessive traffic can overload the endpoint and cause packet losses. To monitor the firewall endpoint's capacity utilization, see [`firewall_endpoint` network security metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#gcp-networksecurity).
 
-**Note:** To avoid endpoint overloading due to excessive traffic, gradually scale up the endpoint while monitoring its capacity utilization.
+**Note:** To avoid endpoint overloading due to excessive traffic, gradually increase the traffic while monitoring the endpoint's capacity utilization.
   * When a firewall endpoint inspects traffic targeting a cross-region internal Application Load Balancer ([Preview](https://cloud.google.com/products#product-launch-stages)), the maximum throughput is 1.6 Gbps.
 
   * Because the endpoint does not forward unapproved messages, an overloaded endpoint might drop legitimate traffic if it cannot inspect the traffic.
@@ -294,6 +294,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-extreme/
 title: About Hyperdisk Extreme \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:05.903394+00:00
+fetched_at: 2026-11-05T11:08:42.437543+00:00
 ---
 
 # About Hyperdisk Extreme  |  Compute Engine  |  Google Cloud Documentation

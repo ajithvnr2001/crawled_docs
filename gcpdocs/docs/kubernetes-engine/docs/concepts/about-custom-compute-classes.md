@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes/
 title: About custom ComputeClasses \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:05.304702+00:00
+fetched_at: 2026-11-05T11:08:12.907902+00:00
 ---
 
 # About custom ComputeClasses  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -115,7 +115,9 @@ You create a fallback strategy by defining a list of _priority rules_ in the `pr
 
 
 
-By default, when a new node is needed for an incoming Pod that selects a ComputeClass, GKE attempts to create nodes in the order in which the priority rules appear in the ComputeClass manifest. In GKE version 1.35.2-gke.1842000 and later, you can also explicitly set a score for every priority rule in a ComputeClass by using the `priorityScore` field, in which case GKE processes rules in order from the highest score to the lowest score. If all of the priority rules in a ComputeClass are exhausted, then GKE creates nodes based on the behavior described in Define scaling behavior when no priority rules apply.
+By default, when a new node is needed for an incoming Pod that selects a ComputeClass, GKE attempts to create nodes in the order in which the priority rules appear in the ComputeClass manifest. In GKE version 1.35.2-gke.1842000 and later, you can also explicitly set a score for every priority rule in a ComputeClass by using the `priorityScore` field, in which case GKE processes rules in order from the highest score to the lowest score.
+
+In both cases, GKE stops evaluating rules at the first rule that satisfies the Pod's requirements and can provision nodes. GKE doesn't evaluate lower-priority rules to find a closer resource fit for the workload. If all of the priority rules in a ComputeClass are exhausted, then GKE creates nodes based on the behavior described in Define scaling behavior when no priority rules apply.
 
 ### Priority rule scores
 
@@ -1429,6 +1431,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/configure_export_v2/
 title: Route logs to supported destinations \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:32.962354+00:00
+fetched_at: 2026-11-05T10:53:08.477282+00:00
 ---
 
 # Route logs to supported destinations  |  Cloud Logging  |  Google Cloud Documentation

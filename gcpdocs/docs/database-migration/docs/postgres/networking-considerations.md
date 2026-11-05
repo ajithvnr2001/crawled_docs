@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/networking-considerations/
 title: Plan your networking configuration \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:38.323029+00:00
+fetched_at: 2026-11-05T11:11:12.894944+00:00
 ---
 
 # Plan your networking configuration  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation
@@ -49,8 +49,8 @@ Before you configure your source instance for migration, see the [ Networking ov
 
 Quick-start migrations use a mediated networking model where Database Migration Service acts as an intermediary sitting _between_ your source database and the destination Cloud SQL for PostgreSQL instance:
 
-  * **Source connectivity** : Database Migration Service connects to your source database using Private Service Connect interfaces and private connectivity configurations. Your source database must have a private IP address assigned within a Google Cloud VPC network. If your source database is hosted outside Google Cloud, you must connect it to your VPC network using a Cloud VPN or Cloud Interconnect connection. Other methods (such as public IP allowlists or reverse SSH tunnels) aren't supported.
-  * **Destination connectivity** : Database Migration Service fully manages network communication to your destination instance. The destination instance must be enabled for Private Service Connect.
+  * **Source connectivity** : Database Migration Service supports multiple connectivity methods for your source database, including Private Service Connect interfaces, Virtual Private Cloud peering, and public IP connectivity using a dedicated private connectivity configuration for public IP. When you use public IP connectivity, Database Migration Service allocates a dedicated public IP address that you allowlist on your source database firewall.
+  * **Destination connectivity** : Database Migration Service fully manages network communication to your destination instance. Destination instances can be enabled for Private Services Access (PSA), Private Service Connect (PSC), or both methods simultaneously, with or without public IP. Quick-start migrations don't support migrating to destination instances configured only for public IP.
 
 
 
@@ -67,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

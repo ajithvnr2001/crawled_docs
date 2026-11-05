@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-prod-instance/
 title: Create a production instance \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:10.794382+00:00
+fetched_at: 2026-11-05T11:12:26.289772+00:00
 ---
 
 # Create a production instance  |  Bigtable  |  Google Cloud Documentation
@@ -282,19 +282,39 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    cluster = instance.cluster(
-        cluster_id,
-        location_id=location_id,
-        serve_nodes=serve_nodes,
-        default_storage_type=storage_type,
+    from google.api_core.exceptions import NotFound
+    
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableInstanceAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html)()
+    project_path = client.[common_project_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_common_project_path)(project_id)
+    instance_path = client.[instance_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_instance_path)(project_id, instance_id)
+    
+    cluster = bigtable_admin_v2.[Cluster](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.Cluster.html)(
+        location=client.[common_location_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_common_location_path)(project_id, "us-central1-f"),
+        serve_nodes=1,
+        default_storage_type=bigtable_admin_v2.[StorageType](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.StorageType.html).SSD,
     )
-    if not instance.exists():
+    instance_obj = bigtable_admin_v2.[Instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.Instance.html)(
+        display_name=instance_id,
+        labels={"prod-label": "prod-label"},
+        type_=bigtable_admin_v2.[Instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.Instance.html).Type.PRODUCTION,
+    )
+    
+    try:
+        client.[get_instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_get_instance)(name=instance_path)
+    except NotFound:
         print("\nCreating an instance")
         # Create instance with given options
-        operation = instance.create(clusters=[cluster])
+        operation = client.[create_instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_create_instance)(
+            parent=project_path,
+            instance_id=instance_id,
+            instance=instance_obj,
+            clusters={cluster_id: cluster},
+        )
         # Ensure the operation completes.
         operation.result(timeout=480)
-        print("\nCreated instance: {}".format(instance_id))
+        print(f"\nCreated instance: {instance_id}")
 
 ### Ruby
 

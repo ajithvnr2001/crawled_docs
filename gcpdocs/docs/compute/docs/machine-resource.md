@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/machine-resource/
 title: Machine families resource and comparison guide \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:01.539126+00:00
+fetched_at: 2026-11-05T11:08:28.143710+00:00
 ---
 
 # Machine families resource and comparison guide  |  Compute Engine  |  Google Cloud Documentation

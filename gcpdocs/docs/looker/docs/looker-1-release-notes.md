@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-1-release-notes/
 title: 1.x Release Notes \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T22:23:03.322150+00:00
+fetched_at: 2026-11-05T10:53:24.176036+00:00
 ---
 
 # 1.x Release Notes  |  Looker  |  Google Cloud Documentation

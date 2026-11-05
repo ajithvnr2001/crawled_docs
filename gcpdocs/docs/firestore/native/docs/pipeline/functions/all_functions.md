@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/all_functions/
 title: All Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:43.966323+00:00
+fetched_at: 2026-11-05T11:08:50.589835+00:00
 ---
 
 # All Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation

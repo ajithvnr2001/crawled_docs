@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/endpoint-mapping-table/
 title: SOAR API mapping table \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:58.138774+00:00
+fetched_at: 2026-11-05T11:12:20.329919+00:00
 ---
 
 # SOAR API mapping table  |  Google Security Operations  |  Google Cloud Documentation
@@ -376,11 +376,6 @@ playbooks | /api/external/v1/playbooks/SaveLogVersionOfWorkflowDefinitions | POS
 playbooks | /api/external/v1/playbooks/SaveWorkflowDefinitions | POST | [LegacyPlaybookSaveWorkflowDefinitions](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacyPlaybooks/legacySaveWorkflowDefinitions?rep_location=us) | chronicle.googleapis.com/legacyPlaybooks.update  
 playbooks | /api/external/v1/playbooks/TestPipeExample | POST | [LegacyPlaybookTestPipeExample](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacyPlaybooks/legacyTestPipeExample?rep_location=us) | chronicle.googleapis.com/legacyPlaybooks.get  
 playbooks | /api/external/v1/playbooks/UpdateDefinitionsPriority | POST | [LegacyPlaybookUpdateDefinitionsPriority](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacyPlaybooks/legacyUpdateDefinitionsPriority?rep_location=us) | chronicle.googleapis.com/legacyPlaybooks.update  
-playbooks | Get All Playbooks | `playbooks` | `playbooks.list` |   
-playbooks | Get Playbook by ID | `playbooks/{id}` | `playbooks.get` |   
-playbooks | Create Playbook | `playbooks` | `playbooks.create` |   
-store | Get Marketplace Items | `marketplace/items` | `marketplace.items.list` |   
-store | Install Integration | `marketplace/integrations:install` | `marketplace.integrations.install` |   
 store | /api/external/v1/store/GetReportsStoreData | GET | #N/A | #N/A  
 store | /api/external/v1/store/ReinstallAllIntegrations | POST | #N/A | #N/A  
 store | /api/external/v1/store/GetIntegrationDependencies/{integrationIdentifier} | GET | [GetMarketplaceIntegration](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.marketplaceIntegrations/get?rep_location=us) | chronicle.googleapis.com/marketplaceIntegrations.get  
@@ -391,7 +386,6 @@ store | /api/external/v1/store/ExportUseCase | POST | [ExportContentPack](https:
 store | /api/external/v1/store/GetIntegrationsStoreData | GET | [ListMarketplaceIntegrations](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.marketplaceIntegrations/list?rep_location=us) | chronicle.googleapis.com/marketplaceIntegrations.get  
 store | /api/external/v1/store/GetPowerUpsStoreData | GET | [ListMarketplaceIntegrations](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.marketplaceIntegrations/list?rep_location=us) | chronicle.googleapis.com/marketplaceIntegrations.get  
 store | /api/external/v1/store/GetIntegrationFullDetails | POST | [GetMarketplaceIntegration](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.marketplaceIntegrations/get?rep_location=us) | chronicle.googleapis.com/marketplaceIntegrations.get  
-reports | List Reports | `reports` | `reports.list` |   
 reports | /api/external/v1/reports/KeepAlive | GET | #N/A | #N/A  
 reports | /api/external/v1/reports/AddOrUpdateReportSchedule | POST | [LegacyAddOrUpdateReportSchedule](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacySoarReports/legacyAddOrUpdateReportSchedule?rep_location=us) | chronicle.googleapis.com/legacySoarReports.update  
 reports | /api/external/v1/reports/AddOrUpdateReportTemplate | POST | [LegacyAddOrUpdateReportTemplate](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacySoarReports/legacyAddOrUpdateReportTemplate?rep_location=us) | chronicle.googleapis.com/legacySoarReports.update  
@@ -422,7 +416,6 @@ search | /api/external/v1/search/EntitySearchEverything | POST | [LegacyEntitySe
 search | /api/external/v1/search/GetCasesFilterUserAndRoles | POST | [LegacyGetCasesFilterUserAndRoles](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacySearches/legacyGetCasesFilterUserAndRoles?rep_location=us) | chronicle.googleapis.com/legacySearches.searchCases  
 search | /api/external/v1/search/GetCasesFilterValues | POST | [LegacyGetCasesFilterValues](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacySearches/legacyGetCasesFilterValues?rep_location=us) | chronicle.googleapis.com/legacySearches.searchCases  
 search | /api/external/v1/search/GetEntitiesFilterValues | POST | [LegacyGetEntitiesFilterValues](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacySearches/legacyGetEntitiesFilterValues?rep_location=us) | chronicle.googleapis.com/legacySearches.searchEntities  
-search | Execute Search | `search:execute` | `search.execute` |   
 settings | /api/external/v1/settings/environment-priorities | GET | [ResetWeights](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.environments/resetWeights?rep_location=us) | chronicle.googleapis.com/environments.update  
 settings | /api/external/v1/settings/environment-priorities/{environment} | PATCH | [UpdateEnvironment](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.environments/patch?rep_location=us) | chronicle.googleapis.com/environments.update  
 settings | /api/external/v1/settings/environment-priorities/{environment} | GET | [GetEnvironment](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.environments/get?rep_location=us) | chronicle.googleapis.com/environments.get  
@@ -501,14 +494,12 @@ settings | /api/external/v1/settings/GetUserProfilesByEnvironments | POST | #N/A
 settings | /api/external/v1/settings/UpdateUserImage | POST | #N/A | #N/A  
 settings | /api/external/v1/settings/GetMaximumAlertsGroupingConfiguration | GET | [LegacyGetMaximumAlertsGroupingConfig](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacyConfiguration/legacyGetMaximumAlertsGroupingConfiguration?rep_location=us) | chronicle.googleapis.com/legacyConfiguration.getMaximumAlertsGroupingConfiguration  
 settings | /api/external/v1/settings/IsPermittedToEnvironment/{environmentName} | GET | #N/A | #N/A  
-settings | Get Environments | `settings/environments` | `settings.environments.list` |   
 socroles | /api/external/v1/socroles/AddOrUpdateSocRole | POST | [CreateSocRole](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.socRoles/create?rep_location=us) | chronicle.googleapis.com/socRoles.update  
 socroles | /api/external/v1/socroles/DeleteSocRole | POST | [DeleteSocRole](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.socRoles/delete?rep_location=us) | chronicle.googleapis.com/socRoles.delete  
 socroles | /api/external/v1/socroles/GetSocRole/{id} | GET | [GetSocRole](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.socRoles/get?rep_location=us) | chronicle.googleapis.com/socRoles.get  
 socroles | /api/external/v1/socroles/GetSocRoles | GET | [ListSocRoles](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.socRoles/list?rep_location=us) | chronicle.googleapis.com/socRoles.get  
 socroles | /api/external/v1/socroles/GetSocRolesByEnvironments | POST | [ListSocRoles](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.socRoles/list?rep_location=us) | chronicle.googleapis.com/socRoles.get  
 socroles | /api/external/v1/socroles/HasAssignedUsers/{id} | GET | [GetSocRole](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.socRoles/get?rep_location=us) | chronicle.googleapis.com/socRoles.get  
-soc roles | List Roles | `auth/roles` | `auth.roles.list` |   
 store | /api/external/v1/store/SaveIntegrationConfigurationProperties | PATCH | [integrationInstances.patch](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.integrations.integrationInstances/patch) | chronicle.integrationInstances.update  
 webhooks-management | /api/external/v1/webhooks-management | POST | [UpdateWebhook](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1beta/projects.locations.instances.webhooks/patch?rep_location=us) | chronicle.googleapis.com/webhooks.update  
 webhooks-management | /api/external/v1/webhooks-management | PUT | [CreateWebhook](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1beta/projects.locations.instances.webhooks/create?rep_location=us) | chronicle.googleapis.com/webhooks.update  
@@ -519,7 +510,6 @@ webhooks-management | /api/external/v1/webhooks-management/Cards | GET | [ListWe
 webhooks-management | /api/external/v1/webhooks-management/Revoke/{identifier} | POST | [RevokeUrl](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1beta/projects.locations.instances.webhooks/revokeUrl?rep_location=us) | chronicle.googleapis.com/webhooks.update  
 webhooks-management | /api/external/v1/webhooks-management/Logs | GET | [GetWebhookLogs](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1beta/projects.locations.instances.webhooks/getLogs?rep_location=us) | chronicle.googleapis.com/webhooks.get  
 webhooks-management | /api/external/v1/webhooks-management/ExportLogs/{identifier} | GET | [ExportWebhookLogs](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1beta/projects.locations.instances.webhooks/exportLogs?rep_location=us) | chronicle.googleapis.com/webhooks.get  
-webhooks | List Webhooks | `webhooks` | `webhooks.list` |   
   
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -527,6 +517,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/
 title: Troubleshoot Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:14:25.199865+00:00
+fetched_at: 2026-11-05T11:08:21.228266+00:00
 ---
 
 # Troubleshoot Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -61,6 +61,7 @@ Status code or message | Resolution
 `429`, `RESOURCE_EXHAUSTED` | [API rate limit or quota exceeded](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#error-429)  
 `429`, `RESOURCE_EXHAUSTED`, `at capacity` | [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity)  
 `429`, `RESOURCE_EXHAUSTED`, `max_instances` | [Maximum instances exceed regional limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#max-instances-limit)  
+`500`, `INTERNAL`, `REASONING_ENGINE_PROVISIONING_FAILED` | [Environment provisioning failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#provisioning-failed)  
 `Reasoning Engine Execution failed` | [Reasoning Engine Execution failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#execution-failed)  
 `PermissionDenied` when you query an agent  | [`PermissionDenied` error when querying your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#permission-denied)  
 Empty list from `.operation_schemas()` | [Operation schemas is empty](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#operation-schemas-empty)  
@@ -114,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

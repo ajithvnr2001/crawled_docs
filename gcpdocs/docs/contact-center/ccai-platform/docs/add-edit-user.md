@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/add-edit-user/
 title: Add, view, and edit users \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:31.491473+00:00
+fetched_at: 2026-11-05T11:11:01.771209+00:00
 ---
 
 # Add, view, and edit users  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -134,7 +134,11 @@ To edit a user, follow these steps:
 
 ## Remove a user from teams
 
-To remove a user from one or more teams, follow these steps:
+In the **Edit User** pane, you can remove them from one or more teams either one at a time or all at once.
+
+### Remove a user from a single team
+
+To remove a user from a specific team, follow these steps:
 
   1. In the CCAI Platform portal, click **Settings > Users & Teams**. If you don't see the **Settings** menu, click menu **Menu**. The **Users & Teams Settings** page appears.
 
@@ -142,21 +146,44 @@ To remove a user from one or more teams, follow these steps:
 
   3. Open the **Teams** section.
 
-  4. Do one of the following:
+  4. Find the row for the team that you want to remove.
 
-     1. To remove a user from specific teams, clear the checkbox next to the teams to remove the user from.
+  5. Click the **X** at the right of that row.
 
-     2. To remove a user from all teams, click **Remove from all teams**.
+  6. Repeat for any other teams that you want to remove.
 
-  5. Click **Update**.
+  7. Click **Update** to save your changes.
 
 
 
+
+### Remove a user from all teams at once
+
+Use the **Remove from all teams** button to clear every team assigned to a user in a single step, instead of removing each team one at a time.
+
+To remove a user from all teams at once, follow these steps:
+
+  1. In the CCAI Platform portal, click **Settings > Users & Teams**. If you don't see the **Settings** menu, click menu **Menu**. The **Users & Teams Settings** page appears.
+
+  2. For the user that you want to edit, click more_horiz, and then click edit **Edit user**. The **Edit User** pane appears.
+
+  3. Open the **Teams** section.
+
+  4. Click **Remove from all teams** , located directly below the teams table. All teams are immediately cleared from the list. There is no confirmation dialog.
+
+  5. Click **Update** to save your changes.
+
+
+
+
+Clicking **Remove from all teams** only clears the list on the screen. It does not delete the user's team assignments right away. The removal is saved only when you click **Update**. If you close the form or refresh the page before clicking **Update** , none of the teams are removed and the user's original team assignments remain in place.
+
+**Important:** The **Remove from all teams** button only appears when the user is assigned to at least one team. If the user has no teams assigned, the **Teams** section shows "No teams assigned" and the button is not displayed. The button is also not available when viewing a user's teams in read-only (view) mode, since that view has no **Update** button to save the change.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

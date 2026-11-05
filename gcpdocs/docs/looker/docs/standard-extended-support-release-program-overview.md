@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/standard-extended-support-release-program-overview/
 title: Standard extended support release program overview \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:50.858579+00:00
+fetched_at: 2026-11-05T10:29:23.739248+00:00
 ---
 
 # Standard extended support release program overview  |  Looker  |  Google Cloud Documentation

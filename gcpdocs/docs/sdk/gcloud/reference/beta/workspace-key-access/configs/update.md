@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/workspace-key-access/configs/update/
 title: gcloud beta workspace-key-access configs update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:38:49.111548+00:00
+fetched_at: 2026-11-05T11:10:26.673885+00:00
 ---
 
 # gcloud beta workspace-key-access configs update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -35,12 +35,12 @@ EXAMPLES
      To replace the admin emails of config `my-config`, run: 
     
     
-    gcloud beta workspace-key-access configs update my-config --location=us-east1 --admin-emails=admin2@example.com
+    gcloud beta workspace-key-access configs update my-config --location=us --admin-emails=admin2@example.com
 
 POSITIONAL ARGUMENTS
     
 
-Config resource - Identifier. name of resource The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Config resource - Identifier. The resource name of the Config. Format: `projects/{project}/locations/{location}/configs/{config}` The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -76,7 +76,7 @@ FLAGS
     
 
 `--admin-emails`=[`ADMIN_EMAILS`,…]
-     Email addresses of administrators for this workspace configuration. 
+     Email addresses of administrators for this Workspace Key Access config. 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
 `--kacls-owner-domains`=[`KACLS_OWNER_DOMAINS`,…]
@@ -93,7 +93,7 @@ Update annotations.
 At most one of these can be specified: 
 
 `--annotations`=[`ANNOTATIONS`,…]
-     Set annotations to new value. Annotations as key value pairs. 
+     Set annotations to new value. Annotations as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -117,7 +117,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-annotations`=[`UPDATE_ANNOTATIONS`,…]
-     Update annotations value or add key value pair. Annotations as key value pairs. 
+     Update annotations value or add key value pair. Annotations as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -257,7 +257,7 @@ Update labels.
 At most one of these can be specified: 
 
 `--labels`=[`LABELS`,…]
-     Set labels to new value. Labels as key value pairs. 
+     Set labels to new value. Labels as key-value pairs. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -281,7 +281,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-labels`=[`UPDATE_LABELS`,…]
-     Update labels value or add key value pair. Labels as key value pairs. 
+     Update labels value or add key value pair. Labels as key-value pairs. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -327,7 +327,7 @@ Update tags.
 At most one of these can be specified: 
 
 `--tags`=[`TAGS`,…]
-     Set tags to new value. Tag bindings as key value pairs. 
+     Set tags to new value. Tag bindings as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -351,7 +351,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-tags`=[`UPDATE_TAGS`,…]
-     Update tags value or add key value pair. Tag bindings as key value pairs. 
+     Update tags value or add key value pair. Tag bindings as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -406,6 +406,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

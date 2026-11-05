@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-cluster/
 title: Create a cluster \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:19.313414+00:00
+fetched_at: 2026-11-05T11:12:18.024929+00:00
 ---
 
 # Create a cluster  |  Bigtable  |  Google Cloud Documentation
@@ -228,22 +228,34 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.api_core.exceptions import NotFound
+    
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableInstanceAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html)()
+    instance_path = client.[instance_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_instance_path)(project_id, instance_id)
+    cluster_path = client.[cluster_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_cluster_path)(project_id, instance_id, cluster_id)
+    
     print("\nListing clusters...")
-    for cluster in instance.list_clusters()[0]:
-        print(cluster.cluster_id)
-    cluster = instance.cluster(
-        cluster_id,
-        location_id=location_id,
-        serve_nodes=serve_nodes,
-        default_storage_type=storage_type,
+    clusters_response = client.[list_clusters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_list_clusters)(parent=instance_path)
+    for cluster in clusters_response.clusters:
+        print(cluster.name.split("/")[-1])
+    
+    new_cluster = bigtable_admin_v2.[Cluster](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.Cluster.html)(
+        location=client.[common_location_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_common_location_path)(project_id, "us-central1-a"),
+        serve_nodes=1,
+        default_storage_type=bigtable_admin_v2.[StorageType](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.StorageType.html).SSD,
     )
-    if cluster.exists():
-        print("\nCluster not created, as {} already exists.".format(cluster_id))
-    else:
-        operation = cluster.create()
+    try:
+        client.[get_cluster](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_get_cluster)(name=cluster_path)
+        print(f"\nCluster not created, as {cluster_id} already exists.")
+    except NotFound:
+        operation = client.[create_cluster](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_create_cluster)(
+            parent=instance_path, cluster_id=cluster_id, cluster=new_cluster
+        )
         # Ensure the operation completes.
         operation.result(timeout=480)
-        print("\nCluster created: {}".format(cluster_id))
+        print(f"\nCluster created: {cluster_id}")
 
 ### Ruby
 

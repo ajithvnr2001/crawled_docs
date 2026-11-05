@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/download-and-deploy/
 title: Download and deploy Terraform \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:44.285480+00:00
+fetched_at: 2026-11-05T11:10:59.046575+00:00
 ---
 
 # Download and deploy Terraform  |  Application Design Center  |  Google Cloud Documentation
@@ -162,10 +162,11 @@ Replace the following:
      * `SPACE`: Your space ID.
      * `PROJECT`: Your [management project](https://docs.cloud.google.com/application-design-center/docs/key-concepts#mgmt-project) ID.
      * `LOCATION`: Your location ID.
-     * `DEVELOPER_CONNECT_EXPORT_CONFIG_DIR`: The directory relative to your GitHub repository.
+     * `DEVELOPER_CONNECT_EXPORT_CONFIG_REPO_URI`: The Developer Connect repository resource path that you copied in Connect to your repository, such as `projects/my-project/locations/us-central1/connections/my-connection/gitRepositoryLinks/my-repo`. The repository link must be in the same location (`LOCATION`) as your space.
+     * `DEVELOPER_CONNECT_EXPORT_CONFIG_DIR`: The directory path relative to the root of your GitHub repository, such as `terraform/my-template` (or `/` for the root directory).
      * `DEVELOPER_CONNECT_EXPORT_CONFIG_BRANCH`: The branch in your GitHub repository.
 
-For more information, see [gcloud design-center spaces application-templates generate](https://docs.cloud.google.com/sdk/gcloud/reference/design-center/spaces/application-templates/generate)
+For more information, see the [`gcloud design-center spaces application-templates generate` command](https://docs.cloud.google.com/sdk/gcloud/reference/design-center/spaces/application-templates/generate).
 
   4. View your repository to verify that the template was exported successfully.
 
@@ -215,10 +216,11 @@ Replace the following:
      * `SPACE`: Your space ID.
      * `PROJECT`: Your [management project](https://docs.cloud.google.com/application-design-center/docs/key-concepts#mgmt-project) ID.
      * `LOCATION`: Your location ID.
-     * `DEVELOPER_CONNECT_EXPORT_CONFIG_DIR`: The directory relative to your GitHub repository.
+     * `DEVELOPER_CONNECT_EXPORT_CONFIG_REPO_URI`: The Developer Connect repository resource path that you copied in Connect to your repository, such as `projects/my-project/locations/us-central1/connections/my-connection/gitRepositoryLinks/my-repo`. The repository link must be in the same location (`LOCATION`) as your space.
+     * `DEVELOPER_CONNECT_EXPORT_CONFIG_DIR`: The directory path relative to the root of your GitHub repository, such as `terraform/my-app` (or `/` for the root directory).
      * `DEVELOPER_CONNECT_EXPORT_CONFIG_BRANCH`: The branch in your GitHub repository.
 
-For more information, see [gcloud design-center spaces applications generate](https://docs.cloud.google.com/sdk/gcloud/reference/design-center/spaces/applications/generate)
+For more information, see the [`gcloud design-center spaces applications generate` command](https://docs.cloud.google.com/sdk/gcloud/reference/design-center/spaces/applications/generate).
 
   4. View your repository to verify that the application was exported successfully.
 
@@ -237,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

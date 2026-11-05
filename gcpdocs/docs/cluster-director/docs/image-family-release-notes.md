@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/image-family-release-notes/
 title: Image family release notes \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:49.989257+00:00
+fetched_at: 2026-11-05T11:12:33.702103+00:00
 ---
 
 # Image family release notes  |  Cluster Director  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This document lists the available operating system (OS) image families that you can use in Cluster Director, their end of support (EOS) dates, and their patch release notes.
 
-To help ensure that your clusters run smoothly and receive security updates, you must periodically update the node sets in your clusters to use a supported image family. For more information about the lifecycle of an image family in Cluster Director, see [Image family lifecycle](https://docs.cloud.google.com/cluster-director/docs/os-images#lifecycle).
+To help ensure that your clusters remain operational and receive security updates, you must update the nodesets in your clusters to use a supported image family. For more information about the lifecycle of an image family in Cluster Director, see [Image family lifecycle](https://docs.cloud.google.com/cluster-director/docs/os-images#lifecycle).
 
 ## Supported image families
 
@@ -31,6 +31,7 @@ The following table lists the supported image families for the compute and login
 
 Image family | Supported machine series | End of support | Release notes  
 ---|---|---|---  
+`a4x-max-ubuntu-2404-arm64-nvidia-580-slurm-2505-v20260731` | A4X Max | May 15, 2027 | View notes  
 `a4x-ubuntu-2404-arm64-nvidia-595-slurm-2605-v20260903` | A4X and C4A | September 15, 2027 | View notes  
 `a4x-ubuntu-2404-arm64-nvidia-580-slurm-2505-v20251118` | A4X and C4A | May 15, 2027 | View notes  
 `common-ubuntu-2404-amd64-nvidia-595-slurm-2605-v20260903` | A4, A3 Ultra, and N2 | September 15, 2027 | View notes  
@@ -40,10 +41,22 @@ Image family | Supported machine series | End of support | Release notes
 `a3m-ubuntu-2204-amd64-nvidia-580-slurm-2505-v20260714` | A3 Mega | May 15, 2027 | View notes  
 `a3m-ubuntu-2204-amd64-nvidia-570-slurm-2505-v20251114` | A3 Mega | May 15, 2027 | View notes  
 `a3m-ubuntu-2204-amd64-nvidia-570-slurm-2505-v20250918` | A3 Mega | May 15, 2027 | View notes  
+`tpu-v7x-ubuntu2404-slurm2605-v20260902` |  TPU7x ([Preview](https://cloud.google.com/products#product-launch-stages)) and N2  | September 15, 2027 | View notes  
+`tpu-v6e-v5p-ubuntu2204-slurm2605-v20260902` |  TPU v6e ([Preview](https://cloud.google.com/products#product-launch-stages)), TPU v5p ([Preview](https://cloud.google.com/products#product-launch-stages)), and N2  | September 15, 2027 | View notes  
   
-## Image families for A4X and C4A
+## Image families for A4X Max, A4X, and C4A
 
-The following sections list the patch release notes for the image families that support the A4X and C4A machine series.
+The following sections list the patch release notes for the image families that support the A4X Max, A4X, and C4A machine series.
+
+### `a4x-max-ubuntu-2404-arm64-nvidia-580-slurm-2505-v20260731`
+
+The following list details the patch release history for the `a4x-max-ubuntu-2404-arm64-nvidia-580-slurm-2505-v20260731` image family:
+
+  * **v00 (July 31, 2026)** :
+
+    * Initial release for A4X Max instances with Ubuntu 24.04 LTS, NVIDIA driver version 580, CUDA 13, and Slurm 25.05.
+
+
 
 ### `a4x-ubuntu-2404-arm64-nvidia-595-slurm-2605-v20260903`
 
@@ -209,10 +222,34 @@ The following list details the patch release history for the `a3m-ubuntu-2204-am
 
 
 
+## Image families for TPU7x, TPU v6e, TPU v5p, and N2
+
+The following sections list the patch release notes for the image families that support the TPU7x, TPU v6e, TPU v5p, and N2 machine series.
+
+### `tpu-v7x-ubuntu2404-slurm2605-v20260902`
+
+The following list details the patch release history for the `tpu-v7x-ubuntu2404-slurm2605-v20260902` image family:
+
+  * **v00 (September 2, 2026)** :
+
+    * Initial release for TPU7x and N2 instances with Ubuntu 24.04 LTS and Slurm 26.05.
+
+
+
+### `tpu-v6e-v5p-ubuntu2204-slurm2605-v20260902`
+
+The following list details the patch release history for the `tpu-v6e-v5p-ubuntu2204-slurm2605-v20260902` image family:
+
+  * **v00 (September 2, 2026)** :
+
+    * Initial release for TPU v6e, TPU v5p, and N2 instances with Ubuntu 22.04 LTS and Slurm 26.05.
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

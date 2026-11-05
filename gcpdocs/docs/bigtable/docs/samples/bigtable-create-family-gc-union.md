@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-union/
 title: Union garbage-collection policy \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:05.580297+00:00
+fetched_at: 2026-11-05T11:12:25.978140+00:00
 ---
 
 # Union garbage-collection policy  |  Bigtable  |  Google Cloud Documentation
@@ -261,22 +261,34 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.protobuf import duration_pb2
+    
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableTableAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html)()
+    table_path = client.[table_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_table_path)(project_id, instance_id, table_id)
+    
     print("Creating column family cf3 with union GC rule...")
     # Create a column family with GC policy to drop data that matches
     # at least one condition.
     # Define a GC rule to drop cells older than 5 days or not the
     # most recent version
-    union_rule = column_family.GCRuleUnion(
-        [
-            column_family.MaxAgeGCRule(datetime.timedelta(days=5)),
-            column_family.MaxVersionsGCRule(2),
-        ]
+    union_rule = bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(
+        union=bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html).[Union](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.Union.html)(
+            rules=[
+                bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(
+                    max_age=duration_pb2.Duration(seconds=5 * 86400)
+                ),
+                bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(max_num_versions=2),
+            ]
+        )
     )
-    
-    column_family3 = table.column_family("cf3", union_rule)
-    column_family3.create()
+    cf3 = bigtable_admin_v2.[ColumnFamily](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ColumnFamily.html)(gc_rule=union_rule)
+    mod3 = bigtable_admin_v2.[ModifyColumnFamiliesRequest](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.html).[Modification](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.Modification.html)(
+        id="cf3", create=cf3
+    )
+    client.[modify_column_families](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_modify_column_families)(name=table_path, modifications=[mod3])
     print("Created column family cf3 with Union GC rule")
-    
 
 ### Ruby
 

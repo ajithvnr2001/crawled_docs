@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/run/instances/dev/sync/
 title: gcloud alpha run instances dev sync \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:16.401212+00:00
+fetched_at: 2026-11-05T11:10:37.588855+00:00
 ---
 
 # gcloud alpha run instances dev sync  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -152,6 +152,15 @@ Traffic to other Cloud Run services might require additional configuration. See 
 
 
 
+`cloud-storage-disk`: A volume representing a Cloud Storage bucket mounted as a block disk. Additional keys: 
+
+  * bucket: (required) the name of the bucket to use as the source of this volume 
+  * mount-path: (optional) The path at which the volume should be mounted. The `mount-path` parameter is only supported for single container services which do not make use of the --container flag. For multi-container services, specify the `mount-path` parameter under the \--add-volume-mount flag. 
+  * readonly: (optional) A boolean. If true, this volume will be read-only from all mounts. 
+  * size: (optional) A quantity representing the amount of disk space allocated to this volume, such as "10Gi" or "100G". Defaults to 10Gi if omitted. 
+
+
+
 `cloudsql`: Represents a Cloud SQL instance as a volume. Additional keys: 
 
   * instances: (required) The name of the Cloud SQL instances to mount. Must be in the form project_id:region:instance_id and separated by semicolons. 
@@ -234,7 +243,7 @@ For example, to set a probe with 10s timeout and HTTP probe requests sent to 808
 To remove existing probe: 
     
     
-    --startup-probe=""
+    --startup-probe=&quot;"
 
 At most one of these can be specified: 
 
@@ -318,6 +327,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

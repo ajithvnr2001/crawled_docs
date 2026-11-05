@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-scan-all/
 title: Read all \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:09.133783+00:00
+fetched_at: 2026-11-05T11:12:24.770719+00:00
 ---
 
 # Read all  |  Bigtable  |  Google Cloud Documentation
@@ -101,11 +101,9 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     
     print("Scanning for all greetings:")
-    partial_rows = table.read_rows(filter_=row_filter)
-    
-    for row in partial_rows:
-        column_family_id_str = column_family_id.decode("utf-8")
-        cell = row.cells[column_family_id_str][column][0]
+    query = bigtable.data.ReadRowsQuery(row_filter=row_filter)
+    for row in table.read_rows_stream(query):
+        cell = row.cells[0]
         print(cell.value.decode("utf-8"))
 
 ## What's next

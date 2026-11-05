@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/developer-environment/
 title: Set up a local development environment \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:50.071336+00:00
+fetched_at: 2026-11-05T11:11:03.182382+00:00
 ---
 
 # Set up a local development environment  |  Get started  |  Google Cloud Documentation
@@ -74,20 +74,20 @@ If you use an agent such as Claude Code CLI, Antigravity CLI, or Codex CLI to as
 
 Install the `google-cloud-developer` plugin using the following instructions based on your agent.
 
-### Antigravity CLI
+### Antigravity
 
-  1. Install the plugin by specifying its location in the [Google Agent Skills](https://g.dev/cloud/agent-plugins) repository:
-         
-         agy plugin install https://github.com/google/skills/plugins/cloud/google-cloud-developer
-         
+Install the plugin from the Antigravity Marketplace:
 
-  2. Enable the Developer Knowledge API in your Google Cloud project by using the gcloud CLI:
-         
-         gcloud services enable developerknowledge.googleapis.com --project=YOUR_PROJECT_ID
-         
+  1. In Antigravity, go to Customizations > Marketplace and search for "Google Cloud Developer".
+  2. Click the **Add** button.
 
 
 
+Alternatively, install the plugin using the Antigravity CLI:
+    
+    
+    agy plugin install google-cloud-developer
+    
 
 ### Claude Code CLI
 
@@ -163,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

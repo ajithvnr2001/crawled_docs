@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/bigtable/manage-data-agents/
 title: Manage context sets in Bigtable Studio \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:41.829050+00:00
+fetched_at: 2026-11-05T11:08:27.197440+00:00
 ---
 
 # Manage context sets in Bigtable Studio  |  Data Agents  |  Google Cloud Documentation

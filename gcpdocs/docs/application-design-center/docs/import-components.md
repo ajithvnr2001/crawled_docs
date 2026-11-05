@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/import-components/
 title: Import components \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:07.026690+00:00
+fetched_at: 2026-11-05T11:10:58.818179+00:00
 ---
 
 # Import components  |  Application Design Center  |  Google Cloud Documentation
@@ -237,8 +237,7 @@ For more information, see [gcloud design-center spaces application-templates cre
          gcloud design-center spaces shared-templates list \
            --project=PROJECT \
            --location=LOCATION \
-           --space=SPACE \
-           --uri
+           --space=SPACE
          
 
 Replace the following:
@@ -299,7 +298,7 @@ For more information, see [gcloud design-center spaces application-templates com
            --space=SPACE \
            --application-template=APPLICATION_TEMPLATE \
            --component=COMPONENT \
-           --destination-component-uri=SHARED_TEMPLATE_URI_2
+           --destination-component-uri=COMPONENT_2
          
 
 Replace the following:
@@ -308,8 +307,9 @@ Replace the following:
      * `PROJECT`: Your [management project](https://docs.cloud.google.com/application-design-center/docs/key-concepts#mgmt-project) ID.
      * `LOCATION`: Your location ID.
      * `SPACE`: Your space ID.
-     * `APPLICATION_TEMPLATE`: The template ID for the application template where you are adding the component.
-     * `SHARED_TEMPLATE_URI_2`: The second component shared template URI. For example, `projects/my-project/locations/us-central1/spaces/my-space/sharedTemplates/my-shared-template/revisions/rev1`.
+     * `APPLICATION_TEMPLATE`: The template ID for the application template where you're adding the connection.
+     * `COMPONENT`: The source component ID.
+     * `COMPONENT_2`: The destination component ID.
 
 For more information, see [gcloud design-center spaces application-templates components connections create](https://docs.cloud.google.com/sdk/gcloud/reference/design-center/spaces/application-templates/components/connections/create).
 
@@ -328,6 +328,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/compute-area/choose-compute-options/
 title: Choose compute options \u00a0|\u00a0 Compute \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:50:53.408725+00:00
+fetched_at: 2026-11-05T11:12:31.222891+00:00
 ---
 
 # Choose compute options  |  Compute  |  Google Cloud Documentation
@@ -22,17 +22,20 @@ Send feedback
 
 This document compares core compute options in Google Cloud to help you select the best solution or tool for your application's architecture, scaling, and other requirements.
 
-To deploy workloads on Google Cloud, you can choose from a range of solutions or tools that balance your control over infrastructure with automated management by Google. The compute option you select can significantly impact performance, cost, and daily maintenance effort. To better understand these options before you choose one, see [Google compute overview](https://docs.cloud.google.com/docs/compute-area/overview).
+To deploy workloads on Google Cloud, you can choose from a range of solutions or tools that balance your control over infrastructure with automated management by Google. The compute option that you select affects performance, cost, and daily maintenance. To better understand these options before you choose one, see [Google compute overview](https://docs.cloud.google.com/docs/compute-area/overview).
 
-**Note:** If you're new to running artificial intelligence (AI) or machine learning (ML) workloads in Google Cloud, then we recommend that you explore AI Hypercomputer for AI or ML. This integrated architecture combines purpose-built hardware, open software, and flexible consumption models that are specifically designed for training, tuning, or inference workloads.
+**Note:** If you're new to artificial intelligence (AI) or machine learning (ML) workloads, or want to review all AI and ML options in Google Cloud, then Google recommends that you explore AI Hypercomputer. This integrated architecture combines purpose-built hardware, open software, and flexible consumption options that are designed for training, tuning, or inference workloads.
 
 ## Choose a compute option
 
 The best compute solution or tool for your workload might depend on several factors. For example, if you want to migrate your VMware environment to Google Cloud, then use VMware Engine.
 
-To help you navigate trade-offs between infrastructure management, containers, and Compute Engine instances, use the following flowchart. If you want to quickly compare features across compute options, then see the comparison table in this document.
+To help you navigate trade-offs between infrastructure management, containers, and Compute Engine instances, use the following flowchart. If you want to compare features across compute options, then see the comparison table in this document.
 
-[ ![A flowchart to help you choose a compute option in Google Cloud.](https://docs.cloud.google.com/static/docs/images/compute/choose-compute-option.png)](https://docs.cloud.google.com/static/docs/images/compute/choose-compute-option.png)
+[ ![Decision flowchart that maps infrastructure management,
+            orchestration, and container needs to Cloud Run,
+            Compute Engine, Batch, GKE,
+            Cluster Director, or Cluster Toolkit.](https://docs.cloud.google.com/static/docs/images/compute/choose-compute-option.png)](https://docs.cloud.google.com/static/docs/images/compute/choose-compute-option.png)
 
 The questions in the preceding flowchart are the following:
 
@@ -88,7 +91,7 @@ For more information, see [Get started with Batch](https://docs.cloud.google.com
 
 ### Use Cloud Run
 
-Choose Cloud Run to deploy containerized web applications or jobs without server administration. Cloud Run is a serverless platform that lets you run containerized applications without server or cluster management. Google handles all infrastructure management for you, including the OS, kernel, network setup, and capacity management.
+To deploy containerized web applications or jobs without server administration, choose Cloud Run. Cloud Run is a serverless platform that lets you run containerized applications without server or cluster management. Google handles all infrastructure management for you, including the OS, kernel, network setup, and capacity management.
 
 Cloud Run offers the following features:
 
@@ -105,15 +108,15 @@ For more information, see [What is Cloud Run](https://docs.cloud.google.com/run/
 
 ### Use Cluster Director
 
-Choose Cluster Director if you want to train AI models or execute simulation jobs scheduled by Slurm without network setup or cluster OS configuration tasks. Cluster Director is a managed service that automates deployment and lifecycle management for AI, ML, and HPC clusters.
+If you want to train AI models or run simulation jobs that Slurm schedules without network or OS setup, then choose Cluster Director. Cluster Director is a managed service that automates deployment and lifecycle management for AI, ML, and HPC clusters.
 
 Cluster Director provides the following capabilities:
 
-  * **Accelerator support** : Cluster Director supports NVIDIA GPUs, including GB300 Ultra Superchips, GB200 Superchips, B200, H200, and H100, for AI, ML, and HPC workloads. Cluster Director doesn't support Google TPUs.
+  * **Accelerator support** : Cluster Director supports NVIDIA GPUs (namely, GB300 Ultra Superchips, GB200 Superchips, B200, H200, and H100) and Google TPUs ([Preview](https://cloud.google.com/products#product-launch-stages); namely, TPU7x, TPU v6e, and TPU v5p) for AI, ML, and HPC workloads.
 
-  * **OS and kernel control** : Google manages the cluster lifecycle and sets up a custom Ubuntu OS designed for ML. The service provides a ready-to-use environment, complete with login nodes, compute nodesets, and deployment templates built for AI workloads.
+  * **OS and kernel control** : Google manages the cluster lifecycle and sets up a custom Ubuntu OS that is designed for ML. The service provides a ready-to-use environment, complete with login nodes, compute nodesets, and deployment templates that are built for AI workloads.
 
-  * **Orchestration** : to scale capacity, Slurm creates nodes when CPU consumption increases, and deletes nodes when they remain idle for a period of time to prevent unnecessary charges.
+  * **Orchestration** : to scale capacity, Slurm creates nodes based on queued job requests, and deletes nodes when they remain idle for a period of time to prevent unnecessary charges.
 
 
 
@@ -122,7 +125,7 @@ For more information, see [Cluster Director overview](https://docs.cloud.google.
 
 ### Use Cluster Toolkit
 
-Choose Cluster Toolkit if you want to use automated deployment templates while maintaining administrative control over your OS and software stack. Cluster Toolkit is an open-source tool used to provision and configure AI, ML, and HPC clusters on Google Cloud.
+If you want to use automated deployment templates and maintain administrative control over your OS and software stack, then choose Cluster Toolkit. Cluster Toolkit is an open-source tool that you use to provision and configure AI, ML, and HPC clusters on Google Cloud.
 
 Cluster Toolkit offers the following features:
 
@@ -139,7 +142,7 @@ For more information, see [Cluster Toolkit overview](https://docs.cloud.google.c
 
 ### Use Compute Engine
 
-Choose Compute Engine if your applications require custom architectural configurations, specialized kernel settings, or administrative control over virtual servers. Compute Engine is Google Cloud's core Infrastructure as a Service (IaaS) platform, which lets you create and run VM and bare metal instances on Google's physical hardware.
+If your applications require custom architectural configurations, specialized kernel settings, or administrative control over virtual servers, then choose Compute Engine. Compute Engine is Google Cloud's core Infrastructure as a Service (IaaS) platform, which lets you create and run VM and bare metal instances on Google's physical hardware.
 
 Compute Engine provides the following capabilities:
 
@@ -156,7 +159,7 @@ For more information, see [Compute Engine overview](https://docs.cloud.google.co
 
 ### Use GKE
 
-Choose Google Kubernetes Engine (GKE) when you need a robust, container-based orchestration platform for distributed applications or general-purpose microservices. GKE is an industry-standard managed Kubernetes platform to deploy, scale, and orchestrate containerized applications. Google manages the Kubernetes control plane for security and system availability.
+When you need a container-based orchestration platform for distributed applications or general-purpose microservices, choose Google Kubernetes Engine (GKE). GKE is an industry-standard managed Kubernetes platform to deploy, scale, and orchestrate containerized applications. Google manages the Kubernetes control plane for security and system availability.
 
 GKE offers the following features:
 
@@ -164,7 +167,7 @@ GKE offers the following features:
 
   * **OS and kernel control** : Google manages the OS in both Autopilot and Standard modes. In Autopilot mode, Google manages cluster nodes and capacity adjustments without manual intervention. In Standard mode, you manage cluster node pools.
 
-  * **Orchestration** : to adjust capacity as demand changes, GKE adds or removes containers with Horizontal and Vertical Pod Autoscalers (HPA and VPA), and adds or removes nodes with the cluster autoscaler. GKE also orchestrates batch jobs through Kueue.
+  * **Orchestration** : to adjust capacity as demand changes, GKE adds or removes containers with Horizontal and Vertical Pod Autoscalers (HPA and VPA), and adds or removes nodes with the cluster autoscaler. GKE also orchestrates batch jobs through [Kueue](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/kueue-intro), a Kubernetes-native job queue controller.
 
 
 
@@ -173,7 +176,7 @@ For more information, see [GKE overview](https://docs.cloud.google.com/kubernete
 
 ### Use VMware Engine
 
-Choose VMware Engine to migrate your on-premises VMware workloads to Google Cloud infrastructure with minimal operational changes. VMware Engine is a managed service that lets you run VMware virtual machines on Google hardware without application modifications.
+To migrate your on-premises VMware workloads to Google Cloud infrastructure with minimal operational changes, choose VMware Engine. VMware Engine is a managed service that lets you run VMware virtual machines on Google hardware without application modifications.
 
 VMware Engine provides the following capabilities:
 
@@ -200,15 +203,15 @@ Compute option | GPUs | TPUs | OS and kernel control | Orchestration | Scaling
 ---|---|---|---|---|---  
 **Batch** | Up to NVIDIA RTX PRO 6000 | No | Google managed | Job queue | Automatic based on queued jobs  
 **Cloud Run** | NVIDIA RTX PRO 6000 Blackwell and L4 | No | Google managed | Serverless | Automatic based on requests or CPU consumption  
-**Cluster Director** | NVIDIA GB300 Ultra Superchips, GB200 Superchips, B200, H200, and H100 | No | Google managed (custom Ubuntu) | Slurm | Automatic based on CPU consumption  
+**Cluster Director** | NVIDIA GB300 Ultra Superchips, GB200 Superchips, B200, H200, and H100 | Google TPU7x, TPU v6e, and TPU v5p ([Preview](https://cloud.google.com/products#product-launch-stages)) | Google managed (custom Ubuntu) | Slurm | Automatic based on queued job requests  
 **Cluster Toolkit** | All available NVIDIA GPUs | All available Google TPUs | Self-managed | Automated configuration files (IaC) | Customizable by using MIGs or GKE tools  
 **Compute Engine** | All available NVIDIA GPUs | All available Google TPUs | Self-managed | Manual | Manual or automatic by using MIGs  
 **Google Kubernetes Engine (GKE)** | All available NVIDIA GPUs | All available Google TPUs | Google managed (Autopilot) or semi-managed (Standard) | Kubernetes | Automatic pod and node scaling  
 **VMware Engine** | No | No | Google managed | VMware platform | Manual by using ESXi nodes  
   
-## Explore AI Hypercomputer capabilities for AI and ML
+## Explore AI Hypercomputer for AI and ML
 
-AI Hypercomputer is an integrated architecture that combines purpose-built hardware, open software, and flexible consumption models. This architecture is specifically designed to boost your ML productivity and maximize _goodput_ , the rate of useful data transferred, for demanding AI workloads.
+AI Hypercomputer is an integrated architecture that combines purpose-built hardware, open software, and flexible consumption models. This architecture is designed to boost your ML productivity and maximize _goodput_ , the rate of useful data that is transferred, for demanding AI workloads.
 
 AI Hypercomputer provides the following capabilities:
 
@@ -231,6 +234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

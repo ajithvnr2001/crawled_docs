@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset/
 title: Create a dataset for training forecast models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:53.723796+00:00
+fetched_at: 2026-11-05T11:08:58.851043+00:00
 ---
 
 # Create a dataset for training forecast models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

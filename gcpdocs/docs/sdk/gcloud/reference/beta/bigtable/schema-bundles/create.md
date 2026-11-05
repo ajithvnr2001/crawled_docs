@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/bigtable/schema-bundles/create/
 title: gcloud beta bigtable schema-bundles create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:10:14.185388+00:00
+fetched_at: 2026-11-05T11:10:35.490113+00:00
 ---
 
 # gcloud beta bigtable schema-bundles create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta bigtable schema-bundles create - create a new Bigtable schema bundle
 SYNOPSIS
     
 
-`gcloud beta bigtable schema-bundles create` (`SCHEMA_BUNDLE` : `--instance`=`INSTANCE` `--table`=`TABLE`) `--proto-descriptors-file`=`PROTO_DESCRIPTORS_FILE` [`--async`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta bigtable schema-bundles create` (`SCHEMA_BUNDLE` : `--instance`=`INSTANCE` `--table`=`TABLE`) (`--avro-schema-path`=`AVRO_SCHEMA_PATH` | `--proto-descriptors-file`=`PROTO_DESCRIPTORS_FILE`) [`--async`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Create a new Bigtable schema bundle. 
 EXAMPLES
@@ -36,6 +36,11 @@ EXAMPLES
     
     
     gcloud beta bigtable schema-bundles create my-schema-bundle --instance=test-instance --table=test-table --proto-descriptors-file=my-descriptor-file.pb
+
+To create the same schema bundle using the Avro schema file `my-schema-file.avsc`: 
+    
+    
+    gcloud beta bigtable schema-bundles create my-schema-bundle --instance=test-instance --table=test-table --avro-schema-path=my-schema-file.avsc
 
 POSITIONAL ARGUMENTS
     
@@ -86,6 +91,8 @@ REQUIRED FLAGS
 
 The schema to include in the bundle. Exactly one of these must be specified: 
 
+`--avro-schema-path`=`AVRO_SCHEMA_PATH`
+     Path to a JSON-formatted Avro schema file (`.avsc` or `.json`), or to a directory that contains one or more of these files. If specified, the schema bundle contains the Avro schemas. Each file must contain a valid, self-contained Avro schema, as described in <https://avro.apache.org/docs/1.8.1/spec.html>. 
 `--proto-descriptors-file`=`PROTO_DESCRIPTORS_FILE`
      Path of a file that contains a protobuf-serialized `google.protobuf.FileDescriptorSet` message. If specified, the schema bundle contains the protobuf schema. To generate the file, install and run `protoc` with the following command: 
     
@@ -119,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-22 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

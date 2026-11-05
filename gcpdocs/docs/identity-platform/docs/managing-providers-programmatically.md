@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/managing-providers-programmatically/
 title: Managing SAML and OIDC providers programmatically \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:48.182145+00:00
+fetched_at: 2026-11-05T11:08:37.159375+00:00
 ---
 
 # Managing SAML and OIDC providers programmatically  |  Identity Platform  |  Google Cloud Documentation

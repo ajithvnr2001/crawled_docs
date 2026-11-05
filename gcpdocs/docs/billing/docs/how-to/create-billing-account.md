@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/how-to/create-billing-account/
 title: Create a new self-serve Cloud Billing account \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:20:51.692326+00:00
+fetched_at: 2026-11-05T11:09:15.324542+00:00
 ---
 
 # Create a new self-serve Cloud Billing account  |  Google Cloud Documentation

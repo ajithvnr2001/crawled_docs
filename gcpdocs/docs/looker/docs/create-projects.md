@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/create-projects/
 title: Creating a new LookML project \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:58.173561+00:00
+fetched_at: 2026-11-05T10:53:52.314687+00:00
 ---
 
 # Creating a new LookML project  |  Looker  |  Google Cloud Documentation

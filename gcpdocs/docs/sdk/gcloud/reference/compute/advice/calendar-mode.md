@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/compute/advice/calendar-mode/
 title: gcloud compute advice calendar-mode \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:07:54.961508+00:00
+fetched_at: 2026-11-05T11:09:50.380555+00:00
 ---
 
 # gcloud compute advice calendar-mode  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -61,8 +61,6 @@ This flag argument must be specified if any of the other arguments in this group
 `--tpu-version`=`TPU_VERSION`
      The version of Cloud TPU to reserve. `TPU_VERSION` must be one of: 
 
-`TPU7X`
-     Cloud TPU v7x 
 `V5E`
      Cloud TPU v5e Lite 
 `V5P`
@@ -82,7 +80,9 @@ This flag argument must be specified if any of the other arguments in this group
     Define individual instance properties for the specific SKU reservation.
 
 `--machine-type`=`MACHINE_TYPE`
-     The type of machine (name only) that has a fixed number of vCPUs and a fixed amount of memory. You can also specify a custom machine type by using the pattern `custom-number_of_CPUs-amount_of_memory`-for example, `custom-32-29440`. 
+     The predefined machine type for which you want to view the future availability. Custom machine types aren't supported. 
+
+Different reservation types restrict the available machine series. To review the machine series and types that each reservation type supports, see <https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type#comparison>
 
 This flag argument must be specified if any of the other arguments in this group are specified. 
 
@@ -182,6 +182,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/mfa/
 title: Adding multi-factor authentication to your web app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:25.168748+00:00
+fetched_at: 2026-11-05T08:23:02.695113+00:00
 ---
 
 # Adding multi-factor authentication to your web app  |  Identity Platform  |  Google Cloud Documentation
@@ -206,7 +206,7 @@ After `render()` resolves, you get the reCAPTCHA's widget ID, which you can use 
     var recaptchaResponse = grecaptcha.getResponse(window.recaptchaWidgetId);
     
 
-RecaptchaVerifier abstracts this logic away with the [verify](https://firebase.google.com/docs/reference/js/auth.recaptchaverifier.md#recaptchaverifierverify) method, so you need not handle the `grecaptcha` variable directly.
+RecaptchaVerifier abstracts this logic away with the [verify](https://firebase.google.com/docs/reference/js/auth.recaptchaverifier#recaptchaverifierverify) method, so you need not handle the `grecaptcha` variable directly.
 
 ## Enrolling a second factor
 
@@ -751,6 +751,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

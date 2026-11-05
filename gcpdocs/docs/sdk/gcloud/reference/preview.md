@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/
 title: gcloud preview \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T12:36:40.974107+00:00
+fetched_at: 2026-11-05T11:10:19.315795+00:00
 ---
 
 # gcloud preview  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -37,15 +37,15 @@ GLOBAL FLAGS
 `--account`=`ACCOUNT`
      Google Cloud user account to use for invocation. Overrides the default `core/account` property value for this command invocation. 
 `--billing-project`=`BILLING_PROJECT`
-     The Google Cloud project that will be charged quota for operations performed in `[gcloud](https://docs.cloud.google.com/sdk/gcloud/reference)`. If you need to operate on one project, but need quota against a different project, you can use this flag to specify the billing project. If both `billing/quota_project` and `--billing-project` are specified, `--billing-project` takes precedence. Run `$ [gcloud config set](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) --help` to see more information about `billing/quota_project`. 
+     The Google Cloud project that will be charged quota for operations performed in `[gcloud](https://docs.cloud.google.com/sdk/gcloud/reference)`. You can use this flag to specify the billing project when you need to operate on one project, but need quota against a different project. If both `billing/quota_project` and `--billing-project` are specified, `--billing-project` takes precedence. Run `$ [gcloud config set](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) --help` to see more information about `billing/quota_project`. 
 `--configuration`=`CONFIGURATION`
-     File name of the configuration to use for this command invocation. For more information on how to use configurations, run: `[gcloud topic configurations](https://docs.cloud.google.com/sdk/gcloud/reference/topic/configurations)`. You can also use the CLOUDSDK_ACTIVE_CONFIG_NAME environment variable to set the equivalent of this flag for a terminal session. 
+     Named configuration to use for this command invocation. To set the equivalent of this flag for a terminal session, you can also use the CLOUDSDK_ACTIVE_CONFIG_NAME environment variable. For more information on how to use configurations, run: `[gcloud topic configurations](https://docs.cloud.google.com/sdk/gcloud/reference/topic/configurations)`. 
 `--flags-file`=`YAML_FILE`
      A YAML or JSON file that specifies a `--flag`:`value` dictionary. Useful for specifying complex flag values with special characters that work with any command interpreter. Additionally, each `--flags-file` arg is replaced by its constituent flags. See $ [gcloud topic flags-file](https://docs.cloud.google.com/sdk/gcloud/reference/topic/flags-file) for more information. 
 `--flatten`=[`KEY`,…]
-     Flatten `name`[] output resource slices in `KEY` into separate records for each item in each slice. Multiple keys and slices may be specified. This also flattens keys for `--format` and `--filter`. For example, `--flatten=abc.def` flattens `abc.def[].ghi` references to `abc.def.ghi`. A resource record containing `abc.def[]` with N elements will expand to N records in the flattened output. This allows us to specify what `resource-key` the `filter` will operate on. This flag interacts with other flags that are applied in this order: `--flatten`, `--sort-by`, `--filter`, `--limit`. 
+     Flatten output resource slices in `KEY` into separate records for each item in each slice. Multiple keys and slices may be specified. This also flattens keys for `--format` and `--filter`. For example, `--flatten=abc.def` flattens `abc.def[].ghi` references to `abc.def.ghi`. A resource record containing `abc.def[]` with N elements will expand to N records in the flattened output. This allows you to specify what `resource-key` the `filter` will operate on. This flag interacts with other flags that are applied in this order: `--flatten`, `--sort-by`, `--filter`, `--limit`. 
 `--format`=`FORMAT`
-     Sets the format for printing command output resources. The default is a command-specific human-friendly output format. If both `core/format` and `--format` are specified, `--format` takes precedence. `--format` and `core/format` both take precedence over `core/default_format`. The supported formats are limited to: `config`, `csv`, `default`, `diff`, `disable`, `flattened`, `get`, `json`, `list`, `multi`, `none`, `object`, `table`, `text`, `value`, `yaml`. For more details run $ [gcloud](https://docs.cloud.google.com/sdk/gcloud/reference) topic formats. Run `$ [gcloud config set](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) --help` to see more information about `core/format`
+     Sets the format for printing command output resources. The default is a command-specific human-friendly output format. If both `core/format` and `--format` are specified, `--format` takes precedence. `--format` and `core/format` both take precedence over `core/default_format`. The supported formats are limited to: `config`, `csv`, `default`, `diff`, `disable`, `flattened`, `get`, `json`, `list`, `multi`, `none`, `object`, `table`, `text`, `value`, `yaml`. For more details run $ [gcloud](https://docs.cloud.google.com/sdk/gcloud/reference) topic formats. Run `$ [gcloud config set](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) --help` to see more information about `core/format`. 
 `--help`
      Display detailed help. 
 `--project`=`PROJECT_ID`
@@ -59,7 +59,7 @@ GLOBAL FLAGS
 Overrides the default core/disable_prompts property value for this command invocation. This is equivalent to setting the environment variable `CLOUDSDK_CORE_DISABLE_PROMPTS` to 1. 
 
 `--verbosity`=`VERBOSITY`; default="warning"
-     Override the default verbosity for this command. Overrides the default `core/verbosity` property value for this command invocation. `VERBOSITY` must be one of: `debug`, `info`, `warning`, `error`, `critical`, `none`. 
+     Sets the verbosity level for this command invocation. This overrides the default verbosity level and the configured `core/verbosity` property. `VERBOSITY` must be one of: `debug`, `info`, `warning`, `error`, `critical`, `none`. 
 `--version`, `-v`
      Print version information and exit. This flag is only available at the global level. 
 `-h`
@@ -68,15 +68,15 @@ OTHER FLAGS
     
 
 `--access-token-file`=`ACCESS_TOKEN_FILE`
-     A file path to read the access token. Use this flag to authenticate `[gcloud](https://docs.cloud.google.com/sdk/gcloud/reference)` with an access token. The credentials of the active account (if exists) will be ignored. The file should only contain an access token with no other information. Overrides the default `auth/access_token_file` property value for this command invocation. 
+     A file path to read the access token. This flag is used to authenticate `[gcloud](https://docs.cloud.google.com/sdk/gcloud/reference)` with an access token. Any existing credentials for the active account will be ignored. The file should only contain an access token with no other information. Overrides the default `auth/access_token_file` property value for this command invocation. 
 `--impersonate-service-account`=`SERVICE_ACCOUNT_EMAILS`
-     For this `[gcloud](https://docs.cloud.google.com/sdk/gcloud/reference)` invocation, all API requests will be made as the given service account or target service account in an impersonation delegation chain instead of the currently selected account. You can specify either a single service account as the impersonator, or a comma-separated list of service accounts to create an impersonation delegation chain. The impersonation is done without needing to create, download, and activate a key for the service account or accounts. 
+     All API requests for this `[gcloud](https://docs.cloud.google.com/sdk/gcloud/reference)` invocation, instead of using the currently selected account, will be made as the given service account or target service account in an impersonation delegation chain. You can specify either a single service account as the impersonator, or a comma-separated list of service accounts to create an impersonation delegation chain. The impersonation is done without needing to create, download, or activate a key for the service account(s). 
 
-In order to make API requests as a service account, your currently selected account must have an IAM role that includes the `iam.serviceAccounts.getAccessToken` permission for the service account or accounts. 
+In order to make API requests as a service account, your currently selected account must have an IAM role that includes the `iam.serviceAccounts.getAccessToken` permission for the service account(s). 
 
-The `roles/iam.serviceAccountTokenCreator` role has the `iam.serviceAccounts.getAccessToken permission`. You can also create a custom role. 
+The `roles/iam.serviceAccountTokenCreator` role has the `iam.serviceAccounts.getAccessToken` permission. You can also create a custom role. 
 
-You can specify a list of service accounts, separated with commas. This creates an impersonation delegation chain in which each service account delegates its permissions to the next service account in the chain. Each service account in the list must have the `roles/iam.serviceAccountTokenCreator` role on the next service account in the list. For example, when `--impersonate-service-account=` ``SERVICE_ACCOUNT_1``,``SERVICE_ACCOUNT_2``, the active account must have the `roles/iam.serviceAccountTokenCreator` role on ``SERVICE_ACCOUNT_1``, which must have the `roles/iam.serviceAccountTokenCreator` role on ``SERVICE_ACCOUNT_2``. ``SERVICE_ACCOUNT_1`` is the impersonated service account and ``SERVICE_ACCOUNT_2`` is the delegate. 
+You can specify a list of service accounts, separated with commas. This creates an impersonation delegation chain in which each service account delegates its permissions to the next service account in the chain. Each service account in the list must have the `roles/iam.serviceAccountTokenCreator` role on the next service account in the list. For example, when `--impersonate-service-account=` ``SERVICE_ACCOUNT_1``,``SERVICE_ACCOUNT_2``, the active account must have the `roles/iam.serviceAccountTokenCreator` role on ``SERVICE_ACCOUNT_1``, which must have the `roles/iam.serviceAccountTokenCreator` role on ``SERVICE_ACCOUNT_2``. In this case, ``SERVICE_ACCOUNT_1`` is the impersonated service account and ``SERVICE_ACCOUNT_2`` is the delegate. 
 
 Overrides the default `auth/impersonate_service_account` property value for this command invocation. 
 
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-15 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-15 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

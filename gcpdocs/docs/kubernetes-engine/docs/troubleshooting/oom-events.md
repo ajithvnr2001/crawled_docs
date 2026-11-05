@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/oom-events/
 title: Troubleshoot OOM events \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:26.215227+00:00
+fetched_at: 2026-11-05T11:08:23.914896+00:00
 ---
 
 # Troubleshoot OOM events  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -168,6 +168,46 @@ Replace the following:
 
 
 
+### Correlate OOM events with container restarts
+
+When an OOM kill terminates a container's main process, Kubernetes restarts the container based on the Pod's `restartPolicy`, as described in Container-level OOM kill and System-level OOM kill. To view `OOMKilling` events and the container starts that follow them in a single chronological list, use Logs Explorer:
+
+  1. In the Google Cloud console, go to Logs Explorer.
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs)
+
+  2. In the query pane, enter the following query:
+         
+         log_id("events")
+         resource.labels.cluster_name="CLUSTER_NAME"
+         (
+           (
+             resource.type="k8s_pod"
+             resource.labels.namespace_name="NAMESPACE_NAME"
+             jsonPayload.message:"Started container"
+           ) OR (
+             resource.type="k8s_node"
+             jsonPayload.reason="OOMKilling"
+           )
+         )
+         
+
+Replace the following:
+
+     * `CLUSTER_NAME`: the name of the cluster that you want to query.
+     * `NAMESPACE_NAME`: the namespace of the Pods that you want to examine.
+
+`OOMKilling` events are reported for the node (`k8s_node` resource type), so they don't have a namespace label. The namespace filter applies only to `Started container` events, which are reported for the Pod (`k8s_pod` resource type).
+
+  3. Click **Run query**.
+
+  4. In the output, look for `Started container` events that occur shortly after an `OOMKilling` event on the same node. The `OOMKilling` event message identifies the process that was killed, and the `Started container` event identifies the Pod and container that started.
+
+Not every `Started container` event is caused by an OOM kill. To confirm that a container was restarted because of an OOM event, check the Pod's status as described in Check the Pod status for visible OOM events.
+
+
+
+
 ### Use journalctl for real-time information
 
 If you need to perform real-time analysis of your system, use `journalctl` commands.
@@ -220,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

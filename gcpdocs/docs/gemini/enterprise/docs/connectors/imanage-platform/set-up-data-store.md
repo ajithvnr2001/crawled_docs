@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/imanage-platform/set-up-data-store/
 title: Set up an iManage platform data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:36:14.007339+00:00
+fetched_at: 2026-11-05T11:12:34.765400+00:00
 ---
 
 # Set up an iManage platform data store  |  Gemini Enterprise  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/access-control/roles-permissions/
 title: Model Armor roles and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:47:02.315911+00:00
+fetched_at: 2026-11-05T10:53:09.398250+00:00
 ---
 
 # Model Armor roles and permissions  |  Google Cloud Documentation

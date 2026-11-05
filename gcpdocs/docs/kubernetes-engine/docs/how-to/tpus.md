@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/tpus/
 title: Deploy TPU workloads in GKE Standard \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:18.163247+00:00
+fetched_at: 2026-11-05T11:10:58.718601+00:00
 ---
 
 # Deploy TPU workloads in GKE Standard  |  GKE AI/ML  |  Google Cloud Documentation
@@ -722,7 +722,7 @@ You can configure GKE to automatically create and delete node pools to meet the 
 
 Replace the following:
 
-     * `TPU_TYPE`: the [TPU type](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-tpus#choose-tpu-version). For example, use `tpu7x-standard-4t` for Ironwood (TPU7x).
+     * `TPU_TYPE`: the [TPU type](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-tpus#choose-tpu-version). For example, use `tpu7x` for Ironwood (TPU7x).
      * `MINIMUM_TPU_COUNT`: the minimum number of TPU chips of the specified type that the cluster can have. If the value that you specify is larger than the number of TPU chips in a multi-host TPU slice, GKE removes all nodes in the slice. Multi-host node pools scale between 0 and the number of nodes in the slice, with no intermediate values.
      * `MAXIMUM_TPU_COUNT`: the maximum number of TPU chips of the specified type that the cluster can have. For multi-host TPU slices, specify a value that's greater than the number of chips in each slice so that GKE can scale the slice atomically. The number of chips in a slice is the product of the TPU topology. For example, if the topology is `2x2x2`, the number of chips in the slice is `8`, which means that the value of `MAXIMUM_TPU_COUNT` must be greater than `8`.
 
@@ -2008,6 +2008,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

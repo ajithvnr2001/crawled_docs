@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-write-rows/
 title: Insert using mutate \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:32.720544+00:00
+fetched_at: 2026-11-05T11:12:25.384040+00:00
 ---
 
 # Insert using mutate  |  Bigtable  |  Google Cloud Documentation
@@ -239,7 +239,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     print("Writing some greetings to the table.")
     greetings = [b"Hello World!", b"Hello Cloud Bigtable!", b"Hello Python!"]
-    rows = []
+    mutations = []
     column = b"greeting"
     for i, value in enumerate(greetings):
         # Note: This example uses sequential numeric IDs for simplicity,
@@ -256,15 +256,11 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
         #
         #     https://cloud.google.com/bigtable/docs/schema-design
         row_key = f"greeting{i}".encode()
-        row = table.direct_row(row_key)
-        row.set_cell(
-            column_family_id,
-            column,
-            value,
-            timestamp=datetime.now(timezone.utc),
+        row_mutation = bigtable.data.RowMutationEntry(
+            row_key, bigtable.data.SetCell(column_family_id, column, value)
         )
-        rows.append(row)
-    table.mutate_rows(rows)
+        mutations.append(row_mutation)
+    table.bulk_mutate_rows(mutations)
 
 ### Ruby
 

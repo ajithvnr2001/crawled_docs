@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/about-instance-autoscaling/
 title: About instance autoscaling in Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:44.994010+00:00
+fetched_at: 2026-11-05T11:10:51.677683+00:00
 ---
 
 # About instance autoscaling in Cloud Run services  |  Google Cloud Documentation
@@ -21,20 +21,9 @@ Send feedback
 
 #  About instance autoscaling in Cloud Run services Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the Cloud Run default autoscaling behavior. For an alternate scaling option where you can configure a specific instance count, see [Manual scaling](https://docs.cloud.google.com/run/docs/configuring/services/manual-scaling).
+Cloud Run autoscaling adjusts the number of container instances for each service [revision](https://docs.cloud.google.com/run/docs/resource-model#revisions) to match incoming requests, events, and CPU utilization. Scaling instances on demand helps your service handle traffic spikes and scale to zero when idle to reduce costs.
 
-By default, each Cloud Run [revision](https://docs.cloud.google.com/run/docs/resource-model#revisions) is automatically scaled to the number of instances needed to handle incoming requests, events, or CPU utilization. You can also fine-tune this scaling behavior by [configuring custom CPU and concurrency utilization targets](https://docs.cloud.google.com/run/docs/configuring/scaling-controls).
-
-When a revision does not receive any traffic, by default, it is scaled to zero instances. You can change this default to specify an instance to be kept idle or "warm" using the [minimum instances](https://docs.cloud.google.com/run/docs/configuring/min-instance) setting. If your service is using CPU even when it's not processing requests, you should set minimum instances to `1`.
-
-Cloud Run autoscaler evaluates the following metrics periodically to determine the number of instances needed to serve traffic:
-
-  * **CPU and concurrency utilization** : Cloud Run adjusts instance counts to keep average CPU and concurrency within target thresholds.
-
-  * **Instance limits** : Cloud Run bounds the number of instances between the [maximum](https://docs.cloud.google.com/run/docs/configuring/max-instances) and [minimum](https://docs.cloud.google.com/run/docs/configuring/min-instances) limits you configure.
-
-
-
+You can tune autoscaling thresholds by [configuring custom CPU and concurrency targets](https://docs.cloud.google.com/run/docs/configuring/scaling-controls) and setting [minimum](https://docs.cloud.google.com/run/docs/configuring/min-instances) and [maximum](https://docs.cloud.google.com/run/docs/configuring/max-instances) instance limits. If your service uses CPU outside request processing, then set minimum instances to at least `1`. To run a fixed instance count, see [Manual scaling](https://docs.cloud.google.com/run/docs/configuring/services/manual-scaling).
 
 ## Horizontal service autoscaling behavior
 
@@ -205,6 +194,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/text-analysis-search/
 title: Work with text analyzers \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:14.873685+00:00
+fetched_at: 2026-11-05T11:09:16.482407+00:00
 ---
 
 # Work with text analyzers  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with text analyzers
 
-The [`CREATE SEARCH INDEX` DDL statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_search_index_statement), [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions), and [`TEXT_ANALYZE` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/text-analysis-functions#text_analyze) support advanced text analyzer configuration options. Understanding BigQuery's text analyzers and their options lets you refine your search experience.
-
-This document provides an overview of the different text analyzers available in BigQuery and their configuration options, as well as examples of how text analyzers work with [search](https://docs.cloud.google.com/bigquery/docs/search) in BigQuery. For more information about text analyzer syntax, see [Text analysis](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/text-analysis).
+Configuring advanced text analyzers in BigQuery lets you refine your search experience by controlling exactly how string data is tokenized. Applying custom configurations to your search indexes, such as regular expression patterns and stop word filters, lets you precisely dictate how the function evaluates and matches your text. You can configure advanced text analyzers for the [`CREATE SEARCH INDEX` DDL statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_search_index_statement), [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions), and [`TEXT_ANALYZE` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/text-analysis-functions#text_analyze).
 
 ## Text analyzers
 
@@ -421,6 +419,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/order-limit-data/
 title: Order and limit data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:06.919416+00:00
+fetched_at: 2026-11-05T11:08:51.997450+00:00
 ---
 
 # Order and limit data  |  Firestore in Native mode  |  Google Cloud Documentation

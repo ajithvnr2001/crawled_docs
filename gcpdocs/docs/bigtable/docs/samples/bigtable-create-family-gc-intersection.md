@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-intersection/
 title: Intersection garbage-collection policy \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:03.989853+00:00
+fetched_at: 2026-11-05T11:12:16.181916+00:00
 ---
 
 # Intersection garbage-collection policy  |  Bigtable  |  Google Cloud Documentation
@@ -258,22 +258,34 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.protobuf import duration_pb2
+    
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableTableAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html)()
+    table_path = client.[table_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_table_path)(project_id, instance_id, table_id)
+    
     print("Creating column family cf4 with Intersection GC rule...")
     # Create a column family with GC policy to drop data that matches
     # all conditions
     # GC rule: Drop cells older than 5 days AND older than the most
     # recent 2 versions
-    intersection_rule = column_family.GCRuleIntersection(
-        [
-            column_family.MaxAgeGCRule(datetime.timedelta(days=5)),
-            column_family.MaxVersionsGCRule(2),
-        ]
+    intersection_rule = bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(
+        intersection=bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html).[Intersection](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.Intersection.html)(
+            rules=[
+                bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(
+                    max_age=duration_pb2.Duration(seconds=5 * 86400)
+                ),
+                bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(max_num_versions=2),
+            ]
+        )
     )
-    
-    column_family4 = table.column_family("cf4", intersection_rule)
-    column_family4.create()
+    cf4 = bigtable_admin_v2.[ColumnFamily](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ColumnFamily.html)(gc_rule=intersection_rule)
+    mod4 = bigtable_admin_v2.[ModifyColumnFamiliesRequest](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.html).[Modification](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.Modification.html)(
+        id="cf4", create=cf4
+    )
+    client.[modify_column_families](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_modify_column_families)(name=table_path, modifications=[mod4])
     print("Created column family cf4 with Intersection GC rule.")
-    
 
 ### Ruby
 

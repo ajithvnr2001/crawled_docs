@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap/
 title: Troubleshoot IAM Unified Access Policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:15:16.685860+00:00
+fetched_at: 2026-11-05T11:08:22.350507+00:00
 ---
 
 # Troubleshoot IAM Unified Access Policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ This section describes issues with enforcement.
 
 **Solution** :
 
-  1. **Switch dry-run mode to enforce mode** : First, check your authorization extension configuration file (`iap-request-authz-extension.yaml`). If `iamEnforcementMode` is set to `"DRY_RUN"`, update it to `"ENFORCE"` (or remove the `DRY_RUN` setting) and re-import the extension using the gcloud CLI:
+  1. **Switch dry-run mode to enforce mode** : In the Google Cloud console, edit your gateway and select **Enforce policies** under **Access Authorization** (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway). Or, check your authorization extension configuration file (`iap-request-authz-extension.yaml`): if `iamEnforcementMode` is set to `"DRY_RUN"`, remove `iamEnforcementMode` and re-import the extension using the gcloud CLI:
          
          gcloud service-extensions authz-extensions import EXTENSION_NAME \
              --source=EXTENSION_FILE.yaml \
@@ -255,6 +255,7 @@ For the complete list of attributes and supported operations, see [CEL attribute
   * [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
   * [Create IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap)
   * [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+  * [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report)
 
 
 
@@ -262,6 +263,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

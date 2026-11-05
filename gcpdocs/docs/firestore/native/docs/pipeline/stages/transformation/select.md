@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/select/
 title: Select (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:12.486497+00:00
+fetched_at: 2026-11-05T11:08:53.744567+00:00
 ---
 
 # Select (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

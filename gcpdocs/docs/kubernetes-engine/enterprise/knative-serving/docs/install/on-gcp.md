@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/enterprise/knative-serving/docs/install/on-gcp/
 title: Installing Knative serving on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:56:01.942064+00:00
+fetched_at: 2026-11-05T10:53:30.353768+00:00
 ---
 
 # Installing Knative serving on Google Cloud  |  Google Cloud Documentation

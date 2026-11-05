@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/overview/
 title: Model Armor overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:32.752884+00:00
+fetched_at: 2026-11-05T08:52:40.263955+00:00
 ---
 
 # Model Armor overview  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ For more information, see [Model Armor templates](https://docs.cloud.google.com/
 
 ### Model Armor confidence levels
 
-You can set confidence levels for responsible AI safety categories (sexually explicit, dangerous, harassment, and hate speech), prompt injection and jailbreak detection, and sensitive data protection (including topicality).
+You can set confidence levels for responsible AI safety categories (sexually explicit, dangerous, harassment, and hate speech), prompt injection and jailbreak detection, CSAM detection, and sensitive data protection (including topicality).
 
 **Note:** Confidence levels for Sensitive Data Protection operate differently from those for other filters. For more information about confidence levels for Sensitive Data Protection, see [Sensitive Data Protection match likelihood](https://docs.cloud.google.com/sensitive-data-protection/docs/likelihood).
 
@@ -77,7 +77,7 @@ For confidence levels that support granular thresholds, Model Armor interprets t
   * **Medium and above** : Identifies content with a medium or high likelihood of violation.
   * **Low and above** : Identifies content with a low, medium, or high likelihood of violation.
 
-**Note:** You can set confidence levels only for prompt injection and jailbreak detection and responsible AI safety filters.
+
 
 Filter sensitivity controls the detection rate. A lower threshold identifies more events but might increase the frequency of false positives.
 
@@ -131,7 +131,6 @@ Hate speech | Negative or harmful comments targeting identity and/or protected a
 Harassment | Threatening, intimidating, bullying, or abusive comments targeting another individual.   
 Sexually explicit | Contains references to sexual acts or other lewd content.   
 Dangerous content | Promotes or enables access to harmful goods, services, and activities.   
-CSAM | Contains references to child sexual abuse material (CSAM). This filter is applied by default and cannot be turned off.  
   
 ### Prompt injection and jailbreak detection
 
@@ -174,6 +173,23 @@ Malicious URLs are often disguised to look legitimate, making them a potent tool
 When malicious URL detection is enabled, Model Armor scans URLs to identify whether they're malicious. This lets you take action and prevent malicious URLs from being returned.
 
 Model Armor extracts URLs until it reaches 256 URLs or the end of the payload, and scans only the first 256 URLs found in prompts and responses. 
+
+### Child sexual abuse material (CSAM) detection
+
+Child sexual abuse material (CSAM) detection screens prompts and responses for content related to child sexual abuse material.
+
+When CSAM detection is enabled, Model Armor scans prompts and responses and flags violations based on the confidence level that you specify. You can enable or disable the CSAM filter and configure its confidence level (`High`, `Medium and above`, or `Low and above`) in Model Armor templates and floor settings.
+
+If you don't specify CSAM filter settings, Model Armor applies the following default behavior:
+
+  * **Floor settings** : Because floor settings are global resources, CSAM detection is enabled by default with a `High` confidence level.
+  * **Templates** : 
+    * In [regions that support CSAM detection](https://docs.cloud.google.com/model-armor/feature-availability-by-region#supported-by-region), or when [data residency compliance is disabled](https://docs.cloud.google.com/model-armor/manage-templates#set-data-residency-compliance), CSAM detection is enabled by default with a `High` confidence level.
+    * In regions that don't support CSAM detection, when data residency compliance is enabled, CSAM detection is disabled by default. In these regions, you can't create or update a template with CSAM detection enabled unless you [disable data residency compliance in the template](https://docs.cloud.google.com/model-armor/manage-templates#set-data-residency-compliance).
+
+
+
+You can configure the CSAM filter only by using the Model Armor API. Configuring the CSAM filter isn't available in the Google Cloud console. For information about configuring the CSAM filter in templates, see [Create and manage templates](https://docs.cloud.google.com/model-armor/manage-templates#configure-detections). For information about configuring floor settings, see [Configure floor settings](https://docs.cloud.google.com/model-armor/configure-floor-settings#configure-floor-settings).
 
 ## Define the enforcement type
 
@@ -360,6 +376,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

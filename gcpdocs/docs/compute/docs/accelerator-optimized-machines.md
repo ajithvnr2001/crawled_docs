@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines/
 title: GPU machines in accelerator-optimized machine family \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:52:45.334117+00:00
+fetched_at: 2026-11-05T11:11:08.536090+00:00
 ---
 
 # GPU machines in accelerator-optimized machine family  |  Compute Engine  |  Google Cloud Documentation
@@ -1248,9 +1248,6 @@ The following notes apply to the preceding table:
   * You can't create [Multi-Instance GPUs](https://www.nvidia.com/en-us/technologies/multi-instance-gpu/) on an instance that uses a G2 machine type.
   * If you need to change the machine type of a G2 instance, review [Modify accelerator-optmized instances](https://docs.cloud.google.com/compute/docs/gpus/add-remove-gpus#accelerator-optimized_vms).
   * You can't use [Deep Learning VM Images](https://docs.cloud.google.com/deep-learning-vm/docs/images) as boot disks for instances that use the G2 machine type.
-  * The current default driver for Container-Optimized OS doesn't support L4 GPUs running on G2 machine types. Also, Container-Optimized OS only supports a select set of drivers. If you want to use Container-Optimized OS on G2 machine types, review the following notes: 
-    * Use a Container-Optimized OS version that supports the minimum recommended NVIDIA driver version `525.60.13` or later. For more information, review the [Container-Optimized OS release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes). 
-    * When you [install the driver](https://docs.cloud.google.com/container-optimized-os/docs/how-to/run-gpus#install-driver), specify the latest available version that works for the L4 GPUs. For example, `sudo cos-extensions install gpu -- -version=525.60.13`. 
   * You must use the Google Cloud CLI or REST to [create G2 instances](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-accelerator-optimized#create-vm) for the following scenarios: 
     * You want to specify custom memory values.
     * You want to customize the number of visible CPU cores.
@@ -1376,6 +1373,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

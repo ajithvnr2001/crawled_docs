@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/future-reservations/update/
 title: gcloud preview compute future-reservations update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T13:41:38.869202+00:00
+fetched_at: 2026-11-05T11:09:42.939400+00:00
 ---
 
 # gcloud preview compute future-reservations update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -136,7 +136,10 @@ Manage the commitment info properties
      Applicable only if future reservation will deliver to an existing reservation with a ramp plan. When set to EXTEND, all associated parent Committed Used Discount's end-date/term will be extended to the end-time of this future reservation. Default is to extend previous commitment's time to the end_time of the reservation. `PREVIOUS_COMMITMENT_TERMS` must be (only one value is supported): `EXTEND`. 
 Manage the specific SKU reservation properties. 
 `--machine-type`=`MACHINE_TYPE`
-     The type of machine (name only) that has a fixed number of vCPUs and a fixed amount of memory. You can also specify a custom machine type by using the pattern `custom-number_of_CPUs-amount_of_memory`-for example, `custom-32-29440`. 
+     The predefined or custom machine type that you want to reserve. To supply a custom machine type, the string must be formatted precisely with the word custom, a hyphen, the integer number of vCPUs, a hyphen, and the integer amount of memory in megabytes. For example, `custom-32-29440` configures 32 vCPUs and 29440 MB of memory. Only future reservations support custom machine types. Future reservations in calendar mode only support predefined machine types. 
+
+Different reservation types restrict the available machine series. To review the machine series and types that each reservation type supports, see <https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type#comparison>
+
 `--min-cpu-platform`=`MIN_CPU_PLATFORM`
      Optional minimum CPU platform of the reservation to create. 
 Manage the accelerators of a future reservation. 
@@ -197,6 +200,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

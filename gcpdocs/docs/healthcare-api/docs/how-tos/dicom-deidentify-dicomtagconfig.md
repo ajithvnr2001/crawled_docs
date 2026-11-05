@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify-dicomtagconfig/
 title: De-identify DICOM data using DicomTagConfig \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:05.810926+00:00
+fetched_at: 2026-11-05T08:23:16.036972+00:00
 ---
 
 # De-identify DICOM data using DicomTagConfig  |  Cloud Healthcare API  |  Google Cloud Documentation
@@ -108,6 +108,12 @@ These fields only take effect if [`DicomTagConfig.Options.ImageConfig.TextRedact
   * [`TEXT_REDACTION_MODE_UNSPECIFIED`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1beta1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.TEXT_REDACTION_MODE_UNSPECIFIED)
 
 
+
+### Custom regular expressions in image de-identification
+
+You can configure the `customRegexes` field in [`ImageConfig`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1beta1/DeidentifyConfig#ImageConfig) to detect and redact burned-in text matching custom regular expression patterns (`CustomRegex`). Each `CustomRegex` object specifies a `pattern` and an optional list of capturing `groupIndexes` to redact, with a maximum of three group indexes. If `groupIndexes` is omitted, the entire match is redacted.
+
+This field takes effect when `TextRedactionMode` is set to [`REDACT_SENSITIVE_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1beta1/DeidentifyConfig#TextRedactionMode.ENUM_VALUES.REDACT_SENSITIVE_TEXT) or [`REDACT_SENSITIVE_TEXT_CLEAN_DESCRIPTORS`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1beta1/DeidentifyConfig#TextRedactionMode.ENUM_VALUES.REDACT_SENSITIVE_TEXT_CLEAN_DESCRIPTORS). For `v1` (GA) instructions and samples, see [Redacting burnt-in text using custom regular expressions](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify#redacting-burnt-in-text-using-custom-regular-expressions).
 
 ## Migrate requests and responses to use `DicomTagConfig`
 
@@ -7256,6 +7262,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

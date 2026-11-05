@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/regions-zones/
 title: Regions and zones \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:30.527064+00:00
+fetched_at: 2026-11-05T10:22:03.228056+00:00
 ---
 
 # Regions and zones  |  Compute Engine  |  Google Cloud Documentation

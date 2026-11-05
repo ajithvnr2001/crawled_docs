@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bigtable/instances/tables/restore/
 title: gcloud alpha bigtable instances tables restore \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:42:17.716297+00:00
+fetched_at: 2026-11-05T11:10:12.930504+00:00
 ---
 
 # gcloud alpha bigtable instances tables restore  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha bigtable instances tables restore - restore a Cloud Bigtable backup
 SYNOPSIS
     
 
-`gcloud alpha bigtable instances tables restore` (`--destination`=`DESTINATION` : `--destination-instance`=`DESTINATION_INSTANCE`) (`--source`=`SOURCE` : `--source-cluster`=`SOURCE_CLUSTER` `--source-instance`=`SOURCE_INSTANCE`) [`--async`] [`--[no-]deletion-protection`] [`--enable-automated-backup` | `--automated-backup-locations`=[`LOCATION`,…] `--automated-backup-retention-period`=`AUTOMATED_BACKUP_RETENTION_PERIOD`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha bigtable instances tables restore` (`--destination`=`DESTINATION` : `--destination-instance`=`DESTINATION_INSTANCE`) (`--source`=`SOURCE` : `--source-cluster`=`SOURCE_CLUSTER` `--source-instance`=`SOURCE_INSTANCE`) [`--async`] [`--[no-]deletion-protection`] [`--enable-automated-backup` | `--automated-backup-keep-hot-duration`=`AUTOMATED_BACKUP_KEEP_HOT_DURATION` `--automated-backup-locations`=[`LOCATION`,…] `--automated-backup-retention-period`=`AUTOMATED_BACKUP_RETENTION_PERIOD`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` This command restores a Cloud Bigtable backup to a new table. 
 EXAMPLES
@@ -134,6 +134,8 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 Group for automated backup policy parameters. 
+`--automated-backup-keep-hot-duration`=`AUTOMATED_BACKUP_KEEP_HOT_DURATION`
+     The amount of time that automated backups remain hot, in the format of `24h` for 24 hours. If specified, the backups created by this policy are `HOT` backups. If not specified, the backups are `STANDARD` backups. The value must be at least `24h` and at most `10d`, and can't exceed the policy's retention period. Only SSD instances support `HOT` automated backups. Setting this flag enables automated backup for the table. 
 `--automated-backup-locations`=[`LOCATION`,…]
      List of Cloud Bigtable zones where you can create automated backups. If empty, automated backups will be created in all zones of the instance. Locations are in the format `projects/{project}/locations/{zone}`. Setting this flag enables automated backup for the table. If automated backup retention period is not specified, it defaults to 7 days. 
 `--automated-backup-retention-period`=`AUTOMATED_BACKUP_RETENTION_PERIOD`
@@ -156,6 +158,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-22 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

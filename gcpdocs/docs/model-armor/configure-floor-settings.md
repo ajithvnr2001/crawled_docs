@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/configure-floor-settings/
 title: Configure floor settings \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:36.950693+00:00
+fetched_at: 2026-11-05T08:52:42.075535+00:00
 ---
 
 # Configure floor settings  |  Model Armor  |  Google Cloud Documentation
@@ -136,6 +136,13 @@ Floor settings apply only within their specific level in the hierarchy, unless s
 ## Templates and floor settings conformance
 
 When a Model Armor template is created or updated, Model Armor checks whether the template's configuration conforms with the floor settings. You cannot create or update a template that's less strict than the floor settings.
+
+Floor settings enforce the following conformance rules on templates:
+
+  * **Filter enforcement** : If floor settings require a filter to be enabled (such as malicious URL, prompt injection and jailbreak, or child sexual abuse material (CSAM) filter enforcement set to `ENABLED`), templates within that scope can't set the filter to `DISABLED`.
+  * **Confidence level precedence** : Templates must configure confidence levels that are at least as strict as the floor settings. For example, if floor settings specify `MEDIUM_AND_ABOVE` for responsible AI or CSAM detection, a template can't set the confidence level to `HIGH`.
+
+
 
 You can set floor settings at the organization, folder, and project levels. The user interface is available only at the project level and lets you inherit organization-level or folder-level settings. To set floor settings at the organization or folder level, you must use the API.
 
@@ -1129,8 +1136,8 @@ Replace the following:
 
   * Update the Model Armor floor setting for a given project.
         
-        curl -X PATCH \
-          -d '{"filterConfig": {"piAndJailbreakFilterSettings": {"filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {"filterEnforcement": "ENABLED"}, "raiSettings": {"raiFilters": [{"filterType": "DANGEROUS", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "HATE_SPEECH", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "HARASSMENT", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "LOW_AND_ABOVE"}]}}, "enableFloorSettingEnforcement": true}' \
+        curl -X PATCH \ \
+          -d '{"filterConfig": {"piAndJailbreakFilterSettings": {"filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {"filterEnforcement": "ENABLED"}, "csamFilterSettings": { "filterEnforcement": "ENABLED", "confidenceLevel": "LOW_AND_ABOVE" }, "raiSettings": {"raiFilters": [{"filterType": "DANGEROUS", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "HATE_SPEECH", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "HARASSMENT", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "LOW_AND_ABOVE"}]}}, "enableFloorSettingEnforcement": true}' \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer $(gcloud auth print-access-token)" \
           "https://modelarmor.googleapis.com/v1/projects/PROJECT_ID/locations/global/floorSetting"
@@ -1138,7 +1145,7 @@ Replace the following:
   * Update the Model Armor floor setting for a given folder.
         
         curl -X PATCH \
-          -d '{"filterConfig" :{"piAndJailbreakFilterSettings": { "filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {"filterEnforcement": "ENABLED" }},"enableFloorSettingEnforcement":"true"}' \
+          -d '{"filterConfig" :{"piAndJailbreakFilterSettings": { "filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {"filterEnforcement": "ENABLED" }, "csamFilterSettings": {"filterEnforcement": "ENABLED", "confidenceLevel": "LOW_AND_ABOVE" }},"enableFloorSettingEnforcement":"true"}' \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer $(gcloud auth print-access-token)" \
           "https://modelarmor.googleapis.com/v1/folders/FOLDER_ID/locations/global/floorSetting"
@@ -1147,7 +1154,7 @@ Replace the following:
         
         curl -X PATCH \
           -d '{"filterConfig" :{"piAndJailbreakFilterSettings": { "filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {
-              "filterEnforcement": "ENABLED" }},"enableFloorSettingEnforcement":"true"}' \
+              "filterEnforcement": "ENABLED" }, "csamFilterSettings": { "filterEnforcement": "ENABLED", "confidenceLevel": "LOW_AND_ABOVE" }},"enableFloorSettingEnforcement":"true"}' \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer $(gcloud auth print-access-token)" \
               "https://modelarmor.googleapis.com/v1/organizations/ORGANIZATION_ID/locations/global/floorSetting"
@@ -2255,6 +2262,12 @@ The following example shows the finding's `sourceProperties` field. This violati
         "maliciousUriFilterSettings": {
           "floorSettings": "ENABLED",
           "template": "DISABLED"
+        },
+        "csamFilterSettings": {
+          "confidenceLevel": {
+            "floorSettings": "MEDIUM_AND_ABOVE",
+            "template": "HIGH"
+          }
         }
       }
     }
@@ -2272,6 +2285,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

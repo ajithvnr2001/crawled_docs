@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/search/
 title: Search indexed data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:21.383192+00:00
+fetched_at: 2026-11-05T11:09:16.022775+00:00
 ---
 
 # Search indexed data  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Search indexed data
 
-This page provides examples of searching for table data in BigQuery. When you index your data, BigQuery can optimize some queries that use the [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#search) or other functions and operators, such as `=`, `IN`, `LIKE`, and `STARTS_WITH`.
-
-SQL queries return correct results from all ingested data, even if some of the data isn't indexed yet. However, query performance can be greatly improved with an index. Savings in [bytes processed](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#jobstatistics2) and [slot milliseconds](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#jobstatistics2) are maximized when the number of search results make up a relatively small fraction of the total rows in your table because less data is scanned. To determine whether an index was used for a query, see search index usage.
+Searching indexed data in BigQuery lets you improve query performance while minimizing the amount of data scanned. You can use the [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#search) and supported operators on your indexed tables to maximize savings in [bytes processed](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#jobstatistics2) and [slot milliseconds](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#jobstatistics2), especially when retrieving a small fraction of your total rows.
 
 ## Create a search index
 
@@ -468,6 +466,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

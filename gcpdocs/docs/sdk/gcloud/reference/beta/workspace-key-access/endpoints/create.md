@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/workspace-key-access/endpoints/create/
 title: gcloud beta workspace-key-access endpoints create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:12.897094+00:00
+fetched_at: 2026-11-05T11:09:23.512921+00:00
 ---
 
 # gcloud beta workspace-key-access endpoints create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -32,15 +32,15 @@ SYNOPSIS
 DESCRIPTION
      `(BETA)` Create a Workspace Key Access endpoint in a given project and location. 
 EXAMPLES
-     To create endpoint `my-endpoint` in `us-east1`, attached to config `my-config` and Cloud KMS key `my-key`, run: 
+     To create endpoint `my-endpoint` attached to config `my-config` and Cloud KMS key `my-key`, run: 
     
     
-    gcloud beta workspace-key-access endpoints create my-endpoint --location=us-east1 --config=my-config --kms-key=projects/my-project/locations/us-east1/keyRings/my-ring/cryptoKeys/my-key
+    gcloud beta workspace-key-access endpoints create my-endpoint --location=us --config=projects/my-project/locations/us/configs/my-config --kms-key=projects/my-project/locations/us-east1/keyRings/my-ring/cryptoKeys/my-key
 
 POSITIONAL ARGUMENTS
     
 
-Endpoint resource - Identifier. name of resource This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Endpoint resource - Identifier. The resource name of the Endpoint. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -103,7 +103,7 @@ OPTIONAL FLAGS
     
 
 `--annotations`=[`ANNOTATIONS`,…]
-     Annotations as key value pairs. 
+     Annotations as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -127,7 +127,7 @@ OPTIONAL FLAGS
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
 `--labels`=[`LABELS`,…]
-     Labels as key value pairs. 
+     Labels as key-value pairs. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -158,7 +158,7 @@ For example, consider a situation where you make an initial request and the requ
 The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). 
 
 `--tags`=[`TAGS`,…]
-     Tag bindings as key value pairs. 
+     Tag bindings as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -193,6 +193,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/troubleshooting/
 title: Troubleshoot \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:19.486280+00:00
+fetched_at: 2026-11-05T08:52:39.430502+00:00
 ---
 
 # Troubleshoot  |  Model Armor  |  Google Cloud Documentation
@@ -85,11 +85,13 @@ You might see an error message similar to the following:
 
 This error occurs when you attempt to create or update a template in a region with feature restrictions, and the request enables features that aren't supported in that region.
 
+The template configuration includes detectors like malicious URL and child sexual abuse material (CSAM), which aren't available in some regions with unsupported features.
+
 To resolve this issue:
 
   1. Identify the unsupported capabilities listed in the error message.
   2. Review the [feature availability by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region) to confirm which features aren't available for your target region.
-  3. Remove the unsupported features from the template that you're creating or updating.
+  3. Remove the unsupported features from the template that you're creating or updating, or explicitly set their enforcement to `DISABLED` (for example, `"csamFilterSettings": { "filterEnforcement": "DISABLED" }`).
 
 
 
@@ -144,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

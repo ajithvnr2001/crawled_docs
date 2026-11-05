@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/choose-consumption-option/
 title: Choose a consumption option \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:21.486413+00:00
+fetched_at: 2026-11-05T11:12:33.784656+00:00
 ---
 
 # Choose a consumption option  |  Cluster Director  |  Google Cloud Documentation
@@ -21,23 +21,27 @@ Send feedback
 
 #  Choose a consumption option Stay organized with collections  Save and categorize content based on your preferences. 
 
-When you create a cluster in Cluster Director, you must select the _consumption option_ that you want to use to obtain resources (vCPUs, memory, GPUs, and Local SSD disks) for creating Compute Engine instances. Each consumption option defines the availability, lifespan, and cost of your requested resources. This document compares the available consumption options, and it helps you choose the option that best fits your workload and cost needs.
+When you create a cluster in Cluster Director, you must select the _consumption option_ that you want to use to obtain resources (vCPUs, memory, GPUs, TPUs, and Local SSD disks) for creating Compute Engine instances. Each consumption option defines the availability, lifespan, and cost of your requested resources. This document compares the available consumption options, and it helps you choose the option that best fits your workload and cost needs.
 
 ## Compare consumption options
+
+**Note:** Support for TPU VMs in Cluster Director is in [Preview](https://cloud.google.com/products#product-launch-stages).
 
 The following table compares the supported machine types, lifespans, capacity assurance levels, pricing models, and reservation requirements for each consumption option:
 
 Consumption option | Future reservations for capacity blocks | Future reservations in calendar mode (up to 90 days) | Flex-start | Spot | On-demand  
 ---|---|---|---|---|---  
-**Supported machines** | A4X Max, A4X, A4, A3 Ultra, A3 Mega | A4, A3 Ultra, A3 Mega | A4, A3 Ultra, A3 Mega | A4, A3 Ultra, A3 Mega, N2 | C4A, N2  
+**Supported machines** | A4X Max, A4X, A4, A3 Ultra, A3 Mega, TPU7x*, TPU v6e, TPU v5p | A4, A3 Ultra, A3 Mega, TPU7x*, TPU v6e, TPU v5p | A4, A3 Ultra, A3 Mega, TPU7x*, TPU v6e, TPU v5p | A4, A3 Ultra, A3 Mega, TPU7x*, TPU v6e, TPU v5p, N2 | C4A, N2, TPU7x, TPU v6e, TPU v5p  
 **Lifespan** | Unlimited | 90 days maximum | 7 days maximum | Unlimited (but subject to [preemption](https://docs.cloud.google.com/compute/docs/instances/spot#preemption)) | Unlimited  
 **Capacity assurance** | Very high | Very high | Best-effort | Best-effort | Best-effort  
-**Quota** | Quota increases before delivery | No quota is charged | [Preemptible quota](https://docs.cloud.google.com/compute/resource-usage#preemptible-quotas) is charged | [Preemptible quota](https://docs.cloud.google.com/compute/resource-usage#preemptible-quotas) is charged | Standard quota is charged  
-**Pricing** | Discounted up to 53% ([accelerator pricing](https://docs.cloud.google.com/compute/vm-instance-pricing#accelerator-optimized)) | Discounted up to 53% ([DWS pricing](https://cloud.google.com/products/dws/pricing)) | Discounted up to 53% ([DWS pricing](https://cloud.google.com/products/dws/pricing)) | Deeply discounted up to 91% ([Spot pricing](https://cloud.google.com/spot-vms/pricing)) | Standard pricing ([general-purpose pricing](https://docs.cloud.google.com/compute/vm-instance-pricing#general-purpose-machine-type-family))  
+**Quota** | Google increases quota on your behalf | No quota is charged | [Preemptible quota](https://docs.cloud.google.com/compute/resource-usage#preemptible-quotas) is charged | [Preemptible quota](https://docs.cloud.google.com/compute/resource-usage#preemptible-quotas) is charged | Standard quota is charged  
+**Pricing** | Discounted up to 53% ([accelerator pricing](https://docs.cloud.google.com/compute/vm-instance-pricing#accelerator-optimized), [TPU pricing](https://cloud.google.com/tpu/pricing)) | Discounted up to 53% ([DWS pricing](https://cloud.google.com/products/dws/pricing)) | Discounted up to 53% ([DWS pricing](https://cloud.google.com/products/dws/pricing)) | Deeply discounted up to 91% ([Spot pricing](https://cloud.google.com/spot-vms/pricing)) | Standard pricing ([VM instance pricing](https://docs.cloud.google.com/compute/vm-instance-pricing), [TPU pricing](https://cloud.google.com/tpu/pricing))  
 **Billing model** | Charged for the reservation period ([reservation billing](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#reservation-billing)) | Charged for the reservation period ([reservation billing](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#reservation-billing)) | Pay-as-you-go (PAYG) | Pay-as-you-go (PAYG) | Pay-as-you-go (PAYG)  
-**Resource allocation** | Dense | Dense | Best-effort | Best-effort | Best-effort  
+**Resource allocation** | Dense (best-effort for TPU v5p) | Dense for GPU virtual machines (VMs), best-effort for TPU VMs | Best-effort | Best-effort | Best-effort  
 [**Provisioning model**](https://docs.cloud.google.com/compute/docs/instances/provisioning-models) | Reservation-bound | Reservation-bound | Flex-start | Spot | Standard  
   
+* To obtain TPU7x VMs with any consumption option except On-demand, you must contact your account team or the sales team to request access. 
+
 If you want AI-powered assistance to compare consumption options, then run the following prompt in Compute Advisor:
 
 agent_mode_2 Compute Advisor help_outline Compute Advisor is an AI-powered assistant that you can prompt to get customized recommendations for your infrastructure based on information such as your quota limits, existing reservations, and resource location constraints.
@@ -71,11 +75,14 @@ Format the recommendations as a Markdown comparison table for my Slurm partition
 
 Use the following flowchart to choose the consumption option that best fits the type of partition for your cluster:
 
-[ ![A flowchart with the consumption options that are available in Cluster Director.](https://docs.cloud.google.com/static/cluster-director/images/consumption-options.png)](https://docs.cloud.google.com/static/cluster-director/images/consumption-options.png)
+[ ![Decision flowchart that maps capacity assurance, duration,
+       reservation, and fault-tolerance requirements to Cluster Director
+       consumption options: future reservations for capacity blocks, future
+       reservations in calendar mode, Spot, Flex-start, and On-demand.](https://docs.cloud.google.com/static/cluster-director/images/consumption-options.png)](https://docs.cloud.google.com/static/cluster-director/images/consumption-options.png)
 
 The questions in the preceding diagram are the following:
 
-  1. Do you want high assurance for GPU instances?
+  1. Do you want high assurance for GPU or TPU instances?
 
      * **Yes** : go to question 2.
 
@@ -99,7 +106,7 @@ The questions in the preceding diagram are the following:
 
      * **No** : go to question 5.
 
-  5. Do you want to obtain GPU instances?
+  5. Is your workload running for 7 days or less?
 
      * **Yes** : see Use Flex-start.
 
@@ -110,12 +117,13 @@ The questions in the preceding diagram are the following:
 
 ### Use future reservations for capacity blocks
 
-To run long-running, large-scale distributed workloads that require densely allocated resources, you can request to reserve vCPUs, memory, GPUs, Local SSD disks, and a [Hyperdisk pool](https://docs.cloud.google.com/compute/docs/disks/pools) for a specific time in the future. If Google approves your request, then you have exclusive access to your reserved resources for that period of time, and you can use the resources to create clusters. At the end of the reservation period, Compute Engine does the following:
+To run long-running, large-scale distributed workloads that require densely allocated resources, you can reserve vCPUs, memory, GPUs, TPUs, Local SSD disks, and a [Hyperdisk pool](https://docs.cloud.google.com/compute/docs/disks/pools) for a future period. If Google approves your request, then you have exclusive access to your reserved resources for that period of time, and you can use the resources to create clusters. At the end of the reservation period, Compute Engine does the following:
 
   * Compute Engine deletes the reservation and any associated empty Hyperdisk pool.
 
-  * Compute Engine stops or deletes any compute instances that you created from the reservation based on the compute instances' [termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime#limit-runtime-new-vm).
+  * Compute Engine deletes any compute instances in your cluster that use the reservation.
 
+**Caution:** When the reservation that you used to create a compute instance reaches its end time, Cluster Director deletes the instance. To prevent data loss, back up your data by using one of the [data protection options for disks and instances](https://docs.cloud.google.com/compute/docs/disks/data-protection).
 
 
 
@@ -125,24 +133,25 @@ Future reservations for capacity blocks are ideal for the following workloads:
 
   * Pre-training foundation models
 
-  * Multi-host foundation model inference
+  * Inference for foundation models across multiple hosts
 
 
 
 
-#### Key characteristics of future reservations for capacity blocks
+#### Characteristics of future reservations for capacity blocks
 
 Future reservations for capacity blocks have the following characteristics:
 
-  * You can reserve A4X Max, A4X, A4, A3 Ultra, and A3 Mega machine types, as well as Hyperdisk pools. Google allocates compute nodes in close physical proximity to minimize network latency, and co-locates Hyperdisk pools with those compute nodes to optimize storage performance.
+  * You can reserve A4X Max, A4X, A4, A3 Ultra, A3 Mega, TPU7x, TPU v6e, and TPU v5p machine types, as well as Hyperdisk pools. For GPU, TPU7x, and TPU v6e VMs, Google allocates compute nodes in close physical proximity to minimize network latency, and co-locates Hyperdisk pools with those compute nodes to optimize storage performance.
 
+**Note:** To reserve TPU7x VMs with future reservations for capacity blocks, you must contact your account team or the sales team to request access.
   * You can reserve as many compute instances as you want for as long as you want. For any compute instances that you want to reserve for a year or longer, you need to purchase and attach a [resource-based commitment](https://docs.cloud.google.com/compute/docs/instances/reservations-with-commitments) to your reserved resources. Then, you can use the reserved resources to create and run compute instances until the end of the reservation period.
 
   * You use the reservation-bound provisioning model to create compute instances, which has the following benefits:
 
-    * You have a higher chance to obtain GPUs.
+    * You have a higher chance to obtain GPUs or TPUs.
 
-    * In addition to the commitment attached to your compute instances, you get a discount up to 53% for vCPUs, memory, GPUs, and any attached Local SSD disks, as well as discounts for Hyperdisk pools if you reserve resources for 365 days or more.
+    * In addition to the commitment that is attached to your compute instances, you get a discount up to 53% for vCPUs, memory, GPUs, TPUs, and any attached Local SSD disks. If you reserve resources for 365 days or longer, then you also get discounts for Hyperdisk pools.
 
 
 
@@ -155,7 +164,7 @@ To use future reservations for capacity blocks to create clusters, you must comp
 
 For instructions, see [Reserve capacity through your account team](https://docs.cloud.google.com/cluster-director/docs/reserve-capacity).
 
-  2. **Consume reserved resources**. At the start of your reservation period, Google delivers your compute reservation and Hyperdisk pools. You can use the reserved resources to create compute instances and attach storage disks in one or more of your cluster partitions.
+  2. **Consume reserved resources**. At the start of your reservation period, Google delivers your compute reservation and Hyperdisk pools. You can use the reserved resources to create compute instances and attach storage disks in one or more of your cluster partitions. For A4X, TPU7x, and TPU v6e reservations (in [all-capacity mode](https://docs.cloud.google.com/tpu/docs/all-capacity-overview) for TPUs), you can also select specific [blocks](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block) or [sub-blocks](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#sub-block) to control the placement of your VMs.
 
 For instructions, see one of the following:
 
@@ -168,13 +177,13 @@ For instructions, see one of the following:
 
 ### Use future reservations in calendar mode
 
-To run short-running distributed workloads that require densely allocated resources, you can request to reserve compute resources for up to 90 days. If your request is approved, then you have exclusive access to your reserved resources for that time, and you can use the resources to create clusters. At the end of the reservation period, Compute Engine does the following:
+To run short-running distributed workloads that require densely allocated resources, you can request to reserve compute resources for up to 90 days. If Google approves your request, then you have exclusive access to your reserved resources for that time, and you can use the resources to create clusters. At the end of the reservation period, Compute Engine does the following:
 
   * Compute Engine deletes the reservation.
 
-  * Compute Engine deletes any virtual machine (VM) instances that use the reservation.
+  * Compute Engine deletes any VM instances that use the reservation.
 
-**Caution:** Cluster Director deletes a VM after the reservation that you used to create the VM reaches its end time, regardless of the VM's [termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime#limit-runtime-new-vm). To prevent data loss, back up your data by using one of the data protection options. For more information, see [Data protection options for disks and instances](https://docs.cloud.google.com/compute/docs/disks/data-protection).
+**Caution:** After the reservation that you used to create a VM reaches its end time, Cluster Director deletes the VM regardless of its [termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime#limit-runtime-new-vm). To prevent data loss, back up your data by using one of the data protection options. For more information, see [Data protection options for disks and instances](https://docs.cloud.google.com/compute/docs/disks/data-protection).
 
 
 
@@ -193,32 +202,33 @@ Future reservations in calendar mode are ideal for the following workloads:
 
 
 
-#### Key characteristics of future reservations in calendar mode
+#### Characteristics of future reservations in calendar mode
 
 Future reservations in calendar mode have the following characteristics:
 
-  * You can reserve A4, A3 Ultra, or A3 Mega machine types. Machines are densely allocated to minimize network latency.
+  * You can reserve A4, A3 Ultra, A3 Mega, TPU7x*, TPU v6e, or TPU v5p machine types. Google densely allocates GPU VMs to minimize network latency, and allocates TPU VMs as close to each other as possible on a best-effort basis.
 
-  * You can view the future availability of resources, and then reserve up to 80 VMs for up to 90 days in the future. Then, you can use the reserved resources to create VMs until the end of the reservation period.
+**Note:** To reserve TPU7x VMs with future reservations in calendar mode, you must contact your account team or the sales team to request access.
+  * You can view the future availability of resources, and then reserve GPU or TPU capacity for up to 90 days. At your chosen delivery date, you can use the reserved resources to create VMs until the end of the reservation period. For supported request sizes and locations, see [Limitations for future reservation requests in calendar mode](https://docs.cloud.google.com/compute/docs/instances/future-reservations-calendar-mode-overview#limitations) in the Compute Engine documentation.
 
   * You use the reservation-bound provisioning model to create compute instances, which has the following benefits:
 
-    * You have a higher chance to obtain GPUs.
+    * You have a higher chance to obtain GPUs or TPUs.
 
-    * You get a discount up to 53% for vCPUs, memory, GPUs, and any attached Local SSD disks.
+    * You get a discount up to 53% for vCPUs, memory, GPUs, TPUs, and any attached Local SSD disks.
 
 
 
 
 #### How to use future reservations in calendar mode
 
-To use future reservations in calendar mode to clusters, you must complete the following steps:
+To use future reservations in calendar mode to create clusters, you must complete the following steps:
 
-  1. **View resources availability**. You can view the future availability of the resources that you want to reserve. When you create a reservation request, you can specify the number, type, and reservation duration for the resources that you confirmed as available. This action increases the chances that Google Cloud approves your request.
+  1. **View resource availability**. You can view the future availability of the resources that you want to reserve. When you create a reservation request, you can specify the number, type, and reservation duration for the resources that you confirmed as available. This action increases the chances that Google Cloud approves your request.
 
-For instructions, see [View resource future availability](https://docs.cloud.google.com/compute/docs/instances/create-future-reservations-calendar-mode#view-availability).
+For instructions, see [View the future availability of resources](https://docs.cloud.google.com/compute/docs/instances/create-future-reservations-calendar-mode#view-availability).
 
-  2. **Reserve capacity**. You create a reservation request for a future date and time. Google Cloud approves the reservation request within two minutes. If approved, then Compute Engine reserves the capacity for you. At your chosen delivery date, you can use the reserved resources to create clusters.
+  2. **Reserve capacity**. You create a reservation request for a future date and time. Google Cloud approves the reservation request within two minutes. If Google Cloud approves the request, then Compute Engine reserves the capacity for you. At your chosen delivery date, you can use the reserved resources to create clusters.
 
 For instructions, see [Create a request for GPU VMs, H4D VMs, or TPUs](https://docs.cloud.google.com/compute/docs/instances/create-future-reservations-calendar-mode#request).
 
@@ -252,17 +262,18 @@ Flex-start is ideal for workloads that can start at any time, such as the follow
 
 
 
-#### Key characteristics of Flex-start
+#### Characteristics of Flex-start
 
 Flex-start has the following characteristics:
 
-  * You can request A4, A3 Ultra, and A3 Mega VMs. Dense allocation depends on resource availability.
+  * You can request A4, A3 Ultra, A3 Mega, TPU7x, TPU v6e, and TPU v5p VMs. For TPU VMs, Cluster Director provisions all VMs within a slice together on a 2D or 3D interconnect topology; slice availability and dense allocation across nodes depend on resource availability.
 
+**Note:** To create TPU7x Flex-start VMs, you must contact your account team or the sales team to request access.
   * You use the flex-start provisioning model to create Flex-start VMs, which has the following benefits:
 
-    * You have a higher chance to obtain GPUs.
+    * You have a higher chance to obtain GPUs or TPUs.
 
-    * You get a discount up to 53% for vCPUs, memory, GPUs, and any attached Local SSD disks.
+    * You get a discount up to 53% for vCPUs, memory, GPUs, TPUs, and any attached Local SSD disks.
 
   * You can request resources for up to seven days. When your allocated resources reach the end of their maximum run duration, Cluster Director automatically requests new resources with the same run duration.
 
@@ -304,19 +315,20 @@ Spot is ideal for workloads where interruptions are acceptable, such as the foll
 
 
 
-#### Key characteristics of Spot
+#### Characteristics of Spot
 
 Spot has the following characteristics:
 
-  * You can create A4, A3 Ultra, A3 Mega, and N2 VMs. Dense allocation depends on resource availability.
+  * You can create A4, A3 Ultra, A3 Mega, TPU7x, TPU v6e, TPU v5p, and N2 VMs. For TPU VMs, Cluster Director provisions all VMs within a slice together on a 2D or 3D interconnect topology; slice availability and dense allocation across nodes depend on resource availability.
 
-  * You can immediately create clusters. The VMs in the cluster run until you stop or delete them, or until Compute Engine preempts the VMs to reclaim capacity.
+**Note:** To create TPU7x Spot VMs, you must contact your account team or the sales team to request access.
+  * You can immediately create clusters. Unless Compute Engine preempts the VMs to reclaim capacity, GPU and N2 VMs run until you stop or delete them, and TPU VMs run until you delete them.
 
   * You use the spot provisioning model to create Spot VMs, which has the following benefits:
 
-    * You have a higher chance to obtain GPUs.
+    * You have a higher chance to obtain GPUs or TPUs.
 
-    * You get a discount of up to 91% off for vCPUs, memory, and any attached GPUs and Local SSD disks.
+    * You get a discount up to 91% for vCPUs, memory, and any attached GPUs, TPUs, and Local SSD disks.
 
 
 
@@ -325,11 +337,11 @@ Spot has the following characteristics:
 
 To use Spot to create VMs in one or more of your cluster partitions, complete the following steps:
 
-  1. **View resources availability**. You can view resource availability in the region or zone where you want to create Spot VMs. This action helps reduce the time that Cluster Director takes to allocate resources and create Spot VMs.
+  1. **View resource availability**. You can view the availability of A4, A3 Ultra, A3 Mega, and N2 machine types in the region or zone where you want to create Spot VMs. This action helps reduce the time that Cluster Director takes to allocate resources and create Spot VMs.
 
 For instructions, see [View resource availability for Spot VMs](https://docs.cloud.google.com/compute/docs/instances/view-vm-availability).
 
-  2. **View preemption rate and pricing**. You can view the historical and current preemption rate and pricing across different machine types and zones. This information helps you choose the machine type and location that best fit your workload and budget.
+  2. **View preemption rate and pricing**. You can view the historical and current preemption rate and pricing across A4, A3 Ultra, A3 Mega, and N2 machine types and zones. This information helps you choose the machine type and location that best fit your workload and budget.
 
 For instructions, see [View the preemption rate and pricing for Spot VMs](https://docs.cloud.google.com/compute/docs/instances/view-spot-preemption-price).
 
@@ -344,11 +356,13 @@ For instructions, see [View the preemption rate and pricing for Spot VMs](https:
 
 ### Use On-demand
 
-For cluster components that don't require GPU acceleration, such as login nodes, or for running CPU-bound computational tasks like HPC workloads, you can get resources immediately based on availability. You get resources at the standard pricing.
+To run TPU workloads without a reservation or cluster components without GPU or TPU acceleration (such as login nodes), you can obtain on-demand resources based on availability at standard pricing.
 
 #### Ideal workloads for On-demand
 
-On-demand is ideal for workloads that don't require GPU-acceleration, such as the following:
+On-demand is ideal for the following workloads:
+
+  * TPU training and inference workloads
 
   * Login nodes
 
@@ -359,13 +373,13 @@ On-demand is ideal for workloads that don't require GPU-acceleration, such as th
 
 
 
-#### Key characteristics of On-demand
+#### Characteristics of On-demand
 
 On-demand has the following characteristics:
 
-  * You can create C4A and N2 VMs. Dense allocation depends on resource availability. You can use C4A VMs only for login nodes.
+  * You can create C4A, N2, TPU7x, TPU v6e, and TPU v5p VMs. Cluster Director provisions TPU VMs in a slice together on a 2D or 3D interconnect topology. For C4A and N2 VMs, dense allocation depends on resource availability. You can use C4A VMs only for login nodes.
 
-  * You can immediately create clusters. The VMs in the cluster run until you stop or delete them.
+  * You can immediately create clusters. C4A and N2 VMs run until you stop or delete them, and TPU VMs run until you delete them.
 
   * You use the standard provisioning model, which is the default model.
 
@@ -387,6 +401,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

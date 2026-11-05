@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/instances/update/
 title: gcloud alloydb instances update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T00:45:32.005648+00:00
+fetched_at: 2026-11-05T11:10:50.022496+00:00
 ---
 
 # gcloud alloydb instances update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alloydb instances update - updates an AlloyDB instance within a given clu
 SYNOPSIS
     
 
-`gcloud alloydb instances update` `INSTANCE` `--cluster`=`CLUSTER` `--region`=`REGION` [`--activation-policy`=`ACTIVATION_POLICY`] [`--allowed-psc-projects`=[`ALLOWED_PSC_PROJECTS`,…]] [`--assign-inbound-public-ip`=`ASSIGN_INBOUND_PUBLIC_IP`] [`--async`] [`--authorized-external-networks`=[`AUTHORIZED_NETWORK`,…]] [`--availability-type`=`AVAILABILITY_TYPE`] [`--clear-psc-network-attachment-uri`] [`--connection-pooling-client-connection-idle-timeout`=`CONNECTION_POOLING_CLIENT_CONNECTION_IDLE_TIMEOUT`] [`--connection-pooling-ignore-startup-parameters`=[`STARTUP_PARAMETERS`,…]] [`--connection-pooling-max-client-connections`=`CONNECTION_POOLING_MAX_CLIENT_CONNECTIONS`] [`--connection-pooling-max-pool-size`=`CONNECTION_POOLING_MAX_POOL_SIZE`] [`--connection-pooling-max-prepared-statements`=`CONNECTION_POOLING_MAX_PREPARED_STATEMENTS`] [`--connection-pooling-min-pool-size`=`CONNECTION_POOLING_MIN_POOL_SIZE`] [`--connection-pooling-pool-mode`=`CONNECTION_POOLING_POOL_MODE`] [`--connection-pooling-query-wait-timeout`=`CONNECTION_POOLING_QUERY_WAIT_TIMEOUT`] [`--connection-pooling-server-idle-timeout`=`CONNECTION_POOLING_SERVER_IDLE_TIMEOUT`] [`--connection-pooling-server-lifetime`=`CONNECTION_POOLING_SERVER_LIFETIME`] [`--connection-pooling-stats-users`=[`STATS_USERS`,…]] [`--cpu-count`=`CPU_COUNT`] [`--database-flags`=`FLAG`=`VALUE`,[`FLAG`=`VALUE`,…]] [`--[no-]enable-connection-pooling`] [`--insights-config-query-plans-per-minute`=`INSIGHTS_CONFIG_QUERY_PLANS_PER_MINUTE`] [`--insights-config-query-string-length`=`INSIGHTS_CONFIG_QUERY_STRING_LENGTH`] [`--[no-]insights-config-record-application-tags`] [`--[no-]insights-config-record-client-address`] [`--machine-type`=`MACHINE_TYPE`] [`--[no-]observability-config-enabled`] [`--observability-config-max-query-string-length`=`OBSERVABILITY_CONFIG_MAX_QUERY_STRING_LENGTH`] [`--[no-]observability-config-preserve-comments`] [`--observability-config-query-plans-per-minute`=`OBSERVABILITY_CONFIG_QUERY_PLANS_PER_MINUTE`] [`--[no-]observability-config-record-application-tags`] [`--[no-]observability-config-track-active-queries`] [`--observability-config-track-wait-events`] [`--[no-]outbound-public-ip`] [`--psc-network-attachment-uri`=`PSC_NETWORK_ATTACHMENT_URI`] [`--read-pool-node-count`=`READ_POOL_NODE_COUNT`] [`--[no-]require-connectors`] [`--ssl-mode`=`SSL_MODE`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--clear-psc-auto-connections` | `--psc-auto-connections`=[`network`=`NETWORK`],[`project`=`PROJECT`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alloydb instances update` `INSTANCE` `--cluster`=`CLUSTER` `--region`=`REGION` [`--activation-policy`=`ACTIVATION_POLICY`] [`--allowed-psc-projects`=[`ALLOWED_PSC_PROJECTS`,…]] [`--assign-inbound-public-ip`=`ASSIGN_INBOUND_PUBLIC_IP`] [`--async`] [`--authorized-external-networks`=[`AUTHORIZED_NETWORK`,…]] [`--availability-type`=`AVAILABILITY_TYPE`] [`--clear-psc-network-attachment-uri`] [`--connection-pooling-client-connection-idle-timeout`=`CONNECTION_POOLING_CLIENT_CONNECTION_IDLE_TIMEOUT`] [`--connection-pooling-ignore-startup-parameters`=[`STARTUP_PARAMETERS`,…]] [`--connection-pooling-max-client-connections`=`CONNECTION_POOLING_MAX_CLIENT_CONNECTIONS`] [`--connection-pooling-max-pool-size`=`CONNECTION_POOLING_MAX_POOL_SIZE`] [`--connection-pooling-max-prepared-statements`=`CONNECTION_POOLING_MAX_PREPARED_STATEMENTS`] [`--connection-pooling-min-pool-size`=`CONNECTION_POOLING_MIN_POOL_SIZE`] [`--connection-pooling-pool-mode`=`CONNECTION_POOLING_POOL_MODE`] [`--connection-pooling-query-wait-timeout`=`CONNECTION_POOLING_QUERY_WAIT_TIMEOUT`] [`--connection-pooling-server-idle-timeout`=`CONNECTION_POOLING_SERVER_IDLE_TIMEOUT`] [`--connection-pooling-server-lifetime`=`CONNECTION_POOLING_SERVER_LIFETIME`] [`--connection-pooling-stats-users`=[`STATS_USERS`,…]] [`--cpu-count`=`CPU_COUNT`] [`--database-flags`=`FLAG`=`VALUE`,[`FLAG`=`VALUE`,…]] [`--[no-]enable-connection-pooling`] [`--insights-config-query-plans-per-minute`=`INSIGHTS_CONFIG_QUERY_PLANS_PER_MINUTE`] [`--insights-config-query-string-length`=`INSIGHTS_CONFIG_QUERY_STRING_LENGTH`] [`--[no-]insights-config-record-application-tags`] [`--[no-]insights-config-record-client-address`] [`--machine-type`=`MACHINE_TYPE`] [`--[no-]observability-config-enabled`] [`--observability-config-max-query-string-length`=`OBSERVABILITY_CONFIG_MAX_QUERY_STRING_LENGTH`] [`--[no-]observability-config-preserve-comments`] [`--observability-config-query-plans-per-minute`=`OBSERVABILITY_CONFIG_QUERY_PLANS_PER_MINUTE`] [`--[no-]observability-config-record-application-tags`] [`--[no-]observability-config-track-active-queries`] [`--observability-config-track-wait-events`] [`--[no-]outbound-public-ip`] [`--psc-network-attachment-uri`=`PSC_NETWORK_ATTACHMENT_URI`] [`--read-pool-node-count`=`READ_POOL_NODE_COUNT`] [`--[no-]require-connectors`] [`--ssl-mode`=`SSL_MODE`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--autoscaler-cool-down-period-seconds`=`AUTOSCALER_COOL_DOWN_PERIOD_SECONDS` `--autoscaler-max-node-count`=`AUTOSCALER_MAX_NODE_COUNT` `--autoscaler-schedule-cron-exp`=`AUTOSCALER_SCHEDULE_CRON_EXP` `--autoscaler-schedule-description`=`AUTOSCALER_SCHEDULE_DESCRIPTION` `--autoscaler-schedule-duration-seconds`=`AUTOSCALER_SCHEDULE_DURATION_SECONDS` `--autoscaler-schedule-min-node-count`=`AUTOSCALER_SCHEDULE_MIN_NODE_COUNT` `--autoscaler-schedule-time-zone`=`AUTOSCALER_SCHEDULE_TIME_ZONE` `--autoscaler-target-connections-count`=`AUTOSCALER_TARGET_CONNECTIONS_COUNT` `--autoscaler-target-cpu-usage`=`AUTOSCALER_TARGET_CPU_USAGE` `--[no-]enable-autoscaler` `--autoscaler-delete-schedule`=`AUTOSCALER_DELETE_SCHEDULE` | `--autoscaler-disable-schedule`=`AUTOSCALER_DISABLE_SCHEDULE` | `--autoscaler-enable-schedule`=`AUTOSCALER_ENABLE_SCHEDULE` | `--autoscaler-set-schedule`=`AUTOSCALER_SET_SCHEDULE`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--clear-psc-auto-connections` | `--psc-auto-connections`=[`network`=`NETWORK`],[`project`=`PROJECT`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Updates an AlloyDB instance within a given cluster. 
 EXAMPLES
@@ -167,6 +167,39 @@ Use `--observability-config-record-application-tags` to enable and `--no-observa
 
 Keys must start with a lowercase character and contain only hyphens (-`), underscores (`_`), lowercase characters, and numbers. Values must contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. `
 
+Autoscaler flags. 
+`--autoscaler-cool-down-period-seconds`=`AUTOSCALER_COOL_DOWN_PERIOD_SECONDS`
+     Cool down period in seconds for the autoscaler. 
+`--autoscaler-max-node-count`=`AUTOSCALER_MAX_NODE_COUNT`
+     Maximum node count for the autoscaler. 
+`--autoscaler-schedule-cron-exp`=`AUTOSCALER_SCHEDULE_CRON_EXP`
+     Cron expression for the autoscaler schedule. 
+`--autoscaler-schedule-description`=`AUTOSCALER_SCHEDULE_DESCRIPTION`
+     Description for the autoscaler schedule. 
+`--autoscaler-schedule-duration-seconds`=`AUTOSCALER_SCHEDULE_DURATION_SECONDS`
+     Duration for which the autoscaler schedule is active in seconds. 
+`--autoscaler-schedule-min-node-count`=`AUTOSCALER_SCHEDULE_MIN_NODE_COUNT`
+     Minimum node count for the autoscaler schedule. 
+`--autoscaler-schedule-time-zone`=`AUTOSCALER_SCHEDULE_TIME_ZONE`
+     Time zone for the autoscaler schedule. 
+`--autoscaler-target-connections-count`=`AUTOSCALER_TARGET_CONNECTIONS_COUNT`
+     Target connections count for the autoscaler. 
+`--autoscaler-target-cpu-usage`=`AUTOSCALER_TARGET_CPU_USAGE`
+     Target CPU usage for the autoscaler. 
+`--[no-]enable-autoscaler`
+     Enable autoscaler for the instance. Use `--enable-autoscaler` to enable and `--no-enable-autoscaler` to disable. 
+Autoscaler schedule flags. 
+
+At most one of these can be specified: 
+
+`--autoscaler-delete-schedule`=`AUTOSCALER_DELETE_SCHEDULE`
+     The name of the schedule to delete for the autoscaler. 
+`--autoscaler-disable-schedule`=`AUTOSCALER_DISABLE_SCHEDULE`
+     The name of the schedule to disable for the autoscaler. 
+`--autoscaler-enable-schedule`=`AUTOSCALER_ENABLE_SCHEDULE`
+     The name of the schedule to enable for the autoscaler. 
+`--autoscaler-set-schedule`=`AUTOSCALER_SET_SCHEDULE`
+     The name of the schedule to create or update for the autoscaler. 
 At most one of these can be specified: 
 
 `--clear-labels`
@@ -234,6 +267,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

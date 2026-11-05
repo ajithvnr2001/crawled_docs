@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-get-clusters/
 title: List clusters \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:19.505551+00:00
+fetched_at: 2026-11-05T11:12:23.918083+00:00
 ---
 
 # List clusters  |  Bigtable  |  Google Cloud Documentation
@@ -136,9 +136,15 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableInstanceAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html)()
+    instance_path = client.[instance_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_instance_path)(project_id, instance_id)
+    
     print("\nListing clusters...")
-    for cluster in instance.list_clusters()[0]:
-        print(cluster.cluster_id)
+    clusters_response = client.[list_clusters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_list_clusters)(parent=instance_path)
+    for cluster in clusters_response.clusters:
+        print(cluster.name.split("/")[-1])
 
 ### Ruby
 

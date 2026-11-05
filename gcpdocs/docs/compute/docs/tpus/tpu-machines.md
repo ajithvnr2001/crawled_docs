@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/tpus/tpu-machines/
 title: TPU machines in accelerator-optimized machine family \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:26:42.193234+00:00
+fetched_at: 2026-11-05T11:12:31.869281+00:00
 ---
 
 # TPU machines in accelerator-optimized machine family  |  Compute Engine  |  Google Cloud Documentation
@@ -235,7 +235,9 @@ Each TPU7x virtual machine (VM) contains 4 TPU chips. All TPU7x slices use full-
 
 Each TPU7x chip contains two TensorCores and four SparseCores.
 
-The Ironwood programming model lets you access two TPU devices instead of a single logical core architecture used in previous generations. For more information, see [Dual-chiplet architecture](https://docs.cloud.google.com/tpu/docs/tpu7x#dual-chiplet_architecture) in the Cloud TPU documentation.
+The Ironwood programming model lets you access two TPU devices instead of the single logical core architecture that was used in previous generations. For more information, see [Dual-chiplet architecture](https://docs.cloud.google.com/tpu/docs/tpu7x#dual-chiplet_architecture) in the Cloud TPU documentation.
+
+The following table lists the specifications for the TPU7x machine type:
 
 Machine type | Number of vCPUs | Instance memory (GiB) | Physical NIC count | Maximum network bandwidth (Gbps) | Number of TPU chips per VM | Number of NUMA nodes | Total TPU memory (GiB HBM)  
 ---|---|---|---|---|---|---|---  
@@ -247,12 +249,16 @@ For more information about the TPU7x architecture, see [TPU7x (Ironwood)](https:
 
 Each TPU v6e VM can contain 1, 4, or 8 TPU chips. 4-chip and smaller slices have the same non-uniform memory access (NUMA) node.
 
-v6e slices are created using half-host VMs, each with 4 TPU chips, except for the following:
+TPU v6e slices use half-host VMs, each with 4 TPU chips, except for the following machine types:
 
-  * `ct6e-standard-1t` with only a single TPU chip is primarily intended for testing.
-  * `ct6e-standard-8t` is a full-host VM that has been optimized for an inference use case, allowing all 8 TPU chips that are attached to a single VM to be used in a single serving workload.
+  * `ct6e-standard-1t` contains a single TPU chip for testing workloads.
+  * `ct6e-standard-8t` is a full-host VM optimized for inference workloads. This machine type lets you use all 8 TPU chips that are attached to a single VM in a single serving workload.
 
-Machine type | Number of vCPUs | Instance memory (GB) | Physical NIC count | Maximum network bandwidth (Gbps) | Number of TPU chips per VM | Number of NUMA nodes | Total TPU memory (GiB HBM)  
+
+
+The following table lists the specifications for the TPU v6e machine types:
+
+Machine type | Number of vCPUs | Instance memory (GiB) | Physical NIC count | Maximum network bandwidth (Gbps) | Number of TPU chips per VM | Number of NUMA nodes | Total TPU memory (GiB HBM)  
 ---|---|---|---|---|---|---|---  
 `ct6e-standard-1t` | 44 | 176 | 1/4 | 50 | 1 | 1 | 32  
 `ct6e-standard-4t` | 180 | 720 | 2 | 400 | 4 | 1 | 128  
@@ -262,9 +268,11 @@ For more information about the TPU v6e architecture, see [TPU v6e](https://docs.
 
 ### TPU v5p
 
-A TPU v5p Pod is composed of 8960 TPU chips interconnected with reconfigurable high-speed links. TPU v5p's flexible networking lets you connect the TPU chips in a same-sized slice in multiple ways. Single slice training is supported for up to 6144 TPU chips.
+A TPU v5p Pod contains 8,960 TPU chips that are interconnected with reconfigurable high-speed links. TPU v5p's flexible networking lets you connect the TPU chips in a same-sized slice in multiple ways and train models on a single slice of up to 6,144 TPU chips.
 
-Machine type | Number of vCPUs | Instance memory (GB) | Physical NIC count | Maximum network bandwidth (Gbps) | Number of TPU chips per VM | Number of NUMA nodes | Total TPU memory (GiB HBM)  
+The following table lists the specifications for the TPU v5p machine type:
+
+Machine type | Number of vCPUs | Instance memory (GiB) | Physical NIC count | Maximum network bandwidth (Gbps) | Number of TPU chips per VM | Number of NUMA nodes | Total TPU memory (GiB HBM)  
 ---|---|---|---|---|---|---|---  
 `ct5p-hightpu-4t` | 208 | 448 | 1 | 200 | 4 | 2 | 380  
   
@@ -489,6 +497,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

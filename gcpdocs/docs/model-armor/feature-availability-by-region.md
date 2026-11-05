@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/feature-availability-by-region/
 title: Feature availability for templates by region \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:52:27.102149+00:00
+fetched_at: 2026-11-05T08:52:41.313165+00:00
 ---
 
 # Feature availability for templates by region  |  Model Armor  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ If you create a Model Armor template in a full-support region, you have access t
   * [ Responsible AI](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories)
   * [ Sensitive Data Protection](https://docs.cloud.google.com/model-armor/overview#ma-sensitive-data-prot)
   * [ Malicious URL detection](https://docs.cloud.google.com/model-armor/overview#ma-malicious-url-detection)
-  * Child sexual abuse material (CSAM) detection
+  * [ Child sexual abuse material (CSAM) detection](https://docs.cloud.google.com/model-armor/overview#ma-csam-detection)
   * [Multi-language detection](https://docs.cloud.google.com/model-armor/overview#languages-supported)
   * Antivirus scanning
 
@@ -93,171 +93,184 @@ For a list of features that are available for each region or multi-region, see S
 
 This section shows the regional capabilities and supported filters for each region or multi-region when you configure Model Armor using a template that has [data residency enforcement enabled](https://docs.cloud.google.com/model-armor/manage-templates#set-data-residency-compliance).
 
-Region/multi-region | Supported filters | Multi-language detection | CSAM support | Image support | Antivirus scanning  
----|---|---|---|---|---  
+Region/multi-region | Supported filters | Multi-language detection | Image support | Antivirus scanning  
+---|---|---|---|---  
 `asia-northeast1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
 
-| No | No | No | No  
+| No | No | No  
 `asia-northeast3` | 
 
   * Sensitive Data Protection
 
-| No | No | No | No  
+| No | No | No  
 `asia-south1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
 
-| No | No | No | No  
+| No | No | No  
 `asia-southeast1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
 
-| No | No | No | No  
+| No | No | No  
 `australia-southeast2` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
 
-| No | No | No | No  
+| No | No | No  
 `eu` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | Yes | Yes  
+| Yes | Yes | Yes  
 `europe-southwest1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `europe-west1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `europe-west2` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
 
-| No | No | No | No  
+| No | No | No  
 `europe-west3` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `europe-west4` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `europe-west9` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `northamerica-northeast2` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
 
-| No | No | No | No  
+| No | No | No  
 `southamerica-east1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
 
-| No | No | No | No  
+| No | No | No  
 `us` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | Yes | Yes  
+| Yes | Yes | Yes  
 `us-central1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `us-east1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `us-east4` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `us-east7` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `us-west1` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | No | Yes  
+| Yes | No | Yes  
 `global` | 
 
   * Responsible AI
   * Sensitive Data Protection
   * Prompt injection and jailbreak
   * Malicious URL
+  * CSAM
 
-| Yes | Yes | Yes | Yes  
+| Yes | Yes | Yes  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

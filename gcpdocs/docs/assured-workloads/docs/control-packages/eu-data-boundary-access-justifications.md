@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary-access-justifications/
 title: EU Data Boundary with Access Justifications \u00a0|\u00a0 Assured Workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:40:57.212728+00:00
+fetched_at: 2026-11-05T08:23:06.888281+00:00
 ---
 
 # EU Data Boundary with Access Justifications  |  Assured Workloads  |  Google Cloud Documentation
@@ -134,8 +134,9 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Firebase Security Rules](https://firebase.google.com/docs/rules) |  `firebaserules.googleapis.com`  
 |  None   
-[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `firestore.googleapis.com`  
-|  None   
+[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `datastore.googleapis.com`  
+`firestore.googleapis.com`  
+|  Organization policy constraints  
 [Google Kubernetes Engine (GKE) Hub](https://docs.cloud.google.com/kubernetes-engine/docs/fleets-overview) |  `gkehub.googleapis.com`  
 |  None   
 [Google Kubernetes Engine (GKE) Identity Service](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/authentication) |  `anthosidentityservice.googleapis.com`  
@@ -169,6 +170,8 @@ Supported product | API endpoints | Restrictions or limitations
 |  Organization policy constraints  
 [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/resource-manager-overview) |  `cloudresourcemanager.googleapis.com`  
 |  None   
+[Resource Settings](https://docs.cloud.google.com/resource-manager/docs/deprecations) |  `resourcesettings.googleapis.com`  
+|  None   
 [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) |  `secretmanager.googleapis.com`  
 |  None   
 [Secure Source Manager](https://docs.cloud.google.com/secure-source-manager/docs/overview) |  `securesourcemanager.googleapis.com`  
@@ -183,6 +186,7 @@ Supported product | API endpoints | Restrictions or limitations
 `accesscontextintelligence.googleapis.com`  
 |  None   
 [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) |  `compute.googleapis.com`  
+`servicedirectory.googleapis.com`  
 `servicenetworking.googleapis.com`  
 |  None   
   
@@ -588,6 +592,16 @@ Feature | Description
 ---|---  
 Google Cloud console | Managed Service for Apache Spark does not currently support the [Jurisdictional Google Cloud console](https://docs.cloud.google.com/assured-workloads/docs/jurisdictional-console). To enforce data residency, ensure that you use either the Google Cloud CLI or the API when using Managed Service for Apache Spark.  
   
+### Firestore
+
+#### Firestore organization policy constraints
+
+Organization policy constraint | Description  
+---|---  
+`firestore.managed.disableEnhancedTextSearch` | Set to **True**.  
+  
+Prevents enabling query enhancements for Firestore full text search.   
+  
 ### Google Cloud Armor
 
 #### Affected Google Cloud Armor features
@@ -665,6 +679,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

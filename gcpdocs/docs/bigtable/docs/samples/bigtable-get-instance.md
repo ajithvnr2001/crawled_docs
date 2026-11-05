@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-get-instance/
 title: Get instance details \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:47.597480+00:00
+fetched_at: 2026-11-05T11:12:18.186994+00:00
 ---
 
 # Get instance details  |  Bigtable  |  Google Cloud Documentation
@@ -167,11 +167,13 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    print(
-        "\nName of instance: {}\nLabels: {}".format(
-            instance.display_name, instance.labels
-        )
-    )
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableInstanceAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html)()
+    instance_path = client.[instance_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_instance_path)(project_id, instance_id)
+    
+    inst = client.[get_instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_get_instance)(name=instance_path)
+    print(f"\nName of instance: {inst.display_name}\nLabels: {dict(inst.labels)}")
 
 ### Ruby
 

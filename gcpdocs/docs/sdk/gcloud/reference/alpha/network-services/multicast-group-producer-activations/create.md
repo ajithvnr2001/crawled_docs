@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/network-services/multicast-group-producer-activations/create/
 title: gcloud alpha network-services multicast-group-producer-activations create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T02:47:55.596379+00:00
+fetched_at: 2026-11-05T11:10:38.573365+00:00
 ---
 
 # gcloud alpha network-services multicast-group-producer-activations create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,11 +28,11 @@ gcloud alpha network-services multicast-group-producer-activations create - crea
 SYNOPSIS
     
 
-`gcloud alpha network-services multicast-group-producer-activations create` (`MULTICAST_GROUP_PRODUCER_ACTIVATION` : `--location`=`LOCATION`) `--multicast-producer-association`=`MULTICAST_PRODUCER_ASSOCIATION` [`--async`] [`--description`=`DESCRIPTION`] [`--labels`=[`KEY`=`VALUE`,…]] [`--multicast-group`=`MULTICAST_GROUP`] [`--multicast-group-range-activation`=`MULTICAST_GROUP_RANGE_ACTIVATION`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha network-services multicast-group-producer-activations create` (`MULTICAST_GROUP_PRODUCER_ACTIVATION` : `--location`=`LOCATION`) `--multicast-producer-association`=`MULTICAST_PRODUCER_ASSOCIATION` [`--async`] [`--description`=`DESCRIPTION`] [`--labels`=[`KEY`=`VALUE`,…]] [`--multicast-group-range-activation`=`MULTICAST_GROUP_RANGE_ACTIVATION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create a multicast group producer activation in the specified location of the current project. 
 EXAMPLES
-     Create a multicast group producer activation with the name 'my-multicast-group-producer-activation', multicast-producer-association 'path-to-mpa', multicast-group 'path-to-mg' and location 'zone'. 
+     Create a multicast group producer activation with the name 'my-multicast-group-producer-activation', multicast-producer-association 'path-to-mpa', multicast-group-range-activation 'path-to-mg-range-activation', and location 'zone'. 
 
 $ [gcloud alpha network-services](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/network-services) \
     
@@ -40,7 +40,8 @@ $ [gcloud alpha network-services](https://docs.cloud.google.com/sdk/gcloud/refer
     multicast-group-producer-activations create \
     my-multicast-group-producer-activation \
     --multicast-producer-association=path-to-mpa \
-    --multicast-group=path-to-mg --location=zone
+    --multicast-group-range-activation=path-to-mg-range-activation \
+    --location=zone
 
 POSITIONAL ARGUMENTS
     
@@ -94,8 +95,6 @@ OPTIONAL FLAGS
 
 Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. Values must contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
 
-`--multicast-group`=`MULTICAST_GROUP`
-     The multicast group to be used. 
 `--multicast-group-range-activation`=`MULTICAST_GROUP_RANGE_ACTIVATION`
      The multicast group range activation to be used. 
 GCLOUD WIDE FLAGS
@@ -118,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

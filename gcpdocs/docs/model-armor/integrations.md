@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/integrations/
 title: Overview \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:04.960265+00:00
+fetched_at: 2026-11-05T10:53:56.537275+00:00
 ---
 
 # Overview  |  Model Armor  |  Google Cloud Documentation

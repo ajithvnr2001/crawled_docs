@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/bigtable/inspect-data-agent/
 title: Test QueryData in Bigtable Studio \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:41.020467+00:00
+fetched_at: 2026-11-05T11:08:29.301799+00:00
 ---
 
 # Test QueryData in Bigtable Studio  |  Data Agents  |  Google Cloud Documentation

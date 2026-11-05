@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-delete-cluster/
 title: Delete a cluster \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:46.463976+00:00
+fetched_at: 2026-11-05T11:12:23.360239+00:00
 ---
 
 # Delete a cluster  |  Bigtable  |  Google Cloud Documentation
@@ -132,13 +132,19 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    print("\nDeleting cluster")
-    if cluster.exists():
-        cluster.delete()
-        print("Cluster deleted: {}".format(cluster_id))
-    else:
-        print("\nCluster {} does not exist.".format(cluster_id))
+    from google.api_core.exceptions import NotFound
     
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableInstanceAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html)()
+    cluster_path = client.[cluster_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_cluster_path)(project_id, instance_id, cluster_id)
+    
+    print("\nDeleting cluster")
+    try:
+        client.[delete_cluster](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.services.bigtable_instance_admin.BigtableInstanceAdminClient.html#google_cloud_bigtable_admin_v2_services_bigtable_instance_admin_BigtableInstanceAdminClient_delete_cluster)(name=cluster_path)
+        print(f"Cluster deleted: {cluster_id}")
+    except NotFound:
+        print(f"\nCluster {cluster_id} does not exist.")
 
 ### Ruby
 

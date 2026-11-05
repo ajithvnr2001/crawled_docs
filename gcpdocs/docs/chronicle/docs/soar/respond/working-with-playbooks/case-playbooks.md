@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/case-playbooks/
 title: Case playbooks overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:33:47.442868+00:00
+fetched_at: 2026-11-05T08:23:12.688696+00:00
 ---
 
 # Case playbooks overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -44,6 +44,8 @@ Because a single case often groups multiple similar alerts together, running pla
 
 Case playbooks solve this by looking at the whole case container. You can access all the alerts and entities associated with that case. This lets you run a single operational action for the entire case—such as sending one unified Slack notification to your team or opening a single tracking ticket in an external system—instead of triggering repetitive actions for every individual alert.
 
+**Note:** In an active case investigation, attached case playbooks appear alongside alert playbooks in the unified **Playbooks** tab. To learn how playbooks are organized and displayed in this tab, see [View case and alert playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/attach-playbooks-to-alerts-cases#view-case-and-alert-playbooks).
+
 Case playbooks also introduce reaction triggers. Instead of only running when an alert first arrives, you can automatically trigger these playbooks based on events that happen during the investigation—like when a case priority changes, or when a case is reassigned.
 
 **Note:** When a case playbook is executed, it will only process and extract data from alerts that are in an "Open" status within the case.**Important:** If your playbook actions are configured to execute on a Remote Agent, the agent must run **Remote Agent version 2.6.6 or higher**. Actions dispatched to remote agents running versions earlier than 2.6.6 fail with an unsupported version error. For instructions on upgrading your agents, see [Upgrade Remote Agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-remote-agents).
@@ -53,7 +55,7 @@ Case playbooks also introduce reaction triggers. Instead of only running when an
 Case playbooks work best when you need to focus on the overall incident rather than isolated events. Typical scenarios include:
 
   * **Upon case creation** : Run an automated workflow the moment a new case opens. For example, you can automatically create a tracking ticket in an external IT service management (ITSM) system.
-  * **Manual attachment during an investigation** : Run a single, centralized workflow directly on the case container. For example, if you need to rerun an enrichment block on all entities collected from the various alerts, a case playbook runs this action once at the case level instead of looping through each alert separately.
+  * **Manual attachment during an investigation** : Run automated workflows on demand directly from the case-level **Playbooks** tab. For example, you can attach a case-scoped playbook to enrich all entities across the entire case, or target an alert-scoped playbook to a specific alert.
   * **When using reaction triggers** : Automate tasks based on lifecycle updates. For example, you can trigger a Slack notification or assign a new task automatically when the case assignee changes.
 
 
@@ -183,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

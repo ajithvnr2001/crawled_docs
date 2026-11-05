@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/release-notes/
 title: Lakehouse release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:51.954333+00:00
+fetched_at: 2026-11-05T10:54:29.103355+00:00
 ---
 
 # Lakehouse release notes  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ _Lakehouse_ supports the following remote catalog providers for cross-cloud data
 
 
 
-This feature lets you configure federated catalog endpoints to synchronize catalog metadata and query Apache Iceberg tables in remote catalogs directly from Google Cloud using BigQuery, Managed Service for Apache Spark, and Apache Spark without migrating data or building complex ETL pipelines. You can route metadata synchronization and queries over the public internet or privately over Cross-Cloud Interconnect, and protect cross-cloud data access with VPC Service Controls service perimeters. For Databricks Unity Catalog, you can also use [user identity federation](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks#configure-user-identity-federation) to propagate end-user identities on queries for permission enforcement and audit logging.
+This feature lets you configure federated catalog endpoints to synchronize catalog metadata and query Apache Iceberg tables in remote catalogs directly from Google Cloud using BigQuery, Managed Service for Apache Spark, and Apache Spark without migrating data or building complex ETL pipelines. You can route background metadata refresh and queries over the public internet or privately over Cross-Cloud Interconnect, and protect cross-cloud data access with VPC Service Controls service perimeters. For Databricks Unity Catalog, you can also use [user identity federation](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks#configure-user-identity-federation) to propagate end-user identities on queries for permission enforcement and audit logging.
 
 For more information, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access), [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data), and [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
 

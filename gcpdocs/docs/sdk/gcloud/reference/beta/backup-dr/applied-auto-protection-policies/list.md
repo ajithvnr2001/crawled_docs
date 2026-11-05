@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/backup-dr/applied-auto-protection-policies/list/
 title: gcloud beta backup-dr applied-auto-protection-policies list \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:08:59.239202+00:00
+fetched_at: 2026-11-05T11:10:00.490361+00:00
 ---
 
 # gcloud beta backup-dr applied-auto-protection-policies list  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta backup-dr applied-auto-protection-policies list - list Backup and DR
 SYNOPSIS
     
 
-`gcloud beta backup-dr applied-auto-protection-policies list` [`--location`=`LOCATION`] [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`--uri`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta backup-dr applied-auto-protection-policies list` `--location`=`LOCATION` [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`--uri`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` List Backup and DR applied auto-protection policies. 
 EXAMPLES
@@ -37,7 +37,7 @@ EXAMPLES
     
     gcloud beta backup-dr applied-auto-protection-policies list --location=us-central1
 
-FLAGS
+REQUIRED FLAGS
     
 
 Location resource - The location resource. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
@@ -45,18 +45,19 @@ Location resource - The location resource. This represents a Cloud resource. (NO
 To set the `project` attribute: 
 
   * provide the argument `--location` on the command line with a fully specified name; 
-  * Defaults to all locations with a fully specified name; 
   * provide the argument `--project` on the command line; 
   * set the property `core/project`. 
 
+
+
+This must be specified. 
 
 `--location`=`LOCATION`
      ID of the location or fully qualified identifier for the location. 
 
 To set the `location` attribute: 
 
-  * provide the argument `--location` on the command line; 
-  * Defaults to all locations. 
+  * provide the argument `--location` on the command line. 
 
 
 LIST COMMAND FLAGS
@@ -80,7 +81,10 @@ Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for de
 BRIEF
      List Backup and DR applied auto-protection policies. 
 NOTES
-     This command is currently in beta and might change without notice. This variant is also available: 
+     This command is currently in beta and might change without notice. These variants are also available: 
+    
+    
+    [gcloud backup-dr applied-auto-protection-policies list](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/applied-auto-protection-policies/list)
     
     
     [gcloud alpha backup-dr applied-auto-protection-policies list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/backup-dr/applied-auto-protection-policies/list)
@@ -89,6 +93,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-15 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-15 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

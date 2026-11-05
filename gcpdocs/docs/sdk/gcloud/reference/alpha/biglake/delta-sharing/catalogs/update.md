@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/biglake/delta-sharing/catalogs/update/
 title: gcloud alpha biglake delta-sharing catalogs update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:25:21.694024+00:00
+fetched_at: 2026-11-05T11:10:13.866999+00:00
 ---
 
 # gcloud alpha biglake delta-sharing catalogs update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha biglake delta-sharing catalogs update - update a BigLake Delta Shar
 SYNOPSIS
     
 
-`gcloud alpha biglake delta-sharing catalogs update` `CATALOG` [`--connector-endpoint`=`CONNECTOR_ENDPOINT`] [`--cross-cloud-cache`=`MODE`] [`--invitation-code`=`INVITATION_CODE`] [`--invitation-url`=`INVITATION_URL`] [`--kms-key`=`KMS_KEY`] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha biglake delta-sharing catalogs update` `CATALOG` [`--connector-endpoint`=`CONNECTOR_ENDPOINT`] [`--cross-cloud-cache`=`MODE`] [`--invitation-code`=`INVITATION_CODE`] [`--invitation-url`=`INVITATION_URL`] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--clear-kms-key` | `--kms-key`=`KMS_KEY`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update a BigLake Delta Sharing catalog. 
 EXAMPLES
@@ -71,12 +71,16 @@ FLAGS
      The SAP BDC Invitation Code. 
 `--invitation-url`=`INVITATION_URL`
      The combined invitation URL containing both endpoint and code. 
-`--kms-key`=`KMS_KEY`
-     Cloud KMS key name for encryption of resources in the catalog. 
 `--refresh-interval`=`REFRESH_INTERVAL`
      The interval for refreshing metadata from the remote catalog (e.g. 300s or 5m). 
 `--service-directory-name`=`SERVICE_DIRECTORY_NAME`
      The service directory resource name for private networking. 
+At most one of these can be specified: 
+
+`--clear-kms-key`
+     Clear the Cloud KMS key for the catalog and revert to Google-managed encryption. 
+`--kms-key`=`KMS_KEY`
+     Cloud KMS key name for encryption of resources in the catalog. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -94,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

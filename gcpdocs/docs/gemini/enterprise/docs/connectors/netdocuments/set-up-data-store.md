@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/netdocuments/set-up-data-store/
 title: Set up a NetDocuments data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:15.795986+00:00
+fetched_at: 2026-11-05T11:12:34.149923+00:00
 ---
 
 # Set up a NetDocuments data store  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -32,12 +32,15 @@ This page describes how to create a data store and connect NetDocuments to Gemin
 Before you set up your NetDocuments connection, do the following:
 
   1. Grant the Discovery Engine Editor role (`roles/discoveryengine.editor`). This role is required for the user to create the data store. To grant this role, do the following: 
+
      1. In the Google Cloud console, go to the **IAM** page. 
 
 [Go to IAM](https://console.cloud.google.com/iam-admin/iam)
 
      2. Locate the user account and click edit **Edit**.
      3. Grant the `Discovery Engine Editor` role to the user. For more information, see [IAM roles and permissions](https://cloud.google.com/gemini/enterprise/docs/access-control).
+  2. Verify NetDocuments AI licensing and enable **ndConnect** MCP for your NetDocuments repository. For more information, see [NetDocuments configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/netdocuments/third-party-config).
+
 
 
 
@@ -59,7 +62,11 @@ To create the NetDocuments data store, perform the following steps:
 
   5. In the **Source** section, search for **NetDocuments** , and click **Select**.
 
-  6. In the **Data** > **Entities to search** section, select the entities that you want Gemini Enterprise to search. For NetDocuments, this includes **Document**.
+  6. In the **Data** section:
+
+     1. If prompted for **Unused Authorization Parameters** , enter any value (for example, `unused`), and then click **Continue**.
+
+     2. In the **Entities to search** section, choose which entities Gemini Enterprise should scan. For NetDocuments, select **Document**.
 
   7. Click **Continue**.
 
@@ -87,7 +94,22 @@ For more information, see [Customer-managed encryption keys](https://docs.cloud.
 
 On the **Data Stores** page, click your data store name to see the status. After the data store state changes from **Creating** to **Active** , the NetDocuments data store is ready to be used.
 
-After creating the data store, connect the data store you just created to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) it to the new app, and [authorize](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store#user_authorization) Gemini Enterprise to access NetDocuments before executing any queries.
+After creating the data store, connect the data store to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect the data store](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) to it.
+
+## Authorize Gemini Enterprise to access NetDocuments
+
+Before executing any queries, each user must authorize Gemini Enterprise to access their NetDocuments account:
+
+  1. Open the Gemini Enterprise web app.
+  2. Click **Manage your data**.
+  3. Find the NetDocuments data store, and then click **Enable actions** (for data stores with actions configured) or **Authorize** (for search-only data stores).
+  4. Sign in with your NetDocuments credentials and approve the access request.
+
+
+
+For more information, see [User authorization](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store#user_authorization).
+
+**Note:** If authorization fails or queries return an access error, verify with your NetDocuments **Repository Administrator** that **ndConnect** MCP is enabled for the repository in **Security Center** and that your account has the required NetDocuments AI license. For more information, see [NetDocuments configuration](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/netdocuments/third-party-config).
 
 ## Data handling and query execution
 
@@ -125,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

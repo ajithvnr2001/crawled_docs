@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/ssl-certificates/
 title: SSL certificates overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:28.832930+00:00
+fetched_at: 2026-11-05T11:10:51.262709+00:00
 ---
 
 # SSL certificates overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -212,7 +212,9 @@ After a client connects to the load balancer, the client and load balancer negot
 
     * In all other situations, the load balancer selects a certificate using the following matching process:
 
-      * Matching is done against both the common name (CN) and subject alternative name (SAN) certificate attributes. If only one certificate matches the SNI hostname, the load balancer selects that certificate. If multiple certificates match the SNI hostname, the load balancer prioritizes them in the following order:
+      * Matching is done against both the common name (CN) and subject alternative name (SAN) certificate attributes. Domain names in the CN and SAN attributes must contain only lowercase characters. Certificates with uppercase characters in domain names are returned only when set as the primary certificate in the target proxy.
+
+If only one certificate matches the SNI hostname, the load balancer selects that certificate. If multiple certificates match the SNI hostname, the load balancer prioritizes them in the following order:
 
         * **Exact hostname match** : exact matches against the CN or SAN take precedence over wildcard matches.
 
@@ -271,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

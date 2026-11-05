@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/reservations/hosts/list/
 title: gcloud beta compute reservations hosts list \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T14:57:38.514350+00:00
+fetched_at: 2026-11-05T11:09:55.963452+00:00
 ---
 
 # gcloud beta compute reservations hosts list  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta compute reservations hosts list - list Google Compute Engine hosts f
 SYNOPSIS
     
 
-`gcloud beta compute reservations hosts list` [`--reservation`=`RESERVATION`] [`--reservation-block`=`RESERVATION_BLOCK`] [`--zone`=`ZONE`] [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`--uri`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta compute reservations hosts list` [`--reservation`=`RESERVATION`] [`--reservation-block`=`RESERVATION_BLOCK`] [`--reservation-subblock`=`RESERVATION_SUBBLOCK`] [`--zone`=`ZONE`] [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`--uri`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` List Google Compute Engine hosts in a given project and zone, filtered by reservation. 
 EXAMPLES
@@ -44,6 +44,8 @@ FLAGS
      Name of the reservation the hosts are associated with. 
 `--reservation-block`=`RESERVATION_BLOCK`
      Name of the reservation block the hosts are associated with. This argument requires `--reservation` to be specified. 
+`--reservation-subblock`=`RESERVATION_SUBBLOCK`
+     Name of the reservation subblock the hosts are associated with. This argument requires `--reservation` and `--reservation-block` to be specified. 
 Zone resource - The zone to list hosts for. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
@@ -96,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-04 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

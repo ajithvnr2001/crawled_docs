@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus-multi/
 title: Running multi-instance GPUs \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:08.462760+00:00
+fetched_at: 2026-11-05T10:54:26.004663+00:00
 ---
 
 # Running multi-instance GPUs  |  GKE AI/ML  |  Google Cloud Documentation

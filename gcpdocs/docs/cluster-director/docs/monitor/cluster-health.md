@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/monitor/cluster-health/
 title: Manage cluster health \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:49.075722+00:00
+fetched_at: 2026-11-05T11:12:33.229526+00:00
 ---
 
 # Manage cluster health  |  Cluster Director  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This document explains how to manage cluster health and perform host maintenance events in Cluster Director.
 
-In addition to running [automated health checks for the GPUs attached to your compute nodes](https://docs.cloud.google.com/cluster-director/docs/orchestration#capabilities), Cluster Director provides the following tools to help you proactively manage cluster resilience and help ensure optimal operation for your clusters. Specifically, you can do one or more of the following:
+In addition to running [automated health checks for the GPUs attached to your compute nodes](https://docs.cloud.google.com/cluster-director/docs/orchestration#capabilities), Cluster Director provides the following tools to help you proactively manage cluster resilience and help ensure optimal operation for your clusters. Specifically, you can do one or more of the following on your GPU compute nodes:
 
   * Manually start planned host maintenance events.
 
@@ -72,9 +72,9 @@ The following sections describe how you can manage the health of your cluster.
 
 ### Manually start planned host maintenance events
 
-If a [host maintenance event](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#maintenanceevents) is planned for your cluster, then you can immediately start maintenance rather than waiting for the planned time.
+If GPU compute nodes in your cluster have a planned [host maintenance event](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#maintenanceevents), then you can start the maintenance event before its scheduled time. You can't start a planned host maintenance event on demand for TPU compute nodes.
 
-To manually start a planned host maintenance event for your cluster by using the Google Cloud console, complete the following steps:
+To start a planned host maintenance event for GPU compute nodes in the Google Cloud console, complete the following steps:
 
   1. In the Google Cloud console, go to the **Cluster Director** page.
 
@@ -91,7 +91,7 @@ To manually start a planned host maintenance event for your cluster by using the
 
 ### Verify cluster health
 
-Before running a job on a compute node, Slurm automatically runs a quick GPU health check on the node. If the node fails the check, then Slurm drains the node and prevents scheduling new jobs on it.
+Before Slurm runs a job on a GPU compute node, Slurm runs a GPU health check on the node. If the node fails the check, then Slurm drains the node and prevents scheduling new jobs on it.
 
 To more thoroughly test GPU health and network bandwidth across the compute nodes in a cluster partition, you can manually run [NVIDIA Collective Communications Library (NCCL) tests](https://developer.nvidia.com/nccl). If an NCCL test identifies any unhealthy nodes, then you can modify your jobs to run on different nodes. Running NCCL tests helps you verify a partition's health and troubleshoot issues before you run critical workloads.
 
@@ -479,6 +479,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

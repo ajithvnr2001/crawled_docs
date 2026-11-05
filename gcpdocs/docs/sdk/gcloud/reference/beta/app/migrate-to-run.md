@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app/migrate-to-run/
 title: gcloud beta app migrate-to-run \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T04:51:32.611586+00:00
+fetched_at: 2026-11-05T11:10:37.211982+00:00
 ---
 
 # gcloud beta app migrate-to-run  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta app migrate-to-run - migrate a second-generation App Engine app to C
 SYNOPSIS
     
 
-`gcloud beta app migrate-to-run` [`--appyaml`=`APPYAML`] [`--async`] [`--dry-run`] [`--export-only`=`EXPORT_PATH`] [`--region`=`REGION`] [`--service`=`SERVICE`] [`--version`=`VERSION`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta app migrate-to-run` [`--appyaml`=`APPYAML`] [`--async`] [`--destination-repository`=`DESTINATION_REPOSITORY`] [`--dry-run`] [`--export-only`=`EXPORT_PATH`] [`--from-image`] [`--region`=`REGION`] [`--service`=`SERVICE`] [`--version`=`VERSION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Migrates the second-generation App Engine app to Cloud Run. 
 EXAMPLES
@@ -51,10 +51,14 @@ FLAGS
      Path to the app.yaml file for the second generation App Engine version to be migrated. If not provided, the app.yaml present in the current directory is used. 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
+`--destination-repository`=`DESTINATION_REPOSITORY`
+     The full resource name of the AR repository to export to in the format of projects/*/locations/*/repositories/*. 
 `--dry-run`
      If set to true, only validates the configuration. The configuration is not applied. 
 `--export-only`=`EXPORT_PATH`
      Export the generated Cloud Run service.yaml to the provided path. Migration stops without deploying the service. 
+`--from-image`
+     Use image based migration. 
 `--region`=`REGION`
      Region in which the resource can be found. Alternatively, set the property [run/region]. 
 `--service`=`SERVICE`
@@ -76,6 +80,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

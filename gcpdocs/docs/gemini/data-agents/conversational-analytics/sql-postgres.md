@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/sql-postgres/
 title: Conversational analytics for Cloud SQL for PostgreSQL overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:41:23.592127+00:00
+fetched_at: 2026-11-05T11:09:14.012455+00:00
 ---
 
 # Conversational analytics for Cloud SQL for PostgreSQL overview  |  Data Agents  |  Google Cloud Documentation

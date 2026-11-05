@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-iam-add-member/
 title: Add an IAM member to a resource \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:04.311678+00:00
+fetched_at: 2026-11-05T10:30:12.208723+00:00
 ---
 
 # Add an IAM member to a resource  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -372,7 +372,7 @@ To authenticate to Cloud KMS, set up Application Default Credentials. For more i
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the resource name.
     resource_name = client.crypto_key_path project:    project_id,
@@ -384,7 +384,7 @@ To authenticate to Cloud KMS, set up Application Default Credentials. For more i
     # resource_name = client.key_ring_path project: project_id, location: location_id, key_ring: key_ring_id
     
     # Create the IAM client.
-    iam_client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory/latest/Google-Cloud-Kms.html)::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1.html)::IAMPolicy::Client.new
+    iam_client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html)::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1.html)::IAMPolicy::Client.new
     
     # Get the current IAM policy.
     policy = iam_client.get_iam_policy resource: resource_name

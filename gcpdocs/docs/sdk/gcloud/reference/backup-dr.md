@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/
 title: gcloud backup-dr \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T14:34:29.679331+00:00
+fetched_at: 2026-11-05T11:10:01.136949+00:00
 ---
 
 # gcloud backup-dr  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -39,6 +39,12 @@ Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for de
 GROUPS
      ``GROUP`` is one of the following: 
 
+`[applied-auto-protection-policies](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/applied-auto-protection-policies)`
+     Manage Backup and DR AppliedAutoProtectionPolicies. 
+`[auto-protection-bindings](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/auto-protection-bindings)`
+     Manage Backup and DR auto protection bindings. 
+`[auto-protection-policies](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/auto-protection-policies)`
+     Manage Backup and DR AutoProtectionPolicies. 
 `[backup-plan-associations](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/backup-plan-associations)`
      Manage Backup and DR backup plan associations. 
 `[backup-plan-revisions](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/backup-plan-revisions)`
@@ -49,6 +55,8 @@ GROUPS
      Manage Backup and DR backup vaults. 
 `[backups](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/backups)`
      Manage Backup and DR backups. 
+`[binding-matching-resources](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/binding-matching-resources)`
+     Manage Backup and DR binding matching resources. 
 `[data-source-references](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/data-source-references)`
      Command group for Backup and DR Data Source References. 
 `[data-sources](https://docs.cloud.google.com/sdk/gcloud/reference/backup-dr/data-sources)`
@@ -76,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

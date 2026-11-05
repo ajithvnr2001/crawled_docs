@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/aggregated_sinks_overview/
 title: Aggregated sinks overview \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:31.990516+00:00
+fetched_at: 2026-11-05T10:52:57.957020+00:00
 ---
 
 # Aggregated sinks overview  |  Cloud Logging  |  Google Cloud Documentation

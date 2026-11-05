@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/firebase/test/ios/list-device-capacities/
 title: gcloud firebase test ios list-device-capacities \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T15:19:26.875358+00:00
+fetched_at: 2026-11-05T11:09:44.622188+00:00
 ---
 
 # gcloud firebase test ios list-device-capacities  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -30,7 +30,11 @@ SYNOPSIS
 
 `gcloud firebase test ios list-device-capacities` [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     List device capacity information (high/medium/low/none) for all iOS models & versions which are available for testing and have capacity information published. 
+     `(DEPRECATED)` List capacity information for iOS models & versions. 
+
+Firebase Test Lab is deprecated and will be fully shut down on September 30, 2027\. To maintain your testing workflows, you can migrate to the Developer Device Platform on Google Cloud. See the Developer Device Platform Migration Guide (https://docs.cloud.google.com/developer-device-platform/device-run/migrate) and FAQ (https://docs.cloud.google.com/developer-device-platform/troubleshooting) for more details. 
+
+List device capacity information (high/medium/low/none) for all iOS models & versions which are available for testing and have capacity information published. 
 
 Device capacity is the number of online devices in Firebase Test Lab. For physical devices, the number is the average of online devices in the last 30 days. It's important to note that device capacity does not directly reflect any real-time data, like the length of the test queue, or the available/busy state of the devices based on current test traffic. 
 
@@ -79,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

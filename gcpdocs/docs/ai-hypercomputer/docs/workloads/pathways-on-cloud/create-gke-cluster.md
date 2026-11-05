@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/create-gke-cluster/
 title: Create a GKE cluster with Pathways \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:50.333368+00:00
+fetched_at: 2026-11-05T11:08:53.609867+00:00
 ---
 
 # Create a GKE cluster with Pathways  |  AI Hypercomputer  |  Google Cloud Documentation

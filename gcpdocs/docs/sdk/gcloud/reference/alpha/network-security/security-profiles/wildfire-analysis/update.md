@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/network-security/security-profiles/wildfire-analysis/update/
 title: gcloud alpha network-security security-profiles wildfire-analysis update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:16.811177+00:00
+fetched_at: 2026-11-05T11:10:39.818238+00:00
 ---
 
 # gcloud alpha network-security security-profiles wildfire-analysis update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -32,10 +32,10 @@ SYNOPSIS
 DESCRIPTION
      `(ALPHA)` Update a security profile of type WildFire Analysis. 
 EXAMPLES
-     To update a WildFire Analysis security-profile `my-wildfire-security-profile` with organization 1234, location global, and project my-project, run: 
+     To update a WildFire Analysis security-profile `my-wildfire-security-profile` with organization 1234 and location global, run: 
     
     
-    [gcloud alpha network-security security-profiles](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/network-security/security-profiles) wildfire-analysis update my-wildfire-security-profile --organization=1234 --location=global --project=my-project --no-wildfire-realtime-lookup --analyze-windows-executables --no-analyze-shell
+    [gcloud alpha network-security security-profiles](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/network-security/security-profiles) wildfire-analysis update my-wildfire-security-profile --organization=1234 --location=global --no-wildfire-realtime-lookup --analyze-windows-executables --no-analyze-shell
 
 To update labels of a WildFire Analysis security-profile, run: 
     
@@ -150,6 +150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

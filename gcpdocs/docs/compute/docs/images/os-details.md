@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/images/os-details/
 title: Operating system details \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:16:38.632683+00:00
+fetched_at: 2026-11-05T11:11:11.526022+00:00
 ---
 
 # Operating system details  |  Compute Engine  |  Google Cloud Documentation
@@ -569,8 +569,6 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 **Note:** [Monitoring of GPU metrics](https://docs.cloud.google.com/compute/docs/gpus/monitor-gpus) is not available for GPUs running on VMs that use Container-Optimized OS. 
 
-For G2 VMs, the current default driver for Container-Optimized OS, don't support L4 GPUs running on G2 machine types. You might be able to install a supported version, see [G2 limitations](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2_limitations). 
-
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
 OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
@@ -691,8 +689,6 @@ COS 101 LTS  | Yes | Yes | Yes
 N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purpose N1 machine family.
 
 **Note:** [Monitoring of GPU metrics](https://docs.cloud.google.com/compute/docs/gpus/monitor-gpus) is not available for GPUs running on VMs that use Container-Optimized OS. 
-
-For G2 VMs, the current default driver for Container-Optimized OS, don't support L4 GPUs running on G2 machine types. You might be able to install a supported version, see [G2 limitations](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2_limitations). 
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
@@ -4230,6 +4226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/release-notes/
 title: Google Security Operations release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:06.091178+00:00
+fetched_at: 2026-11-05T08:23:09.438940+00:00
 ---
 
 # Google Security Operations release notes  |  Google Cloud Documentation
@@ -42,6 +42,16 @@ Deprecated
 **Deprecation of the ListCaseEvents API endpoint**
 
 Effective November 2, 2026, the `ListCaseEvents` API endpoint is deprecated. You should use the [`ListCaseEvidenceData`](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.cases.caseEvidenceDatas/list) API endpoint instead.
+
+## November 01, 2026
+
+Feature
+
+**Unified Case and Alert Playbooks view**
+
+The **Playbooks** tab in Cases now provides a consolidated view of all automated workflows associated with an investigation, displaying both case-level and alert-level playbooks in a single tab.
+
+For more information, see [View case and alert playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/attach-playbooks-to-alerts-cases#view_case_and_alert_playbooks).
 
 ## October 31, 2026
 

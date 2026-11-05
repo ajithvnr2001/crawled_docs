@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/backend-buckets/update/
 title: gcloud beta compute backend-buckets update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T18:28:30.318732+00:00
+fetched_at: 2026-11-05T11:09:59.002981+00:00
 ---
 
 # gcloud beta compute backend-buckets update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -76,7 +76,7 @@ FLAGS
 `--description`=`DESCRIPTION`
      An optional, textual description for the backend bucket. 
 `--edge-security-policy`=`EDGE_SECURITY_POLICY`
-     The edge security policy that will be set for this backend bucket. To remove the policy from this backend bucket set the policy to an empty string. 
+     The name or full resource URI of an existing Cloud Armor edge security policy to attach to this backend bucket. To remove the currently attached policy from the backend bucket, set the value to an empty string (for example, `--edge-security-policy="`). 
 `--[no-]enable-cdn`
      Enable Cloud CDN for the backend bucket. Cloud CDN can cache HTTP responses from a backend bucket at the edge of the network, close to users. Use `--enable-cdn` to enable and `--no-enable-cdn` to disable. 
 `--gcs-bucket-name`=`GCS_BUCKET_NAME`
@@ -271,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

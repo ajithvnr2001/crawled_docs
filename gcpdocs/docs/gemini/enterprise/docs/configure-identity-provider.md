@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/configure-identity-provider/
 title: Configure identity provider \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:23.523900+00:00
+fetched_at: 2026-11-05T11:10:56.838666+00:00
 ---
 
 # Configure identity provider  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -110,7 +110,9 @@ Attribute mapping helps you connect your third-party identity information with G
 
 When configuring attribute mapping in Workforce Identity Federation, consider the following:
 
-  * The `google.subject` attribute is used for attribute mapping, license assignment, and sharing notebooks. We recommend mapping `google.subject` to the user's email address in lowercase, as license assignment is case sensitive.
+  * The `google.subject` attribute is used for attribute mapping, license assignment, and sharing notebooks. We recommend mapping `google.subject` to the user's email address in lowercase, as license assignment is case sensitive. Don't map `google.subject` to the Microsoft Entra ID object ID (GUID), which causes `403` sign-in errors and duplicate license consumption when licenses are pre-assigned by email.
+
+  * For Microsoft Entra ID, tokens omit group IDs when a user belongs to more than 150 groups (SAML) or 200 groups (OIDC). To prevent `403 Permission Denied` errors, restrict Microsoft Entra ID group claims to **Groups assigned to the application** or apply a group filter.
 
   * If your organization has more than one unique identifier, map these unique organizational attributes using the `attribute.as_user_identifier_number between 1 and 50` attribute.
 
@@ -258,10 +260,11 @@ To specify an identity provider for Gemini Enterprise and turn on data source ac
 
   2. Click **Settings** > **Authentication**.
 
-  3. Click **Add identity provider** for the Gemini Enterprise location (`global`, `us`, or `eu`) that you want to update.
+  3. Click **Add identity provider** for the Gemini Enterprise location (`global`, `us`, or `eu`) that you want to update. Although IAM workforce pools are `global`, Gemini Enterprise authentication is configured per region.
 
   4. Click **Add identity provider** and select your identity provider type.   
-If you select **3rd party identity** , select the workforce pool (located in `global`) that applies to your data sources.
+If you select **3rd party identity** , select the workforce pool (located in `global`) that applies to your data sources.   
+**Note:** If you have multiple Microsoft Entra ID app registrations, add them as multiple providers within the same workforce pool.
 
   5. Click **Save changes**.
 
@@ -283,7 +286,12 @@ Identity provider type  |  Description
   
 **Third-party identity provider** | 
 
-  * Grant the Gemini Enterprise User (`roles/discoveryengine.agentspaceUser`) role to your users and [workforce pool users in IAM policies](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#representing-workforce-users). For more information on adding the role, see [Grant permissions to your users](https://docs.cloud.google.com/gemini/enterprise/docs/access-control#grant-role). 
+  * Grant the Gemini Enterprise User (`roles/discoveryengine.agentspaceUser`) role to your users and [workforce pool users in IAM policies](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#representing-workforce-users) using one of the following principal formats: 
+    * **All users in the pool (bulk access):** `principalSet://iam.googleapis.com/locations/global/workforcePools/POOL_ID/*`
+    * **Specific group:** `principalSet://iam.googleapis.com/locations/global/workforcePools/POOL_ID/group/GROUP_ID`
+    * **Single user:** `principal://iam.googleapis.com/locations/global/workforcePools/POOL_ID/subject/USER_EMAIL`
+    * **Custom attribute match:** `principalSet://iam.googleapis.com/locations/global/workforcePools/POOL_ID/attribute.ATTRIBUTE_NAME/VALUE`
+For more information on adding the role, see [Grant permissions to your users](https://docs.cloud.google.com/gemini/enterprise/docs/access-control#grant-role). 
   * Google recommends configuring group claims for your third-party identities. 
 
   
@@ -372,6 +380,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

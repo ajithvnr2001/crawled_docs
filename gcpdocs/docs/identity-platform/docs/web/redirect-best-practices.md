@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/redirect-best-practices/
 title: Best practices for using signInWithRedirect on browsers that block third-party storage access \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:28.947214+00:00
+fetched_at: 2026-11-05T08:23:02.777283+00:00
 ---
 
 # Best practices for using signInWithRedirect on browsers that block third-party storage access  |  Identity Platform  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Best practices for using signInWithRedirect on browsers that block third-party storage access
 
-This document describes the best practices for using redirect sign-ins on browsers that block third-party cookies. You must follow one of the options listed here for [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth.md#signinwithredirect) to function as intended in production environments, across all browsers.
+This document describes the best practices for using redirect sign-ins on browsers that block third-party cookies. You must follow one of the options listed here for [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth#signinwithredirect) to function as intended in production environments, across all browsers.
 
 **Note:** Starting June 24 2024, implementing one of the options will be required for redirect sign-in to work on Google Chrome M115+. This is already required on Firefox 109+ and Safari 16.1+.
 
 ## Overview
 
-To make the [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth.md#signinwithredirect) flow seamless for you and your users, the Firebase Authentication JavaScript SDK uses a cross-origin iframe that connects to your app's Firebase Hosting domain. However, this mechanism doesn't work with browsers that block third-party storage access.
+To make the [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth#signinwithredirect) flow seamless for you and your users, the Firebase Authentication JavaScript SDK uses a cross-origin iframe that connects to your app's Firebase Hosting domain. However, this mechanism doesn't work with browsers that block third-party storage access.
 
 Because asking your users to disable storage partitioning features on the browser is rarely an option, you should instead apply one of the following setup options to your app, depending on the specifics of your use case.
 
@@ -70,7 +70,7 @@ Similarly, if you're using a SAML provider, add the new `authDomain` to the SAML
 
 ## Option 2: Switch to signInWithPopup()
 
-Use [`signInWithPopup()`](https://firebase.google.com/docs/reference/js/auth.md#signinwithpopup) instead of [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth.md#signinwithredirect). The rest of your app's code remains the same, but the UserCredential object is retrieved differently.
+Use [`signInWithPopup()`](https://firebase.google.com/docs/reference/js/auth#signinwithpopup) instead of [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth#signinwithredirect). The rest of your app's code remains the same, but the UserCredential object is retrieved differently.
 
 ###  Web version 9
     
@@ -157,7 +157,7 @@ Here is a [sample server implementation](https://go.dev/play/p/yvHmY9Bd50N) that
 
 **Important:** This is a complex approach that uses additional SDKs, and potentially can be very involved for SAML providers.
 
-The Firebase Authentication SDK provides [`signInWithPopup()`](https://firebase.google.com/docs/reference/js/auth.md#signinwithpopup) and [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth.md#signinwithredirect) as convenience methods to wrap complicated logic and avoid the need to involve another SDK. You can avoid using either method entirely by independently signing in to your provider, then using [`signInWithCredential()`](https://firebase.google.com/docs/reference/js/auth.md#signinwithcredential) to exchange the provider's credentials for a Firebase Authentication credential. For example, you can use the [Google Sign In SDK](https://developers.google.com/identity/gsi/web/guides/overview), [sample code](https://github.com/google/google-api-javascript-client/blob/master/samples/authSample.html) to obtain a Google account credential, then instantiate a new Google credential, by running the following code:
+The Firebase Authentication SDK provides [`signInWithPopup()`](https://firebase.google.com/docs/reference/js/auth#signinwithpopup) and [`signInWithRedirect()`](https://firebase.google.com/docs/reference/js/auth#signinwithredirect) as convenience methods to wrap complicated logic and avoid the need to involve another SDK. You can avoid using either method entirely by independently signing in to your provider, then using [`signInWithCredential()`](https://firebase.google.com/docs/reference/js/auth#signinwithcredential) to exchange the provider's credentials for a Firebase Authentication credential. For example, you can use the [Google Sign In SDK](https://developers.google.com/identity/gsi/web/guides/overview), [sample code](https://github.com/google/google-api-javascript-client/blob/master/samples/authSample.html) to obtain a Google account credential, then instantiate a new Google credential, by running the following code:
 
 ###  Web version 9
     
@@ -185,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

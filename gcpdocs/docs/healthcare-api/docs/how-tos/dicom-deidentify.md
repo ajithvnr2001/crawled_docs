@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify/
 title: De-identifying DICOM data using DicomConfig \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:28:24.377965+00:00
+fetched_at: 2026-11-05T08:23:13.856545+00:00
 ---
 
 # De-identifying DICOM data using DicomConfig  |  Cloud Healthcare API  |  Google Cloud Documentation
@@ -1604,7 +1604,12 @@ The **De-identify Dataset** page displays.
   5. Select **DICOM burnt-in text redaction** to configure how image redaction is performed during de-identification. You can configure image redaction as follows:
 
      * [`REDACT_NO_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_NO_TEXT) \- Do not redact text in images
-     * [`REDACT_SENSITIVE_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_SENSITIVE_TEXT) \- Redact only sensitive text in images
+     * [`REDACT_SENSITIVE_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_SENSITIVE_TEXT) \- Redact only sensitive text in images. To also redact text matching custom regular expressions: 
+       1. Select **Use custom config**.
+       2. Select **Use custom regex**.
+       3. In the **Custom Regex** field, enter the regular expression pattern to match.
+       4. Optional: In the **Group Index** field, enter up to three comma-separated capturing group indexes to redact, for example `1,2`. To redact the entire match, leave the field empty or enter `0`.
+       5. Optional: Click **Add custom regex** to configure additional custom regular expressions.
      * [`REDACT_ALL_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_ALL_TEXT) \- Redact all text in images
   6. Click **De-identify** to de-identify the data in the dataset.
 
@@ -1981,6 +1986,400 @@ Then execute the following command to send your REST request:
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
         -Uri "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/SOURCE_DATASET_ID:deidentify" | Select-Object -Expand Content
+
+The output is the following. The response contains an identifier for a [long-running operation](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.operations). Long-running operations are returned when method calls might take a substantial amount of time to complete. Note the value of OPERATION_ID. You need this value in the next step. 
+
+#### Response
+    
+    {
+      "name": "projects/PROJECT_ID/locations/LOCATION/datasets/SOURCE_DATASET_ID/operations/OPERATION_ID"
+    }
+    
+
+  2. Use the [`projects.locations.datasets.operations.get`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.operations/get) method to get the status of the long-running operation.   
+
+
+Before using any of the request data, make the following replacements: 
+
+     * PROJECT_ID: the ID of your Google Cloud project
+     * DATASET_ID: the dataset ID
+     * LOCATION: the dataset location
+     * OPERATION_ID: the ID returned from the long-running operation
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Execute the following command: 
+    
+    curl -X GET \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Execute the following command: 
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method GET `  
+        -Headers $headers `  
+        -Uri "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/operations/OPERATION_ID" | Select-Object -Expand Content
+
+#### APIs Explorer
+
+Open the [method reference page](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.operations/get). The APIs Explorer panel opens on the right side of the page. You can interact with this tool to send requests. Complete any required fields and click **Execute**. 
+
+The output is the following. When the response contains `"done": true`, the long-running operation has finished. 
+
+#### Response
+    
+    {
+      "name": "projects/PROJECT_ID/locations/SOURCE_DATASET_LOCATION/datasets/SOURCE_DATASET_ID/operations/OPERATION_ID",
+      "metadata": {
+        "@type": "type.googleapis.com/google.cloud.healthcare.v1.OperationMetadata",
+        "apiMethodName": "google.cloud.healthcare.v1.deidentify.DeidentifyService.DeidentifyDicomStore",
+        "createTime": "YYYY-MM-DDTHH:MM:SS+ZZ:ZZ",
+        "endTime": "YYYY-MM-DDTHH:MM:SS+ZZ:ZZ",
+        "logsUrl": "https://console.cloud.google.com/CLOUD_LOGGING_URL"
+        "counter": {
+          "success": "SUCCESS_COUNT",
+          // If there were any failures, they display in the `failure` field.
+          "failure": "FAILURE_COUNT"
+        }
+      },
+      "done": true,
+      // The `response` field only displays if there were no errors.
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.healthcare.v1.deidentify.DeidentifySummary",
+        
+      },
+      // If there were any errors, an `error` field displays instead of a `response` field.
+      // See [Troubleshooting long-running operations](https://docs.cloud.google.com/healthcare-api/docs/how-tos/long-running-operations#troubleshooting) for a list of response codes.
+      "error": {
+        "code": ERROR_CODE,
+        "message": "DESCRIPTION",
+        "details": [
+          {
+            "@type": "...",
+            FIELD1: ...,
+            ...
+          }
+        ]
+      }
+    }
+    
+
+  3. After the de-identification succeeds, you can retrieve the metadata for the de-identified instance to see how it changed. The de-identified instance has a new studies UID, series UID, and instances UID, so you first need to search the new dataset for the de-identified instance.   
+
+
+Before using any of the request data, make the following replacements: 
+
+     * PROJECT_ID: the ID of your Google Cloud project
+     * SOURCE_DATASET_LOCATION: the source dataset location
+     * DESTINATION_DATASET_ID: the ID of the destination dataset where de-identified data is written
+     * DESTINATION_DICOM_STORE_ID: the ID of the DICOM store in the destination dataset. This is the same as the ID of the DICOM store in the source dataset.
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Execute the following command: 
+    
+    curl -X GET \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/SOURCE_DATASET_LOCATION/datasets/DESTINATION_DATASET_ID/dicomStores/DESTINATION_DICOM_STORE_ID/dicomWeb/instances"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Execute the following command: 
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method GET `  
+        -Headers $headers `  
+        -Uri "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/SOURCE_DATASET_LOCATION/datasets/DESTINATION_DATASET_ID/dicomStores/DESTINATION_DICOM_STORE_ID/dicomWeb/instances" | Select-Object -Expand Content
+
+#### APIs Explorer
+
+Open the [method reference page](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.dicomStores/searchForInstances). The APIs Explorer panel opens on the right side of the page. You can interact with this tool to send requests. Complete any required fields and click **Execute**. 
+
+You should receive a JSON response similar to the following:
+
+#### Response
+    
+    [
+      {
+        "00080005":{"vr":"CS"},
+        "00080016":{"vr":"UI"},
+        "00080018":{"vr":"UI","Value":["1.3.6.1.4.1.11129.5.1.97415866390999888717168863957686758029"]},
+        "00080020":{"vr":"DA"},
+        "00080030":{"vr":"TM"},
+        "00080050":{"vr":"SH"},
+        "00080090":{"vr":"PN"},
+        "00100010":{"vr":"PN"},
+        "00100020":{"vr":"LO","Value":["S1214223-1"]},
+        "00100030":{"vr":"DA"},
+        "00100040":{"vr":"CS"},
+        "0020000D":{"vr":"UI","Value":["1.3.6.1.4.1.11129.5.1.201854290391432893460946240745559593763"]},
+        "0020000E":{"vr":"UI","Value":["1.3.6.1.4.1.11129.5.1.303327499491957026103380014864616068710"]},
+        "00200010":{"vr":"SH"},
+        "00200013":{"vr":"IS"},
+        "00280010":{"vr":"US","Value":[1024]},
+        "00280011":{"vr":"US","Value":[1024]},
+        "00280100":{"vr":"US","Value":[8]}
+      }
+    ]
+    
+
+The following table shows how the studies UID, series UID, and instances UID changed:  | Original instance metadata | De-identified instance metadata  
+---|---|---  
+Studies UID (`0020000D`) | `2.25.70541616638819138568043293671559322355` | `1.3.6.1.4.1.11129.5.1.201854290391432893460946240745559593763`  
+Series UID (`0020000E`) | `1.2.276.0.7230010.3.1.3.8323329.78.1531234558.523694` | `1.3.6.1.4.1.11129.5.1.303327499491957026103380014864616068710`  
+Instances UID (`00080018`) | `1.2.276.0.7230010.3.1.4.8323329.78.1539083058.523695` | `1.3.6.1.4.1.11129.5.1.97415866390999888717168863957686758029`  
+
+
+
+### Redacting burnt-in text using custom regular expressions
+
+When `textRedactionMode` is set to `REDACT_SENSITIVE_TEXT`, you can also specify custom regular expression patterns in the `customRegexes` field of the [`ImageConfig`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#ImageConfig) object to detect and redact matching burnt-in text in DICOM images. Each item in `customRegexes` can include the following fields:
+
+  * `pattern`: The regular expression pattern to match against text detected in the image. The pattern must use [RE2 syntax](https://github.com/google/re2/wiki/Syntax). RE2 doesn't support some constructs, such as lookahead and lookbehind assertions.
+  * `groupIndexes`: Optional list of capturing group indexes to redact when the pattern matches. If omitted, the entire match is redacted. The following rules apply: 
+    * You can specify a maximum of three group indexes for each custom regular expression.
+    * Index `0` redacts the entire match and can't be combined with other indexes.
+    * Indexes `1` and higher refer to the capturing groups in `pattern`, in order. Each index must not exceed the number of capturing groups in `pattern`.
+
+
+
+If a pattern isn't valid, the request fails with an `INVALID_ARGUMENT` error.
+
+**Note:** Even when only configuring `image` redaction, you must include the `dicom` field (for example, `"dicom": {}`) in `DeidentifyConfig` so that the API processes DICOM resources. When `"dicom": {}` is empty, DICOM metadata tags are kept as-is (`KEEP_ALL_PROFILE`).
+
+The following samples show how to de-identify a dataset or a DICOM store using a custom regular expression:
+
+### REST
+
+  1. De-identify the dataset or DICOM store using a custom regular expression.
+
+To de-identify all DICOM stores in a dataset (`datasets.deidentify`):
+
+Before using any of the request data, make the following replacements: 
+
+     * PROJECT_ID: the ID of your Google Cloud project
+     * LOCATION: the dataset location
+     * SOURCE_DATASET_ID: the ID of the dataset containing the data to de-identify
+     * DESTINATION_DATASET_ID: the ID of the destination dataset where de-identified data is written 
+
+Request JSON body: 
+    
+    {
+      "destinationDataset": "projects/PROJECT_ID/locations/LOCATION/datasets/DESTINATION_DATASET_ID",
+      "config": {
+        "dicom": {},
+        "image": {
+          "textRedactionMode": "REDACT_SENSITIVE_TEXT",
+          "customRegexes": [
+            {
+              "pattern": "MRN:\\s*([0-9]{4,10})",
+              "groupIndexes": [1]
+            }
+          ]
+        }
+      }
+    }
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    cat > request.json << 'EOF'
+    {
+      "destinationDataset": "projects/PROJECT_ID/locations/LOCATION/datasets/DESTINATION_DATASET_ID",
+      "config": {
+        "dicom": {},
+        "image": {
+          "textRedactionMode": "REDACT_SENSITIVE_TEXT",
+          "customRegexes": [
+            {
+              "pattern": "MRN:\\s*([0-9]{4,10})",
+              "groupIndexes": [1]
+            }
+          ]
+        }
+      }
+    }
+    EOF
+
+Then execute the following command to send your REST request: 
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/SOURCE_DATASET_ID:deidentify"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    @'
+    {
+      "destinationDataset": "projects/PROJECT_ID/locations/LOCATION/datasets/DESTINATION_DATASET_ID",
+      "config": {
+        "dicom": {},
+        "image": {
+          "textRedactionMode": "REDACT_SENSITIVE_TEXT",
+          "customRegexes": [
+            {
+              "pattern": "MRN:\\s*([0-9]{4,10})",
+              "groupIndexes": [1]
+            }
+          ]
+        }
+      }
+    }
+    '@  | Out-File -FilePath request.json -Encoding utf8
+
+Then execute the following command to send your REST request: 
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/SOURCE_DATASET_ID:deidentify" | Select-Object -Expand Content
+
+The output is the following. The response contains an identifier for a [long-running operation](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.operations). Long-running operations are returned when method calls might take a substantial amount of time to complete. Note the value of OPERATION_ID. You need this value in the next step. 
+
+#### Response
+    
+    {
+      "name": "projects/PROJECT_ID/locations/LOCATION/datasets/SOURCE_DATASET_ID/operations/OPERATION_ID"
+    }
+    
+
+To de-identify a single DICOM store (`datasets.dicomStores.deidentify`):
+
+Before using any of the request data, make the following replacements: 
+
+     * PROJECT_ID: the ID of your Google Cloud project
+     * LOCATION: the dataset location
+     * SOURCE_DATASET_ID: the ID of the dataset containing the data to de-identify
+     * DESTINATION_DATASET_ID: the ID of the destination dataset where de-identified data is written 
+     * SOURCE_DICOM_STORE_ID: the ID of the DICOM store containing the data to de-identify 
+     * DESTINATION_DICOM_STORE_ID: the ID of the DICOM store in the destination dataset 
+
+Request JSON body: 
+    
+    {
+      "destinationStore": "projects/PROJECT_ID/locations/LOCATION/datasets/DESTINATION_DATASET_ID/dicomStores/DESTINATION_DICOM_STORE_ID",
+      "config": {
+        "dicom": {},
+        "image": {
+          "textRedactionMode": "REDACT_SENSITIVE_TEXT",
+          "customRegexes": [
+            {
+              "pattern": "MRN:\\s*([0-9]{4,10})",
+              "groupIndexes": [1]
+            }
+          ]
+        }
+      }
+    }
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    cat > request.json << 'EOF'
+    {
+      "destinationStore": "projects/PROJECT_ID/locations/LOCATION/datasets/DESTINATION_DATASET_ID/dicomStores/DESTINATION_DICOM_STORE_ID",
+      "config": {
+        "dicom": {},
+        "image": {
+          "textRedactionMode": "REDACT_SENSITIVE_TEXT",
+          "customRegexes": [
+            {
+              "pattern": "MRN:\\s*([0-9]{4,10})",
+              "groupIndexes": [1]
+            }
+          ]
+        }
+      }
+    }
+    EOF
+
+Then execute the following command to send your REST request: 
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/SOURCE_DATASET_ID/dicomStores/SOURCE_DICOM_STORE_ID:deidentify"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    @'
+    {
+      "destinationStore": "projects/PROJECT_ID/locations/LOCATION/datasets/DESTINATION_DATASET_ID/dicomStores/DESTINATION_DICOM_STORE_ID",
+      "config": {
+        "dicom": {},
+        "image": {
+          "textRedactionMode": "REDACT_SENSITIVE_TEXT",
+          "customRegexes": [
+            {
+              "pattern": "MRN:\\s*([0-9]{4,10})",
+              "groupIndexes": [1]
+            }
+          ]
+        }
+      }
+    }
+    '@  | Out-File -FilePath request.json -Encoding utf8
+
+Then execute the following command to send your REST request: 
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/SOURCE_DATASET_ID/dicomStores/SOURCE_DICOM_STORE_ID:deidentify" | Select-Object -Expand Content
 
 The output is the following. The response contains an identifier for a [long-running operation](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.operations). Long-running operations are returned when method calls might take a substantial amount of time to complete. Note the value of OPERATION_ID. You need this value in the next step. 
 
@@ -4847,7 +5246,12 @@ The **De-identify DICOM store** page displays.
   6. Select **DICOM burnt-in text redaction** to configure how image redaction is performed during de-identification. You can configure image redaction as follows:
 
      * [`REDACT_NO_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_NO_TEXT): Do not redact text in images
-     * [`REDACT_SENSITIVE_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_SENSITIVE_TEXT): Redact only sensitive text in images
+     * [`REDACT_SENSITIVE_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_SENSITIVE_TEXT): Redact only sensitive text in images. To also redact text matching custom regular expressions: 
+       1. Select **Use custom config**.
+       2. Select **Use custom regex**.
+       3. In the **Custom Regex** field, enter the regular expression pattern to match.
+       4. Optional: In the **Group Index** field, enter up to three comma-separated capturing group indexes to redact, for example `1,2`. To redact the entire match, leave the field empty or enter `0`.
+       5. Optional: Click **Add custom regex** to configure additional custom regular expressions.
      * [`REDACT_ALL_TEXT`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#TextRedactionMode.ENUM_VALUES.REDACT_ALL_TEXT): Redact all text in images
   7. Click **De-identify** to de-identify the data in the DICOM store.
 
@@ -5308,6 +5712,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

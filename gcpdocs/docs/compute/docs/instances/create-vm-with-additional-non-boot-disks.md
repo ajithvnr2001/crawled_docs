@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-vm-with-additional-non-boot-disks/
 title: Create an instance with additional non-boot disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:02.296992+00:00
+fetched_at: 2026-11-05T11:08:53.419953+00:00
 ---
 
 # Create an instance with additional non-boot disks  |  Compute Engine  |  Google Cloud Documentation

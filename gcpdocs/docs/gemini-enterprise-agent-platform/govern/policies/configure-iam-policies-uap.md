@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap/
 title: Create IAM Unified Access Policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:13:28.072262+00:00
+fetched_at: 2026-11-05T11:08:21.451207+00:00
 ---
 
 # Create IAM Unified Access Policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -754,11 +754,11 @@ After you create and bind your policies, verify that your agent can access the r
 
 Replace `PROJECT_ID` with your project ID.
 
-The log entries display the access decision, principal, target, and CEL expression evaluation details. We recommend that, during testing, you use `DRY_RUN` mode so that policy violations don't block access.
+The log entries display the access decision, principal, target, and CEL expression evaluation details. We recommend that, during testing, you use `DRY_RUN` mode (`iamEnforcementMode: "DRY_RUN"`, or **Audit-only** in the Google Cloud console) so that policy violations don't block access. To query dry-run violations across all governance controls, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report).
 
   3. Adjust policy rules based on evaluation results in the audit logs.
 
-  4. After you confirm that your rules operate as expected, update your gateway service extension metadata, and set `iamEnforcementMode` to `"ENFORCE"`.
+  4. After you confirm that your rules operate as expected, enable active enforcement by selecting **Enforce policies** in the Google Cloud console (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway), or by removing `iamEnforcementMode: "DRY_RUN"` in your gateway authorization extension metadata.
 
 
 
@@ -1426,6 +1426,7 @@ Supported operations |  `==`, `!=`, `in`
 
   * [CEL attributes for UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap)
   * [Manage IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap)
+  * [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report)
   * [Troubleshoot IAM UAPs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap)
 
 
@@ -1452,6 +1453,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

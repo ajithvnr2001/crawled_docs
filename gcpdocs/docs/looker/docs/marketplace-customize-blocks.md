@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/marketplace-customize-blocks/
 title: Customizing Looker Marketplace Blocks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:45.785362+00:00
+fetched_at: 2026-11-05T10:52:53.859049+00:00
 ---
 
 # Customizing Looker Marketplace Blocks  |  Google Cloud Documentation

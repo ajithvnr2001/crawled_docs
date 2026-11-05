@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/create/
 title: gcloud biglake iceberg catalogs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:37.882431+00:00
+fetched_at: 2026-11-05T11:10:26.081926+00:00
 ---
 
 # gcloud biglake iceberg catalogs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -160,7 +160,7 @@ OPTIONAL FLAGS
      The base URL of the Workday instance. 
 `--workday-tenant`=`WORKDAY_TENANT`
      The Workday tenant name. 
-Key resource - The Cloud KMS (Key Management Service) cryptokey that will be used to protect the catalog. The BigQuery encryption service account (bq-<project_number>@bigquery-encryption.iam.gserviceaccount.com) must hold permission 'Cloud KMS CryptoKey Encrypter/Decrypter'. The arguments in this group can be used to specify the attributes of this resource. 
+Key resource - The Cloud KMS (Key Management Service) cryptokey that will be used to protect the catalog. The Lakehouse encryption service account (lh-<project_number>@gcp-sa-lakehouse.iam.gserviceaccount.com) must hold permission 'Cloud KMS CryptoKey Encrypter/Decrypter'. The arguments in this group can be used to specify the attributes of this resource. 
 `--kms-key`=`KMS_KEY`
      ID of the key or fully qualified identifier for the key. 
 
@@ -218,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

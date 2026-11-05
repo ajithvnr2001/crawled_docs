@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/sort/
 title: Sort (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:12.301448+00:00
+fetched_at: 2026-11-05T11:08:57.104886+00:00
 ---
 
 # Sort (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

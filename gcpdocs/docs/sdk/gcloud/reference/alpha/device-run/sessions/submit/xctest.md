@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/device-run/sessions/submit/xctest/
 title: gcloud alpha device-run sessions submit xctest \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:41:39.440257+00:00
+fetched_at: 2026-11-05T11:10:41.669042+00:00
 ---
 
 # gcloud alpha device-run sessions submit xctest  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha device-run sessions submit xctest - submit a Device Run session wit
 SYNOPSIS
     
 
-`gcloud alpha device-run sessions submit xctest` `--device`=[`DEVICE`,…] `--test`=`TEST_PATH` [`--additional-apps`=[`APP_PATH`,…]] [`--async`] [`--bucket-name`=`BUCKET_NAME`] [`--flaky-test-attempts`=`FLAKY_TEST_ATTEMPTS`] [`--labels`=[`KEY`=`VALUE`,…]] [`--locale`=`LOCALE`] [`--location`=`LOCATION`] [`--other-files-to-push`=[`SOURCE`=`BUNDLE_ID`:`DEST`,…]] [`--paths-to-pull`=[`BUNDLE_ID`:`DEVICE_PATH`,…]] [`--sharding-option`=`SHARDING_OPTION`] [`--smart-sharding-max-shard-count`=`SMART_SHARDING_MAX_SHARD_COUNT`] [`--smart-sharding-record-name`=`SMART_SHARDING_RECORD_NAME`] [`--smart-sharding-target-duration`=`SMART_SHARDING_TARGET_DURATION`] [`--uniform-sharding-count`=`UNIFORM_SHARDING_COUNT`] [`--video`=`VIDEO`] [`--xcode-version`=`XCODE_VERSION`] [`--xctest-timeout`=`XCTEST_TIMEOUT`] [`--xctestrun-file`=`XCTESTRUN_FILE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha device-run sessions submit xctest` `--device`=[`DEVICE`,…] `--test`=`TEST_PATH` [`--additional-apps`=[`APP_PATH`,…]] [`--[no-]app-privacy-report`] [`--async`] [`--bucket-name`=`BUCKET_NAME`] [`--flaky-test-attempts`=`FLAKY_TEST_ATTEMPTS`] [`--labels`=[`KEY`=`VALUE`,…]] [`--locale`=`LOCALE`] [`--location`=`LOCATION`] [`--other-files-to-push`=[`SOURCE`=`BUNDLE_ID`:`DEST`,…]] [`--paths-to-pull`=[`BUNDLE_ID`:`DEVICE_PATH`,…]] [`--sharding-option`=`SHARDING_OPTION`] [`--smart-sharding-max-shard-count`=`SMART_SHARDING_MAX_SHARD_COUNT`] [`--smart-sharding-record-name`=`SMART_SHARDING_RECORD_NAME`] [`--smart-sharding-target-duration`=`SMART_SHARDING_TARGET_DURATION`] [`--uniform-sharding-count`=`UNIFORM_SHARDING_COUNT`] [`--video`=`VIDEO`] [`--xcode-version`=`XCODE_VERSION`] [`--xctest-timeout`=`XCTEST_TIMEOUT`] [`--xctestrun-file`=`XCTESTRUN_FILE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Submit a Device Run session with an iOS XCTest job. 
 EXAMPLES
@@ -54,6 +54,8 @@ OPTIONAL FLAGS
 
 `--additional-apps`=[`APP_PATH`,…]
      A list of additional application binary files (.ipa) to install before running the test. The order of the applications in the list determines their installation order on the device. Supports both Google Cloud Storage (`gs://…`) paths and local filesystem paths. Any local file will be uploaded to Google Cloud Storage prior to test execution. 
+`--[no-]app-privacy-report`
+     Whether to collect Apple's App Privacy Report during the test run. The report records app activity, such as network and domain requests and access to sensitive resources like the camera, photos, or location. The report is written to `AppActivityReport.ndjson` in the execution output directory. Use `--app-privacy-report` to enable and `--no-app-privacy-report` to disable. 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
 `--bucket-name`=`BUCKET_NAME`
@@ -117,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

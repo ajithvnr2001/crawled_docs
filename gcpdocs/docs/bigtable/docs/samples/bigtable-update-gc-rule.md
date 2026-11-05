@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-update-gc-rule/
 title: Update a garbage-collection rule \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:56.807764+00:00
+fetched_at: 2026-11-05T11:12:15.356868+00:00
 ---
 
 # Update a garbage-collection rule  |  Bigtable  |  Google Cloud Documentation
@@ -230,12 +230,21 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableTableAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html)()
+    table_path = client.[table_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_table_path)(project_id, instance_id, table_id)
+    
     print("Updating column family cf1 GC rule...")
     # Update the column family cf1 to update the GC rule
-    column_family1 = table.column_family("cf1", column_family.MaxVersionsGCRule(1))
-    column_family1.update()
+    updated_cf1 = bigtable_admin_v2.[ColumnFamily](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ColumnFamily.html)(
+        gc_rule=bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(max_num_versions=1)
+    )
+    mod_update = bigtable_admin_v2.[ModifyColumnFamiliesRequest](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.html).[Modification](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.Modification.html)(
+        id="cf1", update=updated_cf1
+    )
+    client.[modify_column_families](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_modify_column_families)(name=table_path, modifications=[mod_update])
     print("Updated column family cf1 GC rule\n")
-    
 
 ### Ruby
 

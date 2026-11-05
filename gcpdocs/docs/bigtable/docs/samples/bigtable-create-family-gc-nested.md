@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-nested/
 title: Nested garbage-collection policy \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:01.673306+00:00
+fetched_at: 2026-11-05T11:12:24.087643+00:00
 ---
 
 # Nested garbage-collection policy  |  Bigtable  |  Google Cloud Documentation
@@ -300,6 +300,13 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.protobuf import duration_pb2
+    
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableTableAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html)()
+    table_path = client.[table_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_table_path)(project_id, instance_id, table_id)
+    
     print("Creating column family cf5 with a Nested GC rule...")
     # Create a column family with nested GC policies.
     # Create a nested GC rule:
@@ -307,20 +314,26 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     # OR
     # Drop cells that are older than a month AND older than the
     # 2 recent versions
-    rule1 = column_family.MaxVersionsGCRule(10)
-    rule2 = column_family.GCRuleIntersection(
-        [
-            column_family.MaxAgeGCRule(datetime.timedelta(days=30)),
-            column_family.MaxVersionsGCRule(2),
-        ]
+    rule1 = bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(max_num_versions=10)
+    rule2 = bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(
+        intersection=bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html).[Intersection](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.Intersection.html)(
+            rules=[
+                bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(
+                    max_age=duration_pb2.Duration(seconds=30 * 86400)
+                ),
+                bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(max_num_versions=2),
+            ]
+        )
     )
-    
-    nested_rule = column_family.GCRuleUnion([rule1, rule2])
-    
-    column_family5 = table.column_family("cf5", nested_rule)
-    column_family5.create()
+    nested_rule = bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html)(
+        union=bigtable_admin_v2.[GcRule](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.html).[Union](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.GcRule.Union.html)(rules=[rule1, rule2])
+    )
+    cf5 = bigtable_admin_v2.[ColumnFamily](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ColumnFamily.html)(gc_rule=nested_rule)
+    mod5 = bigtable_admin_v2.[ModifyColumnFamiliesRequest](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.html).[Modification](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.types.ModifyColumnFamiliesRequest.Modification.html)(
+        id="cf5", create=cf5
+    )
+    client.[modify_column_families](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_modify_column_families)(name=table_path, modifications=[mod5])
     print("Created column family cf5 with a Nested GC rule.")
-    
 
 ### Ruby
 

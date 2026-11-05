@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary/
 title: Canada Data Boundary \u00a0|\u00a0 Assured Workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:43:17.902717+00:00
+fetched_at: 2026-11-05T08:23:10.088598+00:00
 ---
 
 # Canada Data Boundary  |  Assured Workloads  |  Google Cloud Documentation
@@ -54,6 +54,7 @@ Supported product | API endpoints | Restrictions or limitations
 [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `mesh.googleapis.com`  
 `meshca.googleapis.com`  
 `meshconfig.googleapis.com`  
+`opsconfigmonitoring.googleapis.com`  
 |  None   
 [Apigee](https://docs.cloud.google.com/apigee/docs) |  `apigee.googleapis.com`  
 |  None   
@@ -112,8 +113,12 @@ Supported product | API endpoints | Restrictions or limitations
 [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) |  `logging.googleapis.com`  
 |  Affected features  
 [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) |  `monitoring.googleapis.com`  
+`stackdriver.googleapis.com`  
 |  None   
 [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) |  `compute.googleapis.com`  
+|  None   
+[Cloud Next Generation Firewall Standard](https://docs.cloud.google.com/firewall/docs/about-firewalls) |  `compute.googleapis.com`  
+`networksecurity.googleapis.com`  
 |  None   
 [Cloud OS Login API](https://docs.cloud.google.com/compute/docs/oslogin) |  `oslogin.googleapis.com`  
 |  None   
@@ -121,7 +126,8 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) |  `run.googleapis.com`  
 |  Affected features  
-[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `run.googleapis.com`  
+[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `cloudfunctions.googleapis.com`  
+`run.googleapis.com`  
 |  None   
 [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction) |  `sqladmin.googleapis.com`  
 |  None   
@@ -147,11 +153,16 @@ Supported product | API endpoints | Restrictions or limitations
 |  Affected features and organization policy constraints  
 [Config Sync](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/overview) |  `anthosconfigmanagement.googleapis.com`  
 |  None   
-[Google Kubernetes Engine (GKE) Connect](https://docs.cloud.google.com/anthos/multicluster-management/connect) |  `gkeconnect.googleapis.com`  
+[Google Kubernetes Engine (GKE) Connect](https://docs.cloud.google.com/anthos/multicluster-management/connect) |  `connectgateway.googleapis.com`  
+`gkeconnect.googleapis.com`  
+|  None   
+[Context-Aware Access](https://docs.cloud.google.com/access-context-manager/docs/securing-console-and-apis) |  `accesscontextmanager.googleapis.com`  
 |  None   
 [Dialogflow CX](https://docs.cloud.google.com/dialogflow/cx/docs) |  `dialogflow.googleapis.com`  
 |  None   
-[Database Center](https://docs.cloud.google.com/database-center/docs/overview) |  `Not applicable`  
+[Data Studio Pro](https://docs.cloud.google.com/data-studio/about-pro) |  `datastudio.googleapis.com`  
+|  None   
+[Database Center](https://docs.cloud.google.com/database-center/docs/overview) |  `databasecenter.googleapis.com`  
 |  None   
 [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) |  `dataflow.googleapis.com`  
 `datapipelines.googleapis.com`  
@@ -168,8 +179,9 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Firebase Security Rules](https://firebase.google.com/docs/rules) |  `firebaserules.googleapis.com`  
 |  None   
-[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `firestore.googleapis.com`  
-|  None   
+[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `datastore.googleapis.com`  
+`firestore.googleapis.com`  
+|  Organization policy constraints  
 [Flow Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/flow-analyzer/overview) |  `networkmanagement.googleapis.com`  
 |  None   
 [Google Kubernetes Engine (GKE) Hub](https://docs.cloud.google.com/kubernetes-engine/docs/fleets-overview) |  `gkehub.googleapis.com`  
@@ -178,7 +190,10 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Google Kubernetes Engine (GKE) Image streaming](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/image-streaming) |  `containerfilesystem.googleapis.com`  
 |  None   
+[Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs) |  `discoveryengine.googleapis.com`  
+|  None   
 [Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) |  `aiplatform.googleapis.com`  
+`notebooks.googleapis.com`  
 |  None   
 [Generative AI on Vertex AI](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/overview) |  `aiplatform.googleapis.com`  
 |  None   
@@ -198,6 +213,7 @@ Supported product | API endpoints | Restrictions or limitations
 [Google Security Operations SOAR](https://docs.cloud.google.com/chronicle/docs/soar) |  `Not applicable`  
 |  None   
 [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) |  `iam.googleapis.com`  
+`policytroubleshooter.googleapis.com`  
 |  None   
 [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/concepts-overview) |  `iap.googleapis.com`  
 |  None   
@@ -223,15 +239,21 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Network Connectivity Center](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) |  `networkconnectivity.googleapis.com`  
 |  None   
+[NotebookLM Enterprise](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview) |  `discoveryengine.googleapis.com`  
+|  None   
 [Organization Policy Service](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints) |  `orgpolicy.googleapis.com`  
 |  None   
 [Persistent Disk](https://docs.cloud.google.com/compute/docs/disks/persistent-disks) |  `compute.googleapis.com`  
 |  None   
 [Personalized Service Health](https://docs.cloud.google.com/service-health/docs/overview) |  `servicehealth.googleapis.com`  
 |  None   
-[Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) |  `pubsub.googleapis.com`  
+[Privileged Access Manager](https://docs.cloud.google.com/iam/docs/pam-overview) |  `privilegedaccessmanager.googleapis.com`  
 |  None   
+[Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) |  `pubsub.googleapis.com`  
+|  Organization policy constraints  
 [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/resource-manager-overview) |  `cloudresourcemanager.googleapis.com`  
+|  None   
+[Resource Settings](https://docs.cloud.google.com/resource-manager/docs/deprecations) |  `resourcesettings.googleapis.com`  
 |  None   
 [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) |  `secretmanager.googleapis.com`  
 |  None   
@@ -244,8 +266,10 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Serverless VPC Access](https://docs.cloud.google.com/vpc/docs/configure-serverless-vpc-access) |  `vpcaccess.googleapis.com`  
 |  None   
-[Spanner](https://docs.cloud.google.com/spanner/docs/editions-overview) |  `spanner.googleapis.com`  
+[Service Management](https://docs.cloud.google.com/service-infrastructure/docs/service-management/getting-started) |  `servicemanagement.googleapis.com`  
 |  None   
+[Spanner](https://docs.cloud.google.com/spanner/docs/editions-overview) |  `spanner.googleapis.com`  
+|  Affected features and organization policy constraints  
 [Speech-to-Text](https://docs.cloud.google.com/speech-to-text/docs/overview) |  `speech.googleapis.com`  
 |  None   
 [Storage Transfer Service](https://docs.cloud.google.com/storage-transfer/docs/overview) |  `storagetransfer.googleapis.com`  
@@ -273,11 +297,16 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Vertex AI Training](https://docs.cloud.google.com/vertex-ai/docs/training-overview) |  `aiplatform.googleapis.com`  
 |  None   
+[Vertex AI Vector Search](https://docs.cloud.google.com/vertex-ai/docs/vector-search/overview) |  `aiplatform.googleapis.com`  
+|  None   
 [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) |  `compute.googleapis.com`  
+`servicedirectory.googleapis.com`  
+`servicenetworking.googleapis.com`  
 |  None   
 [Web Risk](https://docs.cloud.google.com/web-risk/docs/overview) |  `webrisk.googleapis.com`  
 |  None   
-[Workflows](https://docs.cloud.google.com/workflows/docs/overview) |  `workflows.googleapis.com`  
+[Workflows](https://docs.cloud.google.com/workflows/docs/overview) |  `workflowexecutions.googleapis.com`  
+`workflows.googleapis.com`  
 |  None   
 [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation) |  `iam.googleapis.com`  
 `sts.googleapis.com`  
@@ -427,6 +456,16 @@ Feature | Description
 [Data insights](https://docs.cloud.google.com/dataplex/docs/data-insights) | This feature is disabled. You cannot generate data insights for your catalogs.  
 [Lakes and Zones](https://docs.cloud.google.com/dataplex/docs/metadata) | This feature is disabled. You cannot manage lakes, zones and tasks.  
   
+### Firestore
+
+#### Firestore organization policy constraints
+
+Organization policy constraint | Description  
+---|---  
+`firestore.managed.disableEnhancedTextSearch` | Set to **True**.  
+  
+Prevents enabling query enhancements for Firestore full text search.   
+  
 ### Google Cloud NetApp Volumes
 
 #### Affected Google Cloud NetApp Volumes features
@@ -442,6 +481,44 @@ Feature | Description
 
   
   
+### Pub/Sub
+
+#### Pub/Sub organization policy constraints
+
+Organization policy constraint | Description  
+---|---  
+`pubsub.managed.disableSubscriptionMessageTransforms` | Set to **True**.  
+  
+Disables Pub/Sub subscriptions from being set with [Single Message Transforms (SMTs)](https://docs.cloud.google.com/pubsub/docs/smts/smts-overview).  
+  
+Changing this value might affect your workload's data residency or data sovereignty.   
+`pubsub.managed.disableTopicMessageTransforms` | Set to **True**.  
+  
+Disables Pub/Sub topics from being set with [Single Message Transforms (SMTs)](https://docs.cloud.google.com/pubsub/docs/smts/smts-overview).  
+  
+Changing this value may affect your workload's data residency or data sovereignty.   
+  
+### Spanner
+
+#### Affected Spanner features
+
+Feature | Description  
+---|---  
+Split boundaries | Spanner uses a small subset of primary keys and indexed columns to define [split boundaries](https://docs.cloud.google.com/spanner/docs/schema-and-data-model#database-splits), which may include customer data and metadata. A split boundary in Spanner denotes the location where contiguous ranges of rows are split into smaller pieces.  
+  
+These split boundaries are accessible by Google personnel for technical support and debugging purposes, and are not subject to administrative access data controls in Assured Workloads.   
+  
+#### Spanner organization policy constraints
+
+Organization policy constraint | Description  
+---|---  
+`spanner.assuredWorkloadsAdvancedServiceControls` | Set to **True**.  
+  
+Applies additional data sovereignty and supportability controls to Spanner resources.   
+`spanner.disableMultiRegionInstanceIfNoLocationSelected` | Set to **True**.  
+  
+Disables the ability to create multi-region Spanner instances to enforce data residency and data sovereignty.   
+  
 ## What's next
 
   * Learn how to [create an Assured Workloads folder](https://docs.cloud.google.com/assured-workloads/docs/create-folder)
@@ -454,6 +531,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

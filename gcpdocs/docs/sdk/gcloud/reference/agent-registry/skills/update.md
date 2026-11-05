@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/update/
 title: gcloud agent-registry skills update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:06.136166+00:00
+fetched_at: 2026-11-05T11:09:36.111467+00:00
 ---
 
 # gcloud agent-registry skills update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud agent-registry skills update - update skills
 SYNOPSIS
     
 
-`gcloud agent-registry skills update` `SKILL` [`--async`] [`--description`=`DESCRIPTION`] [`--display-name`=`DISPLAY_NAME`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--location`=`LOCATION`] [`--publisher`=`PUBLISHER`] [`--request-id`=`REQUEST_ID`] [`--target-state`=`TARGET_STATE`] [`--type`=`TYPE`] [`--clear-default-revision` | `--default-revision`=`DEFAULT_REVISION`] [`--clear-initial-revision` `--initial-revision-name`=`INITIAL_REVISION_NAME`] [`--scanning-policy`=`SCANNING_POLICY` | `--scanning-state`=`SCANNING_STATE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud agent-registry skills update` `SKILL` [`--async`] [`--description`=`DESCRIPTION`] [`--display-name`=`DISPLAY_NAME`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--location`=`LOCATION`] [`--publisher`=`PUBLISHER`] [`--request-id`=`REQUEST_ID`] [`--scanning-policy`=`SCANNING_POLICY`] [`--target-state`=`TARGET_STATE`] [`--type`=`TYPE`] [`--clear-default-revision` | `--default-revision`=`DEFAULT_REVISION`] [`--clear-initial-revision` `--initial-revision-name`=`INITIAL_REVISION_NAME`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update a skill 
 EXAMPLES
@@ -113,6 +113,15 @@ To set the `publisher` attribute:
 
 `--request-id`=`REQUEST_ID`
      Signed UUID request idempotency token. 
+`--scanning-policy`=`SCANNING_POLICY`
+     Scanning policy for security analysis. `SCANNING_POLICY` must be one of: 
+
+`disabled`
+     Bypasses security scanning entirely. 
+`enabled-blocking`
+     Scans skills and blocks revision download/promotion if findings are detected. 
+`enabled-nonblocking`
+     Scans skills and reports findings without blocking download/promotion. 
 `--target-state`=`TARGET_STATE`
      User-managed target state of the skill. `TARGET_STATE` must be one of: 
 
@@ -184,28 +193,6 @@ Represents an immutable, versioned snapshot of a Skill package.
      Set skill.initialRevision back to default value. 
 `--initial-revision-name`=`INITIAL_REVISION_NAME`
      Identifier. Resource name of the SkillRevision. Format: `projects/{project}/locations/{location}/skills/{skill}/revisions/{revision}`
-Scanning configuration for the skill. 
-
-At most one of these can be specified: 
-
-`--scanning-policy`=`SCANNING_POLICY`
-     Scanning policy for security analysis. `SCANNING_POLICY` must be one of: 
-
-`disabled`
-     Bypasses security scanning entirely. 
-`enabled-blocking`
-     Scans skills and blocks revision download/promotion if findings are detected. 
-`enabled-nonblocking`
-     Scans skills and reports findings without blocking download/promotion. 
-`--scanning-state`=`SCANNING_STATE`
-     Scanning policy for security analysis (alias for --scanning-policy). `SCANNING_STATE` must be one of: 
-
-`disabled`
-     Bypasses security scanning entirely. 
-`enabled-blocking`
-     Scans skills and blocks revision download/promotion if findings are detected. 
-`enabled-nonblocking`
-     Scans skills and reports findings without blocking download/promotion. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -225,6 +212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

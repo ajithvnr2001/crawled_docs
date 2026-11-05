@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/aggregate_functions/
 title: Aggregate Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:41.100225+00:00
+fetched_at: 2026-11-05T11:08:46.451058+00:00
 ---
 
 # Aggregate Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation

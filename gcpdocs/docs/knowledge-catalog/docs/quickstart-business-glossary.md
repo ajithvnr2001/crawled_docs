@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/quickstart-business-glossary/
 title: Create and use a business glossary \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:18.387486+00:00
+fetched_at: 2026-11-05T10:52:50.608311+00:00
 ---
 
 # Create and use a business glossary  |  Knowledge Catalog  |  Google Cloud Documentation

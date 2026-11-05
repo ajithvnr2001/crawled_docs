@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/map_functions/
 title: Map Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:37.821712+00:00
+fetched_at: 2026-11-05T11:08:47.191812+00:00
 ---
 
 # Map Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/compute/backend-services/create/
 title: gcloud compute backend-services create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:40:50.555141+00:00
+fetched_at: 2026-11-05T11:09:24.610038+00:00
 ---
 
 # gcloud compute backend-services create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -197,7 +197,7 @@ The possible values are:
 `LOAD_BALANCING_SCHEME` must be one of: `INTERNAL`, `EXTERNAL`, `INTERNAL_SELF_MANAGED`, `EXTERNAL_MANAGED`, `INTERNAL_MANAGED`. 
 
 `--locality-lb-policy`=`LOCALITY_LB_POLICY`
-     The load balancing algorithm used within the scope of the locality. `LOCALITY_LB_POLICY` must be one of: `INVALID_LB_POLICY`, `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`, `WEIGHTED_ROUND_ROBIN`, `WEIGHTED_GCP_RENDEZVOUS`. 
+     The load balancing algorithm used within the scope of the locality, specified as a single string enum value. This algorithm determines how traffic is distributed among the backend endpoints. The accepted values are `INVALID_LB_POLICY`, `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`, `WEIGHTED_ROUND_ROBIN`, and `WEIGHTED_GCP_RENDEZVOUS`. `LOCALITY_LB_POLICY` must be one of: `INVALID_LB_POLICY`, `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`, `WEIGHTED_ROUND_ROBIN`, `WEIGHTED_GCP_RENDEZVOUS`. 
 `--logging-http-request-headers`=[`LOGGING_HTTP_REQUEST_HEADERS`,…]
      This field can only be specified if logging is enabled for the backend service. Contains a comma-separated list of HTTP request headers you want to include in the logs. 
 `--logging-http-response-headers`=[`LOGGING_HTTP_RESPONSE_HEADERS`,…]
@@ -323,7 +323,7 @@ Set this to zero (0) to disable serve-while-stale.
 `--service-bindings`=`SERVICE_BINDING`,[…]
      List of service bindings to be attached to this backend service. Can only be set if load balancing scheme is INTERNAL_SELF_MANAGED. If set, lists of backends and health checks must be both empty. 
 `--service-lb-policy`=`SERVICE_LOAD_BALANCING_POLICY`
-     Service load balancing policy to be applied to this backend service. Can only be set if load balancing scheme is EXTERNAL_MANAGED, INTERNAL_MANAGED, or INTERNAL_SELF_MANAGED. Only available for global backend services. 
+     The name or URI of the service load balancing policy to apply to this backend service, specified as a single string identifier rather than a complex configuration object or list. This policy can only be configured if the load balancing scheme is `EXTERNAL_MANAGED`, `INTERNAL_MANAGED`, or `INTERNAL_SELF_MANAGED`. The policy is exclusively available for global backend services and will be rejected if applied to a regional resource. 
 `--session-affinity`=`SESSION_AFFINITY`
      The type of session affinity to use. Supports both TCP and UDP. `SESSION_AFFINITY` must be one of: 
 
@@ -353,7 +353,7 @@ For example, specifying `12h` will cause the responses to signed URL requests to
 This flag only affects signed URL requests. 
 
 `--subsetting-policy`=`SUBSETTING_POLICY`; default="NONE"
-     Specifies the algorithm used for subsetting. Default value is NONE which implies that subsetting is disabled. For Layer 4 Internal Load Balancing, if subsetting is enabled, only the algorithm CONSISTENT_HASH_SUBSETTING can be specified. `SUBSETTING_POLICY` must be one of: `NONE`, `CONSISTENT_HASH_SUBSETTING`. 
+     The algorithm used for subsetting, provided as a single string keyword rather than a complex object. The accepted values are `NONE` and `CONSISTENT_HASH_SUBSETTING`. The default value is `NONE`, which implies that subsetting is disabled. For Layer 4 internal load balancing, if subsetting is enabled, only the `CONSISTENT_HASH_SUBSETTING` algorithm can be specified. `SUBSETTING_POLICY` must be one of: `NONE`, `CONSISTENT_HASH_SUBSETTING`. 
 `--timeout`=`TIMEOUT`; default="30s"
      Applicable to all load balancing products except passthrough Network Load Balancers. For internal passthrough Network Load Balancers (``load-balancing-scheme`` set to INTERNAL) and external passthrough Network Load Balancers (``global`` not set and ``load-balancing-scheme`` set to EXTERNAL), ``timeout`` is ignored. 
 
@@ -410,9 +410,9 @@ For further details, refer to [How ZONAL_AFFINITY_SPILL_CROSS_ZONE and spillover
 At most one of these can be specified: 
 
 `--cache-key-query-string-blacklist`=[`QUERY_STRING`,…]
-     Specifies a comma separated list of query string parameters to exclude in cache keys. All other parameters will be included. Either specify \--cache-key-query-string-whitelist or --cache-key-query-string-blacklist, not both. '&' and '=' will be percent encoded and not treated as delimiters. Can only be applied for global resources. 
+     A comma-separated list of query string parameters to exclude from cache keys (for example, `session_id,utm_campaign`). All other parameters will be included in the cache key. This flag cannot be specified if `--cache-key-query-string-whitelist` is also used. The `&` and `=` characters within the specified parameters will be percent-encoded and are not treated as list delimiters. This configuration can only be applied to global backend resources. 
 `--cache-key-query-string-whitelist`=`QUERY_STRING`,[…]
-     Specifies a comma separated list of query string parameters to include in cache keys. All other parameters will be excluded. Either specify \--cache-key-query-string-whitelist or --cache-key-query-string-blacklist, not both. '&' and '=' will be percent encoded and not treated as delimiters. Can only be applied for global resources. 
+     A comma-separated list of query string parameters (for example, `campaign,source`) to include in cache keys. All other query parameters will be excluded from the cache key. This flag is mutually exclusive with `--cache-key-query-string-blacklist`. The characters `&` and `=` are percent-encoded and are not treated as delimiters. This configuration can only be applied to global resources. 
 Settings controlling the volume of connections, requests, and retries to this backend service. 
 `--circuit-breakers-max-connections`=`CIRCUIT_BREAKERS_MAX_CONNECTIONS`
      The maximum number of connections to the backend service. If not specified, there is no limit. 
@@ -459,14 +459,7 @@ Sets `custom_metrics` value.
     --custom-metrics=path_to_file.(yaml|json)
 
 `--custom-metrics-file`=[`CUSTOM_METRICS`,…]
-     File path to json file with custom metrics that are used for WEIGHTED_ROUND_ROBIN locality load balancing policy. 
-
-Example: 
-    
-    
-    gcloud compute backend-services create --custom-metrics-file='customMetric.json'
-
-Sets `custom_metrics_file` value. 
+     The path to a JSON or YAML file, an inline JSON array, or a shorthand key-value list defining the custom metrics used for the `WEIGHTED_ROUND_ROBIN` locality load balancing policy. Each custom metric object requires a `name` (string) and accepts an optional `dryRun` (boolean) parameter. When providing a file path, the file must contain a JSON or YAML array representing these metric objects. Sets `custom_metrics_file` value. 
 
 `dryRun`
      Sets `dryRun` value. 
@@ -496,7 +489,7 @@ At most one of these can be specified:
 At most one of these can be specified: 
 
 `--global-health-checks`
-     If set, the health checks are global. 
+     The geographic scope designation for the associated health checks. When this boolean presence flag is included, the backend service treats the specified health checks as global resources rather than regional resources. This flag does not accept a value and is required when updating or attaching health checks that were created in the global scope. 
 `--health-checks-region`=`HEALTH_CHECKS_REGION`
      Region of the health checks to operate on. If not specified, you might be prompted to select a region (interactive mode only). 
 
@@ -630,6 +623,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

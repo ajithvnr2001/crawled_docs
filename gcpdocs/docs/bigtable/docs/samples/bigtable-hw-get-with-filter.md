@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-get-with-filter/
 title: Read with a filter \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:05.980038+00:00
+fetched_at: 2026-11-05T11:12:26.146809+00:00
 ---
 
 # Read with a filter  |  Bigtable  |  Google Cloud Documentation
@@ -119,10 +119,10 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     
     print("Getting a single greeting by row key.")
-    key = b"greeting0"
+    key = "greeting0".encode()
     
-    row = table.read_row(key, row_filter)
-    cell = row.cells[column_family_id.decode("utf-8")][column][0]
+    row = table.read_row(key, row_filter=row_filter)
+    cell = row.cells[0]
     print(cell.value.decode("utf-8"))
 
 ### Ruby

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/interconnects/
 title: gcloud alpha compute interconnects \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T15:36:00.464930+00:00
+fetched_at: 2026-11-05T11:09:32.824527+00:00
 ---
 
 # gcloud alpha compute interconnects  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -73,6 +73,8 @@ COMMANDS
      `(ALPHA)` Get diagnostics of a Compute Engine interconnect. 
 `[list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/interconnects/list)`
      `(ALPHA)` List Google Compute Engine interconnects. 
+`[set-iam-policy](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/interconnects/set-iam-policy)`
+     `(ALPHA)` Set the IAM policy for a Compute Engine interconnect. 
 `[set-name](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/interconnects/set-name)`
      `(ALPHA)` Set the name of a Compute Engine interconnect. 
 `[test-iam-permissions](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/interconnects/test-iam-permissions)`
@@ -95,6 +97,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-04 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

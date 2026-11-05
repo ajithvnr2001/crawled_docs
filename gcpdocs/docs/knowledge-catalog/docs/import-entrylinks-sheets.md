@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/import-entrylinks-sheets/
 title: Import entry links from a Google Sheet \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:46.138624+00:00
+fetched_at: 2026-11-05T10:30:12.916975+00:00
 ---
 
 # Import entry links from a Google Sheet  |  Knowledge Catalog  |  Google Cloud Documentation

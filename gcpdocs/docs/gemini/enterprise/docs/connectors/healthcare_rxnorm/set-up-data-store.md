@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_rxnorm/set-up-data-store/
 title: Set up an RxNorm Drug Vocabulary data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:45:09.271960+00:00
+fetched_at: 2026-11-05T11:11:01.327164+00:00
 ---
 
 # Set up an RxNorm Drug Vocabulary data store  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -57,7 +57,7 @@ To create the RxNorm Drug Vocabulary data store, follow these steps:
 
   5. In the **Source** section, search for **RxNorm Drug Vocabulary** , and click **Select**.
 
-  6. In the **Data** > **Entities to search** section, select the entities that you want Gemini Enterprise to search. For RxNorm Drug Vocabulary, select **Drug Concepts**.
+  6. In the **Data** > **Entities to search** section, select the entities for Gemini Enterprise to search. For RxNorm Drug Vocabulary, select **Drug Concepts**.
 
   7. Click **Continue**.
 
@@ -88,7 +88,7 @@ For more information, see [Customer-managed encryption keys](https://docs.cloud.
 
 On the **Data stores** page, click your data store name to see the status. After the data store state changes from **Creating** to **Active** , the RxNorm Drug Vocabulary data store is ready to use.
 
-After creating the data store, connect the data store you just created to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) it to the new app. Because this connector uses public data, no user authorization is required.
+After creating the data store, connect the data store you just created to an existing app or [create a new app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) and [connect](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store) it to the new app. Because this data store uses public data, no user authorization is required.
 
 The data store's actions are enabled by default, so you don't need to enable them. For the list of actions, and for the actions that Gemini Enterprise asks users to confirm, see [Supported actions](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/healthcare_rxnorm#supported-actions).
 
@@ -128,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

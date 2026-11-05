@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/
 title: Govern your agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:15:12.301063+00:00
+fetched_at: 2026-11-05T11:08:22.482525+00:00
 ---
 
 # Govern your agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -65,14 +65,14 @@ To ensure a smooth deployment process, we recommend that you follow this sequenc
 
   3. **Configure IAM policies** : Define IAM access policies that grant agent identities (SPIFFE IDs) access to essential platform APIs and your registered destinations. For instructions, see [Configure IAM access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
 
-**Tip:** For testing in audit mode, set `iamEnforcementMode: "DRY_RUN"` in the authorization policy metadata block to log evaluations without blocking access. Set `iamEnforcementMode: "ENFORCED"` (or remove the `iamEnforcementMode` parameter) to enable active enforcement.
+**Tip:** For testing in audit mode, select **Audit-only** in the Google Cloud console or set `iamEnforcementMode: "DRY_RUN"` in the authorization extension `metadata` block to log evaluations without blocking access. To enable active enforcement, select **Enforce policies** in the Google Cloud console (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway), or remove `iamEnforcementMode` in your extension configuration.
   4. **Configure Model Armor templates** : Set up content security templates to inspect prompt payloads and tool responses for prompt injections, jailbreaks, and sensitive data leaks. For instructions, see [Configure Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor).
 
-**Tip:** For testing in audit mode, set `enforcement_type: "INSPECT_ONLY"` in the authorization policy metadata block to log findings without blocking requests. Set `enforcement_type: "INSPECT_AND_BLOCK"` to start active enforcement.
+**Tip:** For testing in audit mode, set `enforcement_type: "INSPECT_ONLY"` in the authorization extension `metadata` block to log findings without blocking requests. Set `enforcement_type: "INSPECT_AND_BLOCK"` to start active enforcement.
   5. **Configure Semantic governance policies** : Define natural language constraints that regulate tool usage and prevent unsafe tool combinations at runtime. For instructions, see [Configure Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance).
 
-**Tip:** For testing in audit mode, you can set `sgpEnforcementMode: "DRY_RUN"` in the authorization policy metadata block to evaluate constraints in log-only mode. Remove the `sgpEnforcementMode` parameter to enforce natural language rules at runtime.
-  6. **Deploy Agent Gateway and monitor traffic** : Deploy Agent Gateway to begin intercepting traffic. If you enabled any of the access control mechanisms in audit mode, check the logs in Cloud Logging to confirm that access is being evaluated as expected before transitioning your policies to active enforcement posture. For instructions, see [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway).
+**Tip:** For testing in audit mode, you can set `sgpEnforcementMode: "DRY_RUN"` in the authorization extension `metadata` block to evaluate constraints in log-only mode. Remove the `sgpEnforcementMode` parameter (or set it to `"ENFORCE"`) to enforce natural language rules at runtime.
+  6. **Deploy Agent Gateway and monitor traffic** : Deploy Agent Gateway to begin intercepting traffic. If you enabled any of the access control mechanisms in audit mode, query Cloud Logging to generate a consolidated "would have been blocked" report and confirm that access is being evaluated as expected before transitioning your policies to active enforcement. For instructions, see [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) and [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report).
 
 
 
@@ -245,6 +245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

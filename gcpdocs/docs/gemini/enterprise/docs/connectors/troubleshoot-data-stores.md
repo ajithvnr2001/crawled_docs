@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/troubleshoot-data-stores/
 title: Troubleshoot Gemini Enterprise data stores \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:58.363261+00:00
+fetched_at: 2026-11-05T11:10:57.667400+00:00
 ---
 
 # Troubleshoot Gemini Enterprise data stores  |  Google Cloud Documentation
@@ -125,7 +125,7 @@ These errors occur when there are issues with credentials, scopes, or administra
 
   * **Error Signature:** `HTTP request failed with status code 401 / 401 Unauthorized`
   * **Root Cause:** The OAuth token has expired or is invalid.
-  * **Resolution:** Re-authorize the data store in your Gemini Enterprise settings to generate a fresh token.
+  * **Resolution:** Re-authorize the data store in your Gemini Enterprise settings to generate a fresh token. If the `401` error occurs during web app sign-in, synchronize your device clock with an NTP server and clear your browser cookies.
 
 
 
@@ -188,8 +188,8 @@ These errors indicate that while authentication might be successful, the user or
 #### Missing end-user resource access
 
   * **Error Signature:** `permission denied: [user] does not have access to [Resource]`
-  * **Root Cause:** The end-user executing the request lacks access to the specific component or resource in the target system.
-  * **Resolution:** Grant the user access to the resource directly within the target system.
+  * **Root Cause:** The user or connector service account lacks access to the resource in the target system, or the item is restricted by a governance policy or disabled Google Workspace Smart Features (for example, `FETCH_MENTIONED_ENTITY_FAILED` in Google Drive).
+  * **Resolution:** Grant access to the resource directly within the target system and verify that governance policies or Google Workspace Smart Features allow access.
 
 
 
@@ -229,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

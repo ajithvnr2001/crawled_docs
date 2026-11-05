@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-self-service-migration/
 title: Self-service migration from Looker (original) to Looker (Google Cloud core) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:01.381767+00:00
+fetched_at: 2026-11-05T10:52:56.469901+00:00
 ---
 
 # Self-service migration from Looker (original) to Looker (Google Cloud core)  |  Google Cloud Documentation

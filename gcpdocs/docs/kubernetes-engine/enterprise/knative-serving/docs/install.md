@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/enterprise/knative-serving/docs/install/
 title: Knative serving fleet installation overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:56:01.783943+00:00
+fetched_at: 2026-11-05T10:53:26.346263+00:00
 ---
 
 # Knative serving fleet installation overview  |  Google Cloud Documentation

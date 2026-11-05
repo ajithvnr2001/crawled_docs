@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent/
 title: Configuring an IP masquerade agent in Standard clusters \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:58.680525+00:00
+fetched_at: 2026-11-05T10:30:27.342624+00:00
 ---
 
 # Configuring an IP masquerade agent in Standard clusters  |  GKE networking  |  Google Cloud Documentation

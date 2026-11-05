@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-writes-aggregate/
 title: Add to an aggregate cell \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:26.925852+00:00
+fetched_at: 2026-11-05T11:12:16.041455+00:00
 ---
 
 # Add to an aggregate cell  |  Bigtable  |  Google Cloud Documentation
@@ -155,6 +155,50 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
         }
       }
     }
+    
+
+### Python
+
+To learn how to install and use the client library for Bigtable, see [Bigtable client libraries](https://docs.cloud.google.com/bigtable/docs/reference/libraries). 
+
+To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+    
+    
+    import time
+    
+    from google.cloud.bigtable.data import BigtableDataClient
+    from google.cloud.bigtable.data.exceptions import [MutationsExceptionGroup](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.exceptions.MutationsExceptionGroup.html)
+    from google.cloud.bigtable.data.mutations import [AddToCell](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.mutations.AddToCell.html), [RowMutationEntry](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.mutations.RowMutationEntry.html)
+    
+    def write_aggregate(project_id, instance_id, table_id):
+        """Increments a value in a Bigtable table using AddToCell mutation."""
+        with BigtableDataClient(project=project_id) as client:
+            with client.get_table(instance_id, table_id) as table:
+                row_key = "unique_device_ids_1"
+                try:
+                    with table.mutations_batcher() as batcher:
+                        # The AddToCell mutation increments the value of a cell.
+                        # The `counters` family must be set up to be an aggregate
+                        # family with an int64 input type.
+                        reading = AddToCell(
+                            family="counters",
+                            qualifier="odometer",
+                            value=32304,
+                            # Convert nanoseconds to microseconds
+                            timestamp_micros=time.time_ns() // 1000,
+                        )
+                        batcher.append(
+                            RowMutationEntry(row_key.encode("utf-8"), [reading])
+                        )
+                except MutationsExceptionGroup as e:
+                    # MutationsExceptionGroup contains a FailedMutationEntryError for
+                    # each mutation that failed.
+                    for sub_exception in e.[exceptions](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.exceptions.html):
+                        failed_entry: RowMutationEntry = sub_exception.entry
+                        cause: Exception = sub_exception.__cause__
+                        print(
+                            f"Failed mutation for row {failed_entry.row_key!r} with error: {cause!r}"
+                        )
     
 
 ## What's next

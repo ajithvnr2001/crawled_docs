@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview/
 title: Managed Service for Apache Spark components \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:21.282201+00:00
+fetched_at: 2026-11-05T10:53:49.329380+00:00
 ---
 
 # Managed Service for Apache Spark components  |  Google Cloud Documentation

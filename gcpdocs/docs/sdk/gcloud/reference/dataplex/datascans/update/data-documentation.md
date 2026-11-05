@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/dataplex/datascans/update/data-documentation/
 title: gcloud dataplex datascans update data-documentation \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T05:56:18.551956+00:00
+fetched_at: 2026-11-05T11:09:46.260971+00:00
 ---
 
 # gcloud dataplex datascans update data-documentation  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud dataplex datascans update data-documentation - update a Dataplex data doc
 SYNOPSIS
     
 
-`gcloud dataplex datascans update data-documentation` (`DATASCAN` : `--location`=`LOCATION`) [`--description`=`DESCRIPTION`] [`--display-name`=`DISPLAY_NAME`] [`--enable-catalog-publishing`] [`--labels`=[`KEY`=`VALUE`,…]] [`--async` | `--validate-only`] [`--on-demand`=`ON_DEMAND` | `--schedule`=`SCHEDULE` | `--one-time` `--ttl-after-scan-completion`=`TTL_AFTER_SCAN_COMPLETION`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud dataplex datascans update data-documentation` (`DATASCAN` : `--location`=`LOCATION`) [`--description`=`DESCRIPTION`] [`--display-name`=`DISPLAY_NAME`] [`--labels`=[`KEY`=`VALUE`,…]] [`--async` | `--validate-only`] [`--enable-catalog-publishing` `--sql-dialect`=`SQL_DIALECT` `--clear-custom-instructions` | `--custom-instructions`=`CUSTOM_INSTRUCTIONS`] [`--on-demand`=`ON_DEMAND` | `--schedule`=`SCHEDULE` | `--one-time` `--ttl-after-scan-completion`=`TTL_AFTER_SCAN_COMPLETION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update a Dataplex data documentation scan job. 
 EXAMPLES
@@ -80,9 +80,6 @@ FLAGS
      Description of the data documentation scan. 
 `--display-name`=`DISPLAY_NAME`
      Display name of the data documentation scan. 
-Data documentation scan settings. 
-`--enable-catalog-publishing`
-     Publish data documentation results to Knowledge Catalog. 
 `--labels`=[`KEY`=`VALUE`,…]
      List of label KEY=VALUE pairs to add. 
 
@@ -96,6 +93,19 @@ At most one of these can be specified:
      Return immediately, without waiting for the operation in progress to complete. 
 `--validate-only`
      Validate the update action, but don't actually perform it. 
+Data documentation scan settings. 
+`--enable-catalog-publishing`
+     Publish data documentation results to Knowledge Catalog. 
+`--sql-dialect`=`SQL_DIALECT`
+     SQL dialect to use in the generated SQL queries. `SQL_DIALECT` must be one of: `GOOGLE_SQL`, `SPARK_SQL`. 
+Custom instructions for generating data documentation. 
+
+At most one of these can be specified: 
+
+`--clear-custom-instructions`
+     Clear any existing custom instructions from the data documentation scan. 
+`--custom-instructions`=`CUSTOM_INSTRUCTIONS`
+     Custom instructions to guide the data documentation generation. 
 Data documentation scan execution settings. 
 Data documentation scan trigger settings. 
 
@@ -127,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-07-14 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-14 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

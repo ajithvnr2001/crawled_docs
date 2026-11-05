@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/how-to/project-owners/setup-multi-project-access/
 title: Set up multi-project cost view access to Cloud Billing accounts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:20:51.488145+00:00
+fetched_at: 2026-11-05T11:09:14.841901+00:00
 ---
 
 # Set up multi-project cost view access to Cloud Billing accounts  |  Google Cloud Documentation

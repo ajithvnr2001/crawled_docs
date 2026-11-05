@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/db-config-microsoft-azure-synapse-analytics/
 title: Microsoft Azure Synapse Analytics \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:28:51.218963+00:00
+fetched_at: 2026-11-05T10:53:56.469051+00:00
 ---
 
 # Microsoft Azure Synapse Analytics  |  Looker  |  Google Cloud Documentation

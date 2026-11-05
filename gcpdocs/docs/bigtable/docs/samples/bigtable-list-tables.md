@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-list-tables/
 title: List tables \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:13.334424+00:00
+fetched_at: 2026-11-05T11:12:25.478538+00:00
 ---
 
 # List tables  |  Bigtable  |  Google Cloud Documentation
@@ -146,14 +146,18 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    tables = instance.list_tables()
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableTableAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html)()
+    instance_path = client.[instance_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_instance_path)(project_id, instance_id)
+    
+    tables = client.[list_tables](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_list_tables)(parent=instance_path)
     print("Listing tables in current project...")
-    if tables != []:
-        for tbl in tables:
-            print(tbl.table_id)
+    if tables.tables:
+        for tbl in tables.tables:
+            print(tbl.name.split("/")[-1])
     else:
         print("No table exists in current project...")
-    
 
 ### Ruby
 

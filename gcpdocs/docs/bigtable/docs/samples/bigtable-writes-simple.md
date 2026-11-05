@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-writes-simple/
 title: Perform a simple write \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:44.040956+00:00
+fetched_at: 2026-11-05T11:12:22.115937+00:00
 ---
 
 # Perform a simple write  |  Bigtable  |  Google Cloud Documentation
@@ -251,30 +251,21 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from datetime import datetime, timezone
-    
-    from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
-    
+    from google.cloud.bigtable.data import BigtableDataClient, [SetCell](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.mutations.SetCell.html)
     
     def write_simple(project_id, instance_id, table_id):
-        client = [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html)(project=project_id, admin=True)
-        instance = [client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.html).[instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html#google_cloud_bigtable_client_Client_instance)(instance_id)
-        table = instance.table(table_id)
+        with BigtableDataClient(project=project_id) as client:
+            with client.get_table(instance_id, table_id) as table:
+                family_id = "stats_summary"
+                row_key = b"phone#4c410523#20190501"
     
-        timestamp = datetime.now(timezone.utc)
-        column_family_id = "stats_summary"
+                cell_mutation = SetCell(family_id, "connected_cell", 1)
+                wifi_mutation = SetCell(family_id, "connected_wifi", 1)
+                os_mutation = SetCell(family_id, "os_build", "PQ2A.190405.003")
     
-        row_key = "phone#4c410523#20190501"
-    
-        row = table.[direct_row](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.table.Table.html#google_cloud_bigtable_table_Table_direct_row)(row_key)
-        row.set_cell(column_family_id, "connected_cell", 1, timestamp)
-        row.set_cell(column_family_id, "connected_wifi", 1, timestamp)
-        row.set_cell(column_family_id, "os_build", "PQ2A.190405.003", timestamp)
-    
-        row.commit()
-    
-        print("Successfully wrote row {}.".format(row_key))
-    
+                table.mutate_row(row_key, cell_mutation)
+                table.mutate_row(row_key, wifi_mutation)
+                table.mutate_row(row_key, os_mutation)
     
 
 ### Ruby

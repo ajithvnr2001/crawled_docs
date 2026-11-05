@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/dbt-transfer/
 title: Import metadata from dbt Core and Cloud \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:48.384744+00:00
+fetched_at: 2026-11-05T10:53:42.520343+00:00
 ---
 
 # Import metadata from dbt Core and Cloud  |  Knowledge Catalog  |  Google Cloud Documentation

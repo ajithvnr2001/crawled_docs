@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/use-memorystore-mcp/
 title: Connect to Memorystore for Redis from AI applications by using the remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:24.039221+00:00
+fetched_at: 2026-11-05T10:53:27.254124+00:00
 ---
 
 # Connect to Memorystore for Redis from AI applications by using the remote MCP server  |  Google Cloud Documentation

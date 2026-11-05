@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/resources/release-notes-107/
 title: Google Distributed Cloud air-gapped appliance 1.0.7 release notes \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:01:29.953819+00:00
+fetched_at: 2026-11-05T11:10:57.340740+00:00
 ---
 
 # Google Distributed Cloud air-gapped appliance 1.0.7 release notes  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -32,10 +32,22 @@ Announcement
 Google Distributed Cloud (GDC) air-gapped appliance 1.0.7 is generally available.  
 See the [product overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/overview) to learn about the features of GDC air-gapped appliance. 
 
+* * *
+
+Issue
+
+The following issues are identified: 
+
+**Virtual machines**
+
+  * The **API** example for attaching a disk to a virtual machine (VM) indents `boot` and `autoDelete` under `virtualMachineDiskRef`, causing the `kubectl edit` command to fail. 
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

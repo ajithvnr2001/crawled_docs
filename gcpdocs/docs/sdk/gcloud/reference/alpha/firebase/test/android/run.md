@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/firebase/test/android/run/
 title: gcloud alpha firebase test android run \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T18:30:45.066808+00:00
+fetched_at: 2026-11-05T11:10:06.421291+00:00
 ---
 
 # gcloud alpha firebase test android run  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ SYNOPSIS
 
 `gcloud alpha firebase test android run` [`ARGSPEC`] [`--app`=`APP`] [`--device`=`DIMENSION`=`VALUE`,[…]] [`--test`=`TEST`] [`--timeout`=`TIMEOUT`] [`--type`=`TYPE`] [`--additional-apks`=`APK`,[`APK`,…]] [`--app-package`=`APP_PACKAGE`] [`--async`] [`--auto-google-login`] [`--client-details`=[`KEY`=`VALUE`,…]] [`--directories-to-pull`=[`DIR_TO_PULL`,…]] [`--environment-variables`=[`KEY`=`VALUE`,…]] [`--grant-permissions`=`PERMISSIONS`] [`--network-profile`=`PROFILE_ID`] [`--num-flaky-test-attempts`=`int`] [`--obb-files`=`OBB_FILE`,[`OBB_FILE`]] [`--other-files`=`DEVICE_PATH`=`FILE_PATH`,[…]] [`--performance-metrics`] [`--record-video`] [`--results-bucket`=`RESULTS_BUCKET`] [`--results-dir`=`RESULTS_DIR`] [`--results-history-name`=`RESULTS_HISTORY_NAME`] [`--num-uniform-shards`=`int` | `--test-targets-for-shard`=`TEST_TARGETS_FOR_SHARD`] [`--scenario-labels`=`LABEL`,[`LABEL`,…]] [`--scenario-numbers`=`int`,[`int`,…]] [`--test-package`=`TEST_PACKAGE`] [`--test-runner-class`=`TEST_RUNNER_CLASS`] [`--test-targets`=`TEST_TARGET`,[`TEST_TARGET`,…]] [`--use-orchestrator`] [`--resign`] [`--robo-directives`=[`TYPE`:`RESOURCE_NAME`=`INPUT`,…]] [`--robo-script`=`ROBO_SCRIPT`] [`--device-ids`=`MODEL_ID`,[`MODEL_ID`,…], `-d` `MODEL_ID`,[`MODEL_ID`,…]] [`--locales`=`LOCALE`,[`LOCALE`,…], `-l` `LOCALE`,[`LOCALE`,…]] [`--orientations`=`ORIENTATION`,[`ORIENTATION`], `-o` `ORIENTATION`,[`ORIENTATION`]] [`--os-version-ids`=`OS_VERSION_ID`,[…], `-v` `OS_VERSION_ID`,[…]] [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(ALPHA)` `gcloud alpha firebase test android run` invokes and monitors tests in Firebase Test Lab for Android. 
+     `(ALPHA)` `(DEPRECATED)` Firebase Test Lab is deprecated and will be fully shut down on September 30, 2027. To maintain your testing workflows, you can migrate to the Developer Device Platform on Google Cloud. See the Developer Device Platform Migration Guide (https://docs.cloud.google.com/developer-device-platform/device-run/migrate) and FAQ (https://docs.cloud.google.com/developer-device-platform/troubleshooting) for more details. `gcloud alpha firebase test android run` invokes and monitors tests in Firebase Test Lab for Android. 
 
 Three main types of Android tests are currently supported: 
 
@@ -352,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

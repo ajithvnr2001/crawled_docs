@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/capacity-provisioning/
 title: Provision extra compute capacity for rapid Pod scaling \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:42.220507+00:00
+fetched_at: 2026-11-05T11:09:15.202834+00:00
 ---
 
 # Provision extra compute capacity for rapid Pod scaling  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 This page shows you how to reserve extra compute capacity in your Google Kubernetes Engine (GKE) clusters so that your workloads can rapidly scale up during high traffic events without waiting for new nodes to start. You can use these instructions to reserve compute overhead on a consistently available basis, or in advance of specific events.
 
-**Note:** GKE also features **capacity buffers** ([Preview](https://cloud.google.com/products?e=0#preview)), which provides an automated way to manage spare capacity. For more information, see [About capacity buffers](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/capacity-buffer).
+**Note:** GKE also features capacity buffers, which provide an automated way to manage spare capacity. For more information, see [About capacity buffers](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/capacity-buffer).
 
 ## Why spare capacity provisioning is useful
 
@@ -363,6 +363,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

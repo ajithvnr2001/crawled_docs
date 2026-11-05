@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/access-control/
 title: IAM roles and permissions \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:57.017284+00:00
+fetched_at: 2026-11-05T11:10:58.082546+00:00
 ---
 
 # IAM roles and permissions  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -1135,6 +1135,22 @@ To grant the project-level role in the Google Cloud console, follow these steps:
 
 To allow users to manage and share apps, grant them the [Discovery Engine Viewer](https://docs.cloud.google.com/gemini/enterprise/docs/access-control#discoveryengine.viewer) (`roles/discoveryengine.viewer`) role.
 
+## Troubleshoot 401 and 403 sign-in errors
+
+The following table lists common `401` and `403` sign-in errors and how to resolve them:
+
+Error | Resolution  
+---|---  
+`401: Request had invalid authentication credentials` |  Synchronize your device clock with an NTP server (even a 1-minute clock skew invalidates authentication tokens), clear your browser cookies, and retry in an incognito window.   
+`403: Forbidden / Permission Denied` |  Verify the following in order: 
+
+  1. The user, federated `principal://`, or `principalSet://` identifier (not `user:EMAIL`) has the `roles/discoveryengine.agentspaceUser` or `roles/discoveryengine.user` role and an active license. 
+  2. Third-party IdP group claims are within token limits. For example, Microsoft Entra ID limits claims to 150 groups for SAML or 200 groups for OIDC. For more information, see [Configure Workforce Identity Federation with Microsoft Entra ID and a large number of groups](https://docs.cloud.google.com/iam/docs/workforce-sign-in-microsoft-entra-id-scalable-groups) and [Configure attribute mapping](https://docs.cloud.google.com/gemini/enterprise/docs/configure-identity-provider#attribute_mapping). 
+  3. Gemini Enterprise is turned on for the user's organizational unit in the Google Workspace Admin console. 
+
+  
+`403: WidgetService.LookupWidgetConfig` (`The caller does not have permission`)  |  This error indicates that the caller lacks the `discoveryengine.widgetConfigs.get` permission required to load the app or search widget configuration. Grant `roles/discoveryengine.agentspaceUser` or `roles/discoveryengine.user` at the project level (or grant `roles/discoveryengine.agentspaceUser` on the individual app if the user has `roles/discoveryengine.agentspaceRestrictedUser` at the project level).   
+  
 ## What's next
 
   * Learn how to [manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
@@ -1148,6 +1164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

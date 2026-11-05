@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/biglake/iceberg/catalogs/create/
 title: gcloud alpha biglake iceberg catalogs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:20.125570+00:00
+fetched_at: 2026-11-05T11:10:48.906561+00:00
 ---
 
 # gcloud alpha biglake iceberg catalogs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha biglake iceberg catalogs create - create a BigLake Iceberg REST cat
 SYNOPSIS
     
 
-`gcloud alpha biglake iceberg catalogs create` `CATALOG` `--catalog-type`=`CATALOG_TYPE` [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--default-location`=`DEFAULT_LOCATION`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--federated-catalog-type`=`FEDERATED_CATALOG_TYPE`] [`--glue-aws-region`=`GLUE_AWS_REGION`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--glue-warehouse`=`GLUE_WAREHOUSE`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--primary-location`=`PRIMARY_LOCATION`] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-account-identifier`=`SNOWFLAKE_ACCOUNT_IDENTIFIER`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--snowflake-warehouse`=`SNOWFLAKE_WAREHOUSE`] [`--unity-catalog-name`=`UNITY_CATALOG_NAME`] [`--unity-instance-name`=`UNITY_INSTANCE_NAME`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--workday-base-url`=`WORKDAY_BASE_URL`] [`--workday-tenant`=`WORKDAY_TENANT`] [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha biglake iceberg catalogs create` `CATALOG` `--catalog-type`=`CATALOG_TYPE` [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--default-location`=`DEFAULT_LOCATION`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--federated-catalog-type`=`FEDERATED_CATALOG_TYPE`] [`--glue-aws-region`=`GLUE_AWS_REGION`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--glue-warehouse`=`GLUE_WAREHOUSE`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--primary-location`=`PRIMARY_LOCATION`] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-account-identifier`=`SNOWFLAKE_ACCOUNT_IDENTIFIER`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--snowflake-warehouse`=`SNOWFLAKE_WAREHOUSE`] [`--unity-catalog-name`=`UNITY_CATALOG_NAME`] [`--unity-instance-name`=`UNITY_INSTANCE_NAME`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--workday-api-client-client-id`=`WORKDAY_API_CLIENT_CLIENT_ID`] [`--workday-base-url`=`WORKDAY_BASE_URL`] [`--workday-tenant`=`WORKDAY_TENANT`] [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create a BigLake Iceberg REST catalog. 
 EXAMPLES
@@ -156,11 +156,13 @@ OPTIONAL FLAGS
      The instance name is the first part of the URL when you log into your Databricks deployment. For example, for a Databricks on Google Cloud workspace URL https://1.1.gcp.databricks.com, the instance name is 1.1.gcp.databricks.com. 
 `--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`
      Optional. The application ID of the Databricks service principal that will be used to access the Unity Catalog in the OIDC authentication flow. With OIDC, the secret-name argument is not used. 
+`--workday-api-client-client-id`=`WORKDAY_API_CLIENT_CLIENT_ID`
+     The client ID of the Workday API Client used to access Workday Data Lake in the OIDC authentication flow. With OIDC, the secret-name argument is not used. 
 `--workday-base-url`=`WORKDAY_BASE_URL`
      The base URL of the Workday instance. 
 `--workday-tenant`=`WORKDAY_TENANT`
      The Workday tenant name. 
-Key resource - The Cloud KMS (Key Management Service) cryptokey that will be used to protect the catalog. The BigQuery encryption service account (bq-<project_number>@bigquery-encryption.iam.gserviceaccount.com) must hold permission 'Cloud KMS CryptoKey Encrypter/Decrypter'. The arguments in this group can be used to specify the attributes of this resource. 
+Key resource - The Cloud KMS (Key Management Service) cryptokey that will be used to protect the catalog. The Lakehouse encryption service account (lh-<project_number>@gcp-sa-lakehouse.iam.gserviceaccount.com) must hold permission 'Cloud KMS CryptoKey Encrypter/Decrypter'. The arguments in this group can be used to specify the attributes of this resource. 
 `--kms-key`=`KMS_KEY`
      ID of the key or fully qualified identifier for the key. 
 
@@ -218,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

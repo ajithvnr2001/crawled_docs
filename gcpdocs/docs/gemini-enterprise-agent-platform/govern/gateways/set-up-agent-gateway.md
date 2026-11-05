@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway/
 title: Set up Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:14:20.160863+00:00
+fetched_at: 2026-11-05T11:08:22.936101+00:00
 ---
 
 # Set up Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -310,8 +310,8 @@ Use the following steps to create an Agent Gateway resource for [Agent-to-Anywhe
   7. From the **Governed Access Path** list, select **Agent-to-Anywhere (Agent Egress)**.
   8. In the **Access Authorization** section, choose how traffic is handled by IAP:
 
-     * To deploy the gateway in a dry-run mode where the gateway permits all traffic through and only generates [audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway), select **Audit-only**. Your IAM policies are not enforced by IAP in dry-run mode. Once you gain confidence, you can disable dry-run mode to enforce IAM policies.
-     * To block requests that don't have an explicit `Allow` IAM policy, select **Enforce policies**. This option is recommended for production environments.
+     * To deploy the gateway in a dry-run mode where the gateway permits all traffic through and only generates [audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway), select **Audit-only** (which sets `iamEnforcementMode: "DRY_RUN"` on the authorization extension). Your IAM policies are not enforced by IAP in dry-run mode. Once you gain confidence, you can disable dry-run mode to enforce IAM policies.
+     * To block requests that don't have an explicit `Allow` IAM policy, select **Enforce policies** (which writes `iamEnforcementMode: "ENFORCED"` on the authorization extension when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway). This option is recommended for production environments.
      * For **Policy model** , select **Unified Access Policy**.
 **Note:** We strongly recommend using Unified Access Policy for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
   9. Optional: In the **AI Security** section, configure additional security:
@@ -383,7 +383,7 @@ If you want to deploy the extension in a dry run _audit-only_ mode to test the a
             EOF
             
 
-Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
+Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies. For instructions on auditing dry-run violations across controls before enabling enforcement, see dry-run violations across controls before enabling enforcement, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report).
 
 **Note:** We strongly recommend using UAP (`iapPolicyVersion: "V2"`) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy (`iapPolicyVersion: "V1"`) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
      2. Import the YAML configuration file to an authorization extension.
@@ -642,6 +642,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

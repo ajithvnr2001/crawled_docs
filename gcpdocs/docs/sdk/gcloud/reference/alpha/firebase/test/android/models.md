@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/firebase/test/android/models/
 title: gcloud alpha firebase test android models \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:40:15.383554+00:00
+fetched_at: 2026-11-05T11:10:06.757680+00:00
 ---
 
 # gcloud alpha firebase test android models  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -30,7 +30,10 @@ SYNOPSIS
 
 `gcloud alpha firebase test android models` `COMMAND` [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(ALPHA)` Explore Android models available in the Test Environment catalog. 
+     `(ALPHA)` `(DEPRECATED)` Explore Android models available in the Test Environment catalog. 
+
+Firebase Test Lab is deprecated and will be fully shut down on September 30, 2027\. To maintain your testing workflows, you can migrate to the Developer Device Platform on Google Cloud. See the Developer Device Platform Migration Guide (https://docs.cloud.google.com/developer-device-platform/device-run/migrate) and FAQ (https://docs.cloud.google.com/developer-device-platform/troubleshooting) for more details. 
+
 EXAMPLES
      To list all Android models available for running tests, along with their basic characteristics and supported Android OS versions, run: 
     
@@ -51,9 +54,9 @@ COMMANDS
      ``COMMAND`` is one of the following: 
 
 `[describe](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/firebase/test/android/models/describe)`
-     `(ALPHA)` Describe an Android model. 
+     `(ALPHA)` `(DEPRECATED)` Describe an Android model. 
 `[list](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/firebase/test/android/models/list)`
-     `(ALPHA)` List all Android models available for testing. 
+     `(ALPHA)` `(DEPRECATED)` List all Android models available for testing. 
 NOTES
      This command is currently in alpha and might change without notice. If this command fails with API permission errors despite specifying the correct project, you might be trying to access an API with an invitation-only early access allowlist. These variants are also available: 
     
@@ -67,6 +70,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/update/
 title: gcloud biglake iceberg catalogs update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:38.420359+00:00
+fetched_at: 2026-11-05T11:09:51.089284+00:00
 ---
 
 # gcloud biglake iceberg catalogs update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud biglake iceberg catalogs update - update a BigLake Iceberg REST catalog
 SYNOPSIS
     
 
-`gcloud biglake iceberg catalogs update` `CATALOG` [`--catalog-type`=`CATALOG_TYPE`] [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud biglake iceberg catalogs update` `CATALOG` [`--catalog-type`=`CATALOG_TYPE`] [`--credential-mode`=`CREDENTIAL_MODE`; default="end-user"] [`--cross-cloud-cache`=`MODE`] [`--description`=`DESCRIPTION`] [`--federated-catalog-identity-mode`=`FEDERATED_CATALOG_IDENTITY_MODE`] [`--glue-aws-role-arn`=`GLUE_AWS_ROLE_ARN`] [`--metadata-service-directory-name`=`METADATA_SERVICE_DIRECTORY_NAME`] [`--namespace-filters`=[`NAMESPACE`,…]] [`--refresh-interval`=`REFRESH_INTERVAL`] [`--restricted-locations`=[`LOCATION`,…]] [`--secret-name`=`SECRET_NAME`] [`--service-directory-name`=`SERVICE_DIRECTORY_NAME`] [`--snowflake-role`=`SNOWFLAKE_ROLE`] [`--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`] [`--clear-kms-key` | [`--kms-key`=`KMS_KEY` : `--kms-keyring`=`KMS_KEYRING` `--kms-location`=`KMS_LOCATION` `--kms-project`=`KMS_PROJECT`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update a BigLake Iceberg REST catalog. 
 EXAMPLES
@@ -126,7 +126,13 @@ FLAGS
      The specific role to request for the Snowflake catalog. 
 `--unity-service-principal-application-id`=`UNITY_SERVICE_PRINCIPAL_APPLICATION_ID`
      Optional. The application ID of the Databricks service principal that will be used to access the Unity Catalog in the OIDC authentication flow. With OIDC, the secret-name argument is not used. 
-Key resource - The Cloud KMS (Key Management Service) cryptokey that will be used to protect the catalog. The BigQuery encryption service account (bq-<project_number>@bigquery-encryption.iam.gserviceaccount.com) must hold permission 'Cloud KMS CryptoKey Encrypter/Decrypter'. The arguments in this group can be used to specify the attributes of this resource. 
+At most one of these can be specified: 
+
+`--clear-kms-key`
+     Clear the Cloud KMS key for the catalog and revert to Google-managed encryption. 
+Or at least one of these can be specified: 
+
+Key resource - The Cloud KMS (Key Management Service) cryptokey that will be used to protect the catalog. The Lakehouse encryption service account (lh-<project_number>@gcp-sa-lakehouse.iam.gserviceaccount.com) must hold permission 'Cloud KMS CryptoKey Encrypter/Decrypter'. The arguments in this group can be used to specify the attributes of this resource. 
 `--kms-key`=`KMS_KEY`
      ID of the key or fully qualified identifier for the key. 
 
@@ -184,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

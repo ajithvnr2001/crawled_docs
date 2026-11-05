@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/data-model/
 title: Data model \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:29.963707+00:00
+fetched_at: 2026-11-05T11:09:09.024115+00:00
 ---
 
 # Data model  |  Firestore in Native mode  |  Google Cloud Documentation

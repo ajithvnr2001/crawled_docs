@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/enterprise/knative-serving/docs/install/on-gcp/custom/
 title: Customizing your Google Cloud installation \u00a0|\u00a0 Knative serving \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:19.610310+00:00
+fetched_at: 2026-11-05T10:53:41.524422+00:00
 ---
 
 # Customizing your Google Cloud installation  |  Knative serving  |  Google Cloud Documentation

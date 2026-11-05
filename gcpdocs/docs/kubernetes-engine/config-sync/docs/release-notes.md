@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/release-notes/
 title: Config Sync release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:03:28.301261+00:00
+fetched_at: 2026-11-05T10:54:26.939387+00:00
 ---
 
 # Config Sync release notes  |  Google Cloud Documentation
@@ -27,6 +27,26 @@ This page documents production updates to Config Sync. Check this page for annou
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/anthosconfig-release-notes.xml) directly. 
+
+## November 09, 2026
+
+1.25.2
+
+Change
+
+Addressed multiple Common Vulnerabilities and Exposures (CVEs) by updating dependencies.
+
+1.25.2
+
+Change
+
+Upgraded the `git-sync` dependency from v4.4.2 to v4.5.0 to pick up vulnerability fixes. For more details, see [git-sync releases](https://github.com/kubernetes/git-sync/releases).
+
+1.25.2
+
+Change
+
+Upgraded the Open Telemetry image from 0.152.0 to 0.159.0 to pick up vulnerability fixes. To understand the changes in each release, review the full changelog for [opentelemetry-collector-contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/CHANGELOG.md).
 
 ## September 21, 2026
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-create-filter/
 title: Version limit \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:45.466300+00:00
+fetched_at: 2026-11-05T11:12:24.188102+00:00
 ---
 
 # Version limit  |  Bigtable  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     # Create a filter to only retrieve the most recent version of the cell
     # for each column across entire row.
-    row_filter = bigtable.row_filters.CellsColumnLimitFilter(1)
+    row_filter = bigtable.data.row_filters.CellsColumnLimitFilter(1)
 
 ### Ruby
 

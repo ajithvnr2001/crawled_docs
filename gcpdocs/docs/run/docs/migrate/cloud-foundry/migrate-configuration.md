@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/migrate/cloud-foundry/migrate-configuration/
 title: Migrate Cloud Foundry configurations to Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:53.079305+00:00
+fetched_at: 2026-11-05T11:10:56.358447+00:00
 ---
 
 # Migrate Cloud Foundry configurations to Cloud Run  |  Google Cloud Documentation
@@ -21,15 +21,11 @@ Send feedback
 
 #  Migrate Cloud Foundry configurations to Cloud Run Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Important:** You must have access to the build configuration and source code for the application you want to migrate.
+To deploy and run Cloud Foundry applications on Cloud Run, you can migrate deployment configurations to declarative, Knative-compliant service definitions. This process involves converting a Cloud Foundry `manifest.yaml` to a Cloud Run `service.yaml`, attaching backing services, and deploying the Cloud Run service.
 
-You must complete the configuration migration process for each Cloud Foundry application you are migrating to Cloud Run. The configuration migration consists of the following:
+## Before you begin
 
-  * Converting a Cloud Foundry `manifest.yaml` to a Cloud Run `service.yaml`.
-  * Attaching any backing services to the application for deployment to Cloud Run.
-  * Deploying your application to a Cloud Run service.
-
-
+You must have access to the application source code and build configuration to complete the migration.
 
 ## Convert `manifest.yaml` to `service.yaml`
 
@@ -360,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

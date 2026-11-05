@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/how-to/budgets-notification-recipients/
 title: Customize budget alert email recipients \u00a0|\u00a0 Cloud Billing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:20:52.269120+00:00
+fetched_at: 2026-11-05T11:09:14.729080+00:00
 ---
 
 # Customize budget alert email recipients  |  Cloud Billing  |  Google Cloud Documentation

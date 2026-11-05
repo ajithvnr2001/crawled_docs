@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction/
 title: ClientTransaction \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T07:53:06.134601+00:00
+fetched_at: 2026-11-05T11:10:59.759145+00:00
 ---
 
 # ClientTransaction  |  Universal Ledger  |  Google Cloud Documentation
@@ -28,28 +28,16 @@ JSON representation
       
     
     {
-      "source": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "senderId": string,
-      "signatories": [
-        {
-          object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-        }
-      ],
       "otherSignatoryIds": [
         string
       ],
       "sequenceNumber": string,
       "chainedUnit": boolean,
+      "network": string,
     
       // The following is a list of mutually exclusive fields. At most one of the
       // fields will be set in a response:
-      "app": {
-        "@type": string,
-        field1: ...,
-        ...
-      },
       "operational": {
         "@type": string,
         field1: ...,
@@ -138,43 +126,12 @@ JSON representation
   
 Fields  
 ---  
-`source  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. The transaction sender. Deprecated: Use `[senderId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#FIELDS.sender_id)` instead.  
-`senderId` |  `string` Optional. The ID of the account that is sending this transaction. One of `source` or `senderId` must be set.  
-`signatories[]  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Accounts that, in addition to the sender, have signed this transaction. Deprecated: Use `[otherSignatoryIds](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#FIELDS.other_signatory_ids)` instead.  
+`senderId` |  `string` Required. The ID of the account that is sending this transaction.  
 `otherSignatoryIds[]` |  `string` Optional. The IDs of accounts that, in addition to the sender, have signed this transaction.  
 `sequenceNumber` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Required. A unique, monotonically increasing number, starting from 0.This number must be increased by one for each transaction previously submitted to the network by the same transaction sender.Note this does not include any transaction units that may have been submitted as part of a chain, which must not set a sequence number. But it does include the sender of the transaction chain itself.  
 `chainedUnit` |  `boolean` Must be set to true if this client transaction is part of a transaction chain. Otherwise, it must be set to false.This is necessary to prevent a signed transaction intended to be part of a chain from being submitted on its own.  
+`network` |  `string` Required. The name of the network this transaction is intended for, such as `user-testing`. The transaction will be rejected if the name does not match that of the network processing the transaction.  
 The client transaction-specific message. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
-`app  
-**(deprecated)**` |  `object` This item is deprecated!Optional. Deprecated: Use one of the message specific fields instead. A client transaction-specific message. Should be any one of:
-
-  * `[TransferPlatformOperator](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#TransferPlatformOperator)`
-  * `[CreateCurrencyOperator](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateCurrencyOperator)`
-  * `[TransferCurrencyOperator](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#TransferCurrencyOperator)`
-  * `[CreateAccountManager](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateAccountManager)`
-  * `[CreateTokenManager](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateTokenManager)`
-  * `[CreateClearinghouse](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateClearinghouse)`
-  * `[IncreaseTokenIssuanceLimit](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#IncreaseTokenIssuanceLimit)`
-  * `[DecreaseTokenIssuanceLimit](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#DecreaseTokenIssuanceLimit)`
-  * `[SettlementRequest](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#SettlementRequest)`
-  * `[Mint](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#Mint)`
-  * `[Burn](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Burn)`
-  * `[CreateAccount](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateAccount)`
-  * `[DeactivateAccount](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#DeactivateAccount)`
-  * `[ActivateAccount](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ActivateAccount)`
-  * `[AddRoles](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/AddRoles)`
-  * `[RemoveRoles](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#RemoveRoles)`
-  * `[ChangeAccountManager](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ChangeAccountManager)`
-  * `[Transfer](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#Transfer)`
-  * `[CreateContract](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateContract)`
-  * `[GrantContractPermissions](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#GrantContractPermissions)`
-  * `[InvokeContractMethod](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#InvokeContractMethod)`
-  * `[CreateContractTokenManager](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateContractTokenManager)`
-  * `[TransferContractTokenManager](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#TransferContractTokenManager)`
-
-An object containing fields of an arbitrary type. An additional field `"@type"` contains a URI identifying the type. Example: `{ "id": 1234, "@type": "types.example.com/standard/id" }`.  
 `operational` |  `object` Optional. An operational transaction message. Note this can only be sent by the platform operator. Should be any one of:
 
   * `[CreateSnapshot](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/CreateSnapshot)`
@@ -236,7 +193,7 @@ Creates a new currency operator. The sender must be the platform operator.
 
 If the transaction is successful, the ID of the newly created account is returned as an event in the `[TransactionCertificate](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/TransactionAttempt#TransactionCertificate)` of the finalized transaction.
 
-This transaction must introduce a new currency into the system. If the specified currency already exists, this transaction will fail. If the currency operator has to be replaced, the TransferCurrencyOperator transaction should be sent instead.
+This transaction can introduce a new currency into the system or create an additional currency operator for an existing currency. If an existing currency operator has to be replaced, the `[TransferCurrencyOperator](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#TransferCurrencyOperator)` transaction should be sent instead.
 
 JSON representation  
 ---  
@@ -246,7 +203,6 @@ JSON representation
       "publicKey": string,
       "keyFormat": enum ([KeyFormat](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/KeyFormat)),
       "accountComment": string,
-      "currency": string,
       "currencyCode": string
     }  
   
@@ -255,9 +211,7 @@ Fields
 `publicKey` |  `string ([bytes](https://developers.google.com/discovery/v1/type-format) format)` Required. The public key of the new currency operator. This public key will be associated with the currency operator and stored on the ledger. It will be used to validate the signature of the transactions emanating from the operator's account.The format of the public key is defined by the `keyFormat` field. Considered public information.A base64-encoded string.  
 `keyFormat` |  `enum (`[KeyFormat](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/KeyFormat)`)` Optional. Immutable. The key format of the public key. If not specified, defaults to a binary serialized keyset in [Tink wire format](https://developers.google.com/tink/wire-format#keyset_serialization). Considered public information.  
 `accountComment` |  `string` Optional. Immutable. An opaque comment field that is not interpreted by the system but stored on the ledger in the account. Considered public information. Maximum length is 128 characters. May be left empty. Once created, the field is immutable.  
-`currency  
-**(deprecated)**` |  `string` This item is deprecated!Optional. Deprecated: Use `[currencyCode](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateCurrencyOperator.FIELDS.currency_code)` instead. The fiat currency associated with this operator, represented as a 3-capital-letter ISO 4217 code. Considered public information.  
-`currencyCode` |  `string` Optional. The fiat currency associated with this operator, represented as a 3-capital-letter ISO 4217 code. Considered public information.  
+`currencyCode` |  `string` Required. The fiat currency associated with this operator, represented as a 3-capital-letter ISO 4217 code. Considered public information.  
   
 ## TransferCurrencyOperator
 
@@ -273,9 +227,6 @@ JSON representation
       "publicKey": string,
       "keyFormat": enum ([KeyFormat](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/KeyFormat)),
       "accountComment": string,
-      "currencyOperator": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "currencyOperatorId": string
     }  
   
@@ -284,9 +235,7 @@ Fields
 `publicKey` |  `string ([bytes](https://developers.google.com/discovery/v1/type-format) format)` Required. The public key of the new currency operator. This public key will be associated with the currency operator and stored on the ledger. It will be used to validate the signature of the transactions emanating from the currency operator's account.The format of the public key is defined by the `keyFormat` field. Considered public information.A base64-encoded string.  
 `keyFormat` |  `enum (`[KeyFormat](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/KeyFormat)`)` Optional. Immutable. The key format of the public key. If not specified, defaults to a binary serialized keyset in [Tink wire format](https://developers.google.com/tink/wire-format#keyset_serialization). Considered public information.  
 `accountComment` |  `string` Optional. Immutable. An opaque comment field that is not interpreted by the system but stored on the ledger in the account. Considered public information. Maximum length is 128 characters. May be left empty. Once created, the field is immutable.  
-`currencyOperator  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[currencyOperatorId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#TransferCurrencyOperator.FIELDS.currency_operator_id)` instead. The currency operator to be replaced. Must be active.  
-`currencyOperatorId` |  `string` Optional. The ID of the currency operator to be replaced. Must be active. One of `currencyOperator` or `currencyOperatorId` must be specified. The value is limited to 60 characters.  
+`currencyOperatorId` |  `string` Required. The ID of the currency operator to be replaced. Must be active. The value is limited to 60 characters.  
   
 ## CreateClearinghouse
 
@@ -325,9 +274,6 @@ JSON representation
     {
       "publicKey": string,
       "keyFormat": enum ([KeyFormat](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/KeyFormat)),
-      "defaultTokenManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "defaultTokenManagerId": string,
       "accountComment": string
     }  
@@ -336,8 +282,6 @@ Fields
 ---  
 `publicKey` |  `string ([bytes](https://developers.google.com/discovery/v1/type-format) format)` Required. The public key of the new account manager. Note that this is _not_ the public key of the operator. This public key will be associated with the account manager and stored on the ledger. It will be used to validate the signature of the transactions emanating from the account manager's account.The format of the public key is defined by the `keyFormat` field. Considered public information.A base64-encoded string.  
 `keyFormat` |  `enum (`[KeyFormat](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/KeyFormat)`)` Optional. Immutable. The key format of the public key. If not specified, defaults to a binary serialized keyset in [Tink wire format](https://developers.google.com/tink/wire-format#keyset_serialization). Considered public information.  
-`defaultTokenManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[defaultTokenManagerId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateAccountManager.FIELDS.default_token_manager_id)` instead. The default token manager for the accounts that will be created by this manager.  
 `defaultTokenManagerId` |  `string` Optional. The ID of the default token manager for the accounts that will be created by this manager. The value is limited to 60 characters.  
 `accountComment` |  `string` Optional. Immutable. An opaque comment field that is not interpreted by the system but stored on the ledger in the account. Considered public information. Maximum length is 128 characters. May be left empty. Once created, the field is immutable.  
   
@@ -372,9 +316,6 @@ JSON representation
       
     
     {
-      "tokenManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "tokenManagerId": string,
       "amount": {
         object ([CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue))
@@ -383,9 +324,7 @@ JSON representation
   
 Fields  
 ---  
-`tokenManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[tokenManagerId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#IncreaseTokenIssuanceLimit.FIELDS.token_manager_id)` instead. The ID of the institutional account whose mint limit is to be raised. This account must be a token manager for the transaction to be valid.  
-`tokenManagerId` |  `string` Optional. The ID of the institutional account whose mint limit is to be raised. This account must be a token manager for the transaction to be valid. One of `tokenManager` or `tokenManagerId` must be specified.  
+`tokenManagerId` |  `string` Required. The ID of the institutional account whose mint limit is to be raised. This account must be a token manager for the transaction to be valid.  
 `amount` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` Required. The amount by which to raise the limit. The amount must be positive.  
   
 ## DecreaseTokenIssuanceLimit
@@ -399,9 +338,6 @@ JSON representation
       
     
     {
-      "tokenManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "tokenManagerId": string,
       "amount": {
         object ([CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue))
@@ -410,9 +346,7 @@ JSON representation
   
 Fields  
 ---  
-`tokenManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[tokenManagerId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#DecreaseTokenIssuanceLimit.FIELDS.token_manager_id)` instead. The ID of the institutional account whose mint limit is to be lowered. This account must be a token manager for the transaction to be valid.  
-`tokenManagerId` |  `string` Optional. The ID of the institutional account whose mint limit is to be lowered. This account must be a token manager for the transaction to be valid. One of `tokenManagerId` (preferred) or `tokenManager` (deprecated) must be specified.  
+`tokenManagerId` |  `string` Required. The ID of the institutional account whose mint limit is to be lowered. This account must be a token manager for the transaction to be valid.  
 `amount` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` Required. The amount by which to lower the limit. The amount must be positive. The transaction will fail if the reduced limit will fall below the currently issued tokens.  
   
 ## SettlementRequest
@@ -426,13 +360,7 @@ JSON representation
       
     
     {
-      "payer": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "payerId": string,
-      "beneficiary": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "beneficiaryId": string,
       "balance": {
         object ([CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue))
@@ -442,12 +370,8 @@ JSON representation
   
 Fields  
 ---  
-`payer  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Immutable. Deprecated: Use `[payerId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#SettlementRequest.FIELDS.payer_id)` instead. The account ID of the party that needs to make the fund transfer.  
-`payerId` |  `string` Optional. Immutable. The account ID of the party that needs to make the fund transfer. One of `payer` or `payerId` must be specified.  
-`beneficiary  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Immutable. Deprecated: Use `[beneficiaryId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#SettlementRequest.FIELDS.beneficiary_id)` instead. The account ID of the party that needs to be paid.  
-`beneficiaryId` |  `string` Optional. Immutable. The account ID of the party that will receive the funds. One of `beneficiary` or `beneficiaryId` must be specified.  
+`payerId` |  `string` Required. Immutable. The account ID of the party that needs to make the fund transfer.  
+`beneficiaryId` |  `string` Required. Immutable. The account ID of the party that will receive the funds.  
 `balance` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` Required. Immutable. The balance of issued tokens that need to be transferred by the `payer` account to the `beneficiary` account on the ledger.  
 `roundId` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Required. Immutable. The round ID at which this settlement amount was computed.  
   
@@ -463,18 +387,13 @@ JSON representation
       "mintAmount": {
         object ([CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue))
       },
-      "beneficiary": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "beneficiaryId": string
     }  
   
 Fields  
 ---  
 `mintAmount` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` Required. The amount to mint. The amount must be such that the total tokens minted by the token manager do not exceed the mint limit. If the amount is higher than that, the transaction must be rejected  
-`beneficiary  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[beneficiaryId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#Mint.FIELDS.beneficiary_id)` instead. The account to which the minted amount should be transferred. The beneficiary account must have the `ROLE_RECEIVER` enabled on it.  
-`beneficiaryId` |  `string` Optional. The ID of the account to which the minted amount should be transferred. The receiving account must have the `ROLE_RECEIVER` enabled on it. One of `beneficiary` or `beneficiaryId` must be specified.  
+`beneficiaryId` |  `string` Required. The ID of the account to which the minted amount should be transferred. The receiving account must have the `ROLE_RECEIVER` enabled on it.  
   
 ## CreateAccount
 
@@ -494,9 +413,6 @@ JSON representation
       ],
       "accountStatus": enum ([AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)),
       "accountComment": string,
-      "tokenManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "tokenManagerId": string
     }  
   
@@ -507,8 +423,6 @@ Fields
 `roles[]` |  `enum (`[Role](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Role)`)` Optional. The list of roles to grant to this account.  
 `accountStatus` |  `enum (`[AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)`)` Optional. The status of the account to be created. By default, the account status of a newly created account will be `ACCOUNT_STATUS_ACTIVE`.  
 `accountComment` |  `string` Optional. Immutable. An opaque comment field that is not interpreted by the system but stored on the ledger in the account. Considered public information. Maximum length is 128 characters. May be left empty. Once created, the field is immutable.  
-`tokenManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[tokenManagerId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateAccount.FIELDS.token_manager_id)` instead. The token manager for this account. This field is optional and if not supplied, the default token manager associated to the account manager (that is, the sender of this transaction) will be used.  
 `tokenManagerId` |  `string` Optional. The ID of the token manager for this account. This field is optional and if not supplied, the default token manager associated to the account manager (that is, the sender of this transaction) will be used. The value is limited to 60 characters.  
   
 ## DeactivateAccount
@@ -522,17 +436,12 @@ JSON representation
       
     
     {
-      "account": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "accountId": string
     }  
   
 Fields  
 ---  
-`account  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[accountId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#DeactivateAccount.FIELDS.account_id)` instead. The ID of the account to be deactivated.  
-`accountId` |  `string` Optional. The ID of the account to be deactivated. One of `account` or `accountId` must be specified. The value is limited to 60 characters.  
+`accountId` |  `string` Required. The ID of the account to be deactivated. The value is limited to 60 characters.  
   
 ## RemoveRoles
 
@@ -543,9 +452,6 @@ JSON representation
       
     
     {
-      "account": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "accountId": string,
       "roles": [
         enum ([Role](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Role))
@@ -554,9 +460,7 @@ JSON representation
   
 Fields  
 ---  
-`account  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[accountId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#RemoveRoles.FIELDS.account_id)` instead. The ID of the account to be modified.  
-`accountId` |  `string` Optional. The ID of the account to be modified. One of `account` or `accountId` must be specified. The value is limited to 60 characters.  
+`accountId` |  `string` Required. The ID of the account to be modified. The value is limited to 60 characters.  
 `roles[]` |  `enum (`[Role](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Role)`)` Required. The roles to be removed.  
   
 ## Transfer
@@ -570,9 +474,6 @@ JSON representation
       
     
     {
-      "beneficiary": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "beneficiaryId": string,
       "amount": {
         object ([CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue))
@@ -581,9 +482,7 @@ JSON representation
   
 Fields  
 ---  
-`beneficiary  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[beneficiaryId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#Transfer.FIELDS.beneficiary_id)` instead. The account that receives the tokens.  
-`beneficiaryId` |  `string` Optional. The ID of the account that receives the tokens. One of `beneficiary` or `beneficiaryId` must be specified.  
+`beneficiaryId` |  `string` Required. The ID of the account that receives the tokens.  
 `amount` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` Required. The amount to transfer. The amount must be positive.  
   
 ## CreateContract
@@ -596,12 +495,6 @@ JSON representation
     
     {
       "contractBytes": string,
-      "arguments": {
-        string: {
-          object ([Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value))
-        },
-        ...
-      },
       "initArguments": {
         string: {
           object ([Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value))
@@ -614,8 +507,6 @@ JSON representation
 Fields  
 ---  
 `contractBytes` |  `string ([bytes](https://developers.google.com/discovery/v1/type-format) format)` Serialised contract bytes.A base64-encoded string.  
-`arguments  
-**(deprecated)**` |  `map (key: string, value: object (`[Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value)`))` This item is deprecated!Optional. Immutable. Deprecated: Use `[initArguments](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#CreateContract.FIELDS.init_arguments)` instead. Arguments for the `__init__` method.An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.  
 `initArguments` |  `map (key: string, value: object (`[Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value)`))` Optional. Immutable. Contains arguments for the `__init__` method.An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.  
 `contractComment` |  `string` Optional. Immutable. An opaque comment field that is not interpreted by the system but stored on the ledger in the contract. Considered public information. Maximum length is 128 characters. May be left empty. Once created, the field is immutable.  
   
@@ -630,9 +521,6 @@ JSON representation
       
     
     {
-      "contract": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "contractId": string,
       "permissions": [
         enum ([ContractPermission](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ContractPermission))
@@ -642,9 +530,7 @@ JSON representation
   
 Fields  
 ---  
-`contract  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[contractId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#GrantContractPermissions.FIELDS.contract_id)` instead. ID of the contract to which permissions are being granted.  
-`contractId` |  `string` Optional. The ID of the contract to which permissions are being granted. One of `contract` or `contractId` must be specified.  
+`contractId` |  `string` Required. The ID of the contract to which permissions are being granted.  
 `permissions[]` |  `enum (`[ContractPermission](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ContractPermission)`)` The permissions to be granted.  
 `delegateContractId` |  `string` Optional. The contract ID for which permissions are being granted. The transaction sender must be the owner of this contract.  
   
@@ -657,17 +543,8 @@ JSON representation
       
     
     {
-      "contract": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "contractId": string,
       "methodName": string,
-      "arguments": {
-        string: {
-          object ([Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value))
-        },
-        ...
-      },
       "methodArguments": {
         string: {
           object ([Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value))
@@ -681,12 +558,8 @@ JSON representation
   
 Fields  
 ---  
-`contract  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Optional. Deprecated: Use `[contractId](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#InvokeContractMethod.FIELDS.contract_id)` instead. ID of the contract to run.  
-`contractId` |  `string` Optional. The ID of the contract to run. One of `contract` or `contractId` must be specified.  
+`contractId` |  `string` Required. The ID of the contract to run.  
 `methodName` |  `string` Name of the method to run.  
-`arguments  
-**(deprecated)**` |  `map (key: string, value: object (`[Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value)`))` This item is deprecated!Optional. Immutable. Deprecated: Use `[methodArguments](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/ClientTransaction#InvokeContractMethod.FIELDS.method_arguments)` instead. Arguments for the method.An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.  
 `methodArguments` |  `map (key: string, value: object (`[Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value)`))` Optional. Immutable. Contains arguments to pass to the method.An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.  
 `payment` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` The amount to be paid. Must be greater than zero when invoking payable methods; and zero for non-payable ones.  
   
@@ -796,6 +669,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/setting-up-mtls-ccm/
 title: Set up frontend mTLS with user-provided certificates \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:25.504486+00:00
+fetched_at: 2026-11-05T11:12:29.702194+00:00
 ---
 
 # Set up frontend mTLS with user-provided certificates  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -108,7 +108,7 @@ In the following example, the configuration file (`example.cnf`) contains the `[
          EOF
          
 
-  2. Create a self-signed X.509 root certificate (`root.cert`). The root certificate is self-signed with its own private key (`root.key`).
+  2. Generate a new RSA private key (`root.key`) and use it to create a self-signed X.509 root CA certificate (`root.cert`), which serves as the root Certificate Authority (CA).
          
          openssl req -x509 \
              -new -sha256 -newkey rsa:2048 -nodes \
@@ -118,7 +118,7 @@ In the following example, the configuration file (`example.cnf`) contains the `[
              -keyout root.key -out root.cert
          
 
-  3. Create the certificate signing request (`int.req`) for the intermediate certificate.
+  3. Create a certificate signing request (CSR) (`int.req`) for the intermediate certificate.
          
          openssl req -new \
              -sha256 -newkey rsa:2048 -nodes \
@@ -128,7 +128,7 @@ In the following example, the configuration file (`example.cnf`) contains the `[
              -keyout int.key -out int.req
          
 
-  4. Sign the CSR to create the X.509 intermediate certificate (`int.cert`). The CSR is signed using the root certificate.
+  4. Create the X.509 intermediate certificate (`int.cert`) from the CSR. The root CA uses its private key (`root.key`) and certificate (`root.cert`) to issue and sign the X.509 intermediate certificate.
          
          openssl x509 -req \
              -CAkey root.key -CA root.cert \
@@ -776,14 +776,14 @@ If you want to attach a [SPIFFE identity](https://spiffe.io/docs/latest/spiffe-a
            URI.1                     = spiffe://example.com/test-identity
            
 
-  2. Create the CSR (`client.csr`) for the client certificate.
+  2. Create a CSR (`client.csr`) for the client certificate.
          
          openssl req -new \
              -config client.config \
              -keyout client.key -out client.csr
          
 
-  3. Sign the CSR to issue the X.509 client certificate (`client.cert`). The CSR is signed by the intermediate certificate.
+  3. Create a client certificate (`client.cert`) from the CSR. The intermediate CA uses its private key (`int.key`) and certificate (`int.cert`) to issue and sign the X.509 client certificate.
          
          openssl x509 -req \
              -CAkey int.key -CA int.cert \
@@ -813,6 +813,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

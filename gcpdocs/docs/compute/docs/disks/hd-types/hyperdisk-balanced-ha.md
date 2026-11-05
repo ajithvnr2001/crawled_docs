@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced-ha/
 title: About Hyperdisk Balanced High Availability \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:05.125105+00:00
+fetched_at: 2026-11-05T11:08:41.991069+00:00
 ---
 
 # About Hyperdisk Balanced High Availability  |  Compute Engine  |  Google Cloud Documentation

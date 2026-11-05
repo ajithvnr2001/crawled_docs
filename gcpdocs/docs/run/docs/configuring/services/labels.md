@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/labels/
 title: Configure labels for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:06.335677+00:00
+fetched_at: 2026-11-05T11:11:02.314433+00:00
 ---
 
 # Configure labels for services  |  Cloud Run  |  Google Cloud Documentation
@@ -70,19 +70,15 @@ You can set or modify labels using the Google Cloud console, the Google Cloud CL
 
 [Go to Cloud Run](https://console.cloud.google.com/run/services)
 
-  2. Check the checkbox at the left of the service you are setting the label on.
+  2. Select the checkbox to the left of the service you are setting the label on.
 
-  3. Make sure the _Info Panel_ at the far right is toggled on (**Show Info Panel**).
+  3. Click **Labels** to display the labels pane.
 
-  4. Click **Labels** to display the labels pane.
+  4. To edit an existing label key value, locate the label and change the value.
 
-![Set label](https://docs.cloud.google.com/static/run/docs/images/labels.png)
+  5. To set a new label on the service, click **Add Label** and supply the key and the value.
 
-  5. To edit an existing label key value, locate the label and change the _Value_.
-
-  6. To set a new label on the service, click **Add Label** and supply the key and the value.
-
-  7. Click **Save**
+  6. Click **Save**.
 
 
 
@@ -98,9 +94,9 @@ To update more than one label, supply a comma delimited list of key-value pairs.
 
 Replace the following:
 
-  * SERVICE: the name of your Cloud Run service
-  * KEY: the name of your label key
-  * VALUE: the value for the key
+  * `SERVICE`: the name of your Cloud Run service
+  * `KEY`: the name of your label key
+  * `VALUE`: the value for the key
 
 
 
@@ -134,9 +130,9 @@ To create more than one label during deployment, supply a comma delimited list o
 
 Replace the following:
 
-     * SERVICE: the name of your Cloud Run service
-     * LABEL: the name of the label
-     * VALUE: the required value
+     * `SERVICE`: the name of your Cloud Run service
+     * `LABEL`: the name of the label
+     * `VALUE`: the required value
      * `REVISION`: a new revision name or delete it (if present). If you supply a new revision name, it **must** meet the following criteria:
        * Starts with `SERVICE-`
        * Contains only lowercase letters, numbers and `-`
@@ -204,8 +200,8 @@ You can list services by label using a [Google Cloud CLI filter](https://docs.cl
 
 Replace the following:
 
-  * LABEL: the name of the label
-  * VALUE: the value to include in your filtered list
+  * `LABEL`: the name of the label
+  * `VALUE`: the value to include in your filtered list
 
 
 
@@ -219,17 +215,13 @@ You can use the console or the command line delete labels on a service.
 
 [Go to Cloud Run](https://console.cloud.google.com/run/services)
 
-  2. Check the checkbox at the left of the service you are deleting the label from.
+  2. Select the checkbox to the left of the service you are deleting the label from.
 
-  3. Make sure the _Info Panel_ at the far right is toggled on (**Show Info Panel**).
+  3. Click **Labels** to display the labels pane.
 
-  4. Click **Labels** to display the labels pane.
+  4. Hold the pointer to the right of the **Value** field to display the trash icon. Click **Delete item**.
 
-  5. Locate the label you want to delete.
-
-  6. Hover your cursor to the right of the _Value_ textbox for the label to display the trash icon, and click the trash icon.
-
-  7. Click **Save**.
+  5. Click **Save**.
 
 
 
@@ -248,8 +240,8 @@ To delete specific labels from a service, supply a comma delimited list of keys:
 
 Replace the following:
 
-  * SERVICE: the name of your Cloud Run service
-  * LABEL: the name of your label
+  * `SERVICE`: the name of your Cloud Run service
+  * `LABEL`: the name of your label
 
 
 
@@ -257,6 +249,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

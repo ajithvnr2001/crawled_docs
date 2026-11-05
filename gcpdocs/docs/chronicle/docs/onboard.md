@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/onboard/
 title: Deploy an instance \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:46.721479+00:00
+fetched_at: 2026-11-05T11:12:19.561074+00:00
 ---
 
 # Deploy an instance  |  Google Security Operations  |  Google Cloud Documentation
@@ -38,6 +38,8 @@ Before you can onboard a new Google SecOps instance, make sure your organization
   * A signed Google SecOps contract from your organization. This contract gives you permission to provision each new Google SecOps instance.
 
   * If your organization uses [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview), you must configure the relevant ingress and egress rules, which are documented in [Configure VPC Service Controls](https://docs.cloud.google.com/chronicle/docs/secops/vpcsc-for-secops) for Google SecOps.
+
+  * If your organization uses egress firewalls, corporate proxies, or web filtering, configure your network allowlist for browser access and API connectivity. For more information, see [Network access and domain allowlist](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui#network-access-and-domain-allowlist) and [Verify firewall configuration for the Chronicle API](https://docs.cloud.google.com/chronicle/docs/reference/verify-firewall-configuration).
 
 
 
@@ -354,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway/
 title: Monitor traffic through Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:16:01.480496+00:00
+fetched_at: 2026-11-05T11:08:23.100957+00:00
 ---
 
 # Monitor traffic through Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Use this page to learn how to view logs, monitor requests, and track distributed
 
 Agent Gateway logs are generated using the `networkservices.googleapis.com/Gateway` monitored resource.
 
-You can use these logs to monitor access requests to the gateway. This includes the logs created when Agent Gateway is deployed in dry-run mode.
+You can use these logs to monitor access requests to the gateway. This includes the logs created when Agent Gateway is deployed in dry-run mode. To query dry-run violation logs across Identity-Aware Proxy (IAP) Unified Access Policies (UAPs), Semantic Governance policies, Model Armor, and VPC Service Controls and generate a consolidated "would have been blocked" report, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report).
 
 ### View logs for a specific gateway
 
@@ -64,7 +64,7 @@ To query specific types of log entries in the **Logs Explorer** , you can filter
 Log name | Description  
 ---|---  
 `projects/PROJECT_ID/logs/networkservices.googleapis.com%2Fgateway_requests` | Logs for gateway allow and deny decisions.  
-`projects/PROJECT_ID/logs/cloudaudit.googleapis.com%2Fdata_access` | Cloud Audit Logs for Identity-Aware Proxy (IAP) `AuthorizeUser` decisions.  
+`projects/PROJECT_ID/logs/cloudaudit.googleapis.com%2Fdata_access` | Cloud Audit Logs for IAP `AuthorizeUser` decisions.  
 `projects/PROJECT_ID/logs/aiplatform.googleapis.com%2Freasoning_engine_stderr` | Agent-side startup and execution errors (reasoning engine `stderr`).  
 `projects/PROJECT_ID/logs/aiplatform.googleapis.com%2Freasoning_engine_stdout` | Agent-side standard output (reasoning engine `stdout`).  
   
@@ -298,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

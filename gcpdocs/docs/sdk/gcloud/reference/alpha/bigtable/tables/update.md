@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bigtable/tables/update/
 title: gcloud alpha bigtable tables update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:22:09.372461+00:00
+fetched_at: 2026-11-05T11:09:34.402901+00:00
 ---
 
 # gcloud alpha bigtable tables update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha bigtable tables update - update an existing Cloud Bigtable table
 SYNOPSIS
     
 
-`gcloud alpha bigtable tables update` (`TABLE` : `--instance`=`INSTANCE`) [`--async`] [`--deletion-protection`] [`--ignore-warnings`] [`--row-key-schema-pre-encoded-bytes`] [`--automated-backup-retention-period`=`AUTOMATED_BACKUP_RETENTION_PERIOD` `--automated-backup-locations`=[`LOCATION`,…] | `--clear-automated-backup-locations` | `--disable-automated-backup` | `--enable-automated-backup`] [`--change-stream-retention-period`=`CHANGE_STREAM_RETENTION_PERIOD` | `--clear-change-stream-retention-period`] [`--clear-row-key-schema` | `--row-key-schema-definition-file`=`ROW_KEY_SCHEMA_DEFINITION_FILE`] [`--clear-tiered-storage-config` | `--tiered-storage-infrequent-access-older-than`=`TIERED_STORAGE_INFREQUENT_ACCESS_OLDER_THAN`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha bigtable tables update` (`TABLE` : `--instance`=`INSTANCE`) [`--async`] [`--deletion-protection`] [`--ignore-warnings`] [`--row-key-schema-pre-encoded-bytes`] [`--automated-backup-retention-period`=`AUTOMATED_BACKUP_RETENTION_PERIOD` `--automated-backup-keep-hot-duration`=`AUTOMATED_BACKUP_KEEP_HOT_DURATION` | `--clear-automated-backup-keep-hot-duration` `--automated-backup-locations`=[`LOCATION`,…] | `--clear-automated-backup-locations` | `--disable-automated-backup` | `--enable-automated-backup`] [`--change-stream-retention-period`=`CHANGE_STREAM_RETENTION_PERIOD` | `--clear-change-stream-retention-period`] [`--clear-row-key-schema` | `--row-key-schema-definition-file`=`ROW_KEY_SCHEMA_DEFINITION_FILE`] [`--clear-tiered-storage-config` | `--tiered-storage-infrequent-access-older-than`=`TIERED_STORAGE_INFREQUENT_ACCESS_OLDER_THAN`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update an existing new Cloud Bigtable table with the specified configuration. 
 EXAMPLES
@@ -135,6 +135,12 @@ Group for automated backup policy parameters.
      The retention period of automated backup in the format of `30d` for 30 days. Min retention period is `3d` and max is `90d`. Setting this flag enables automated backup for the table. 
 At most one of these can be specified: 
 
+`--automated-backup-keep-hot-duration`=`AUTOMATED_BACKUP_KEEP_HOT_DURATION`
+     The amount of time that automated backups remain hot, in the format of `24h` for 24 hours. If specified, the backups created by this policy are `HOT` backups. If not specified, the backups are `STANDARD` backups. The value must be at least `24h` and at most `10d`, and can't exceed the policy's retention period. Only SSD instances support `HOT` automated backups. Setting this flag enables automated backup for the table. 
+`--clear-automated-backup-keep-hot-duration`
+     Stops keeping automated backups hot. Subsequent backups created by the policy are `STANDARD` backups. 
+At most one of these can be specified: 
+
 `--automated-backup-locations`=[`LOCATION`,…]
      List of Cloud Bigtable zones where automated backups are allowed to be created. If empty, automated backups will be created in all zones of the instance. Locations are in the format `projects/{project}/locations/{zone}`. Setting this flag enables automated backup for the table. 
 `--clear-automated-backup-locations`
@@ -205,6 +211,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-22 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

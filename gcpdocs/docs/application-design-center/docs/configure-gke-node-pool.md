@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-gke-node-pool/
 title: Configure a GKE node pool \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:38.824084+00:00
+fetched_at: 2026-11-05T11:10:59.128276+00:00
 ---
 
 # Configure a GKE node pool  |  Application Design Center  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ If your template includes a GKE node pool, you must configure the following para
 Parameter name | Description and constraint information | Background information  
 ---|---|---  
 **Cluster** | The name of the cluster in the format `projects/{project_id}/locations/{location}/clusters/{cluster}` or as the name of the cluster. | [About cluster configuration choices](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/configuration-overview)  
-**Project Id** | The project where you want to create the GKE node pool. | [Configure default values for components](https://docs.cloud.google.com/application-design-center/docs/design-application-templates#configure_default_values_for_components)  
+**Project Id** | The project where you want to create the GKE node pool. | [Configure components](https://docs.cloud.google.com/application-design-center/docs/design-application-templates#configure_components)  
 **Region** | The location (region or zone) in which the node pool is created. | [Cluster availability](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/configuration-overview#availability)  
   
 ## Optional configuration parameters
@@ -123,6 +123,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

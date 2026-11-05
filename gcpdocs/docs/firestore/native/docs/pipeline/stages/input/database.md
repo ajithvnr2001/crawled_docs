@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/input/database/
 title: Database (Input Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:36.434191+00:00
+fetched_at: 2026-11-05T11:09:01.654948+00:00
 ---
 
 # Database (Input Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

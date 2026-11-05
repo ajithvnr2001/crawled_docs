@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/quick-start-migrations-guide/
 title: Use quick-start migrations to migrate to AlloyDB for PostgreSQL \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:18.962257+00:00
+fetched_at: 2026-11-05T11:11:14.867956+00:00
 ---
 
 # Use quick-start migrations to migrate to AlloyDB for PostgreSQL  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ With quick-start migrations, you can move your data to an existing AlloyDB for P
 
 Sources hosted outside Google Cloud might need additional network components (such as a Cloud VPN connection) so that they can be reached at a private IP address within your VPC network. 
 
-  * The source database must have a private IP address assigned in your VPC network. Database Migration Service connects to the source database using Private Service Connect interfaces (network attachments). Public IP connectivity isn't supported for quick-start migrations. 
+  * Quick-start migrations support public IP and Private Service Connect interfaces connectivity. Reverse SSH tunnels aren't supported for quick-start migrations. 
 
 
 
@@ -71,9 +71,11 @@ To get the permissions that you need to run quick-start migrations to AlloyDB fo
 
 #### Roles and permissions in the source project
 
-Grant the following roles to specific accounts on the Google Cloud project where your **source** database resides:
+If you use private IP connectivity to connect to a source database in a Google Cloud project, grant the following roles to specific accounts on the project where your **source** database resides:
 
-  * For the user account that performs the migration: [ Compute Network Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) role (`roles/compute.networkAdmin`) 
+  * For the user account that performs the migration: 
+    * [ Compute Network Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) (`roles/compute.networkAdmin`) 
+    * [ Browser](https://docs.cloud.google.com/iam/docs/roles-permissions/browser#browser) (`roles/browser`) 
   * For the Database Migration Service service account of the **destination** project: [ Compute Network Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkViewer) (`roles/compute.networkViewer`) 
 
 The Database Migration Service service account is created when you enable the Database Migration Service API. The email address associated with this account is generated automatically and can't be changed. This email address uses the following format: 
@@ -91,12 +93,23 @@ The following permissions are required to perform homogeneous quick-start migrat
 
 For the user account that performs the migration:
 
-  * `compute.networks.*`
-  * `compute.subnetworks.*`
-  * `compute.networkAttachments.*`
+  * `compute.networks.get`
+  * `compute.networks.list`
+  * `compute.networks.updatePolicy`
+  * `compute.subnetworks.get`
+  * `compute.subnetworks.list`
+  * `compute.subnetworks.create`
+  * `compute.subnetworks.use`
+  * `compute.networkAttachments.create`
+  * `compute.networkAttachments.get`
+  * `compute.networkAttachments.list`
+  * `compute.networkAttachments.update`
+  * `compute.networkAttachments.use`
+  * `compute.regionOperations.get`
   * `networkconnectivity.internalRanges.create`
   * `networkconnectivity.internalRanges.get`
   * `networkconnectivity.operations.get`
+  * `resourcemanager.projects.getIamPolicy`
 
 
 
@@ -112,8 +125,11 @@ Grant the following roles to the user account that performs the migration on the
 
   * [ Database Migration Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datamigration#datamigration.admin) (`roles/datamigration.admin`) 
   * [ AlloyDB Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.admin) (`roles/alloydb.admin`) 
+  * [ Browser](https://docs.cloud.google.com/iam/docs/roles-permissions/browser#browser) (`roles/browser`) 
 
 
+
+In addition, the Database Migration Service service account of the **destination** project (`service-DESTINATION_PROJECT_NUMBER@gcp-sa-datamigration.iam.gserviceaccount.com`) requires the [ Database Migration Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/datamigration#datamigration.serviceAgent) (`roles/datamigration.serviceAgent`) role on the destination project. Google Cloud grants this role automatically when you enable the Database Migration Service API. 
 
 These predefined roles contain the permissions required to set up the required migration components on your **destination** database project as part of a quick-start migration with Database Migration Service. To see the exact permissions that are required, expand the **Required permissions (destination)** section: 
 
@@ -121,7 +137,23 @@ These predefined roles contain the permissions required to set up the required m
 
 The following permissions are required to perform homogeneous quick-start migrations with Database Migration Service: 
 
-  * `datamigration.*`
+For the user account that performs the migration:
+
+  * `datamigration.privateconnections.get`
+  * `datamigration.privateconnections.list`
+  * `datamigration.privateconnections.create`
+  * `datamigration.migrationjobs.create`
+  * `datamigration.migrationjobs.update`
+  * `datamigration.migrationjobs.verify`
+  * `datamigration.migrationjobs.start`
+  * `datamigration.migrationjobs.get`
+  * `datamigration.migrationjobs.fetchSourceObjects`
+  * `datamigration.operations.get`
+  * `datamigration.connectionprofiles.create`
+  * `datamigration.connectionprofiles.get`
+  * `datamigration.connectionprofiles.update`
+  * `datamigration.locations.list`
+  * `datamigration.locations.fetchStaticIps`
   * `alloydb.clusters.create`
   * `alloydb.clusters.get`
   * `alloydb.clusters.list`
@@ -132,13 +164,21 @@ The following permissions are required to perform homogeneous quick-start migrat
   * `alloydb.instances.list`
   * `alloydb.instances.update`
   * `alloydb.instances.delete`
-  * `alloydb.instances.executeSql`
   * `alloydb.operations.get`
   * `alloydb.users.list`
   * `alloydb.users.get`
   * `alloydb.users.create`
   * `alloydb.users.update`
   * `alloydb.users.delete`
+  * `resourcemanager.projects.getIamPolicy`
+
+
+
+For the Database Migration Service service account of the **destination** project:
+
+  * `alloydb.clusters.import`
+  * `alloydb.instances.connect`
+  * `alloydb.instances.executeSql`
 
 
 
@@ -266,19 +306,22 @@ The **Migrate to AlloyDB for PostgreSQL** page opens.
   5. In the **Configure migration** section, do the following: 
      1. From the **Destination region** menu, select the region of your destination AlloyDB for PostgreSQL cluster. 
      2. In the **Migration prefix** box, enter a human-friendly string that will be added to the names of all migration entities created for the quick-start migration: connection profiles, private connectivity configuration, network attachment and its subnet, and migration job. 
-     3. From the **Configuration type** menu, select one of the following: 
-        1. **Existing connectivity configuration** : Select this option if you already have a network attachment and a private connectivity configuration that uses the Private Service Connect interfaces method. This option is best used if you previously used quick-start migrations and want to re-use the same networking resources. 
-        2. **New connectivity configuration** : Select this option to create a new network attachment and the network attachment subnet in the source database VPC network. The private connectivity configuration will be created in the same project as your destination cluster. 
-     4. Click **Continue**.
+     3. From the **Connectivity type** menu, select how Database Migration Service connects to your source database: 
+        * **Private IP** : Connect over a private network using Private Service Connect interfaces. From the **Configuration type** menu, select one of the following: 
+          * **Existing connectivity configuration** : Select this option if you already have a network attachment and a private connectivity configuration that uses the Private Service Connect interfaces method. This option is best used if you previously used quick-start migrations and want to re-use the same networking resources. 
+          * **New connectivity configuration** : Select this option to create a new network attachment and the network attachment subnet in the source database VPC network. The private connectivity configuration will be created in the same project as your destination cluster. 
+        * **Public IP** : Connect over the public internet using a dedicated outgoing static public IP address. If a public IP connectivity configuration already exists in your destination project and region, Database Migration Service reuses it. Otherwise, Database Migration Service creates a new public IP connectivity configuration and generates an outgoing IP address when you continue. 
+     4. Click **Continue**. If prompted to confirm the creation of networking resources, click **Configure & continue**. 
   6. In the **Connect source** section, do the following: 
-     1. Enter a **Hostname** or the private **IP address** of your source database. The source database address must be reachable from your source VPC network. 
-     2. Enter the **Port** that's used to access the host. The default PostgreSQL port is `5432`.
-     3. Enter the username and password for the dedicated migration account in your source database. 
-     4. From the **Encryption type** menu, select one of the following: 
+     1. If you selected **Public IP** in the previous step, copy the outgoing IP address displayed in the Google Cloud console and add it as an inbound firewall rule or IP allowlist entry on your source network (such as `pg_hba.conf` or cloud provider security groups) to allow Database Migration Service to connect. 
+     2. Enter a **Hostname** or the **IP address** of your source database. If you selected **Private IP** , enter the private IP address reachable from your source VPC network. If you selected **Public IP** , enter the public IP address of your source database. 
+     3. Enter the **Port** that's used to access the host. The default PostgreSQL port is `5432`.
+     4. Enter the username and password for the dedicated migration account in your source database. 
+     5. From the **Encryption type** menu, select one of the following: 
         * **None** : If your source database doesn't require SSL/TLS-encrypted connections.
         * **Required** : If your source database requires SSL/TLS-encrypted connections. This option doesn't require any certificate verification.
-     5. In the **Databases to migrate** menu, click **Customize**. Use the side panel with embedded database discovery to select only the databases you want to migrate to AlloyDB for PostgreSQL. 
-     6. Click **Continue**.
+     6. In the **Databases to migrate** menu, click **Customize**. Use the side panel with embedded database discovery to select only the databases you want to migrate to AlloyDB for PostgreSQL. 
+     7. Click **Continue**.
   7. In the **Configure destination** section, you can create a new destination cluster, or select an existing one: 
 
 ### New clusters
@@ -309,19 +352,25 @@ Database Migration Service creates the continuous migration job and begins repli
 
 To create and run a quick-start migration using the gcloud CLI, do the following:
 
-  1. Configure the network attachment.  
-Decide if you want to create a new network attachment or re-use an existing one. You need to have a network attachment in the network where your source database private IP can be reached. 
+  1. Configure connectivity to your source database.  
+Select the tab based on whether your source database uses Private IP (Private Service Connect) or Public IP:
 
-     * If you want to create a new network attachment, run the following command (click to expand full details): 
+### Private IP (Private Service Connect)
+
+To connect using Private Service Connect, configure your network attachment and private connection:
+
+     1. **Configure the network attachment:** Decide if you want to create a new network attachment or re-use an existing one. You need to have a network attachment in the network where your source database private IP can be reached. 
+
+        * If you want to create a new network attachment, run the following command (click to expand full details). 
 
 #### `gcloud compute network-attachments create`
 
 Before using any of the command data below, make the following replacements: 
 
-       * NETWORK_ATTACHMENT with the name of the network attachment to create.
-       * REGION with the region for the network attachment.
-       * DEST_PROJECT_ID with the project ID of your destination project.
-       * SOURCE_PROJECT_ID with the project ID where the source network resides.
+          * NETWORK_ATTACHMENT with the name of the network attachment to create.
+          * REGION with the region for the network attachment.
+          * DEST_PROJECT_ID with the project ID of your destination project.
+          * SOURCE_PROJECT_ID with the project ID where the source network resides.
 
 Execute the following command: 
 
@@ -358,18 +407,18 @@ Execute the following command:
       --subnets=default ^
       --project=SOURCE_PROJECT_ID
 
-  2. Allow the Database Migration Service tenant project to access your network attachment.  
-Your network attachment must allow connections from the Database Migration Service tenant project. Perform the following steps:
+        * If you want to re-use an existing network attachment, proceed to the next step.
+     2. **Allow the Database Migration Service tenant project to access your network attachment:** Your network attachment must allow connections from the Database Migration Service tenant project. Perform the following steps:
 
-     1. Retrieve the Database Migration Service tenant project ID by performing a dry-run private connection creation (click to expand): 
+        1. Retrieve the Database Migration Service tenant project ID by performing a dry-run private connection creation (click to expand): 
 
 #### `gcloud database-migration private-connections create --validate-only`
 
 Before using any of the command data below, make the following replacements: 
 
-        * PRIVATE_CONN with the name of the private connection resource.
-        * REGION with the region for the private connection.
-        * NETWORK_ATTACHMENT_URI with the URI of the network attachment.
+           * PRIVATE_CONN with the name of the private connection resource.
+           * REGION with the region for the private connection.
+           * NETWORK_ATTACHMENT_URI with the URI of the network attachment.
 
 Execute the following command: 
 
@@ -406,19 +455,19 @@ Execute the following command:
       --format="value(metadata.metadata.tenant_project_id)" ^
       --validate-only
 
-Save the returned tenant project ID to use with subsequent commands.
+Save the returned tenant project ID to use with next commands.
 
-     2. Allow the Database Migration Service tenant project and the destination project to connect to the network attachment (click to expand): 
+        2. Allow the Database Migration Service tenant project and the destination project to connect to the network attachment (click to expand): 
 
 #### `gcloud compute network-attachments update`
 
 Before using any of the command data below, make the following replacements: 
 
-        * NETWORK_ATTACHMENT with the name of the network attachment.
-        * REGION with the region.
-        * DEST_PROJECT_ID with the project ID of your destination project.
-        * DMS_TENANT_ID with the retrieved Database Migration Service tenant project ID.
-        * SOURCE_PROJECT_ID with the project ID where the source network resides.
+           * NETWORK_ATTACHMENT with the name of the network attachment.
+           * REGION with the region.
+           * DEST_PROJECT_ID with the project ID of your destination project.
+           * DMS_TENANT_ID with the retrieved Database Migration Service tenant project ID.
+           * SOURCE_PROJECT_ID with the project ID where the source network resides.
 
 Execute the following command: 
 
@@ -449,16 +498,15 @@ Execute the following command:
       --producer-accept-list=DEST_PROJECT_ID,DMS_TENANT_ID ^
       --project=SOURCE_PROJECT_ID
 
-  3. Create a private connection.  
-Create a private connection resource to allow Database Migration Service to connect to your source network (click to expand):
+     3. **Create the Database Migration Service private connectivity resource:** Run the following command (click to expand):
 
 #### `gcloud database-migration private-connections create`
 
 Before using any of the command data below, make the following replacements: 
 
-     * PRIVATE_CONN with the name of the private connection resource.
-     * REGION with the region for the private connection.
-     * NETWORK_ATTACHMENT_URI with the URI of the network attachment.
+        * PRIVATE_CONN with the name of the private connection resource.
+        * REGION with the region for the private connection.
+        * NETWORK_ATTACHMENT_URI with the URI of the network attachment.
 
 Execute the following command: 
 
@@ -489,7 +537,98 @@ Execute the following command:
       --network-attachment=NETWORK_ATTACHMENT_URI ^
       --display-name=PRIVATE_CONN
 
-  4. Create a source connection profile.  
+### Public IP
+
+To connect to a source database with a public IP address, perform the following steps:
+
+     1. Create a private connection with reserved public IP.  
+Run the following command (click to expand):
+
+#### `gcloud database-migration private-connections create`
+
+This sample uses the optional `--no-async` flag so that all operations are performed synchronously. This means that some commands might take a while to complete. You can skip the `--no-async` flag to run commands asynchronously. If you do, you need to use the [`gcloud database-migration operations describe`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/operations/describe) command to verify if your operation is successful.
+
+Before using any of the command data below, make the following replacements: 
+
+        * CONNECTION_ID with the identifier for the private connection.
+        * REGION with the Google Cloud region where you want to create the private connection.
+        * DISPLAY with a friendly display name for the private connection.
+        * _Optional_ : You can replace the `--reserved-public-ip` flag with `--reserved-public-ip-nat-ips-count` to reserve multiple dedicated public IP addresses that Database Migration Service uses for connection. You can reserve up to `10` IP addresses. 
+
+Execute the following command: 
+
+#### Linux, macOS, or Cloud Shell
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration private-connections create \
+      CONNECTION_ID \
+      --region=REGION \
+      --display-name="DISPLAY" \
+      --reserved-public-ip \
+      --no-async
+
+#### Windows (PowerShell)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration private-connections create `
+      CONNECTION_ID `
+      --region=REGION `
+      --display-name="DISPLAY" `
+      --reserved-public-ip `
+      --no-async
+
+#### Windows (cmd.exe)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration private-connections create ^
+      CONNECTION_ID ^
+      --region=REGION ^
+      --display-name="DISPLAY" ^
+      --reserved-public-ip ^
+      --no-async
+
+     2. Retrieve the reserved public IP address(es).  
+Run the following command (click to expand):
+
+#### `gcloud database-migration connection-profiles fetch-static-ips`
+
+Before using any of the command data below, make the following replacements: 
+
+        * REGION with the Google Cloud region of the private connection.
+
+Execute the following command: 
+
+#### Linux, macOS, or Cloud Shell
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration connection-profiles fetch-static-ips \
+      REGION \
+      --fetch-reserved-public-ips
+
+#### Windows (PowerShell)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration connection-profiles fetch-static-ips `
+      REGION `
+      --fetch-reserved-public-ips
+
+#### Windows (cmd.exe)
+
+**Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init); or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set). 
+    
+    gcloud database-migration connection-profiles fetch-static-ips ^
+      REGION ^
+      --fetch-reserved-public-ips
+
+     3. Allowlist the reserved IP address(es) on the source database.  
+Add the IP address(es) retrieved in the previous step to the incoming allowlist for your source database (for example, in your `pg_hba.conf` configuration, cloud provider security groups, or network firewall rules) so that Database Migration Service can establish a connection.
+
+  2. Create a source connection profile.  
 Run the following command (click to expand):
 
 #### `gcloud database-migration connection-profiles create postgresql`
@@ -553,7 +692,7 @@ Execute the following command:
       --private-connection=PRIVATE_CONN ^
       --no-async
 
-  5. Create the destination connection profile.  
+  3. Create the destination connection profile.  
 Select the tab based on whether you want to migrate to a new or an existing AlloyDB for PostgreSQL cluster:
 
 ### New clusters
@@ -687,7 +826,7 @@ You should receive a response similar to the following:
     Created connection profile CONNECTION_PROFILE_ID [OPERATION_ID]
     
 
-  6. Create a continuous migration job.  
+  4. Create a continuous migration job.  
 Run the following command to create a continuous migration job (click to expand):
 
 #### `gcloud database-migration migration-jobs create`
@@ -759,7 +898,7 @@ You should receive a response similar to the following:
     Created migration job MIGRATION_JOB_ID [OPERATION_ID]
     
 
-  7. Start the migration job.  
+  5. Start the migration job.  
 To start the continuous migration job, run the following command (click to expand):
 
 #### `gcloud database-migration migration-jobs start`
@@ -841,6 +980,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

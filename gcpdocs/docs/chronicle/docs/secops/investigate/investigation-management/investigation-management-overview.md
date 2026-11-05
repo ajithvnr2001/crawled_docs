@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/investigate/investigation-management/investigation-management-overview/
 title: Investigation and case management overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:34:06.313936+00:00
+fetched_at: 2026-11-05T08:23:12.358449+00:00
 ---
 
 # Investigation and case management overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -131,7 +131,14 @@ To customize how findings display in this tab, click  format_list_bulleted  **La
   * **Side-by-side:** Opens a dual-pane layout so you can click any alert or detection in the list and inspect its detailed metadata, status, priority, creation date, and Gemini investigation insights in an adjacent side pane.
 
 **Note:** For alerts ingested using a SOAR connector rather than Google SecOps SIEM, UDM events still appear in the events list. However, when you open the event details (Events Viewer), you might not see the same depth of parsed fields or raw log telemetry as you would for events ingested through the SIEM.
-  * **Playbooks:** Track the real-time execution of automated playbooks triggered by the case and monitor individual step statuses. For more information, see [Work with Playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/whats-on-the-playbooks-screen).
+  * **Playbooks:** Monitor and manage all automated workflows associated with the investigation from a single consolidated tab:
+
+    * **Unified hierarchy** : Any attached case playbooks appear directly at the top level without a folder, while alert playbooks are grouped into expandable folders for each respective alert.
+    * **Combined counter** : The tab header badge reflects the total combined number of case and alert playbooks attached to the investigation.
+    * **Search** : Locate specific playbooks or alerts by name using the search bar.
+    * **Manual attachment** : Add case-level or alert-level playbooks and blocks directly to the investigation.
+
+For more information, see [Attach playbooks to alerts or cases](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/attach-playbooks-to-alerts-cases).
 
 
 
@@ -180,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

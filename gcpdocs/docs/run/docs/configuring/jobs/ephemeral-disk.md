@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/jobs/ephemeral-disk/
 title: Configure an ephemeral disk for Cloud Run jobs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:41:26.542371+00:00
+fetched_at: 2026-11-05T11:09:13.148252+00:00
 ---
 
 # Configure an ephemeral disk for Cloud Run jobs  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/use-oracledatabase-mcp/
 title: Use the Oracle Database@Google Cloud remote MCP server \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:08.218333+00:00
+fetched_at: 2026-11-05T11:10:51.393158+00:00
 ---
 
 # Use the Oracle Database@Google Cloud remote MCP server  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -25,7 +25,12 @@ This document shows you how to use the Oracle Database@Google Cloud remote Model
 
 [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) standardizes how large language models (LLMs) and AI applications or agents connect to external data sources. MCP servers let you use their tools, resources, and prompts to take actions and get updated data from their backend service.
 
-Remote MCP servers run on the service's infrastructure and offer an HTTP endpoint to AI applications for communication between the AI MCP client and the MCP server. For more information about MCP architecture, see [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture).
+## What's the difference between local and remote MCP servers?
+
+Local MCP servers
+    Typically run on your local machine and use the standard input and output streams (stdio) for communication between services on the same device.
+Remote MCP servers
+    Run on the service's infrastructure and offer an HTTP endpoint to AI applications for communication between the AI MCP client and the MCP server. For more information about MCP architecture, see [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture).
 
 ## Stateless core
 
@@ -297,7 +302,7 @@ Use the [MCP inspector](https://modelcontextprotocol.io/docs/tools/inspector) to
 
 Replace the following:
 
-  * `TOOLSET_ENDPOINT`: the toolset endpoint for Oracle Database@Google Cloud MCP server which is `https://oracledatabase.googleapis.com/mcp`.
+  * `TOOLSET_ENDPOINT`: the remainder of the MCP endpoint after the service name. For Oracle Database@Google Cloud, this is `mcp`.
   * `MCP_PROTOCOL_VERSION`: the MCP protocol version. For example, `2026-07-28`.
 
 

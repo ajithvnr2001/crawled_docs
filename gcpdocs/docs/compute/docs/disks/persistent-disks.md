@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/persistent-disks/
 title: Persistent Disk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:00.953555+00:00
+fetched_at: 2026-11-05T11:08:52.908660+00:00
 ---
 
 # Persistent Disk  |  Compute Engine  |  Google Cloud Documentation

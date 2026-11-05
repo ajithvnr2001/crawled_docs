@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zscaler-webproxy/
 title: Collect Zscaler Webproxy logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:42:30.342552+00:00
+fetched_at: 2026-11-05T09:35:44.310439+00:00
 ---
 
 # Collect Zscaler Webproxy logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -77,10 +77,10 @@ To configure a single feed, follow these steps:
   5. Select **Webhook** as the **Source Type**.
   6. Select **Zscaler** as the **Log Type**.
   7. Click **Next**.
-  8. Optional: Enter values for the following input parameters: 
-     1. **Split delimiter** : The delimiter that is used to separate the logs lines. Leave blank if a delimiter is not used.
-     2. **Asset namespace** : The asset namespace.
-     3. **Ingestion labels** : The label to be applied to the events from this feed.
+  8. Configure the following input parameters: 
+     1. **Split delimiter** : Enter `\n` to separate newline-delimited JSON (NDJSON) log lines in batched webhook requests.
+     2. **Asset namespace** : Optional: The [asset namespace](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces).
+     3. **Ingestion labels** : Optional: The label to be applied to the events from this feed.
   9. Click **Next**.
   10. Review your new feed configuration, and then click **Submit**.
   11. Click **Generate Secret Key** to generate a secret key to authenticate this feed.
@@ -91,7 +91,7 @@ To configure a single feed, follow these steps:
 
 Specify values for the following fields:
 
-  * **Split delimiter** : The delimiter that is used to separate log lines, such as `\n`.
+  * **Split delimiter** : Enter `\n` to separate newline-delimited JSON (NDJSON) log lines in batched webhook requests.
 
 
 
@@ -141,7 +141,7 @@ Specify values for the following fields:
 
   13. Select **JSON** in the **Feed Output Type** list.
 
-  14. Disable **JSON Array Notation**.
+  14. Disable **JSON Array Notation**. When **JSON Array Notation** is disabled, Zscaler Webproxy sends batched logs as newline-delimited JSON (NDJSON) objects separated by `\n`. In the Google SecOps feed configuration, set **Split delimiter** to `\n` so that each JSON object is parsed as a separate log entry.
 
   15. Set **Feed Escape Character** to `, \ "`.
 
@@ -154,7 +154,7 @@ Specify values for the following fields:
 
   18. To include additional fields, update the **Feed Output Format** accordingly and ensure that the key names match the actual field names as they appear in the [official Zscaler Webproxy documentation](https://help.zscaler.com/zia/nss-feed-output-format-web-logs). For more information about supported fields, see [Field mapping reference](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zscaler-webproxy#field-mapping).
 
-  19. Select the timezone for the **Time** field in the output file in the **Timezone** list. By default, the timezone is set to your organization's time zone.
+  19. In the **Timezone** list, select **GMT** to format the **Time** field in UTC. By default, Zscaler Webproxy uses your organization's time zone. However, the `datetime` field in the **Feed Output Format** omits a time zone offset, and the `ZSCALER_WEBPROXY` parser interprets `datetime` values as UTC.
 
   20. Review the configured settings. 
 
@@ -912,6 +912,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

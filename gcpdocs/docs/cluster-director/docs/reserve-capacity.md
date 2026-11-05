@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/reserve-capacity/
 title: Reserve capacity through your account team \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:47.899844+00:00
+fetched_at: 2026-11-05T11:12:32.045930+00:00
 ---
 
 # Reserve capacity through your account team  |  Cluster Director  |  Google Cloud Documentation
@@ -21,17 +21,19 @@ Send feedback
 
 #  Reserve capacity through your account team Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to use future reservations for capacity blocks to reserve capacity for Compute Engine instances with GPUs attached and optional Hyperdisk pools for compute nodes. To learn more about your options to obtain capacity in Cluster Director, see [Choose a consumption option](https://docs.cloud.google.com/cluster-director/docs/choose-consumption-option).
+This document explains how to use future reservations for capacity blocks to reserve capacity for Compute Engine instances with GPUs or TPUs attached, and optional Hyperdisk pools. For more information about your options to obtain capacity in Cluster Director, see [Choose a consumption option](https://docs.cloud.google.com/cluster-director/docs/choose-consumption-option).
 
-To help ensure that you have the resources to create GPU instances and the storage capacity to create disks for those instances in a cluster partition, complete the following steps:
+**Note:** Support for TPU VMs in Cluster Director is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+To help ensure that you have the resources to create GPU or TPU instances and the storage capacity to create disks for those compute instances in a cluster partition, complete the following steps:
 
   1. **Request a future reservation from Google**. You reserve blocks of compute capacity and storage pool capacity for a defined duration and start time that you choose.
 
-  2. **Review the draft request created by Google**. Based on your request, Google creates a future reservation request. You can then review the request details and, if needed, contact your account team to make changes.
+  2. **Review the draft request that Google creates**. Based on your request, Google creates a future reservation request. You can then review the request details and, if needed, contact your account team to make changes.
 
   3. **Submit the request**. After you submit the request, Google Cloud approves it within a few minutes. Then, Compute Engine creates an empty reservation and, if requested, a Hyperdisk pool.
 
-  4. **Consume your reserved resources**. At your request start time, Compute Engine delivers the reserved resources. You can then use the reservation to create GPU instances until the reservation period ends. Also, you can create disks in the Hyperdisk pool for your artificial intelligence (AI) or machine learning (ML) workloads.
+  4. **Consume your reserved resources**. At your request start time, Compute Engine delivers the reserved resources. You can then use the reservation to create GPU or TPU instances until the reservation period ends. Also, you can create disks in the Hyperdisk pool for your artificial intelligence (AI) or machine learning (ML) workloads.
 
 
 
@@ -44,15 +46,15 @@ This section describes the limitations for future reservation requests for capac
 
 After Google creates a draft future reservation request for capacity blocks, the following limitations apply:
 
-  * **Pre-existing pools** :
+  * **Pre-existing pools** : the following limitations apply to pre-existing pools:
 
-    * **Hyperdisk Storage Pools** : you can't reserve capacity for a pre-existing pool. Google automatically creates a new pool when it delivers your reservation.
+    * **Hyperdisk Storage Pools** : you can't reserve capacity for a pre-existing pool. When Google delivers your reservation, Google creates a new pool.
 
     * **Hyperdisk Exapools** : you can increase the capacity of an existing Exapool by submitting subsequent future reservation requests. To add capacity to an existing Exapool, contact your account team.
 
   * **Modifications** : after you submit the request for review, and Google Cloud approves it, you can't modify the request details.
 
-  * **Cancellations** : after the request is submitted, approved, and its state changes to `PROVISIONING`, you can no longer cancel or delete the request. You commit to pay for the requested capacity from the request's start time, regardless of usage.
+  * **Cancellations** : after you submit the request, Google Cloud approves it, and the state of the request changes to `PROVISIONING`, you can no longer cancel or delete the request. You commit to pay for the requested capacity from the request's start time, regardless of usage.
 
 
 
@@ -63,7 +65,7 @@ After Compute Engine creates a reservation and, if requested, a Hyperdisk pool t
 
   * You can start using the reserved capacity only after your request reaches its start time.
 
-  * You can modify a reservation only by using the following methods. To increase the number of compute instances in a reservation or resources in a Hyperdisk pool, contact your account team.
+  * To increase the number of compute instances in a reservation or resources in a Hyperdisk pool, contact your account team. To modify a reservation, you can do only the following:
 
     * [Modify the share type for a reservation](https://docs.cloud.google.com/compute/docs/instances/reservations-modify#modify-share-type)
 
@@ -142,6 +144,8 @@ Contact your account team and provide the following information for Google to cr
 
   * **Machine type** : the machine type to reserve. You can specify one of the following:
 
+    * A4X Max (`a4x-maxgpu-4g-metal`)
+
     * A4X (`a4x-highgpu-4g`)
 
     * A4 (`a4-highgpu-8g`)
@@ -150,9 +154,24 @@ Contact your account team and provide the following information for Google to cr
 
     * A3 Mega (`a3-megagpu-8g`)
 
-  * **Zone** : the zone where you want to reserve capacity. To review the available regions and zones for a GPU machine type, see [GPU locations](https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones).
+    * TPU7x (`tpu7x-standard-4t`)
 
-  * **Total count** : the total number of compute instances to reserve. You can only reserve multiples of two compute instances. Block sizes and compute instance count per block vary based on machine type and availability. Your account team can provide more details for your request.
+    * TPU v6e (`ct6e-standard-4t`)
+
+    * TPU v5p (`ct5p-hightpu-4t`)
+
+  * **Zone** : the zone where you want to reserve capacity. To review the available regions and zones for GPU or TPU machine types, see the following:
+
+    * For GPU machine types, see [GPU locations](https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones).
+
+    * For TPU machine types, see [TPU locations](https://docs.cloud.google.com/compute/docs/regions-zones/tpu-regions-zones).
+
+**Note:** Cluster Director doesn't support AI zones, which are zones with names that contain `-ai` after the region name (for example, `us-central1-ai1a`).
+  * **Total count** : the total amount of capacity to reserve. Your account team can provide more details for your request. Based on the accelerator type, specify one of the following:
+
+    * **For GPU instances** : the total number of compute instances to reserve. You can reserve only multiples of two compute instances. Block sizes and compute instance count per block vary based on machine type and availability.
+
+    * **For TPU instances** : the total number of TPU chips to reserve. Because each supported TPU VM in Cluster Director contains 4 TPU chips, the number of chips must be a multiple of 4 that matches your target slice topology and number of slices.
 
   * **Start time** : the start time of the reservation period. You can start using the reserved capacity at that time. If you request a Hyperdisk pool, then the start time must be on or before the start time for the compute instances. Format a start time as an RFC 3339 timestamp:
         
@@ -171,7 +190,7 @@ Replace the following:
 
     * Deletes the auto-created reservation and the associated empty Hyperdisk pools.
 
-    * Stops or deletes any compute instances that consume the auto-created reservation, based on the [termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime#limit-runtime-new-vm) that you configured.
+    * Deletes any compute instances in Cluster Director that consume the auto-created reservation.
 
   * **Reservation name** : the name of the reservation that Compute Engine creates to deliver your reserved capacity. Compute Engine can only create [specifically targeted reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-consume#consuming_instances_from_a_specific_reservation).
 
@@ -185,8 +204,8 @@ Replace the following:
 
   * **Commitment name** : if your reservation period is one year or longer, then you must purchase and attach a [resource-based commitment](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts) to your reserved resources. You can purchase a commitment with a 1-year or 3-year plan. If you share the reserved capacity with other projects, then those projects get discounts only if they use the same Cloud Billing account as the project where you reserve capacity. For details, see [Enable CUD sharing for resource-based commitments](https://docs.cloud.google.com/compute/docs/committed-use-discounts/share-resource-cuds-across-projects#turning-on-committed-use-discount-sharing).
 
-**Important:** A commitment becomes active at 12:00 AM US and Canadian Pacific Time (UTC-8, or UTC-7 during daylight saving time) on your chosen start date. If you specify a different start time, then the commitment becomes active at 12:00 AM on the following day. For example, if you specify a start time at 3:00 PM on December 1, 2026, the commitment becomes active at 12:00 AM on December 2, 2026.
-  * **Hyperdisk pool** : whether you want to reserve storage capacity along with your compute instances as a [Hyperdisk pool](https://docs.cloud.google.com/compute/docs/disks/pools). If you submitted a reservation request for compute capacity without storage, then you can submit a subsequent request. To submit a request for a Hyperdisk pool, then provide the following details:
+**Important:** A commitment becomes active at 12:00 AM US and Canadian Pacific Time (UTC-8, or UTC-7 during daylight saving time) on your chosen start date. If you specify a different start time, then the commitment becomes active at 12:00 AM on the following day. For example, if you specify a start time at 3:00 PM on December 1, 2026, then the commitment becomes active at 12:00 AM on December 2, 2026.
+  * **Hyperdisk pool** : whether you want to reserve storage capacity along with your compute instances as a [Hyperdisk pool](https://docs.cloud.google.com/compute/docs/disks/pools). If you submitted a reservation request for compute capacity without storage, then you can submit a subsequent request. To submit a request for a Hyperdisk pool, provide the following details:
 
     * **Hyperdisk pool name** : a name for the Hyperdisk pool. The name must be unique within your project.
 
@@ -196,9 +215,9 @@ Replace the following:
 
       * **`hyperdisk-throughput`** : creates a Hyperdisk Throughput Storage Pool. This pool supports non-boot disks only. You must also specify the provisioned capacity in GiB and provisioned throughput in MiB/s.
 
-      * **`hdb-exapool`** : creates a Hyperdisk Balanced Exapool for workloads that require 500 TiB or more of storage. This pool supports boot disks and non-boot disks. You must specify the provisioned capacity in GiB and your workload optimization type (`read-optimized`, `write-optimized`, or `capacity-optimized`).
+      * **`hdb-exapool`** : creates a Hyperdisk Balanced Exapool for workloads that require 500 TiB or more of storage. This pool supports boot disks and non-boot disks. You must specify the provisioned capacity in GiB and the optimization type for your workload (`read-optimized`, `write-optimized`, or `capacity-optimized`).
 
-      * **`hdt-exapool`** : creates a Hyperdisk Throughput Exapool for workloads that require 500 TiB or more of storage. This pool supports non-boot disks only. You must specify the provisioned capacity in GiB and your workload optimization type (`read-optimized`, `write-optimized`, or `capacity-optimized`).
+      * **`hdt-exapool`** : creates a Hyperdisk Throughput Exapool for workloads that require 500 TiB or more of storage. This pool supports non-boot disks only. You must specify the provisioned capacity in GiB and the optimization type for your workload (`read-optimized`, `write-optimized`, or `capacity-optimized`).
 
 
 
@@ -223,7 +242,7 @@ To review and submit a draft future reservation request, select one of the follo
 
   3. In the **Name** column, click the name of the draft request that Google created for you. A page that gives the details of the future reservation request opens.
 
-  4. In the **Basic information** and resource details sections, verify that the request details, such as **Dates** and **Share type** , are correct. Also, if you requested a commitment, verify that it's specified. If any of these details are incorrect, then contact your account team.
+  4. In the **Basic information** and resource details sections, verify that the request details are correct, such as **Dates** and **Share type**. Also, if you requested a commitment, then verify that it's specified. If any of these details are incorrect, then contact your account team.
 
   5. If everything looks accurate, then submit your request:
 
@@ -243,9 +262,7 @@ To review and submit a draft future reservation request, select one of the follo
 
   2. In the command output, look for the reservation request that has the name that you provided to your account team.
 
-  3. To view the details of the draft request, use the [`gcloud compute future-reservations describe` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/future-reservations/describe).
-
-Select and run one of the following commands:
+  3. To view the details of the draft request, use the [`gcloud compute future-reservations describe` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/future-reservations/describe):
 
 ###  Bash 
          
@@ -314,11 +331,9 @@ The output is similar to the following:
     zone: https://www.googleapis.com/compute/v1/projects/example-project/zones/europe-west1-b
     
 
-  4. In the command output, verify that the request details, such as the reservation period, share type, and compute instance properties are correct. Also, if you purchased a commitment, verify that it's specified in the output. If the details are incorrect, then contact your account team.
+  4. In the command output, verify that the request details are correct, such as the reservation period, share type, and compute instance properties. Also, if you purchased a commitment, then verify that it's specified in the output. If the details are incorrect, then contact your account team.
 
-  5. To submit the draft request for review, use the [`gcloud compute future-reservations update` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/future-reservations/update) with the `--planning-status` flag set to `SUBMITTED`.
-
-Select and run one of the following commands:
+  5. To submit the draft request for review, use the [`gcloud compute future-reservations update` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/future-reservations/update) with the `--planning-status` flag set to `SUBMITTED`:
 
 ###  Bash 
          
@@ -480,7 +495,7 @@ The response is similar to the following:
          }
          
 
-  4. In the output, verify that the request details, such as the reservation period, share type, and compute instance properties are correct. Also, if you requested a commitment, verify that it's specified. If the details are incorrect, then contact your account team.
+  4. In the output, verify that the request details are correct, such as the reservation period, share type, and compute instance properties. Also, if you requested a commitment, then verify that it's specified. If the details are incorrect, then contact your account team.
 
   5. To submit the draft request for review, make a `PATCH` request to the [`futureReservations.update` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/futureReservations/update).
 
@@ -545,6 +560,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

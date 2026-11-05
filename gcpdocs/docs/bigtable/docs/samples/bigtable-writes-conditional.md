@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-writes-conditional/
 title: Conditionally write a value \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:31.116871+00:00
+fetched_at: 2026-11-05T11:12:23.705197+00:00
 ---
 
 # Conditionally write a value  |  Bigtable  |  Google Cloud Documentation
@@ -265,35 +265,31 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from datetime import datetime, timezone
-    
-    from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
-    from google.cloud.bigtable import row_filters
-    
+    from google.cloud.bigtable.data import BigtableDataClient, [SetCell](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.mutations.SetCell.html), [row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html)
     
     def write_conditional(project_id, instance_id, table_id):
-        client = [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html)(project=project_id, admin=True)
-        instance = [client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.html).[instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html#google_cloud_bigtable_client_Client_instance)(instance_id)
-        table = instance.table(table_id)
+        with BigtableDataClient(project=project_id) as client:
+            with client.get_table(instance_id, table_id) as table:
+                family_id = "stats_summary"
+                row_key = "phone#4c410523#20190501"
     
-        timestamp = datetime.now(timezone.utc)
-        column_family_id = "stats_summary"
+                row_filter = [row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html).[RowFilterChain](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.RowFilterChain.html)(
+                    filters=[
+                        [row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html).[FamilyNameRegexFilter](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.FamilyNameRegexFilter.html)(family_id),
+                        [row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html).[ColumnQualifierRegexFilter](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.ColumnQualifierRegexFilter.html)("os_build"),
+                        [row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html).[ValueRegexFilter](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.ValueRegexFilter.html)("PQ2A\\..*"),
+                    ]
+                )
     
-        row_key = "phone#4c410523#20190501"
-    
-        row_filter = row_filters.RowFilterChain(
-            filters=[
-                row_filters.FamilyNameRegexFilter(column_family_id),
-                row_filters.ColumnQualifierRegexFilter("os_build"),
-                row_filters.ValueRegexFilter("PQ2A\\..*"),
-            ]
-        )
-        row = table.[conditional_row](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.table.Table.html#google_cloud_bigtable_table_Table_conditional_row)(row_key, filter_=row_filter)
-        row.set_cell(column_family_id, "os_name", "android", timestamp)
-        row.commit()
-    
-        print("Successfully updated row's os_name.")
-    
+                if_true = SetCell(family_id, "os_name", "android")
+                result = table.check_and_mutate_row(
+                    row_key,
+                    row_filter,
+                    true_case_mutations=if_true,
+                    false_case_mutations=None,
+                )
+                if result is True:
+                    print("The row os_name was set to android")
     
 
 ### Ruby

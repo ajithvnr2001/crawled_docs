@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-list-column-families/
 title: List column families \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:09.325457+00:00
+fetched_at: 2026-11-05T11:12:20.837993+00:00
 ---
 
 # List column families  |  Bigtable  |  Google Cloud Documentation
@@ -119,28 +119,30 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
+    from google.cloud import bigtable_admin_v2
+    
+    client = bigtable_admin_v2.[BigtableTableAdminClient](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html)()
+    table_path = client.[table_path](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_table_path)(project_id, instance_id, table_id)
+    
     print("Printing Column Family and GC Rule for all column families...")
-    column_families = table.list_column_families()
-    for column_family_name, gc_rule in sorted(column_families.items()):
+    table_obj = client.[get_table](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable_admin_v2.overlay.services.bigtable_table_admin.BigtableTableAdminClient.html#google_cloud_bigtable_admin_v2_overlay_services_bigtable_table_admin_BigtableTableAdminClient_get_table)(name=table_path)
+    for column_family_name, cf_obj in sorted(table_obj.column_families.items()):
         print("Column Family:", column_family_name)
         print("GC Rule:")
-        print(gc_rule.to_pb())
+        print(cf_obj.gc_rule)
         # Sample output:
         #         Column Family: cf4
         #         GC Rule:
-        #         gc_rule {
-        #           intersection {
-        #             rules {
-        #               max_age {
-        #                 seconds: 432000
-        #               }
-        #             }
-        #             rules {
-        #               max_num_versions: 2
+        #         intersection {
+        #           rules {
+        #             max_age {
+        #               seconds: 432000
         #             }
         #           }
+        #           rules {
+        #             max_num_versions: 2
+        #           }
         #         }
-    
 
 ### Ruby
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/export-entrylinks-sheets/
 title: Export entry links to a Google Sheet \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:47.674963+00:00
+fetched_at: 2026-11-05T10:53:42.349778+00:00
 ---
 
 # Export entry links to a Google Sheet  |  Knowledge Catalog  |  Google Cloud Documentation

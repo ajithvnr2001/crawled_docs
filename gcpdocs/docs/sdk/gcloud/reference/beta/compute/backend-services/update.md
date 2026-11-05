@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/backend-services/update/
 title: gcloud beta compute backend-services update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:41:14.753987+00:00
+fetched_at: 2026-11-05T11:09:28.422683+00:00
 ---
 
 # gcloud beta compute backend-services update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -83,7 +83,7 @@ FLAGS
 `--drop-traffic-if-unhealthy`
      Applicable only for backend service-based external and internal passthrough Network Load Balancers as part of a connection tracking policy. Not applicable to any other load balancer. This option instructs the load balancer to drop packets when all instances or endpoints in primary and failover backends do not pass their load balancer health checks. For details, see: [Dropping traffic when all backend VMs are unhealthy for internal passthrough Network Load Balancers](https://cloud.google.com/load-balancing/docs/internal/failover-overview#drop_traffic) and [Dropping traffic when all backend VMs are unhealthy for external passthrough Network Load Balancers](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview#drop_traffic). 
 `--edge-security-policy`=`EDGE_SECURITY_POLICY`
-     The edge security policy that will be set for this backend service. To remove the policy from this backend service set the policy to an empty string. 
+     The resource name or URI of the Cloud Armor edge security policy to assign to this backend service. This flag accepts a single string identifier representing an existing policy, rather than a file path or complex structured configuration. To remove a currently attached policy from this backend service, set the value to an empty string (for example, `"`). 
 `--[no-]enable-cdn`
      Enable or disable Cloud CDN for the backend service. Only available for backend services with --load-balancing-scheme=EXTERNAL or EXTERNAL_MANAGED that use a \--protocol of HTTP, HTTPS, HTTP2 or H2C. Cloud CDN caches HTTP responses at the edge of Google's network. Cloud CDN is disabled by default. Use `--enable-cdn` to enable and `--no-enable-cdn` to disable. 
 `--[no-]enable-logging`
@@ -223,7 +223,7 @@ Defaults to true.
 Use `--request-coalescing` to enable and `--no-request-coalescing` to disable. 
 
 `--security-policy`=`SECURITY_POLICY`
-     The security policy that will be set for this backend service. 
+     The name or URI of the Google Cloud Armor security policy to attach to this backend service. It is formatted as a simple string containing the policy name or its full resource URL. Applying the policy enforces predefined access controls and traffic filtering rules on incoming requests to the backend service. 
 `--no-security-settings`
      Clears the current set of backend service security settings. 
 `--session-affinity`=`SESSION_AFFINITY`
@@ -255,7 +255,7 @@ For example, specifying `12h` will cause the responses to signed URL requests to
 This flag only affects signed URL requests. 
 
 `--subsetting-policy`=`SUBSETTING_POLICY`; default="NONE"
-     Specifies the algorithm used for subsetting. Default value is NONE which implies that subsetting is disabled. For Layer 4 Internal Load Balancing, if subsetting is enabled, only the algorithm CONSISTENT_HASH_SUBSETTING can be specified. `SUBSETTING_POLICY` must be one of: `NONE`, `CONSISTENT_HASH_SUBSETTING`. 
+     The algorithm used for subsetting, provided as a single string keyword rather than a complex object. The accepted values are `NONE` and `CONSISTENT_HASH_SUBSETTING`. The default value is `NONE`, which implies that subsetting is disabled. For Layer 4 internal load balancing, if subsetting is enabled, only the `CONSISTENT_HASH_SUBSETTING` algorithm can be specified. `SUBSETTING_POLICY` must be one of: `NONE`, `CONSISTENT_HASH_SUBSETTING`. 
 `--subsetting-subset-size`=`SUBSETTING_SUBSET_SIZE`
      Number of backends per backend group assigned to each proxy instance or each service mesh client. Can only be set if subsetting policy is CONSISTENT_HASH_SUBSETTING and load balancing scheme is either INTERNAL_MANAGED or INTERNAL_SELF_MANAGED. 
 `--timeout`=`TIMEOUT`
@@ -333,9 +333,9 @@ A header name must not appear more than once in the list of added headers.
 At most one of these can be specified: 
 
 `--cache-key-query-string-blacklist`=[`QUERY_STRING`,…]
-     Specifies a comma separated list of query string parameters to exclude in cache keys. All other parameters will be included. Either specify \--cache-key-query-string-whitelist or --cache-key-query-string-blacklist, not both. '&' and '=' will be percent encoded and not treated as delimiters. Can only be applied for global resources. 
+     A comma-separated list of query string parameters to exclude from cache keys (for example, `session_id,utm_campaign`). All other parameters will be included in the cache key. This flag cannot be specified if `--cache-key-query-string-whitelist` is also used. The `&` and `=` characters within the specified parameters will be percent-encoded and are not treated as list delimiters. This configuration can only be applied to global backend resources. 
 `--cache-key-query-string-whitelist`=`QUERY_STRING`,[…]
-     Specifies a comma separated list of query string parameters to include in cache keys. All other parameters will be excluded. Either specify \--cache-key-query-string-whitelist or --cache-key-query-string-blacklist, not both. '&' and '=' will be percent encoded and not treated as delimiters. Can only be applied for global resources. 
+     A comma-separated list of query string parameters (for example, `campaign,source`) to include in cache keys. All other query parameters will be excluded from the cache key. This flag is mutually exclusive with `--cache-key-query-string-blacklist`. The characters `&` and `=` are percent-encoded and are not treated as delimiters. This configuration can only be applied to global resources. 
 Settings controlling the volume of connections, requests, and retries to this backend service. 
 `--circuit-breakers-connect-timeout`=`CIRCUIT_BREAKERS_CONNECT_TIMEOUT`
      The timeout for new network connections to hosts. 
@@ -352,7 +352,7 @@ Settings controlling the volume of connections, requests, and retries to this ba
 At most one of these can be specified: 
 
 `--clear-custom-metrics`
-     Clears current list of CUSTOM_METRICS. 
+     A boolean flag that permanently clears the current list of custom metrics configured for the backend service. When specified, this action removes all previously defined custom metrics utilized for load balancing or capacity evaluation, resetting the metrics configuration to an empty state. 
 `--custom-metrics`=[`CUSTOM_METRICS`,…]
      List of custom metrics that are used for WEIGHTED_ROUND_ROBIN locality load balancing policy. 
 
@@ -386,14 +386,7 @@ Sets `custom_metrics` value.
     --custom-metrics=path_to_file.(yaml|json)
 
 `--custom-metrics-file`=[`CUSTOM_METRICS`,…]
-     File path to json file with custom metrics that are used for WEIGHTED_ROUND_ROBIN locality load balancing policy. 
-
-Example: 
-    
-    
-    gcloud beta compute backend-services update --custom-metrics-file='customMetric.json'
-
-Sets `custom_metrics_file` value. 
+     The path to a JSON or YAML file, an inline JSON array, or a shorthand key-value list defining the custom metrics used for the `WEIGHTED_ROUND_ROBIN` locality load balancing policy. Each custom metric object requires a `name` (string) and accepts an optional `dryRun` (boolean) parameter. When providing a file path, the file must contain a JSON or YAML array representing these metric objects. Sets `custom_metrics_file` value. 
 
 `dryRun`
      Sets `dryRun` value. 
@@ -417,7 +410,7 @@ Sets `custom_metrics_file` value.
 At most one of these can be specified: 
 
 `--clear-external-managed-migration-state`
-     Clears current state of external managed migration. 
+     The administrative trigger that clears the current state of an external managed migration for the backend service. When specified, this parameter removes the in-progress migration status, allowing a stalled or interrupted transition to an external managed load balancer to be safely restarted or aborted. It does not accept any values and operates independently of other migration flags. 
 `--external-managed-migration-state`=`EXTERNAL_MANAGED_MIGRATION_STATE`
      Specifies the migration state. Possible values are PREPARE, TEST_BY_PERCENTAGE, and TEST_ALL_TRAFFIC. 
 
@@ -456,7 +449,7 @@ At most one of these can be specified:
     gcloud beta compute backend-services update NAME             --custom-request-header "header-name: value"             --custom-request-header "another-header:"
 
 `--no-custom-request-headers`
-     Remove all custom request headers for the backend service. 
+     A boolean flag that permanently removes all previously configured user-defined HTTP request headers from the backend service. When specified, this operation completely clears the list of custom headers so they are no longer appended to incoming requests before they are forwarded by the load balancer to the backend instances. 
 At most one of these can be specified: 
 
 `--custom-response-header`=`CUSTOM_RESPONSE_HEADER`
@@ -502,7 +495,7 @@ At most one of these can be specified:
 At most one of these can be specified: 
 
 `--global-health-checks`
-     If set, the health checks are global. 
+     The geographic scope designation for the associated health checks. When this boolean presence flag is included, the backend service treats the specified health checks as global resources rather than regional resources. This flag does not accept a value and is required when updating or attaching health checks that were created in the global scope. 
 `--health-checks-region`=`HEALTH_CHECKS_REGION`
      Region of the health checks to operate on. If not specified, you might be prompted to select a region (interactive mode only). 
 
@@ -526,9 +519,9 @@ Alternatively, the region can be stored in the environment variable ``CLOUDSDK_C
 At most one of these can be specified: 
 
 `--locality-lb-policy`=`LOCALITY_LB_POLICY`
-     The load balancing algorithm used within the scope of the locality. `LOCALITY_LB_POLICY` must be one of: `INVALID_LB_POLICY`, `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`, `WEIGHTED_ROUND_ROBIN`, `WEIGHTED_GCP_RENDEZVOUS`. 
+     The load balancing algorithm used within the scope of the locality, specified as a single string enum value. This algorithm determines how traffic is distributed among the backend endpoints. The accepted values are `INVALID_LB_POLICY`, `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`, `WEIGHTED_ROUND_ROBIN`, and `WEIGHTED_GCP_RENDEZVOUS`. `LOCALITY_LB_POLICY` must be one of: `INVALID_LB_POLICY`, `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`, `WEIGHTED_ROUND_ROBIN`, `WEIGHTED_GCP_RENDEZVOUS`. 
 `--no-locality-lb-policy`
-     Removes the locality load balancing policy from the backend service. 
+     A boolean flag that removes the locality load-balancing policy from the backend service. When specified, this operation clears any previously configured custom policy algorithm (such as `MAGLEV`, `ROUND_ROBIN`, or `LEAST_REQUEST`) and reverts the backend service to its default load-balancing behavior. This flag does not accept any value arguments. 
 At most one of these can be specified: 
 
 `--logging-http-request-headers`=[`LOGGING_HTTP_REQUEST_HEADERS`,…]
@@ -671,9 +664,9 @@ At most one of these can be specified:
 At most one of these can be specified: 
 
 `--service-lb-policy`=`SERVICE_LOAD_BALANCING_POLICY`
-     Service load balancing policy to be applied to this backend service. Can only be set if load balancing scheme is EXTERNAL_MANAGED, INTERNAL_MANAGED, or INTERNAL_SELF_MANAGED. Only available for global backend services. 
+     The name or URI of the service load balancing policy to apply to this backend service, specified as a single string identifier rather than a complex configuration object or list. This policy can only be configured if the load balancing scheme is `EXTERNAL_MANAGED`, `INTERNAL_MANAGED`, or `INTERNAL_SELF_MANAGED`. The policy is exclusively available for global backend services and will be rejected if applied to a regional resource. 
 `--no-service-lb-policy`
-     No service load balancing policies should be attached to the backend service. 
+     A configuration option that detaches all existing service load balancing policies from the backend service. As a standalone boolean flag, it requires no arguments or complex formatting. When specified, this operation clears any previously configured policies so the backend service no longer uses them for traffic distribution. This flag cannot be combined with `--service-lb-policy`. 
 At most one of these can be specified: 
 
 `--tls-settings`=[`authenticationConfig`=`AUTHENTICATIONCONFIG`],[`sni`=`SNI`]
@@ -682,7 +675,7 @@ At most one of these can be specified:
 Example: $ gcloud beta compute backend-services update \ \--tls-settings='sni=example.com,authenticationConfig=${AUTH_CONF\ IG_NAME}' 
 
 `--no-tls-settings`
-     Clears currently set backend service TLS settings. 
+     A boolean flag that permanently removes all currently configured Transport Layer Security (TLS) settings from the backend service. When specified, this operation clears custom TLS connection configurations, such as client certificate validation policies, reverting the backend service communication to its default connection behavior. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -704,6 +697,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

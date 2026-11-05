@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/locations/
 title: App Design Center locations \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:44.472224+00:00
+fetched_at: 2026-11-05T11:10:59.339895+00:00
 ---
 
 # App Design Center locations  |  Application Design Center  |  Google Cloud Documentation
@@ -34,12 +34,16 @@ The following table lists the available regions in Asia Pacific.
 Region description | Region name  
 ---|---  
 Tokyo, Japan | `asia-northeast1`  
+Osaka, Japan | `asia-northeast2`  
 Seoul, South Korea | `asia-northeast3`  
 Taiwan | `asia-east1`  
 Hong Kong | `asia-east2`  
+Mumbai, India | `asia-south1`  
 Delhi, India | `asia-south2`  
 Singapore | `asia-southeast1`  
 Jakarta, Indonesia | `asia-southeast2`  
+Bangkok, Thailand | `asia-southeast3`  
+Sydney, Australia | `australia-southeast1`  
 Melbourne, Australia | `australia-southeast2`  
   
 ## Europe
@@ -56,6 +60,7 @@ London, England | `europe-west2`
 Frankfurt, Germany | `europe-west3`  
 Milan, Italy | `europe-west8`  
 Paris, France | `europe-west9`  
+Berlin, Germany | `europe-west10`  
 Turin, Italy | `europe-west12`  
 Eemshaven, Netherlands | `europe-west4`  
 Zurich, Switzerland | `europe-west6`  
@@ -67,6 +72,7 @@ The following table lists the available regions in the Americas.
 
 Region description | Region name  
 ---|---  
+Moncks Corner, South Carolina | `us-east1`  
 Columbus, Ohio | `us-east5`  
 Ashburn, Virginia | `us-east4`  
 The Dalles, Oregon | `us-west1`  
@@ -89,12 +95,13 @@ Region description | Region name
 ---|---  
 Johannesburg, South Africa | `africa-south1`  
 Doha, Qatar | `me-central1`  
+Dammam, Saudi Arabia | `me-central2`  
 Tel Aviv, Israel | `me-west1`  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

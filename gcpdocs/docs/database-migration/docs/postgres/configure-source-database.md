@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/configure-source-database/
 title: Configure your source PostgreSQL database for continuous migrations \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:15.507875+00:00
+fetched_at: 2026-11-05T11:11:50.420421+00:00
 ---
 
 # Configure your source PostgreSQL database for continuous migrations  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation
@@ -168,15 +168,9 @@ The [`pg_cron` extension](https://docs.cloud.google.com/sql/docs/postgres/extens
             GRANT SELECT ON ALL TABLES IN SCHEMA SCHEMA_NAME TO "MIGRATION_USER_ACCOUNT_NAME";
             GRANT SELECT ON ALL SEQUENCES IN SCHEMA SCHEMA_NAME TO "MIGRATION_USER_ACCOUNT_NAME";
 
-  6. Install the `pglogical` extension on each database you want to migrate, excluding `template0`, `template1`, and `rdsadmin`: 
-     * _For PostgreSQL version 9.4:_ Run the following command: 
-           
-           CREATE EXTENSION IF NOT EXISTS pglogical;
-           CREATE EXTENSION IF NOT EXISTS pglogical_origin;
-
-     * _For PostgreSQL version 9.5 and later:_ Run the following command: 
-           
-           CREATE EXTENSION IF NOT EXISTS pglogical;
+  6. Install the `pglogical` extension on each database you want to migrate, excluding `template0`, `template1`, and `rdsadmin`. Run the following command: 
+         
+         CREATE EXTENSION IF NOT EXISTS pglogical;
 
 For more details on requirements, see [ Using PostgreSQL extensions with Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.html#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations) in the AWS documentation. 
 
@@ -189,8 +183,7 @@ We recommend that you add primary keys to tables that don't have them before you
 
 Alternatively, you can try to use the quick-start migration flow: a simplified migration scenario where you can use `REPLICA IDENTITY` to migrate tables without primary keys. For more information, see the [ Use quick-start migrations](https://docs.cloud.google.com/database-migration/docs/postgres/quick-start-migrations-guide) guide. 
 
-  8. _Sources running PostgreSQL version 9.5 and earlier_ : The replication delay metric isn't available for source instances running PostgreSQL versions earlier than 9.6. If you want to use this metric to track migration progress, see [ Enable replication delay](https://docs.cloud.google.com/database-migration/docs/postgres/enable-replication-delay). 
-  9. Configure a custom DB parameter group and attach it to your instance: 
+  8. Configure a custom DB parameter group and attach it to your instance: 
      1. Create a custom parameter group (see [ Working with DB parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html#USER_WorkingWithParamGroups.Creating) in the AWS documentation) and configure the following parameters: 
         1. Set `shared_preload_libraries` to include `pglogical`.
         2. Set `rds.logical_replication` to `1`. This parameter enables logical WAL logging in Amazon RDS. See [Logical replication for Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.html). 
@@ -212,7 +205,7 @@ The default value for this parameter is **10**.
 The default value for this parameter is **8**.
 
      2. Attach the parameter group to your RDS DB instance. If you're creating a new instance, you can find this option under **Additional Configuration**. Otherwise, modify the instance to attach the parameter group. 
-  10. Restart your Amazon RDS instance so that the parameter group changes can take effect.
+  9. Restart your Amazon RDS instance so that the parameter group changes can take effect.
 
 
 
@@ -309,15 +302,9 @@ The [`pg_cron` extension](https://docs.cloud.google.com/sql/docs/postgres/extens
             GRANT SELECT ON ALL TABLES IN SCHEMA SCHEMA_NAME TO "MIGRATION_USER_ACCOUNT_NAME";
             GRANT SELECT ON ALL SEQUENCES IN SCHEMA SCHEMA_NAME TO "MIGRATION_USER_ACCOUNT_NAME";
 
-  6. Install the `pglogical` extension on each database you want to migrate, excluding `azure_maintenance`, `azure_sys`, `template0`, and `template1`: 
-     * _For PostgreSQL version 9.4:_ Run the following command: 
-           
-           CREATE EXTENSION IF NOT EXISTS pglogical;
-           CREATE EXTENSION IF NOT EXISTS pglogical_origin;
-
-     * _For PostgreSQL version 9.5 and later:_ Run the following command: 
-           
-           CREATE EXTENSION IF NOT EXISTS pglogical;
+  6. Install the `pglogical` extension on each database you want to migrate, excluding `azure_maintenance`, `azure_sys`, `template0`, and `template1`. Run the following command: 
+         
+         CREATE EXTENSION IF NOT EXISTS pglogical;
 
   7. Verify that your tables have primary keys. For continuous migrations, PostgreSQL logical replication requires tables to have primary keys to replicate `UPDATE` and `DELETE` operations during the Change Data Capture (CDC) phase: 
      * Tables with a primary key replicate all `INSERT`, `UPDATE`, and `DELETE` operations automatically. 
@@ -327,8 +314,7 @@ We recommend that you add primary keys to tables that don't have them before you
 
 Alternatively, you can try to use the quick-start migration flow: a simplified migration scenario where you can use `REPLICA IDENTITY` to migrate tables without primary keys. For more information, see the [ Use quick-start migrations](https://docs.cloud.google.com/database-migration/docs/postgres/quick-start-migrations-guide) guide. 
 
-  8. _Sources running PostgreSQL version 9.5 and earlier_ : The replication delay metric isn't available for source instances running PostgreSQL versions earlier than 9.6. If you want to use this metric to track migration progress, see [ Enable replication delay](https://docs.cloud.google.com/database-migration/docs/postgres/enable-replication-delay). 
-  9. Configure the following server parameters in Azure. For more information, see [Configure server parameters in Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/parameters/how-to-parameters-set-value). 
+  8. Configure the following server parameters in Azure. For more information, see [Configure server parameters in Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/parameters/how-to-parameters-set-value). 
      1. Set `shared_preload_libraries` to include `pglogical`.
      2. Set `azure.extensions` to include `pglogical`.
      3. Set `wal_level` to `logical`.
@@ -351,7 +337,7 @@ The default value for this parameter is **8**.
 
 For more parameter details, see the list of all [Server parameters in Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-server-parameters#customized-options) in the Microsoft documentation. 
 
-  10. Restart your Microsoft Azure Database for PostgreSQL Flexible Server Flexible Server instance so that the server parameter changes can take effect.
+  9. Restart your Microsoft Azure Database for PostgreSQL Flexible Server Flexible Server instance so that the server parameter changes can take effect.
 
 
 
@@ -376,15 +362,9 @@ The [ `pg_cron` extension](https://docs.cloud.google.com/sql/docs/postgres/exten
             GRANT SELECT ON ALL TABLES IN SCHEMA SCHEMA_NAME TO "MIGRATION_USER_ACCOUNT_NAME";
             GRANT SELECT ON ALL SEQUENCES IN SCHEMA SCHEMA_NAME TO "MIGRATION_USER_ACCOUNT_NAME";
 
-  6. Install the `pglogical` extension on each database you want to migrate, excluding `template0` and `template1`: 
-     * _For PostgreSQL version 9.4:_ Run the following command: 
-           
-           CREATE EXTENSION IF NOT EXISTS pglogical;
-           CREATE EXTENSION IF NOT EXISTS pglogical_origin;
-
-     * _For PostgreSQL version 9.5 and later:_ Run the following command: 
-           
-           CREATE EXTENSION IF NOT EXISTS pglogical;
+  6. Install the `pglogical` extension on each database you want to migrate, excluding `template0` and `template1`. Run the following command: 
+         
+         CREATE EXTENSION IF NOT EXISTS pglogical;
 
   7. Verify that your tables have primary keys. For continuous migrations, PostgreSQL logical replication requires tables to have primary keys to replicate `UPDATE` and `DELETE` operations during the Change Data Capture (CDC) phase: 
      * Tables with a primary key replicate all `INSERT`, `UPDATE`, and `DELETE` operations automatically. 
@@ -394,8 +374,7 @@ We recommend that you add primary keys to tables that don't have them before you
 
 Alternatively, you can try to use the quick-start migration flow: a simplified migration scenario where you can use `REPLICA IDENTITY` to migrate tables without primary keys. For more information, see the [ Use quick-start migrations](https://docs.cloud.google.com/database-migration/docs/postgres/quick-start-migrations-guide) guide. 
 
-  8. _Sources running PostgreSQL version 9.5 and earlier_ : The replication delay metric isn't available for source instances running PostgreSQL versions earlier than 9.6. If you want to use this metric to track migration progress, see [ Enable replication delay](https://docs.cloud.google.com/database-migration/docs/postgres/enable-replication-delay). 
-  9. Configure the following database flags on your Cloud SQL source instance: 
+  8. Configure the following database flags on your Cloud SQL source instance: 
      1. Set `cloudsql.logical_decoding` to `on`.
      2. Set `cloudsql.enable_pglogical` to `on`.
      3. Set `wal_sender_timeout` to `0`. The `0` value disables the timeout mechanism that terminates inactive replication connections. 
@@ -417,7 +396,7 @@ The default value for this flag is **8**.
 
 For more information on modifying flags, see [Configure database flags](https://docs.cloud.google.com/sql/docs/postgres/flags) in the Cloud SQL documentation. 
 
-  10. Restart your source Cloud SQL instance so that the database flag changes can take effect. 
+  9. Restart your source Cloud SQL instance so that the database flag changes can take effect. 
 
 
 
@@ -434,6 +413,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

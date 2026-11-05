@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/java/
 title: Instrument Java apps for Error Reporting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:49.203889+00:00
+fetched_at: 2026-11-05T11:08:40.743436+00:00
 ---
 
 # Instrument Java apps for Error Reporting  |  Google Cloud Documentation

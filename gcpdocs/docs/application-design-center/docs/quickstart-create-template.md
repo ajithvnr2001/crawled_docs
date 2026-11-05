@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/quickstart-create-template/
 title: Create and verify a template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:51:48.676195+00:00
+fetched_at: 2026-11-05T11:10:58.966889+00:00
 ---
 
 # Create and verify a template  |  Application Design Center  |  Google Cloud Documentation
@@ -131,7 +131,7 @@ The template is created and the design canvas is displayed.
 
      2. From the blue dot at the bottom of **cloud-run-2** , drag to the blue dot at the top of **sql-postgresql-1**.
 
-Your template contains three components. The canvas displays between components to represent connections.
+Your template contains three components. The canvas displays lines between components to represent connections.
 
 
 
@@ -603,7 +603,6 @@ The preview takes a few minutes to generate.
   12. The deployment requires a few minutes to complete. Track the deployment status.
          
          gcloud design-center operations describe operation-OPERATION_ID \
-         --space=SPACE \
          --location=us-central1 \
          --project=MANAGEMENT_PROJECT_ID
          
@@ -649,11 +648,11 @@ To avoid incurring charges to your Google Cloud account for the resources used o
 
 [Go to Applications](https://console.cloud.google.com/products/design-center/applications)
 
-  2. From the table, click **Quickstart three-tier web app**.
+  2. From the table, click **Quickstart three-tier test**.
 
   3. Click more_vert **Actions** and select **Delete application**.
 
-  4. In the **Delete** field, enter `Quickstart three-tier web app`.
+  4. In the **Delete** field, enter `quickstart-three-tier-test`.
 
   5. Click **Delete**.
 
@@ -697,6 +696,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

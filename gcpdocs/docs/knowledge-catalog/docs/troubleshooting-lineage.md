@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/troubleshooting-lineage/
 title: Troubleshoot data lineage issues \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:47:13.106476+00:00
+fetched_at: 2026-11-05T10:52:59.689385+00:00
 ---
 
 # Troubleshoot data lineage issues  |  Knowledge Catalog  |  Google Cloud Documentation

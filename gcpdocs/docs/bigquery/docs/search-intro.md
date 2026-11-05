@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/search-intro/
 title: Introduction to search in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:23.499917+00:00
+fetched_at: 2026-11-05T11:09:15.825116+00:00
 ---
 
 # Introduction to search in BigQuery  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 **Note:** This feature may not be available when using reservations that are created with certain BigQuery editions. For more information about which features are enabled in each edition, see [Introduction to BigQuery editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).
 
-BigQuery search indexes let you use GoogleSQL to efficiently find unique data elements that are buried in unstructured text and semi-structured JSON data, without having to know the table schemas in advance.
+BigQuery search indexes let you efficiently find unique data elements buried in unstructured text and semi-structured JSON data without knowing the table schemas in advance. Search indexes combine a columnar store with text search to let you perform efficient row lookups for tasks like log analytics, security audits, and regulatory reporting.
 
-With search indexes, BigQuery provides a powerful columnar store and text search in one platform, enabling efficient row lookups when you need to find individual rows of data. A common use case is log analytics. For example, you might want to identify the rows of data associated with a user for General Data Protection Regulation (GDPR) reporting, or to find specific error codes in a text payload.
-
-BigQuery stores and manages your indexes, so that when data becomes available in BigQuery, you can immediately retrieve it with the [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#search) or [other operators and functions](https://docs.cloud.google.com/bigquery/docs/search#operator_and_function_optimization), such as the equal (`=`), `IN`, or `LIKE` operators and certain string and JSON functions. To optimize your searches, read about [best practices](https://docs.cloud.google.com/bigquery/docs/search#best_practices).
+BigQuery stores and manages your indexes, so that when data becomes available in BigQuery, you can immediately retrieve it with the [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#search) or [other supported operators and functions](https://docs.cloud.google.com/bigquery/docs/search#operator_and_function_optimization). To optimize your searches, read about [best practices](https://docs.cloud.google.com/bigquery/docs/search#best_practices).
 
 **Important:** Join the [Search discussion group](https://groups.google.com/g/bq-search) to post questions and comments, and to follow the latest updates.
 
@@ -105,6 +103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

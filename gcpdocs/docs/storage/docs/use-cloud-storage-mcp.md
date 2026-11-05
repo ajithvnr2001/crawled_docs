@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/use-cloud-storage-mcp/
 title: Use the Cloud Storage MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:35.138990+00:00
+fetched_at: 2026-11-05T11:10:50.871918+00:00
 ---
 
 # Use the Cloud Storage MCP server  |  Google Cloud Documentation
@@ -21,21 +21,6 @@ Send feedback
 
 #  Use the Cloud Storage MCP server Stay organized with collections  Save and categorize content based on your preferences. 
 
-[Model Context Protocol](https://docs.cloud.google.com/discover/what-is-model-context-protocol) (MCP) standardizes the way large language models (LLMs) and AI applications or agents connect to outside data sources. MCP servers let you use their tools, resources, and prompts to take actions and get updated data from their backend service.
-
-Local MCP servers typically run on your local machine and use the standard input and output streams (stdio) for communication between services on the same device. While local MCP servers often communicate with local services, they can also be used to call services or data sources that are not running on the local machine. For example, a local MCP server running on an agent's machine or virtual machine can call Cloud Storage APIs.
-
-You might use the Cloud Storage local MCP server for the following reasons:
-
-  * You need to build a custom tool.
-  * You don't have permissions to enable or use the MCP server in your project.
-
-
-
-To learn how to use the local MCP server, see [Connect LLMs to Cloud Storage with MCP](https://docs.cloud.google.com/storage/docs/pre-built-tools-with-mcp-toolbox).
-
-Remote MCP servers run on the service's infrastructure and offer an HTTP endpoint to AI applications for communication between the AI MCP client and the MCP server. The Cloud Storage MCP server is a remote MCP server with an HTTP endpoint. For more information about MCP architecture, see [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture).
-
 This document describes how to use the Cloud Storage MCP server to connect to Cloud Storage from AI applications such as Gemini CLI, agent mode in Gemini Code Assist, Claude Code, or in AI applications that you're developing.
 
 With the Cloud Storage MCP server, you can use AI applications and agents to perform the following tasks:
@@ -46,6 +31,37 @@ With the Cloud Storage MCP server, you can use AI applications and agents to per
   * List buckets and objects.
 
 The Cloud Storage remote MCP server is enabled when you enable the Cloud Storage API. To disable the Cloud Storage MCP server, you must disable the Cloud Storage API. For information about how to disable the Cloud Storage API, see [Disable a service](https://docs.cloud.google.com/service-usage/docs/enable-disable#disabling). 
+
+[Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) standardizes how large language models (LLMs) and AI applications or agents connect to external data sources. MCP servers let you use their tools, resources, and prompts to take actions and get updated data from their backend service.
+
+## What's the difference between local and remote MCP servers?
+
+Local MCP servers
+    Typically run on your local machine and use the standard input and output streams (stdio) for communication between services on the same device.
+Remote MCP servers
+    Run on the service's infrastructure and offer an HTTP endpoint to AI applications for communication between the AI MCP client and the MCP server. For more information about MCP architecture, see [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture).
+
+## Stateless core
+
+With [MCP version 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28), MCP changes from a bidirectional, stateful protocol to a stateless protocol. Each MCP request is self-describing and can be routed using headers. There isn't a need for the `initialize`/`initialized` handshake or `Mcp-Session-Id` because each request includes all the information needed in HTTP headers or the `_meta` parameter. MCP servers can request additional information required by a tool through [multi-round-trip requests (MRTR)](https://modelcontextprotocol.io/specification/latest/basic/patterns/mrtr).
+
+To help route and process requests without parsing the request body, some MCP headers are required, including the following:
+
+  * Headers that are required by the MCP specification such as the [protocol version header](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#protocol-version-header) and [standard request headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#standard-request-headers).
+  * [Custom headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#custom-headers-from-tool-parameters) that are defined by the MCP server. These headers are mirrored into HTTP headers from the tool's input schema using the `x-mcp-header` property. For example, an MCP server might define a custom header to specify the Google Cloud region or project ID.
+
+
+
+For more information about MCP architecture, see the MCP version 2026-07-28 [specification](https://modelcontextprotocol.io/specification/2026-07-28) and [key changes](https://modelcontextprotocol.io/specification/2026-07-28/changelog).
+
+You might use the Cloud Storage local MCP server for the following reasons:
+
+  * You need to build a custom tool.
+  * You don't have permissions to enable or use the MCP server in your project.
+
+
+
+To learn how to use the local MCP server, see [Connect LLMs to Cloud Storage with MCP](https://docs.cloud.google.com/storage/docs/pre-built-tools-with-mcp-toolbox).
 
 ## Google and Google Cloud remote MCP servers
 
@@ -234,7 +250,7 @@ Use the [MCP inspector](https://modelcontextprotocol.io/docs/tools/inspector) to
 
 Replace the following:
 
-  * `TOOLSET_ENDPOINT`: the remainder of the MCP endpoint after the service name. For example, for Cloud Storage, this might be `mcp/toolset-name`.
+  * `TOOLSET_ENDPOINT`: the remainder of the MCP endpoint after the service name. For Cloud Storage, this is `storage/mcp`.
   * `MCP_PROTOCOL_VERSION`: the MCP protocol version. For example, `2026-07-28`.
 
 
@@ -244,23 +260,35 @@ Replace the following:
 To call a specific tool, use the `tools/call` method and provide the tool name and necessary arguments in the `params` object. The following example shows how to call the `list_buckets` tool for the project `my-project`:
     
     
-    POST /storage/mcp HTTP/1.1
-    Host: storage.googleapis.com
-    Content-Type: application/json
-    Authorization: Bearer OAUTH2_TOKEN
+    curl -X POST https://storage.googleapis.com/storage/mcp \
+        -H 'Content-Type: application/json' \
+        -H 'Accept: application/json' \
+        -H 'Authorization: Bearer OAUTH2_TOKEN' \
+        -H 'MCP-Protocol-Version: MCP_PROTOCOL_VERSION' \
+        -H 'Mcp-Method: tools/call' \
+        -H 'Mcp-Name: list_buckets' \
+        -d '{
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "tools/call",
+          "params": {
+            "name": "list_buckets",
+            "arguments": {
+              "projectId": "my-project"
+            },
+            "_meta": {
+              "io.modelcontextprotocol/protocolVersion": "MCP_PROTOCOL_VERSION"
+            }
+          }
+        }'
     
-    {
-      "jsonrpc": "2.0",
-      "method": "tools/call",
-      "id": "123e4567-e89b-12d3-a456-426614174000",
-      "params": {
-        "name": "list_buckets",
-        "arguments": {
-          "projectId": "my-project"
-        }
-      }
-    }
-    
+
+Replace the following:
+
+  * `OAUTH2_TOKEN`: a valid OAuth 2.0 access token.
+  * `MCP_PROTOCOL_VERSION`: the MCP protocol version. For example, `2026-07-28`.
+
+
 
 ## Example use cases
 
@@ -443,6 +471,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

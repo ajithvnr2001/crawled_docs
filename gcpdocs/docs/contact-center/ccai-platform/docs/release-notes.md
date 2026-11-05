@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/release-notes/
 title: Contact Center AI Platform release notes \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:23.745656+00:00
+fetched_at: 2026-11-05T11:08:16.538936+00:00
 ---
 
 # Contact Center AI Platform release notes  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -27,21 +27,94 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/ccai-platform-release-notes.xml) directly. 
 
-## October 29, 2026
+## November 04, 2026
 
 Announcement
 
-**Google Cloud CCaaS prerelease notes 6.29**
+**Google Cloud CCaaS prerelease notes 6.32**
 
-Here are the prerelease notes for the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
+Here are the prerelease notes for what we expect to be the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where abandoned queue records incorrectly calculated wait times from the call's initial queue entry rather than the time the caller entered the specific queue they abandoned from.
+
+  * Fixed an issue where the call adapter header title on **SmartActions** and virtual task assistant screens was truncated with an ellipsis, preventing users from viewing the full text.
+
+  * Fixed an issue where the agent adapter froze on **Calling** and didn't dial the customer during recovery calls following an unanswered in-app call.
+
+  * Fixed an issue where inbound calls became unroutable and remained stuck in the queue until abandoned if an agent's browser delivered a delayed connection request after a timeout.
+
+  * Fixed an issue in the CCaaS portal where active Spanish IVR queues were incorrectly displayed as **Setup is required** and grayed out when switching languages from English to Spanish.
+
+  * Fixed an issue where transient network errors during platform validation incorrectly marked virtual agent credentials as invalid.
+
+  * Fixed an issue where SMS and WhatsApp virtual agent chats became unresponsive and didn't escalate to a human agent when encountering a custom payload validation error.
+
+  * Fixed an issue where campaigns didn't resume after being paused, resulting in repeated call session failures and missing participant information.
+
+  * Fixed an issue where call-related actions such as disconnecting or updating status took up to 72 seconds to complete.
+
+  * Fixed an issue where a **Not Found** banner incorrectly appeared in the call adapter when a phone number couldn't be matched in the CRM.
+
+  * Fixed an issue where the **In-email** status bar in the agent desktop appeared white.
+
+  * Fixed an issue where agents in the **In-email** status couldn't change their status directly from the status bar.
+
+  * Fixed an issue where the first letter of uppercase acronym field names was incorrectly lowercased in virtual task assistant input placeholders.
+
+  * Fixed an issue where agents were incorrectly set to an **Unresponsive** status instead of receiving a missed call when a new deltacast offer arrived while the call adapter was already ringing.
+
+  * Fixed an issue where agents became stuck in a projected state and stopped receiving calls after a caller abandoned the call at the moment of routing.
+
+  * Fixed an issue where transient carrier timeouts during outbound callbacks were incorrectly classified as invalid numbers.
+
+  * Fixed an issue where forced virtual agent callbacks booked through the Apps API were incorrectly routed to the original call's queue instead of the requested destination.
+
+  * Fixed an issue where scheduled callback capacity was under-calculated due to a mathematical rounding error.
+
+  * Fixed an issue where inbound calls were prematurely disconnected if the initial connection request timed out and was retried.
+
+  * Fixed an issue where valid Canadian phone numbers using newer area codes were rejected by the Callback call API.
+
+  * Fixed an issue where certain agents were missing from the directory during outbound calls, preventing other agents from transferring calls or adding them to a call.
+
+  * Fixed an issue where dynamic queues incorrectly offered a minimum of one slot even when WFM staffing was zero or resulted in less than one available slot.
+
+  * Fixed an issue where Dynamic Agent Availability queues were saved without a required custom queue identifier, causing workforce management synchronization to fail silently.
+
+  * Fixed an issue where Salesforce cases and contacts were incorrectly created for voice calls handled entirely by a virtual agent, even when the **Create CRM records for calls attended by Virtual Agents** setting was disabled.
+
+  * Fixed an issue where voice transfers addressed to a specific agent were never offered to the target and didn't expire, leaving callers on hold indefinitely.
+
+  * Fixed an issue where NICE WFM session data exports didn't generate for instances with subdomains exceeding 20 characters.
+
+  * Fixed an issue where virtual callbacks routed through external Dynamic Contact Routing (DCR) were missing captured virtual agent custom parameters, causing routing engines to lose the caller's intent.
+
+  * Fixed an issue where Agent Assist transcriptions permanently stopped following transient network or quota errors.
+
+  * Fixed an issue where outbound phone number restriction rules weren't applied to agents with the **Allow unrestricted international calling** setting enabled.
+
+
+
+
+## November 02, 2026
+
+Announcement
+
+**Google Cloud CCaaS 6.29**
+
+We've released version 6.29 of Google Cloud CCaaS.
+
+The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://docs.cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
 
 Feature
 
 **Email session hiding (Apps API)**
 
 You can now hide email sessions from the agent adapter using two new Apps API endpoints. Hiding a session removes it from agent lists, counts, search, and the supervisor dashboard's live counters without deleting the session or changing its status. If an end-user replies to a hidden session, the session automatically unhides and follows your existing reply-handling rules. This capability is available through the Apps API only.
-
-For more information, see [Apps API](https://docs.cloud.google.com/contact-center/ccai-platform/docs/apps-api) and [Email adapter](https://docs.cloud.google.com/contact-center/ccai-platform/docs/email-adapter).
 
 By default, this capability is inactive. Contact Google Cloud Support to turn it on for your instance.
 

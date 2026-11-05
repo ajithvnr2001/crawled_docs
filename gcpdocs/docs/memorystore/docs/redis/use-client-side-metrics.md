@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/use-client-side-metrics/
 title: Use client-side metrics to troubleshoot high latency \u00a0|\u00a0 Memorystore for Redis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:06.607330+00:00
+fetched_at: 2026-11-05T10:54:03.175680+00:00
 ---
 
 # Use client-side metrics to troubleshoot high latency  |  Memorystore for Redis  |  Google Cloud Documentation
@@ -112,16 +112,20 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          	"time"
          
          	"github.com/gomodule/redigo/redis"
+         	"go.opentelemetry.io/contrib/detectors/gcp"
          	"go.opentelemetry.io/otel"
          	"go.opentelemetry.io/otel/attribute"
          	"go.opentelemetry.io/otel/codes"
+         	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc"
+         	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
          	"go.opentelemetry.io/otel/metric"
-         	"go.opentelemetry.io/otel/trace"
-         
-         	gcpmetric "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric"
-         	gcptrace "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace"
          	sdkmetric "go.opentelemetry.io/otel/sdk/metric"
+         	"go.opentelemetry.io/otel/sdk/resource"
          	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+         	"go.opentelemetry.io/otel/trace"
+         	"golang.org/x/oauth2/google"
+         	"google.golang.org/grpc"
+         	"google.golang.org/grpc/credentials/oauth"
          )
          
          // MetricClient encapsulates the tracer and metric histograms to avoid package-level globals.
@@ -143,19 +147,55 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          }
          
          func initTelemetry(ctx context.Context) (*MetricClient, func(), error) {
-         	traceExporter, err := gcptrace.New()
+         	creds, err := google.FindDefaultCredentials(ctx, "https://www.googleapis.com/auth/cloud-platform")
          	if err != nil {
-         		return nil, nil, fmt.Errorf("gcptrace.New: %w", err)
+         		return nil, nil, fmt.Errorf("google.FindDefaultCredentials: %w", err)
          	}
-         	tp := sdktrace.NewTracerProvider(sdktrace.WithBatcher(traceExporter))
+         	perRPCCreds := oauth.TokenSource{TokenSource: creds.TokenSource}
+         
+         	res, err := resource.New(
+         		ctx,
+         		resource.WithDetectors(gcp.NewDetector()),
+         		resource.WithFromEnv(),
+         		resource.WithAttributes(attribute.String("gcp.project_id", creds.ProjectID)),
+         	)
+         	if err != nil {
+         		return nil, nil, fmt.Errorf("resource.New: %w", err)
+         	}
+         
+         	traceExporter, err := otlptracegrpc.New(
+         		ctx,
+         		otlptracegrpc.WithEndpoint("telemetry.googleapis.com:443"),
+         		otlptracegrpc.WithDialOption(grpc.WithPerRPCCredentials(perRPCCreds)),
+         		otlptracegrpc.WithCompressor("gzip"),
+         	)
+         	if err != nil {
+         		return nil, nil, fmt.Errorf("otlptracegrpc.New: %w", err)
+         	}
+         	tp := sdktrace.NewTracerProvider(
+         		sdktrace.WithBatcher(traceExporter),
+         		sdktrace.WithResource(res),
+         	)
          	otel.SetTracerProvider(tp)
          	tracer := tp.Tracer("redigo.client")
          
-         	metricExporter, err := gcpmetric.New()
+         	metricExporter, err := otlpmetricgrpc.New(
+         		ctx,
+         		otlpmetricgrpc.WithEndpoint("telemetry.googleapis.com:443"),
+         		otlpmetricgrpc.WithDialOption(grpc.WithPerRPCCredentials(perRPCCreds)),
+         		otlpmetricgrpc.WithCompressor("gzip"),
+         	)
          	if err != nil {
-         		return nil, nil, fmt.Errorf("gcpmetric.New: %w", err)
+         		_ = tp.Shutdown(ctx)
+         		return nil, nil, fmt.Errorf("otlpmetricgrpc.New: %w", err)
          	}
-         	mp := sdkmetric.NewMeterProvider(sdkmetric.WithReader(sdkmetric.NewPeriodicReader(metricExporter, sdkmetric.WithInterval(10*time.Second))))
+         	mp := sdkmetric.NewMeterProvider(
+         		sdkmetric.WithResource(res),
+         		sdkmetric.WithReader(sdkmetric.NewPeriodicReader(
+         			metricExporter,
+         			sdkmetric.WithInterval(10*time.Second),
+         		)),
+         	)
          	otel.SetMeterProvider(mp)
          	meter := mp.Meter("redigo.metrics")
          
@@ -194,8 +234,14 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          	client.connErrorCounter.Add(ctx, 0, initAttrs)
          
          	shutdown := func() {
-         		tp.Shutdown(ctx)
-         		mp.Shutdown(ctx)
+         		shutdownCtx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+         		defer cancel()
+         		if err := tp.Shutdown(shutdownCtx); err != nil {
+         			log.Printf("Error shutting down tracer provider: %v", err)
+         		}
+         		if err := mp.Shutdown(shutdownCtx); err != nil {
+         			log.Printf("Error shutting down meter provider: %v", err)
+         		}
          	}
          
          	return client, shutdown, nil
@@ -319,6 +365,7 @@ To enable client-side metrics, you can use [Go](https://github.com/gomodule/redi
          	if err != nil {
          		log.Printf("Error setting data: %v", err)
          	}
+         
          	val, err := client.smartRedisCall(ctx, pool, "get_user", "GET", "user:123")
          	if err != nil {
          		log.Printf("Error fetching data: %v", err)

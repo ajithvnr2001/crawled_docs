@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/manage/view-clusters/
 title: View clusters \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:49.648337+00:00
+fetched_at: 2026-11-05T11:12:32.747528+00:00
 ---
 
 # View clusters  |  Cluster Director  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ This document explains how to view a list of clusters in your project, or the de
 
 After you create one or more clusters in Cluster Director, you can view the clusters to review their configuration details, status, and the Compute Engine instances that make up those clusters. Viewing clusters helps you optimize the workloads that run in your clusters and plan for future capacity needs.
 
-To learn more about the states that nodes enter during their lifecycle, see [Node lifecycle](https://docs.cloud.google.com/cluster-director/docs/manage/node-lifecycle).
+For more information about the states that nodes enter during their lifecycle, see [Node lifecycle](https://docs.cloud.google.com/cluster-director/docs/manage/node-lifecycle).
 
 ## Limitations
 
@@ -100,7 +100,7 @@ To view a list of clusters across multiple regions, use the Google Cloud console
 
   2. In the navigation menu, click **Clusters**. The **Clusters** page appears. The table lists each cluster, and each table column describes a property.
 
-  3. Optional: To refine your list of clusters, in the filter_list **Filter** field, select the properties that you want to filter the clusters by.
+  3. Optional: In the filter_list **Filter** field, to refine your list of clusters, select the properties that you want to filter the clusters by.
 
 
 
@@ -109,7 +109,7 @@ To view a list of clusters across multiple regions, use the Google Cloud console
 
 To view a list of clusters, use the [`gcloud alpha cluster-director clusters list` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/cluster-director/clusters/list).
 
-To run the command, select one of the following options:
+To list the clusters in a region, select one of the following options:
 
 ###  Bash 
     
@@ -399,11 +399,15 @@ The response is similar to the following:
     ]
     
 
-If you want to refine your list of reservations, then make the same request and, in the request URL, include the [`filter` query parameter](https://docs.cloud.google.com/cluster-director/docs/reference/rest/v1/projects.locations.clusters/list#body.QUERY_PARAMETERS.filter).
+If you want to refine your list of clusters, then make the same request and, in the request URL, include the [`filter` query parameter](https://docs.cloud.google.com/cluster-director/docs/reference/rest/v1/projects.locations.clusters/list#body.QUERY_PARAMETERS.filter).
 
 ### View the details of a cluster
 
-For the most detailed view of your cluster, including the cluster or node states, Cloud Monitoring dashboards, and a topology view, use the Google Cloud console. Otherwise, select one of the following options:
+**Preview — View a cluster with TPU VMs**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To view the details of a cluster, select one of the following options. For a more detailed view of your cluster, including the cluster or node states, Cloud Monitoring dashboards, and a topology view, use the Google Cloud console. If you want to view the details of a cluster with TPU VMs, then you must use the Google Cloud console or gcloud CLI.
 
 ###  Console 
 
@@ -432,7 +436,7 @@ For the most detailed view of your cluster, including the cluster or node states
 
 To view the details of a single cluster, use the [`gcloud alpha cluster-director clusters describe` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/cluster-director/clusters/describe).
 
-To run the command, select one of the following options:
+To view the details of the cluster, select one of the following options:
 
 ###  Bash 
     
@@ -738,6 +742,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/sql/ssl/
 title: gcloud beta sql ssl \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T15:23:56.438412+00:00
+fetched_at: 2026-11-05T11:10:27.269670+00:00
 ---
 
 # gcloud beta sql ssl  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -41,6 +41,8 @@ GROUPS
 
 `[client-certs](https://docs.cloud.google.com/sdk/gcloud/reference/beta/sql/ssl/client-certs)`
      `(BETA)` Provide commands for managing client certificates of Cloud SQL instances. 
+`[customer-managed-certs](https://docs.cloud.google.com/sdk/gcloud/reference/beta/sql/ssl/customer-managed-certs)`
+     `(BETA)` Provide commands for managing customer managed certificates of Cloud SQL instances. 
 `[entraid-certs](https://docs.cloud.google.com/sdk/gcloud/reference/beta/sql/ssl/entraid-certs)`
      `(BETA)` Provide commands for managing Entra ID certificates of Cloud SQL instances. 
 `[server-ca-certs](https://docs.cloud.google.com/sdk/gcloud/reference/beta/sql/ssl/server-ca-certs)`
@@ -60,6 +62,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

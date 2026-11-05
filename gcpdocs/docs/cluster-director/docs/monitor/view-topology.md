@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/monitor/view-topology/
 title: View cluster topology \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:48.253652+00:00
+fetched_at: 2026-11-05T11:12:32.645640+00:00
 ---
 
 # View cluster topology  |  Cluster Director  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ You can view the topology of the nodes in your cluster by using the Google Cloud
 
 Before you view the topology of the nodes in your cluster, consider the following:
 
-  * You can only view topology information for A4X, A4, A3 Ultra, or A3 Mega instances that were created by using a reservation.
+  * You can view topology information only for GPU or TPU instances.
 
   * When you access and use the Google Cloud console, you don't need to authenticate. You can automatically use Google Cloud services and APIs.
 
@@ -66,18 +66,24 @@ To view a cluster topology by using the Google Cloud console, complete the follo
 
   4. Click the **Topology** tab. Then, based on the topology information that you want to view, click one of the following tabs:
 
-     * To view cluster health information, click the **Health** tab.
+     * To view information about cluster health, click the **Health** tab.
 
-     * To view cluster maintenance information, click the **Maintenance** tab.
+     * To view information about cluster maintenance, click the **Maintenance** tab.
 
-     * To view cluster CPU and GPU usage information, click the **CPU utilization** and **GPU utilization** tabs.
+     * To view information about CPU, GPU, and TPU usage in your cluster, click the **CPU utilization** , **GPU utilization** , and **TPU utilization** tabs.
 
-For more information, see Understand cluster topology tabs in this document.
+For more information, see Cluster topology tabs in this document.
+
+  5. Optional: For clusters with TPU nodes, you can switch between the following views:
+
+     * **Grid view** : shows a summary across all TPU compute nodes in your cluster and a per-slice view for the selected tab (**Maintenance** , **CPU utilization** , **TPU utilization** , or **Health**).
+
+     * **Table view** : lists each TPU node and its metrics in columns, with TPU nodes grouped by slice.
 
 
 
 
-## Understand cluster topology tabs
+## Cluster topology tabs
 
 When you view a cluster topology, you can view the following tabs to monitor the status and performance of your cluster:
 
@@ -85,33 +91,37 @@ When you view a cluster topology, you can view the following tabs to monitor the
 
   * Cluster maintenance information
 
-  * Cluster CPU and GPU usage information
+  * Cluster CPU, GPU, and TPU usage information
 
 
 
 
 ### Cluster health information
 
-When you view the **Health** tab on the page that gives the details of a cluster, you can see the health status for each compute node in your cluster. Each node is color-coded to indicate one of three operational states:
+When you view the **Health** tab on the page that gives the details of a cluster, you can see the health status for each compute node in your cluster. For clusters with TPU nodes, the grid view displays an overview of node health across your cluster and lets you inspect the health of individual TPU nodes within each slice. Each node is color-coded to indicate one of three operational states:
 
   * **Healthy** : the node is fully operational.
 
-  * **Suspected bad** : the system has detected potential issues with your node, but the node remains operational. To run additional tests on the node to verify its status, see [Verify cluster health](https://docs.cloud.google.com/cluster-director/docs/monitor/cluster-health#verify-health).
+  * **Suspected bad** : the system has detected potential issues with your node, but the node remains operational. To run tests that verify the status of a GPU compute node, see [Verify cluster health](https://docs.cloud.google.com/cluster-director/docs/monitor/cluster-health#verify-health).
 
-  * **Unhealthy** : the node failed the health check, and Slurm drained the node to prevent new jobs from scheduling. To undrain the node and resume running jobs on it, see [Troubleshoot GPU health check failures](https://docs.cloud.google.com/cluster-director/docs/troubleshoot/health-checks).
+  * **Unhealthy** : the node encountered a hardware or system failure. Based on the type of compute node, the following applies:
+
+    * **GPU compute nodes** : the node failed an automated health check and Slurm drained the node. To undrain the node, see [Troubleshoot GPU health check failures](https://docs.cloud.google.com/cluster-director/docs/troubleshoot/health-checks).
+
+    * **TPU compute nodes** : Slurm doesn't run automated health checks. To manually recover an unresponsive TPU node, see [Reset unresponsive TPU nodes](https://docs.cloud.google.com/cluster-director/docs/troubleshoot/cluster-errors#reset-tpu-nodes).
 
 
 
 
 ### Cluster maintenance information
 
-When you view the **Maintenance** tab on the page that gives the details of a cluster, you can view information about any upcoming [maintenance events](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#maintenanceevents) for the nodes in your cluster. This information lets you anticipate and plan for necessary downtime.
+When you view the **Maintenance** tab on the page that gives the details of a cluster, you can view information about any upcoming [maintenance events](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#maintenanceevents) for the nodes in your cluster. For clusters with TPU nodes, viewing the maintenance information for each TPU slice helps you identify which slice contains a node that requires maintenance. This information lets you anticipate and plan for necessary downtime.
 
-If a maintenance event is scheduled for the nodes in your cluster, then you can manually start maintenance, rather than waiting for the scheduled time. For instructions, see [Manually start planned host maintenance events](https://docs.cloud.google.com/cluster-director/docs/monitor/cluster-health#start-maintenance).
+If a maintenance event is scheduled for GPU compute nodes in your cluster, then you can start maintenance before the scheduled time. You can't start maintenance on demand for TPU compute nodes. For instructions, see [Manually start planned host maintenance events](https://docs.cloud.google.com/cluster-director/docs/monitor/cluster-health#start-maintenance).
 
-### Cluster CPU and GPU usage information
+### Cluster CPU, GPU, and TPU usage information
 
-When you view the **CPU utilization** and **GPU utilization** tabs on the page that gives the details of a cluster, you can see a visual representation of resource usage across all nodes in your cluster in real time. These views help you understand how your workloads are distributed and whether your resources are being used efficiently. Use this information to identify performance bottlenecks and opportunities for optimization.
+When you view the **CPU utilization** , **GPU utilization** , and **TPU utilization** tabs on the page that gives the details of a cluster, you can see a visual representation of resource usage across all nodes in your cluster in real time. For clusters with TPU nodes, the grid view shows the average utilization across all TPU compute nodes and utilization ranges for each TPU slice. These views help you understand how your workloads are distributed. Use this information to identify performance bottlenecks and optimize your workloads.
 
 ## What's next
 
@@ -126,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

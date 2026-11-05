@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/design-center/spaces/application-templates/policies/update/
 title: gcloud alpha design-center spaces application-templates policies update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T00:02:29.737201+00:00
+fetched_at: 2026-11-05T11:10:41.798603+00:00
 ---
 
 # gcloud alpha design-center spaces application-templates policies update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha design-center spaces application-templates policies update - update
 SYNOPSIS
     
 
-`gcloud alpha design-center spaces application-templates policies update` (`POLICY` : `--application-template`=`APPLICATION_TEMPLATE` `--location`=`LOCATION` `--space`=`SPACE`) [`--description`=`DESCRIPTION`] [`--display-name`=`DISPLAY_NAME`] [`--policy-type`=`POLICY_TYPE`] [`--apply-conditions`=[`conditionKey`=`CONDITIONKEY`],[`conditionValue`=`CONDITIONVALUE`] | `--add-apply-conditions`=[`conditionKey`=`CONDITIONKEY`],[`conditionValue`=`CONDITIONVALUE`] `--clear-apply-conditions` | `--remove-apply-conditions`=[`conditionKey`=`CONDITIONKEY`],[`conditionValue`=`CONDITIONVALUE`]] [`--policy-revision-uri`=`POLICY_REVISION_URI` | `--policy-uri`=`POLICY_URI`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha design-center spaces application-templates policies update` (`POLICY` : `--application-template`=`APPLICATION_TEMPLATE` `--location`=`LOCATION` `--space`=`SPACE`) [`--description`=`DESCRIPTION`] [`--display-name`=`DISPLAY_NAME`] [`--policy-type`=`POLICY_TYPE`] [`--apply-conditions`=[`conditionKey`=`CONDITIONKEY`],[`conditionValue`=`CONDITIONVALUE`] | `--add-apply-conditions`=[`conditionKey`=`CONDITIONKEY`],[`conditionValue`=`CONDITIONVALUE`] `--clear-apply-conditions` | `--remove-apply-conditions`=[`conditionKey`=`CONDITIONKEY`],[`conditionValue`=`CONDITIONVALUE`]] [`--cloud-control-configs`=[`cloudControl`=`CLOUDCONTROL`],[`parameters`=`PARAMETERS`] | `--add-cloud-control-configs`=[`cloudControl`=`CLOUDCONTROL`],[`parameters`=`PARAMETERS`] `--clear-cloud-control-configs` | `--remove-cloud-control-configs`=[`cloudControl`=`CLOUDCONTROL`],[`parameters`=`PARAMETERS`]] [`--policy-revision-uri`=`POLICY_REVISION_URI` | `--policy-uri`=`POLICY_URI`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update a policy for an application template. 
 EXAMPLES
@@ -178,6 +178,103 @@ At most one of these can be specified:
     
     --remove-apply-conditions=path_to_file.(yaml|json)
 
+Update cloud_control_configs. 
+
+At most one of these can be specified: 
+
+`--cloud-control-configs`=[`cloudControl`=`CLOUDCONTROL`],[`parameters`=`PARAMETERS`]
+     Set cloud_control_configs to new value. Parameter values for the cloud controls of the policy's framework, grouped by cloud control. Only honored when framework parameter support is enabled for the project; ignored otherwise. 
+
+The values are saved with the application template and are not returned on the policy. On update, they replace the saved values. If they are empty, the saved values are cleared if `cloud_control_configs` is named in the update mask. Otherwise, the saved values are kept, unless the policy's framework changes. 
+
+`cloudControl`
+     Resource name of the cloud control that these parameter values apply to. Format: organizations/{organization}/locations/{location}/cloudControls/{cloud_control} or projects/{project}/locations/{location}/cloudControls/{cloud_control}. 
+`parameters`
+     Parameter values for this specific control. 
+
+`key`
+     The key of the parameter. 
+`value`
+     The value of the parameter. 
+`Shorthand Example:`
+    
+    
+    --cloud-control-configs=cloudControl=string,parameters=[{key=string,value={…}}] --cloud-control-configs=cloudControl=string,parameters=[{key=string,value={…}}]
+
+`JSON Example:`
+    
+    
+    --cloud-control-configs='[{"cloudControl": "string", "parameters": [{"key": "string", "value": {…}}]}]'
+
+`File Example:`
+    
+    
+    --cloud-control-configs=path_to_file.(yaml|json)
+
+Or at least one of these can be specified: 
+
+`--add-cloud-control-configs`=[`cloudControl`=`CLOUDCONTROL`],[`parameters`=`PARAMETERS`]
+     Add new value to cloud_control_configs list. Parameter values for the cloud controls of the policy's framework, grouped by cloud control. Only honored when framework parameter support is enabled for the project; ignored otherwise. 
+
+The values are saved with the application template and are not returned on the policy. On update, they replace the saved values. If they are empty, the saved values are cleared if `cloud_control_configs` is named in the update mask. Otherwise, the saved values are kept, unless the policy's framework changes. 
+
+`cloudControl`
+     Resource name of the cloud control that these parameter values apply to. Format: organizations/{organization}/locations/{location}/cloudControls/{cloud_control} or projects/{project}/locations/{location}/cloudControls/{cloud_control}. 
+`parameters`
+     Parameter values for this specific control. 
+
+`key`
+     The key of the parameter. 
+`value`
+     The value of the parameter. 
+`Shorthand Example:`
+    
+    
+    --add-cloud-control-configs=cloudControl=string,parameters=[{key=string,value={…}}] --add-cloud-control-configs=cloudControl=string,parameters=[{key=string,value={…}}]
+
+`JSON Example:`
+    
+    
+    --add-cloud-control-configs='[{"cloudControl": "string", "parameters": [{"key": "string", "value": {…}}]}]'
+
+`File Example:`
+    
+    
+    --add-cloud-control-configs=path_to_file.(yaml|json)
+
+At most one of these can be specified: 
+
+`--clear-cloud-control-configs`
+     Clear cloud_control_configs value and set to empty list. 
+`--remove-cloud-control-configs`=[`cloudControl`=`CLOUDCONTROL`],[`parameters`=`PARAMETERS`]
+     Remove existing value from cloud_control_configs list. Parameter values for the cloud controls of the policy's framework, grouped by cloud control. Only honored when framework parameter support is enabled for the project; ignored otherwise. 
+
+The values are saved with the application template and are not returned on the policy. On update, they replace the saved values. If they are empty, the saved values are cleared if `cloud_control_configs` is named in the update mask. Otherwise, the saved values are kept, unless the policy's framework changes. 
+
+`cloudControl`
+     Resource name of the cloud control that these parameter values apply to. Format: organizations/{organization}/locations/{location}/cloudControls/{cloud_control} or projects/{project}/locations/{location}/cloudControls/{cloud_control}. 
+`parameters`
+     Parameter values for this specific control. 
+
+`key`
+     The key of the parameter. 
+`value`
+     The value of the parameter. 
+`Shorthand Example:`
+    
+    
+    --remove-cloud-control-configs=cloudControl=string,parameters=[{key=string,value={…}}] --remove-cloud-control-configs=cloudControl=string,parameters=[{key=string,value={…}}]
+
+`JSON Example:`
+    
+    
+    --remove-cloud-control-configs='[{"cloudControl": "string", "parameters": [{"key": "string", "value": {…}}]}]'
+
+`File Example:`
+    
+    
+    --remove-cloud-control-configs=path_to_file.(yaml|json)
+
 Arguments for the uri. 
 
 At most one of these can be specified: 
@@ -200,6 +297,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-09 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/workspace-key-access/configs/create/
 title: gcloud beta workspace-key-access configs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:01.592747+00:00
+fetched_at: 2026-11-05T11:10:27.369260+00:00
 ---
 
 # gcloud beta workspace-key-access configs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -32,16 +32,16 @@ SYNOPSIS
 DESCRIPTION
      `(BETA)` Create a Workspace Key Access config in a given project and location. 
 EXAMPLES
-     To create config `my-config` in `us-east1`, run: 
+     To create config `my-config`, run: 
     
     
-    gcloud beta workspace-key-access configs create my-config --location=us-east1 --customer-id=C0123abcd --admin-emails=admin@example.com --kacls-owner-domains=example.com --idp-configs=issuer=https://idp.example.com,audience=my-audience,jwksUri=[https://idp.example.com/.well-known/\](https://idp.example.com/.well-known/\\)
+    gcloud beta workspace-key-access configs create my-config --location=us --customer-id=C0123abcd --admin-emails=admin@example.com --kacls-owner-domains=example.com --idp-configs=issuer=https://idp.example.com,audience=my-audience,jwksUri=[https://idp.example.com/.well-known/\](https://idp.example.com/.well-known/\\)
     jwks.json,idpType=PRIMARY_IDP
 
 POSITIONAL ARGUMENTS
     
 
-Config resource - Identifier. name of resource The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Config resource - Identifier. The resource name of the Config. Format: `projects/{project}/locations/{location}/configs/{config}` The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -77,7 +77,7 @@ REQUIRED FLAGS
     
 
 `--admin-emails`=[`ADMIN_EMAILS`,…]
-     Email addresses of administrators for this workspace configuration. 
+     Email addresses of administrators for this Workspace Key Access config. 
 `--customer-id`=`CUSTOMER_ID`
      Customer ID. 
 `--idp-configs`=[`additionalAudiences`=`ADDITIONALAUDIENCES`],[`audience`=`AUDIENCE`],[`idpType`=`IDPTYPE`],[`issuer`=`ISSUER`],[`jwksUri`=`JWKSURI`]
@@ -114,7 +114,7 @@ OPTIONAL FLAGS
     
 
 `--annotations`=[`ANNOTATIONS`,…]
-     Annotations as key value pairs. 
+     Annotations as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -138,7 +138,7 @@ OPTIONAL FLAGS
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
 `--labels`=[`LABELS`,…]
-     Labels as key value pairs. 
+     Labels as key-value pairs. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -167,7 +167,7 @@ For example, consider a situation where you make an initial request and the requ
 The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). 
 
 `--tags`=[`TAGS`,…]
-     Tag bindings as key value pairs. 
+     Tag bindings as key-value pairs. 
 
 `KEY`
      Sets `KEY` value. 
@@ -202,6 +202,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

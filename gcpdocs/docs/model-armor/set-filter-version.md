@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/set-filter-version/
 title: Set the filter version \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:52:37.519252+00:00
+fetched_at: 2026-11-05T08:52:40.956827+00:00
 ---
 
 # Set the filter version  |  Model Armor  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This document describes how Model Armor filter versions work and how to instruct Model Armor to use a specific filter version or filter version alias in operations.
 
-Model Armor uses filters to detect and block harmful content, sensitive data, malicious URLs, and prompt injection attacks in LLM prompts and responses. For more information, see [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-filters).
+Model Armor uses filters to detect and block harmful content, sensitive data, malicious URLs, child sexual abuse material (CSAM), and prompt injection attacks in LLM prompts and responses. For more information, see [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-filters).
 
 Model Armor filter versions provide stability for production workloads and access to the latest threat detection models. You configure a single filter version at the template level. You can't specify different versions for individual filters.
 
@@ -420,6 +420,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/workstations/clusters/update/
 title: gcloud alpha workstations clusters update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:42.939780+00:00
+fetched_at: 2026-11-05T11:10:37.718241+00:00
 ---
 
 # gcloud alpha workstations clusters update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha workstations clusters update - update a workstation cluster
 SYNOPSIS
     
 
-`gcloud alpha workstations clusters update` (`CLUSTER` : `--region`=`REGION`) [`--async`] [`--console-base-url`=`CONSOLE_BASE_URL`] [`--display-name`=`DISPLAY_NAME`] [`--enable-http2`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--workstation-authorization-url`=`WORKSTATION_AUTHORIZATION_URL`] [`--workstation-launch-url`=`WORKSTATION_LAUNCH_URL`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha workstations clusters update` (`CLUSTER` : `--region`=`REGION`) [`--async`] [`--console-base-url`=`CONSOLE_BASE_URL`] [`--direct-access-ports`=[`DIRECT_ACCESS_PORTS`,…]] [`--display-name`=`DISPLAY_NAME`] [`--enable-http2`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--workstation-authorization-url`=`WORKSTATION_AUTHORIZATION_URL`] [`--workstation-launch-url`=`WORKSTATION_LAUNCH_URL`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update a workstation cluster. 
 EXAMPLES
@@ -78,6 +78,8 @@ FLAGS
      Return immediately, without waiting for the operation in progress to complete. 
 `--console-base-url`=`CONSOLE_BASE_URL`
      Cloud Console Base URL to be used for workstations in this cluster. 
+`--direct-access-ports`=[`DIRECT_ACCESS_PORTS`,…]
+     VM ports that can be accessed using the standard `$HOSTNAME:$PORT` format in addition to the service's default `$PORT-$HOSTNAME` format. 
 `--display-name`=`DISPLAY_NAME`
      Human-readable name for this workstation cluster. 
 `--enable-http2`
@@ -139,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

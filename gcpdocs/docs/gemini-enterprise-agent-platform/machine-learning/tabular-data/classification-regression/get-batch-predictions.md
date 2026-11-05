@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions/
 title: Get batch inferences for AutoML models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:51.803030+00:00
+fetched_at: 2026-11-05T11:08:56.984226+00:00
 ---
 
 # Get batch inferences for AutoML models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/queries/
 title: Query and filter data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:11.048129+00:00
+fetched_at: 2026-11-05T11:09:03.679826+00:00
 ---
 
 # Query and filter data  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/container/clusters/create/
 title: gcloud alpha container clusters create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:41:21.390451+00:00
+fetched_at: 2026-11-05T11:10:10.171059+00:00
 ---
 
 # gcloud alpha container clusters create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -317,7 +317,7 @@ The --disable-default-snat flag is only applicable to private GKE clusters, whic
 `--enable-agent-sandbox`
      Enable the Agent Sandbox feature on the cluster. Use `--no-enable-agent-sandbox` to disable. 
 `--enable-ambient-networking`
-     Enable Ambient Networking on the cluster. 
+     Enable ambient networking on the cluster. 
 `--enable-authorized-networks-on-private-endpoint`
      Enable enforcement of --master-authorized-networks CIDR ranges for traffic reaching cluster's control plane via private IP. 
 `--enable-auto-ipam`
@@ -1017,6 +1017,8 @@ List of supported kubelet configs in 'kubeletConfig'.
 > podPidsLimit | integer (The value must be greater than or equal to 1024 and less than 4194304.)  
 > containerLogMaxSize | positive number plus unit suffix (e.g., '100Mi', '0.2Gi'. The value must be between 10Mi and 500Mi, inclusive.)  
 > containerLogMaxFiles | integer (The value must be between [2, 10].)  
+> containerLogMaxWorkers | integer (The value must be between [1, 10].)  
+> containerLogMonitorInterval | interval (e.g., '10s', '60s'. The value must be between 3s and 300s, inclusive.)  
 > imageGcLowThresholdPercent | integer (The value must be between [10, 85], and lower than imageGcHighThresholdPercent.)  
 > imageGcHighThresholdPercent | integer (The value must be between [10, 85], and greater than imageGcLowThresholdPercent.)  
 > imageMinimumGcAge | interval (e.g., '100s', '1m'. The value must be less than '2m'.)  
@@ -1702,8 +1704,12 @@ Examples:
     
     
     gcloud alpha container clusters create example_cluster --ephemeral-storage-local-ssd count=2
+    gcloud alpha container clusters create example_cluster --ephemeral-storage-local-ssd count=2,capacity=2000GB
+    gcloud alpha container clusters create example_cluster --ephemeral-storage-local-ssd capacity=2000GB
 
 'count' specifies the number of local SSDs to use to back ephemeral storage. Local SSDs use NVMe interfaces. For first- and second-generation machine types, a nonzero count field is required for local ssd to be configured. For third-generation machine types, the count field is optional because the count is inferred from the machine type. 
+
+'capacity' specifies the capacity set aside for ephemeral storage when using mixed Local SSD modes. The remaining capacity is raw block. 
 
 See <https://cloud.google.com/compute/docs/disks/local-ssd> for more information. 
 
@@ -1926,6 +1932,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

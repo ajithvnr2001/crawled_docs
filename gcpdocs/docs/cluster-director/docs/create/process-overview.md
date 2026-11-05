@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/create/process-overview/
 title: Cluster creation process overview \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:21.569322+00:00
+fetched_at: 2026-11-05T11:12:33.464014+00:00
 ---
 
 # Cluster creation process overview  |  Cluster Director  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ This document explains how to plan and configure the infrastructure for a cluste
 
 ## Cluster creation process
 
-Creating a cluster involves configuring compute, storage, and networking resources, as well as the Slurm orchestrator. The following process is to help you pick the configurations that best fits your workload needs:
+Creating a cluster involves configuring compute, storage, and networking resources, as well as the Slurm orchestrator. The following process helps you choose the configurations that best fit the needs of your workload:
 
   1. Configure compute resources
 
@@ -85,23 +85,19 @@ Format the recommendations as a Markdown summary table for each step, followed b
 
 You must choose the type and number of Compute Engine instances that you want to create in your cluster. You must consider the following:
 
-  * **Machine series** : you must choose the machines series and types that you want to create in your cluster. Each cluster partition can use a different machine series. Each compute instance in your cluster serves as a node. For each type of node, we recommend the following machine series:
+  * **Machine series** : you must choose the machine series and types that you want to create in your cluster. Each cluster partition can use a different machine series. Each compute instance in your cluster serves as a node. For each type of node, Google recommends the following machine series:
 
-    * **Compute nodes** : based on your workload, use one of the following machine series:
+    * **Compute nodes** : based on your workload and the machine series that Cluster Director supports, see one of the following:
 
-      * **Foundational model training and inference** : A4X machine series
+      * [Ideal use cases for GPU instances](https://docs.cloud.google.com/docs/compute-area/gpus#ideal-use-cases)
 
-      * **Large model training, fine-tuning, and inference** : A4 or A3 Ultra machine series
-
-      * **Mainstream model inference, fine tuning, and serving inference** : A3 Mega machine series
-
-      * **General purpose high performance computing (HPC)** : N2 machine series
+      * [Ideal use cases for TPU instances](https://docs.cloud.google.com/docs/compute-area/tpus#ideal-use-cases)
 
     * **Controller nodes** : N2 machine series
 
     * **Login nodes** : C4A or N2 machine series
 
-  * **Location** : based on the locations where your chosen machine series are available, you must select the region and zone where you want to deploy your cluster. For more information, review the [regions and zones where machine series are available](https://docs.cloud.google.com/compute/docs/regions-zones#available).
+  * **Location** : based on the locations where your chosen machine series are available, you must select the region and zone where you want to deploy your cluster. All compute, storage, and subnetwork resources in your cluster must exist within the same zone. Cluster Director doesn't support AI zones, which are zones with names that end in `-ai`. For more information, see [Cluster Director locations](https://docs.cloud.google.com/cluster-director/docs/locations).
 
   * **Consumption option** : you must choose the _consumption option_ that you want to use to get and use compute resources. Each option affects the availability, obtainability, and pricing of a compute resource. For more information, see [Choose a consumption option](https://docs.cloud.google.com/cluster-director/docs/choose-consumption-option).
 
@@ -112,7 +108,7 @@ You must choose the type and number of Compute Engine instances that you want to
 
 You must define the storage that your cluster uses:
 
-  * **Shared file system for`/home` directory**: a [Filestore instance](https://docs.cloud.google.com/filestore/docs/overview) or [Managed Lustre instance](https://docs.cloud.google.com/managed-lustre/docs/overview) is required for the shared `/home` directory in a Slurm cluster. When you create a cluster, you can do one of the following:
+  * **Shared file system for`/home` directory**: a Slurm cluster requires a [Filestore instance](https://docs.cloud.google.com/filestore/docs/overview) or [Managed Lustre instance](https://docs.cloud.google.com/managed-lustre/docs/overview) for the shared `/home` directory. When you create a cluster, you can do one of the following:
 
     * Let Cluster Director create a new Filestore or Managed Lustre instance with pre-configured settings.
 
@@ -120,14 +116,15 @@ You must define the storage that your cluster uses:
 
 If you use the [Dynamic tier](https://docs.cloud.google.com/managed-lustre/docs/performance-tiers#dynamic_tier) for Managed Lustre, then your cluster must use an existing VPC network that has the `dynamic_tier_capacity` quota allocated.
 
-  * **Additional storage** : for large-scale AI workloads that require more storage, you can add other solutions—for example, [Cloud Storage buckets](https://docs.cloud.google.com/storage/docs/introduction).
+  * **Additional storage** : for large-scale AI workloads that require more storage, you can add other solutions—for example, [Cloud Storage buckets](https://docs.cloud.google.com/storage/docs/introduction). If you create new Cloud Storage buckets when you create your cluster, then you can specify only the Rapid storage class, Standard storage class, or Autoclass. If you want to use other storage classes, then you must update your buckets after you create them. For instructions, see [Change object storage classes](https://docs.cloud.google.com/storage/docs/changing-storage-classes).
+
+**Caution:** You can't change the storage class of a Rapid bucket after you create it. Rapid buckets are zonal resources and must always use the Rapid storage class.
 
 
-**Note:** You can use both new and existing storage resources in the same cluster. If you use an existing Filestore or Managed Lustre instance, then the instance must be on the same VPC network as your cluster. Each storage resource that you define must specify either a new resource configuration or an existing resource configuration, not both. 
 
 ### Configure networking resources
 
-You must define the networking resources that your cluster uses. To do so, choose one of the following options:
+To define the networking resources that your cluster uses, choose one of the following options:
 
   * Create a new VPC network
 
@@ -176,13 +173,13 @@ To use an existing VPC or Shared VPC network in your cluster, you must configure
 
     * Grant the following IAM roles either at the host project level or the subnetwork level:
 
-      * **Grant access to all subnets in the host project:**
+      * **Grant access to all subnets in the host project** : grant the following IAM roles:
 
         * The [Compute Network User (`roles/compute.networkUser`) role](https://docs.cloud.google.com/compute/docs/access/iam#compute.networkUser) to the [Google APIs Service Agent](https://docs.cloud.google.com/iam/docs/service-account-types#google-apis-service-agent)
 
         * The [Hypercompute Shared VPC Service Agent (`roles/hypercomputecluster.sharedVpcServiceAgent`) role](https://docs.cloud.google.com/iam/docs/roles-permissions/hypercomputecluster#hypercomputecluster.sharedVpcServiceAgent) to the Cluster Director Service Agent (`service-PROJECT_NUMBER@gcp-sa-hypercomputecluster.iam.gserviceaccount.com`)
 
-      * **Grant access to specific subnets** : use this option if your organization's policies require more granular control. Grant the following IAM roles:
+      * **Grant access to specific subnets** : if your organization's policies require more granular control, then use this option. Grant the following IAM roles:
 
         * The [Compute Network User (`roles/compute.networkUser`) role](https://docs.cloud.google.com/compute/docs/access/iam#compute.networkUser) on the subnetwork to the [Google APIs Service Agent](https://docs.cloud.google.com/iam/docs/service-account-types#google-apis-service-agent) and Cluster Director Service Agent (`service-PROJECT_NUMBER@gcp-sa-hypercomputecluster.iam.gserviceaccount.com`)
 
@@ -226,11 +223,22 @@ After you create the service perimeter, it can take up to 30 minutes for the cha
 
 For the final step, you must configure the Slurm orchestrator. To configure the orchestrator, you define the following components:
 
-  * **Login and controller nodes** : you must define the machine series and boot disk options for the login and controller nodes. These nodes manage the cluster and let you connect to it. Controller nodes require standalone boot disks. For login nodes, you can specify [standalone boot disks or storage pools](https://docs.cloud.google.com/cluster-director/docs/storage#boot-disk-storage) if your selected machine series supports Hyperdisk.
+  * **Login and controller nodes** : you must define the machine series and boot disk options for the login and controller nodes, as well as the Slurm controller version:
 
-  * **Partitions and nodesets** : you must define how you want to group your compute resources. Each partition can contain one or more nodesets, letting you create different pools of resources for different types of jobs. For each nodeset, you must specify the minimum and maximum number of compute instances. For node boot disks, you can specify [standalone boot disks or storage pools](https://docs.cloud.google.com/cluster-director/docs/storage#boot-disk-storage).
+    * **Slurm controller version** : when you create a cluster by using the Google Cloud CLI or the REST API, you can specify the [Slurm controller version](https://docs.cloud.google.com/cluster-director/docs/slurm-controller-versions); you can't modify the controller version for an existing cluster. Compute nodes can't run a newer Slurm version than the controller node. For example, if the controller node in your cluster uses Slurm 25.05, then your compute nodes can't use an OS image that requires Slurm 26.05. To check the Slurm version of an OS image, see [Supported OS images](https://docs.cloud.google.com/cluster-director/docs/os-images#included-software).
 
-**Important:** If you use A4X VMs in a nodeset, then the total number of VMs in the nodeset must be a multiple of 18. This total is the sum of the static node count and the dynamic node count. Because Compute Engine provisions A4X capacity in indivisible sub-blocks for creating 18 VMs, any remaining capacity is unusable.
+    * **Boot disks and Hyperdisk pools** : controller nodes require standalone boot disks. For login nodes and compute nodes, you can specify [standalone boot disks or Hyperdisk pools](https://docs.cloud.google.com/cluster-director/docs/storage#boot-disk-storage) if your selected machine series supports Hyperdisk. If you use storage pools for node boot disks, then you can use only existing storage pools or Hyperdisk Exapools that use Hyperdisk Balanced volumes. Storage pools must reside in the same project and zone as the nodes that use them.
+
+  * **Partitions and nodesets** : you must define how you want to group your compute resources. Each partition can contain one or more nodesets, letting you create different pools of resources for different types of jobs. Each nodeset and partition must meet the following requirements:
+
+    * You can specify only one compute resource configuration for each nodeset in your cluster.
+
+    * If you create A4X VMs in a nodeset, then the total number of A4X VMs in the nodeset must be a multiple of 18. This total is the sum of the static node count and the dynamic node count. Because Compute Engine provisions A4X capacity in indivisible sub-blocks of 18 VMs, nodesets can't share unused capacity.
+
+    * If you create TPU instances in a nodeset, then you can configure either a static node count or a dynamic node count, not both. For a static TPU nodeset, you must specify an accelerator topology, and the static node count must be a multiple of the number of VMs per slice in that topology.
+
+    * A Slurm partition that contains a TPU nodeset can't contain GPU or CPU nodesets, and can't combine static and dynamic TPU nodesets.
+
 
 
 
@@ -247,6 +255,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

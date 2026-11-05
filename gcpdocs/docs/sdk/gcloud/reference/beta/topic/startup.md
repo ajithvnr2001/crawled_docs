@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/topic/startup/
 title: gcloud beta topic startup \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T13:30:05.349276+00:00
+fetched_at: 2026-11-05T11:09:23.897293+00:00
 ---
 
 # gcloud beta topic startup  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ CONFIGURING THE PYTHON INTERPRETER
 When to Use `CLOUDSDK_PYTHON` environment variable
      You can ONLY consider using the CLOUDSDK_PYTHON environment variable when you are on: 
 
-  * `Linux`: Installing from a versioned archives (`*.tar.gz*`) on ARM or x86 architectures where Python is NOT included as part of the installation, gcloud will search for a compatible Python on your system PATH (looking for python3 then python). You can set the `CLOUDSDK_PYTHON` environment variable to the full path of your preferred compatible Python interpreter if the default one found on PATH is not desired. 
+  * `Linux`: Installing from a versioned archives (`*.tar.gz*`) on 32-bit x86 architectures where Python is NOT included as part of the installation, gcloud will search for a compatible Python on your system PATH (looking for python3 then python). You can set the `CLOUDSDK_PYTHON` environment variable to the full path of your preferred compatible Python interpreter if the default one found on PATH is not desired. 
   * `macOS`: Available only for archived install and where the Python version matches the Python version managed by the gcloud CLI Tools install. Note that this is not available for Homebrew installations of gcloud CLI Tools. 
   * `Windows`: gcloud installer includes the required Python interpreter by default. Only use `CLOUDSDK_PYTHON` if you need to use a different Python installation. 
 
@@ -76,6 +76,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/vpc-sc/
 title: VPC Service Controls with Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:50.243789+00:00
+fetched_at: 2026-11-05T10:53:48.840586+00:00
 ---
 
 # VPC Service Controls with Knowledge Catalog  |  Google Cloud Documentation

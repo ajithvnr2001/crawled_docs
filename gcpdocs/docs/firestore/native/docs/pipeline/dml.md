@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/dml/
 title: Modify data with Pipeline operations \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:41.200731+00:00
+fetched_at: 2026-11-05T11:09:00.568188+00:00
 ---
 
 # Modify data with Pipeline operations  |  Firestore in Native mode  |  Google Cloud Documentation

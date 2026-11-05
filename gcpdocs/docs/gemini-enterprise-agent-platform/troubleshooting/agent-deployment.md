@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment/
 title: Troubleshoot deploying an agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:15:16.832340+00:00
+fetched_at: 2026-11-05T11:08:21.800800+00:00
 ---
 
 # Troubleshoot deploying an agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -397,6 +397,28 @@ Ask your administrator to grant the AI Platform Reasoning Engine Service Agent o
 
 The AI Platform Reasoning Engine Service Agent should be located in the same project you use to deploy your agent. The IAM binding of the role grant should be in the project where the custom service account resides.
 
+## Environment provisioning failed
+
+**Issue** :
+
+Creating an agent fails with a `500`, `INTERNAL` status (`REASONING_ENGINE_PROVISIONING_FAILED`) and a message saying that the agent's Google-managed environment couldn't be provisioned.
+
+**Possible cause** :
+
+Before Agent Runtime deploys your first agent in a project and region, it sets up Google-managed resources for your agents, such as service agents and the hosting environment. If this setup fails, every pending agent creation in that project and region fails with this error.
+
+**Recommended solution** :
+
+[Contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) and include the failed operation's name in the format `projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID`.
+
+**Solutions that don't apply** :
+
+  * Retrying the agent creation doesn't resolve this error, because Google must fix the failed setup first.
+  * Changing your agent's code, requirements, or `resource_limits` doesn't help, because the failure occurs before Agent Runtime deploys your agent.
+  * Requesting a quota increase for your project has no effect, because Google manages these resources.
+
+
+
 ## Resource exhausted errors
 
 If your deployment fails with a `429`, `RESOURCE_EXHAUSTED` status, one of the following issues might be the cause:
@@ -509,6 +531,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

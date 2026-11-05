@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-print/
 title: Read and print \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:24.099440+00:00
+fetched_at: 2026-11-05T11:12:23.817136+00:00
 ---
 
 # Read and print  |  Bigtable  |  Google Cloud Documentation
@@ -161,22 +161,24 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     
     def print_row(row):
+        from google.cloud._helpers import _datetime_from_microseconds
+    
         print("Reading data for {}:".format(row.row_key.decode("utf-8")))
-        for cf, cols in sorted(row.cells.items()):
-            print("Column Family {}".format(cf))
-            for col, cells in sorted(cols.items()):
-                for cell in cells:
-                    labels = (
-                        " [{}]".format(",".join(cell.labels)) if len(cell.labels) else ""
-                    )
-                    print(
-                        "\t{}: {} @{}{}".format(
-                            col.decode("utf-8"),
-                            cell.value.decode("utf-8"),
-                            cell.timestamp,
-                            labels,
-                        )
-                    )
+        last_family = None
+        for cell in row.cells:
+            if last_family != cell.family:
+                print("Column Family {}".format(cell.family))
+                last_family = cell.family
+    
+            labels = " [{}]".format(",".join(cell.labels)) if len(cell.labels) else ""
+            print(
+                "\t{}: {} @{}{}".format(
+                    cell.qualifier.decode("utf-8"),
+                    cell.value.decode("utf-8"),
+                    _datetime_from_microseconds(cell.timestamp_micros),
+                    labels,
+                )
+            )
         print("")
     
     

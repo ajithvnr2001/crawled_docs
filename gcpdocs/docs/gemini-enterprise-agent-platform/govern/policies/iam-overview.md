@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview/
 title: IAM policies overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:14:19.293329+00:00
+fetched_at: 2026-11-05T11:08:22.711184+00:00
 ---
 
 # IAM policies overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -30,9 +30,9 @@ You can also create a Principal Access Boundary (PAB) on the agent identity. Age
 
 To use agentic communication policies, you must [set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway).
 
-We recommend that you configure Agent Gateway in dry-run mode (`DRY_RUN`) in a staging environment to verify that your policies are working as expected. In dry-run mode, IAP logs disallowed agentic communications to Cloud Audit Logs but doesn't block them.
+We recommend that you configure Agent Gateway in dry-run mode (`iamEnforcementMode: "DRY_RUN"`, or **Audit-only** in the Google Cloud console) in a staging environment to verify that your policies are working as expected. In dry-run mode, IAP logs disallowed agentic communications to Cloud Audit Logs but doesn't block them. For instructions on querying dry-run violation logs across controls, see [Audit dry-run policy violations across controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/dry-run-report).
 
-When you are satisfied that the policies are functioning correctly, you can update the Agent Gateway configuration to set enforcement mode to `ENFORCE`. In this mode, agentic communications that violate the policy are disallowed and communications to the resource are blocked.
+When you are satisfied that the policies are functioning correctly, you can enable active enforcement by selecting **Enforce policies** in the Google Cloud console (which writes `iamEnforcementMode: "ENFORCED"` when creating a gateway, or removes `iamEnforcementMode` when updating an existing gateway), or by removing `iamEnforcementMode` in your authorization extension metadata. In active enforcement mode, agentic communications that violate the policy are disallowed and communications to the resource are blocked.
 
 ## Policy components
 
@@ -125,6 +125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

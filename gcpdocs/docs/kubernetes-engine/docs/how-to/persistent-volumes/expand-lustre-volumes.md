@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/expand-lustre-volumes/
 title: Scale your Managed Lustre storage on GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:32.849912+00:00
+fetched_at: 2026-11-05T10:53:11.351527+00:00
 ---
 
 # Scale your Managed Lustre storage on GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

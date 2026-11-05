@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/os-images/
 title: Supported OS images for Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:48.569521+00:00
+fetched_at: 2026-11-05T11:12:32.354196+00:00
 ---
 
 # Supported OS images for Cluster Director  |  Google Cloud Documentation
@@ -21,15 +21,15 @@ Send feedback
 
 #  Supported OS images for Cluster Director Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes the pre-configured, bootable operating system (OS) images that Cluster Director uses to deploy Compute Engine instances in your clusters.
+This document describes the available operating system (OS) images that Cluster Director uses to deploy Compute Engine instances in your clusters, as well as the lifecycle of these images. This information helps you choose the right image for your workload, keep your clusters secure, and prevent workload disruptions caused by obsolete software.
 
-The OS images that you can use in Cluster Director come with pre-configured machine learning (ML) frameworks and libraries. These frameworks and libraries remove the need for manual installation, as well as simplify model creation and training for large-scale workloads. By understanding the available OS images in Cluster Director and their lifecycle, you can choose the right OS image for your workload, keep your clusters secure, and prevent workload disruptions caused by obsolete software.
+The OS images that you can use in Cluster Director come with pre-configured accelerator drivers, runtime libraries, and cluster management software. This pre-configured software removes the need to install system drivers yourself and prepares your nodes for large-scale artificial intelligence (AI), machine learning (ML), and high performance computing (HPC) workloads.
 
 ## Slurm OS images for Cluster Director
 
-When you deploy a Slurm cluster, Cluster Director provides OS images with pre-configured ML frameworks and libraries for the nodes in your cluster. These OS images offer the following benefits:
+When you deploy a [Slurm](https://docs.cloud.google.com/cluster-director/docs/orchestration) cluster, Cluster Director provides OS images with pre-configured drivers, runtime libraries, and system software for the nodes in your cluster. These OS images offer the following benefits:
 
-  * The OS images provision every node in your cluster with a consistent software stack, which includes the required NVIDIA drivers and CUDA versions.
+  * The OS images provision every node in your cluster with a consistent software stack, which includes the required GPU or TPU drivers and software libraries.
 
   * The OS images are extensions of the [Ubuntu LTS OS images](https://docs.cloud.google.com/compute/docs/images/os-details#ubuntu_lts), and they include all necessary system software for cluster and workload management.
 
@@ -40,14 +40,16 @@ When you deploy a Slurm cluster, Cluster Director provides OS images with pre-co
 
 The custom OS images for Cluster Director include the following software components by default:
 
-  * **OS images:** the following table lists the supported image families and image versions for each machine series. If you don't specify the OS image when you create a nodeset, then Cluster Director uses the default image for that machine series.
+  * **OS images:** the following table lists the supported image families and image versions for each machine series. If you don't specify the OS image when you create a [nodeset](https://docs.cloud.google.com/cluster-director/docs/create/process-overview#orchestrator), then Cluster Director uses the default image for that machine series.
 
 Supported machine series | Operating system | NVIDIA driver and CUDA Toolkit | Slurm version | Image version  
 ---|---|---|---|---  
+A4X Max | Ubuntu 24.04 LTS | Driver 580, CUDA 13 | 25.05 |  `projects/clusterdirector-public-images/global/images/family/a4x-max-ubuntu-2404-arm64-nvidia-580-slurm-2505-v20260731`   
+(default)   
 A4X or C4A | Ubuntu 24.04 LTS | Driver 595, CUDA 13 | 26.05 |  `projects/clusterdirector-public-images/global/images/family/a4x-ubuntu-2404-arm64-nvidia-595-slurm-2605-v20260903`  
 A4X or C4A | Ubuntu 24.04 LTS | Driver 580, CUDA 13 | 25.05 |  `projects/clusterdirector-public-images/global/images/family/a4x-ubuntu-2404-arm64-nvidia-580-slurm-2505-v20251118`   
 (default)   
-A4 or A3 Ultra | Ubuntu 24.04 LTS | Driver 595, CUDA 13 | 26.05 |  `projects/clusterdirector-public-images/global/images/family/common-ubuntu-2404-amd64-nvidia-595-slurm-2605-v20260903`  
+A4, A3 Ultra, or N2 | Ubuntu 24.04 LTS | Driver 595, CUDA 13 | 26.05 |  `projects/clusterdirector-public-images/global/images/family/common-ubuntu-2404-amd64-nvidia-595-slurm-2605-v20260903`  
 A4, A3 Ultra, or N2 | Ubuntu 22.04 LTS | Driver 580, CUDA 13 | 25.05 |  `projects/clusterdirector-public-images/global/images/family/common-ubuntu-2204-amd64-nvidia-580-slurm-2505-v20251113`   
 (default)   
 A4, A3 Ultra, or N2 | Ubuntu 22.04 LTS | Driver 570, CUDA 12 | 25.05 |  `projects/clusterdirector-public-images/global/images/family/common-ubuntu-2204-amd64-nvidia-570-slurm-2505-v20250918`  
@@ -57,13 +59,17 @@ A3 Mega | Ubuntu 22.04 LTS | Driver 580, CUDA 13 | 25.05 |  `projects/clusterdir
 A3 Mega | Ubuntu 22.04 LTS | Driver 580, CUDA 13 | 25.05 |  `projects/clusterdirector-public-images/global/images/family/a3m-ubuntu-2204-amd64-nvidia-580-slurm-2505-v20260714`  
 A3 Mega | Ubuntu 22.04 LTS | Driver 570, CUDA 12 | 25.05 |  `projects/clusterdirector-public-images/global/images/family/a3m-ubuntu-2204-amd64-nvidia-570-slurm-2505-v20251114`  
 A3 Mega | Ubuntu 22.04 LTS | Driver 570, CUDA 12 | 25.05 |  `projects/clusterdirector-public-images/global/images/family/a3m-ubuntu-2204-amd64-nvidia-570-slurm-2505-v20250918`  
+TPU7x ([Preview](https://cloud.google.com/products#product-launch-stages)) or N2  | Ubuntu 24.04 LTS | N/A | 26.05 |  `projects/clusterdirector-public-images/global/images/family/tpu-v7x-ubuntu2404-slurm2605-v20260902`   
+(default for TPU7x)   
+TPU v6e ([Preview](https://cloud.google.com/products#product-launch-stages)), TPU v5p ([Preview](https://cloud.google.com/products#product-launch-stages)), or N2  | Ubuntu 22.04 LTS | N/A | 26.05 |  `projects/clusterdirector-public-images/global/images/family/tpu-v6e-v5p-ubuntu2204-slurm2605-v20260902`   
+(default for TPU v6e and TPU v5p)   
   * **Orchestration:** Slurm version 25.05 or 26.05, and their dependencies, such as [MariaDB](https://mariadb.org). For more information about version compatibility between compute nodes and the controller node in a cluster, see [Slurm controller versions in Cluster Director](https://docs.cloud.google.com/cluster-director/docs/slurm-controller-versions).
 
-  * **Containerization tools:** the NVIDIA enroot container runtime and NVIDIA pyxis, used for running containerized workloads on Slurm clusters.
+  * **Containerization tools:** for GPU OS images, the NVIDIA enroot container runtime and NVIDIA pyxis, which run containerized workloads on Slurm clusters.
 
-  * **Drivers:** NVIDIA driver version 595 or 580 with CUDA Toolkit 13, or version 570 with CUDA Toolkit 12.
+  * **Drivers and runtime libraries:** for GPU OS images, NVIDIA driver version 595 or 580 with CUDA Toolkit 13, or version 570 with CUDA Toolkit 12. For TPU OS images, Cloud TPU runtime libraries (`libtpu`).
 
-  * **Libraries:** libraries for GPUDirect RDMA, including `ibverbs-utils` and `rdma-core`.
+  * **Libraries:** for GPU OS images, libraries for GPUDirect RDMA, including `ibverbs-utils` and `rdma-core`.
 
   * **Parallel computing libraries:** [Open MPI](https://www.open-mpi.org/) and [PMIx](https://pmix.org/) for managing parallel processing tasks across the cluster.
 
@@ -76,9 +82,9 @@ A3 Mega | Ubuntu 22.04 LTS | Driver 570, CUDA 12 | 25.05 |  `projects/clusterdir
 
 To help ensure that your clusters remain secure and compatible with the latest Google Cloud features, Cluster Director releases new image families approximately every six months. Each image family that Cluster Director supports goes through the following lifecycle:
 
-  * **Supported** : for 12 months after the release date, the image family is fully supported. It receives critical security and bug fixes. We recommend that you use supported image families for all new deployments.
+  * **Supported** : for 12 months after the release date, the image family is supported. This image family receives critical security and bug fixes. Google recommends that you use supported image families for all new deployments.
 
-  * **Deprecated** : for approximately six months after the active phase ends, the image family is deprecated. You can still use the image family to create nodes in your cluster, but we don't recommend it as the image family no longer receives security patches.
+  * **Deprecated** : for approximately six months after the supported phase ends, the image family is deprecated. You can still use the image family to create nodes in your cluster. However, Google doesn't recommend that you use a deprecated image family because this image family no longer receives security patches.
 
   * **Obsolete** : after the deprecated phase ends, the image family becomes obsolete. You can no longer create nodes in your cluster by using this image family. Existing nodes continue to run, but they risk being incompatible with the cluster controller.
 
@@ -102,6 +108,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

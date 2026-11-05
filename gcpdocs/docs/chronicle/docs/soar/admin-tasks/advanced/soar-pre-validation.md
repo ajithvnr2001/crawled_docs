@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/soar-pre-validation/
 title: Pre-migration validation guide \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:07.600454+00:00
+fetched_at: 2026-11-05T11:12:21.078697+00:00
 ---
 
 # Pre-migration validation guide  |  Google Security Operations  |  Google Cloud Documentation
@@ -55,7 +55,7 @@ To verify whether the Service Account is created, do the following:
   1. In the Google Cloud console, select the correct Google Cloud project from the list.
   2. Go to **Security** > **Google SecOps** and the **Single Sign-On** tab appears.
   3. If Google SecOps is enabled, you should see a tab called **Single Sign-On**. If not, the prospect initiation is incomplete. Provide the Google Cloud project ID in the Google form found in the in-product notification. Confirm the migration date and time slot, and then submit the form. If you don't receive a response within 72 hours of submission, contact [soar-migration-to-gcom@google.com](mailto:soar-migration-to-gcom@google.com).
-  4. If the tab exists, click **Go to SecOps**. Successful login confirms that the authentication configuration is correct. If login fails, use the next section to debug the configuration. If login fails, use the next section to debug the configuration.
+  4. If the tab exists, click **Go to SecOps**. Successful login confirms that the authentication configuration is correct. If login fails, verify that your firewall or proxy permits the domains in [Network access and domain allowlist](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui#network-access-and-domain-allowlist). If the issue persists, use the next section to debug the configuration.
 
 
 
@@ -361,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

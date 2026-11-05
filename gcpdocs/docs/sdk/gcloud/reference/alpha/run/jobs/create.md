@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/run/jobs/create/
 title: gcloud alpha run jobs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T22:18:47.292212+00:00
+fetched_at: 2026-11-05T11:10:02.780855+00:00
 ---
 
 # gcloud alpha run jobs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -151,6 +151,15 @@ Traffic to other Cloud Run services might require additional configuration. See 
   * bucket: (optional) the name of the bucket to use as the source of this volume. 
   * dynamic-mounting: (optional) A boolean. If true, the volume will be mounted dynamically. Note: You will either need to specify a bucket or set dynamic-mounting to true, but not both. 
   * mount-path: (optional) The path at which the volume should be mounted. The `mount-path` parameter is only supported for single container services which do not make use of the --container flag. For multi-container services, specify the `mount-path` parameter under the \--add-volume-mount flag. 
+
+
+
+`cloud-storage-disk`: A volume representing a Cloud Storage bucket mounted as a block disk. Additional keys: 
+
+  * bucket: (required) the name of the bucket to use as the source of this volume 
+  * mount-path: (optional) The path at which the volume should be mounted. The `mount-path` parameter is only supported for single container services which do not make use of the --container flag. For multi-container services, specify the `mount-path` parameter under the \--add-volume-mount flag. 
+  * readonly: (optional) A boolean. If true, this volume will be read-only from all mounts. 
+  * size: (optional) A quantity representing the amount of disk space allocated to this volume, such as "10Gi" or "100G". Defaults to 10Gi if omitted. 
 
 
 
@@ -319,6 +328,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

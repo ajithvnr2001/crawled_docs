@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-writes-batch/
 title: Perform batch writes \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:34.219790+00:00
+fetched_at: 2026-11-05T11:12:24.391274+00:00
 ---
 
 # Perform batch writes  |  Bigtable  |  Google Cloud Documentation
@@ -312,35 +312,38 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from datetime import datetime, timezone
-    
-    from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
-    from google.cloud.bigtable.batcher import MutationsBatcher
-    
+    from google.cloud.bigtable.data import BigtableDataClient
+    from google.cloud.bigtable.data.exceptions import [MutationsExceptionGroup](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.exceptions.MutationsExceptionGroup.html)
+    from google.cloud.bigtable.data.mutations import [RowMutationEntry](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.mutations.RowMutationEntry.html), [SetCell](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.mutations.SetCell.html)
     
     def write_batch(project_id, instance_id, table_id):
-        client = [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html)(project=project_id, admin=True)
-        instance = [client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.html).[instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html#google_cloud_bigtable_client_Client_instance)(instance_id)
-        table = instance.table(table_id)
-    
-        with MutationsBatcher(table=table) as batcher:
-            timestamp = datetime.now(timezone.utc)
-            column_family_id = "stats_summary"
-    
-            rows = [
-                table.[direct_row](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.table.Table.html#google_cloud_bigtable_table_Table_direct_row)("tablet#a0b81f74#20190501"),
-                table.[direct_row](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.table.Table.html#google_cloud_bigtable_table_Table_direct_row)("tablet#a0b81f74#20190502"),
-            ]
-    
-            rows[0].set_cell(column_family_id, "connected_wifi", 1, timestamp)
-            rows[0].set_cell(column_family_id, "os_build", "12155.0.0-rc1", timestamp)
-            rows[1].set_cell(column_family_id, "connected_wifi", 1, timestamp)
-            rows[1].set_cell(column_family_id, "os_build", "12145.0.0-rc6", timestamp)
-    
-            [batcher](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.batcher.html).mutate_rows(rows)
-    
-        print("Successfully wrote 2 rows.")
-    
+        with BigtableDataClient(project=project_id) as client:
+            with client.get_table(instance_id, table_id) as table:
+                family_id = "stats_summary"
+                try:
+                    with table.mutations_batcher() as batcher:
+                        mutation_list = [
+                            SetCell(family_id, "connected_cell", 1),
+                            SetCell(family_id, "connected_wifi", 1),
+                            SetCell(family_id, "os_build", "12155.0.0-rc1"),
+                        ]
+                        # batcher.append adds the RowMutationEntry to the batcher's
+                        # queue to be written in the next flush.
+                        batcher.append(
+                            RowMutationEntry("tablet#a0b81f74#20190501", mutation_list)
+                        )
+                        batcher.append(
+                            RowMutationEntry("tablet#a0b81f74#20190502", mutation_list)
+                        )
+                except MutationsExceptionGroup as e:
+                    # MutationsExceptionGroup contains a FailedMutationEntryError for
+                    # each mutation that failed.
+                    for sub_exception in e.[exceptions](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.exceptions.html):
+                        failed_entry: RowMutationEntry = sub_exception.entry
+                        cause: Exception = sub_exception.__cause__
+                        print(
+                            f"Failed mutation: {failed_entry.row_key} with error: {cause!r}"
+                        )
     
 
 ### Ruby

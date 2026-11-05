@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-imports/
 title: Import modules \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:23.468467+00:00
+fetched_at: 2026-11-05T11:12:21.825627+00:00
 ---
 
 # Import modules  |  Bigtable  |  Google Cloud Documentation
@@ -140,12 +140,8 @@ To learn how to install and use the client library for Bigtable, see [Bigtable c
 To authenticate to Bigtable, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from datetime import datetime, timezone
-    
     from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
-    from google.cloud.bigtable import column_family, row_filters
-    
-    from ...utils import wait_for_table
+    from google.cloud.bigtable.data import row_filters
     
 
 ### Ruby

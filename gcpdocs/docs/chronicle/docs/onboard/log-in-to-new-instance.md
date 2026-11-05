@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/onboard/log-in-to-new-instance/
 title: Access a Google SecOps instance \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:42.996631+00:00
+fetched_at: 2026-11-05T11:12:18.671157+00:00
 ---
 
 # Access a Google SecOps instance  |  Google Security Operations  |  Google Cloud Documentation
@@ -102,9 +102,9 @@ Recent IAM changes | An administrator or automation tool might have recently mod
 
   
   
-For more information on required roles, see [Configure feature access control using IAM](https://docs.cloud.google.com/chronicle/docs/onboard/configure-feature-access).
+For more information about required roles, see [Configure feature access control using IAM](https://docs.cloud.google.com/chronicle/docs/onboard/configure-feature-access).
 
-If your organization uses egress firewalls, corporate proxies, or strict web filtering, verify that your network allowlist includes all required Google SecOps and authentication domains. For more information, see [Network access and domain allowlist](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui#network-access-and-domain-allowlist).
+If egress firewalls or web proxies block browser sign-in or page loading, allow outbound HTTPS and WebSocket Secure (WSS) connections on TCP port `443`. Add the required Google SecOps, Workforce Identity Federation, IdP, and Google Cloud domains to your allowlist so authentication redirects and UI assets can load. For more information, see [Network access and domain allowlist](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui#network-access-and-domain-allowlist).
 
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -112,6 +112,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

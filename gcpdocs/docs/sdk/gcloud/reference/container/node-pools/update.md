@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/container/node-pools/update/
 title: gcloud container node-pools update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:40:25.765982+00:00
+fetched_at: 2026-11-05T11:09:48.217195+00:00
 ---
 
 # gcloud container node-pools update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud container node-pools update - updates a node pool in a running cluster
 SYNOPSIS
     
 
-`gcloud container node-pools update` `NAME` (`--accelerator`=[`type`=`TYPE`,[`count`=`COUNT`,`gpu-driver-version`=`GPU_DRIVER_VERSION`,`gpu-partition-size`=`GPU_PARTITION_SIZE`,`gpu-sharing-strategy`=`GPU_SHARING_STRATEGY`,`max-shared-clients-per-gpu`=`MAX_SHARED_CLIENTS_PER_GPU`],…] | `--confidential-node-type`=`CONFIDENTIAL_NODE_TYPE` | `--consolidation-delay`=`CONSOLIDATION_DELAY` | `--containerd-config-from-file`=`PATH_TO_FILE` | `--enable-confidential-nodes` | `--enable-gvnic` | `--enable-image-streaming` | `--enable-insecure-kubelet-readonly-port` | `--enable-kernel-module-signature-enforcement` | `--enable-private-nodes` | `--enable-queued-provisioning` | `--flex-start` | `--labels`=[`KEY`=`VALUE`,…] | `--logging-variant`=`LOGGING_VARIANT` | `--max-run-duration`=`MAX_RUN_DURATION` | `--network-performance-configs`=[`PROPERTY`=`VALUE`,…] | `--node-architecture-taint-behavior`=`NODE_ARCHITECTURE_TAINT_BEHAVIOR` | `--node-labels`=[`NODE_LABEL`,…] | `--node-locations`=`ZONE`,[`ZONE`,…] | `--node-taints`=[`NODE_TAINT`,…] | `--resource-manager-tags`=[`KEY`=`VALUE`,…] | `--storage-pools`=`STORAGE_POOL`,[…] | `--system-config-from-file`=`PATH_TO_FILE` | `--tags`=[`TAG`,…] | `--windows-os-version`=`WINDOWS_OS_VERSION` | `--workload-metadata`=`WORKLOAD_METADATA` | `--add-maintenance-exclusion-until-end-of-support` | `--remove-maintenance-exclusion-until-end-of-support` | `--autoscaled-rollout-policy`=[`wait-for-drain-duration`=`WAIT-FOR-DRAIN-DURATION`] `--enable-blue-green-upgrade` `--enable-surge-upgrade` `--max-surge-upgrade`=`MAX_SURGE_UPGRADE` `--max-unavailable-upgrade`=`MAX_UNAVAILABLE_UPGRADE` `--node-pool-soak-duration`=`NODE_POOL_SOAK_DURATION` `--standard-rollout-policy`=[`batch-node-count`=`BATCH_NODE_COUNT`,`batch-percent`=`BATCH_NODE_PERCENTAGE`,`batch-soak-duration`=`BATCH_SOAK_DURATION`,…] | `--boot-disk-provisioned-iops`=`BOOT_DISK_PROVISIONED_IOPS` `--boot-disk-provisioned-throughput`=`BOOT_DISK_PROVISIONED_THROUGHPUT` `--disk-size`=`DISK_SIZE` `--disk-type`=`DISK_TYPE` `--machine-type`=`MACHINE_TYPE` | `--enable-autoprovisioning` `--enable-autoscaling` `--location-policy`=`LOCATION_POLICY` `--max-nodes`=`MAX_NODES` `--min-nodes`=`MIN_NODES` `--total-max-nodes`=`TOTAL_MAX_NODES` `--total-min-nodes`=`TOTAL_MIN_NODES` | `--enable-autorepair` `--enable-autoupgrade` | `--node-drain-grace-period-seconds`=`NODE_DRAIN_GRACE_PERIOD_SECONDS` `--node-drain-pdb-timeout-seconds`=`NODE_DRAIN_PDB_TIMEOUT_SECONDS` `--respect-pdb-during-node-pool-deletion`) [`--async`] [`--cluster`=`CLUSTER`] [`--node-config-update-mode`=`NODE_CONFIG_UPDATE_MODE`] [`--location`=`LOCATION` | `--region`=`REGION` | `--zone`=`ZONE`, `-z` `ZONE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud container node-pools update` `NAME` (`--accelerator`=[`type`=`TYPE`,[`count`=`COUNT`,`gpu-driver-version`=`GPU_DRIVER_VERSION`,`gpu-partition-size`=`GPU_PARTITION_SIZE`,`gpu-sharing-strategy`=`GPU_SHARING_STRATEGY`,`max-shared-clients-per-gpu`=`MAX_SHARED_CLIENTS_PER_GPU`],…] | `--confidential-node-type`=`CONFIDENTIAL_NODE_TYPE` | `--consolidation-delay`=`CONSOLIDATION_DELAY` | `--containerd-config-from-file`=`PATH_TO_FILE` | `--datapath-provider`=`DATAPATH_PROVIDER` | `--enable-confidential-nodes` | `--enable-gvnic` | `--enable-image-streaming` | `--enable-insecure-kubelet-readonly-port` | `--enable-kernel-module-signature-enforcement` | `--enable-private-nodes` | `--enable-queued-provisioning` | `--flex-start` | `--labels`=[`KEY`=`VALUE`,…] | `--logging-variant`=`LOGGING_VARIANT` | `--max-run-duration`=`MAX_RUN_DURATION` | `--network-performance-configs`=[`PROPERTY`=`VALUE`,…] | `--node-architecture-taint-behavior`=`NODE_ARCHITECTURE_TAINT_BEHAVIOR` | `--node-labels`=[`NODE_LABEL`,…] | `--node-locations`=`ZONE`,[`ZONE`,…] | `--node-taints`=[`NODE_TAINT`,…] | `--resource-manager-tags`=[`KEY`=`VALUE`,…] | `--storage-pools`=`STORAGE_POOL`,[…] | `--system-config-from-file`=`PATH_TO_FILE` | `--tags`=[`TAG`,…] | `--windows-os-version`=`WINDOWS_OS_VERSION` | `--workload-metadata`=`WORKLOAD_METADATA` | `--add-maintenance-exclusion-until-end-of-support` | `--remove-maintenance-exclusion-until-end-of-support` | `--autoscaled-rollout-policy`=[`wait-for-drain-duration`=`WAIT-FOR-DRAIN-DURATION`] `--enable-blue-green-upgrade` `--enable-surge-upgrade` `--max-surge-upgrade`=`MAX_SURGE_UPGRADE` `--max-unavailable-upgrade`=`MAX_UNAVAILABLE_UPGRADE` `--node-pool-soak-duration`=`NODE_POOL_SOAK_DURATION` `--standard-rollout-policy`=[`batch-node-count`=`BATCH_NODE_COUNT`,`batch-percent`=`BATCH_NODE_PERCENTAGE`,`batch-soak-duration`=`BATCH_SOAK_DURATION`,…] | `--boot-disk-provisioned-iops`=`BOOT_DISK_PROVISIONED_IOPS` `--boot-disk-provisioned-throughput`=`BOOT_DISK_PROVISIONED_THROUGHPUT` `--disk-size`=`DISK_SIZE` `--disk-type`=`DISK_TYPE` `--machine-type`=`MACHINE_TYPE` | `--enable-autoprovisioning` `--enable-autoscaling` `--location-policy`=`LOCATION_POLICY` `--max-nodes`=`MAX_NODES` `--min-nodes`=`MIN_NODES` `--total-max-nodes`=`TOTAL_MAX_NODES` `--total-min-nodes`=`TOTAL_MIN_NODES` | `--enable-autorepair` `--enable-autoupgrade` | `--node-drain-grace-period-seconds`=`NODE_DRAIN_GRACE_PERIOD_SECONDS` `--node-drain-pdb-timeout-seconds`=`NODE_DRAIN_PDB_TIMEOUT_SECONDS` `--respect-pdb-during-node-pool-deletion`) [`--async`] [`--cluster`=`CLUSTER`] [`--node-config-update-mode`=`NODE_CONFIG_UPDATE_MODE`] [`--location`=`LOCATION` | `--region`=`REGION` | `--zone`=`ZONE`, `-z` `ZONE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `gcloud container node-pools update` updates a node pool in a Google Kubernetes Engine cluster. 
 EXAMPLES
@@ -92,6 +92,17 @@ Note: Updating the containerd configuration of an existing cluster or node pool 
 
 Use a full or relative path to a local file containing the value of containerd_config. 
 
+`--datapath-provider`=`DATAPATH_PROVIDER`
+     Specifies the datapath provider for the node pool. `DATAPATH_PROVIDER` must be one of: 
+
+`advanced-datapath`
+     ADVANCED_DATAPATH 
+`dataplane-v1`
+     LEGACY_DATAPATH 
+`dataplane-v2`
+     ADVANCED_DATAPATH 
+`legacy-datapath`
+     LEGACY_DATAPATH 
 `--enable-confidential-nodes`
      Recreate all the nodes in the node pool to be confidential VM <https://docs.cloud.google.com/compute/docs/about-confidential-vm>. 
 `--enable-gvnic`
@@ -276,6 +287,8 @@ List of supported kubelet configs in 'kubeletConfig'.
 > podPidsLimit | integer (The value must be greater than or equal to 1024 and less than 4194304.)  
 > containerLogMaxSize | positive number plus unit suffix (e.g., '100Mi', '0.2Gi'. The value must be between 10Mi and 500Mi, inclusive.)  
 > containerLogMaxFiles | integer (The value must be between [2, 10].)  
+> containerLogMaxWorkers | integer (The value must be between [1, 10].)  
+> containerLogMonitorInterval | interval (e.g., '10s', '60s'. The value must be between 3s and 300s, inclusive.)  
 > imageGcLowThresholdPercent | integer (The value must be between [10, 85], and lower than imageGcHighThresholdPercent.)  
 > imageGcHighThresholdPercent | integer (The value must be between [10, 85], and greater than imageGcLowThresholdPercent.)  
 > imageMinimumGcAge | interval (e.g., '100s', '1m'. The value must be less than '2m'.)  
@@ -742,6 +755,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

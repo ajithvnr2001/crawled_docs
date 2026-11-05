@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:20:46.168352+00:00
+fetched_at: 2026-11-05T09:17:08.181427+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -149,6 +149,22 @@ Bug ID | Description
 
   
   
+**Bigtable**
+
+Feature
+
+Bigtable offers conversational analytics, which lets you query you operational data using natural language. This feature is powered by the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Conversational analytics for Bigtable overview](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigtable).
+
+Feature
+
+The QueryData tool lets you query the data in your database using conversational language and build data agents. This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [QueryData tool overview](https://docs.cloud.google.com/gemini/data-agents/querydata/bigtable/data-agent-overview).
+
+**Cloud Run**
+
+Feature
+
+Cloud Run ephemeral disk is in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Ephemeral disk allows you to mount a volume that persists only for the duration of your [service](https://docs.cloud.google.com/run/docs/configuring/services/ephemeral-disk), [job](https://docs.cloud.google.com/run/docs/configuring/jobs/ephemeral-disk), or [worker pool](https://docs.cloud.google.com/run/docs/configuring/workerpools/ephemeral-disk) instance.
+
 **Cloud SQL for SQL Server**
 
 Feature
@@ -179,6 +195,23 @@ You can switch between multiple teams in the Gemini Enterprise mobile app withou
 When you open a team for the first time, the mobile app saves it to your teams list. Additionally, you can rename teams in the list and you can remove teams from your list.
 
 This feature is generally available (GA). For more information, see [Teams](https://docs.cloud.google.com/gemini/enterprise/docs/use-the-mobile-app#teams) in _Use the mobile app_.
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**AlphaGenome gRPC and unified HTTP serving support**
+
+AlphaGenome (`alphagenome-004`) now supports unified HTTP/2 gRPC streaming and chunked binary protobuf HTTP streaming on Gemini Enterprise Agent Platform:
+
+  * Streams compressed binary tensor chunks directly over gRPC on shared endpoints (`PredictionService.StreamDirectRawPredict` on port `8081`) and chunked binary protobuf payloads (`proto_b64`) over HTTP on dedicated endpoints (`streamRawPredict` on port `8080`) across all seven `DnaModelService` methods (`predict_sequence`, `predict_interval`, `predict_variant`, `score_variant`, `score_interval`, `score_ism_variants`, and `output_metadata`) and 11 genomic modalities, reducing latency for 1 MB track predictions.
+  * Supports concurrent multi-variant evaluation for in silico saturation mutagenesis (`score_ism_variants`) without HTTP gateway timeouts.
+  * Supports model fold selection (`ALL_FOLDS`, `FOLD_0`, `FOLD_1`, `FOLD_2`, and `FOLD_3`) across both gRPC and HTTP clients through the unified `alphagenome_cloud_sdk` Python SDK.
+  * Retains `alphagenome-003` in Model Garden for backward compatibility with existing legacy HTTP deployments.
+
+
+
+For more information, see the [AlphaGenome documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome).
 
 **Google Distributed Cloud (software only) for VMware**
 
@@ -862,6 +895,17 @@ The Data Engineering Agent now supports [BigQuery AI, ML, and object functions a
 
 This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
+**Cloud Asset Inventory**
+
+Feature
+
+The following resource type is publicly available through the [ExportAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/exportAssets), [ListAssets](https://docs.cloud.google.com/asset-inventory/docs/listing-assets), [BatchGetAssetsHistory](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/batchGetAssetsHistory), [QueryAssets](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/queryAssets), [Feed](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/feeds), [SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources), and [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies) APIs.
+
+  * Cloud Scheduler 
+    * `cloudscheduler.googleapis.com/Job`
+
+
+
 **Cloud Load Balancing**
 
 Feature
@@ -1172,6 +1216,14 @@ Security
 
 Updated the CA certificate configuration.
 
+Fixed
+
+Changes to the idle shutdown timeout now take effect on running instances without a restart. Previously, an instance could still be stopped after the old timeout until it was restarted.
+
+Fixed
+
+Fixed an issue where temporary metadata server errors could delay idle shutdown or stop it from working until the instance was restarted.
+
 Change
 
 ### M155 Release
@@ -1183,6 +1235,14 @@ Installed latest packages from upstream dependencies.
 Security
 
 Updated the CA certificate configuration.
+
+Fixed
+
+Changes to the idle shutdown timeout now take effect on running instances without a restart. Previously, an instance could still be stopped after the old timeout until it was restarted.
+
+Fixed
+
+Fixed an issue where temporary metadata server errors could delay idle shutdown or stop it from working until the instance was restarted.
 
 **Google SecOps SOAR**
 
@@ -20414,6 +20474,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

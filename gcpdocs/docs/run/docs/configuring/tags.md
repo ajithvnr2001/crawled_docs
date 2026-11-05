@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/tags/
 title: Configure tags for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:43.131144+00:00
+fetched_at: 2026-11-05T11:11:02.004354+00:00
 ---
 
 # Configure tags for services  |  Cloud Run  |  Google Cloud Documentation
@@ -48,19 +48,21 @@ You can attach or detach tags using the Google Cloud console or the Google Cloud
 
 ### Console
 
-  1. [Go to Cloud Run](https://console.cloud.google.com/run/services)
+  1. In the Google Cloud console, go to Cloud Run:
 
-  2. Check the checkbox at the left of the service you are setting the tag on.
+[Go to Cloud Run](https://console.cloud.google.com/run)
+
+  2. Select the checkbox to the left of the service you are setting the tag on.
 
   3. Click **Tags** above the services list to display the tags pane.
 
-![Cloud Run Google Cloud console showing the tags panel for attaching and detaching service tags.](https://docs.cloud.google.com/static/run/docs/images/tags.png)
+  4. If your organization doesn't appear in the **Tags** panel, click **Select scope for tags**. Then, select your **organization**.
 
-  4. If your organization doesn't appear in the **Tags** panel, click **Select scope**. Select your organization and click **Open**.
+  5. Select the **tag key** and **tag value** from the respective menus.
 
-  5. To attach a new tag to the service, click **Add Tag** and select one of the tag keys in the key dropdown menu, and select a value from the value dropdown menu.
+  6. Click **Add tag** to add additional tags.
 
-  6. Click **Save** then confirm your changes if prompted.
+  7. Click **Save**.
 
 
 
@@ -92,17 +94,17 @@ You can use the console or the command line to detach tags from your service.
 
 ### Console
 
-  1. [Go to Cloud Run](https://console.cloud.google.com/run/services)
+  1. In the Google Cloud console, go to Cloud Run:
 
-  2. Check the checkbox at the left of the service you are detaching the tag from.
+[Go to Cloud Run](https://console.cloud.google.com/run)
+
+  2. Select the checkbox to the left of the service you are detaching the tag from.
 
   3. Click **Tags** above the services list to display the tags pane.
 
-  4. Locate the tag you want to detach.
+  4. Hold the pointer to the right of the **Value** menu to display the trash icon. Click **Delete item**.
 
-  5. Hold the pointer of your cursor to the right of the _Value_ drop-down menu for the tag to display the trash icon, and click the trash icon.
-
-  6. Click **Save** and confirm your changes if prompted.
+  5. Click **Save**.
 
 
 
@@ -132,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

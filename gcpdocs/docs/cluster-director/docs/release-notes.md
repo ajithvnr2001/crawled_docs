@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/release-notes/
 title: Cluster Director release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:31:14.854655+00:00
+fetched_at: 2026-11-05T11:12:31.296621+00:00
 ---
 
 # Cluster Director release notes  |  Google Cloud Documentation
@@ -25,17 +25,23 @@ This page documents production updates to Cluster Director. Check this page for 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
+## November 03, 2026
+
+Feature
+
+**Preview** : You can create Slurm clusters with TPU7x, TPU v6e, and TPU v5p virtual machine (VM) instances. Use TPU VMs to run large-scale artificial intelligence (AI) and machine learning (ML) training and inference workloads. For more information, see [Supported TPU machines for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/tpu-machines).
+
 ## October 21, 2026
 
 Feature
 
-**Generally available** : You can use the C4A machine series for login nodes in clusters that use the A4X Max or A4X machine series for compute nodes. This configuration provides a consistent Arm-based architecture across compute and login nodes in your cluster. For more information, see [C4A machine series](https://docs.cloud.google.com/cluster-director/docs/compute#c4a-series).
+**Generally available** : You can use the C4A machine series for login nodes in clusters that use the A4X Max or A4X machine series for compute nodes. This configuration provides a consistent Arm-based architecture across compute and login nodes in your cluster. For more information, see [C4A machine series](https://docs.cloud.google.com/cluster-director/docs/cpu-machines#c4a-series).
 
 ## October 13, 2026
 
 Feature
 
-**Generally available** : You can use the `a3-h100-ubuntu-2204-amd64-nvidia-580-slurm-2505-v20260805` OS image family for virtual machine (VM) instances that use the A3 Mega machine type. This Ubuntu 22.04 LTS image family is the default for A3 Mega VMs, uses Slurm version 25.05, and includes NVIDIA driver 580 with CUDA Toolkit 13. For more information, see [Supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
+**Generally available** : You can use the `a3-h100-ubuntu-2204-amd64-nvidia-580-slurm-2505-v20260805` OS image family for VMs that use the A3 Mega machine type. This Ubuntu 22.04 LTS image family is the default for A3 Mega VMs, uses Slurm version 25.05, and includes NVIDIA driver 580 with CUDA Toolkit 13. For more information, see [Supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
 
 ## October 12, 2026
 
@@ -61,7 +67,7 @@ Feature
 
 Feature
 
-**Generally available** : You can specify custom Slurm settings when you create or modify a cluster. You can apply these settings across a cluster, for specific partitions, or for compute nodes in specific nodesets. These settings let you customize workload scheduling, job preemption, queue priority, and resource limits based on your workload requirements. For more information, see [Supported Slurm settings in Cluster Director](https://docs.cloud.google.com/cluster-director/docs/slurm-settings).
+**Generally available** : When you create or modify a cluster, you can specify custom Slurm settings. You can apply these settings across a cluster, for specific partitions, or for compute nodes in specific nodesets. These settings let you customize workload scheduling, job preemption, queue priority, and resource limits based on your workload requirements. For more information, see [Supported Slurm settings in Cluster Director](https://docs.cloud.google.com/cluster-director/docs/slurm-settings).
 
 ## September 30, 2026
 

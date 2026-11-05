@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/export/storage/
 title: View logs routed to Cloud Storage \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:32.071967+00:00
+fetched_at: 2026-11-05T10:53:10.346235+00:00
 ---
 
 # View logs routed to Cloud Storage  |  Cloud Logging  |  Google Cloud Documentation

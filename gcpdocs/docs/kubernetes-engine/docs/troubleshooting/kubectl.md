@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/kubectl/
 title: Troubleshoot the kubectl command-line tool \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:14.311696+00:00
+fetched_at: 2026-11-05T10:53:27.023102+00:00
 ---
 
 # Troubleshoot the kubectl command-line tool  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

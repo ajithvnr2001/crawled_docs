@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/quotas/
 title: Cluster Director quotas and system limits \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:35.407014+00:00
+fetched_at: 2026-11-05T11:12:32.098006+00:00
 ---
 
 # Cluster Director quotas and system limits  |  Google Cloud Documentation
@@ -20,6 +20,8 @@ fetched_at: 2026-10-29T09:56:35.407014+00:00
 Send feedback 
 
 #  Cluster Director quotas and system limits Stay organized with collections  Save and categorize content based on your preferences. 
+
+This document describes the API, compute, storage, and networking quotas that you need to create and manage clusters in Cluster Director, and links to the quotas and system limits of each underlying service. Sufficient quota helps prevent cluster deployment and scaling errors.
 
 Google Cloud uses quotas to help maintain fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
 
@@ -71,17 +73,17 @@ Update requests per minute per region | Restricts how often you can send request
 
 Cluster Director relies on the following underlying services to deploy cluster components. You must have sufficient quota for all of the following:
 
-  * **Compute Engine** : you must have sufficient Compute Engine quota for creating Compute Engine instances and any resources that are attached to your compute instances, such as GPUs or Local SSD disks. This quota includes regional quota, which controls the number of compute instances that you can create in a region.
+  * **Compute Engine** : you must have sufficient Compute Engine quota to create Compute Engine instances and any resources that are attached to your compute instances, such as GPUs, TPUs ([Preview](https://cloud.google.com/products#product-launch-stages)), or Local SSD disks. TPU VMs in Cluster Director consume Compute Engine API (`compute.googleapis.com`) quotas rather than Cloud TPU API (`tpu.googleapis.com`) quotas. This quota includes regional quota, which controls the number of compute instances that you can create in a region.
 
 **Note:** If you use future reservations for capacity blocks or future reservations in calendar mode to obtain compute resources, then you don't need to request quota. For more information, see [Capacity overview](https://docs.cloud.google.com/cluster-director/docs/obtain-capacity).
 
 For more information, see the [quotas and system limits for Compute Engine](https://docs.cloud.google.com/compute/quotas-limits).
 
-  * **Filestore** : you must have sufficient Filestore quota to create Filestore instances in your cluster. Filestore instances are mandatory for creating Slurm clusters in Cluster Director.
+  * **Filestore or Google Cloud Managed Lustre** : you must have sufficient quota for either Filestore or Managed Lustre to provision a shared file system for the `/home` directory in your [Slurm](https://docs.cloud.google.com/cluster-director/docs/orchestration) cluster. If you use a Managed Lustre instance with the [Dynamic tier](https://docs.cloud.google.com/managed-lustre/docs/performance-tiers#dynamic_tier), then you must allocate the `dynamic_tier_capacity` quota for an existing Virtual Private Cloud (VPC) network.
 
-For more information, see the [quotas and system limits for Filestore](https://docs.cloud.google.com/filestore/docs/limits).
+For more information, see the [quotas and system limits for Filestore](https://docs.cloud.google.com/filestore/docs/limits) and the [quotas and system limits for Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/quotas).
 
-  * **Networking** : you must have sufficient networking quota to create Virtual Private Cloud (VPC) networks, subnets, external IP addresses, and configure firewall rules that are necessary for cluster communication and access.
+  * **Networking** : you must have sufficient networking quota to create VPC networks, subnets, and external IP addresses, and to configure firewall rules that are necessary for cluster communication and access.
 
 For more information, see the [quotas and system limits for VPC](https://docs.cloud.google.com/vpc/docs/quota).
 
@@ -90,17 +92,13 @@ For more information, see the [quotas and system limits for VPC](https://docs.cl
 
 ## Quotas for optional storage services
 
-If you plan to use optional storage services in your cluster besides a mandatory Filestore instance, then you must verify that you have sufficient quota for any of the following services:
+If you plan to use additional storage services in your cluster besides the shared file system for the `/home` directory, then you must have sufficient quota for any of the following:
 
   * **Cloud Storage** : you must have sufficient Cloud Storage quota to use Cloud Storage buckets as a storage service.
 
 For more information, see the [quotas and system limits for Cloud Storage](https://docs.cloud.google.com/storage/quotas).
 
-  * **Google Cloud Managed Lustre** : you must have sufficient Managed Lustre quota to use Managed Lustre instances as a storage service. If you use the [Dynamic tier](https://docs.cloud.google.com/managed-lustre/docs/performance-tiers#dynamic_tier), then you must allocate the `dynamic_tier_capacity` quota for an existing VPC network.
-
-For more information, see the [quotas and system limits for Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/quotas).
-
-  * **Hyperdisk pools** : you must have sufficient Compute Engine storage pool quota for the boot disks in your compute and login nodesets.
+  * **Hyperdisk pools** : you must have sufficient Compute Engine storage pool quota for the boot disks in your compute and login [nodesets](https://docs.cloud.google.com/cluster-director/docs/create/process-overview#orchestrator).
 
 For more information, see the [quotas and system limits for Compute Engine storage pools](https://docs.cloud.google.com/compute/docs/disks/storage-pools#hdsp-limits).
 
@@ -111,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

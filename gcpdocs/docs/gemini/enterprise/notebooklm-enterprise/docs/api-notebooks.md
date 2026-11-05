@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks/
 title: Create and manage notebooks (API) \u00a0|\u00a0 Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:07.160907+00:00
+fetched_at: 2026-11-05T11:08:21.112558+00:00
 ---
 
 # Create and manage notebooks (API)  |  Gemini Notebook Enterprise  |  Google Cloud Documentation
@@ -333,7 +333,6 @@ For more information, see [Specify a multi-region for your data store](https://d
      * `USER_EMAIL`: the email address of the user with whom you want to share the notebook.
      * `USER_ROLE`: a role that you want to assign to the user. It can be one of the following:
 
-       * `PROJECT_ROLE_OWNER`: The user owns the project.
        * `PROJECT_ROLE_WRITER`: The user has write permissions on the project.
        * `PROJECT_ROLE_READER`: The user has read permissions on the project.
        * `PROJECT_ROLE_NOT_SHARED`:The user has no access to the project.
@@ -342,6 +341,8 @@ If the request is successful, you receive an empty JSON object.
 
 
 
+
+**Note:** You can't assign `PROJECT_ROLE_OWNER` with this method. The account that creates a notebook is its owner, and ownership can't be transferred.
 
 ### Verify users using a browser
 
@@ -376,6 +377,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

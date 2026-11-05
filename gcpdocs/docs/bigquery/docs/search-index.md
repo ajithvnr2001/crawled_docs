@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/search-index/
 title: Manage search indexes \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:06.553200+00:00
+fetched_at: 2026-11-05T11:09:16.760677+00:00
 ---
 
 # Manage search indexes  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Manage search indexes
 
-A search index is a data structure designed to enable very efficient search with the [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/search). A search index can also optimize some queries that use [supported functions and operators](https://docs.cloud.google.com/bigquery/docs/search#operator_and_function_optimization).
-
-Much like the index you'd find in the back of a book, a search index for a column of string data acts like an auxiliary table that has one column for unique words and another for where in the data those words occur.
+You can create a search index in BigQuery to perform efficient text searches across your string data using the [`SEARCH` function](https://docs.cloud.google.com/bigquery/docs/search). Building these auxiliary data structures lets you significantly optimize overall query performance for [supported functions and operators](https://docs.cloud.google.com/bigquery/docs/search#operator_and_function_optimization).
 
 ## Create a search index
 
@@ -626,6 +624,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

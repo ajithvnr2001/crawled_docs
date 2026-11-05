@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/looker/instances/create/
 title: gcloud alpha looker instances create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T21:30:16.163355+00:00
+fetched_at: 2026-11-05T11:10:04.791971+00:00
 ---
 
 # gcloud alpha looker instances create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha looker instances create - create a Looker instance
 SYNOPSIS
     
 
-`gcloud alpha looker instances create` (`INSTANCE` : `--region`=`REGION`) `--edition`=`EDITION` `--oauth-client-id`=`OAUTH_CLIENT_ID` `--oauth-client-secret`=`OAUTH_CLIENT_SECRET` [`--accelerated-security-patch-enabled`] [`--async`] [`--catalog-integration-opt-out`] [`--class-type`=`CLASS_TYPE`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--fips-enabled`] [`--kms-key`=`KMS_KEY`] [`--no-public-ip-enabled`] [`--release-channel`=`RELEASE_CHANNEL`] [`--consumer-network`=`CONSUMER_NETWORK` `--private-ip-enabled` : `--reserved-range`=`RESERVED_RANGE`] [`--deny-maintenance-period-end-date`=`DENY_MAINTENANCE_PERIOD_END_DATE` `--deny-maintenance-period-start-date`=`DENY_MAINTENANCE_PERIOD_START_DATE` `--deny-maintenance-period-time`=`DENY_MAINTENANCE_PERIOD_TIME`] [`--gemini-enabled` : `--gemini-preview-tester-enabled` `--gemini-prompt-log-enabled`] [`--google-auth-enabled` `--workforce-auth-enabled`] [`--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-time`=`MAINTENANCE_WINDOW_TIME`] [`--psc-enabled` : `--psc-allowed-vpcs`=[`PSC_ALLOWED_VPCS`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha looker instances create` (`INSTANCE` : `--region`=`REGION`) `--edition`=`EDITION` [`--accelerated-security-patch-enabled`] [`--async`] [`--catalog-integration-opt-out`] [`--class-type`=`CLASS_TYPE`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--fips-enabled`] [`--kms-key`=`KMS_KEY`] [`--no-public-ip-enabled`] [`--release-channel`=`RELEASE_CHANNEL`] [`--consumer-network`=`CONSUMER_NETWORK` `--private-ip-enabled` : `--reserved-range`=`RESERVED_RANGE`] [`--deny-maintenance-period-end-date`=`DENY_MAINTENANCE_PERIOD_END_DATE` `--deny-maintenance-period-start-date`=`DENY_MAINTENANCE_PERIOD_START_DATE` `--deny-maintenance-period-time`=`DENY_MAINTENANCE_PERIOD_TIME`] [`--gemini-enabled` : `--gemini-preview-tester-enabled` `--gemini-prompt-log-enabled`] [`--google-auth-enabled` `--workforce-auth-enabled`] [`--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-time`=`MAINTENANCE_WINDOW_TIME`] [`--oauth-client-id`=`OAUTH_CLIENT_ID` `--oauth-client-secret`=`OAUTH_CLIENT_SECRET`] [`--psc-enabled` : `--psc-allowed-vpcs`=[`PSC_ALLOWED_VPCS`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create a new Looker instance. 
 
@@ -131,16 +131,6 @@ REQUIRED FLAGS
      A non-production edition of Looker (Google Cloud core) product for small organizations or teams with fewer than 50 users. This can be purchased via an annual contract. 
 `nonprod-core-xl-annual`
      A Non-prod Subscription Enterprise Ultra Annual edition of Looker (Google Cloud core) product. This is the largest tier for massive enterprise deployments. 
-`--oauth-client-id`=`OAUTH_CLIENT_ID`
-     The client ID from an external OAuth application. 
-
-OAuth Application Credentials - Looker Instance OAuth login settings. Setup an OAuth app that will allow users to authenticate and access the instance. For more information see: <https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred>
-
-`--oauth-client-secret`=`OAUTH_CLIENT_SECRET`
-     The client secret from an external OAuth application. 
-
-OAuth Application Credentials - Looker Instance OAuth login settings. Setup an OAuth app that will allow users to authenticate and access the instance. For more information see: <https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred>
-
 OPTIONAL FLAGS
     
 
@@ -241,6 +231,17 @@ This flag argument must be specified if any of the other arguments in this group
 
 This flag argument must be specified if any of the other arguments in this group are specified. 
 
+OAuth Application Credentials - Looker Instance OAuth login settings. Setup an OAuth app that will allow users to authenticate and access the instance. For more information see: <https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred>
+`--oauth-client-id`=`OAUTH_CLIENT_ID`
+     The client ID from an external OAuth application. 
+
+This flag argument must be specified if any of the other arguments in this group are specified. 
+
+`--oauth-client-secret`=`OAUTH_CLIENT_SECRET`
+     The client secret from an external OAuth application. 
+
+This flag argument must be specified if any of the other arguments in this group are specified. 
+
 Private Service Connect - Private Service Connect allows private consumption of services across VPC networks that belong to different groups, teams, projects, or organizations. 
 `--psc-enabled`
      This specifies whether Private Service Connect (PSC) is enabled on the Looker instance. 
@@ -268,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

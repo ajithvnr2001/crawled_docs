@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-filters-limit-value-regex/
 title: Read using a value regex filter \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:44.509047+00:00
+fetched_at: 2026-11-05T11:12:21.740502+00:00
 ---
 
 # Read using a value regex filter  |  Bigtable  |  Google Cloud Documentation
@@ -160,18 +160,20 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     
     def filter_limit_value_regex(project_id, instance_id, table_id):
-        from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
-        from google.cloud.bigtable import row_filters
-    
-        client = [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html)(project=project_id, admin=True)
-        instance = [client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.html).[instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html#google_cloud_bigtable_client_Client_instance)(instance_id)
-        table = instance.table(table_id)
-    
-        rows = table.read_rows(
-            filter_=row_filters.ValueRegexFilter("PQ2A.*$".encode("utf-8"))
+        from google.cloud.bigtable.data import (
+            BigtableDataClient,
+            [ReadRowsQuery](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.read_rows_query.ReadRowsQuery.html),
+            [row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html),
         )
-        for row in rows:
-            print_row(row)
+    
+        query = ReadRowsQuery(
+            row_filter=[row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html).[ValueRegexFilter](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.ValueRegexFilter.html)("PQ2A.*$".encode("utf-8"))
+        )
+    
+        with BigtableDataClient(project=project_id) as client:
+            with client.get_table(instance_id, table_id) as table:
+                for row in table.read_rows(query):
+                    print_row(row)
     
     
 

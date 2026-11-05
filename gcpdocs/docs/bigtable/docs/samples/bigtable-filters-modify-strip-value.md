@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-filters-modify-strip-value/
 title: Use a strip value filter \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:53.625216+00:00
+fetched_at: 2026-11-05T11:12:22.926025+00:00
 ---
 
 # Use a strip value filter  |  Bigtable  |  Google Cloud Documentation
@@ -159,16 +159,18 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     
     def filter_modify_strip_value(project_id, instance_id, table_id):
-        from google.cloud import [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest)
-        from google.cloud.bigtable import row_filters
+        from google.cloud.bigtable.data import (
+            BigtableDataClient,
+            [ReadRowsQuery](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.read_rows_query.ReadRowsQuery.html),
+            [row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html),
+        )
     
-        client = [bigtable](https://docs.cloud.google.com/python/docs/reference/bigtable/latest).[Client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html)(project=project_id, admin=True)
-        instance = [client](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.html).[instance](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.client.Client.html#google_cloud_bigtable_client_Client_instance)(instance_id)
-        table = instance.table(table_id)
+        query = ReadRowsQuery(row_filter=[row_filters](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.html).[StripValueTransformerFilter](https://docs.cloud.google.com/python/docs/reference/bigtable/latest/google.cloud.bigtable.data.row_filters.StripValueTransformerFilter.html)(True))
     
-        rows = table.read_rows(filter_=row_filters.StripValueTransformerFilter(True))
-        for row in rows:
-            print_row(row)
+        with BigtableDataClient(project=project_id) as client:
+            with client.get_table(instance_id, table_id) as table:
+                for row in table.read_rows(query):
+                    print_row(row)
     
     
 

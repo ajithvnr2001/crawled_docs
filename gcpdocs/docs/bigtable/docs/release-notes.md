@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/release-notes/
 title: Bigtable release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:17.158809+00:00
+fetched_at: 2026-11-05T09:14:06.971935+00:00
 ---
 
 # Bigtable release notes  |  Google Cloud Documentation
@@ -26,6 +26,16 @@ This page documents production updates to Bigtable. You can periodically check t
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/bigtable-release-notes.xml) directly. 
+
+## November 04, 2026
+
+Feature
+
+Bigtable offers conversational analytics, which lets you query your operational data using natural language. This feature uses the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview) and is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Conversational analytics for Bigtable overview](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigtable).
+
+Feature
+
+The QueryData tool lets you query the data in your database using conversational language and build data agents. This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [QueryData tool overview](https://docs.cloud.google.com/gemini/data-agents/querydata/bigtable/data-agent-overview).
 
 ## October 30, 2026
 

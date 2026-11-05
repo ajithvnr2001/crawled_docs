@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/spanner/data-agent-overview/
 title: QueryData overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:05:48.607805+00:00
+fetched_at: 2026-11-05T11:08:44.180865+00:00
 ---
 
 # QueryData overview  |  Data Agents  |  Google Cloud Documentation

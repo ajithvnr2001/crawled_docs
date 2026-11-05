@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/reference/rest/v1beta1/InvocationConfig/
 title: InvocationConfig \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:12:13.078566+00:00
+fetched_at: 2026-11-05T11:11:03.111444+00:00
 ---
 
 # InvocationConfig  |  Dataform  |  Google Cloud Documentation
@@ -48,7 +48,8 @@ JSON representation
       "endUserAuthConfig": {
         object ([EndUserAuthenticationConfig](https://docs.cloud.google.com/dataform/reference/rest/v1beta1/InvocationConfig#EndUserAuthenticationConfig))
       },
-      "queryPriority": enum ([QueryPriority](https://docs.cloud.google.com/dataform/reference/rest/v1beta1/InvocationConfig#QueryPriority))
+      "queryPriority": enum ([QueryPriority](https://docs.cloud.google.com/dataform/reference/rest/v1beta1/InvocationConfig#QueryPriority)),
+      "concurrentActionsLimit": integer
     }  
   
 Fields  
@@ -61,6 +62,7 @@ Fields
 `serviceAccount` |  `string` Optional. The service account to run workflow invocations under.  
 `endUserAuthConfig` |  `object (`[EndUserAuthenticationConfig](https://docs.cloud.google.com/dataform/reference/rest/v1beta1/InvocationConfig#EndUserAuthenticationConfig)`)` Optional. Configuration for end user authentication. Do not set if `serviceAccount` is used.  
 `queryPriority` |  `enum (`[QueryPriority](https://docs.cloud.google.com/dataform/reference/rest/v1beta1/InvocationConfig#QueryPriority)`)` Optional. Specifies the priority for query execution in BigQuery. More information can be found at <https://cloud.google.com/bigquery/docs/running-queries#queries>.  
+`concurrentActionsLimit` |  `integer` Optional. Maximum number of actions that can be executed concurrently.  
   
 ## EndUserAuthenticationConfig
 
@@ -96,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-25 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/network-security/security-profile-groups/create/
 title: gcloud alpha network-security security-profile-groups create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T00:57:03.919158+00:00
+fetched_at: 2026-11-05T11:10:40.149097+00:00
 ---
 
 # gcloud alpha network-security security-profile-groups create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha network-security security-profile-groups create - create a new Secu
 SYNOPSIS
     
 
-`gcloud alpha network-security security-profile-groups create` (`SECURITY_PROFILE_GROUP` : `--location`=`LOCATION` `--organization`=`ORGANIZATION`) ([`--custom-intercept-profile`=`CUSTOM_INTERCEPT_PROFILE` : `--custom-intercept-profile-location`=`CUSTOM_INTERCEPT_PROFILE_LOCATION` `--custom-intercept-profile-organization`=`CUSTOM_INTERCEPT_PROFILE_ORGANIZATION` `--custom-intercept-profile-project`=`CUSTOM_INTERCEPT_PROFILE_PROJECT`] [`--custom-mirroring-profile`=`CUSTOM_MIRRORING_PROFILE` : `--custom-mirroring-profile-location`=`CUSTOM_MIRRORING_PROFILE_LOCATION` `--custom-mirroring-profile-organization`=`CUSTOM_MIRRORING_PROFILE_ORGANIZATION` `--custom-mirroring-profile-project`=`CUSTOM_MIRRORING_PROFILE_PROJECT`] [`--threat-prevention-profile`=`THREAT_PREVENTION_PROFILE` : `--threat-prevention-profile-location`=`THREAT_PREVENTION_PROFILE_LOCATION` `--threat-prevention-profile-organization`=`THREAT_PREVENTION_PROFILE_ORGANIZATION` `--threat-prevention-profile-project`=`THREAT_PREVENTION_PROFILE_PROJECT`] [`--url-filtering-profile`=`URL_FILTERING_PROFILE` : `--url-filtering-profile-location`=`URL_FILTERING_PROFILE_LOCATION` `--url-filtering-profile-organization`=`URL_FILTERING_PROFILE_ORGANIZATION` `--url-filtering-profile-project`=`URL_FILTERING_PROFILE_PROJECT`] [`--wildfire-analysis-profile`=`WILDFIRE_ANALYSIS_PROFILE` : `--wildfire-analysis-profile-location`=`WILDFIRE_ANALYSIS_PROFILE_LOCATION` `--wildfire-analysis-profile-organization`=`WILDFIRE_ANALYSIS_PROFILE_ORGANIZATION` `--wildfire-analysis-profile-project`=`WILDFIRE_ANALYSIS_PROFILE_PROJECT`]) [`--async`] [`--description`=`DESCRIPTION`] [`--labels`=[`KEY`=`VALUE`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha network-security security-profile-groups create` (`SECURITY_PROFILE_GROUP` : `--location`=`LOCATION` `--organization`=`ORGANIZATION`) ([`--custom-intercept-profile`=`CUSTOM_INTERCEPT_PROFILE` : `--custom-intercept-profile-location`=`CUSTOM_INTERCEPT_PROFILE_LOCATION` `--custom-intercept-profile-organization`=`CUSTOM_INTERCEPT_PROFILE_ORGANIZATION` `--custom-intercept-profile-project`=`CUSTOM_INTERCEPT_PROFILE_PROJECT`] [`--custom-mirroring-profile`=`CUSTOM_MIRRORING_PROFILE` : `--custom-mirroring-profile-location`=`CUSTOM_MIRRORING_PROFILE_LOCATION` `--custom-mirroring-profile-organization`=`CUSTOM_MIRRORING_PROFILE_ORGANIZATION` `--custom-mirroring-profile-project`=`CUSTOM_MIRRORING_PROFILE_PROJECT`] [`--scm-profile`=`SCM_PROFILE` : `--scm-profile-location`=`SCM_PROFILE_LOCATION` `--scm-profile-organization`=`SCM_PROFILE_ORGANIZATION` `--scm-profile-project`=`SCM_PROFILE_PROJECT`] [`--threat-prevention-profile`=`THREAT_PREVENTION_PROFILE` : `--threat-prevention-profile-location`=`THREAT_PREVENTION_PROFILE_LOCATION` `--threat-prevention-profile-organization`=`THREAT_PREVENTION_PROFILE_ORGANIZATION` `--threat-prevention-profile-project`=`THREAT_PREVENTION_PROFILE_PROJECT`] [`--url-filtering-profile`=`URL_FILTERING_PROFILE` : `--url-filtering-profile-location`=`URL_FILTERING_PROFILE_LOCATION` `--url-filtering-profile-organization`=`URL_FILTERING_PROFILE_ORGANIZATION` `--url-filtering-profile-project`=`URL_FILTERING_PROFILE_PROJECT`] [`--wildfire-analysis-profile`=`WILDFIRE_ANALYSIS_PROFILE` : `--wildfire-analysis-profile-location`=`WILDFIRE_ANALYSIS_PROFILE_LOCATION` `--wildfire-analysis-profile-organization`=`WILDFIRE_ANALYSIS_PROFILE_ORGANIZATION` `--wildfire-analysis-profile-project`=`WILDFIRE_ANALYSIS_PROFILE_PROJECT`]) [`--async`] [`--description`=`DESCRIPTION`] [`--labels`=[`KEY`=`VALUE`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create a new Security Profile Group with the given name. 
 EXAMPLES
@@ -167,6 +167,49 @@ To set the `project` attribute:
 
   * provide the argument `--custom-mirroring-profile` on the command line with a fully specified name; 
   * provide the argument `--custom-mirroring-profile-project` on the command line; 
+  * set the property `core/project`; 
+  * provide the argument `security_profile_group` on the command line with a fully specified name. Must be specified for resource of type [networksecurity.projects.locations.securityProfiles]. 
+
+
+Scm profile resource - Path to SCM Profile resource. The arguments in this group can be used to specify the attributes of this resource. This resource can be one of the following types: [networksecurity.organizations.locations.securityProfiles, networksecurity.projects.locations.securityProfiles]. 
+`--scm-profile`=`SCM_PROFILE`
+     ID of the scm_profile or fully qualified identifier for the scm_profile. 
+
+To set the `name` attribute: 
+
+  * provide the argument `--scm-profile` on the command line. 
+
+
+
+This flag argument must be specified if any of the other arguments in this group are specified. 
+
+`--scm-profile-location`=`SCM_PROFILE_LOCATION`
+     Location of the scm_profile. NOTE: Only `global` security profiles are supported. To set the `location` attribute: 
+
+  * provide the argument `--scm-profile` on the command line with a fully specified name; 
+  * provide the argument `--scm-profile-location` on the command line; 
+  * provide the argument `--location` on the command line; 
+  * provide the argument `security_profile_group` on the command line with a fully specified name. 
+
+
+`--scm-profile-organization`=`SCM_PROFILE_ORGANIZATION`
+     Organization ID of the Security Profile. 
+
+To set the `organization` attribute: 
+
+  * provide the argument `--scm-profile` on the command line with a fully specified name; 
+  * provide the argument `--scm-profile-organization` on the command line; 
+  * provide the argument `--organization` on the command line; 
+  * provide the argument `security_profile_group` on the command line with a fully specified name. Must be specified for resource of type [networksecurity.organizations.locations.securityProfiles]. 
+
+
+`--scm-profile-project`=`SCM_PROFILE_PROJECT`
+     Project ID of the scm_profile. 
+
+To set the `project` attribute: 
+
+  * provide the argument `--scm-profile` on the command line with a fully specified name; 
+  * provide the argument `--scm-profile-project` on the command line; 
   * set the property `core/project`; 
   * provide the argument `security_profile_group` on the command line with a fully specified name. Must be specified for resource of type [networksecurity.projects.locations.securityProfiles]. 
 
@@ -332,6 +375,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

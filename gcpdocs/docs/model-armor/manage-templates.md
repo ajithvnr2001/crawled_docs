@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/manage-templates/
 title: Create and manage templates \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:05.280314+00:00
+fetched_at: 2026-11-05T08:52:42.893916+00:00
 ---
 
 # Create and manage templates  |  Model Armor  |  Google Cloud Documentation
@@ -193,14 +193,14 @@ Use the following command to create a new Model Armor template.
 
 Replace the following:
 
-  * `FILTER_CONFIG`: the filter configuration for the template in JSON format.
+  * `FILTER_CONFIG`: the filter configuration for the template.
   * `PROJECT_ID`: the ID of the project that the template belongs to.
   * `TEMPLATE_ID`: the ID of the template to be created.
   * `LOCATION`: the [location](https://docs.cloud.google.com/model-armor/locations) of the template.
 
 
 
-The following example shows the Model Armor filter configuration ([`FilterConfig`](https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates#filterconfig)), where you define what you want to detect. In this example, the [Responsible AI filters](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) are configured for hate speech, harassment, dangerous content, and sexually explicit content with varying [confidence levels](https://docs.cloud.google.com/model-armor/overview#ma-confidence-levels). The [prompt injection and jailbreak detection](https://docs.cloud.google.com/model-armor/overview#ma-prompt-injection) filter is enabled with a `HIGH` confidence level, which means only content with a high likelihood will be flagged. The [malicious URI](https://docs.cloud.google.com/model-armor/overview#ma-malicious-url-detection) filter is enabled.
+The following example shows the Model Armor filter configuration ([`FilterConfig`](https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates#filterconfig)), where you define what you want to detect. In this example, the [Responsible AI filters](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) are configured for hate speech, harassment, dangerous content, and sexually explicit content with varying [confidence levels](https://docs.cloud.google.com/model-armor/overview#ma-confidence-levels). The [prompt injection and jailbreak detection](https://docs.cloud.google.com/model-armor/overview#ma-prompt-injection) and [child sexual abuse material (CSAM)](https://docs.cloud.google.com/model-armor/overview#ma-csam-detection) filters are enabled with a `HIGH` confidence level, which means that only content with a high likelihood is flagged. The [malicious URI](https://docs.cloud.google.com/model-armor/overview#ma-malicious-url-detection) filter is enabled.
     
     
       export FILTER_CONFIG='{
@@ -227,6 +227,10 @@ The following example shows the Model Armor filter configuration ([`FilterConfig
       },
       "maliciousUriFilterSettings": {
         "filterEnforcement": "ENABLED"
+      },
+      "csamFilterSettings": {
+        "filterEnforcement": "ENABLED",
+        "confidenceLevel": "HIGH"
       }
      }
     }'
@@ -267,6 +271,10 @@ The following example creates a Model Armor template configuration that has mult
       },
       "maliciousUriFilterSettings": {
         "filterEnforcement": "ENABLED"
+      },
+      "csamFilterSettings": {
+        "filterEnforcement": "ENABLED",
+        "confidenceLevel": "HIGH"
       }
      },
      "templateMetadata": {
@@ -819,6 +827,8 @@ For more information, see [Image screening](https://docs.cloud.google.com/model-
 
   * **Sensitive Data Protection** : Detects sensitive data and helps prevent its accidental exposure from attacks like prompt injection. For more information, see [Sensitive Data Protection](https://docs.cloud.google.com/model-armor/overview#ma-sensitive-data-prot).
 
+  * **Child sexual abuse material (CSAM) detection** : Detects references to child sexual abuse material. For information about default behavior, confidence levels, and regional data residency requirements, see [CSAM detection](https://docs.cloud.google.com/model-armor/overview#ma-csam-detection).
+
 
 
 
@@ -859,7 +869,7 @@ Model Armor de-identifies only the infoTypes that you specify in both your inspe
 
 ### Set confidence level
 
-[Confidence level](https://docs.cloud.google.com/model-armor/overview#ma-confidence-levels) represents how likely the findings match a content filter type. You can set the confidence level for each content filter. The possible values are as follows:
+[Confidence level](https://docs.cloud.google.com/model-armor/overview#ma-confidence-levels) represents how likely the findings match a content filter type. You can set the confidence level for responsible AI safety filters, prompt injection and jailbreak detection, and CSAM detection. The possible values are as follows:
 
   * **None** : No content is detected.
   * **Low and above** : Content is detected with a low, medium, or high confidence level.
@@ -902,6 +912,10 @@ In the `template_metadata` field of the template configuration, set `enforcement
       },
       "malicious_uri_filter_settings": {
         "filter_enforcement": "ENABLED"
+      },
+      "csam_filter_settings": {
+        "filter_enforcement": "ENABLED",
+        "confidence_level": "HIGH"
       }
      },
      "template_metadata": {
@@ -2056,6 +2070,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

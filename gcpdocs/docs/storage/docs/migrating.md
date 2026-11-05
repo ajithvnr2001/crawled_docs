@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/migrating/
 title: Fully migrate from Amazon S3 to Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:26.677296+00:00
+fetched_at: 2026-11-05T11:12:29.332982+00:00
 ---
 
 # Fully migrate from Amazon S3 to Cloud Storage  |  Google Cloud Documentation
@@ -188,6 +188,13 @@ GET/POST bucket query string parameters:
   * "requestPayment" - In Cloud Storage, the equivalent query string parameter to `requestPayment` is `billing`.
 
   
+In Amazon S3, the `UploadPartCopy` operation allows copying data from an existing source object as a part of a multipart upload. | The Cloud Storage XML API does not support `UploadPartCopy`. If you use tools such as Hadoop S3A or Apache Spark that automatically switch from single-part copy to `UploadPartCopy` for files larger than a multipart threshold (such as `fs.s3a.multipart.threshold`), requests fail with a `400 Bad Request` (`NotImplemented`) error. Consider the following alternatives:
+
+  * Use [PUT Object - Copy](https://docs.cloud.google.com/storage/docs/xml-api/put-object-copy), which supports copying objects up to 5 TiB (unlike Amazon S3, which limits single-part copies to 5 GB). Note that unlike `UploadPartCopy`, [ PUT Object - Copy](https://docs.cloud.google.com/storage/docs/xml-api/put-object-copy) can only copy the entire object and does not support byte-range copies.
+  * Upload the object or part directly.
+  * Migrate big data workloads to the [Cloud Storage connector for Hadoop](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage).
+
+  
   
 ## Migrate from Amazon S3 to Cloud Storage headers
 
@@ -242,6 +249,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

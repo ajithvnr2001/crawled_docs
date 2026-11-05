@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/forwarding-rules/create/
 title: gcloud alpha compute forwarding-rules create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T15:45:19.079054+00:00
+fetched_at: 2026-11-05T11:10:46.341678+00:00
 ---
 
 # gcloud alpha compute forwarding-rules create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha compute forwarding-rules create - create a forwarding rule to direc
 SYNOPSIS
     
 
-`gcloud alpha compute forwarding-rules create` `NAME` (`--backend-service`=`BACKEND_SERVICE` | `--target-google-apis-bundle`=`TARGET_GOOGLE_APIS_BUNDLE` | `--target-grpc-proxy`=`TARGET_GRPC_PROXY` | `--target-http-proxy`=`TARGET_HTTP_PROXY` | `--target-https-proxy`=`TARGET_HTTPS_PROXY` | `--target-instance`=`TARGET_INSTANCE` | `--target-pool`=`TARGET_POOL` | `--target-service-attachment`=`TARGET_SERVICE_ATTACHMENT` | `--target-ssl-proxy`=`TARGET_SSL_PROXY` | `--target-tcp-proxy`=`TARGET_TCP_PROXY` | `--target-vpn-gateway`=`TARGET_VPN_GATEWAY`) [`--allow-global-access`] [`--allow-psc-global-access`] [`--description`=`DESCRIPTION`] [`--disable-automate-dns-zone`] [`--ip-collection`=`IP_COLLECTION`] [`--ip-protocol`=`IP_PROTOCOL`] [`--ip-version`=`IP_VERSION`] [`--is-mirroring-collector`] [`--load-balancing-scheme`=`LOAD_BALANCING_SCHEME`] [`--metadata-filter`=[`filter-labels`=`FILTER-LABELS`],[`filter-match-criteria`=`FILTER-MATCH-CRITERIA`]] [`--network`=`NETWORK`] [`--network-tier`=`NETWORK_TIER`] [`--service-directory-registration`=`SERVICE_DIRECTORY_REGISTRATION`] [`--service-label`=`SERVICE_LABEL`] [`--source-ip-ranges`=`SOURCE_IP_RANGE`,[…]] [`--subnet`=`SUBNET`] [`--subnet-region`=`SUBNET_REGION`] [`--target-instance-zone`=`TARGET_INSTANCE_ZONE`] [`--target-pool-region`=`TARGET_POOL_REGION`] [`--target-service-attachment-region`=`TARGET_SERVICE_ATTACHMENT_REGION`] [`--target-vpn-gateway-region`=`TARGET_VPN_GATEWAY_REGION`] [`--address`=`ADDRESS` | `--ip-addresses`=`IP_ADDRESSES`,[…]] [`--address-region`=`ADDRESS_REGION` | `--global-address`] [`--backend-service-region`=`BACKEND_SERVICE_REGION` | `--global-backend-service`] [`--global` | `--region`=`REGION`] [`--global-ip-collection` | `--ip-collection-region`=`IP_COLLECTION_REGION`] [`--global-target-http-proxy` | `--target-http-proxy-region`=`TARGET_HTTP_PROXY_REGION`] [`--global-target-https-proxy` | `--target-https-proxy-region`=`TARGET_HTTPS_PROXY_REGION`] [`--global-target-tcp-proxy` | `--target-tcp-proxy-region`=`TARGET_TCP_PROXY_REGION`] [`--port-range`=[`PORT` | `START_PORT-END_PORT`] | `--ports`=`ALL` | [`PORT` | `START_PORT-END_PORT`],[…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha compute forwarding-rules create` `NAME` (`--backend-service`=`BACKEND_SERVICE` | `--target-google-apis-bundle`=`TARGET_GOOGLE_APIS_BUNDLE` | `--target-grpc-proxy`=`TARGET_GRPC_PROXY` | `--target-http-proxy`=`TARGET_HTTP_PROXY` | `--target-https-proxy`=`TARGET_HTTPS_PROXY` | `--target-instance`=`TARGET_INSTANCE` | `--target-pool`=`TARGET_POOL` | `--target-service-attachment`=`TARGET_SERVICE_ATTACHMENT` | `--target-ssl-proxy`=`TARGET_SSL_PROXY` | `--target-tcp-proxy`=`TARGET_TCP_PROXY` | `--target-vpn-gateway`=`TARGET_VPN_GATEWAY`) [`--allow-global-access`] [`--allow-psc-global-access`] [`--description`=`DESCRIPTION`] [`--disable-automate-dns-zone`] [`--ip-collection`=`IP_COLLECTION`] [`--ip-protocol`=`IP_PROTOCOL`] [`--ip-version`=`IP_VERSION`] [`--is-mirroring-collector`] [`--load-balancing-scheme`=`LOAD_BALANCING_SCHEME`] [`--metadata-filter`=[`filter-labels`=`FILTER-LABELS`],[`filter-match-criteria`=`FILTER-MATCH-CRITERIA`]] [`--network`=`NETWORK`] [`--network-tier`=`NETWORK_TIER`] [`--service-directory-registration`=`SERVICE_DIRECTORY_REGISTRATION`] [`--service-label`=`SERVICE_LABEL`] [`--source-ip-ranges`=`SOURCE_IP_RANGE`,[…]] [`--subnet`=`SUBNET`] [`--subnet-region`=`SUBNET_REGION`] [`--target-instance-zone`=`TARGET_INSTANCE_ZONE`] [`--target-pool-region`=`TARGET_POOL_REGION`] [`--target-service-attachment-region`=`TARGET_SERVICE_ATTACHMENT_REGION`] [`--target-vpn-gateway-region`=`TARGET_VPN_GATEWAY_REGION`] [`--address`=`ADDRESS` | `--ip-addresses`=`IP_ADDRESSES`,[…]] [`--address-region`=`ADDRESS_REGION` | `--global-address`] [`--backend-service-region`=`BACKEND_SERVICE_REGION` | `--global-backend-service`] [`--global` | `--region`=`REGION`] [`--global-ip-collection` | `--ip-collection-region`=`IP_COLLECTION_REGION`] [`--global-target-http-proxy` | `--target-http-proxy-region`=`TARGET_HTTP_PROXY_REGION`] [`--global-target-https-proxy` | `--target-https-proxy-region`=`TARGET_HTTPS_PROXY_REGION`] [`--global-target-tcp-proxy` | `--target-tcp-proxy-region`=`TARGET_TCP_PROXY_REGION`] [`--network-attachment`=`NETWORK_ATTACHMENT` : `--service-class-id`=`SERVICE_CLASS_ID`] [`--port-range`=[`PORT` | `START_PORT-END_PORT`] | `--ports`=`ALL` | [`PORT` | `START_PORT-END_PORT`],[…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` `gcloud alpha compute forwarding-rules create` is used to create a forwarding rule. A forwarding rule directs traffic that matches a destination IP address (and possibly a TCP or UDP port) to a forwarding target (load balancer, VPN gateway or VM instance). 
 
@@ -356,6 +356,17 @@ To unset the property, run:
 
 Alternatively, the region can be stored in the environment variable ``CLOUDSDK_COMPUTE_REGION``. 
 
+Flags for creating a forwarding rule with a network attachment. 
+`--network-attachment`=`NETWORK_ATTACHMENT`
+     Regional network attachment resource in which the forwarding rule should be created. 
+
+This flag argument must be specified if any of the other arguments in this group are specified. 
+
+`--service-class-id`=`SERVICE_CLASS_ID`
+     Regional Service Class ID of the producer service associated with the forwarding rule. 
+
+This is used in conjunction with `--network-attachment` to authorize forwarding rule creation based on the service class. Can only be specified if `--network-attachment` is also specified. 
+
 At most one of these can be specified: 
 
 `--port-range`=[`PORT` | `START_PORT-END_PORT`]
@@ -383,6 +394,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-07-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
