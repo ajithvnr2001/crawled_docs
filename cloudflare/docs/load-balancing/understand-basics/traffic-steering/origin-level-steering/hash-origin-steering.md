@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/hash-origin-steering/
 title: Hash steering \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:07.381412+00:00
+fetched_at: 2026-11-05T09:11:10.234229+00:00
 ---
 
 # Hash steering · Cloudflare Load Balancing docs
@@ -22,11 +22,15 @@ Concepts[Traffic steering](https://developers.cloudflare.com/load-balancing/unde
 
 # Hash
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/hash-origin-steering/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewLimitation when using Workers Workaround
+OverviewPrivate load balancersLimitation when using Workers Workaround
 
 **Hash steering** guides Cloudflare to send requests to endpoints based on a combination of [endpoint weights](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/#weights) and previous requests from that IP address. Ensures requests from the same IP address will hit the same endpoint, but actual traffic distribution may differ from endpoint weights.
+
+## Private load balancers
+
+On [private load balancers](https://developers.cloudflare.com/load-balancing/private-network/), hash steering does not use the `x-forwarded-for` header. It uses the same client identifier as [session affinity on private load balancers](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/#private-load-balancers): the client device for traffic from the Cloudflare One Client, or the source IP address for other on-ramps. Hash steering on a private load balancer picks the endpoint, not the `cloudflared` replica that carries the traffic.
 
 ## Limitation when using Workers
 

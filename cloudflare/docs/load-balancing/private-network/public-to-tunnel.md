@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/private-network/public-to-tunnel/
 title: Set up Private Network Load Balancing for Public traffic to Tunnel \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:06.012866+00:00
+fetched_at: 2026-11-05T09:11:10.282979+00:00
 ---
 
 # Set up Private Network Load Balancing for Public traffic to Tunnel · Cloudflare Load Balancing docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:06.012866+00:00
 
 # Set up Private Network Load Balancing for Public traffic to Tunnel
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/load-balancing/private-network/public-to-tunnel/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Configure a Cloudflare tunnel with an assigned virtual network2\. Configure Cloudflare Load Balancing
 
@@ -35,9 +35,13 @@ The specific configuration steps can vary depending on your infrastructure and s
 
 To create a virtual network:
 
-  1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Settings** > **WARP Client** and find the **Virtual networks** setting.
-  2. Select **Add new** or **Manage** > **Create virtual network** to create virtual networks.
+  1. In the Cloudflare dashboard, go to **Networking** > **Routes** > **Virtual networks**.
+
+[ Go to **Virtual networks** ↗ ](https://dash.cloudflare.com/?to=/:account/magic-networks/routes/virtual-networks)
+  2. Select **Create virtual network**.
+
   3. Define your virtual network name and select **Save**.
+
 
 
 

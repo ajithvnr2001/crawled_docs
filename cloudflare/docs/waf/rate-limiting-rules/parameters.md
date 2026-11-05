@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/rate-limiting-rules/parameters/
 title: Rate limiting parameters \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:51.469965+00:00
+fetched_at: 2026-11-05T09:11:09.444040+00:00
 ---
 
 # Rate limiting parameters · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:39:51.469965+00:00
 
 # Rate limiting parameters
 
-Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/rate-limiting-rules/parameters/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewParameter reference When incoming requests match Also apply rate limiting to cached assets With the same characteristics Increment counter when When rate exceeds When rate exceeds > Requests When rate exceeds > Period When rate exceeds > Score per period When rate exceeds > Response header name Then take action For duration With the following behaviorNotes about rate limiting characteristics Use cases of IP with NAT support Incompatible characteristics Do not use cf.colo.id as a field in expressions Use a lowercased header name (for API users) Missing field versus empty value Recommended configurations when using Cookie value of Requirements for using claims inside a JSON Web Token (JWT)Configuration restrictions
 
@@ -140,9 +140,7 @@ The number of requests over the period of time that will trigger the rule. Appli
 
 
 
-The period of time to consider (in seconds) when evaluating the request rate. The available values [vary according to your Cloudflare plan](https://developers.cloudflare.com/waf/rate-limiting-rules/#availability).
-
-The available API values are: `10`, `60` (one minute), `120` (two minutes), `300` (five minutes), `600` (10 minutes), or `3600` (one hour).
+The period of time to consider (in seconds) when evaluating the request rate. For the supported values and the longest period on each plan, refer to [Availability](https://developers.cloudflare.com/waf/rate-limiting-rules/#availability).
 
 ### When rate exceeds > Score per period
 
@@ -223,7 +221,7 @@ The maximum field size is 30 KB.
 
 Once the rate is reached, the rate limiting rule applies the rule action to further requests for the period of time defined in this field (in seconds).
 
-In the dashboard, select one of the available values, which [vary according to your Cloudflare plan](https://developers.cloudflare.com/waf/rate-limiting-rules/#availability). The available API values are: `0`, `10`, `60` (one minute), `120` (two minutes), `300` (five minutes), `600` (10 minutes), `3600` (one hour), or `86400` (one day).
+In the dashboard, select one of the available values, which [vary according to your Cloudflare plan](https://developers.cloudflare.com/waf/rate-limiting-rules/#availability). In the API, set one of these values, or `0` to throttle requests.
 
 Customers on Free, Pro, and Business plans cannot select a duration when using a [challenge action](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/#actions) — their rate limiting rule will always perform request throttling for these actions. With request throttling, you do not define a duration. When visitors pass a challenge, their corresponding [request counter](https://developers.cloudflare.com/waf/rate-limiting-rules/request-rate/) is set to zero. When visitors with the same values for the rule characteristics make enough requests to trigger the rate limiting rule again, they will receive a new challenge.
 

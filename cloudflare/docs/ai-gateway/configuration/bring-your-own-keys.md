@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/
 title: BYOK (Store Keys) \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:27.810492+00:00
+fetched_at: 2026-11-05T09:11:12.744989+00:00
 ---
 
 # BYOK (Store Keys) · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:27.810492+00:00
 
 # BYOK (Store Keys)
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIntroductionSetting up BYOK Prerequisites Configure API keys Update your applicationsExampleManaging API keys Viewing configured keys Rotating keys Revoking accessMultiple keys per provider Key aliases Example: Using a specific key alias
 
@@ -30,7 +30,7 @@ The keys are stored securely with [Secrets Store](https://developers.cloudflare.
 
   * Secure storage and limit exposure
   * Easier key rotation
-  * Rate limit, budget limit and other restrictions with [Dynamic Routes](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+  * Rate limit, budget limit, and other restrictions with [dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
 
 
 

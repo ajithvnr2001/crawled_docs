@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/
 title: Models \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:27.557769+00:00
+fetched_at: 2026-11-05T09:11:13.353781+00:00
 ---
 
 # Models · Cloudflare Agents docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-30T08:19:27.557769+00:00
 
 # Models
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow a model is chosenWhat every model getsConnect to CloudflareCall models from a Durable Object Generate text with the AI SDK Stream over WebSocketsCall the AI binding directlyOpenAI-compatible endpointsChoose a provider
 
@@ -42,7 +42,7 @@ Name a model with a string, or pass a model object built by the vendor's own pac
 
   * **A Workers AI model** is a `@cf/` id. It runs through `env.AI.run()`. A compatibility layer turns each model's response into the standard OpenAI chat completions shape.
   * **An AI Gateway catalog model** is an `<author>/<model>` id from the [model catalog](https://developers.cloudflare.com/ai/models/), such as `anthropic/claude-opus-5.5` or `openai/gpt-5.5`. It also runs through `env.AI.run()`, which sends it to AI Gateway. The gateway picks a provider and bills the call. Use the catalog's spelling, not the vendor's: `anthropic/claude-opus-5.5`, not `claude-opus-5-5`.
-  * **A[dynamic route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)** is `dynamic/<route>`. The route you configured on the gateway picks the model.
+  * **A[dynamic route](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)** is `dynamic/<route>`. The route you configured on the gateway picks the model.
   * **A model object** comes from the vendor's provider package, such as `anthropic("claude-opus-5-5")`. The vendor's code builds the request and parses the response. The provider sends that request unchanged through the binding to AI Gateway's [provider-native endpoint](https://developers.cloudflare.com/ai-gateway/usage/providers/) for that vendor.
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/usage/universal/
 title: Universal Endpoint (Deprecated) \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:35.821413+00:00
+fetched_at: 2026-11-05T09:11:11.743392+00:00
 ---
 
 # Universal Endpoint (Deprecated) · Cloudflare AI Gateway docs
@@ -10,21 +10,25 @@ fetched_at: 2026-10-08T07:04:35.821413+00:00
 > Source: https://developers.cloudflare.com/ai-gateway/usage/universal/
 
   1. [Home](https://developers.cloudflare.com/)
-  2. /[Ai Gateway](https://developers.cloudflare.com/ai-gateway/)
-  3. /[Usage](https://developers.cloudflare.com/ai-gateway/usage/)
-  4. /Universal
+  2. /[AI Gateway](https://developers.cloudflare.com/ai-gateway/)
+  3. /…
+
+[AI Gateway](https://developers.cloudflare.com/ai-gateway/)
+
+  4. /[Using AI Gateway](https://developers.cloudflare.com/ai-gateway/usage/)
+  5. /Universal Endpoint (Deprecated)
 
 
 
 # Universal Endpoint (Deprecated)
 
-Last updated Sep 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/usage/universal/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewcURL exampleFallbacks Response header (cf-aig-step)Request timeoutsRequest retriesWebSockets API  WebSockets exampleWorkers Binding exampleHeader configuration hierarchy Hierarchy example
 
 Deprecated
 
-The Universal Endpoint is deprecated. Use the [OpenAI-compatible endpoint](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/) for new integrations, and [Dynamic Routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) for fallbacks, retries, and conditional routing. The Universal Endpoint will continue to work for existing integrations.
+The Universal Endpoint is deprecated. Use the [OpenAI-compatible endpoint](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/) for new integrations, and [dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) for fallbacks, retries, and conditional routing. The Universal Endpoint will continue to work for existing integrations.
 
 The Universal Endpoint allows you to contact every provider through a single endpoint.
     

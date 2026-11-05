@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/remote-browser-isolation/isolation-policies/
 title: Isolation policies \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:18.534340+00:00
+fetched_at: 2026-11-05T09:11:11.908251+00:00
 ---
 
 # Isolation policies · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:18.534340+00:00
 
 # Isolation policies
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIsolateDo Not IsolatePolicy settings Copy (from remote to client) Paste (from client to remote) File downloads File uploads Keyboard PrintingCustom block dialog Common policies Isolate all security threats Isolate high risk content Isolate news and media Isolate uncategorized content Isolate ChatGPT
 
@@ -131,8 +131,9 @@ This option does not prevent files being uploaded to websites from third-party c
 
 ### Keyboard
 
-  * _Allow_ : (Default) Users can perform keyboard inputs into an isolated website.
-  * _Do not allow_ : Prohibits users from performing keyboard inputs into an isolated website.
+  * _Allow_ : (Default) Users can perform all keyboard inputs into an isolated website.
+  * _Allow read-only actions_ Beta: Blocks data entry while allowing built-in browser actions such as find in page, select all, copy, print, and zoom. Other policy settings still apply. For example, if **Print remote web pages locally** is set to _Do not allow_ , then the print shortcut will not work even in this mode.
+  * _Do not allow_ : Prohibits users from performing any keyboard inputs into an isolated website.
 
 
 
@@ -140,6 +141,18 @@ Note
 
 Mouse input remains available to allow users to browse a website by following hyperlinks and scrolling. This does not prevent user input into third-party virtual keyboards within an isolated website.
 
+#### Keyboard and clipboard interaction
+
+The keyboard setting and clipboard settings compose independently. The following table shows how they interact when the keyboard is set to _Allow read-only actions_ :
+
+Keyboard setting | Copy setting | Printing setting | Result  
+---|---|---|---  
+_Allow read-only actions_ | _Allow_ | _Allow_ | Users can find in page, select all, copy to local clipboard, print, and zoom.  
+_Allow read-only actions_ | _Allow only within isolated browser_ | _Allow_ | Users can find in page, select all, copy between isolated tabs, print, and zoom. Copy to local clipboard is blocked.  
+_Allow read-only actions_ | _Do not allow_ | _Allow_ | Users can find in page, select all, print, and zoom. Copy is blocked entirely.  
+_Allow read-only actions_ | _Allow_ | _Do not allow_ | Users can find in page, select all, copy to local clipboard, and zoom. Printing is blocked.  
+_Allow read-only actions_ | _Do not allow_ | _Do not allow_ | Users can find in page, select all, and zoom only.  
+  
 ### Printing
 
   * _Allow_ : (Default) Users can print isolated web pages to their local machine.

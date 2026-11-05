@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/get-started/
 title: Get started \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:42.695130+00:00
+fetched_at: 2026-11-05T09:11:10.086889+00:00
 ---
 
 # Get started · Cloudflare Web Application Firewall (WAF) docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:16:42.695130+00:00
 
 # Get started
 
-Last updated Aug 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you begin1\. Deploy the Cloudflare Managed Ruleset2\. Create custom rule based on WAF attack score3\. Configure bot protection Create a custom rule for additional control4\. (Optional) Deploy the Cloudflare OWASP Core Ruleset5\. Review traffic in security dashboards6\. (Optional) Next steps Allowlist certain IP addresses Block specific countries Define rate limits Prevent credential stuffing attacks Prevent users from uploading malware into your applications Get additional security for your APIs Protect your origin server
+OverviewBefore you begin1\. Deploy the Cloudflare Managed Ruleset2\. Create custom rule based on WAF attack score3\. Configure bot protection4\. (Optional) Deploy the Cloudflare OWASP Core Ruleset5\. Review traffic in security dashboards6\. (Optional) Next steps Allowlist certain IP addresses Block specific countries Define rate limits Prevent credential stuffing attacks Prevent users from uploading malware into your applications Get additional security for your APIs Protect your origin server
 
 The Cloudflare Web Application Firewall (Cloudflare WAF) checks incoming web and API requests and filters undesired traffic based on sets of rules called rulesets.
 
@@ -101,37 +101,31 @@ Note
 
 Bot score is only available to Enterprise customers with [Bot Management](https://developers.cloudflare.com/bots/get-started/bot-management/). Customers on Pro and Business plans should turn on [Super Bot Fight Mode](https://developers.cloudflare.com/bots/get-started/super-bot-fight-mode/) instead, which provides built-in bot protection without creating custom rules.
 
-Enterprise customers with Bot Management should first configure bot protection using **Security Settings** , which provide baseline protection without creating custom rules:
+Bot Management is always active for entitled Enterprise zones and assigns a bot score to every request. It does not block or challenge traffic on its own: you act on bot traffic with custom rules.
 
   1. In the Cloudflare dashboard, go to the **Security Settings** page and filter by **Bot traffic**.
 
 [ Go to **Settings** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/security/settings)
-  2. Configure the **Definitely automated** , **Likely automated** , and **Verified bots** settings according to your needs.
+  2. In **Bot management** , select the edit icon and make sure **JavaScript Detections** and **Auto-update machine learning model** are turned on.
 
-  3. Turn on **Block AI bots** if you want to block AI crawlers.
+  3. [Create a custom rule](https://developers.cloudflare.com/waf/custom-rules/create-dashboard/) using the Bot Score, Verified Bot, and Static Resource fields. You can also start from the bot traffic templates by selecting **View bot traffic templates** in **Bot management**.
 
-
-
-
-These built-in settings auto-update with new bot signatures and do not count toward your custom rule limits. For more details, refer to [Bot Management](https://developers.cloudflare.com/bots/get-started/bot-management/).
-
-### Create a custom rule for additional control
-
-Optionally, if you need more granular control — for example, a different score threshold or rules that combine bot score with other fields — [create a custom rule](https://developers.cloudflare.com/waf/custom-rules/create-dashboard/) using the Bot Score and Verified Bot fields:
-
-  * **When incoming requests match** :
+     * **When incoming requests match** :
 
 Field | Operator | Value | Logic  
 ---|---|---|---  
-Bot Score | less than | `20` | And  
-Verified Bot | equals | Off |   
+Bot Score | less than | `30` | And  
+Verified Bot | equals | Off | And  
+Static Resource | equals | Off |   
   
-  * **Choose action** : Managed Challenge
+     * **Choose action** : Managed Challenge
+
+  4. (Optional) In **Security Settings** , use **Configure AI bot policies** to control how AI crawlers and agents can access your site. For details, refer to [Block AI bots](https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/).
 
 
 
 
-This rule uses a threshold of 20 (instead of the default threshold of 30 used by the settings), providing stricter protection for traffic in the 20-29 score range.
+For more details on rule templates and recommended settings, refer to [Bot Management](https://developers.cloudflare.com/bots/get-started/bot-management/#deploy-custom-rule-templates).
 
 For a more comprehensive example of baseline protection against malicious bots, refer to [Challenge bad bots](https://developers.cloudflare.com/waf/custom-rules/use-cases/challenge-bad-bots/#general-protection).
 

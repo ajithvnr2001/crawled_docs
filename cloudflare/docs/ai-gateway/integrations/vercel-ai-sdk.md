@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/integrations/vercel-ai-sdk/
 title: Vercel AI SDK \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:09.035095+00:00
+fetched_at: 2026-11-05T09:11:11.566071+00:00
 ---
 
 # Vercel AI SDK · Cloudflare AI Gateway docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-23T16:40:09.035095+00:00
 
 # Vercel AI SDK
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/integrations/vercel-ai-sdk/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallationCall a catalog modelCall a vendor's model objectFall back to another modelSet gateway optionsUse an account id and API tokenRelated resources
 
-To call AI Gateway from the [AI SDK ↗︎](https://ai-sdk.dev/), use `createAI` from `agents/models/ai-sdk`. It calls models from the [model catalog](https://developers.cloudflare.com/ai/models/), [dynamic routes](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/), and a vendor's own AI SDK models through your gateway. This page covers the AI Gateway features. For the full reference, refer to [AI SDK](https://developers.cloudflare.com/agents/models/ai-sdk/).
+To call AI Gateway from the [AI SDK ↗︎](https://ai-sdk.dev/), use `createAI` from `agents/models/ai-sdk`. It calls models from the [model catalog](https://developers.cloudflare.com/ai/models/), [dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/), and a vendor's own AI SDK models through your gateway. This page covers the AI Gateway features. For the full reference, refer to [AI SDK](https://developers.cloudflare.com/agents/models/ai-sdk/).
 
 The `ai-gateway-provider` package is deprecated. Use `createAI` instead.
 
@@ -95,7 +95,7 @@ Pass an `<author>/<model>` id from the [model catalog](https://developers.cloudf
     	},
     };
 
-Use the catalog's spelling of the id, such as `anthropic/claude-opus-5.5` or `openai/gpt-5.5`. `id` sets the gateway and defaults to `default`. A [dynamic route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) on that gateway is `dynamic/<route>`, for example `ai("dynamic/support")`.
+Use the catalog's spelling of the id, such as `anthropic/claude-opus-5.5` or `openai/gpt-5.5`. `id` sets the gateway and defaults to `default`. A [dynamic route](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) on that gateway is `dynamic/<route>`, for example `ai("dynamic/support")`.
 
 ## Call a vendor's model object
 
@@ -160,7 +160,7 @@ The call forms and options are the same. [Create an API token](https://developer
 
   * [AI SDK provider reference](https://developers.cloudflare.com/agents/models/ai-sdk/)
   * [Model catalog](https://developers.cloudflare.com/ai/models/)
-  * [Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+  * [Dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
   * [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/)
 
 

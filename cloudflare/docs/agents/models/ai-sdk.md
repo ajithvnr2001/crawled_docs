@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/ai-sdk/
 title: AI SDK \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:04.552419+00:00
+fetched_at: 2026-11-05T09:11:13.091606+00:00
 ---
 
 # AI SDK · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:04:04.552419+00:00
 
 # AI SDK
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallUse an account id and API tokenCall a Workers AI modelCall an AI Gateway catalog modelCall a dynamic routeCall a vendor's model object Unified billing and BYOKStream, call tools, and return structured outputResume a dropped streamUse it in ThinkCache responsesTag requests for logs and analyticsFall back to another modelSet optionsRead gateway metadataHandle errorsUse other modalitiesUse a provider registryLimitationsRelated resources
 
@@ -181,7 +181,7 @@ Unified Billing requires [authentication](https://developers.cloudflare.com/ai-g
 
 ## Call a dynamic route
 
-An [AI Gateway dynamic route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) is named `dynamic/<route>`. The route you configured on the gateway picks the model, and can apply conditions, percentages, rate and budget limits, and its own fallbacks:
+An [AI Gateway dynamic route](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) is named `dynamic/<route>`. The route you configured on the gateway picks the model, and can apply conditions, percentages, rate and budget limits, and its own fallbacks:
     
     
     const ai = createAI({ binding: env.AI, id: "my-gateway" });
@@ -660,7 +660,7 @@ A string can be a Workers AI id, a catalog id, or a dynamic route.
 
   * [pi-ai provider](https://developers.cloudflare.com/agents/models/pi-ai/)
   * [Model catalog](https://developers.cloudflare.com/ai/models/)
-  * [Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+  * [Dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
   * [AI Gateway provider-native endpoints](https://developers.cloudflare.com/ai-gateway/usage/providers/)
   * [AI Gateway Worker binding methods](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/)
   * [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/)

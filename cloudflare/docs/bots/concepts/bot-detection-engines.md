@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/bots/concepts/bot-detection-engines/
 title: Bot detection engines \u00b7 Cloudflare bot solutions docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.814033+00:00
+fetched_at: 2026-11-05T09:11:08.667266+00:00
 ---
 
 # Bot detection engines · Cloudflare bot solutions docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-16T06:38:31.814033+00:00
 
 # Bot detection engines
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHeuristicsJavaScript detectionsAdaptive Intelligence (Business and Enterprise)Anomaly detection (Enterprise)Notes on detection
+OverviewHeuristicsJavaScript detectionsAdaptive IntelligenceAnomaly detection (Enterprise)Notes on detection
 
 Cloudflare uses multiple detection engines because different bot types require different detection strategies. Simple bots can be caught by pattern matching against known signatures, while sophisticated bots require machine learning and behavioral analysis.
 
@@ -36,7 +36,7 @@ The [**JavaScript Detections (JSD)**](https://developers.cloudflare.com/cloudfla
 
 JSD is completely optional. To adjust your settings, configure Super Bot Fight Mode from **Security** > **Bots**.
 
-## Adaptive Intelligence (Business and Enterprise)
+## Adaptive Intelligence
 
 **Adaptive Intelligence** is Cloudflare's machine learning engine, and it accounts for the majority of all bot detections. It distinguishes between human and automated traffic using large volumes of anonymized data from across Cloudflare's global network, which proxies billions of requests daily.
 

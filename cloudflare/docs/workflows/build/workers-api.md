@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/workers-api/
 title: Workers API \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:56.635249+00:00
+fetched_at: 2026-11-05T09:11:10.695236+00:00
 ---
 
 # Workers API · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:03:56.635249+00:00
 
 # Workers API
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkflowEntrypoint runWorkflowEventWorkflowStep stepWorkflowStepConfigRollback optionsWorkflowStepContextWorkflow step limitsDefault instance retentionWorkflow jurisdictionDeclare Workflows in exports Call a Workflow through ctx.exportsNonRetryableErrorCall Workflows from Workers Bind from Pages Cross-script callsWorkflow create createBatch deleteBatch getWorkflowInstanceCreateOptionsWorkflowInstance id status pause resume restart terminate delete sendEvent subscribe InstanceStatus
 
@@ -386,7 +386,7 @@ Note that Workflows on Workers Free have a limit of 1,024 steps. Refer to [Workf
 
 ## Default instance retention
 
-By default, the state of a finished Workflow instance is retained for the maximum [retention period](https://developers.cloudflare.com/workflows/reference/limits/) available on your account. To retain instances for a shorter period, configure `default_retention` on the Workflow binding in your Wrangler configuration:
+By default, the state of a finished Workflow instance is retained for 3 days on the Workers Free plan. On the Workers Paid plan, instance state is retained for 7 days by default. Workflows created before the [Workers Paid default changed](https://developers.cloudflare.com/changelog/post/2026-09-10-paid-retention-default/) keep their existing 30-day default. To retain instances for a different period, up to your account's [retention limit](https://developers.cloudflare.com/workflows/reference/limits/), configure `default_retention` on the Workflow binding in your Wrangler configuration:
     
     
     {
@@ -450,7 +450,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-27",
+    	"compatibility_date": "2026-11-05",
     	"exports": {
     		"MyWorkflow": {
     			"type": "workflow",
@@ -466,7 +466,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-27"
+    compatibility_date = "2026-11-05"
     
     [exports.MyWorkflow]
     type = "workflow"
@@ -592,7 +592,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-27",
+    	"compatibility_date": "2026-11-05",
     	"workflows": [
     		{
     			// name of your workflow
@@ -611,7 +611,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-27"
+    compatibility_date = "2026-11-05"
     
     [[workflows]]
     name = "workflows-starter"
@@ -637,7 +637,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-27",
+    	"compatibility_date": "2026-11-05",
     	"workflows": [
     		{
     			// name of your workflow
@@ -659,7 +659,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-27"
+    compatibility_date = "2026-11-05"
     
     [[workflows]]
     name = "billing-workflow"
@@ -955,7 +955,7 @@ Optional properties to pass when creating an instance.
     	params?: unknown;
     	/**
     	 * The retention policy for the Workflow instance.
-    	 * Defaults to the maximum retention period available for the owner's account.
+    	 * Defaults to the Workflow's `default_retention`, then the account default, then the plan default (3 days on Workers Free, 7 days on Workers Paid).
     	 */
     	retention?: {
     		/**
@@ -972,7 +972,7 @@ Optional properties to pass when creating an instance.
     
     type WorkflowRetentionDuration = WorkflowSleepDuration;
 
-If `retention` is not set, instance state is retained for the [`default_retention`](https://developers.cloudflare.com/workflows/build/workers-api/#default-instance-retention) configured on the Workflow binding. If the binding does not set a default either, instance state is retained for the maximum retention period available on your account (3 days on the Workers Free plan, 30 days on the Workers Paid plan). Refer to the [retention limit](https://developers.cloudflare.com/workflows/reference/limits/) for more information.
+If `retention` is not set, instance state is retained for the [`default_retention`](https://developers.cloudflare.com/workflows/build/workers-api/#default-instance-retention) configured on the Workflow binding. If the binding does not set a default either, the account-level default applies, if one is set. Otherwise, instance state is retained for 3 days on the Workers Free plan, or 7 days on the Workers Paid plan (30 days for Workflows created before the [Workers Paid default changed](https://developers.cloudflare.com/changelog/post/2026-09-10-paid-retention-default/)). Refer to the [retention limit](https://developers.cloudflare.com/workflows/reference/limits/) for more information.
 
 The following example creates an instance that retains state for 1 day after success and 7 days after an error:
     

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/change-log/
 title: Overview of the WAF changelog \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:33.606139+00:00
+fetched_at: 2026-11-05T09:11:09.283413+00:00
 ---
 
 # Overview of the WAF changelog · Cloudflare Web Application Firewall (WAF) docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:16:33.606139+00:00
 
 # WAF changelog overview
 
-Last updated Aug 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/change-log/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewChangelog for managed rulesets Release cycle Disabled rules Emergency releasesGeneral updates
+OverviewChangelog for managed rulesets Release cycle Rule removals Disabled rules Emergency releasesGeneral updates
 
 The [WAF changelog](https://developers.cloudflare.com/waf/change-log/changelog/) provides information about changes to [managed rulesets](https://developers.cloudflare.com/waf/managed-rules/) and general updates to WAF protection.
 
@@ -42,6 +42,12 @@ Note
 In some cases, the `beta` tag may persist beyond the standard seven-day review period — for example, when a rule is replacing an older deprecated rule that has not yet been retired. Use the `last_updated` field in the changelog to understand when a rule was last modified, rather than relying on the `beta` tag alone to infer its lifecycle stage.
 
 For updates to existing rules, Cloudflare first deploys the updated version as a separate `BETA` rule (noted in the rule description) with a `beta` tag, before updating the original rule on the next release cycle.
+
+### Rule removals
+
+Cloudflare announces planned managed rule removals in [Scheduled changes](https://developers.cloudflare.com/waf/change-log/scheduled-changes/) at least seven days before the planned removal date. Each notice lists the affected rule IDs and names and the planned removal date.
+
+Emergency removals may occur without advance notice.
 
 ### Disabled rules
 

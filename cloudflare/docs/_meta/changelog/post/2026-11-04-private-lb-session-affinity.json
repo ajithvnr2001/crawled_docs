@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/changelog/post/2026-11-04-private-lb-session-affinity/",
+  "file": "changelog/post/2026-11-04-private-lb-session-affinity.md",
+  "title": "Steer Cloudflare One users and private networks to the same endpoint with session affinity and hash steering in private load balancers \u00b7 Changelog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-11-05T09:11:07.751926+00:00"
+}

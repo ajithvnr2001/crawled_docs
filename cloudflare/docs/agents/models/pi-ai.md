@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/pi-ai/
 title: Pi AI \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:18.116741+00:00
+fetched_at: 2026-11-05T09:11:12.866611+00:00
 ---
 
 # Pi AI · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:18.116741+00:00
 
 # Pi AI
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallCall a modelName a modelUse it with the Pi harnessCache, tag, and time out requestsFall back to another modelRead gateway metadataResume a dropped streamHow requests are routedGenerate imagesRelated resources
 
@@ -153,7 +153,7 @@ There are four ways to name a model:
 
 Any other string throws a `TypeError`. The provider does not guess what a prefix means.
 
-A [dynamic route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) runs on `env.AI.run()` under the gateway you created it on, so set that gateway's `id`. The route picks the model and answers in the chat completions format. It takes the same metadata defaults and overrides as a Workers AI id.
+A [dynamic route](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) runs on `env.AI.run()` under the gateway you created it on, so set that gateway's `id`. The route picks the model and answers in the chat completions format. It takes the same metadata defaults and overrides as a Workers AI id.
 
 A catalog id uses the AI Gateway catalog's spelling, `anthropic/claude-opus-5.5`. Pi AI's own list spells Claude ids the way Anthropic does (`claude-opus-5-5`), so the provider lists them under the catalog spelling. A model object from a vendor registry keeps the vendor's spelling.
 
@@ -289,7 +289,7 @@ Image generation uses Workers AI models:
   * [AI SDK provider](https://developers.cloudflare.com/agents/models/ai-sdk/)
   * [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/)
   * [Model catalog](https://developers.cloudflare.com/ai/models/)
-  * [Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+  * [Dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
   * [Pi AI ↗︎](https://github.com/earendil-works/pi/tree/main/packages/ai)
 
 

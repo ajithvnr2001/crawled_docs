@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/private-network/
 title: Private Network Load Balancing \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:05.561996+00:00
+fetched_at: 2026-11-05T09:11:10.753246+00:00
 ---
 
 # Private Network Load Balancing · Cloudflare Load Balancing docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:12:05.561996+00:00
 
 # Private Network Load Balancing
 
-Last updated Jul 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/load-balancing/private-network/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewOff-ramps Tunnel Cloudflare WANOn-rampsUse cases
+OverviewOff-ramps Tunnel Cloudflare Mesh Cloudflare WANOn-rampsUse cases
 
 Private Network Load Balancing enables you to load balance traffic between servers within a data center ([endpoint steering](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/)) and between private applications. This helps you eliminate the need for hardware appliances and facilitates the migration of your infrastructure to the cloud, providing advantages such as elastic scalability and enhanced reliability.
 
@@ -43,7 +43,7 @@ Since traffic steering decisions or failover mechanisms rely on the health infor
 
 ### Tunnel
 
-Currently, to be able to connect to private IP origins, Cloudflare load balancers require a [Cloudflare tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/) with an associated [virtual network (VNet)](https://developers.cloudflare.com/cloudflare-one/networks/virtual-networks/). If you are connecting to your endpoints using a [published application route](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/public-load-balancers) a VNet is not necessary.
+To connect to private IP origins through [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), the endpoint must specify the [virtual network (VNet)](https://developers.cloudflare.com/cloudflare-one/networks/virtual-networks/) that contains the tunnel's route. If you are connecting to your endpoints using a [published application route](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/public-load-balancers) a VNet is not necessary.
 
 Once the endpoint and virtual network (VNet) tunnel association is configured, Cloudflare can determine not only the tunnel health but also the health of the corresponding virtual or private IP targets.
 
@@ -53,6 +53,12 @@ Note
 
 If your application only needs TCP or UDP proxying (not load balancing), you can skip the Load Balancer and attach Spectrum directly to a virtual network. Refer to [Create a Spectrum application using a virtual network](https://developers.cloudflare.com/spectrum/get-started/#create-a-spectrum-application-using-a-virtual-network-origin).
 
+### Cloudflare Mesh
+
+Private Network Load Balancing supports endpoints behind [Cloudflare Mesh](https://developers.cloudflare.com/mesh/) nodes. Use private IPs from a Mesh node's [CIDR routes](https://developers.cloudflare.com/mesh/features/routes/), or a node's Mesh IP, as endpoint addresses, and select the virtual network that contains the node's route (the default virtual network unless you assigned the route to another one).
+
+Within a virtual network, a CIDR can be assigned to only one tunnel or Mesh node. To reach the same IP address at several sites, assign each site's route to its own virtual network. A common use is failover between a site connected with Cloudflare WAN and a site connected with a Mesh node. For more details, refer to [Load balance private network traffic](https://developers.cloudflare.com/cloudflare-one/networks/load-balancing/#overlapping-ip-addresses).
+
 ### Cloudflare WAN
 
 Private Network Load Balancing supports off-ramping traffic for Cloudflare WAN (formerly Magic WAN) tunnels, such as GRE, IPSec or CNI tunnels. For more information refer to the [Set up Private Network Load Balancing with Cloudflare WAN](https://developers.cloudflare.com/load-balancing/private-network/cloudflare-wan/).
@@ -61,7 +67,7 @@ Private Network Load Balancing supports off-ramping traffic for Cloudflare WAN (
 
 ## On-ramps
 
-Private Network Load Balancing on-ramps, on the other hand, refer to secure paths between the end-user request and the Cloudflare network. Cloudflare Load Balancing supports traffic from [CDN](https://developers.cloudflare.com/cache/), [Spectrum](https://developers.cloudflare.com/spectrum/), [Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/) and [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/) and forward that traffic to a load balancer, and then egress to an endpoint behind any off-ramp (CDN/CNI/IPSec/GRE/Tunnel). Your traffic can ingress and egress by any on-ramp/off-ramp combination.
+Private Network Load Balancing on-ramps, on the other hand, refer to secure paths between the end-user request and the Cloudflare network. Cloudflare Load Balancing supports traffic from [CDN](https://developers.cloudflare.com/cache/), [Spectrum](https://developers.cloudflare.com/spectrum/), [Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/), and [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/), and forward that traffic to a load balancer, and then egress to an endpoint behind any off-ramp (CDN/CNI/IPSec/GRE/Tunnel/Mesh). Your traffic can ingress and egress by any on-ramp/off-ramp combination.
 
 Note
 

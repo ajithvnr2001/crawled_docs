@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/usage/chat-completion/
 title: Unified API (OpenAI compat) \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:33.533595+00:00
+fetched_at: 2026-11-05T09:11:11.491352+00:00
 ---
 
 # Unified API (OpenAI compat) · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:33.533595+00:00
 
 # Unified API (OpenAI compat)
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpoint URLParametersExamplesSupported Providers
 
@@ -28,7 +28,7 @@ For standard single-model chat completions, this endpoint is deprecated. Use the
 
 Dynamic routing
 
-[Dynamic routes](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) (`dynamic/{route}`) can be invoked through this `/compat/chat/completions` endpoint, and existing integrations continue to work. For new integrations, use the [REST API](https://developers.cloudflare.com/ai-gateway/usage/rest-api/) at `/ai/v1/chat/completions` or the [AI binding](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/) instead. See [Using a dynamic route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/usage/) for examples.
+[Dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) (`dynamic/{route}`) can be invoked through this `/compat/chat/completions` endpoint, and existing integrations continue to work. For new integrations, use the [REST API](https://developers.cloudflare.com/ai-gateway/usage/rest-api/) at `/ai/v1/chat/completions` or the [AI binding](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/) instead. Refer to [Using a dynamic route](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/usage/) for examples.
 
 Cloudflare's AI Gateway offers an OpenAI-compatible `/chat/completions` endpoint, enabling integration with multiple AI providers using a single URL. This feature simplifies the integration process, allowing for seamless switching between different models without significant code modifications.
 
@@ -75,7 +75,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "openai/gpt-5.2",
+    	model: "openai/gpt-6-luna",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -89,7 +89,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "anthropic/claude-4-5-sonnet",
+    	model: "anthropic/claude-opus-5-5",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -103,7 +103,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "google/gemini-2.5-pro",
+    	model: "google/gemini-4-argon",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -117,7 +117,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "grok/grok-4",
+    	model: "grok/grok-4.7",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -163,7 +163,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "openai/gpt-5.2",
+    	model: "openai/gpt-6-luna",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -181,7 +181,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "anthropic/claude-4-5-sonnet",
+    	model: "anthropic/claude-opus-5-5",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -199,7 +199,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "google/gemini-2.5-pro",
+    	model: "google/gemini-4-argon",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -217,7 +217,7 @@ Stored Key (BYOK)
     });
     
     const response = await client.chat.completions.create({
-    	model: "grok/grok-4",
+    	model: "grok/grok-4.7",
     	messages: [{ role: "user", content: "Hello, world!" }],
     });
     
@@ -258,435 +258,309 @@ Stored Key (BYOK)
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
-    
-    const unified = createUnified();
     
     const { text } = await generateText({
-      model: aigateway(unified('openai/gpt-5.2')),
-      prompt: 'What is Cloudflare?',
+      model: ai("openai/gpt-6-luna"),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
-    
-    const unified = createUnified();
     
     const { text } = await generateText({
-      model: aigateway(unified('anthropic/claude-4-5-sonnet')),
-      prompt: 'What is Cloudflare?',
+      model: ai("anthropic/claude-opus-5.5"),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
-    
-    const unified = createUnified();
     
     const { text } = await generateText({
-      model: aigateway(unified('google/gemini-2.5-pro')),
-      prompt: 'What is Cloudflare?',
+      model: ai("google/gemini-4-argon"),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
-    
-    const unified = createUnified();
     
     const { text } = await generateText({
-      model: aigateway(unified('grok/grok-4')),
-      prompt: 'What is Cloudflare?',
+      model: ai("xai/grok-4.7"),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
-    
-    const unified = createUnified();
     
     const { text } = await generateText({
-      model: aigateway(unified('dynamic/customer-support')),
-      prompt: 'What is Cloudflare?',
+      model: ai("dynamic/customer-support"),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
-    
-    const unified = createUnified();
     
     const { text } = await generateText({
-      model: aigateway(unified('workers-ai/@cf/meta/llama-3.3-70b-instruct-fp8-fast')),
-      prompt: 'What is Cloudflare?',
+      model: ai("@cf/meta/llama-3.3-70b-instruct-fp8-fast"),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createOpenAI } from "@ai-sdk/openai";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified({ apiKey: '{API_KEY}' });
+    const openai = createOpenAI({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(unified('openai/gpt-5.2')),
-      prompt: 'What is Cloudflare?',
+      model: ai(openai("gpt-6-luna"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createOpenAI } from "@ai-sdk/openai";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified({ apiKey: '{API_KEY}' });
+    const openai = createOpenAI({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(unified('anthropic/claude-4-5-sonnet')),
-      prompt: 'What is Cloudflare?',
+      model: ai(openai("gpt-6-luna"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createAnthropic } from "@ai-sdk/anthropic";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified({ apiKey: '{API_KEY}' });
+    const anthropic = createAnthropic({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(unified('google/gemini-2.5-pro')),
-      prompt: 'What is Cloudflare?',
+      model: ai(anthropic("claude-opus-5-5"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createAnthropic } from "@ai-sdk/anthropic";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified({ apiKey: '{API_KEY}' });
+    const anthropic = createAnthropic({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(unified('grok/grok-4')),
-      prompt: 'What is Cloudflare?',
+      model: ai(anthropic("claude-opus-5-5"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createGoogleGenerativeAI } from "@ai-sdk/google";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified({ apiKey: '{API_KEY}' });
+    const google = createGoogleGenerativeAI({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(unified('dynamic/customer-support')),
-      prompt: 'What is Cloudflare?',
+      model: ai(google("gemini-4-argon"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createGoogleGenerativeAI } from "@ai-sdk/google";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified({ apiKey: '{API_KEY}' });
+    const google = createGoogleGenerativeAI({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(unified('workers-ai/@cf/meta/llama-3.3-70b-instruct-fp8-fast')),
-      prompt: 'What is Cloudflare?',
+      model: ai(google("gemini-4-argon"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createOpenAI } from 'ai-gateway-provider/providers/openai';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createXai } from "@ai-sdk/xai";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const openai = createOpenAI();
+    const xai = createXai({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(openai.chat('gpt-5.2')),
-      prompt: 'What is Cloudflare?',
+      model: ai(xai("grok-4.7"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createAnthropic } from 'ai-gateway-provider/providers/anthropic';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createXai } from "@ai-sdk/xai";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const anthropic = createAnthropic();
+    const xai = createXai({ apiKey: "{API_KEY}" });
     
     const { text } = await generateText({
-      model: aigateway(anthropic('claude-4-5-sonnet')),
-      prompt: 'What is Cloudflare?',
+      model: ai(xai("grok-4.7"), { vendorKey: "request" }),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createGoogle } from 'ai-gateway-provider/providers/google';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createOpenAI } from "@ai-sdk/openai";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const google = createGoogle();
+    const openai = createOpenAI({ apiKey: "cloudflare" });
     
     const { text } = await generateText({
-      model: aigateway(google('gemini-2.5-pro')),
-      prompt: 'What is Cloudflare?',
+      model: ai(openai("gpt-6-luna")),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createXai } from 'ai-gateway-provider/providers/xai';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createAnthropic } from "@ai-sdk/anthropic";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const xai = createXai();
+    const anthropic = createAnthropic({ apiKey: "cloudflare" });
     
     const { text } = await generateText({
-      model: aigateway(xai('grok-4')),
-      prompt: 'What is Cloudflare?',
+      model: ai(anthropic("claude-opus-5-5")),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createGoogleGenerativeAI } from "@ai-sdk/google";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified();
+    const google = createGoogleGenerativeAI({ apiKey: "cloudflare" });
     
     const { text } = await generateText({
-      model: aigateway(unified('customer-support')),
-      prompt: 'What is Cloudflare?',
+      model: ai(google("gemini-4-argon")),
+      prompt: "What is Cloudflare?",
     });
     
     
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
+    import { createAI } from "agents/models/ai-sdk";
+    import { createXai } from "@ai-sdk/xai";
     import { generateText } from "ai";
     
-    const aigateway = createAiGateway({
+    const ai = createAI({
       accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
+      apiToken: "{CF_API_TOKEN}",
+      gateway: "{GATEWAY_NAME}",
     });
     
-    const unified = createUnified();
+    const xai = createXai({ apiKey: "cloudflare" });
     
     const { text } = await generateText({
-      model: aigateway(unified('@cf/meta/llama-3.3-70b-instruct-fp8-fast')),
-      prompt: 'What is Cloudflare?',
-    });
-    
-    
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createOpenAI } from 'ai-gateway-provider/providers/openai';
-    import { generateText } from "ai";
-    
-    const aigateway = createAiGateway({
-      accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
-    });
-    
-    const openai = createOpenAI({ apiKey: '{API_KEY}' });
-    
-    const { text } = await generateText({
-      model: aigateway(openai.chat('gpt-5.2')),
-      prompt: 'What is Cloudflare?',
-    });
-    
-    
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createAnthropic } from 'ai-gateway-provider/providers/anthropic';
-    import { generateText } from "ai";
-    
-    const aigateway = createAiGateway({
-      accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
-    });
-    
-    const anthropic = createAnthropic({ apiKey: '{API_KEY}' });
-    
-    const { text } = await generateText({
-      model: aigateway(anthropic('claude-4-5-sonnet')),
-      prompt: 'What is Cloudflare?',
-    });
-    
-    
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createGoogle } from 'ai-gateway-provider/providers/google';
-    import { generateText } from "ai";
-    
-    const aigateway = createAiGateway({
-      accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
-    });
-    
-    const google = createGoogle({ apiKey: '{API_KEY}' });
-    
-    const { text } = await generateText({
-      model: aigateway(google('gemini-2.5-pro')),
-      prompt: 'What is Cloudflare?',
-    });
-    
-    
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createXai } from 'ai-gateway-provider/providers/xai';
-    import { generateText } from "ai";
-    
-    const aigateway = createAiGateway({
-      accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
-    });
-    
-    const xai = createXai({ apiKey: '{API_KEY}' });
-    
-    const { text } = await generateText({
-      model: aigateway(xai('grok-4')),
-      prompt: 'What is Cloudflare?',
-    });
-    
-    
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
-    import { generateText } from "ai";
-    
-    const aigateway = createAiGateway({
-      accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
-    });
-    
-    const unified = createUnified({ apiKey: '{API_KEY}' });
-    
-    const { text } = await generateText({
-      model: aigateway(unified('customer-support')),
-      prompt: 'What is Cloudflare?',
-    });
-    
-    
-    import { createAiGateway } from 'ai-gateway-provider';
-    import { createUnified } from 'ai-gateway-provider/providers/unified';
-    import { generateText } from "ai";
-    
-    const aigateway = createAiGateway({
-      accountId: "{CLOUDFLARE_ACCOUNT_ID}",
-      gateway: '{GATEWAY_NAME}',
-      apiKey: '{CF_AIG_TOKEN}',
-    });
-    
-    const unified = createUnified({ apiKey: '{API_KEY}' });
-    
-    const { text } = await generateText({
-      model: aigateway(unified('@cf/meta/llama-3.3-70b-instruct-fp8-fast')),
-      prompt: 'What is Cloudflare?',
+      model: ai(xai("grok-4.7")),
+      prompt: "What is Cloudflare?",
     });
     
     
@@ -694,7 +568,7 @@ Stored Key (BYOK)
       --header 'cf-aig-authorization: Bearer {CF_AIG_TOKEN}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "openai/gpt-5.2",
+        "model": "openai/gpt-6-luna",
         "messages": [
           {
             "role": "user",
@@ -708,7 +582,7 @@ Stored Key (BYOK)
       --header 'cf-aig-authorization: Bearer {CF_AIG_TOKEN}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "anthropic/claude-4-5-sonnet",
+        "model": "anthropic/claude-opus-5-5",
         "messages": [
           {
             "role": "user",
@@ -722,7 +596,7 @@ Stored Key (BYOK)
       --header 'cf-aig-authorization: Bearer {CF_AIG_TOKEN}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "google/gemini-2.5-pro",
+        "model": "google/gemini-4-argon",
         "messages": [
           {
             "role": "user",
@@ -736,7 +610,7 @@ Stored Key (BYOK)
       --header 'cf-aig-authorization: Bearer {CF_AIG_TOKEN}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "grok/grok-4",
+        "model": "grok/grok-4.7",
         "messages": [
           {
             "role": "user",
@@ -779,7 +653,7 @@ Stored Key (BYOK)
       --header 'Authorization: Bearer {openai_api_token}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "openai/gpt-5.2",
+        "model": "openai/gpt-6-luna",
         "messages": [
           {
             "role": "user",
@@ -794,7 +668,7 @@ Stored Key (BYOK)
       --header 'Authorization: Bearer {anthropic_api_token}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "anthropic/claude-4-5-sonnet",
+        "model": "anthropic/claude-opus-5-5",
         "messages": [
           {
             "role": "user",
@@ -809,7 +683,7 @@ Stored Key (BYOK)
       --header 'Authorization: Bearer {google_api_token}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "google/gemini-2.5-pro",
+        "model": "google/gemini-4-argon",
         "messages": [
           {
             "role": "user",
@@ -824,7 +698,7 @@ Stored Key (BYOK)
       --header 'Authorization: Bearer {grok_api_token}' \
       --header 'Content-Type: application/json' \
       --data '{
-        "model": "grok/grok-4",
+        "model": "grok/grok-4.7",
         "messages": [
           {
             "role": "user",

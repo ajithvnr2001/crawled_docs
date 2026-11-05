@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/observability/logging/
 title: Logging \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:17.200509+00:00
+fetched_at: 2026-11-05T09:11:08.740318+00:00
 ---
 
 # Logging · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:17.200509+00:00
 
 # Logging
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefault configurationPer-request logging Collect logs (cf-aig-collect-log) Collect log payload (cf-aig-collect-log-payload)DLP fields in logs
 
@@ -115,7 +115,9 @@ In the example below, we use `cf-aig-collect-log-payload` to skip storing the re
 
 Note
 
-If `cf-aig-collect-log` is set to `false`, the entire log entry (including metadata) is skipped regardless of the `cf-aig-collect-log-payload` value. Use `cf-aig-collect-log-payload: false` on its own if you only want to suppress payload storage while retaining metadata logs.
+If `cf-aig-collect-log` is set to `false`, AI Gateway does not store the request and response bodies, regardless of the `cf-aig-collect-log-payload` value, and skips the rest of the log entry. For [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) requests, AI Gateway always logs the request billing details. If the collect logs headers are set to `false`, the entry is logged without the request and response bodies.
+
+Use `cf-aig-collect-log-payload: false` on its own if you only want to suppress payload storage while retaining metadata logs.
 
 ## DLP fields in logs
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/virtual-networks/
 title: Virtual networks \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:37.832836+00:00
+fetched_at: 2026-11-05T09:11:11.185493+00:00
 ---
 
 # Virtual networks · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:37.832836+00:00
 
 # Virtual networks
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen to use virtual networksHow virtual networks workVirtual networks across CloudflareThe default virtual networkFor network engineersCreate and manage virtual networksRelated resources
 
@@ -28,7 +28,7 @@ Every Cloudflare account has a default virtual network. You can create additiona
 
 Note
 
-Cloudflare Tunnel and the Cloudflare One Client support multiple virtual networks. Cloudflare WAN connections (IPsec, GRE, CNI) currently use only the default virtual network.
+Cloudflare Tunnel and the Cloudflare One Client support multiple virtual networks, and you can assign [Cloudflare Mesh CIDR routes](https://developers.cloudflare.com/mesh/features/routes/) to any virtual network. Cloudflare WAN connections (IPsec, GRE, CNI) currently use only the default virtual network.
 
 ## When to use virtual networks
 
@@ -45,56 +45,23 @@ Cloudflare Tunnel and the Cloudflare One Client support multiple virtual network
 When traffic enters Cloudflare destined for a private IP address, Cloudflare looks up the route in the virtual network routing table. The virtual network determines:
 
   * Which private destinations are reachable.
-  * Which connector (Tunnel or WAN connection) carries the traffic.
+  * Which connector (tunnel, Mesh node, or WAN connection) carries the traffic.
   * How overlapping IP addresses are disambiguated.
 
 
-    
-    
-    flowchart TD
-    accTitle: Virtual network routing
-    accDescr: Shows how a Cloudflare account contains three virtual networks, each with their own routing table and connectors pointing to separate destinations. The same CIDR can exist in each virtual network as isolated routing domains.
-    
-        subgraph account ["Your Cloudflare account"]
-            direction LR
-    
-            subgraph vnet_default ["Virtual Network: default"]
-                routes_d("10.0.0.0/8 via Tunnel
-                192.168.1.0/24 via IPsec")
-                routes_d --> tunnel_d(["Tunnel"])
-                routes_d --> ipsec_d(["IPsec"])
-            end
-    
-            subgraph vnet_prod ["Virtual Network: production"]
-                routes_p("10.0.0.0/8 via Tunnel")
-                routes_p --> tunnel_p(["Tunnel (prod)"])
-            end
-    
-            subgraph vnet_stg ["Virtual Network: staging"]
-                routes_s("10.0.0.0/8 via Tunnel")
-                routes_s --> tunnel_s(["Tunnel (stg)"])
-            end
-        end
-    
-        tunnel_d --> dc_legacy("Legacy DC
-        10.0.0.0/8")
-        ipsec_d --> dc_branch("Branch (IPsec)
-        192.168.1.0/24")
-        tunnel_p --> dc_prod("Production DC
-        10.0.0.0/8")
-        tunnel_s --> dc_stg("Staging DC
-        10.0.0.0/8")
-    
-        classDef orange fill:#f48120,stroke:#d6710e,color:#fff
-        classDef blue fill:#4b9fd5,stroke:#3a8bc2,color:#fff
-    
-        class tunnel_d,tunnel_p,tunnel_s orange
-        class ipsec_d blue
-    
-        style vnet_default stroke:#999,stroke-width:2px,stroke-dasharray: 5 5
-        style vnet_prod stroke:#f48120,stroke-width:2px
-        style vnet_stg stroke:#f48120,stroke-width:2px
-    
+
+Your Cloudflare account
+
+  * default
+    * `10.0.0.0/8`TunnelLegacy DC
+    * `192.168.1.0/24`IPsecBranch office
+  * production
+    * `10.0.0.0/8`TunnelProduction DC
+    * `172.16.0.0/16`MeshProduction VPC
+  * staging
+    * `10.0.0.0/8`TunnelStaging DC
+
+
 
 The same CIDR (`10.0.0.0/8`) can exist in each virtual network because they are isolated routing domains.
 
@@ -110,7 +77,7 @@ Product | Virtual network support | Details
 ---|---|---  
 Cloudflare Tunnel | Multiple virtual networks | Assign CIDR routes to a virtual network when configuring your tunnel  
 Cloudflare One Client | Multiple virtual networks | Users land in a virtual network based on policy or client selection  
-Cloudflare Mesh | Not currently supported | —  
+Cloudflare Mesh | Multiple virtual networks | Assign CIDR routes to a virtual network when [adding a route](https://developers.cloudflare.com/mesh/features/routes/)  
 Cloudflare WAN | Default only | All IPsec, GRE, and CNI connections use the default virtual network  
   
 ## The default virtual network
@@ -152,7 +119,7 @@ To add static routes or configure BGP peering within the Cloudflare Virtual Netw
 
 
 
-[PreviousConfigure initial resolved IPs](https://developers.cloudflare.com/cloudflare-one/networks/routes/configure-initial-resolved-ips/)[NextOverview](https://developers.cloudflare.com/cloudflare-one/access-controls/)
+[PreviousConfigure initial resolved IPs](https://developers.cloudflare.com/cloudflare-one/networks/routes/configure-initial-resolved-ips/)[NextLoad balance private network traffic](https://developers.cloudflare.com/cloudflare-one/networks/load-balancing/)
 
 Was this helpful?
 

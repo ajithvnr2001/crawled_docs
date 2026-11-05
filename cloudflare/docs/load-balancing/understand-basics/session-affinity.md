@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/
 title: Session affinity \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:07.327720+00:00
+fetched_at: 2026-11-05T09:11:10.153888+00:00
 ---
 
 # Session affinity · Cloudflare Load Balancing docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:12:07.327720+00:00
 
 # Session affinity
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewTypes By Cloudflare cookie only By Cloudflare cookie and Client IP fallback By HTTP headerEnabling Session Affinity from the Cloudflare dashboardEnabling Session Affinity via the Cloudflare APIEndpoint DrainZero-Downtime Failover
+OverviewTypes By Cloudflare cookie only By Cloudflare cookie and Client IP fallback By HTTP headerEnabling Session Affinity from the Cloudflare dashboardEnabling Session Affinity via the Cloudflare APIPrivate load balancersEndpoint DrainZero-Downtime Failover
 
 When you enable session affinity, your load balancer directs all requests from a particular end user to a specific endpoint. This continuity preserves information about the user session — such as items in their shopping cart — that might otherwise be lost if requests were spread out among multiple servers.
 
@@ -28,7 +28,7 @@ Session affinity can also help reduce network requests, leading to savings for c
 
 Note
 
-Session Affinity is only supported by Public Load Balancers.
+Private load balancers support only the **By Cloudflare cookie and Client IP fallback** type, which works without cookies. For details, refer to [Session affinity on private load balancers](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/#private-load-balancers).
 
 ## Types
 
@@ -123,6 +123,27 @@ Customize the behavior of session affinity by using the `session_affinity`, `ses
 To enable session affinity by HTTP header, set the `session_affinity` value to `header` and add your HTTP header names to `session_affinity_attributes.headers`.
 
 For more details on API commands in context, refer to [Create a load balancer with the API](https://developers.cloudflare.com/load-balancing/load-balancers/create-load-balancer/).
+
+* * *
+
+## Private load balancers
+
+[Private load balancers](https://developers.cloudflare.com/load-balancing/private-network/) handle Layer 3/4 traffic and do not set or read cookies or HTTP headers. To get session affinity on a private load balancer, use the API to set `session_affinity` to `ip_cookie` (**By Cloudflare cookie and Client IP fallback**). The `cookie` and `header` types have no effect on private load balancers.
+
+With `ip_cookie`, the load balancer picks the endpoint based on a stable identifier for the client:
+
+  * For traffic from the [Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/), the identifier is the client device. A device keeps the same endpoint even if its IP address changes.
+  * For traffic from other on-ramps, the identifier is the source IP address.
+
+
+
+Requests with the same identifier go to the same endpoint for as long as that endpoint stays healthy. No cookie is stored, so `session_affinity_ttl` does not apply. A client may move to a different endpoint if that endpoint becomes unhealthy or if you add, remove, or reweight endpoints in the pool.
+
+The dashboard does not show session affinity settings for private load balancers. To keep each client on the same endpoint within a pool from the dashboard, set the pool's **Endpoint steering** to [**Hash**](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/hash-origin-steering/#private-load-balancers) instead. Hash steering uses the same client identifier.
+
+Session affinity selects an endpoint, not a tunnel replica
+
+Session affinity on a private load balancer keeps a client on the same endpoint (IP address and virtual network). It does not control which [`cloudflared` replica](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/tunnel-availability/#cloudflared-replicas) of a tunnel carries the traffic. Cloudflare forwards traffic to the replica closest to the Cloudflare data center handling the request, so the same client can reach the endpoint through different replicas over time. Each replica can reach the endpoint from a different source IP. Applications that bind a session to the client's source IP, such as some firewall or appliance admin interfaces, may still see requests from different IP addresses. To avoid this, put a proxy in front of the application so it always sees the same source IP, or run a single `cloudflared` replica for that tunnel (this removes replica redundancy).
 
 * * *
 

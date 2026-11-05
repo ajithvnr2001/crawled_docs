@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/reference/headers/
 title: Email headers \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:15.502432+00:00
+fetched_at: 2026-11-05T09:11:13.174436+00:00
 ---
 
 # Email headers · Cloudflare Email Service docs
@@ -20,9 +20,9 @@ fetched_at: 2026-10-08T07:11:15.502432+00:00
 
 Which email headers you can set, which are auto-generated, and how they are validated
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/reference/headers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPlatform-controlled headersAllowlisted custom headers Threading and reply headers List management headers Automated message identification Content and display Delivery and notification Modern standards Custom X-headersUsage examplesHeader limitsValidation rulesError codes
+OverviewPlatform-controlled headersAllowlisted custom headers Threading and reply headers List management headers Automated message identification Content and display Delivery and notification Modern standards One-time passcodes Custom X-headersUsage examplesHeader limitsValidation rulesError codes
 
 When sending emails with Cloudflare Email Service, you can set custom headers using the `headers` field in the [Workers API](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/) or [REST API](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/). The Email Service uses a **allowlist-based approach** — only explicitly approved headers are accepted. Any header not on the allowlist (and not an `X-` prefixed custom header) is rejected at API time with a clear error.
 
@@ -112,6 +112,12 @@ Header | RFC | Notes
 Header | RFC | Notes  
 ---|---|---  
 `Archived-At` | [RFC 5064 ↗︎](https://datatracker.ietf.org/doc/html/rfc5064) | URL where message is archived  
+  
+### One-time passcodes
+
+Header | RFC | Notes  
+---|---|---  
+`OTP-Token` | [draft-goto-otp-token ↗︎](https://datatracker.ietf.org/doc/draft-goto-otp-token/) | One-time passcode bound to a web origin, for example `"123456"; origin="https://example.com"`. The origin must be a canonical `https` origin. At most one per message.  
   
 ### Custom X-headers
 

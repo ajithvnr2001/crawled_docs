@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/reference/limits/
 title: Limits \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:16.261066+00:00
+fetched_at: 2026-11-05T09:11:09.953995+00:00
 ---
 
 # Limits · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:18:16.261066+00:00
 
 # Limits
 
-Last updated Sep 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workflows/reference/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview waiting instances do not count towards instance concurrency limits Cron-triggered instances on Workers Paid Increasing Workflow step limits Increasing Workflow CPU limits Increasing Workflow subrequest limitsWall time limits by invocation type
 
@@ -45,7 +45,7 @@ Maximum Workflow executions | 100,000 per day [shared with Workers daily limit](
 Concurrent Workflow instances (executions) per account 5 | 100 | 50,000  
 Maximum Workflow instance creation rate 6 | 100 per second 7 | 300 per second per account 7, 100 per second per workflow  
 Maximum number of [queued instances](https://developers.cloudflare.com/workflows/observability/metrics-analytics/#event-types) | 100,000 | 2,000,000  
-Retention limit for completed Workflow instance state | 3 days | 30 days 8  
+Retention limit for completed Workflow instance state | 3 days | 7 days (default) / configurable up to 30 days 8  
 Maximum length of a Workflow name 9 | 64 characters | 64 characters  
 Maximum length of a Workflow instance ID 9 | 100 characters | 100 characters  
 Maximum number of subrequests per Workflow instance | 50/request | 10,000/request (default) / configurable up to 10 million  
@@ -189,7 +189,7 @@ The following table summarizes the wall time limits for different types of Worke
 
 Invocation type | Wall time limit | Details  
 ---|---|---  
-Incoming HTTP request | Unlimited | No hard limit while the client remains connected. A Worker that is still streaming a response body remains active. [`waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil) extends execution for up to 30 seconds after the response or disconnect.  
+Incoming HTTP request | Unlimited | No hard limit while the client remains connected. Workers requests are subject to the [grace period for runtime updates](https://developers.cloudflare.com/workers/platform/limits/#runtime-updates). A Worker that is still streaming a response body remains active. [`waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil) extends execution for up to 30 seconds after the response or disconnect.  
 [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/) | 15 minutes | Scheduled Workers have a maximum wall time of 15 minutes per invocation.  
 [Queue consumers](https://developers.cloudflare.com/queues/configuration/javascript-apis/#consumer) | 15 minutes | Each consumer invocation has a maximum wall time of 15 minutes.  
 [Durable Object alarm handlers](https://developers.cloudflare.com/durable-objects/api/alarms/) | 15 minutes | Alarm handler invocations have a maximum wall time of 15 minutes.  
@@ -212,14 +212,14 @@ Incoming HTTP request | Unlimited | No hard limit while the client remains conne
 
   7. Workflows will return a HTTP 429 rate limited error if you exceed the rate of new Workflow instance creation. ↩ ↩2
 
-  8. Workflow instance state and logs will be retained for 3 days on the Workers Free plan and for 30 days on the Workers Paid plan. You can retain instances for a shorter period by setting [`default_retention`](https://developers.cloudflare.com/workflows/build/workers-api/#default-instance-retention) on the Workflow binding, or [`retention`](https://developers.cloudflare.com/workflows/build/workers-api/#workflowinstancecreateoptions) on an individual instance. ↩
+  8. On the Workers Free plan, Workflow instance state and logs are retained for 3 days. On the Workers Paid plan, instance state and logs are retained for 7 days by default, and you can configure retention up to 30 days. Workflows created before the [Workers Paid default changed](https://developers.cloudflare.com/changelog/post/2026-09-10-paid-retention-default/) keep their existing 30-day default. You can change the retention period by setting [`default_retention`](https://developers.cloudflare.com/workflows/build/workers-api/#default-instance-retention) on the Workflow binding, or [`retention`](https://developers.cloudflare.com/workflows/build/workers-api/#workflowinstancecreateoptions) on an individual instance. ↩
 
   9. Match pattern: _`^[a-zA-Z0-9_][a-zA-Z0-9-_]\*$`_ ↩ ↩2
 
 
 
 
-[PreviousPricing](https://developers.cloudflare.com/workflows/reference/pricing/)[NextEvent subscriptions](https://developers.cloudflare.com/workflows/reference/event-subscriptions/)
+[PreviousPricing](https://developers.cloudflare.com/workflows/reference/pricing/)[NextData location](https://developers.cloudflare.com/workflows/reference/data-location/)
 
 Was this helpful?
 

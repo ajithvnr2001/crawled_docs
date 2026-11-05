@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/get-started/
 title: Getting started \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:30.186680+00:00
+fetched_at: 2026-11-05T09:11:12.179167+00:00
 ---
 
 # Getting started · Cloudflare AI Gateway docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:04:30.186680+00:00
 
 # Getting started
 
-Last updated Aug 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet your account ID and authentication tokenSend your first requestProvider authenticationIntegration options REST API Provider-specific endpointsNext steps
 
@@ -140,7 +140,7 @@ For direct integration with specific AI providers, use dedicated endpoints that 
 ## Next steps
 
   * Learn more about [caching](https://developers.cloudflare.com/ai-gateway/features/caching/) for faster requests and cost savings and [rate limiting](https://developers.cloudflare.com/ai-gateway/features/rate-limiting/) to control how your application scales.
-  * Explore how to specify model or provider [fallbacks, ratelimits, A/B tests](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) for resiliency.
+  * Explore how to specify model or provider [fallbacks, ratelimits, A/B tests](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) for resiliency.
   * Learn how to use low-cost, open source models on [Workers AI](https://developers.cloudflare.com/ai-gateway/usage/providers/workersai/) \- our AI inference service.
 
 

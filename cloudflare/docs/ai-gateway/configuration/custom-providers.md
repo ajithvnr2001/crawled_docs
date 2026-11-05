@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/configuration/custom-providers/
 title: Custom Providers \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:28.682946+00:00
+fetched_at: 2026-11-05T09:11:12.676569+00:00
 ---
 
 # Custom Providers · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:28.682946+00:00
 
 # Custom Providers
 
-Last updated Jun 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/configuration/custom-providers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewUse casesBefore you begin Prerequisites AuthenticationCreate a custom providerList custom providersGet a specific custom providerUpdate a custom providerDelete a custom providerUsing custom providers with AI Gateway How URL routing works Choosing between Unified API and provider-specific endpoint Via Unified API Via provider-specific endpoint ExamplesCommon errors 409 Conflict - Duplicate slug 404 Not Found 400 Bad Request - Invalid base_url 404 when making requests to a custom providerBest practicesLimitationsRelated resources
 
@@ -673,7 +673,7 @@ If you receive a 404 from the upstream provider, the most common cause is an inc
   * [Get started with AI Gateway](https://developers.cloudflare.com/ai-gateway/get-started/)
   * [Configure authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/)
   * [BYOK (Store Keys)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/)
-  * [Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+  * [Dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
   * [Caching](https://developers.cloudflare.com/ai-gateway/features/caching/)
   * [Rate limiting](https://developers.cloudflare.com/ai-gateway/features/rate-limiting/)
 

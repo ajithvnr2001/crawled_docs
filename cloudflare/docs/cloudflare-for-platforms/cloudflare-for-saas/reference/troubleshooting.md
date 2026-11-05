@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/troubleshooting/
 title: Troubleshooting Cloudflare for SaaS \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:29.674038+00:00
+fetched_at: 2026-11-05T09:11:13.425085+00:00
 ---
 
 # Troubleshooting Cloudflare for SaaS · Cloudflare for Platforms docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-16T06:38:29.674038+00:00
 
 # Troubleshooting
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCertificate stuck in pending validationRate limitsPurge cacheResolution error 1016 (Origin DNS error) when accessing the custom hostnameOld SaaS provider content after updating a CNAMECustom hostname in Moved statusCAA errorsCustom hostname matches zone name (403 Forbidden)Older devices have issues connectingCustom hostname fails to verify because the zone is heldHostnames over 64 characters
+OverviewCertificate stuck in pending validationRate limitsPurge cacheResolution error 1016 (Origin DNS error) when accessing the custom hostnameOld SaaS provider content after updating a CNAMECustom hostname in Moved statusCAA errorsCustom hostname matches zone name (403 Forbidden)Older devices have issues connectingCustom hostname fails to verify because the zone is heldHostnames over 64 charactersTLS handshake failure for clients without SNI Alternative architecture for non-SNI clients
 
 ## Certificate stuck in pending validation
 
@@ -182,6 +182,28 @@ The Common Name (CN) restriction establishes a limit of 64 characters ([RFC 5280
 To solve this, you can set `cloudflare_branding` to `true` when [creating your custom hostnames](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/create-custom-hostnames/#hostnames-over-64-characters) via API.
 
 Cloudflare branding means that `sni.cloudflaressl.com` will be added as the certificate Common Name (CN) and the long hostname will be included as a part of the Subject Alternative Name (SAN).
+
+* * *
+
+## TLS handshake failure for clients without SNI
+
+Clients that omit the `server_name` extension from their TLS `ClientHello` — typically legacy embedded devices or very old operating systems — receive a TLS handshake failure (alert 40) when connecting to a custom hostname. Without SNI, the edge cannot determine which certificate to serve, and the connection fails before any HTTP traffic is exchanged.
+
+SNI is required for custom hostnames. There is no configuration within Cloudflare for SaaS that enables non-SNI clients to connect to arbitrary custom hostnames (for example, `shop.example.com`). The only reliable fix is to upgrade the affected devices to a TLS stack that supports SNI.
+
+### Alternative architecture for non-SNI clients
+
+If upgrading affected devices is not possible, an alternative architecture combining [Spectrum](https://developers.cloudflare.com/spectrum/) and [BYOIP](https://developers.cloudflare.com/byoip/) can allow non-SNI clients to reach custom hostnames — but it does not use Cloudflare for SaaS.
+
+In this model:
+
+  * Each custom hostname is assigned a dedicated IP via BYOIP (requires ownership of at least a /24 prefix, with one IP allocated per tenant), so the destination IP itself identifies the tenant instead of SNI.
+  * Spectrum routes the connection at Layer 4 by IP:port without terminating TLS.
+  * TLS is handled entirely at the origin, which is responsible for selecting the correct certificate per hostname.
+
+
+
+This approach requires Spectrum and BYOIP add-ons and is a significant architectural change. Contact your account team to evaluate this option.
 
 [PreviousConnection request details](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/connection-details/)[NextCustom hostnames](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/status-codes/custom-hostnames/)
 

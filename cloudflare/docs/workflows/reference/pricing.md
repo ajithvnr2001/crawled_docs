@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/reference/pricing/
 title: Pricing \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:16.559321+00:00
+fetched_at: 2026-11-05T09:11:10.001742+00:00
 ---
 
 # Pricing · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:18:16.559321+00:00
 
 # Pricing
 
-Last updated Sep 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workflows/reference/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Workflows pricing Storage UsageFrequently Asked Questions Are there additional costs for Workflows? Are Workflows available on the Workers Free plan? What is a Workflow invocation? How do Workflows show up on my bill? Are there any limits to Workflows?
 
@@ -61,7 +61,7 @@ You can increase the CPU limit available to your Workflow instances up to 5 minu
 Storage is billed using gigabyte-month (GB-month) as the billing metric, identical to [Durable Objects SQL storage](https://developers.cloudflare.com/durable-objects/platform/pricing/#sqlite-storage-backend). A GB-month is calculated by averaging the peak storage per day over a billing period (30 days).
 
   * Storage is calculated across all instances, and includes running, errored, sleeping, and completed instances.
-  * By default, instance state is retained for [3 days on the Free plan](https://developers.cloudflare.com/workflows/reference/limits/) and [30 days on the Paid plan](https://developers.cloudflare.com/workflows/reference/limits/).
+  * By default, instance state is retained for [3 days on the Free plan](https://developers.cloudflare.com/workflows/reference/limits/) and [7 days on the Paid plan](https://developers.cloudflare.com/workflows/reference/limits/). Workflows on the Paid plan created before the [default changed](https://developers.cloudflare.com/changelog/post/2026-09-10-paid-retention-default/) retain instance state for 30 days by default. You can configure retention up to 30 days on the Paid plan.
   * If you do not need to retain state for errored or completed Workflows, you can set a shorter retention period for every instance of a Workflow with [`default_retention`](https://developers.cloudflare.com/workflows/build/workers-api/#default-instance-retention) in your Wrangler configuration, or per instance with the [`retention` option in `WorkflowInstanceCreateOptions`](https://developers.cloudflare.com/workflows/build/workers-api/#workflowinstancecreateoptions).
   * Deleting instances via the [Workers API](https://developers.cloudflare.com/workflows/build/workers-api/), [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/commands/workflows/#workflows), REST API, or dashboard will free up storage. It may take a few minutes for storage limits to update.
 

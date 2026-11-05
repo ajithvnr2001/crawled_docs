@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/private-network/warp-to-tunnel/
 title: Set up Private Network Load Balancing with Client-to-Tunnel \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:11.601118+00:00
+fetched_at: 2026-11-05T09:11:10.349851+00:00
 ---
 
 # Set up Private Network Load Balancing with Client-to-Tunnel · Cloudflare Load Balancing docs
@@ -18,41 +18,40 @@ fetched_at: 2026-10-13T08:48:11.601118+00:00
 
 # Set up Private Network Load Balancing with Client-to-Tunnel
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create load balancer pools2\. Create a private load balancer3\. Route the load balancer IP through the Cloudflare One Client4\. (Optional) Assign a hostname to the load balancer
 
 You can use Private Network Load Balancing to distribute Cloudflare One Client traffic to private hostnames and IPs connected via [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/).
 
 For example, assume you have an internal application running in two data centers, and you want Cloudflare One Client users to access the application from the data center closest to their geographic location. A typical load balancing configuration is shown in the following diagram:
-    
-    
-    graph LR
-        W[WARP clients] --> C{Private load balancer <br> 100.112.0.0}
-        C -- Tunnel 1 --> cf1
-        C -- Tunnel 2 --> cf2
-    		subgraph D2[Data center 2]
-    			cf2@{ shape: processes, label: "cloudflared" }
-    			subgraph F[Pool 2]
-    					S3["Endpoint <br> 10.0.0.1 (VNET-2)"]
-    					S4["Endpoint <br> 10.0.0.2 (VNET-2)"]
-    			end
-    			cf2-->S3
-    			cf2-->S4
-    		end
-    		subgraph D1[Data center 1]
-    			cf1@{ shape: processes, label: "cloudflared" }
-    			subgraph E[Pool 1]
-    					S1["Endpoint <br> 10.0.0.1 (VNET-1)"]
-    					S2["Endpoint <br> 10.0.0.2 (VNET-1)"]
-    			end
-    			cf1-->S1
-    			cf1-->S2
-    		end
-    
-    		style E stroke-width:2px,stroke-dasharray: 5 5
-    		style F stroke-width:2px,stroke-dasharray: 5 5
-    
+
+Cloudflare One Client devices
+
+Connects to `100.112.0.0`
+
+[Private load balancer](https://developers.cloudflare.com/load-balancing/private-network/)
+
+Picks a healthy endpoint based on your steering policy
+
+[Health monitors](https://developers.cloudflare.com/load-balancing/monitors/)[Steering](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/)[Session affinity](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/#private-load-balancers)
+
+  * Pool 1 · Data center 1
+
+[Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/)
+
+    * `10.0.0.1`VNET-1
+    * `10.0.0.2`VNET-1
+  * Pool 2 · Data center 2
+
+[Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/)
+
+    * `10.0.0.1`VNET-2
+    * `10.0.0.2`VNET-2
+
+
+
+Endpoint = IP address + virtual network
 
 The components in the diagram include:
 
@@ -142,7 +141,7 @@ After completing the setup, you will be redirected to the Load Balancing dashboa
 
 ## 3\. Route the load balancer IP through the Cloudflare One Client
 
-In order for Cloudflare One Clients to connect to your load balancer, the load balancer's IP address must route through the WARP tunnel in your [Split Tunnel settings](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/route-traffic/split-tunnels/).
+In order for Cloudflare One Clients to connect to your load balancer, the load balancer's IP address must route through the Cloudflare One Client in your [Split Tunnels settings](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/route-traffic/split-tunnels/).
 
   1. In the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/), go to **Zero Trust** > **Team & Resources** > **Device profiles**.
   2. Find the [device profile](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/) you would like to modify and select **Edit**.
@@ -152,13 +151,17 @@ In order for Cloudflare One Clients to connect to your load balancer, the load b
 
 Note
 
-Some IPs in the `100.64.0.0/10` range may be reserved for other Zero Trust services such as WARP CGNAT IPs, or Gateway initial resolved IPs if your account uses a legacy or custom range within CGNAT space. These IPs should remain deleted from the Exclude list.
+Some IPs in the `100.64.0.0/10` range may be reserved for other Zero Trust services such as Cloudflare One Client device IPs, or Gateway initial resolved IPs if your account uses a legacy or custom range within CGNAT space. These IPs should remain deleted from the Exclude list.
 
      * **Include mode** : Add your load balancer IP.
 
 
 
 Cloudflare One Client traffic can now reach your private load balancer. For example, if your load balancer points to a web application, you can test by running `curl <load-balancer-IP>` from the device. This traffic will be distributed over Cloudflare Tunnel to your private endpoints according to your configured steering method.
+
+Note
+
+To keep each device on the same endpoint, set the pool's endpoint steering to [**Hash**](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/hash-origin-steering/#private-load-balancers), or set [session affinity](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/#private-load-balancers) to `ip_cookie` with the API. This pins the endpoint, not the `cloudflared` replica. If your application ties sessions to the source IP, refer to the caution in [Session affinity](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/#private-load-balancers).
 
 ## 4\. (Optional) Assign a hostname to the load balancer
 

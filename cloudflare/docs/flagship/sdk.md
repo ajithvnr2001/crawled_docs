@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/sdk/
 title: OpenFeature SDK \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:50.120361+00:00
+fetched_at: 2026-11-05T09:11:08.828106+00:00
 ---
 
 # OpenFeature SDK · Cloudflare Flagship docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-20T06:57:50.120361+00:00
 
 # OpenFeature SDK
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSDKsContext supportInstallationNext steps
 
@@ -25,13 +25,14 @@ Evaluate Flagship feature flags using OpenFeature.
 
 [OpenFeature ↗︎](https://openfeature.dev/) is the CNCF standard for feature flag interfaces. It provides a vendor-neutral API so you can switch between flag providers without changing evaluation code.
 
-Flagship provides official OpenFeature-compatible SDKs for TypeScript, Python, and Go. The source code is available on [GitHub ↗︎](https://github.com/cloudflare/flagship).
+Flagship provides official OpenFeature-compatible SDKs for TypeScript, Python, Go, and Rust. The source code is available on [GitHub ↗︎](https://github.com/cloudflare/flagship).
 
 SDK | Package | Runtime | Evaluation modes  
 ---|---|---|---  
 TypeScript | [`@cloudflare/flagship` ↗︎](https://www.npmjs.com/package/@cloudflare/flagship) | Workers, Node.js, browsers | Workers binding, HTTP, browser prefetch cache  
 Python | [`cloudflare-flagship` ↗︎](https://pypi.org/project/cloudflare-flagship/) | Python server applications | HTTP  
 Go | [`github.com/cloudflare/flagship/sdks/go` ↗︎](https://pkg.go.dev/github.com/cloudflare/flagship/sdks/go) | Go server applications | HTTP  
+Rust | [`cloudflare-flagship` ↗︎](https://crates.io/crates/cloudflare-flagship) | Async Rust server applications | HTTP, local evaluation  
   
 ## SDKs
 
@@ -41,6 +42,7 @@ Flagship SDKs are organized by language. The TypeScript SDK has separate setup g
   * [TypeScript Client SDK](https://developers.cloudflare.com/flagship/sdk/client-provider/) — For browser applications that need synchronous OpenFeature web SDK evaluation.
   * [Python SDK](https://developers.cloudflare.com/flagship/sdk/python/) — For Python server applications.
   * [Go SDK](https://developers.cloudflare.com/flagship/sdk/go/) — For Go server applications.
+  * [Rust SDK](https://developers.cloudflare.com/flagship/sdk/rust/) — For async Rust server applications.
 
 
 
@@ -50,7 +52,7 @@ If you are running inside a Cloudflare Worker, the [binding](https://developers.
 
 ## Context support
 
-The TypeScript, Python, and Go SDKs support structured context from version `0.6.0`. Context support depends on the evaluation client and transport:
+The TypeScript, Python, and Go SDKs support structured context from version `0.6.0`. The Rust SDK supports it in all versions. Context support depends on the evaluation client and transport:
 
 Client or API | Context support  
 ---|---  
@@ -59,6 +61,7 @@ TypeScript server provider | Recursive JSON values and `Date`, with binding or H
 TypeScript client provider | Recursive JSON values and `Date`  
 Python provider | Recursive JSON values and `datetime`  
 Go provider | Recursive JSON values and `time.Time`  
+Rust provider | Recursive JSON values and OpenFeature date-time values  
 Wrangler | String values from each `--context` argument  
 Evaluation API `POST` | Recursive JSON values  
   
@@ -110,12 +113,18 @@ For Go:
     
     go get github.com/cloudflare/flagship/sdks/go
 
+For Rust:
+    
+    
+    cargo add cloudflare-flagship
+
 ## Next steps
 
   * Set up the [server provider](https://developers.cloudflare.com/flagship/sdk/server-provider/) for Workers, Node.js, or other server-side runtimes.
   * Set up the [client provider](https://developers.cloudflare.com/flagship/sdk/client-provider/) for browser applications.
   * Set up the [Python SDK](https://developers.cloudflare.com/flagship/sdk/python/) for Python server applications.
   * Set up the [Go SDK](https://developers.cloudflare.com/flagship/sdk/go/) for Go server applications.
+  * Set up the [Rust SDK](https://developers.cloudflare.com/flagship/sdk/rust/) for async Rust server applications.
 
 
 

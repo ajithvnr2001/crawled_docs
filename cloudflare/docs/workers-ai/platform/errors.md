@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/platform/errors/
 title: Errors \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:06.982705+00:00
+fetched_at: 2026-11-05T09:11:08.563423+00:00
 ---
 
 # Errors · Cloudflare Workers AI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:06.982705+00:00
 
 # Errors
 
-Last updated Sep 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/platform/errors/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Below is a list of Workers AI errors.
 
@@ -42,6 +42,10 @@ Aborted | `3008` | `408` | Request was aborted
 Account limited | `3036` | `429` | You have used up your daily free allocation of 10,000 neurons. Please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage.  
 Out of capacity | `3040` | `429` | `Capacity temporarily exceeded, please try again.` Also returned when `rejectIfBusy` rejects a request because capacity is unavailable.  
   
+Errors from AI Gateway
+
+If you call a model through [AI Gateway](https://developers.cloudflare.com/ai-gateway/), errors can come back as `AiGatewayError: <CODE>: <MESSAGE>`. This applies, for example, when you use `env.AI.run()` with a `gateway` option or call a third-party model. For these codes, refer to [AI Gateway troubleshooting](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/). For example, for `AiGatewayError: 7003: User Input Error`, refer to [400: Bad request (7003)](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/#400-bad-request-7003).
+
 [PreviousAI Gateway ↗︎](https://developers.cloudflare.com/ai-gateway/)[NextChoose a data or storage product ↗︎](https://developers.cloudflare.com/workers/platform/storage-options/)
 
 Was this helpful?

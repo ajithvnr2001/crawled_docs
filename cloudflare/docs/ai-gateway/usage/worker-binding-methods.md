@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/
 title: Workers Bindings \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:36.339087+00:00
+fetched_at: 2026-11-05T09:11:08.437621+00:00
 ---
 
 # Workers Bindings · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:36.339087+00:00
 
 # Workers Bindings
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigurationenv.AI.run() Gateway optionsenv.AI.aiGatewayLogIdenv.AI.gateway() patchLog() getLog() getUrl()
 
@@ -109,6 +109,12 @@ To use prepaid [AI Gateway credits](https://developers.cloudflare.com/ai-gateway
 
 Third-party models require an AI Gateway and use [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/). Cloudflare manages the provider credentials and deducts credits from your account. You do not need to supply your own API keys.
 
+Input format for third-party models
+
+Pass the model's input object directly as the second argument to `env.AI.run()`. Do not wrap it in an `input` field. AI Gateway rejects fields that the model does not accept.
+
+Errors from the binding may only show `7003: User Input Error`. To find the cause, refer to [400: Bad request (7003)](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/#400-bad-request-7003).
+
 Note
 
 On the AI binding path, only a [BYOK (Bring Your Own Keys)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/) key stored under the `default` alias is used. Keys stored under other aliases are not consulted, and the request falls through to Unified Billing. To select a non-default alias, use the [provider-native endpoints](https://developers.cloudflare.com/ai-gateway/usage/providers/) with the `cf-aig-byok-alias` header. See [credential precedence](https://developers.cloudflare.com/ai-gateway/features/unified-billing/#credential-precedence) for details.
@@ -117,7 +123,7 @@ Browse available models in the [model catalog](https://developers.cloudflare.com
 
 **Dynamic route:**
 
-Pass a [dynamic route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) as the model in the form `dynamic/{route}`. Set `gateway.id` to the gateway that owns the route — routes are not shared across gateways. Dynamic routes accept the OpenAI chat completions request shape only.
+Pass a [dynamic route](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) as the model in the form `dynamic/{route}`. Set `gateway.id` to the gateway that owns the route — routes are not shared across gateways. Dynamic routes accept the OpenAI chat completions request shape only.
     
     
     const resp = await env.AI.run(

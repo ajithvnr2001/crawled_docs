@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/
 title: Device profiles \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:16.981083+00:00
+fetched_at: 2026-11-05T09:11:13.854430+00:00
 ---
 
 # Device profiles · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Device profiles
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a new profileEdit profile settingsVerify device profile Via the dashboard Via the CLISelectors User email User group emails User group IDs User group names Operating system Operating system version Managed network SAML attributes Service tokenComparison operatorsLogical operatorsOrder of precedence
 
@@ -36,7 +36,7 @@ For example, users in one identity provider group (signifying a specific office 
   2. Select **Create new profile**. This will make a copy of the **Default** profile.
   3. Enter any name for the profile.
   4. Create rules to define the devices that will use this profile. Learn more about the available Selectors, [Operators](https://developers.cloudflare.com/cloudflare-one/traffic-controls/network-policies/#comparison-operators), and [Values](https://developers.cloudflare.com/cloudflare-one/traffic-controls/network-policies/#value).
-  5. Configure [device client settings](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#device-settings) for these devices.
+  5. Configure routing and user controls in the **Settings** tab. Select **Advanced** for additional [device client settings](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#device-profile-settings).
 
 
 
@@ -124,7 +124,7 @@ Create a device settings profilebash
 
   2. Locate the [device profile](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/) you would like to update and select **Configure**.
 
-  3. Use [selectors](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/#selectors) to add or adjust match rules, and modify [device client settings](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#device-settings) for this profile as needed.
+  3. In the **Settings** tab, use [selectors](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/#selectors) to add or adjust match rules, and modify routing and user controls. Select **Advanced** for additional [device client settings](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#device-profile-settings).
 
 Note
 
@@ -279,7 +279,7 @@ The **Default** profile is always at the bottom of the list. It will only be app
 
 Administrators can create multiple profiles to apply different settings based on specific criteria such as user identity, location, or operating system. Understanding this top-to-bottom evaluation order is crucial for ensuring that the correct policies are applied to devices.
 
-[PreviousEmergency Disconnect](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/emergency-disconnect/)[NextManaged networks](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/managed-networks/)
+[PreviousUninstall protection](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/uninstall-protection/)[NextManaged networks](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/managed-networks/)
 
 Was this helpful?
 

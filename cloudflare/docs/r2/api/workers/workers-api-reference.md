@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/workers/workers-api-reference/
 title: Workers API reference \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:43.647766+00:00
+fetched_at: 2026-11-05T09:11:13.605766+00:00
 ---
 
 # Workers API reference · Cloudflare R2 docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:12:43.647766+00:00
 
 # Workers API reference
 
-Last updated Jul 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConceptsCreate a bindingBucket method definitionsR2Object definitionR2ObjectBody definitionR2MultipartUpload definitionMethod-specific types R2GetOptions R2PutOptions R2MultipartOptions R2ListOptions R2Objects Conditional operations HTTP Metadata Checksums R2UploadedPart Storage Class
 
@@ -118,6 +118,7 @@ For example, to issue a `PUT` object request using the binding above:
   * `put` `(key: string, value: ReadableStream | ArrayBuffer | ArrayBufferView | string | null | Blob, options?: R2PutOptions): Promise<R2Object | null>`
 
     * Stores the given `value` and metadata under the associated `key`. Once the write succeeds, returns an `R2Object` containing metadata about the stored Object.
+    * If `value` is a `ReadableStream`, its length must be known: for example, a request body with a `Content-Length` header, or the readable half of a [`FixedLengthStream`](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/#fixedlengthstream). Otherwise, `put()` throws `TypeError: Provided readable stream must have a known length (request/response body or readable half of FixedLengthStream)`. This includes a request body sent without `Content-Length` (chunked) and the readable side of a `TransformStream`. To store such a stream, buffer it first, for example with `await request.arrayBuffer()`, or pipe it through a `FixedLengthStream` if you know its length.
     * In the event that a precondition specified in `options` fails, `put()` returns `null`, and the object will not be stored.
     * R2 writes are strongly consistent. Once the Promise resolves, all subsequent read operations will see this key value pair globally.
   * `delete` `(key: string | string[]): Promise<void>`
@@ -246,6 +247,7 @@ A multipart upload can be completed or aborted at any time, either through the S
   * `uploadPart` `(partNumber: number, value: ReadableStream | ArrayBuffer | ArrayBufferView | string | Blob, options?: R2MultipartOptions): Promise<R2UploadedPart>`
 
     * Uploads a single part with the specified part number to this multipart upload. Each part must be uniform in size with an exception for the final part which can be smaller.
+    * If `value` is a `ReadableStream`, its length must be known, as for `put()`. Otherwise, `uploadPart()` throws the same `TypeError`.
     * Returns an `R2UploadedPart` object containing the `etag` and `partNumber`. These `R2UploadedPart` objects are required when completing the multipart upload.
   * `abort` `(): Promise<void>`
 

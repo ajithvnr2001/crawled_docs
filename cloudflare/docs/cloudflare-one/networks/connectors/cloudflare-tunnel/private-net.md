@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/
 title: Private networks \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:21.107522+00:00
+fetched_at: 2026-11-05T09:11:11.052022+00:00
 ---
 
 # Private networks · Cloudflare One docs
@@ -22,9 +22,9 @@ NetworksConnectors
 
 # Private networks
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewConnectors
+OverviewConnectorsLoad balance private network traffic
 
 With Cloudflare Zero Trust, you can connect private networks and the services running in those networks to Cloudflare's global network. This involves installing a connector on the private network, and then [setting up routes](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/#2b-connect-a-network) which define the IP addresses available in that environment. Unlike [published applications](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/), private network routes can expose both HTTP and non-HTTP resources.
 
@@ -45,6 +45,10 @@ Here are the different ways you can connect your private network to Cloudflare:
   * [**Cloudflare WAN**](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/) connects entire network locations to Cloudflare using anycast GRE or IPsec tunnels configured on your existing networking equipment.
 
 
+
+## Load balance private network traffic
+
+To distribute traffic across multiple private servers, or fail over between data centers, put a [private load balancer](https://developers.cloudflare.com/load-balancing/private-network/) in front of them. End users connect to the load balancer's IP address, and Cloudflare steers each connection to a healthy endpoint behind Cloudflare Tunnel, Cloudflare Mesh, or Cloudflare WAN. For when to use a load balancer instead of connector replicas, how to keep users on the same endpoint, and which source IP your application sees, refer to [Load balance private network traffic](https://developers.cloudflare.com/cloudflare-one/networks/load-balancing/).
 
 [PreviousTerraform](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/deployment-guides/terraform/)[NextOverview](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/cloudflared/)
 

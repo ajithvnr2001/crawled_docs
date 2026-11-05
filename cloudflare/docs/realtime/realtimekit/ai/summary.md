@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/ai/summary/
 title: Summary \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:52.673985+00:00
+fetched_at: 2026-11-05T09:11:09.775215+00:00
 ---
 
 # Summary · Cloudflare Realtime docs
@@ -15,22 +15,35 @@ fetched_at: 2026-10-08T07:12:52.673985+00:00
 
 [RealtimeKit](https://developers.cloudflare.com/realtime/realtimekit/)
 
-  4. /[AI](https://developers.cloudflare.com/realtime/realtimekit/ai/)
+  4. /[Meeting AI](https://developers.cloudflare.com/realtime/realtimekit/ai/)
   5. /Summary
 
 
 
 # Summary
 
-Last updated Jun 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/realtimekit/ai/summary/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewTurn on summarizationConfiguration Summary typesConsume summaries Webhook REST APIExample outputRetention
+OverviewModels and Workers AI usageTurn on summarizationConfiguration Summary typesConsume summaries Webhook REST APIExample outputRetention
 
 RealtimeKit generates AI-powered meeting summaries from transcript data.
 
 Note
 
 Summarization requires a transcript. To generate summaries automatically when a meeting ends, turn on [real-time transcription](https://developers.cloudflare.com/realtime/realtimekit/ai/transcription/#real-time-transcription) or [post-meeting transcription](https://developers.cloudflare.com/realtime/realtimekit/ai/transcription/#post-meeting-transcription), and set `summarize_on_end: true`. With post-meeting transcription, RealtimeKit generates the summary after the transcript is available.
+
+## Models and Workers AI usage
+
+RealtimeKit automatically selects a [Workers AI](https://developers.cloudflare.com/workers-ai/) model based on the estimated size of the transcript and prompts, plus an output token allowance. It currently uses these models:
+
+Model | When used  
+---|---  
+[`@cf/meta/llama-3.2-3b-instruct`](https://developers.cloudflare.com/workers-ai/models/llama-3.2-3b-instruct/) | Requests that fit the Llama context budget or chunks from requests exceeding the GLM budget.  
+[`@cf/zai-org/glm-4.7-flash`](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/) | Requests that exceed the Llama context budget but fit the GLM budget.  
+  
+If a request exceeds the GLM context budget, RealtimeKit splits the transcript into chunks. It uses Llama to summarize the chunks and combine their results, which requires multiple model calls. Cloudflare may change the models or how they are selected at any time.
+
+Both summarization and [transcription](https://developers.cloudflare.com/realtime/realtimekit/ai/transcription/) contribute to Workers AI usage on your Cloudflare account. Summarization usage depends on the model and the input and output tokens across model calls. For rates, refer to [Workers AI model pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/#llm-model-pricing).
 
 ## Turn on summarization
 

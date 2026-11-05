@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/
 title: Overview \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:27.138120+00:00
+fetched_at: 2026-11-05T09:11:12.299365+00:00
 ---
 
 # Overview · Cloudflare AI Gateway docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:04:27.138120+00:00
 
 # Cloudflare AI Gateway
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesRelated productsMore resources
 
@@ -60,11 +60,11 @@ Control how your application scales by limiting the number of requests your appl
 
 Use Rate limiting
 
-[Request retry and fallback](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+[Routing](https://developers.cloudflare.com/ai-gateway/features/routing/)
 
-Improve resilience by defining request retry and model fallbacks in case of an error.
+Choose models and fallbacks with model aliases, or build conditional flows with dynamic routes.
 
-Use Request retry and fallback
+Use Routing
 
 [Your favorite providers](https://developers.cloudflare.com/ai-gateway/usage/providers/)
 

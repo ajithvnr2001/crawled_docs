@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/reference/limits/
 title: Limits \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:19.990176+00:00
+fetched_at: 2026-11-05T09:11:08.313246+00:00
 ---
 
 # Limits · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:19.990176+00:00
 
 # Limits
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGateway limitsLog limits New AI Gateway customers Existing AI Gateway customersLogpush limitsDLP limits
 
@@ -36,7 +36,7 @@ Gateways paid plan | 20 per account
 Gateway name length | 64 characters  
 [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) request rate | 200 requests per 60 seconds per gateway 1  
   
-1 This rate limit applies to requests that use Cloudflare-managed credentials through [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/). When the limit is exceeded, AI Gateway returns a `429` error. This limit does not apply to requests that use your own provider keys through [bring your own keys (BYOK)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/).
+1 This rate limit applies to requests that use Cloudflare-managed credentials through [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/). When the limit is exceeded, AI Gateway returns HTTP `429` with error code [`2018`](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/#429-unified-billing-rate-limit-2018). This limit does not apply to requests that use your own provider keys through [bring your own keys (BYOK)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/).
 
 ## Log limits
 

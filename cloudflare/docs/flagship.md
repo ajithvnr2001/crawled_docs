@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/
 title: Overview \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:31.858382+00:00
+fetched_at: 2026-11-05T09:11:09.343810+00:00
 ---
 
 # Overview · Cloudflare Flagship docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-30T08:19:31.858382+00:00
 
 # Cloudflare Flagship
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesRelated productsMore resources
 
@@ -24,7 +24,7 @@ Ship features safely with feature flags.
 
 Flagship is Cloudflare's feature flag service. It lets you control feature visibility in your applications without redeploying code. Define flags with targeting rules and percentage-based rollouts, then evaluate them directly inside your Workers through a [native binding](https://developers.cloudflare.com/flagship/binding/) or from server and browser applications with [OpenFeature SDKs](https://developers.cloudflare.com/flagship/sdk/).
 
-[OpenFeature ↗︎](https://openfeature.dev/) is the CNCF open standard for feature flag management. Flagship ships official SDKs for TypeScript (Workers, Node.js, and browsers), Python, and Go. You can swap providers without changing evaluation code.
+[OpenFeature ↗︎](https://openfeature.dev/) is the CNCF open standard for feature flag management. Flagship ships official SDKs for TypeScript (Workers, Node.js, and browsers), Python, Go, and Rust. You can swap providers without changing evaluation code.
 
 Check out the [Get started guide](https://developers.cloudflare.com/flagship/get-started/) to create your first feature flag.
 
@@ -38,7 +38,7 @@ Binding reference
 
 [OpenFeature SDK](https://developers.cloudflare.com/flagship/sdk/)
 
-Use the official OpenFeature SDKs to evaluate flags from Workers, Node.js, browsers, Python, and Go server applications. Switch from another flag provider by changing one line of configuration.
+Use the official OpenFeature SDKs to evaluate flags from Workers, Node.js, browsers, Python, Go, and Rust server applications. Switch from another flag provider by changing one line of configuration.
 
 View SDK docs
 

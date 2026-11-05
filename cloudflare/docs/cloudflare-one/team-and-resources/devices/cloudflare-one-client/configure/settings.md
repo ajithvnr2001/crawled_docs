@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/
 title: Device client settings \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:17.653985+00:00
+fetched_at: 2026-11-05T09:11:14.091709+00:00
 ---
 
 # Device client settings · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Device client settings
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGlobal device client settings Allow admin override codes Install CA to system certificate store Assign a unique IP address to each device Allow all Cloudflare One traffic to reach enrolled devicesGlobal disconnection settings Disconnect the Cloudflare One Client on all devices Manage device connection using an external signal Manage device connection using a local fileDevice profile settings Captive portal detection Mode switch Device tunnel protocol Lock device client switch Allow device to leave organization Device Management Protection  Allow updates Auto connect Support URL Service mode Local Domain Fallback Split Tunnels Directly route Microsoft 365 traffic Allow users to enable local network exclusion Client interface IP DNS registration SCCM VPN boundary support NetBIOS over TCPIP VNET availability  DNS search suffixes 
 
@@ -234,6 +234,17 @@ Allows administrators to disconnect and reconnect the Cloudflare One Client usin
 To set up the local signal file, refer to [Emergency Disconnect](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/emergency-disconnect/#set-up-local-emergency-disconnect).
 
 ## Device profile settings
+
+The device profile form has **Settings** and **Advanced** tabs. Configure routing and user controls in **Settings**. Select **Advanced** for the following settings:
+
+  * Directly route Microsoft 365 traffic
+  * Allow users to enable local network exclusion
+  * DNS search suffixes
+  * Client interface IP DNS registration
+  * SCCM VPN boundary support
+  * NetBIOS over TCPIP
+
+
 
 ### Captive portal detection
 

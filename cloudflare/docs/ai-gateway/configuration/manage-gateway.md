@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/configuration/manage-gateway/
 title: Manage gateways \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:28.898255+00:00
+fetched_at: 2026-11-05T09:11:12.395429+00:00
 ---
 
 # Manage gateways · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:28.898255+00:00
 
 # Manage gateways
 
-Last updated Sep 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/configuration/manage-gateway/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate gateway Default gateway Create a gateway manuallyEdit gateway Configure Workers AI billing Prevent Unified Billing fallback for BYOK third-party providersRetry requestsDelete gateway
 
@@ -136,7 +136,7 @@ To configure retry settings:
 
 These gateway-level defaults apply to all requests routed through the gateway. Per-request headers can override these defaults — refer to [Request handling](https://developers.cloudflare.com/ai-gateway/configuration/request-handling/#request-retries) for details.
 
-For more complex failover scenarios where you need to fail across different providers, refer to [Dynamic Routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/).
+For more complex failover scenarios where you need to fail across different providers, refer to [dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/).
 
 ## Delete gateway
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-custom-pages/
 title: Access custom pages \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:53.492575+00:00
+fetched_at: 2026-11-05T09:11:09.654629+00:00
 ---
 
 # Access custom pages · Cloudflare One docs
@@ -22,11 +22,15 @@ Reusable components
 
 # Access custom pages
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPage typesCreate a custom page Login template exampleAssign a page to an application Account defaultsTemplate data Template restrictionsEdit and maintain templates
 
 Access custom pages let you customize the pages visitors see when they sign in, receive an Access policy denial, or approve a command-line login. Templates use HTML and Liquid to display request-specific information.
+
+Plan availability
+
+Access custom pages require a Zero Trust Pay-as-you-go or Enterprise plan. HTML and Liquid templates are not available on the Zero Trust Free plan.
 
 Custom pages change the presentation, not the Access decision. They do not grant access or replace your authentication and authorization policies.
 

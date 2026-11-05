@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/api-tokens/
 title: API tokens \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:17.795120+00:00
+fetched_at: 2026-11-05T09:11:08.880245+00:00
 ---
 
 # API tokens · Cloudflare Flagship docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:11:17.795120+00:00
 
 # API tokens
 
-Last updated Aug 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/flagship/api-tokens/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate an account-wide tokenCreate an app-scoped tokenUse the tokenNext steps
 
@@ -120,7 +120,7 @@ The token secret is **only shown once**. Do not store the secret in plaintext wh
 
 ## Use the token
 
-Pass the token to an OpenFeature SDK as `authToken` (TypeScript) or the equivalent option in [Python](https://developers.cloudflare.com/flagship/sdk/python/) and [Go](https://developers.cloudflare.com/flagship/sdk/go/).
+Pass the token to an OpenFeature SDK as `authToken` (TypeScript) or the equivalent option in [Python](https://developers.cloudflare.com/flagship/sdk/python/), [Go](https://developers.cloudflare.com/flagship/sdk/go/), and [Rust](https://developers.cloudflare.com/flagship/sdk/rust/).
     
     
     import { OpenFeature } from "@openfeature/server-sdk";

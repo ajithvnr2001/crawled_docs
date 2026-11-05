@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/configuration/scheduling-policy/
 title: Scheduling Policies \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:32.846372+00:00
+fetched_at: 2026-11-05T09:11:11.646332+00:00
 ---
 
 # Scheduling Policies · Cloudflare Containers docs
@@ -18,11 +18,17 @@ fetched_at: 2026-10-13T08:48:32.846372+00:00
 
 # Scheduling Policies
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse the default scheduling policyUse the Durable Object scheduling policy Use the Cloudflare-managed image Configure named images Choose an instance size at runtime Start from an image or snapshot Manage updates from application code Configure SSHRelated resources
 
 A scheduling policy determines where you configure a Container image and [instance size](https://developers.cloudflare.com/containers/platform/limits/#instance-types). It also determines how image updates and [rollouts](https://developers.cloudflare.com/containers/configuration/rollouts/) apply. Choose the policy when you create the Container application.
+
+Default scheduling is deprecated
+
+The `default` scheduling policy is deprecated. This includes applications that omit `scheduling_policy`, which selects `default` automatically.
+
+Migrate to the `durable_object` scheduling policy. Existing applications require code changes and a replacement application. Changing the setting alone does not migrate them. Refer to [Migrate to the Durable Object scheduling policy](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/).
 
 Policy | Configure image and instance size | Image updates | Best for  
 ---|---|---|---  

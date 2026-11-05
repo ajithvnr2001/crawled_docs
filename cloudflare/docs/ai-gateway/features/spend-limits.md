@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/spend-limits/
 title: Spend limits \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:30.117532+00:00
+fetched_at: 2026-11-05T09:11:11.975846+00:00
 ---
 
 # Spend limits · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:30.117532+00:00
 
 # Spend limits
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/features/spend-limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksScoping with dimensions Dimension examplesConfigure spend limits Set spend limits by userBehavior when a limit is reachedMonitoring spendLimitations
 
@@ -110,7 +110,7 @@ If your gateway is not behind Access, pass your own user identifier as [custom m
 When a spend limit is exceeded, AI Gateway returns a `429 Too Many Requests` response. You have two options:
 
   * **Block requests** (default) - The request is rejected until the budget window resets.
-  * **Fall back to a cheaper model** \- Create a [Dynamic Route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) with a primary model and a fallback (for example, `anthropic/claude-opus-4.7` with a fallback to `@cf/moonshotai/kimi-k2.6`). Then set a spend limit on the primary model using this feature. When the primary model's budget is exceeded, AI Gateway automatically routes requests to the fallback model instead of blocking them.
+  * **Fall back to a cheaper model** \- Create a [dynamic route](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) with a primary model and a fallback (for example, `anthropic/claude-opus-4.7` with a fallback to `@cf/moonshotai/kimi-k2.6`). Then set a spend limit on the primary model using this feature. When the primary model's budget is exceeded, AI Gateway automatically routes requests to the fallback model instead of blocking them.
 
 
 

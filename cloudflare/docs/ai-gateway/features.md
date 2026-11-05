@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/
 title: Features \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:29.437574+00:00
+fetched_at: 2026-11-05T09:11:12.240888+00:00
 ---
 
 # Features · Cloudflare AI Gateway docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:04:29.437574+00:00
 
 # Features
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/features/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCore Features Performance & Cost Optimization Security & Safety Observability & Analytics Advanced ConfigurationFeature Comparison by Use CaseGetting Started with Features
 
@@ -72,7 +72,7 @@ Control application scaling and protect against abuse with flexible rate limitin
 
 Use Rate Limiting
 
-[Auto Router](https://developers.cloudflare.com/ai-gateway/features/auto-router/)
+[Auto Router](https://developers.cloudflare.com/ai-gateway/features/routing/auto-router/)
 
 Automatically route each request to the most cost-effective model that can handle the task while maintaining response quality.
 
@@ -87,21 +87,20 @@ Automatically route each request to the most cost-effective model that can handl
 
 Use Auto Router
 
-[Dynamic Routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+[Routing](https://developers.cloudflare.com/ai-gateway/features/routing/)
 
-Create sophisticated request routing flows without code changes. Route requests based on user segments, geography, content analysis, or A/B testing requirements through a visual interface.
+Choose models without changing application code. Use model aliases for shared model choices and routing preferences, or dynamic routes for conditional flows.
 
 **Key benefits:**
 
-  * Visual flow-based configuration
-  * User-based and geographic routing
-  * A/B testing and fractional traffic splitting
-  * Context-aware routing based on request content
-  * Dynamic rate limiting with automatic fallbacks
+  * Stable model names with configurable model order or smart routing
+  * Conditional routing and percentage-based traffic splits
+  * Rate and budget limits within dynamic routes
+  * Fallbacks when a model is unavailable
 
 
 
-Use Dynamic Routing
+Use Routing
 
 ### Security & Safety
 
@@ -247,7 +246,7 @@ Use Case | Recommended Features
 ## Getting Started with Features
 
   1. **Start with the basics** : Enable [Caching](https://developers.cloudflare.com/ai-gateway/features/caching/) and [Analytics](https://developers.cloudflare.com/ai-gateway/observability/analytics/) for immediate benefits
-  2. **Add reliability** : Configure Fallbacks and Rate Limiting using [Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+  2. **Add reliability** : Configure Fallbacks and Rate Limiting using [dynamic routes](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
   3. **Enhance security** : Implement [Guardrails](https://developers.cloudflare.com/ai-gateway/features/guardrails/), [DLP](https://developers.cloudflare.com/ai-gateway/features/dlp/), and [Authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/)
 
 

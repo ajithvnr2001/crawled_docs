@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/tunnel-availability/
 title: Tunnel availability and failover \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:11.220570+00:00
+fetched_at: 2026-11-05T09:11:10.926169+00:00
 ---
 
 # Tunnel availability and failover · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare Tunnel](https://developers.cloudflare.com/cloudfla
 
 # Tunnel availability and failover
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/tunnel-availability/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewcloudflared replicas When to use cloudflared replicasCloudflare Load Balancers When to use load balancers Types of load balancers
 
@@ -31,26 +31,29 @@ Our lightweight and open-source connector, [`cloudflared` ↗︎](https://github
 ## `cloudflared` replicas
 
 You can deploy additional instances of `cloudflared` for availability and failover. These instances are called replicas. Each replica establishes four new connections to Cloudflare, providing additional points of ingress to your origin. All replicas point to the same tunnel, so if a single host running `cloudflared` goes down, the remaining replicas continue to serve traffic.
-    
-    
-    graph LR
-        C((Cloudflare))
-        subgraph E[Your network]
-            cf1["cloudflared <br> (Replica for tunnel-01)"]
-            cf2["cloudflared <br> (Replica for tunnel-01)"]
-            S1[Application]
-            cf1-->S1
-            cf2-->S1
-        end
-        C -- "Connections x 4 <br>"--> cf1
-        C --> cf1
-        C --> cf1
-        C --> cf1
-        C -- Connections x 4--> cf2
-        C --> cf2
-        C --> cf2
-        C --> cf2
-    
+
+Cloudflare network
+
+Forwards each request to the geographically closest replica
+
+4 outbound connections per replica
+
+Your network
+
+  * cloudflared
+
+Replica 1 on `host-a`
+
+tunnel-01
+  * cloudflared
+
+Replica 2 on `host-b`
+
+tunnel-01
+
+
+
+Application
 
 Replicas do not support traffic steering (such as round-robin or hash-based routing). When a request arrives at Cloudflare, it is forwarded to the geographically closest replica. If that connection fails, Cloudflare retries with other replicas, but there is no guarantee about which one is chosen. If you need intelligent traffic distribution, use Cloudflare Load Balancers instead.
 
@@ -67,31 +70,38 @@ For setup instructions, refer to [Deploy cloudflared replicas](https://developer
 ## Cloudflare Load Balancers
 
 [Cloudflare Load Balancing](https://developers.cloudflare.com/load-balancing/) proactively steers traffic away from unhealthy origins and intelligently distributes the traffic load based on your choice of [steering algorithms](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/). Unlike `cloudflared` replicas which all use the same tunnel, a typical load balancer setup requires creating multiple tunnels. Most customers will create one tunnel per data center and one load balancer pool per tunnel.
-    
-    
-    graph LR
-        accTitle: Load balancing traffic to applications behind Cloudflare Tunnel
-    
-        A[Internet] --> C{Cloudflare <br> Load Balancer}
-        B[Cloudflare One Client] --> C
-        M[Cloudflare WAN] --> C
-        C -- Tunnel 1 --> cf1
-        C -- Tunnel 2 --> cf2
-        subgraph F[Data center 2]
-            cf2[cloudflared <br> server]
-            S3[App server]
-            S4[App server]
-            cf2-->S3
-            cf2-->S4
-        end
-        subgraph E[Data center 1]
-            cf1[cloudflared <br> server]
-            S1[App server]
-            S2[App server]
-            cf1-->S1
-            cf1-->S2
-        end
-    
+
+  * Internet
+
+  * Cloudflare One Client
+
+  * Cloudflare WAN
+
+
+
+
+[Cloudflare Load Balancer](https://developers.cloudflare.com/load-balancing/)
+
+Steers traffic to healthy tunnels, with one pool per tunnel
+
+  * Data center 1
+
+Tunnel 1
+
+`cloudflared` forwards traffic to your app servers
+
+    * App server
+    * App server
+  * Data center 2
+
+Tunnel 2
+
+`cloudflared` forwards traffic to your app servers
+
+    * App server
+    * App server
+
+
 
 ### When to use load balancers
 
@@ -109,7 +119,7 @@ For setup instructions, refer to [Public load balancers](https://developers.clou
 There are two types of load balancers that you can use with Cloudflare Tunnel endpoints:
 
   * [Public load balancers](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/public-load-balancers/) steer traffic from the Internet to applications published on a Cloudflare domain. Use this method if your service is served by Cloudflare Tunnel via a [published application route](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/#2a-publish-an-application).
-  * [Private load balancers](https://developers.cloudflare.com/load-balancing/private-network/) steer traffic from Cloudflare One Clients, Cloudflare WAN, and other on-ramps to an internal IP on your private network. Use this method if your service is connected to Cloudflare Tunnel via a [CIDR route](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/cloudflared/connect-cidr/).
+  * [Private load balancers](https://developers.cloudflare.com/load-balancing/private-network/) steer traffic from Cloudflare One Clients, Cloudflare WAN, and other on-ramps to an internal IP on your private network. Use this method if your service is connected to Cloudflare Tunnel via a [CIDR route](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/cloudflared/connect-cidr/). To keep each user on the same endpoint, use [hash steering](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/hash-origin-steering/#private-load-balancers) or [session affinity](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/#private-load-balancers).
 
 
 
