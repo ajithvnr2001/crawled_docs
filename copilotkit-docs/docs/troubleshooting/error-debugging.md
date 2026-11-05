@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/error-debugging/
 title: Error Debugging & Observability
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:36.042935+00:00
+fetched_at: 2026-11-05T10:42:05.793620+00:00
 ---
 
 # Error Debugging & Observability

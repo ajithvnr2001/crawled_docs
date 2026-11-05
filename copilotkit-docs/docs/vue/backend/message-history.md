@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/message-history/
 title: Message history
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:20.527099+00:00
+fetched_at: 2026-11-05T10:41:55.924483+00:00
 ---
 
 # Message history

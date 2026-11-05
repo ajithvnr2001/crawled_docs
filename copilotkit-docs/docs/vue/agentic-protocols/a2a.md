@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/agentic-protocols/a2a/
 title: A2A
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:18.212209+00:00
+fetched_at: 2026-11-05T10:41:58.250418+00:00
 ---
 
 # A2A

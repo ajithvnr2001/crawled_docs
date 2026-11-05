@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/tools/
 title: Microsoft Teams + AWS Strands (Python): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:37.339808+00:00
+fetched_at: 2026-11-05T10:42:08.943693+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Tools and context

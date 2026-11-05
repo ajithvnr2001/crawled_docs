@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/interactive/
 title: Microsoft Teams + AWS Strands (Python): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:37.279405+00:00
+fetched_at: 2026-11-05T10:42:08.543783+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Interactive messages and approvals

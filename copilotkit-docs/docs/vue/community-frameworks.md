@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/community-frameworks/
 title: Community frameworks
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:20.396154+00:00
+fetched_at: 2026-11-05T10:41:52.035998+00:00
 ---
 
 # Community frameworks

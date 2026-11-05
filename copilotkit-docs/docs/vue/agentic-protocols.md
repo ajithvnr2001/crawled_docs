@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/agentic-protocols/
 title: Overview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:18.370811+00:00
+fetched_at: 2026-11-05T10:41:58.100994+00:00
 ---
 
 # Overview

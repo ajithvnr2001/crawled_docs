@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/tutorials/ai-powered-textarea/step-3-copilot-textarea/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:34.668442+00:00
+fetched_at: 2026-11-05T10:42:02.233665+00:00
 ---
 
 # CopilotKit: bring your agent into any app
@@ -168,6 +168,6 @@ ReactReact SPAVueReact NativeAngularSlackTeams
 
 ### Your agent backend
 
-[CopilotKit](https://docs.copilotkit.ai/quickstart)[Langchain DeepAgents](https://docs.copilotkit.ai/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/ag2)[Agno](https://docs.copilotkit.ai/agno)[LlamaIndex](https://docs.copilotkit.ai/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/crewai-crews)
+[CopilotKit](https://docs.copilotkit.ai/quickstart)[Langchain DeepAgents](https://docs.copilotkit.ai/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/ag2)[Agno](https://docs.copilotkit.ai/agno)[LlamaIndex](https://docs.copilotkit.ai/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/crewai-crews)[![](https://docs.copilotkit.ai/logos/google-antigravity.svg)Google Antigravity](https://docs.copilotkit.ai/google-antigravity)
 
 [View on GitHub](https://github.com/CopilotKit/CopilotKit)Start building 

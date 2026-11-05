@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/error-reference/
 title: Error message reference
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:35.988329+00:00
+fetched_at: 2026-11-05T10:42:03.881886+00:00
 ---
 
 # Error message reference

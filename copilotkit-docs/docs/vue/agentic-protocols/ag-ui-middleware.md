@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/agentic-protocols/ag-ui-middleware/
 title: AG-UI Middleware
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:18.493280+00:00
+fetched_at: 2026-11-05T10:41:58.178091+00:00
 ---
 
 # AG-UI Middleware

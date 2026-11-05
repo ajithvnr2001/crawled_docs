@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/custom-look-and-feel/headless-ui/
 title: Fully Headless UI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:22.406288+00:00
+fetched_at: 2026-11-05T10:41:50.150891+00:00
 ---
 
 # Fully Headless UI

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/threads-lifecycle/
 title: Thread & History Lifecycle
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:36.250091+00:00
+fetched_at: 2026-11-05T10:42:06.231047+00:00
 ---
 
 # Thread & History Lifecycle

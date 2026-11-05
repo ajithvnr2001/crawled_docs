@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/threads-and-state/
 title: Microsoft Teams + AWS Strands (Python): Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:37.167565+00:00
+fetched_at: 2026-11-05T10:42:08.772712+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Threads and state

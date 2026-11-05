@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vs-code-extension/
 title: VS Code Extension
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:34.042913+00:00
+fetched_at: 2026-11-05T10:41:58.393977+00:00
 ---
 
 # VS Code Extension

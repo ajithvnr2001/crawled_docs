@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/build-with-agents/
 title: Build with agents
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:20.804872+00:00
+fetched_at: 2026-11-05T10:41:52.272382+00:00
 ---
 
 # Build with agents

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/telemetry/
 title: Open-source Telemetry
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:36.304824+00:00
+fetched_at: 2026-11-05T10:42:05.645156+00:00
 ---
 
 # Open-source Telemetry
